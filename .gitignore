@@ -20,3 +20,6 @@ Thumbs.db
 /work/hero-screen-*.png
 /work/reference-video/
 /work/pdfs/
+
+# Local Netlify folder
+.netlify

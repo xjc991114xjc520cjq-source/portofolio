@@ -49,7 +49,9 @@ const projects = [
   },
 ];
 
-const unsplashImage = (id: string) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=1600&q=84`;
+// Keep the selected photography inside the deploy so the gallery never depends
+// on an overseas image host at viewing time.
+const unsplashImage = (id: string) => `/assets/work-photos/${id}.webp`;
 
 const imageAtWidth = (source: string, width: number) => source.includes("images.unsplash.com")
   ? source.replace(/([?&])w=\d+/, `$1w=${width}`)
