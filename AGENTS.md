@@ -27,3 +27,9 @@
 - Keep generated output out of manual edits.
 - Preserve unrelated user changes.
 - A task is complete only after the production build passes and the affected page is visually checked.
+
+## GitHub Sync
+
+- After every completed project change, commit the intended files with a concise message and push the current branch to `origin`.
+- Never commit credentials, local caches, generated previews, or unrelated user files.
+- If authentication or the network blocks a push, preserve the local commit and report the exact blocker.
