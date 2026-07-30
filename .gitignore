@@ -1,0 +1,22 @@
+node_modules/
+dist/
+*.log
+
+.env
+.env.*
+!.env.example
+
+.DS_Store
+Thumbs.db
+
+# Local browser and Windows command artifacts
+/C:*lighthouse.*/
+/NUL
+/nul
+
+# Local visual QA output
+/work/*.log
+/work/preview-*.png
+/work/hero-screen-*.png
+/work/reference-video/
+/work/pdfs/

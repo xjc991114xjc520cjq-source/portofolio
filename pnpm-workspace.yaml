@@ -1,0 +1,12 @@
+packages:
+  - .
+
+nodeLinker: hoisted
+confirmModulesPurge: false
+verifyDepsBeforeRun: false
+
+allowBuilds:
+  esbuild: true
+
+onlyBuiltDependencies:
+  - esbuild
