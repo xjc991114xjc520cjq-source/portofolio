@@ -2,7 +2,17 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { createRoot } from "react-dom/client";
 import { AnimatePresence, animate, motion, useMotionValue, useMotionValueEvent, useReducedMotion, useScroll, useTransform, type MotionValue } from "motion/react";
-import { ArrowLeft, ArrowRight, ChevronDown, X } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  ChevronDown,
+  Maximize2,
+  Minus,
+  Moon,
+  Plus,
+  Sun,
+  X,
+} from "lucide-react";
 import "./styles.css";
 
 const contactEmail = "1498224542@qq.com";
@@ -61,7 +71,29 @@ const imageSrcSet = (source: string, widths: number[]) => source.includes("image
   ? widths.map((width) => `${imageAtWidth(source, width)} ${width}w`).join(", ")
   : undefined;
 
-const workCategories = [
+type WorkThumbnailMode = "cover" | "contain" | "long" | "wide";
+
+type WorkItem = {
+  id: string;
+  title: string;
+  year: string;
+  image: string;
+  alt: string;
+  thumbnail?: string;
+  thumbnailMode?: WorkThumbnailMode;
+  focalPoint?: string;
+};
+
+type WorkCategory = {
+  id: string;
+  label: string;
+  english: string;
+  index: string;
+  background: string;
+  works: WorkItem[];
+};
+
+const workCategories: WorkCategory[] = [
   {
     id: "brand",
     label: "品牌视觉",
@@ -132,7 +164,7 @@ const workCategories = [
       { id: "digital-05", title: "界面视觉", year: "2022", image: "/assets/project-commerce.png", alt: "数字商业界面项目" },
     ],
   },
-] as const;
+];
 
 const heroImages = [
   "/assets/hero-landscape-v2.webp",
@@ -480,7 +512,7 @@ function SectionHeader({
   );
 }
 
-type GalleryWork = (typeof workCategories)[number]["works"][number];
+type GalleryWork = WorkItem;
 type GallerySpread = "desktop" | "tablet" | "mobile";
 type CategoryTransition = {
   nextIndex: number;
@@ -525,6 +557,10 @@ function GalleryCard({
   trackProgress: MotionValue<number>;
   onSelect: () => void;
 }) {
+  const [detectedMode, setDetectedMode] = useState<WorkThumbnailMode>("cover");
+  const thumbnailMode = work.thumbnailMode ?? detectedMode;
+  const thumbnailSource = work.thumbnail ?? work.image;
+  const thumbnailPosition = work.focalPoint ?? (thumbnailMode === "long" ? "50% 0%" : "50% 50%");
   const innerSpread = spread === "mobile" ? 74 : spread === "tablet" ? 126 : 178;
   const outerSpread = spread === "mobile" ? 122 : spread === "tablet" ? 202 : 286;
   const compactness = spread === "mobile" ? 0.72 : spread === "tablet" ? 0.88 : 1;
@@ -547,7 +583,7 @@ function GalleryCard({
 
   return (
     <motion.button
-      className={`gallery-card${active ? " is-active" : ""}`}
+      className={`gallery-card gallery-card-${thumbnailMode}${active ? " is-active" : ""}`}
       type="button"
       disabled={locked}
       aria-label={active ? `放大作品：${work.title}` : `切换到作品：${work.title}`}
@@ -564,18 +600,315 @@ function GalleryCard({
       <div className="gallery-card-body">
         <figure className="gallery-card-surface">
           <img
-            src={imageAtWidth(work.image, 1200)}
-            srcSet={imageSrcSet(work.image, [640, 900, 1200])}
+            src={imageAtWidth(thumbnailSource, 1200)}
+            srcSet={imageSrcSet(thumbnailSource, [640, 900, 1200])}
             sizes="(max-width: 720px) 70vw, (max-width: 980px) 52vw, 470px"
             alt={work.alt}
             loading="lazy"
             decoding="async"
             draggable={false}
+            style={{ objectPosition: thumbnailPosition }}
+            onLoad={(event) => {
+              if (work.thumbnailMode) return;
+              const ratio = event.currentTarget.naturalWidth / event.currentTarget.naturalHeight;
+              if (ratio < 0.52) setDetectedMode("long");
+              else if (ratio > 2.35) setDetectedMode("wide");
+              else setDetectedMode("cover");
+            }}
           />
           <span className="gallery-card-shine" aria-hidden="true" />
         </figure>
       </div>
     </motion.button>
+  );
+}
+
+type ViewerMode = "fit" | "width";
+type ViewerBackground = "dark" | "light";
+
+function WorkViewer({
+  work,
+  category,
+  reduceMotion,
+  onClose,
+  onNavigate,
+}: {
+  work: GalleryWork;
+  category: WorkCategory;
+  reduceMotion: boolean | null;
+  onClose: () => void;
+  onNavigate: (direction: number) => void;
+}) {
+  const viewerRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const zoom = useMotionValue(1);
+  const panX = useMotionValue(0);
+  const panY = useMotionValue(0);
+  const [zoomLevel, setZoomLevel] = useState(1);
+  const [viewerMode, setViewerMode] = useState<ViewerMode>(
+    work.thumbnailMode === "long" ? "width" : "fit",
+  );
+  const [background, setBackground] = useState<ViewerBackground>("dark");
+  const [imageSize, setImageSize] = useState({ width: 0, height: 0 });
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageFailed, setImageFailed] = useState(false);
+  const { scrollYProgress } = useScroll({ container: scrollRef });
+  const detectedRatio = imageSize.height > 0 ? imageSize.width / imageSize.height : 1;
+  const isLong = work.thumbnailMode === "long" || detectedRatio < 0.52;
+  const canPan = viewerMode === "fit" && zoomLevel > 1.01;
+  const thumbnailSource = work.thumbnail ?? imageAtWidth(work.image, 1200);
+
+  const requestClose = () => {
+    if (viewerRef.current) viewerRef.current.style.pointerEvents = "none";
+    onClose();
+  };
+
+  const applyZoom = (nextZoom: number) => {
+    const clampedZoom = Math.min(4, Math.max(0.75, nextZoom));
+    setZoomLevel(clampedZoom);
+    zoom.set(clampedZoom);
+    if (clampedZoom <= 1.01) {
+      panX.set(0);
+      panY.set(0);
+    }
+  };
+
+  const resetView = (mode: ViewerMode) => {
+    setViewerMode(mode);
+    applyZoom(1);
+    scrollRef.current?.scrollTo({ top: 0, left: 0, behavior: reduceMotion ? "auto" : "smooth" });
+  };
+
+  useEffect(() => {
+    setImageLoaded(false);
+    setImageFailed(false);
+    setImageSize({ width: 0, height: 0 });
+    setViewerMode(work.thumbnailMode === "long" ? "width" : "fit");
+    applyZoom(1);
+    scrollRef.current?.scrollTo({ top: 0, left: 0 });
+  }, [work.id]);
+
+  useEffect(() => {
+    viewerRef.current?.focus({ preventScroll: true });
+  }, []);
+
+  const handleImageLoad = (event: React.SyntheticEvent<HTMLImageElement>) => {
+    const { naturalWidth: width, naturalHeight: height } = event.currentTarget;
+    setImageSize({ width, height });
+    setImageLoaded(true);
+    if (!work.thumbnailMode && width / height < 0.52) {
+      setViewerMode("width");
+    }
+  };
+
+  const handleWheel = (event: React.WheelEvent<HTMLDivElement>) => {
+    if (viewerMode === "width" && !event.ctrlKey && !event.metaKey) return;
+    event.preventDefault();
+    applyZoom(zoom.get() * Math.exp(-event.deltaY * 0.0012));
+  };
+
+  const jumpLongImage = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    const scroller = scrollRef.current;
+    if (!scroller) return;
+    const rect = event.currentTarget.getBoundingClientRect();
+    const progress = Math.min(1, Math.max(0, (event.clientY - rect.top) / rect.height));
+    scroller.scrollTo({
+      top: progress * Math.max(0, scroller.scrollHeight - scroller.clientHeight),
+      behavior: reduceMotion ? "auto" : "smooth",
+    });
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    event.stopPropagation();
+    if (event.key === "Escape") {
+      event.preventDefault();
+      requestClose();
+      return;
+    }
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      onNavigate(-1);
+      return;
+    }
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      onNavigate(1);
+      return;
+    }
+    if (event.key === "+" || event.key === "=") {
+      event.preventDefault();
+      applyZoom(zoom.get() + 0.25);
+      return;
+    }
+    if (event.key === "-") {
+      event.preventDefault();
+      applyZoom(zoom.get() - 0.25);
+    }
+  };
+
+  return (
+    <motion.div
+      ref={viewerRef}
+      className={`work-viewer viewer-bg-${background}`}
+      role="dialog"
+      aria-modal="true"
+      aria-label={`作品大图：${work.title}`}
+      tabIndex={-1}
+      initial={reduceMotion ? false : { opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.32 }}
+      onClick={requestClose}
+      onKeyDown={handleKeyDown}
+    >
+      <div className="viewer-topbar" onClick={(event) => event.stopPropagation()}>
+        <button
+          type="button"
+          onClick={() => resetView(viewerMode === "fit" ? "width" : "fit")}
+          aria-label={viewerMode === "fit" ? "适合宽度" : "适合屏幕"}
+          title={viewerMode === "fit" ? "适合宽度" : "适合屏幕"}
+        >
+          <Maximize2 size={18} strokeWidth={1.5} aria-hidden="true" />
+        </button>
+        <span>{Math.round(zoomLevel * 100)}%</span>
+        <button
+          type="button"
+          onClick={() => applyZoom(zoom.get() - 0.25)}
+          aria-label="缩小作品"
+          title="缩小"
+        >
+          <Minus size={18} strokeWidth={1.5} aria-hidden="true" />
+        </button>
+        <button
+          type="button"
+          onClick={() => applyZoom(zoom.get() + 0.25)}
+          aria-label="放大作品"
+          title="放大"
+        >
+          <Plus size={18} strokeWidth={1.5} aria-hidden="true" />
+        </button>
+        <button
+          type="button"
+          onClick={() => setBackground((value) => value === "dark" ? "light" : "dark")}
+          aria-label={background === "dark" ? "切换浅色背景" : "切换深色背景"}
+          title={background === "dark" ? "浅色背景" : "深色背景"}
+        >
+          {background === "dark"
+            ? <Sun size={18} strokeWidth={1.5} aria-hidden="true" />
+            : <Moon size={18} strokeWidth={1.5} aria-hidden="true" />}
+        </button>
+      </div>
+
+      <button
+        className="viewer-close"
+        type="button"
+        onClick={(event) => {
+          event.stopPropagation();
+          requestClose();
+        }}
+        aria-label="关闭作品大图"
+      >
+        <X size={22} strokeWidth={1.5} aria-hidden="true" />
+      </button>
+
+      <button
+        className="viewer-nav viewer-nav-prev"
+        type="button"
+        onClick={(event) => {
+          event.stopPropagation();
+          onNavigate(-1);
+        }}
+        aria-label="上一件作品"
+      >
+        <ArrowLeft size={22} strokeWidth={1.5} aria-hidden="true" />
+      </button>
+      <button
+        className="viewer-nav viewer-nav-next"
+        type="button"
+        onClick={(event) => {
+          event.stopPropagation();
+          onNavigate(1);
+        }}
+        aria-label="下一件作品"
+      >
+        <ArrowRight size={22} strokeWidth={1.5} aria-hidden="true" />
+      </button>
+
+      <div
+        ref={scrollRef}
+        className={`viewer-scroll viewer-mode-${viewerMode}${isLong ? " is-long" : ""}`}
+        onClick={(event) => event.stopPropagation()}
+        onWheel={handleWheel}
+      >
+        {!imageLoaded && !imageFailed ? (
+          <div
+            className="viewer-loading"
+            style={{ backgroundImage: `url("${thumbnailSource}")` }}
+            aria-label="作品正在加载"
+          />
+        ) : null}
+
+        {imageFailed ? (
+          <div className="viewer-error" role="alert">
+            <strong>图像暂时无法读取</strong>
+            <span>请关闭后重新打开，或检查作品文件是否仍在项目中。</span>
+          </div>
+        ) : viewerMode === "width" ? (
+          <figure
+            className={`viewer-long-canvas${imageLoaded ? " is-loaded" : ""}`}
+            style={{ "--viewer-width": `${zoomLevel * 100}%` } as React.CSSProperties}
+          >
+            <img
+              src={work.image}
+              alt={work.alt}
+              decoding="async"
+              fetchPriority="high"
+              draggable={false}
+              onLoad={handleImageLoad}
+              onError={() => setImageFailed(true)}
+            />
+          </figure>
+        ) : (
+          <motion.figure
+            className={`viewer-fit-canvas${imageLoaded ? " is-loaded" : ""}${canPan ? " can-pan" : ""}`}
+            style={{ x: panX, y: panY, scale: zoom }}
+            drag={canPan}
+            dragMomentum={false}
+            dragElastic={0.08}
+            onDoubleClick={() => applyZoom(zoomLevel > 1.01 ? 1 : 2)}
+          >
+            <img
+              src={work.image}
+              alt={work.alt}
+              decoding="async"
+              fetchPriority="high"
+              draggable={false}
+              onLoad={handleImageLoad}
+              onError={() => setImageFailed(true)}
+            />
+          </motion.figure>
+        )}
+      </div>
+
+      {isLong && viewerMode === "width" ? (
+        <button
+          className="viewer-progress"
+          type="button"
+          onClick={jumpLongImage}
+          aria-label="跳转到长图位置"
+          title="点击跳转"
+        >
+          <motion.i style={{ scaleY: scrollYProgress }} />
+        </button>
+      ) : null}
+
+      <div className="viewer-meta" onClick={(event) => event.stopPropagation()}>
+        <span>{category.label} / {category.english}</span>
+        <strong>{work.title}</strong>
+        <small>{work.year}</small>
+      </div>
+    </motion.div>
   );
 }
 
@@ -589,13 +922,13 @@ function SelectedWorks({
   const [categoryIndex, setCategoryIndex] = useState(0);
   const [workIndex, setWorkIndex] = useState(0);
   const [expandedWork, setExpandedWork] = useState<GalleryWork | null>(null);
+  const [viewerSession, setViewerSession] = useState(0);
   const [categoryTransition, setCategoryTransition] = useState<CategoryTransition | null>(null);
   const [isGalleryDragging, setIsGalleryDragging] = useState(false);
   const [isCardTransitioning, setIsCardTransitioning] = useState(false);
   const suppressCardClick = useRef(false);
   const dragResetTimeout = useRef<number | null>(null);
-  const lightboxRef = useRef<HTMLDivElement>(null);
-  const closingLightboxId = useRef<string | null>(null);
+  const lightboxReturnFocus = useRef<HTMLElement | null>(null);
   const settledTrack = useRef(0);
   const workIndexRef = useRef(0);
   const carouselAnimating = useRef(false);
@@ -727,10 +1060,10 @@ function SelectedWorks({
   };
 
   const openExpandedWork = (work: GalleryWork) => {
-    if (closingLightboxId.current === work.id) {
-      lightboxRef.current?.style.removeProperty("pointer-events");
-    }
-    closingLightboxId.current = null;
+    lightboxReturnFocus.current = document.activeElement instanceof HTMLElement
+      ? document.activeElement
+      : null;
+    setViewerSession((session) => session + 1);
     setExpandedWork(work);
   };
 
@@ -777,10 +1110,7 @@ function SelectedWorks({
     setCategoryTransition({ nextIndex: index, phase: "cover" });
   };
 
-  const closeExpandedWork = (trigger?: Element | null) => {
-    const lightbox = trigger?.closest<HTMLElement>(".work-lightbox") ?? lightboxRef.current;
-    if (lightbox) lightbox.style.pointerEvents = "none";
-    closingLightboxId.current = expandedWork?.id ?? null;
+  const closeExpandedWork = () => {
     if (dragResetTimeout.current !== null) {
       window.clearTimeout(dragResetTimeout.current);
       dragResetTimeout.current = null;
@@ -789,6 +1119,28 @@ function SelectedWorks({
     galleryPointerSession.current = null;
     setIsGalleryDragging(false);
     setExpandedWork(null);
+    window.requestAnimationFrame(() => {
+      lightboxReturnFocus.current?.focus({ preventScroll: true });
+      lightboxReturnFocus.current = null;
+    });
+  };
+
+  const navigateExpandedWork = (direction: number) => {
+    if (!expandedWork || categoryTransition) return;
+    const workCount = category.works.length;
+    const currentIndex = category.works.findIndex((work) => work.id === expandedWork.id);
+    const nextIndex = (currentIndex + direction + workCount) % workCount;
+    const currentTrack = galleryTrack.get();
+    const relativePosition = wrapGalleryPosition(nextIndex + currentTrack, workCount);
+    const target = currentTrack - relativePosition;
+
+    gallerySnapAnimation.current?.stop();
+    carouselAnimating.current = false;
+    setIsCardTransitioning(false);
+    galleryTrack.set(target);
+    settledTrack.current = target;
+    syncWorkIndexFromTrack(target);
+    setExpandedWork(category.works[nextIndex]);
   };
 
   const startGalleryDrag = (event: React.PointerEvent<HTMLDivElement>) => {
@@ -916,16 +1268,11 @@ function SelectedWorks({
   useEffect(() => {
     if (!expandedWork) return;
     const previousOverflow = document.body.style.overflow;
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") closeExpandedWork();
-    };
     document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", closeOnEscape);
     return () => {
       document.body.style.overflow = previousOverflow;
-      window.removeEventListener("keydown", closeOnEscape);
     };
-  }, [expandedWork]);
+  }, [Boolean(expandedWork)]);
 
   useEffect(() => {
     if (!categoryTransition) return;
@@ -949,7 +1296,7 @@ function SelectedWorks({
       tabIndex={-1}
       aria-busy={Boolean(categoryTransition) || isCardTransitioning}
       onKeyDown={(event) => {
-        if (categoryTransition || isCardTransitioning) return;
+        if (expandedWork || categoryTransition || isCardTransitioning) return;
         if (event.key === "ArrowLeft") transitionWork(-1);
         if (event.key === "ArrowRight") transitionWork(1);
       }}
@@ -1214,46 +1561,14 @@ function SelectedWorks({
       {createPortal(
         <AnimatePresence>
           {expandedWork ? (
-            <motion.div
-              key={expandedWork.id}
-              ref={lightboxRef}
-              className="work-lightbox"
-              role="dialog"
-              aria-modal="true"
-              aria-label={`作品大图：${expandedWork.title}`}
-              initial={reduceMotion ? false : { opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.32 }}
-              onClick={(event) => closeExpandedWork(event.currentTarget)}
-            >
-              <button
-                className="lightbox-close"
-                type="button"
-                onClick={(event) => {
-                  event.stopPropagation();
-                  closeExpandedWork(event.currentTarget);
-                }}
-                aria-label="关闭作品大图"
-              >
-                <X size={22} strokeWidth={1.5} aria-hidden="true" />
-              </button>
-              <motion.figure
-                className="lightbox-frame"
-                initial={reduceMotion ? false : { opacity: 0, scale: 0.88, y: 30 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={reduceMotion ? undefined : { opacity: 0, scale: 0.94, y: 18 }}
-                transition={{ type: "spring", stiffness: 105, damping: 23, mass: 0.9 }}
-                onClick={(event) => event.stopPropagation()}
-              >
-                <img src={expandedWork.image} alt={expandedWork.alt} decoding="async" />
-                <figcaption>
-                  <span>{category.label} / {category.english}</span>
-                  <strong>{expandedWork.title}</strong>
-                  <small>{expandedWork.year}</small>
-                </figcaption>
-              </motion.figure>
-            </motion.div>
+            <WorkViewer
+              key={`work-viewer-${viewerSession}`}
+              work={expandedWork}
+              category={category}
+              reduceMotion={reduceMotion}
+              onClose={closeExpandedWork}
+              onNavigate={navigateExpandedWork}
+            />
           ) : null}
         </AnimatePresence>,
         document.body,
