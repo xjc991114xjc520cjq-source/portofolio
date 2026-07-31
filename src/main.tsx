@@ -115,6 +115,16 @@ const workCategories: WorkCategory[] = [
     index: "02",
     background: unsplashImage("1523275335684-37898b6baf30"),
     works: [
+      {
+        id: "commerce-andersen",
+        title: "安徒生童话详情页",
+        year: "2026",
+        image: "/assets/works/commerce-andersen-long.jpg",
+        thumbnail: "/assets/works/commerce-andersen-thumb.jpg",
+        thumbnailMode: "long",
+        focalPoint: "50% 0%",
+        alt: "青葫芦立体剧场书安徒生童话电商详情页设计",
+      },
       { id: "commerce-01", title: "静物陈列", year: "2024", image: unsplashImage("1523275335684-37898b6baf30"), alt: "腕表产品静物摄影" },
       { id: "commerce-02", title: "产品场景", year: "2024", image: unsplashImage("1542291026-7eec264c27ff"), alt: "运动鞋产品摄影" },
       { id: "commerce-03", title: "材质特写", year: "2023", image: unsplashImage("1543163521-1bf539c55dd2"), alt: "产品材质细节摄影" },
