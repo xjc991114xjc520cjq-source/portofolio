@@ -1847,8 +1847,6 @@ function ProjectShowcase() {
               aria-label={`查看项目：${item.title}`}
               aria-pressed={activeIndex === index}
               aria-expanded={displayIndex === index}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
               onFocus={() => setFocusedIndex(index)}
               onBlur={() => setFocusedIndex(null)}
               onClick={() => setActiveIndex((current) => current === index ? null : index)}
@@ -1874,6 +1872,19 @@ function ProjectShowcase() {
               </span>
             </motion.button>
           ))}
+          <div
+            className="project-showcase-hit-zones"
+            aria-hidden="true"
+            onMouseLeave={() => setHoveredIndex(null)}
+          >
+            {projectShowcaseItems.map((item, index) => (
+              <span
+                key={item.index}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onClick={() => setActiveIndex((current) => current === index ? null : index)}
+              />
+            ))}
+          </div>
         </div>
       </motion.div>
     </section>

@@ -2761,6 +2761,19 @@ video {
   overflow: hidden;
 }
 
+.project-showcase-hit-zones {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.project-showcase-hit-zones span {
+  min-width: 0;
+  cursor: pointer;
+}
+
 .project-showcase-item {
   position: relative;
   flex: 1 1 0;
@@ -2777,9 +2790,9 @@ video {
   cursor: pointer;
   clip-path: polygon(17.5% 0, 100% 0, 82.5% 100%, 0 100%);
   transition:
-    flex-grow 880ms cubic-bezier(0.16, 1, 0.3, 1),
-    clip-path 880ms cubic-bezier(0.16, 1, 0.3, 1),
-    filter 620ms cubic-bezier(0.16, 1, 0.3, 1);
+    flex-grow 1250ms cubic-bezier(0.76, 0, 0.24, 1),
+    clip-path 1250ms cubic-bezier(0.76, 0, 0.24, 1),
+    filter 900ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-showcase-item::after {
@@ -2795,6 +2808,10 @@ video {
   transform-origin: bottom;
   box-shadow: 0 0 14px rgba(78, 133, 191, 0.15);
   pointer-events: none;
+  transition:
+    right 1250ms cubic-bezier(0.76, 0, 0.24, 1),
+    transform 1250ms cubic-bezier(0.76, 0, 0.24, 1),
+    opacity 780ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-showcase-item:last-child {
@@ -2869,9 +2886,9 @@ video {
   filter: saturate(0.62) brightness(0.75) contrast(1.08);
   transform: scale(1.045);
   transition:
-    transform 900ms cubic-bezier(0.16, 1, 0.3, 1),
-    filter 700ms ease,
-    opacity 620ms cubic-bezier(0.16, 1, 0.3, 1);
+    transform 1300ms cubic-bezier(0.76, 0, 0.24, 1),
+    filter 900ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 900ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-showcase-item:focus-visible .project-showcase-art img,
@@ -2893,7 +2910,7 @@ video {
   background:
     linear-gradient(180deg, rgba(6, 7, 8, 0.08) 0%, transparent 46%, rgba(6, 7, 8, 0.5) 72%, rgba(5, 6, 7, 0.96) 100%),
     linear-gradient(90deg, rgba(5, 6, 7, 0.38), transparent 32%, rgba(5, 6, 7, 0.08));
-  transition: opacity 520ms ease;
+  transition: opacity 780ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-showcase-item:focus-visible .project-showcase-art-shade,
@@ -2918,7 +2935,9 @@ video {
   text-transform: uppercase;
   writing-mode: vertical-rl;
   pointer-events: none;
-  transition: opacity 520ms ease, transform 760ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    opacity 780ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 1180ms cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 .project-showcase-index,
@@ -2939,10 +2958,10 @@ video {
   letter-spacing: -0.04em;
   transform: translateX(0);
   transition:
-    left 720ms cubic-bezier(0.16, 1, 0.3, 1),
-    bottom 720ms cubic-bezier(0.16, 1, 0.3, 1),
-    color 520ms ease,
-    transform 720ms cubic-bezier(0.16, 1, 0.3, 1);
+    left 1150ms cubic-bezier(0.76, 0, 0.24, 1),
+    bottom 1150ms cubic-bezier(0.76, 0, 0.24, 1),
+    color 780ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 1150ms cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 .project-showcase-index::after {
@@ -2953,6 +2972,7 @@ video {
   width: clamp(96px, 8.8vw, 150px);
   height: 1px;
   background: rgba(245, 245, 245, 0.38);
+  transition: opacity 620ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-showcase-meta {
@@ -2962,9 +2982,9 @@ video {
   transform: translateY(0);
   transform-origin: left bottom;
   transition:
-    opacity 420ms ease,
-    transform 720ms cubic-bezier(0.16, 1, 0.3, 1),
-    left 720ms cubic-bezier(0.16, 1, 0.3, 1);
+    opacity 520ms cubic-bezier(0.4, 0, 0.2, 1) 160ms,
+    transform 1150ms cubic-bezier(0.76, 0, 0.24, 1),
+    left 1150ms cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 .project-showcase-item.is-suppressed .project-showcase-meta,
@@ -2975,6 +2995,7 @@ video {
 
 .project-showcase-item.is-suppressed .project-showcase-meta {
   transform: translateY(28px);
+  transition-delay: 0ms, 0ms, 0ms;
 }
 
 .project-showcase-item.is-suppressed .project-showcase-index {
@@ -3987,6 +4008,10 @@ video {
   }
 
   .project-showcase-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .project-showcase-hit-zones {
     display: none;
   }
 
