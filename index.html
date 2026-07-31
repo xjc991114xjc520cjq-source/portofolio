@@ -2,7 +2,20 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta id="portfolio-viewport" name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (() => {
+        const viewport = document.getElementById("portfolio-viewport");
+        const compactTouchScreen =
+          navigator.maxTouchPoints > 0 &&
+          Math.min(window.screen.width, window.screen.height) <= 980;
+
+        if (viewport && compactTouchScreen) {
+          viewport.setAttribute("content", "width=1280, viewport-fit=cover");
+          document.documentElement.dataset.layoutViewport = "landscape";
+        }
+      })();
+    </script>
     <meta
       name="description"
       content="谢敬淳，视觉设计师、AIGC 设计师、品牌设计师个人作品集。"

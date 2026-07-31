@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { createRoot } from "react-dom/client";
 import { AnimatePresence, animate, motion, useMotionValue, useMotionValueEvent, useReducedMotion, useScroll, useTransform, type MotionValue } from "motion/react";
@@ -543,6 +543,27 @@ function useViewportMatch(query: string) {
   return matches;
 }
 
+function useDocumentScrollLock(locked: boolean) {
+  useLayoutEffect(() => {
+    if (!locked) return;
+
+    const root = document.documentElement;
+    const body = document.body;
+    const previousRootOverflow = root.style.overflow;
+    const previousBodyOverflow = body.style.overflow;
+
+    root.classList.add("is-scroll-locked");
+    root.style.overflow = "hidden";
+    body.style.overflow = "hidden";
+
+    return () => {
+      root.classList.remove("is-scroll-locked");
+      root.style.overflow = previousRootOverflow;
+      body.style.overflow = previousBodyOverflow;
+    };
+  }, [locked]);
+}
+
 const wrapGalleryPosition = (position: number, total: number) => {
   const half = total / 2;
   return ((position + half) % total + total) % total - half;
@@ -765,10 +786,7 @@ function WorkViewer({
       aria-modal="true"
       aria-label={`作品大图：${work.title}`}
       tabIndex={-1}
-      initial={reduceMotion ? false : { opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.32 }}
+      initial={false}
       onClick={requestClose}
       onKeyDown={handleKeyDown}
     >
@@ -1011,6 +1029,8 @@ function SelectedWorks({
   const galleryCardStep = gallerySpread === "mobile" ? 112 : gallerySpread === "tablet" ? 164 : 218;
   const galleryDragLimit = galleryCardStep * 2.2;
   const galleryDragThreshold = gallerySpread === "mobile" ? 48 : gallerySpread === "tablet" ? 66 : 82;
+
+  useDocumentScrollLock(Boolean(expandedWork) || Boolean(categoryTransition));
 
   useMotionValueEvent(galleryTrack, "change", (track) => {
     const nextWorkIndex = ((-Math.round(track) % category.works.length) + category.works.length) % category.works.length;
@@ -1274,24 +1294,6 @@ function SelectedWorks({
     }
     setCategoryTransition(null);
   };
-
-  useEffect(() => {
-    if (!expandedWork) return;
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = previousOverflow;
-    };
-  }, [Boolean(expandedWork)]);
-
-  useEffect(() => {
-    if (!categoryTransition) return;
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = previousOverflow;
-    };
-  }, [Boolean(categoryTransition)]);
 
   useEffect(() => () => {
     if (dragResetTimeout.current !== null) window.clearTimeout(dragResetTimeout.current);
