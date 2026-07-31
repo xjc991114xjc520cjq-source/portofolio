@@ -59,6 +59,64 @@ const projects = [
   },
 ];
 
+const projectShowcaseItems = [
+  {
+    index: "01",
+    title: "夜航电台",
+    english: "NOCTURNE FM",
+    category: "品牌识别",
+    categoryEnglish: "BRAND IDENTITY",
+    year: "2026",
+    image: "/assets/project-showcase-nocturne.webp",
+    alt: "夜航电台品牌识别海报与广播视觉系统",
+    backdrop: "NOCTURNE",
+  },
+  {
+    index: "02",
+    title: "潮汐零九",
+    english: "TIDE / 09",
+    category: "商业视觉",
+    categoryEnglish: "COMMERCE VISUALS",
+    year: "2025",
+    image: "/assets/project-showcase-tide.webp",
+    alt: "潮汐零九深蓝玻璃材质商业视觉",
+    backdrop: "TIDE",
+  },
+  {
+    index: "03",
+    title: "场域之物",
+    english: "FIELD OBJECTS",
+    category: "包装系统",
+    categoryEnglish: "PACKAGING SYSTEM",
+    year: "2025",
+    image: "/assets/project-showcase-field-objects.webp",
+    alt: "场域之物灰绿色哑光包装系统",
+    backdrop: "FIELD",
+  },
+  {
+    index: "04",
+    title: "余像计划",
+    english: "AFTERIMAGE",
+    category: "编辑海报",
+    categoryEnglish: "EDITORIAL POSTER",
+    year: "2024",
+    image: "/assets/project-showcase-afterimage.webp",
+    alt: "余像计划动态人物编辑海报",
+    backdrop: "AFTERIMAGE",
+  },
+  {
+    index: "05",
+    title: "以太网格",
+    english: "AETHER GRID",
+    category: "数字体验",
+    categoryEnglish: "DIGITAL EXPERIENCE",
+    year: "2026",
+    image: "/assets/project-showcase-aether-grid.webp",
+    alt: "以太网格暗场建筑数字体验",
+    backdrop: "AETHER",
+  },
+] as const;
+
 // Keep the selected photography inside the deploy so the gallery never depends
 // on an overseas image host at viewing time.
 const unsplashImage = (id: string) => `/assets/work-photos/${id}.webp`;
@@ -1749,6 +1807,71 @@ function ProfileWorksSequence() {
   );
 }
 
+function ProjectShowcase() {
+  const reduceMotion = useReducedMotion();
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  return (
+    <section className="project-showcase" id="project-showcase" aria-labelledby="project-showcase-title">
+      <motion.div
+        className="project-showcase-frame"
+        initial={reduceMotion ? false : { opacity: 0, y: 44 }}
+        whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.14 }}
+        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <header className="project-showcase-heading">
+          <span className="project-showcase-kicker">
+            <i aria-hidden="true" />
+            Selected Projects
+          </span>
+          <h2 id="project-showcase-title">
+            <span>项目</span>
+            <span>展示</span>
+          </h2>
+          <div className="project-showcase-heading-meta">
+            <strong>PROJECT SHOWCASE</strong>
+            <span>FIVE SELECTED STUDIES</span>
+          </div>
+        </header>
+
+        <div className={`project-showcase-track${activeIndex !== null ? " has-active" : ""}`}>
+          {projectShowcaseItems.map((item, index) => (
+            <motion.button
+              className={`project-showcase-item${activeIndex === index ? " is-active" : ""}`}
+              type="button"
+              key={item.index}
+              aria-label={`查看项目：${item.title}`}
+              aria-pressed={activeIndex === index}
+              onClick={() => setActiveIndex((current) => current === index ? null : index)}
+              initial={reduceMotion ? false : { opacity: 0, y: 28 }}
+              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.22 }}
+              transition={{ duration: 0.72, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <span className="project-showcase-art">
+                <img src={item.image} alt={item.alt} loading="lazy" decoding="async" />
+                <span className="project-showcase-art-shade" aria-hidden="true" />
+                <span className="project-showcase-backdrop" aria-hidden="true">{item.backdrop}</span>
+              </span>
+              <span className="project-showcase-index">{item.index}</span>
+              <span className="project-showcase-meta">
+                <strong>{item.title}</strong>
+                <em>{item.english}</em>
+                <span>
+                  {item.category}
+                  <small>{item.categoryEnglish}</small>
+                </span>
+                <b>{item.year}</b>
+              </span>
+            </motion.button>
+          ))}
+        </div>
+      </motion.div>
+    </section>
+  );
+}
+
 function Journal() {
   return (
     <section className="journal shell">
@@ -1895,6 +2018,7 @@ function App() {
       <main className="app">
         <Hero />
         <ProfileWorksSequence />
+        <ProjectShowcase />
         <Journal />
         <Explorations />
         <Capabilities />
