@@ -1810,6 +1810,9 @@ function ProfileWorksSequence() {
 function ProjectShowcase() {
   const reduceMotion = useReducedMotion();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
+  const displayIndex = hoveredIndex ?? focusedIndex ?? activeIndex;
 
   return (
     <section className="project-showcase" id="project-showcase" aria-labelledby="project-showcase-title">
@@ -1835,14 +1838,19 @@ function ProjectShowcase() {
           </div>
         </header>
 
-        <div className={`project-showcase-track${activeIndex !== null ? " has-active" : ""}`}>
+        <div className={`project-showcase-track${displayIndex !== null ? " has-focus" : ""}`}>
           {projectShowcaseItems.map((item, index) => (
             <motion.button
-              className={`project-showcase-item${activeIndex === index ? " is-active" : ""}`}
+              className={`project-showcase-item${activeIndex === index ? " is-active" : ""}${displayIndex === index ? " is-focused" : ""}${displayIndex !== null && displayIndex !== index ? " is-suppressed" : ""}`}
               type="button"
               key={item.index}
               aria-label={`查看项目：${item.title}`}
               aria-pressed={activeIndex === index}
+              aria-expanded={displayIndex === index}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              onFocus={() => setFocusedIndex(index)}
+              onBlur={() => setFocusedIndex(null)}
               onClick={() => setActiveIndex((current) => current === index ? null : index)}
               initial={reduceMotion ? false : { opacity: 0, y: 28 }}
               whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
