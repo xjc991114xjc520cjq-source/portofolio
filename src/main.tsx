@@ -247,7 +247,6 @@ function HeroMedia({ item, index }: { item: (typeof heroMedia)[number]; index: n
           alt=""
           loading={heroPriorityIds.has(item.id) ? "eager" : "lazy"}
           decoding="async"
-          fetchPriority={heroPriorityIds.has(item.id) ? "high" : "low"}
           style={{ objectPosition: item.objectPosition }}
         />
       </figure>
@@ -891,7 +890,6 @@ function WorkViewer({
               src={work.image}
               alt={work.alt}
               decoding="async"
-              fetchPriority="high"
               draggable={false}
               onLoad={handleImageLoad}
               onError={() => setImageFailed(true)}
@@ -910,7 +908,6 @@ function WorkViewer({
               src={work.image}
               alt={work.alt}
               decoding="async"
-              fetchPriority="high"
               draggable={false}
               onLoad={handleImageLoad}
               onError={() => setImageFailed(true)}
@@ -1345,7 +1342,6 @@ function SelectedWorks({
                 alt=""
                 loading="lazy"
                 decoding="async"
-                fetchPriority="low"
               />
             </motion.div>
           </AnimatePresence>
@@ -1598,23 +1594,23 @@ function Profile({ handoffProgress }: { handoffProgress: MotionValue<number> }) 
   });
   const acceleratedProgress = useTransform(scrollYProgress, [0, 1], [0, 1], { ease: slowFastScrollEase });
 
-  const stageOpacity = useTransform(acceleratedProgress, [0, 0.07, 0.62, 0.78], [0, 0, 0.98, 1]);
-  const shellY = useTransform(acceleratedProgress, [0, 1], [140, 0]);
+  const stageOpacity = useTransform(acceleratedProgress, [0, 0.05, 0.34, 0.42], [0, 0, 0.98, 1]);
+  const shellY = useTransform(acceleratedProgress, [0, 0.42], [140, 0]);
   const toplineOpacity = useTransform(acceleratedProgress, [0.04, 0.36], [0, 1]);
   const toplineY = useTransform(acceleratedProgress, [0.04, 0.54], [-34, 0]);
-  const backdropOpacity = useTransform(acceleratedProgress, [0.08, 0.58], [0, 1]);
-  const backdropY = useTransform(acceleratedProgress, [0.04, 1], [82, 0]);
-  const backdropScale = useTransform(acceleratedProgress, [0.04, 1], [1.16, 1]);
-  const portraitOpacity = useTransform(acceleratedProgress, [0.08, 0.52], [0, 1]);
-  const portraitY = useTransform(acceleratedProgress, [0.04, 1], [184, 0]);
-  const portraitScale = useTransform(acceleratedProgress, [0.04, 1], [0.88, 1]);
-  const copyOpacity = useTransform(acceleratedProgress, [0.13, 0.6], [0, 1]);
-  const copyX = useTransform(acceleratedProgress, [0.08, 1], [-92, 0]);
-  const copyY = useTransform(acceleratedProgress, [0.08, 1], [42, 0]);
-  const factsOpacity = useTransform(acceleratedProgress, [0.23, 0.72], [0, 1]);
-  const factsX = useTransform(acceleratedProgress, [0.14, 1], [96, 0]);
-  const bottomlineOpacity = useTransform(acceleratedProgress, [0.34, 0.82], [0, 1]);
-  const bottomlineY = useTransform(acceleratedProgress, [0.22, 1], [34, 0]);
+  const backdropOpacity = useTransform(acceleratedProgress, [0.08, 0.4], [0, 1]);
+  const backdropY = useTransform(acceleratedProgress, [0.04, 0.42], [82, 0]);
+  const backdropScale = useTransform(acceleratedProgress, [0.04, 0.42], [1.16, 1]);
+  const portraitOpacity = useTransform(acceleratedProgress, [0.08, 0.4], [0, 1]);
+  const portraitY = useTransform(acceleratedProgress, [0.04, 0.42], [184, 0]);
+  const portraitScale = useTransform(acceleratedProgress, [0.04, 0.42], [0.88, 1]);
+  const copyOpacity = useTransform(acceleratedProgress, [0.08, 0.38], [0, 1]);
+  const copyX = useTransform(acceleratedProgress, [0.08, 0.42], [-92, 0]);
+  const copyY = useTransform(acceleratedProgress, [0.08, 0.42], [42, 0]);
+  const factsOpacity = useTransform(acceleratedProgress, [0.15, 0.42], [0, 1]);
+  const factsX = useTransform(acceleratedProgress, [0.14, 0.42], [96, 0]);
+  const bottomlineOpacity = useTransform(acceleratedProgress, [0.22, 0.42], [0, 1]);
+  const bottomlineY = useTransform(acceleratedProgress, [0.22, 0.42], [34, 0]);
   const profileExitOpacity = useTransform(handoffProgress, [0, 0.06, 0.5, 0.78, 1], [1, 1, 0.3, 0.05, 0]);
   const profileExitY = useTransform(handoffProgress, [0, 1], [0, -156]);
   const profileExitScale = useTransform(handoffProgress, [0, 0.28, 1], [1, 0.98, 0.9]);
