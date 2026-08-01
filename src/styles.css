@@ -167,7 +167,7 @@ video {
 
 .hero-scene {
   position: relative;
-  height: 145dvh;
+  height: 170dvh;
   background: var(--bg);
 }
 
@@ -4177,6 +4177,6 @@ video {
 
 @media (max-width: 720px) and (prefers-reduced-motion: no-preference) {
   .hero-scene {
-    height: 132dvh;
+    height: 150dvh;
   }
 }

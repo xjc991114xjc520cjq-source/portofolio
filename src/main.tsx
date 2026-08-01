@@ -1648,27 +1648,28 @@ function Profile({ handoffProgress }: { handoffProgress: MotionValue<number> }) 
   const reduceMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: profileRef,
-    offset: ["start 32%", "start -28%"],
+    offset: ["start 40%", "start -40%"],
   });
   const acceleratedProgress = useTransform(scrollYProgress, [0, 1], [0, 1], { ease: slowFastScrollEase });
+  const pacedRevealProgress = useTransform(acceleratedProgress, [0, 1], [0, 0.72]);
 
-  const stageOpacity = useTransform(acceleratedProgress, [0, 0.05, 0.34, 0.42], [0, 0, 0.98, 1]);
-  const shellY = useTransform(acceleratedProgress, [0, 0.42], [140, 0]);
-  const toplineOpacity = useTransform(acceleratedProgress, [0.04, 0.36], [0, 1]);
-  const toplineY = useTransform(acceleratedProgress, [0.04, 0.54], [-34, 0]);
-  const backdropOpacity = useTransform(acceleratedProgress, [0.08, 0.4], [0, 1]);
-  const backdropY = useTransform(acceleratedProgress, [0.04, 0.42], [82, 0]);
-  const backdropScale = useTransform(acceleratedProgress, [0.04, 0.42], [1.16, 1]);
-  const portraitOpacity = useTransform(acceleratedProgress, [0.08, 0.4], [0, 1]);
-  const portraitY = useTransform(acceleratedProgress, [0.04, 0.42], [184, 0]);
-  const portraitScale = useTransform(acceleratedProgress, [0.04, 0.42], [0.88, 1]);
-  const copyOpacity = useTransform(acceleratedProgress, [0.08, 0.38], [0, 1]);
-  const copyX = useTransform(acceleratedProgress, [0.08, 0.42], [-92, 0]);
-  const copyY = useTransform(acceleratedProgress, [0.08, 0.42], [42, 0]);
-  const factsOpacity = useTransform(acceleratedProgress, [0.15, 0.42], [0, 1]);
-  const factsX = useTransform(acceleratedProgress, [0.14, 0.42], [96, 0]);
-  const bottomlineOpacity = useTransform(acceleratedProgress, [0.22, 0.42], [0, 1]);
-  const bottomlineY = useTransform(acceleratedProgress, [0.22, 0.42], [34, 0]);
+  const stageOpacity = useTransform(pacedRevealProgress, [0, 0.05, 0.34, 0.42], [0, 0, 0.98, 1]);
+  const shellY = useTransform(pacedRevealProgress, [0, 0.42], [140, 0]);
+  const toplineOpacity = useTransform(pacedRevealProgress, [0.04, 0.36], [0, 1]);
+  const toplineY = useTransform(pacedRevealProgress, [0.04, 0.54], [-34, 0]);
+  const backdropOpacity = useTransform(pacedRevealProgress, [0.08, 0.4], [0, 1]);
+  const backdropY = useTransform(pacedRevealProgress, [0.04, 0.42], [82, 0]);
+  const backdropScale = useTransform(pacedRevealProgress, [0.04, 0.42], [1.16, 1]);
+  const portraitOpacity = useTransform(pacedRevealProgress, [0.08, 0.4], [0, 1]);
+  const portraitY = useTransform(pacedRevealProgress, [0.04, 0.42], [184, 0]);
+  const portraitScale = useTransform(pacedRevealProgress, [0.04, 0.42], [0.88, 1]);
+  const copyOpacity = useTransform(pacedRevealProgress, [0.08, 0.38], [0, 1]);
+  const copyX = useTransform(pacedRevealProgress, [0.08, 0.42], [-92, 0]);
+  const copyY = useTransform(pacedRevealProgress, [0.08, 0.42], [42, 0]);
+  const factsOpacity = useTransform(pacedRevealProgress, [0.15, 0.42], [0, 1]);
+  const factsX = useTransform(pacedRevealProgress, [0.14, 0.42], [96, 0]);
+  const bottomlineOpacity = useTransform(pacedRevealProgress, [0.22, 0.42], [0, 1]);
+  const bottomlineY = useTransform(pacedRevealProgress, [0.22, 0.42], [34, 0]);
   const profileExitOpacity = useTransform(handoffProgress, [0, 0.06, 0.5, 0.78, 1], [1, 1, 0.3, 0.05, 0]);
   const profileExitY = useTransform(handoffProgress, [0, 1], [0, -156]);
   const profileExitScale = useTransform(handoffProgress, [0, 0.28, 1], [1, 0.98, 0.9]);
@@ -1681,7 +1682,7 @@ function Profile({ handoffProgress }: { handoffProgress: MotionValue<number> }) 
   const composedShellY = useTransform(() => shellY.get() + profileExitY.get());
   const composedBottomlineOpacity = useTransform(() => bottomlineOpacity.get() * bottomlineExitOpacity.get());
   const composedBottomlineY = useTransform(() => bottomlineY.get() + bottomlineExitY.get());
-  const composedPointerEvents = useTransform(() => acceleratedProgress.get() > 0.22 && handoffProgress.get() < 0.72 ? "auto" : "none");
+  const composedPointerEvents = useTransform(() => pacedRevealProgress.get() > 0.22 && handoffProgress.get() < 0.72 ? "auto" : "none");
 
   const stageStyle = reduceMotion ? undefined : { opacity: composedStageOpacity, pointerEvents: composedPointerEvents };
 
