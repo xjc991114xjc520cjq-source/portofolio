@@ -1880,6 +1880,7 @@ function ProjectShowcase() {
             {projectShowcaseItems.map((item, index) => (
               <span
                 key={item.index}
+                className={displayIndex === index ? "is-focused" : displayIndex !== null ? "is-suppressed" : ""}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onClick={() => setActiveIndex((current) => current === index ? null : index)}
               />

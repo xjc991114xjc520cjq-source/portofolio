@@ -2766,19 +2766,28 @@ video {
   position: absolute;
   inset: 0;
   z-index: 20;
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  display: flex;
 }
 
 .project-showcase-hit-zones span {
-  min-width: 0;
+  flex: 1 1 0;
+  min-width: clamp(82px, 5.6vw, 96px);
   cursor: pointer;
+  transition: flex-grow 1100ms cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.project-showcase-track.has-focus .project-showcase-hit-zones span {
+  flex-grow: 0.78;
+}
+
+.project-showcase-track.has-focus .project-showcase-hit-zones span.is-focused {
+  flex-grow: 7.2;
 }
 
 .project-showcase-item {
   position: relative;
   flex: 1 1 0;
-  min-width: clamp(44px, 3.1vw, 54px);
+  min-width: clamp(82px, 5.6vw, 96px);
   min-height: 100%;
   margin: 0 -1px;
   padding: 0;
@@ -2837,12 +2846,12 @@ video {
 }
 
 .project-showcase-track.has-focus .project-showcase-item {
-  flex-grow: 0.35;
+  flex-grow: 0.78;
   clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
 }
 
 .project-showcase-track.has-focus .project-showcase-item.is-focused {
-  flex-grow: 10;
+  flex-grow: 7.2;
   z-index: 4;
   filter: none;
   clip-path: polygon(5.5% 0, 100% 0, 94.5% 100%, 0 100%);
