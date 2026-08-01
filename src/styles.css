@@ -2637,9 +2637,10 @@ video {
 }
 
 .project-showcase {
+  --project-showcase-height: clamp(720px, 86dvh, 860px);
   position: relative;
   z-index: 3;
-  min-height: max(780px, 100dvh);
+  min-height: var(--project-showcase-height);
   padding: 0 clamp(18px, 2.35vw, 40px);
   overflow: hidden;
   background:
@@ -2663,7 +2664,7 @@ video {
   display: grid;
   grid-template-columns: clamp(230px, 16.8vw, 286px) minmax(0, 1fr);
   width: min(1700px, 100%);
-  min-height: max(780px, 100dvh);
+  min-height: var(--project-showcase-height);
   margin: 0 auto;
   overflow: hidden;
 }
@@ -2756,7 +2757,7 @@ video {
   position: relative;
   display: flex;
   min-width: 0;
-  min-height: max(780px, 100dvh);
+  min-height: var(--project-showcase-height);
   margin-right: 0;
   overflow: hidden;
 }
@@ -2790,9 +2791,9 @@ video {
   cursor: pointer;
   clip-path: polygon(17.5% 0, 100% 0, 82.5% 100%, 0 100%);
   transition:
-    flex-grow 1250ms cubic-bezier(0.76, 0, 0.24, 1),
-    clip-path 1250ms cubic-bezier(0.76, 0, 0.24, 1),
-    filter 900ms cubic-bezier(0.4, 0, 0.2, 1);
+    flex-grow 1100ms cubic-bezier(0.76, 0, 0.24, 1),
+    clip-path 1100ms cubic-bezier(0.76, 0, 0.24, 1),
+    filter 800ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-showcase-item::after {
@@ -2809,9 +2810,9 @@ video {
   box-shadow: 0 0 14px rgba(78, 133, 191, 0.15);
   pointer-events: none;
   transition:
-    right 1250ms cubic-bezier(0.76, 0, 0.24, 1),
-    transform 1250ms cubic-bezier(0.76, 0, 0.24, 1),
-    opacity 780ms cubic-bezier(0.4, 0, 0.2, 1);
+    right 1100ms cubic-bezier(0.76, 0, 0.24, 1),
+    transform 1100ms cubic-bezier(0.76, 0, 0.24, 1),
+    opacity 680ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-showcase-item:last-child {
@@ -2886,9 +2887,9 @@ video {
   filter: saturate(0.62) brightness(0.75) contrast(1.08);
   transform: scale(1.045);
   transition:
-    transform 1300ms cubic-bezier(0.76, 0, 0.24, 1),
-    filter 900ms cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 900ms cubic-bezier(0.4, 0, 0.2, 1);
+    transform 1140ms cubic-bezier(0.76, 0, 0.24, 1),
+    filter 800ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 800ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-showcase-item:focus-visible .project-showcase-art img,
@@ -2910,7 +2911,7 @@ video {
   background:
     linear-gradient(180deg, rgba(6, 7, 8, 0.08) 0%, transparent 46%, rgba(6, 7, 8, 0.5) 72%, rgba(5, 6, 7, 0.96) 100%),
     linear-gradient(90deg, rgba(5, 6, 7, 0.38), transparent 32%, rgba(5, 6, 7, 0.08));
-  transition: opacity 780ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 680ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-showcase-item:focus-visible .project-showcase-art-shade,
@@ -2936,8 +2937,8 @@ video {
   writing-mode: vertical-rl;
   pointer-events: none;
   transition:
-    opacity 780ms cubic-bezier(0.4, 0, 0.2, 1),
-    transform 1180ms cubic-bezier(0.76, 0, 0.24, 1);
+    opacity 680ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 1040ms cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 .project-showcase-index,
@@ -2958,10 +2959,10 @@ video {
   letter-spacing: -0.04em;
   transform: translateX(0);
   transition:
-    left 1150ms cubic-bezier(0.76, 0, 0.24, 1),
-    bottom 1150ms cubic-bezier(0.76, 0, 0.24, 1),
-    color 780ms cubic-bezier(0.4, 0, 0.2, 1),
-    transform 1150ms cubic-bezier(0.76, 0, 0.24, 1);
+    left 1020ms cubic-bezier(0.76, 0, 0.24, 1),
+    bottom 1020ms cubic-bezier(0.76, 0, 0.24, 1),
+    color 680ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 1020ms cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 .project-showcase-index::after {
@@ -2972,7 +2973,7 @@ video {
   width: clamp(96px, 8.8vw, 150px);
   height: 1px;
   background: rgba(245, 245, 245, 0.38);
-  transition: opacity 620ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 540ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-showcase-meta {
@@ -2982,9 +2983,9 @@ video {
   transform: translateY(0);
   transform-origin: left bottom;
   transition:
-    opacity 520ms cubic-bezier(0.4, 0, 0.2, 1) 160ms,
-    transform 1150ms cubic-bezier(0.76, 0, 0.24, 1),
-    left 1150ms cubic-bezier(0.76, 0, 0.24, 1);
+    opacity 460ms cubic-bezier(0.4, 0, 0.2, 1) 130ms,
+    transform 1020ms cubic-bezier(0.76, 0, 0.24, 1),
+    left 1020ms cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 .project-showcase-item.is-suppressed .project-showcase-meta,

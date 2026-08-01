@@ -1821,7 +1821,7 @@ function ProjectShowcase() {
         initial={reduceMotion ? false : { opacity: 0, y: 44 }}
         whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.14 }}
-        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       >
         <header className="project-showcase-heading">
           <span className="project-showcase-kicker">
@@ -1853,7 +1853,7 @@ function ProjectShowcase() {
               initial={reduceMotion ? false : { opacity: 0, y: 28 }}
               whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.22 }}
-              transition={{ duration: 0.72, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.64, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
             >
               <span className="project-showcase-art">
                 <img src={item.image} alt={item.alt} loading="lazy" decoding="async" />
