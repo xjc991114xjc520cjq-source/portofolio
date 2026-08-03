@@ -1023,6 +1023,49 @@ video {
   mix-blend-mode: soft-light;
 }
 
+.works-exit-blades {
+  position: absolute;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.works-exit-blades span {
+  position: relative;
+  display: block;
+  min-width: 0;
+  background:
+    linear-gradient(180deg, rgba(78, 133, 191, 0.1), transparent 18%),
+    linear-gradient(112deg, #08090a 0%, #0c0e10 58%, #070809 100%);
+  box-shadow: 18px 0 48px rgba(0, 0, 0, 0.3);
+  will-change: transform, opacity;
+}
+
+.works-exit-blades span:nth-child(odd) {
+  clip-path: polygon(0 3.5%, 100% 0, 92% 100%, 0 100%);
+}
+
+.works-exit-blades span:nth-child(even) {
+  clip-path: polygon(8% 0, 100% 2.5%, 100% 100%, 0 100%);
+  background:
+    linear-gradient(180deg, rgba(137, 170, 204, 0.14), transparent 24%),
+    linear-gradient(106deg, #070809 0%, #0d0f11 48%, #08090a 100%);
+}
+
+.works-exit-blades span::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 1px;
+  content: "";
+  background: linear-gradient(180deg, rgba(137, 170, 204, 0.86), rgba(78, 133, 191, 0.08) 42%, transparent 82%);
+  box-shadow: 0 0 18px rgba(78, 133, 191, 0.2);
+}
+
 .works-reveal-shutter {
   position: absolute;
   inset: 0;
@@ -2656,6 +2699,21 @@ video {
   will-change: transform, opacity;
 }
 
+.project-showcase-entry-edge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 30;
+  display: block;
+  height: 2px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent 0%, rgba(78, 133, 191, 0.86) 17%, #dce7f2 50%, rgba(137, 170, 204, 0.86) 83%, transparent 100%);
+  box-shadow: 0 0 28px rgba(78, 133, 191, 0.32);
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
 .project-showcase::before {
   content: "";
   position: absolute;
@@ -2683,6 +2741,8 @@ video {
   flex-direction: column;
   min-width: 0;
   padding: clamp(42px, 6.4vh, 68px) 26px clamp(42px, 6vh, 64px) 8px;
+  transform-origin: left center;
+  will-change: transform, opacity;
 }
 
 .project-showcase-kicker {
@@ -2767,6 +2827,8 @@ video {
   min-height: var(--project-showcase-height);
   margin-right: 0;
   overflow: hidden;
+  transform-origin: right bottom;
+  will-change: transform, opacity;
 }
 
 .project-showcase-hit-zones {

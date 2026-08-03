@@ -926,6 +926,26 @@ function WorkViewer({
   );
 }
 
+function WorksExitBlade({ progress, index }: { progress: MotionValue<number>; index: number }) {
+  const start = 0.08 + index * 0.045;
+  const settle = 0.54 + index * 0.035;
+  const y = useTransform(progress, [start, settle, 1], ["112%", "0%", "-9%"]);
+  const opacity = useTransform(progress, [start, start + 0.08, 0.88, 1], [0, 1, 1, 0]);
+  const scaleY = useTransform(progress, [start, settle], [0.1, 1]);
+
+  return (
+    <motion.span
+      style={{
+        y,
+        opacity,
+        scaleY,
+        transformOrigin: index % 2 === 0 ? "bottom" : "top",
+        "--blade-index": index,
+      } as React.CSSProperties}
+    />
+  );
+}
+
 function SelectedWorks({
   sectionRef,
   handoffProgress,
@@ -980,10 +1000,19 @@ function SelectedWorks({
     [isMobileGallery ? 0.965 : 0.935, 0.96, 0.994, 1],
   );
   const worksEntryRotateX = useTransform(handoffProgress, [0, 0.58, 1], [isMobileGallery ? 2.5 : 5.5, 1.2, 0]);
-  const worksExitOpacity = useTransform(exitProgress, [0, 0.24, 0.72, 1], [1, 1, 0.34, 0]);
-  const worksExitY = useTransform(exitProgress, [0, 1], [0, isMobileGallery ? -58 : isTabletGallery ? -92 : -132]);
-  const worksExitScale = useTransform(exitProgress, [0, 1], [1, isMobileGallery ? 0.96 : isTabletGallery ? 0.935 : 0.9]);
-  const worksExitRotateX = useTransform(exitProgress, [0, 1], [0, isMobileGallery ? -2 : -5.5]);
+  const worksExitOpacity = useTransform(exitProgress, [0, 0.38, 0.82, 1], [1, 1, 0.66, 0]);
+  const worksExitY = useTransform(
+    exitProgress,
+    [0, 0.34, 1],
+    [0, -12, isMobileGallery ? -92 : isTabletGallery ? -142 : -206],
+  );
+  const worksExitScale = useTransform(
+    exitProgress,
+    [0, 0.38, 1],
+    [1, 0.992, isMobileGallery ? 0.9 : isTabletGallery ? 0.85 : 0.8],
+  );
+  const worksExitRotateX = useTransform(exitProgress, [0, 0.34, 1], [0, -0.8, isMobileGallery ? -6 : -12]);
+  const worksExitSkewX = useTransform(exitProgress, [0, 0.5, 1], [0, -0.35, isMobileGallery ? -0.9 : -2.2]);
   const worksOpacity = useTransform(() => worksEntryOpacity.get() * worksExitOpacity.get());
   const worksY = useTransform(() => worksEntryY.get() + worksExitY.get());
   const worksScale = useTransform(() => worksEntryScale.get() * worksExitScale.get());
@@ -1325,6 +1354,7 @@ function SelectedWorks({
           y: worksY,
           scale: worksScale,
           rotateX: worksRotateX,
+          skewX: worksExitSkewX,
           transformPerspective: 1400,
           pointerEvents: worksPointerEvents,
         }}
@@ -1356,6 +1386,13 @@ function SelectedWorks({
         </motion.div>
 
         <div className="works-grain" aria-hidden="true" />
+        {!reduceMotion ? (
+          <div className="works-exit-blades" aria-hidden="true">
+            {projectShowcaseItems.map((item, index) => (
+              <WorksExitBlade key={item.index} progress={exitProgress} index={index} />
+            ))}
+          </div>
+        ) : null}
         {!reduceMotion ? (
           <motion.div className="works-reveal-shutter" style={{ opacity: shutterOpacity }} aria-hidden="true">
             <motion.span className="works-reveal-panel works-reveal-panel-top" style={{ y: shutterTopY }} />
@@ -1769,6 +1806,75 @@ function PortfolioSequence() {
   );
 }
 
+function ProjectShowcaseCard({
+  item,
+  index,
+  entryProgress,
+  isActive,
+  isFocused,
+  isSuppressed,
+  onFocus,
+  onBlur,
+  onClick,
+}: {
+  item: (typeof projectShowcaseItems)[number];
+  index: number;
+  entryProgress: MotionValue<number>;
+  isActive: boolean;
+  isFocused: boolean;
+  isSuppressed: boolean;
+  onFocus: () => void;
+  onBlur: () => void;
+  onClick: () => void;
+}) {
+  const reduceMotion = useReducedMotion();
+  const start = 0.1 + index * 0.045;
+  const settle = 0.68 + index * 0.055;
+  const opacity = useTransform(entryProgress, [start, start + 0.16, settle], [0, 0.7, 1]);
+  const y = useTransform(entryProgress, [start, settle], [180 + index * 18, 0]);
+  const x = useTransform(entryProgress, [start, settle], [(index - 2) * 32, 0]);
+  const scale = useTransform(entryProgress, [start, settle], [0.82 + index * 0.018, 1]);
+  const rotateZ = useTransform(entryProgress, [start, settle], [(2 - index) * 1.65, 0]);
+
+  return (
+    <motion.button
+      className={`project-showcase-item${isActive ? " is-active" : ""}${isFocused ? " is-focused" : ""}${isSuppressed ? " is-suppressed" : ""}`}
+      type="button"
+      aria-label={`查看项目：${item.title}`}
+      aria-pressed={isActive}
+      aria-expanded={isFocused}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      onClick={onClick}
+      style={reduceMotion ? undefined : {
+        opacity,
+        y,
+        x,
+        scale,
+        rotateZ,
+        transformPerspective: 1200,
+        transformOrigin: "center bottom",
+      }}
+    >
+      <span className="project-showcase-art">
+        <img src={item.image} alt={item.alt} loading="lazy" decoding="async" />
+        <span className="project-showcase-art-shade" aria-hidden="true" />
+        <span className="project-showcase-backdrop" aria-hidden="true">{item.backdrop}</span>
+      </span>
+      <span className="project-showcase-index">{item.index}</span>
+      <span className="project-showcase-meta">
+        <strong>{item.title}</strong>
+        <em>{item.english}</em>
+        <span>
+          {item.category}
+          <small>{item.categoryEnglish}</small>
+        </span>
+        <b>{item.year}</b>
+      </span>
+    </motion.button>
+  );
+}
+
 function ProjectShowcase({
   sectionRef,
   entryProgress,
@@ -1782,16 +1888,19 @@ function ProjectShowcase({
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
   const displayIndex = hoveredIndex ?? focusedIndex ?? activeIndex;
-  const panelOpacity = useTransform(entryProgress, [0, 0.12, 0.48, 1], [0, 0.18, 0.94, 1]);
-  const panelY = useTransform(entryProgress, [0, 0.78, 1], [isMobile ? 64 : 132, 0, 0]);
-  const panelScale = useTransform(entryProgress, [0, 1], [isMobile ? 0.975 : 0.94, 1]);
-  const panelRotateX = useTransform(entryProgress, [0, 1], [isMobile ? 2.2 : 6.5, 0]);
-  const panelPointerEvents = useTransform(entryProgress, (progress) => progress > 0.3 ? "auto" : "none");
-  const headingOpacity = useTransform(entryProgress, [0.14, 0.42, 0.68], [0, 0.55, 1]);
-  const headingX = useTransform(entryProgress, [0.12, 0.72], [isMobile ? -28 : -78, 0]);
-  const trackOpacity = useTransform(entryProgress, [0.2, 0.48, 0.8], [0, 0.62, 1]);
-  const trackX = useTransform(entryProgress, [0.18, 0.82], [isMobile ? 46 : 138, 0]);
-  const trackScale = useTransform(entryProgress, [0.18, 0.86], [0.965, 1]);
+  const panelOpacity = useTransform(entryProgress, [0, 0.1, 0.42, 1], [0, 0.12, 0.96, 1]);
+  const panelY = useTransform(entryProgress, [0, 0.76, 1], [isMobile ? 112 : 238, -8, 0]);
+  const panelScale = useTransform(entryProgress, [0, 0.78, 1], [isMobile ? 0.95 : 0.88, 1.008, 1]);
+  const panelRotateX = useTransform(entryProgress, [0, 0.78, 1], [isMobile ? 4.5 : 11, -0.7, 0]);
+  const panelPointerEvents = useTransform(entryProgress, (progress) => progress > 0.42 ? "auto" : "none");
+  const headingOpacity = useTransform(entryProgress, [0.08, 0.32, 0.62], [0, 0.68, 1]);
+  const headingX = useTransform(entryProgress, [0.06, 0.7, 1], [isMobile ? -64 : -186, 10, 0]);
+  const headingRotateZ = useTransform(entryProgress, [0.06, 0.72, 1], [isMobile ? -1.8 : -4.2, 0.3, 0]);
+  const trackOpacity = useTransform(entryProgress, [0.08, 0.3, 0.72], [0, 0.74, 1]);
+  const trackX = useTransform(entryProgress, [0.08, 0.74, 1], [isMobile ? 82 : 246, -12, 0]);
+  const trackScale = useTransform(entryProgress, [0.08, 0.78, 1], [isMobile ? 0.94 : 0.86, 1.012, 1]);
+  const entryEdgeOpacity = useTransform(entryProgress, [0.02, 0.12, 0.72, 0.92], [0, 1, 0.7, 0]);
+  const entryEdgeScaleX = useTransform(entryProgress, [0.02, 0.58, 1], [0.025, 1, 1]);
 
   return (
     <motion.section
@@ -1808,12 +1917,19 @@ function ProjectShowcase({
         pointerEvents: panelPointerEvents,
       }}
     >
+      {!reduceMotion ? (
+        <motion.span
+          className="project-showcase-entry-edge"
+          aria-hidden="true"
+          style={{ opacity: entryEdgeOpacity, scaleX: entryEdgeScaleX }}
+        />
+      ) : null}
       <motion.div
         className="project-showcase-frame"
       >
         <motion.header
           className="project-showcase-heading"
-          style={reduceMotion ? undefined : { opacity: headingOpacity, x: headingX }}
+          style={reduceMotion ? undefined : { opacity: headingOpacity, x: headingX, rotateZ: headingRotateZ }}
         >
           <span className="project-showcase-kicker">
             <i aria-hidden="true" />
@@ -1834,37 +1950,18 @@ function ProjectShowcase({
           style={reduceMotion ? undefined : { opacity: trackOpacity, x: trackX, scale: trackScale }}
         >
           {projectShowcaseItems.map((item, index) => (
-            <motion.button
-              className={`project-showcase-item${activeIndex === index ? " is-active" : ""}${displayIndex === index ? " is-focused" : ""}${displayIndex !== null && displayIndex !== index ? " is-suppressed" : ""}`}
-              type="button"
+            <ProjectShowcaseCard
               key={item.index}
-              aria-label={`查看项目：${item.title}`}
-              aria-pressed={activeIndex === index}
-              aria-expanded={displayIndex === index}
+              item={item}
+              index={index}
+              entryProgress={entryProgress}
+              isActive={activeIndex === index}
+              isFocused={displayIndex === index}
+              isSuppressed={displayIndex !== null && displayIndex !== index}
               onFocus={() => setFocusedIndex(index)}
               onBlur={() => setFocusedIndex(null)}
               onClick={() => setActiveIndex((current) => current === index ? null : index)}
-              initial={reduceMotion ? false : { opacity: 0, y: 28 }}
-              whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.22 }}
-              transition={{ duration: 0.64, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <span className="project-showcase-art">
-                <img src={item.image} alt={item.alt} loading="lazy" decoding="async" />
-                <span className="project-showcase-art-shade" aria-hidden="true" />
-                <span className="project-showcase-backdrop" aria-hidden="true">{item.backdrop}</span>
-              </span>
-              <span className="project-showcase-index">{item.index}</span>
-              <span className="project-showcase-meta">
-                <strong>{item.title}</strong>
-                <em>{item.english}</em>
-                <span>
-                  {item.category}
-                  <small>{item.categoryEnglish}</small>
-                </span>
-                <b>{item.year}</b>
-              </span>
-            </motion.button>
+            />
           ))}
           <div
             className="project-showcase-hit-zones"
