@@ -980,22 +980,20 @@ function SelectedWorks({
     [isMobileGallery ? 0.965 : 0.935, 0.96, 0.994, 1],
   );
   const worksEntryRotateX = useTransform(handoffProgress, [0, 0.58, 1], [isMobileGallery ? 2.5 : 5.5, 1.2, 0]);
-  const worksExitOpacity = useTransform(exitProgress, [0, 0.38, 0.82, 1], [1, 1, 0.66, 0]);
   const worksExitY = useTransform(
     exitProgress,
-    [0, 0.34, 1],
-    [0, -12, isMobileGallery ? -92 : isTabletGallery ? -142 : -206],
+    [0, 0.28, 0.76, 1],
+    [0, 0, isMobileGallery ? -18 : -28, isMobileGallery ? -34 : isTabletGallery ? -46 : -58],
   );
-  const worksExitScale = useTransform(
+  const worksExitScaleY = useTransform(exitProgress, [0, 0.22, 0.78, 1], [1, 1, 0.36, 0.06]);
+  const worksExitRotateX = useTransform(
     exitProgress,
-    [0, 0.38, 1],
-    [1, 0.992, isMobileGallery ? 0.9 : isTabletGallery ? 0.85 : 0.8],
+    [0, 0.22, 0.76, 1],
+    [0, -0.6, isMobileGallery ? -6 : -8, isMobileGallery ? -10 : -14],
   );
-  const worksExitRotateX = useTransform(exitProgress, [0, 0.34, 1], [0, -0.8, isMobileGallery ? -6 : -12]);
-  const worksExitSkewX = useTransform(exitProgress, [0, 0.5, 1], [0, -0.35, isMobileGallery ? -0.9 : -2.2]);
-  const worksOpacity = useTransform(() => worksEntryOpacity.get() * worksExitOpacity.get());
+  const worksOpacity = worksEntryOpacity;
   const worksY = useTransform(() => worksEntryY.get() + worksExitY.get());
-  const worksScale = useTransform(() => worksEntryScale.get() * worksExitScale.get());
+  const worksScaleY = useTransform(() => worksEntryScale.get() * worksExitScaleY.get());
   const worksRotateX = useTransform(() => worksEntryRotateX.get() + worksExitRotateX.get());
   const worksPointerEvents = useTransform(() => (
     handoffProgress.get() > 0.36 && exitProgress.get() < 0.58 ? "auto" : "none"
@@ -1332,10 +1330,9 @@ function SelectedWorks({
         style={reduceMotion ? undefined : {
           opacity: worksOpacity,
           y: worksY,
-          scale: worksScale,
+          scaleX: worksEntryScale,
+          scaleY: worksScaleY,
           rotateX: worksRotateX,
-          skewX: worksExitSkewX,
-          transformPerspective: 1400,
           pointerEvents: worksPointerEvents,
         }}
       >
@@ -1863,7 +1860,7 @@ function ProjectShowcase({
   const displayIndex = hoveredIndex ?? focusedIndex ?? activeIndex;
   const panelOpacity = useTransform(entryProgress, [0, 0.1, 0.42, 1], [0, 0.12, 0.96, 1]);
   const panelY = useTransform(entryProgress, [0, 0.76, 1], [isMobile ? 112 : 238, -8, 0]);
-  const panelScale = useTransform(entryProgress, [0, 0.78, 1], [isMobile ? 0.95 : 0.88, 1.008, 1]);
+  const panelScaleY = useTransform(entryProgress, [0, 0.78, 1], [isMobile ? 0.95 : 0.88, 1.008, 1]);
   const panelRotateX = useTransform(entryProgress, [0, 0.78, 1], [isMobile ? 4.5 : 11, -0.7, 0]);
   const panelPointerEvents = useTransform(entryProgress, (progress) => progress > 0.42 ? "auto" : "none");
   const headingOpacity = useTransform(entryProgress, [0.26, 0.44, 0.68], [0, 0.62, 1]);
@@ -1884,9 +1881,8 @@ function ProjectShowcase({
       style={reduceMotion ? undefined : {
         opacity: panelOpacity,
         y: panelY,
-        scale: panelScale,
+        scaleY: panelScaleY,
         rotateX: panelRotateX,
-        transformPerspective: 1500,
         pointerEvents: panelPointerEvents,
       }}
     >
