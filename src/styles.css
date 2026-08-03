@@ -1791,8 +1791,8 @@ video {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(90deg, rgba(7, 7, 7, 0.95) 0%, rgba(7, 7, 7, 0.7) 42%, rgba(7, 7, 7, 0.42) 70%, rgba(7, 7, 7, 0.82) 100%),
-    linear-gradient(180deg, rgba(7, 7, 7, 0.2), rgba(7, 7, 7, 0.88));
+    linear-gradient(90deg, rgba(7, 7, 7, 0.96) 0%, rgba(7, 7, 7, 0.78) 33%, rgba(7, 7, 7, 0.2) 66%, rgba(7, 7, 7, 0.52) 100%),
+    linear-gradient(180deg, rgba(7, 7, 7, 0.08), rgba(7, 7, 7, 0.62));
 }
 
 .category-transition::after {
@@ -1814,7 +1814,7 @@ video {
   height: 108%;
   max-width: none;
   object-fit: cover;
-  filter: grayscale(0.72) saturate(0.55) contrast(1.08) blur(4px);
+  filter: grayscale(0.08) saturate(0.88) contrast(1.08);
   will-change: transform, opacity;
 }
 
@@ -1823,7 +1823,7 @@ video {
   z-index: 2;
   display: grid;
   gap: clamp(12px, 1.4vw, 24px);
-  width: min(1200px, 82vw);
+  width: min(1200px, 86vw);
   margin: 6dvh auto 0;
   justify-items: start;
   text-align: left;

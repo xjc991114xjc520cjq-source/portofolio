@@ -108,11 +108,11 @@ const projectShowcaseItems = [
     index: "05",
     title: "以太网格",
     english: "AETHER GRID",
-    category: "数字体验",
-    categoryEnglish: "DIGITAL EXPERIENCE",
+    category: "技术创新",
+    categoryEnglish: "TECHNOLOGY INNOVATION",
     year: "2026",
     image: "/assets/project-showcase-aether-grid.webp",
-    alt: "以太网格暗场建筑数字体验",
+    alt: "以太网格暗场技术创新视觉",
     backdrop: "AETHER",
   },
 ] as const;
@@ -148,6 +148,7 @@ type WorkCategory = {
   english: string;
   index: string;
   background: string;
+  transitionImage: string;
   works: WorkItem[];
 };
 
@@ -158,6 +159,7 @@ const workCategories: WorkCategory[] = [
     english: "Brand Identity",
     index: "01",
     background: unsplashImage("1494438639946-1ebd1d20bf85"),
+    transitionImage: "/assets/category-transitions/brand-identity.webp",
     works: [
       { id: "brand-01", title: "识别系统", year: "2024", image: unsplashImage("1494438639946-1ebd1d20bf85"), alt: "现代品牌空间与陈设" },
       { id: "brand-02", title: "空间延展", year: "2024", image: unsplashImage("1484101403633-562f891dc89a"), alt: "现代室内空间摄影" },
@@ -172,6 +174,7 @@ const workCategories: WorkCategory[] = [
     english: "Commerce Visuals",
     index: "02",
     background: unsplashImage("1523275335684-37898b6baf30"),
+    transitionImage: "/assets/category-transitions/commerce-visuals.webp",
     works: [
       {
         id: "commerce-andersen",
@@ -196,6 +199,7 @@ const workCategories: WorkCategory[] = [
     english: "Packaging Design",
     index: "03",
     background: unsplashImage("1547891654-e66ed7ebb968"),
+    transitionImage: "/assets/category-transitions/packaging-design.webp",
     works: [
       { id: "packaging-01", title: "结构与触感", year: "2024", image: unsplashImage("1547891654-e66ed7ebb968"), alt: "极简产品包装摄影" },
       { id: "packaging-02", title: "系列包装", year: "2024", image: unsplashImage("1513364776144-60967b0f800f"), alt: "色彩与材质艺术摄影" },
@@ -210,6 +214,7 @@ const workCategories: WorkCategory[] = [
     english: "Editorial & Poster",
     index: "04",
     background: unsplashImage("1529139574466-a303027c1d8b"),
+    transitionImage: "/assets/category-transitions/editorial-poster.webp",
     works: [
       { id: "editorial-01", title: "造型研究", year: "2024", image: unsplashImage("1529139574466-a303027c1d8b"), alt: "时尚造型编辑摄影" },
       { id: "editorial-02", title: "版面节奏", year: "2024", image: unsplashImage("1515886657613-9f3515b0c78f"), alt: "街头时尚人物摄影" },
@@ -219,11 +224,12 @@ const workCategories: WorkCategory[] = [
     ],
   },
   {
-    id: "digital",
-    label: "数字体验",
-    english: "Digital Experience",
+    id: "technology",
+    label: "技术创新",
+    english: "Technology Innovation",
     index: "05",
     background: unsplashImage("1561070791-2526d30994b5"),
+    transitionImage: "/assets/category-transitions/technology-innovation.webp",
     works: [
       { id: "digital-01", title: "移动界面", year: "2024", image: unsplashImage("1561070791-2526d30994b5"), alt: "移动端界面设计工作场景" },
       { id: "digital-02", title: "交互原型", year: "2024", image: unsplashImage("1516321318423-f06f85e504b3"), alt: "笔记本电脑交互设计场景" },
@@ -1087,6 +1093,13 @@ function SelectedWorks({
 
   useDocumentScrollLock(Boolean(expandedWork) || Boolean(categoryTransition));
 
+  useEffect(() => {
+    workCategories.forEach((item) => {
+      const transitionImage = new Image();
+      transitionImage.src = item.transitionImage;
+    });
+  }, []);
+
   useMotionValueEvent(galleryTrack, "change", (track) => {
     const nextWorkIndex = ((-Math.round(track) % category.works.length) + category.works.length) % category.works.length;
     if (nextWorkIndex === workIndexRef.current) return;
@@ -1588,14 +1601,14 @@ function SelectedWorks({
             >
               <motion.img
                 className="category-transition-media"
-                src={nextCategory.background}
+                src={nextCategory.transitionImage}
                 alt=""
                 aria-hidden="true"
                 loading="eager"
                 decoding="async"
                 initial={{ opacity: 0, scale: 1.08 }}
                 animate={{
-                  opacity: categoryTransition.phase === "cover" ? 0.54 : 0.28,
+                  opacity: categoryTransition.phase === "cover" ? 0.9 : 0.56,
                   scale: categoryTransition.phase === "cover" ? 1.015 : 1.07,
                 }}
                 transition={{ duration: 0.76, ease: [0.16, 1, 0.3, 1] }}
