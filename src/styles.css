@@ -968,7 +968,7 @@ video {
   background: #090909;
   box-shadow: 0 -24px 70px rgba(0, 0, 0, 0.38);
   isolation: isolate;
-  transform-origin: center bottom;
+  transform-origin: center top;
   will-change: transform, opacity;
 }
 

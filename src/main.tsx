@@ -983,20 +983,25 @@ function SelectedWorks({
   const worksEntryRotateX = useTransform(handoffProgress, [0, 0.58, 1], [isMobileGallery ? 2.5 : 5.5, 1.2, 0]);
   const worksExitY = useTransform(
     exitProgress,
-    [0, 0.18, 0.45, 0.72, 1],
+    [0, 0.18, 0.5, 0.72, 0.86, 1],
     [
       0,
       0,
-      isMobileGallery ? -6 : -8,
-      isMobileGallery ? -72 : isTabletGallery ? -90 : -110,
-      isMobileGallery ? -160 : isTabletGallery ? -210 : -260,
+      isMobileGallery ? -2 : -3,
+      isMobileGallery ? -8 : isTabletGallery ? -10 : -12,
+      isMobileGallery ? -38 : isTabletGallery ? -48 : -60,
+      isMobileGallery ? -92 : isTabletGallery ? -116 : -140,
     ],
   );
-  const worksExitScaleY = useTransform(exitProgress, [0, 0.18, 0.44, 0.72, 1], [1, 1, 0.92, 0.56, 0.12]);
+  const worksExitScaleY = useTransform(
+    exitProgress,
+    [0, 0.18, 0.5, 0.72, 0.86, 1],
+    [1, 1, 0.98, 0.88, 0.58, 0.12],
+  );
   const worksExitRotateX = useTransform(
     exitProgress,
-    [0, 0.18, 0.48, 0.78, 1],
-    [0, 0, -1.5, isMobileGallery ? -4 : -5, isMobileGallery ? -8 : -10],
+    [0, 0.18, 0.48, 0.72, 0.88, 1],
+    [0, 0, 1, isMobileGallery ? 2.5 : 3, isMobileGallery ? 6 : 7, isMobileGallery ? 8 : 10],
   );
   const worksExitOpacity = useTransform(exitProgress, [0, 0.52, 0.76, 0.92, 1], [1, 1, 0.92, 0.3, 0]);
   const worksExitFilter = useTransform(
@@ -1031,7 +1036,7 @@ function SelectedWorks({
   const galleryRotateZIn = useTransform(handoffProgress, [0.08, 0.54, 1], [isMobileGallery ? -0.5 : -1.15, -0.2, 0]);
   const galleryFoldY = useTransform(exitProgress, [0, 0.22, 0.7, 1], [0, 0, isMobileGallery ? -12 : -18, isMobileGallery ? -22 : -32]);
   const galleryFoldScale = useTransform(exitProgress, [0, 0.2, 0.68, 1], [1, 1, 0.94, 0.88]);
-  const galleryFoldRotateX = useTransform(exitProgress, [0, 0.24, 0.72, 1], [0, 0, -2, -4]);
+  const galleryFoldRotateX = useTransform(exitProgress, [0, 0.24, 0.72, 1], [0, 0, 2, 4]);
   const galleryY = useTransform(() => galleryYIn.get() + galleryFoldY.get());
   const galleryScale = useTransform(() => galleryScaleIn.get() * galleryFoldScale.get());
   const galleryRotateX = useTransform(() => galleryRotateXIn.get() + galleryFoldRotateX.get());
