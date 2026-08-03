@@ -928,18 +928,16 @@ function WorkViewer({
 
 function WorksExitBlade({ progress, index }: { progress: MotionValue<number>; index: number }) {
   const start = 0.08 + index * 0.045;
-  const settle = 0.54 + index * 0.035;
-  const y = useTransform(progress, [start, settle, 1], ["112%", "0%", "-9%"]);
-  const opacity = useTransform(progress, [start, start + 0.08, 0.88, 1], [0, 1, 1, 0]);
-  const scaleY = useTransform(progress, [start, settle], [0.1, 1]);
+  const settle = 0.46 + index * 0.03;
+  const y = useTransform(progress, [start, settle, 0.8], ["104%", "0%", "-4%"]);
+  const opacity = useTransform(progress, [start, start + 0.1, 0.66, 0.8], [0, 0.62, 0.62, 0]);
 
   return (
     <motion.span
       style={{
         y,
         opacity,
-        scaleY,
-        transformOrigin: index % 2 === 0 ? "bottom" : "top",
+        transformOrigin: "bottom",
         "--blade-index": index,
       } as React.CSSProperties}
     />
@@ -1893,9 +1891,9 @@ function ProjectShowcase({
   const panelScale = useTransform(entryProgress, [0, 0.78, 1], [isMobile ? 0.95 : 0.88, 1.008, 1]);
   const panelRotateX = useTransform(entryProgress, [0, 0.78, 1], [isMobile ? 4.5 : 11, -0.7, 0]);
   const panelPointerEvents = useTransform(entryProgress, (progress) => progress > 0.42 ? "auto" : "none");
-  const headingOpacity = useTransform(entryProgress, [0.08, 0.32, 0.62], [0, 0.68, 1]);
-  const headingX = useTransform(entryProgress, [0.06, 0.7, 1], [isMobile ? -64 : -186, 10, 0]);
-  const headingRotateZ = useTransform(entryProgress, [0.06, 0.72, 1], [isMobile ? -1.8 : -4.2, 0.3, 0]);
+  const headingOpacity = useTransform(entryProgress, [0.26, 0.44, 0.68], [0, 0.62, 1]);
+  const headingX = useTransform(entryProgress, [0.22, 0.72, 1], [isMobile ? -42 : -112, 8, 0]);
+  const headingRotateZ = useTransform(entryProgress, [0.22, 0.72, 1], [isMobile ? -1.2 : -2.6, 0.24, 0]);
   const trackOpacity = useTransform(entryProgress, [0.08, 0.3, 0.72], [0, 0.74, 1]);
   const trackX = useTransform(entryProgress, [0.08, 0.74, 1], [isMobile ? 82 : 246, -12, 0]);
   const trackScale = useTransform(entryProgress, [0.08, 0.78, 1], [isMobile ? 0.94 : 0.86, 1.012, 1]);
