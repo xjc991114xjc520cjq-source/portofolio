@@ -2210,7 +2210,7 @@ video {
   z-index: 2;
   min-height: 130dvh;
   margin-top: -100dvh;
-  overflow: hidden;
+  overflow: clip;
   transform-origin: center bottom;
   border-top: 1px solid rgba(255, 255, 255, 0.09);
   background:
