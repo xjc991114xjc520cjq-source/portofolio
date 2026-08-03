@@ -1,37 +1,27 @@
-# 谢敬淳个人作品集
+# 谢敬淳｜视觉设计师
 
-React + Vite portfolio starter for a visual / AI / brand designer.
+基于 React、TypeScript、Vite 与 Motion 构建的个人视觉设计作品集。
 
 ## Run
 
 ```bash
 pnpm install
+pnpm dev
+pnpm typecheck
 pnpm build
 pnpm preview
 ```
 
-In this Codex workspace, the verified preview is available at:
+本地生产预览默认地址：
 
 ```text
 http://127.0.0.1:4173/
 ```
 
-## Replace Assets
+## 项目结构
 
-Project images and portrait assets live in:
+- `src/main.tsx`：页面内容、组件与交互逻辑
+- `src/styles.css`：全站视觉系统与响应式样式
+- `public/assets/`：运行时图片、字体与视频资源
 
-```text
-public/assets/
-```
-
-The current project images are polished placeholders generated for the first runnable version. Replace them with real portfolio screenshots later while keeping the same filenames, or update the image paths in `src/main.jsx`.
-
-## Hero Video
-
-The Hero keeps a video background layer plus animated visual fallback for local preview stability. When a real background video is ready, place it at:
-
-```text
-public/assets/hero-video.mp4
-```
-
-Then add a `<source src="/assets/hero-video.mp4" type="video/mp4" />` inside the Hero `<video>` element in `src/main.jsx`.
+替换作品资源时可保持现有文件名，或同步更新 `src/main.tsx` 中的资源路径。

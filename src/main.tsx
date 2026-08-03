@@ -1,4 +1,16 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import {
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type KeyboardEvent,
+  type MouseEvent,
+  type PointerEvent,
+  type RefObject,
+  type SyntheticEvent,
+  type WheelEvent,
+} from "react";
 import { createPortal } from "react-dom";
 import { createRoot } from "react-dom/client";
 import { AnimatePresence, animate, motion, useMotionValue, useMotionValueEvent, useReducedMotion, useScroll, useSpring, useTransform, type MotionValue } from "motion/react";
@@ -86,14 +98,6 @@ const projectShowcaseItems = [
 // Keep the selected photography inside the deploy so the gallery never depends
 // on an overseas image host at viewing time.
 const unsplashImage = (id: string) => `/assets/work-photos/${id}.webp`;
-
-const imageAtWidth = (source: string, width: number) => source.includes("images.unsplash.com")
-  ? source.replace(/([?&])w=\d+/, `$1w=${width}`)
-  : source;
-
-const imageSrcSet = (source: string, widths: number[]) => source.includes("images.unsplash.com")
-  ? widths.map((width) => `${imageAtWidth(source, width)} ${width}w`).join(", ")
-  : undefined;
 
 type WorkThumbnailMode = "cover" | "contain" | "long" | "wide";
 
@@ -267,7 +271,7 @@ function HeroMedia({ item, index }: { item: (typeof heroMedia)[number]; index: n
     "--enter-delay": `${0.18 + index * 0.045}s`,
     "--float-x": `${index % 2 ? -7 : 8}px`,
     "--float-y": `${index % 3 ? -9 : 7}px`,
-  } as React.CSSProperties;
+  } as CSSProperties;
 
   return (
     <div className={`media-flight stream-${item.stream} depth-${item.depth}${item.mobileHidden ? " mobile-hidden" : ""}`} style={style}>
@@ -292,6 +296,7 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
   useEffect(() => {
     const start = performance.now();
     let frame = 0;
+    let completionTimer = 0;
 
     const tick = (now: number) => {
       const progress = Math.min(1, (now - start) / 900);
@@ -299,12 +304,15 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
       if (progress < 1) {
         frame = requestAnimationFrame(tick);
       } else {
-        window.setTimeout(onComplete, 90);
+        completionTimer = window.setTimeout(onComplete, 90);
       }
     };
 
     frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.clearTimeout(completionTimer);
+    };
   }, [onComplete]);
 
   return (
@@ -320,7 +328,7 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
 }
 
 function Nav() {
-  const returnHome = (event: React.MouseEvent<HTMLAnchorElement>) => {
+  const returnHome = (event: MouseEvent<HTMLAnchorElement>) => {
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
     window.history.replaceState(null, "", "#top");
@@ -352,6 +360,8 @@ function Hero() {
   const sceneRef = useRef<HTMLDivElement>(null);
   const spaceRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const pointerFrameRef = useRef<number | null>(null);
+  const pointerTargetRef = useRef({ x: 0, y: 0 });
   const reduceMotion = useReducedMotion();
   const [motionEnabled, setMotionEnabled] = useState(true);
   const [heroVisible, setHeroVisible] = useState(true);
@@ -390,35 +400,47 @@ function Hero() {
     return () => observer.disconnect();
   }, []);
 
-  const movePhotoSpace = (event: React.PointerEvent<HTMLElement>) => {
+  const writePhotoSpace = (x: number, y: number) => {
+    const space = spaceRef.current;
+    if (!space) return;
+    space.style.setProperty("--pointer-x", `${x * 8}px`);
+    space.style.setProperty("--pointer-y", `${y * 6}px`);
+    space.style.setProperty("--pointer-rx", `${y * -3}deg`);
+    space.style.setProperty("--pointer-ry", `${x * 3.5}deg`);
+    space.style.setProperty("--mid-x", `${x * 4}px`);
+    space.style.setProperty("--mid-y", `${y * 3}px`);
+    space.style.setProperty("--far-x", `${x * 2}px`);
+    space.style.setProperty("--far-y", `${y * 1.5}px`);
+  };
+
+  const movePhotoSpace = (event: PointerEvent<HTMLElement>) => {
     if (!motionActive || !spaceRef.current) return;
     const rect = event.currentTarget.getBoundingClientRect();
-    const x = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
-    const y = ((event.clientY - rect.top) / rect.height - 0.5) * 2;
-    spaceRef.current.style.setProperty("--pointer-x", `${x * 8}px`);
-    spaceRef.current.style.setProperty("--pointer-y", `${y * 6}px`);
-    spaceRef.current.style.setProperty("--pointer-rx", `${y * -3}deg`);
-    spaceRef.current.style.setProperty("--pointer-ry", `${x * 3.5}deg`);
-    spaceRef.current.style.setProperty("--near-x", `${x * 8}px`);
-    spaceRef.current.style.setProperty("--near-y", `${y * 6}px`);
-    spaceRef.current.style.setProperty("--mid-x", `${x * 4}px`);
-    spaceRef.current.style.setProperty("--mid-y", `${y * 3}px`);
-    spaceRef.current.style.setProperty("--far-x", `${x * 2}px`);
-    spaceRef.current.style.setProperty("--far-y", `${y * 1.5}px`);
+    pointerTargetRef.current = {
+      x: ((event.clientX - rect.left) / rect.width - 0.5) * 2,
+      y: ((event.clientY - rect.top) / rect.height - 0.5) * 2,
+    };
+    if (pointerFrameRef.current !== null) return;
+    pointerFrameRef.current = requestAnimationFrame(() => {
+      pointerFrameRef.current = null;
+      writePhotoSpace(pointerTargetRef.current.x, pointerTargetRef.current.y);
+    });
   };
 
   const resetPhotoSpace = () => {
-    spaceRef.current?.style.setProperty("--pointer-x", "0px");
-    spaceRef.current?.style.setProperty("--pointer-y", "0px");
-    spaceRef.current?.style.setProperty("--pointer-rx", "0deg");
-    spaceRef.current?.style.setProperty("--pointer-ry", "0deg");
-    spaceRef.current?.style.setProperty("--near-x", "0px");
-    spaceRef.current?.style.setProperty("--near-y", "0px");
-    spaceRef.current?.style.setProperty("--mid-x", "0px");
-    spaceRef.current?.style.setProperty("--mid-y", "0px");
-    spaceRef.current?.style.setProperty("--far-x", "0px");
-    spaceRef.current?.style.setProperty("--far-y", "0px");
+    if (pointerFrameRef.current !== null) cancelAnimationFrame(pointerFrameRef.current);
+    pointerFrameRef.current = null;
+    pointerTargetRef.current = { x: 0, y: 0 };
+    writePhotoSpace(0, 0);
   };
+
+  useEffect(() => () => {
+    if (pointerFrameRef.current !== null) cancelAnimationFrame(pointerFrameRef.current);
+  }, []);
+
+  useEffect(() => {
+    if (!motionActive) resetPhotoSpace();
+  }, [motionActive]);
 
   return (
     <div className="hero-scene" id="top" ref={sceneRef}>
@@ -470,16 +492,16 @@ function Hero() {
             <span className="title-glyph title-glyph-d" data-letter="D" aria-hidden="true">D</span>
             <span className="title-glyph title-glyph-w" data-letter="W" aria-hidden="true">W</span>
           </h1>
-          <div className="hero-title-index blur-in" aria-label="精选设计作品，品牌、数字体验与动态视觉，2021 至 2026">
+          <div className="hero-title-index blur-in" aria-label="精选设计作品，品牌、商业视觉与技术创新，2021 至 2026">
             <span><b>01</b> SELECTED WORKS</span>
             <i aria-hidden="true" />
-            <span>BRAND · DIGITAL · MOTION</span>
+            <span>BRAND · COMMERCE · TECHNOLOGY</span>
             <i aria-hidden="true" />
             <span>2021-2026</span>
           </div>
           <p className="hero-desc blur-in">
             <strong>视觉设计 / 品牌系统 / AIGC 视觉</strong>
-            <span>以策略为起点，构建从品牌识别、视觉叙事到数字体验的完整设计作品。</span>
+            <span>以策略为起点，构建从品牌识别、视觉叙事到技术创新的完整设计作品。</span>
           </p>
         </motion.div>
         <motion.div className="hero-controls" style={motionActive ? { opacity: centerOpacity } : undefined}>
@@ -620,9 +642,7 @@ function GalleryCard({
       <div className="gallery-card-body">
         <figure className="gallery-card-surface">
           <img
-            src={imageAtWidth(thumbnailSource, 1200)}
-            srcSet={imageSrcSet(thumbnailSource, [640, 900, 1200])}
-            sizes="(max-width: 720px) 70vw, (max-width: 980px) 52vw, 470px"
+            src={thumbnailSource}
             alt={work.alt}
             loading="lazy"
             decoding="async"
@@ -676,7 +696,7 @@ function WorkViewer({
   const detectedRatio = imageSize.height > 0 ? imageSize.width / imageSize.height : 1;
   const isLong = work.thumbnailMode === "long" || detectedRatio < 0.52;
   const canPan = viewerMode === "fit" && zoomLevel > 1.01;
-  const thumbnailSource = work.thumbnail ?? imageAtWidth(work.image, 1200);
+  const thumbnailSource = work.thumbnail ?? work.image;
 
   const requestClose = () => {
     if (viewerRef.current) viewerRef.current.style.pointerEvents = "none";
@@ -712,7 +732,7 @@ function WorkViewer({
     viewerRef.current?.focus({ preventScroll: true });
   }, []);
 
-  const handleImageLoad = (event: React.SyntheticEvent<HTMLImageElement>) => {
+  const handleImageLoad = (event: SyntheticEvent<HTMLImageElement>) => {
     const { naturalWidth: width, naturalHeight: height } = event.currentTarget;
     setImageSize({ width, height });
     setImageLoaded(true);
@@ -721,13 +741,13 @@ function WorkViewer({
     }
   };
 
-  const handleWheel = (event: React.WheelEvent<HTMLDivElement>) => {
+  const handleWheel = (event: WheelEvent<HTMLDivElement>) => {
     if (viewerMode === "width" && !event.ctrlKey && !event.metaKey) return;
     event.preventDefault();
     applyZoom(zoom.get() * Math.exp(-event.deltaY * 0.0012));
   };
 
-  const jumpLongImage = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const jumpLongImage = (event: MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
     const scroller = scrollRef.current;
     if (!scroller) return;
@@ -739,7 +759,7 @@ function WorkViewer({
     });
   };
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     event.stopPropagation();
     if (event.key === "Escape") {
       event.preventDefault();
@@ -874,7 +894,7 @@ function WorkViewer({
         ) : viewerMode === "width" ? (
           <figure
             className={`viewer-long-canvas${imageLoaded ? " is-loaded" : ""}`}
-            style={{ "--viewer-width": `${zoomLevel * 100}%` } as React.CSSProperties}
+            style={{ "--viewer-width": `${zoomLevel * 100}%` } as CSSProperties}
           >
             <img
               src={work.image}
@@ -932,7 +952,7 @@ function SelectedWorks({
   handoffProgress,
   exitProgress,
 }: {
-  sectionRef: React.RefObject<HTMLElement>;
+  sectionRef: RefObject<HTMLElement>;
   handoffProgress: MotionValue<number>;
   exitProgress: MotionValue<number>;
 }) {
@@ -1209,7 +1229,7 @@ function SelectedWorks({
     setExpandedWork(category.works[nextIndex]);
   };
 
-  const startGalleryDrag = (event: React.PointerEvent<HTMLDivElement>) => {
+  const startGalleryDrag = (event: PointerEvent<HTMLDivElement>) => {
     if (reduceMotion || categoryTransition || !event.isPrimary || event.button !== 0) return;
     const interrupted = carouselAnimating.current || isCardTransitioning;
     gallerySnapAnimation.current?.stop();
@@ -1236,7 +1256,7 @@ function SelectedWorks({
     };
   };
 
-  const moveGalleryDrag = (event: React.PointerEvent<HTMLDivElement>) => {
+  const moveGalleryDrag = (event: PointerEvent<HTMLDivElement>) => {
     const session = galleryPointerSession.current;
     if (!session || session.pointerId !== event.pointerId) return;
     const offsetX = event.clientX - session.startX;
@@ -1264,7 +1284,7 @@ function SelectedWorks({
     session.lastTime = event.timeStamp;
   };
 
-  const finishGalleryDrag = (event: React.PointerEvent<HTMLDivElement>, cancelled = false) => {
+  const finishGalleryDrag = (event: PointerEvent<HTMLDivElement>, cancelled = false) => {
     const session = galleryPointerSession.current;
     if (!session || session.pointerId !== event.pointerId) return;
     galleryPointerSession.current = null;
@@ -1376,9 +1396,7 @@ function SelectedWorks({
               transition={{ duration: categoryTransition ? 0 : 0.7, ease: [0.16, 1, 0.3, 1] }}
             >
               <img
-                src={imageAtWidth(category.background, 1280)}
-                srcSet={imageSrcSet(category.background, [900, 1280, 1800])}
-                sizes="100vw"
+                src={category.background}
                 alt=""
                 loading="lazy"
                 decoding="async"
@@ -1715,7 +1733,7 @@ function Profile({ handoffProgress }: { handoffProgress: MotionValue<number> }) 
             <strong className="profile-intro-lead">以品牌策略为起点</strong>
             <span className="profile-intro-copy">
               <span>把概念转译为清晰、有记忆点的视觉系统，</span>
-              <span>持续探索平面、数字体验与生成式视觉之间的边界。</span>
+              <span>持续探索平面、技术创新与生成式视觉之间的边界。</span>
             </span>
           </p>
           <span className="profile-location">CHENGDU, CN / WORKING WORLDWIDE</span>
@@ -1834,7 +1852,7 @@ function ProjectShowcaseCard({
 
   return (
     <motion.button
-      className={`project-showcase-item${isActive ? " is-active" : ""}${isFocused ? " is-focused" : ""}${isSuppressed ? " is-suppressed" : ""}`}
+      className={`project-showcase-item${isFocused ? " is-focused" : ""}${isSuppressed ? " is-suppressed" : ""}`}
       type="button"
       aria-label={`查看项目：${item.title}`}
       aria-pressed={isActive}
@@ -1875,7 +1893,7 @@ function ProjectShowcase({
   sectionRef,
   entryProgress,
 }: {
-  sectionRef: React.RefObject<HTMLElement>;
+  sectionRef: RefObject<HTMLElement>;
   entryProgress: MotionValue<number>;
 }) {
   const reduceMotion = useReducedMotion();
