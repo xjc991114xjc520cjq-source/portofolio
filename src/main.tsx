@@ -926,24 +926,6 @@ function WorkViewer({
   );
 }
 
-function WorksExitBlade({ progress, index }: { progress: MotionValue<number>; index: number }) {
-  const start = 0.08 + index * 0.045;
-  const settle = 0.46 + index * 0.03;
-  const y = useTransform(progress, [start, settle, 0.8], ["104%", "0%", "-4%"]);
-  const opacity = useTransform(progress, [start, start + 0.1, 0.66, 0.8], [0, 0.62, 0.62, 0]);
-
-  return (
-    <motion.span
-      style={{
-        y,
-        opacity,
-        transformOrigin: "bottom",
-        "--blade-index": index,
-      } as React.CSSProperties}
-    />
-  );
-}
-
 function SelectedWorks({
   sectionRef,
   handoffProgress,
@@ -1384,13 +1366,6 @@ function SelectedWorks({
         </motion.div>
 
         <div className="works-grain" aria-hidden="true" />
-        {!reduceMotion ? (
-          <div className="works-exit-blades" aria-hidden="true">
-            {projectShowcaseItems.map((item, index) => (
-              <WorksExitBlade key={item.index} progress={exitProgress} index={index} />
-            ))}
-          </div>
-        ) : null}
         {!reduceMotion ? (
           <motion.div className="works-reveal-shutter" style={{ opacity: shutterOpacity }} aria-hidden="true">
             <motion.span className="works-reveal-panel works-reveal-panel-top" style={{ y: shutterTopY }} />
