@@ -200,7 +200,7 @@ video {
   min-width: 112%;
   min-height: 112%;
   transform-origin: center;
-  will-change: transform, opacity;
+  will-change: transform, opacity, filter;
 }
 
 .hero-shade {

@@ -1,7 +1,7 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { createRoot } from "react-dom/client";
-import { AnimatePresence, animate, motion, useMotionValue, useMotionValueEvent, useReducedMotion, useScroll, useTransform, type MotionValue } from "motion/react";
+import { AnimatePresence, animate, motion, useMotionValue, useMotionValueEvent, useReducedMotion, useScroll, useSpring, useTransform, type MotionValue } from "motion/react";
 import {
   ArrowLeft,
   ArrowRight,
@@ -17,6 +17,7 @@ import "./styles.css";
 
 const contactEmail = "1498224542@qq.com";
 const slowFastScrollEase = (progress: number) => progress ** 1.35;
+const softFoldScrollEase = (progress: number) => progress * progress * (3 - 2 * progress);
 
 const metrics = [
   { value: "4+", label: "年视觉设计经验" },
@@ -982,16 +983,28 @@ function SelectedWorks({
   const worksEntryRotateX = useTransform(handoffProgress, [0, 0.58, 1], [isMobileGallery ? 2.5 : 5.5, 1.2, 0]);
   const worksExitY = useTransform(
     exitProgress,
-    [0, 0.28, 0.76, 1],
-    [0, 0, isMobileGallery ? -18 : -28, isMobileGallery ? -34 : isTabletGallery ? -46 : -58],
+    [0, 0.18, 0.45, 0.72, 1],
+    [
+      0,
+      0,
+      isMobileGallery ? -6 : -8,
+      isMobileGallery ? -72 : isTabletGallery ? -90 : -110,
+      isMobileGallery ? -160 : isTabletGallery ? -210 : -260,
+    ],
   );
-  const worksExitScaleY = useTransform(exitProgress, [0, 0.22, 0.78, 1], [1, 1, 0.36, 0.06]);
+  const worksExitScaleY = useTransform(exitProgress, [0, 0.18, 0.44, 0.72, 1], [1, 1, 0.92, 0.56, 0.12]);
   const worksExitRotateX = useTransform(
     exitProgress,
-    [0, 0.22, 0.76, 1],
-    [0, -0.6, isMobileGallery ? -6 : -8, isMobileGallery ? -10 : -14],
+    [0, 0.18, 0.48, 0.78, 1],
+    [0, 0, -1.5, isMobileGallery ? -4 : -5, isMobileGallery ? -8 : -10],
   );
-  const worksOpacity = worksEntryOpacity;
+  const worksExitOpacity = useTransform(exitProgress, [0, 0.52, 0.76, 0.92, 1], [1, 1, 0.92, 0.3, 0]);
+  const worksExitFilter = useTransform(
+    exitProgress,
+    [0, 0.52, 0.78, 1],
+    ["blur(0px)", "blur(0px)", "blur(2.5px)", "blur(10px)"],
+  );
+  const worksOpacity = useTransform(() => worksEntryOpacity.get() * worksExitOpacity.get());
   const worksY = useTransform(() => worksEntryY.get() + worksExitY.get());
   const worksScaleY = useTransform(() => worksEntryScale.get() * worksExitScaleY.get());
   const worksRotateX = useTransform(() => worksEntryRotateX.get() + worksExitRotateX.get());
@@ -1016,6 +1029,12 @@ function SelectedWorks({
   const galleryScaleIn = useTransform(handoffProgress, [0.08, 0.38, 0.78, 1], [0.84, 0.9, 0.992, 1]);
   const galleryRotateXIn = useTransform(handoffProgress, [0.08, 0.52, 1], [isMobileGallery ? 5 : 10, 2.4, 0]);
   const galleryRotateZIn = useTransform(handoffProgress, [0.08, 0.54, 1], [isMobileGallery ? -0.5 : -1.15, -0.2, 0]);
+  const galleryFoldY = useTransform(exitProgress, [0, 0.22, 0.7, 1], [0, 0, isMobileGallery ? -12 : -18, isMobileGallery ? -22 : -32]);
+  const galleryFoldScale = useTransform(exitProgress, [0, 0.2, 0.68, 1], [1, 1, 0.94, 0.88]);
+  const galleryFoldRotateX = useTransform(exitProgress, [0, 0.24, 0.72, 1], [0, 0, -2, -4]);
+  const galleryY = useTransform(() => galleryYIn.get() + galleryFoldY.get());
+  const galleryScale = useTransform(() => galleryScaleIn.get() * galleryFoldScale.get());
+  const galleryRotateX = useTransform(() => galleryRotateXIn.get() + galleryFoldRotateX.get());
 
   const headingOpacityIn = useTransform(handoffProgress, [0.08, 0.2, 0.38], [0, 0.68, 1]);
   const headingXIn = useTransform(handoffProgress, [0.06, 0.6, 1], [isMobileGallery ? -42 : -156, 12, 0]);
@@ -1333,6 +1352,7 @@ function SelectedWorks({
           scaleX: worksEntryScale,
           scaleY: worksScaleY,
           rotateX: worksRotateX,
+          filter: worksExitFilter,
           pointerEvents: worksPointerEvents,
         }}
       >
@@ -1463,9 +1483,9 @@ function SelectedWorks({
           className="gallery-stage"
           style={reduceMotion ? undefined : {
             opacity: galleryOpacityIn,
-            y: galleryYIn,
-            scale: galleryScaleIn,
-            rotateX: galleryRotateXIn,
+            y: galleryY,
+            scale: galleryScale,
+            rotateX: galleryRotateX,
             rotateZ: galleryRotateZIn,
             transformPerspective: 1200,
           }}
@@ -1761,7 +1781,8 @@ function PortfolioSequence() {
     offset: ["start 92%", "start 22%"],
   });
   const handoffProgress = useTransform(worksEntryScroll, [0, 1], [0, 1], { ease: slowFastScrollEase });
-  const projectEntryProgress = useTransform(projectEntryScroll, [0, 1], [0, 1], { ease: slowFastScrollEase });
+  const projectEntryTarget = useTransform(projectEntryScroll, [0, 1], [0, 1], { ease: softFoldScrollEase });
+  const projectEntryProgress = useSpring(projectEntryTarget, { stiffness: 140, damping: 28, mass: 0.55 });
 
   return (
     <>
