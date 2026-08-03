@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { createRoot } from "react-dom/client";
 import { AnimatePresence, animate, motion, useMotionValue, useMotionValueEvent, useReducedMotion, useScroll, useTransform, type MotionValue } from "motion/react";
@@ -22,41 +22,6 @@ const metrics = [
   { value: "4+", label: "年视觉设计经验" },
   { value: "60%+", label: "小程序到店引流增长" },
   { value: "80%", label: "线上商城电商转型" },
-];
-
-const projects = [
-  {
-    title: "品牌 VI 升级系统",
-    category: "Brand Identity",
-    period: "2023",
-    image: "/assets/project-brand-vi.png",
-    summary: "从 logo、名片、宣传册到门店物料，建立统一且可执行的品牌视觉语言。",
-    span: "wide",
-  },
-  {
-    title: "电商小程序视觉美化",
-    category: "Digital Commerce",
-    period: "2022",
-    image: "/assets/project-commerce.png",
-    summary: "围绕节日、节气和促销节奏更新页面风格，支持小程序引流与商城转化。",
-    span: "tall",
-  },
-  {
-    title: "产品礼盒包装设计",
-    category: "Packaging",
-    period: "2022",
-    image: "/assets/project-packaging.png",
-    summary: "为水果礼盒与实体产品打造兼具货架识别度和品牌一致性的包装方案。",
-    span: "tall",
-  },
-  {
-    title: "展陈与营销物料设计",
-    category: "Campaign",
-    period: "2021",
-    image: "/assets/project-exhibition.png",
-    summary: "覆盖海报、展板、活动物料和门店平面，服务线上传播与线下转化。",
-    span: "wide",
-  },
 ];
 
 const projectShowcaseItems = [
@@ -318,25 +283,6 @@ function HeroMedia({ item, index }: { item: (typeof heroMedia)[number]; index: n
   );
 }
 
-const capabilities = [
-  {
-    title: "品牌系统",
-    text: "理解品牌识别、VI 手册、门店平面与商业物料之间的统一关系。",
-  },
-  {
-    title: "数字视觉",
-    text: "熟悉网页界面、电商页面、新媒体传播图与图标资产的视觉制作。",
-  },
-  {
-    title: "复合工具",
-    text: "掌握 Ps、Ai、Ae、3dmax，覆盖二维、三维与视频剪辑链路。",
-  },
-  {
-    title: "落地协作",
-    text: "了解印刷与制作流程，可与市场、销售、生产团队高效协作。",
-  },
-];
-
 function LoadingScreen({ onComplete }: { onComplete: () => void }) {
   const [count, setCount] = useState(0);
   const words = ["Design", "Create", "Inspire"];
@@ -560,27 +506,6 @@ function Hero() {
           </a>
         </motion.div>
         </section>
-    </div>
-  );
-}
-
-function SectionHeader({
-  eyebrow,
-  title,
-  text,
-}: {
-  eyebrow: string;
-  title: React.ReactNode;
-  text?: string;
-}) {
-  return (
-    <div className="section-header reveal">
-      <div className="section-kicker">
-        <i />
-        <span>{eyebrow}</span>
-      </div>
-      <h2>{title}</h2>
-      {text ? <p>{text}</p> : null}
     </div>
   );
 }
@@ -1906,86 +1831,6 @@ function ProjectShowcase() {
   );
 }
 
-function Journal() {
-  return (
-    <section className="journal shell">
-      <SectionHeader
-        eyebrow="Design Notes"
-        title={
-          <>
-            Project <em>logic</em>
-          </>
-        }
-        text="用横向条目压缩信息密度，避免重复的大段文字堆积。"
-      />
-      <div className="journal-list">
-        {projects.map((project, index) => (
-          <article className="journal-item reveal" key={project.title}>
-            <span>{String(index + 1).padStart(2, "0")}</span>
-            <img src={project.image} alt={project.title} loading="lazy" decoding="async" />
-            <div>
-              <h3>{project.title}</h3>
-              <p>{project.category} / {project.period}</p>
-            </div>
-            <small>{project.summary}</small>
-          </article>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function Explorations() {
-  const items = useMemo(() => [...projects, ...projects.slice(0, 2)], []);
-
-  return (
-    <section className="explorations">
-      <div className="explore-copy shell">
-        <div className="section-kicker">
-          <i />
-          <span>Explorations</span>
-        </div>
-        <h2>
-          Visual <em>playground</em>
-        </h2>
-        <p>作品图像在滚动中形成两列视差，强化从项目到能力的过渡。</p>
-      </div>
-      <div className="parallax-columns shell">
-        {items.map((project, index) => (
-          <figure className={`parallax-card card-${index + 1}`} key={`${project.title}-${index}`}>
-            <img src={project.image} alt={project.title} loading="lazy" decoding="async" />
-          </figure>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function Capabilities() {
-  return (
-    <section className="capabilities shell" id="capabilities">
-      <SectionHeader
-        eyebrow="Capabilities"
-        title={
-          <>
-            Design <em>stack</em>
-          </>
-        }
-        text="围绕品牌策略、工具执行与生产落地构建复合能力。"
-      />
-      <div className="capability-grid">
-        {capabilities.map((item, index) => (
-          <article className="reveal" key={item.title}>
-            <span>{String(index + 1).padStart(2, "0")}</span>
-            <h3>{item.title}</h3>
-            <p>{item.text}</p>
-          </article>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 function Footer() {
   const footerRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -2053,9 +1898,6 @@ function App() {
         <Hero />
         <ProfileWorksSequence />
         <ProjectShowcase />
-        <Journal />
-        <Explorations />
-        <Capabilities />
         <Footer />
       </main>
     </>
