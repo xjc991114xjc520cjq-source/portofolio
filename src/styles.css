@@ -2641,14 +2641,19 @@ video {
   --project-showcase-expand-duration: 880ms;
   --project-showcase-expand-ease: cubic-bezier(0.34, 0.55, 0.38, 1);
   position: relative;
-  z-index: 3;
+  z-index: 6;
   min-height: var(--project-showcase-height);
+  margin-top: -12dvh;
   padding: 0 clamp(18px, 2.35vw, 40px);
   overflow: hidden;
+  border-radius: 32px 32px 0 0;
   background:
     radial-gradient(circle at 10% 44%, rgba(137, 170, 204, 0.065), transparent 24%),
     linear-gradient(115deg, #08090a 0%, #0a0b0c 48%, #070809 100%);
+  box-shadow: 0 -28px 90px rgba(0, 0, 0, 0.46);
   isolation: isolate;
+  transform-origin: center top;
+  will-change: transform, opacity;
 }
 
 .project-showcase::before {
@@ -3966,8 +3971,10 @@ video {
 
   .project-showcase {
     min-height: auto;
+    margin-top: -7dvh;
     padding: 0;
     overflow: visible;
+    border-radius: 24px 24px 0 0;
   }
 
   .project-showcase-frame {

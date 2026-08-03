@@ -929,9 +929,11 @@ function WorkViewer({
 function SelectedWorks({
   sectionRef,
   handoffProgress,
+  exitProgress,
 }: {
   sectionRef: React.RefObject<HTMLElement>;
   handoffProgress: MotionValue<number>;
+  exitProgress: MotionValue<number>;
 }) {
   const [categoryIndex, setCategoryIndex] = useState(0);
   const [workIndex, setWorkIndex] = useState(0);
@@ -966,19 +968,29 @@ function SelectedWorks({
   const category = workCategories[categoryIndex];
   const nextCategory = categoryTransition ? workCategories[categoryTransition.nextIndex] : null;
   const activeWork = category.works[workIndex];
-  const worksOpacity = useTransform(handoffProgress, [0, 0.08, 0.22], [0, 0.72, 1]);
-  const worksY = useTransform(
+  const worksEntryOpacity = useTransform(handoffProgress, [0, 0.08, 0.22], [0, 0.72, 1]);
+  const worksEntryY = useTransform(
     handoffProgress,
     [0, 0.24, 0.68, 1],
     [isMobileGallery ? 72 : isTabletGallery ? 98 : 122, isMobileGallery ? 46 : 68, 8, 0],
   );
-  const worksScale = useTransform(
+  const worksEntryScale = useTransform(
     handoffProgress,
     [0, 0.3, 0.72, 1],
     [isMobileGallery ? 0.965 : 0.935, 0.96, 0.994, 1],
   );
-  const worksRotateX = useTransform(handoffProgress, [0, 0.58, 1], [isMobileGallery ? 2.5 : 5.5, 1.2, 0]);
-  const worksPointerEvents = useTransform(handoffProgress, (progress) => progress > 0.36 ? "auto" : "none");
+  const worksEntryRotateX = useTransform(handoffProgress, [0, 0.58, 1], [isMobileGallery ? 2.5 : 5.5, 1.2, 0]);
+  const worksExitOpacity = useTransform(exitProgress, [0, 0.24, 0.72, 1], [1, 1, 0.34, 0]);
+  const worksExitY = useTransform(exitProgress, [0, 1], [0, isMobileGallery ? -58 : isTabletGallery ? -92 : -132]);
+  const worksExitScale = useTransform(exitProgress, [0, 1], [1, isMobileGallery ? 0.96 : isTabletGallery ? 0.935 : 0.9]);
+  const worksExitRotateX = useTransform(exitProgress, [0, 1], [0, isMobileGallery ? -2 : -5.5]);
+  const worksOpacity = useTransform(() => worksEntryOpacity.get() * worksExitOpacity.get());
+  const worksY = useTransform(() => worksEntryY.get() + worksExitY.get());
+  const worksScale = useTransform(() => worksEntryScale.get() * worksExitScale.get());
+  const worksRotateX = useTransform(() => worksEntryRotateX.get() + worksExitRotateX.get());
+  const worksPointerEvents = useTransform(() => (
+    handoffProgress.get() > 0.36 && exitProgress.get() < 0.58 ? "auto" : "none"
+  ));
 
   const backdropOpacityIn = useTransform(handoffProgress, [0.04, 0.18, 0.5], [0, 0.72, 1]);
   const backdropYIn = useTransform(handoffProgress, [0, 0.68, 1], [isMobileGallery ? 34 : 68, 10, 0]);
@@ -1730,39 +1742,79 @@ function Profile({ handoffProgress }: { handoffProgress: MotionValue<number> }) 
   );
 }
 
-function ProfileWorksSequence() {
+function PortfolioSequence() {
   const worksRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
+  const projectRef = useRef<HTMLElement>(null);
+  const { scrollYProgress: worksEntryScroll } = useScroll({
     target: worksRef,
     offset: ["start 80%", "start 20%"],
   });
-  const handoffProgress = useTransform(scrollYProgress, [0, 1], [0, 1], { ease: slowFastScrollEase });
+  const { scrollYProgress: projectEntryScroll } = useScroll({
+    target: projectRef,
+    offset: ["start 92%", "start 22%"],
+  });
+  const handoffProgress = useTransform(worksEntryScroll, [0, 1], [0, 1], { ease: slowFastScrollEase });
+  const projectEntryProgress = useTransform(projectEntryScroll, [0, 1], [0, 1], { ease: slowFastScrollEase });
 
   return (
     <>
       <Profile handoffProgress={handoffProgress} />
-      <SelectedWorks sectionRef={worksRef} handoffProgress={handoffProgress} />
+      <SelectedWorks
+        sectionRef={worksRef}
+        handoffProgress={handoffProgress}
+        exitProgress={projectEntryProgress}
+      />
+      <ProjectShowcase sectionRef={projectRef} entryProgress={projectEntryProgress} />
     </>
   );
 }
 
-function ProjectShowcase() {
+function ProjectShowcase({
+  sectionRef,
+  entryProgress,
+}: {
+  sectionRef: React.RefObject<HTMLElement>;
+  entryProgress: MotionValue<number>;
+}) {
   const reduceMotion = useReducedMotion();
+  const isMobile = useViewportMatch("(max-width: 720px)");
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
   const displayIndex = hoveredIndex ?? focusedIndex ?? activeIndex;
+  const panelOpacity = useTransform(entryProgress, [0, 0.12, 0.48, 1], [0, 0.18, 0.94, 1]);
+  const panelY = useTransform(entryProgress, [0, 0.78, 1], [isMobile ? 64 : 132, 0, 0]);
+  const panelScale = useTransform(entryProgress, [0, 1], [isMobile ? 0.975 : 0.94, 1]);
+  const panelRotateX = useTransform(entryProgress, [0, 1], [isMobile ? 2.2 : 6.5, 0]);
+  const panelPointerEvents = useTransform(entryProgress, (progress) => progress > 0.3 ? "auto" : "none");
+  const headingOpacity = useTransform(entryProgress, [0.14, 0.42, 0.68], [0, 0.55, 1]);
+  const headingX = useTransform(entryProgress, [0.12, 0.72], [isMobile ? -28 : -78, 0]);
+  const trackOpacity = useTransform(entryProgress, [0.2, 0.48, 0.8], [0, 0.62, 1]);
+  const trackX = useTransform(entryProgress, [0.18, 0.82], [isMobile ? 46 : 138, 0]);
+  const trackScale = useTransform(entryProgress, [0.18, 0.86], [0.965, 1]);
 
   return (
-    <section className="project-showcase" id="project-showcase" aria-labelledby="project-showcase-title">
+    <motion.section
+      ref={sectionRef}
+      className="project-showcase"
+      id="project-showcase"
+      aria-labelledby="project-showcase-title"
+      style={reduceMotion ? undefined : {
+        opacity: panelOpacity,
+        y: panelY,
+        scale: panelScale,
+        rotateX: panelRotateX,
+        transformPerspective: 1500,
+        pointerEvents: panelPointerEvents,
+      }}
+    >
       <motion.div
         className="project-showcase-frame"
-        initial={reduceMotion ? false : { opacity: 0, y: 44 }}
-        whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.14 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       >
-        <header className="project-showcase-heading">
+        <motion.header
+          className="project-showcase-heading"
+          style={reduceMotion ? undefined : { opacity: headingOpacity, x: headingX }}
+        >
           <span className="project-showcase-kicker">
             <i aria-hidden="true" />
             Selected Projects
@@ -1775,9 +1827,12 @@ function ProjectShowcase() {
             <strong>PROJECT SHOWCASE</strong>
             <span>FIVE SELECTED STUDIES</span>
           </div>
-        </header>
+        </motion.header>
 
-        <div className={`project-showcase-track${displayIndex !== null ? " has-focus" : ""}`}>
+        <motion.div
+          className={`project-showcase-track${displayIndex !== null ? " has-focus" : ""}`}
+          style={reduceMotion ? undefined : { opacity: trackOpacity, x: trackX, scale: trackScale }}
+        >
           {projectShowcaseItems.map((item, index) => (
             <motion.button
               className={`project-showcase-item${activeIndex === index ? " is-active" : ""}${displayIndex === index ? " is-focused" : ""}${displayIndex !== null && displayIndex !== index ? " is-suppressed" : ""}`}
@@ -1825,9 +1880,9 @@ function ProjectShowcase() {
               />
             ))}
           </div>
-        </div>
+        </motion.div>
       </motion.div>
-    </section>
+    </motion.section>
   );
 }
 
@@ -1896,8 +1951,7 @@ function App() {
       <Nav />
       <main className="app">
         <Hero />
-        <ProfileWorksSequence />
-        <ProjectShowcase />
+        <PortfolioSequence />
         <Footer />
       </main>
     </>
