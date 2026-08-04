@@ -8,8 +8,6 @@ import {
   type MouseEvent,
   type PointerEvent,
   type RefObject,
-  type SyntheticEvent,
-  type WheelEvent,
 } from "react";
 import { createPortal } from "react-dom";
 import { createRoot } from "react-dom/client";
@@ -18,11 +16,6 @@ import {
   ArrowLeft,
   ArrowRight,
   ChevronDown,
-  Maximize2,
-  Minus,
-  Moon,
-  Plus,
-  Sun,
   X,
 } from "lucide-react";
 import "./styles.css";
@@ -107,6 +100,7 @@ type WorkItem = {
   year: string;
   image: string;
   alt: string;
+  summary?: string;
   thumbnail?: string;
   thumbnailMode?: WorkThumbnailMode;
   focalPoint?: string;
@@ -119,6 +113,11 @@ type WorkCategory = {
   index: string;
   background: string;
   transitionImage: string;
+  description: string;
+  role: string;
+  deliverables: string[];
+  keywords: string[];
+  palette: string[];
   works: WorkItem[];
 };
 
@@ -130,6 +129,11 @@ const workCategories: WorkCategory[] = [
     index: "01",
     background: unsplashImage("1494438639946-1ebd1d20bf85"),
     transitionImage: "/assets/category-transitions/brand-identity.webp",
+    description: "围绕识别、空间与影像建立统一的品牌语法，让核心概念在不同接触点保持清晰而有辨识度。",
+    role: "视觉策略 / 品牌设计",
+    deliverables: ["识别系统", "视觉规范", "场景延展"],
+    keywords: ["识别", "秩序", "延展", "质感"],
+    palette: ["#0A0D10", "#D9D8D2", "#6F8EA7", "#A9B7C1"],
     works: [
       { id: "brand-01", title: "识别系统", year: "2024", image: unsplashImage("1494438639946-1ebd1d20bf85"), alt: "现代品牌空间与陈设" },
       { id: "brand-02", title: "空间延展", year: "2024", image: unsplashImage("1484101403633-562f891dc89a"), alt: "现代室内空间摄影" },
@@ -145,6 +149,11 @@ const workCategories: WorkCategory[] = [
     index: "02",
     background: unsplashImage("1523275335684-37898b6baf30"),
     transitionImage: "/assets/category-transitions/commerce-visuals.webp",
+    description: "从产品卖点与浏览路径出发，以清晰的信息层级和场景化表达推动用户理解、停留与转化。",
+    role: "电商视觉 / 页面设计",
+    deliverables: ["详情页", "活动视觉", "商品陈列"],
+    keywords: ["卖点", "层级", "场景", "转化"],
+    palette: ["#07101F", "#E9EDF2", "#62C8DA", "#2E5EA8"],
     works: [
       {
         id: "commerce-andersen",
@@ -155,6 +164,7 @@ const workCategories: WorkCategory[] = [
         thumbnailMode: "long",
         focalPoint: "50% 0%",
         alt: "青葫芦立体剧场书安徒生童话电商详情页设计",
+        summary: "为青葫芦立体剧场书梳理核心卖点，以童话舞台感串联产品结构、内容价值与阅读场景，形成适合长页面浏览的完整销售叙事。",
       },
       { id: "commerce-01", title: "静物陈列", year: "2024", image: unsplashImage("1523275335684-37898b6baf30"), alt: "腕表产品静物摄影" },
       { id: "commerce-02", title: "产品场景", year: "2024", image: unsplashImage("1542291026-7eec264c27ff"), alt: "运动鞋产品摄影" },
@@ -170,6 +180,11 @@ const workCategories: WorkCategory[] = [
     index: "03",
     background: unsplashImage("1547891654-e66ed7ebb968"),
     transitionImage: "/assets/category-transitions/packaging-design.webp",
+    description: "把品牌性格转译为结构、材质与开箱节奏，在货架识别和触感体验之间建立一致的产品印象。",
+    role: "包装视觉 / 系统延展",
+    deliverables: ["包装结构", "系列规范", "零售陈列"],
+    keywords: ["结构", "触感", "系列", "陈列"],
+    palette: ["#0B0D0C", "#E5E0D4", "#9DA687", "#5F6554"],
     works: [
       { id: "packaging-01", title: "结构与触感", year: "2024", image: unsplashImage("1547891654-e66ed7ebb968"), alt: "极简产品包装摄影" },
       { id: "packaging-02", title: "系列包装", year: "2024", image: unsplashImage("1513364776144-60967b0f800f"), alt: "色彩与材质艺术摄影" },
@@ -185,6 +200,11 @@ const workCategories: WorkCategory[] = [
     index: "04",
     background: unsplashImage("1529139574466-a303027c1d8b"),
     transitionImage: "/assets/category-transitions/editorial-poster.webp",
+    description: "利用字体、图像与留白建立阅读节奏，把内容主题转化为具有传播张力的编辑式画面。",
+    role: "艺术指导 / 编辑设计",
+    deliverables: ["主题海报", "版式系统", "传播物料"],
+    keywords: ["叙事", "节奏", "字体", "影像"],
+    palette: ["#100B0B", "#EFE9E2", "#B76D5A", "#70463F"],
     works: [
       { id: "editorial-01", title: "造型研究", year: "2024", image: unsplashImage("1529139574466-a303027c1d8b"), alt: "时尚造型编辑摄影" },
       { id: "editorial-02", title: "版面节奏", year: "2024", image: unsplashImage("1515886657613-9f3515b0c78f"), alt: "街头时尚人物摄影" },
@@ -200,6 +220,11 @@ const workCategories: WorkCategory[] = [
     index: "05",
     background: unsplashImage("1561070791-2526d30994b5"),
     transitionImage: "/assets/category-transitions/technology-innovation.webp",
+    description: "以界面、原型和生成式视觉探索信息如何被组织、反馈与感知，让技术概念拥有可理解的视觉入口。",
+    role: "体验视觉 / 原型设计",
+    deliverables: ["界面视觉", "交互原型", "内容系统"],
+    keywords: ["界面", "反馈", "生成", "系统"],
+    palette: ["#070A12", "#E6E9F4", "#8294FF", "#354A8C"],
     works: [
       { id: "digital-01", title: "移动界面", year: "2024", image: unsplashImage("1561070791-2526d30994b5"), alt: "移动端界面设计工作场景" },
       { id: "digital-02", title: "交互原型", year: "2024", image: unsplashImage("1516321318423-f06f85e504b3"), alt: "笔记本电脑交互设计场景" },
@@ -628,7 +653,7 @@ function GalleryCard({
       className={`gallery-card gallery-card-${thumbnailMode}${active ? " is-active" : ""}`}
       type="button"
       disabled={locked}
-      aria-label={active ? `放大作品：${work.title}` : `切换到作品：${work.title}`}
+      aria-label={`打开作品介绍：${work.title}`}
       style={{
         x: cardX,
         y: cardY,
@@ -663,9 +688,6 @@ function GalleryCard({
   );
 }
 
-type ViewerMode = "fit" | "width";
-type ViewerBackground = "dark" | "light";
-
 function WorkViewer({
   work,
   category,
@@ -681,71 +703,34 @@ function WorkViewer({
 }) {
   const viewerRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
-  const zoom = useMotionValue(1);
-  const panX = useMotionValue(0);
-  const panY = useMotionValue(0);
-  const [zoomLevel, setZoomLevel] = useState(1);
-  const [viewerMode, setViewerMode] = useState<ViewerMode>(
-    work.thumbnailMode === "long" ? "width" : "fit",
-  );
-  const [background, setBackground] = useState<ViewerBackground>("dark");
-  const [imageSize, setImageSize] = useState({ width: 0, height: 0 });
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageFailed, setImageFailed] = useState(false);
+  const [detectedLong, setDetectedLong] = useState(false);
   const { scrollYProgress } = useScroll({ container: scrollRef });
-  const detectedRatio = imageSize.height > 0 ? imageSize.width / imageSize.height : 1;
-  const isLong = work.thumbnailMode === "long" || detectedRatio < 0.52;
-  const canPan = viewerMode === "fit" && zoomLevel > 1.01;
+  const isLong = work.thumbnailMode === "long" || detectedLong;
   const thumbnailSource = work.thumbnail ?? work.image;
+  const workPosition = category.works.findIndex((item) => item.id === work.id);
+  const workNumber = String(Math.max(0, workPosition) + 1).padStart(2, "0");
+  const workDescription = work.summary
+    ?? `${work.title}从${work.alt}切入。${category.description}`;
+  const titleId = `work-dossier-title-${work.id}`;
+  const summaryId = `work-dossier-summary-${work.id}`;
 
   const requestClose = () => {
     if (viewerRef.current) viewerRef.current.style.pointerEvents = "none";
     onClose();
   };
 
-  const applyZoom = (nextZoom: number) => {
-    const clampedZoom = Math.min(4, Math.max(0.75, nextZoom));
-    setZoomLevel(clampedZoom);
-    zoom.set(clampedZoom);
-    if (clampedZoom <= 1.01) {
-      panX.set(0);
-      panY.set(0);
-    }
-  };
-
-  const resetView = (mode: ViewerMode) => {
-    setViewerMode(mode);
-    applyZoom(1);
-    scrollRef.current?.scrollTo({ top: 0, left: 0, behavior: reduceMotion ? "auto" : "smooth" });
-  };
-
   useEffect(() => {
     setImageLoaded(false);
     setImageFailed(false);
-    setImageSize({ width: 0, height: 0 });
-    setViewerMode(work.thumbnailMode === "long" ? "width" : "fit");
-    applyZoom(1);
+    setDetectedLong(false);
     scrollRef.current?.scrollTo({ top: 0, left: 0 });
   }, [work.id]);
 
   useEffect(() => {
     viewerRef.current?.focus({ preventScroll: true });
   }, []);
-
-  const handleImageLoad = (event: SyntheticEvent<HTMLImageElement>) => {
-    const { naturalWidth: width, naturalHeight: height } = event.currentTarget;
-    setImageSize({ width, height });
-    setImageLoaded(true);
-    if (!work.thumbnailMode && width / height < 0.52) {
-      setViewerMode("width");
-    }
-  };
-
-  const handleWheel = (event: WheelEvent<HTMLDivElement>) => {
-    if (viewerMode === "width" && !event.ctrlKey && !event.metaKey) return;
-    event.preventDefault();
-    applyZoom(zoom.get() * Math.exp(-event.deltaY * 0.0012));
-  };
 
   const jumpLongImage = (event: MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
@@ -776,173 +761,173 @@ function WorkViewer({
       onNavigate(1);
       return;
     }
-    if (event.key === "+" || event.key === "=") {
-      event.preventDefault();
-      applyZoom(zoom.get() + 0.25);
-      return;
-    }
-    if (event.key === "-") {
-      event.preventDefault();
-      applyZoom(zoom.get() - 0.25);
+    if (event.key === "Tab" && viewerRef.current) {
+      const focusable = Array.from(viewerRef.current.querySelectorAll<HTMLElement>(
+        "button:not([disabled]), a[href], [tabindex]:not([tabindex='-1'])",
+      ));
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     }
   };
 
   return (
     <motion.div
       ref={viewerRef}
-      className={`work-viewer viewer-bg-${background}`}
+      className="work-viewer"
       role="dialog"
       aria-modal="true"
-      aria-label={`作品大图：${work.title}`}
+      aria-labelledby={titleId}
+      aria-describedby={summaryId}
       tabIndex={-1}
-      initial={false}
+      initial={reduceMotion ? false : { opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={reduceMotion ? undefined : { opacity: 0 }}
+      transition={{ duration: reduceMotion ? 0 : 0.36, ease: [0.16, 1, 0.3, 1] }}
       onClick={requestClose}
       onKeyDown={handleKeyDown}
     >
-      <div className="viewer-topbar" onClick={(event) => event.stopPropagation()}>
-        <button
-          type="button"
-          onClick={() => resetView(viewerMode === "fit" ? "width" : "fit")}
-          aria-label={viewerMode === "fit" ? "适合宽度" : "适合屏幕"}
-          title={viewerMode === "fit" ? "适合宽度" : "适合屏幕"}
-        >
-          <Maximize2 size={18} strokeWidth={1.5} aria-hidden="true" />
-        </button>
-        <span>{Math.round(zoomLevel * 100)}%</span>
-        <button
-          type="button"
-          onClick={() => applyZoom(zoom.get() - 0.25)}
-          aria-label="缩小作品"
-          title="缩小"
-        >
-          <Minus size={18} strokeWidth={1.5} aria-hidden="true" />
-        </button>
-        <button
-          type="button"
-          onClick={() => applyZoom(zoom.get() + 0.25)}
-          aria-label="放大作品"
-          title="放大"
-        >
-          <Plus size={18} strokeWidth={1.5} aria-hidden="true" />
-        </button>
-        <button
-          type="button"
-          onClick={() => setBackground((value) => value === "dark" ? "light" : "dark")}
-          aria-label={background === "dark" ? "切换浅色背景" : "切换深色背景"}
-          title={background === "dark" ? "浅色背景" : "深色背景"}
-        >
-          {background === "dark"
-            ? <Sun size={18} strokeWidth={1.5} aria-hidden="true" />
-            : <Moon size={18} strokeWidth={1.5} aria-hidden="true" />}
-        </button>
-      </div>
-
-      <button
-        className="viewer-close"
-        type="button"
-        onClick={(event) => {
-          event.stopPropagation();
-          requestClose();
+      <motion.article
+        className="work-dossier"
+        style={{ "--work-accent": category.palette[2] } as CSSProperties}
+        initial={reduceMotion ? false : {
+          opacity: 0,
+          y: 28,
+          scale: 0.978,
+          clipPath: "inset(47% 4% 47% 4%)",
         }}
-        aria-label="关闭作品大图"
-      >
-        <X size={22} strokeWidth={1.5} aria-hidden="true" />
-      </button>
-
-      <button
-        className="viewer-nav viewer-nav-prev"
-        type="button"
-        onClick={(event) => {
-          event.stopPropagation();
-          onNavigate(-1);
+        animate={{ opacity: 1, y: 0, scale: 1, clipPath: "inset(0% 0% 0% 0%)" }}
+        exit={reduceMotion ? undefined : {
+          opacity: 0,
+          y: 18,
+          scale: 0.985,
+          clipPath: "inset(48% 3% 48% 3%)",
         }}
-        aria-label="上一件作品"
-      >
-        <ArrowLeft size={22} strokeWidth={1.5} aria-hidden="true" />
-      </button>
-      <button
-        className="viewer-nav viewer-nav-next"
-        type="button"
-        onClick={(event) => {
-          event.stopPropagation();
-          onNavigate(1);
-        }}
-        aria-label="下一件作品"
-      >
-        <ArrowRight size={22} strokeWidth={1.5} aria-hidden="true" />
-      </button>
-
-      <div
-        ref={scrollRef}
-        className={`viewer-scroll viewer-mode-${viewerMode}${isLong ? " is-long" : ""}`}
+        transition={{ duration: reduceMotion ? 0 : 0.62, ease: [0.16, 1, 0.3, 1] }}
         onClick={(event) => event.stopPropagation()}
-        onWheel={handleWheel}
       >
-        {!imageLoaded && !imageFailed ? (
-          <div
-            className="viewer-loading"
-            style={{ backgroundImage: `url("${thumbnailSource}")` }}
-            aria-label="作品正在加载"
-          />
-        ) : null}
-
-        {imageFailed ? (
-          <div className="viewer-error" role="alert">
-            <strong>图像暂时无法读取</strong>
-            <span>请关闭后重新打开，或检查作品文件是否仍在项目中。</span>
+        <header className="work-dossier-header">
+          <div className="work-dossier-mark" aria-hidden="true">
+            <span>{category.index}</span>
+            <i />
+            <strong>PROJECT DOSSIER</strong>
           </div>
-        ) : viewerMode === "width" ? (
-          <figure
-            className={`viewer-long-canvas${imageLoaded ? " is-loaded" : ""}`}
-            style={{ "--viewer-width": `${zoomLevel * 100}%` } as CSSProperties}
-          >
-            <img
-              src={work.image}
-              alt={work.alt}
-              decoding="async"
-              draggable={false}
-              onLoad={handleImageLoad}
-              onError={() => setImageFailed(true)}
-            />
-          </figure>
-        ) : (
-          <motion.figure
-            className={`viewer-fit-canvas${imageLoaded ? " is-loaded" : ""}${canPan ? " can-pan" : ""}`}
-            style={{ x: panX, y: panY, scale: zoom }}
-            drag={canPan}
-            dragMomentum={false}
-            dragElastic={0.08}
-            onDoubleClick={() => applyZoom(zoomLevel > 1.01 ? 1 : 2)}
-          >
-            <img
-              src={work.image}
-              alt={work.alt}
-              decoding="async"
-              draggable={false}
-              onLoad={handleImageLoad}
-              onError={() => setImageFailed(true)}
-            />
-          </motion.figure>
-        )}
-      </div>
+          <div className="work-dossier-controls">
+            <button type="button" onClick={() => onNavigate(-1)} aria-label="上一件作品">
+              <ArrowLeft size={18} strokeWidth={1.5} aria-hidden="true" />
+            </button>
+            <span>{workNumber} / {String(category.works.length).padStart(2, "0")}</span>
+            <button type="button" onClick={() => onNavigate(1)} aria-label="下一件作品">
+              <ArrowRight size={18} strokeWidth={1.5} aria-hidden="true" />
+            </button>
+            <button className="work-dossier-close" type="button" onClick={requestClose} aria-label="关闭作品介绍">
+              <X size={20} strokeWidth={1.5} aria-hidden="true" />
+            </button>
+          </div>
+        </header>
 
-      {isLong && viewerMode === "width" ? (
-        <button
-          className="viewer-progress"
-          type="button"
-          onClick={jumpLongImage}
-          aria-label="跳转到长图位置"
-          title="点击跳转"
-        >
-          <motion.i style={{ scaleY: scrollYProgress }} />
-        </button>
-      ) : null}
+        <div className="work-dossier-layout">
+          <section className="work-dossier-copy">
+            <p className="work-dossier-kicker">
+              <span>{category.label}</span>
+              <i />
+              <span>{category.english}</span>
+            </p>
+            <div className="work-dossier-title">
+              <small>{work.year} / SELECTED WORK</small>
+              <h2 id={titleId}>{work.title}</h2>
+            </div>
+            <p className="work-dossier-summary" id={summaryId}>{workDescription}</p>
 
-      <div className="viewer-meta" onClick={(event) => event.stopPropagation()}>
-        <span>{category.label} / {category.english}</span>
-        <strong>{work.title}</strong>
-        <small>{work.year}</small>
-      </div>
+            <dl className="work-dossier-facts">
+              <div>
+                <dt>ROLE / 职责</dt>
+                <dd>{category.role}</dd>
+              </div>
+              <div>
+                <dt>OUTPUT / 交付</dt>
+                <dd>{category.deliverables.join(" · ")}</dd>
+              </div>
+            </dl>
+
+            <div className="work-dossier-keywords">
+              <span>KEYWORDS / 关键词</span>
+              <ul>
+                {category.keywords.map((keyword) => <li key={keyword}>{keyword}</li>)}
+              </ul>
+            </div>
+
+            <div className="work-dossier-palette" aria-label="项目配色">
+              <span>COLOR SAMPLE</span>
+              <div>
+                {category.palette.map((color) => (
+                  <i key={color} style={{ backgroundColor: color }} title={color} />
+                ))}
+              </div>
+            </div>
+
+            <p className="work-dossier-hint">使用 ← → 切换作品 · ESC 关闭</p>
+          </section>
+
+          <section className={`work-dossier-media${isLong ? " is-long" : ""}`} aria-label="作品预览">
+            <header>
+              <span>ARTWORK / {workNumber}</span>
+              <small>{isLong ? "SCROLL TO VIEW" : "FULL FRAME"}</small>
+            </header>
+            <div className="work-dossier-grid" aria-hidden="true" />
+            <div ref={scrollRef} className="work-dossier-scroll">
+              {!imageLoaded && !imageFailed ? (
+                <div
+                  className="work-dossier-loading"
+                  style={{ backgroundImage: `url("${thumbnailSource}")` }}
+                  aria-label="作品正在加载"
+                />
+              ) : null}
+
+              {imageFailed ? (
+                <div className="work-dossier-error" role="alert">
+                  <strong>图像暂时无法读取</strong>
+                  <span>请关闭后重新打开，或检查作品文件是否仍在项目中。</span>
+                </div>
+              ) : (
+                <figure className={imageLoaded ? "is-loaded" : ""}>
+                  <img
+                    src={work.image}
+                    alt={work.alt}
+                    decoding="async"
+                    draggable={false}
+                    onLoad={(event) => {
+                      const { naturalWidth, naturalHeight } = event.currentTarget;
+                      setDetectedLong(naturalWidth / naturalHeight < 0.52);
+                      setImageLoaded(true);
+                    }}
+                    onError={() => setImageFailed(true)}
+                  />
+                </figure>
+              )}
+            </div>
+
+            {isLong ? (
+              <button
+                className="work-dossier-progress"
+                type="button"
+                onClick={jumpLongImage}
+                aria-label="跳转到长图位置"
+                title="点击跳转"
+              >
+                <motion.i style={{ scaleY: scrollYProgress }} />
+              </button>
+            ) : null}
+          </section>
+        </div>
+      </motion.article>
     </motion.div>
   );
 }
@@ -1172,12 +1157,14 @@ function SelectedWorks({
       galleryTrack.set(target);
       settledTrack.current = target;
       syncWorkIndexFromTrack(target);
+      openExpandedWork(work);
       return;
     }
 
     const travel = Math.abs(relativePosition);
     const duration = Math.min(0.92, 0.58 + travel * 0.12);
     settleGalleryTrack(target, duration, [0.16, 1, 0.3, 1]);
+    openExpandedWork(work);
   };
 
   const changeCategory = (index: number) => {
