@@ -41,6 +41,13 @@ const projectShowcaseItems = [
     image: "/assets/project-showcase-nocturne.webp",
     alt: "夜航电台品牌识别海报与广播视觉系统",
     backdrop: "NOCTURNE",
+    accent: "#70c9ba",
+    summary: "为面向城市夜行者的声音内容平台建立一套克制、低照度且可持续扩展的品牌识别系统。",
+    brief: "声音不可见，品牌需要在不同终端与夜间场景中保持同一频率，同时避开传统电台视觉中过度复古的表达。",
+    response: "以 88.6 频点和广播信号条为核心语法，让冷灰纸张、窄体字与荧光青成为贯穿印刷、屏幕和空间导视的识别线索。",
+    role: "品牌视觉 / 创意指导",
+    duration: "06 周",
+    deliverables: ["标志系统", "广播界面", "节目海报", "空间物料"],
   },
   {
     index: "02",
@@ -52,6 +59,13 @@ const projectShowcaseItems = [
     image: "/assets/project-showcase-tide.webp",
     alt: "潮汐零九深蓝玻璃材质商业视觉",
     backdrop: "TIDE",
+    accent: "#5b8cff",
+    summary: "围绕深夜饮品系列建立具有潮汐感的商业视觉，将产品质感转译为安静而有张力的消费场景。",
+    brief: "新品需要在深色货架与社交媒体信息流中被快速识别，又不能牺牲品牌希望保留的高级与松弛感。",
+    response: "用深海蓝玻璃作为视觉锚点，通过低照度布光、液体折射和极少量银白文字形成统一的静物叙事。",
+    role: "商业视觉 / 视觉统筹",
+    duration: "04 周",
+    deliverables: ["主视觉", "产品摄影", "社媒模板", "零售物料"],
   },
   {
     index: "03",
@@ -63,6 +77,13 @@ const projectShowcaseItems = [
     image: "/assets/project-showcase-field-objects.webp",
     alt: "场域之物灰绿色哑光包装系统",
     backdrop: "FIELD",
+    accent: "#a7ad8f",
+    summary: "为强调材料来源与触感体验的生活方式产品，构建从单品到系列陈列都保持秩序感的包装系统。",
+    brief: "不同尺寸和结构的产品需要共享清晰家族特征，并在有限印刷工艺下呈现材料本身而不是额外装饰。",
+    response: "以模块比例、克制编号和灰绿色未涂布纸为系统基础，让折叠、开口与触感成为包装最直接的识别。",
+    role: "包装设计 / 系统规范",
+    duration: "08 周",
+    deliverables: ["结构包装", "标签体系", "印刷规范", "陈列组合"],
   },
   {
     index: "04",
@@ -74,6 +95,13 @@ const projectShowcaseItems = [
     image: "/assets/project-showcase-afterimage.webp",
     alt: "余像计划动态人物编辑海报",
     backdrop: "AFTERIMAGE",
+    accent: "#d8d3ca",
+    summary: "一组关于运动残留与观看延迟的编辑海报实验，让人物影像在静止平面中保留时间感。",
+    brief: "展览传播需要用单张海报传达动态主题，同时形成适用于多期内容的可变版式，而不是重复同一构图。",
+    response: "将拖影、错位和纵向窄体字组合成可变规则，让每张图像拥有不同速度，同时保持系列的一致阅读路径。",
+    role: "编辑设计 / 图像实验",
+    duration: "03 周",
+    deliverables: ["系列海报", "动态版本", "展览手册", "社交切图"],
   },
   {
     index: "05",
@@ -85,6 +113,13 @@ const projectShowcaseItems = [
     image: "/assets/project-showcase-aether-grid.webp",
     alt: "以太网格暗场技术创新视觉",
     backdrop: "AETHER",
+    accent: "#78c7c4",
+    summary: "把实时环境数据转译为空间中的低干扰界面，探索技术信息如何自然进入建筑与日常行为。",
+    brief: "数据密度与空间氛围存在冲突：界面必须足够准确可读，也要在不被使用时退回环境背景。",
+    response: "以网格为信息骨架，将动态曲线、状态编码与低亮度青色光结合，使数据层根据观看距离逐级显现。",
+    role: "体验视觉 / 界面系统",
+    duration: "10 周",
+    deliverables: ["信息架构", "环境界面", "动态规范", "交互原型"],
   },
 ] as const;
 
@@ -1940,6 +1975,194 @@ function PortfolioSequence() {
   );
 }
 
+type ProjectShowcaseItem = (typeof projectShowcaseItems)[number];
+
+function ProjectDetailViewer({
+  item,
+  currentIndex,
+  reduceMotion,
+  onClose,
+  onNavigate,
+}: {
+  item: ProjectShowcaseItem;
+  currentIndex: number;
+  reduceMotion: boolean | null;
+  onClose: () => void;
+  onNavigate: (direction: number) => void;
+}) {
+  const viewerRef = useRef<HTMLDivElement>(null);
+  const titleId = `project-detail-title-${item.index}`;
+  const summaryId = `project-detail-summary-${item.index}`;
+  const total = projectShowcaseItems.length;
+
+  useEffect(() => {
+    viewerRef.current?.focus({ preventScroll: true });
+  }, []);
+
+  const requestClose = () => {
+    if (viewerRef.current) viewerRef.current.style.pointerEvents = "none";
+    onClose();
+  };
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    event.stopPropagation();
+    if (event.key === "Escape") {
+      event.preventDefault();
+      requestClose();
+      return;
+    }
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      onNavigate(-1);
+      return;
+    }
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      onNavigate(1);
+      return;
+    }
+    if (event.key !== "Tab" || !viewerRef.current) return;
+
+    const focusable = Array.from(viewerRef.current.querySelectorAll<HTMLElement>(
+      "button:not([disabled]), a[href], [tabindex]:not([tabindex='-1'])",
+    ));
+    if (focusable.length === 0) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  };
+
+  return (
+    <motion.div
+      ref={viewerRef}
+      className="project-detail-viewer"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby={titleId}
+      aria-describedby={summaryId}
+      tabIndex={-1}
+      initial={reduceMotion ? false : { opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={reduceMotion ? undefined : { opacity: 0 }}
+      transition={{ duration: reduceMotion ? 0 : 0.34, ease: [0.16, 1, 0.3, 1] }}
+      onClick={requestClose}
+      onKeyDown={handleKeyDown}
+    >
+      <motion.article
+        className="project-detail-panel"
+        style={{ "--project-detail-accent": item.accent } as CSSProperties}
+        initial={reduceMotion ? false : {
+          opacity: 0,
+          x: "7%",
+          scale: 0.985,
+          clipPath: "inset(0 0 0 86%)",
+        }}
+        animate={{ opacity: 1, x: "0%", scale: 1, clipPath: "inset(0 0 0 0%)" }}
+        exit={reduceMotion ? undefined : {
+          opacity: 0,
+          x: "5%",
+          scale: 0.99,
+          clipPath: "inset(0 0 0 94%)",
+        }}
+        transition={{ duration: reduceMotion ? 0 : 0.68, ease: [0.16, 1, 0.3, 1] }}
+        onClick={(event) => event.stopPropagation()}
+      >
+        <header className="project-detail-header">
+          <div className="project-detail-identity" aria-hidden="true">
+            <strong>{item.index}</strong>
+            <i />
+            <span>PROJECT FILE</span>
+          </div>
+          <div className="project-detail-controls">
+            <button type="button" onClick={() => onNavigate(-1)} aria-label="上一个项目">
+              <ArrowLeft size={18} strokeWidth={1.5} aria-hidden="true" />
+            </button>
+            <span>{String(currentIndex + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}</span>
+            <button type="button" onClick={() => onNavigate(1)} aria-label="下一个项目">
+              <ArrowRight size={18} strokeWidth={1.5} aria-hidden="true" />
+            </button>
+            <button className="project-detail-close" type="button" onClick={requestClose} aria-label="关闭项目详情">
+              <X size={20} strokeWidth={1.5} aria-hidden="true" />
+            </button>
+          </div>
+        </header>
+
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            className="project-detail-layout"
+            key={item.index}
+            initial={reduceMotion ? false : { opacity: 0, x: 26 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={reduceMotion ? undefined : { opacity: 0, x: -20 }}
+            transition={{ duration: reduceMotion ? 0 : 0.36, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <figure className="project-detail-visual">
+              <img src={item.image} alt={item.alt} decoding="async" />
+              <span className="project-detail-visual-shade" aria-hidden="true" />
+              <figcaption>
+                <span>{item.categoryEnglish}</span>
+                <b>{item.year}</b>
+              </figcaption>
+              <strong aria-hidden="true">{item.backdrop}</strong>
+            </figure>
+
+            <section className="project-detail-copy">
+              <p className="project-detail-kicker">
+                <span>CASE STUDY</span>
+                <i />
+                <span>{item.category}</span>
+              </p>
+              <div className="project-detail-title">
+                <small>{item.english}</small>
+                <h2 id={titleId}>{item.title}</h2>
+              </div>
+              <p className="project-detail-summary" id={summaryId}>{item.summary}</p>
+
+              <div className="project-detail-narrative">
+                <article>
+                  <span>01 / DESIGN BRIEF</span>
+                  <h3>设计命题</h3>
+                  <p>{item.brief}</p>
+                </article>
+                <article>
+                  <span>02 / RESPONSE</span>
+                  <h3>设计回应</h3>
+                  <p>{item.response}</p>
+                </article>
+              </div>
+
+              <footer className="project-detail-footer">
+                <dl>
+                  <div>
+                    <dt>ROLE / 职责</dt>
+                    <dd>{item.role}</dd>
+                  </div>
+                  <div>
+                    <dt>DURATION / 周期</dt>
+                    <dd>{item.duration}</dd>
+                  </div>
+                </dl>
+                <div className="project-detail-deliverables">
+                  <span>DELIVERABLES / 交付内容</span>
+                  <ul>
+                    {item.deliverables.map((deliverable) => <li key={deliverable}>{deliverable}</li>)}
+                  </ul>
+                </div>
+              </footer>
+            </section>
+          </motion.div>
+        </AnimatePresence>
+      </motion.article>
+    </motion.div>
+  );
+}
+
 function ProjectShowcaseCard({
   item,
   index,
@@ -1951,7 +2174,7 @@ function ProjectShowcaseCard({
   onBlur,
   onClick,
 }: {
-  item: (typeof projectShowcaseItems)[number];
+  item: ProjectShowcaseItem;
   index: number;
   entryProgress: MotionValue<number>;
   isActive: boolean;
@@ -1974,9 +2197,10 @@ function ProjectShowcaseCard({
     <motion.button
       className={`project-showcase-item${isFocused ? " is-focused" : ""}${isSuppressed ? " is-suppressed" : ""}`}
       type="button"
+      data-project-index={index}
       aria-label={`查看项目：${item.title}`}
-      aria-pressed={isActive}
-      aria-expanded={isFocused}
+      aria-haspopup="dialog"
+      aria-expanded={isActive}
       onFocus={onFocus}
       onBlur={onBlur}
       onClick={onClick}
@@ -2018,10 +2242,11 @@ function ProjectShowcase({
 }) {
   const reduceMotion = useReducedMotion();
   const isMobile = useViewportMatch("(max-width: 720px)");
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [detailIndex, setDetailIndex] = useState<number | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
-  const displayIndex = hoveredIndex ?? focusedIndex ?? activeIndex;
+  const projectReturnFocus = useRef<HTMLElement | null>(null);
+  const displayIndex = hoveredIndex ?? focusedIndex;
   const panelOpacity = useTransform(entryProgress, [0, 0.1, 0.42, 1], [0, 0.12, 0.96, 1]);
   const panelY = useTransform(entryProgress, [0, 0.76, 1], [isMobile ? 112 : 238, -8, 0]);
   const panelScaleY = useTransform(entryProgress, [0, 0.78, 1], [isMobile ? 0.95 : 0.88, 1.008, 1]);
@@ -2035,6 +2260,26 @@ function ProjectShowcase({
   const trackScale = useTransform(entryProgress, [0.08, 0.78, 1], [isMobile ? 0.94 : 0.86, 1.012, 1]);
   const entryEdgeOpacity = useTransform(entryProgress, [0.02, 0.12, 0.72, 0.92], [0, 1, 0.7, 0]);
   const entryEdgeScaleX = useTransform(entryProgress, [0.02, 0.58, 1], [0.025, 1, 1]);
+  const activeProject = detailIndex === null ? null : projectShowcaseItems[detailIndex];
+
+  useDocumentScrollLock(detailIndex !== null);
+
+  const openProject = (index: number) => {
+    const card = document.querySelector<HTMLElement>(`[data-project-index="${index}"]`);
+    projectReturnFocus.current = card ?? (document.activeElement instanceof HTMLElement ? document.activeElement : null);
+    setDetailIndex(index);
+  };
+
+  const closeProject = () => {
+    setDetailIndex(null);
+  };
+
+  const navigateProject = (direction: number) => {
+    setDetailIndex((current) => {
+      if (current === null) return current;
+      return (current + direction + projectShowcaseItems.length) % projectShowcaseItems.length;
+    });
+  };
 
   return (
     <motion.section
@@ -2088,12 +2333,12 @@ function ProjectShowcase({
               item={item}
               index={index}
               entryProgress={entryProgress}
-              isActive={activeIndex === index}
+              isActive={detailIndex === index}
               isFocused={displayIndex === index}
               isSuppressed={displayIndex !== null && displayIndex !== index}
               onFocus={() => setFocusedIndex(index)}
               onBlur={() => setFocusedIndex(null)}
-              onClick={() => setActiveIndex((current) => current === index ? null : index)}
+              onClick={() => openProject(index)}
             />
           ))}
           <div
@@ -2106,12 +2351,27 @@ function ProjectShowcase({
                 key={item.index}
                 className={displayIndex === index ? "is-focused" : displayIndex !== null ? "is-suppressed" : ""}
                 onMouseEnter={() => setHoveredIndex(index)}
-                onClick={() => setActiveIndex((current) => current === index ? null : index)}
+                onClick={() => openProject(index)}
               />
             ))}
           </div>
         </motion.div>
       </motion.div>
+
+      {createPortal(
+        <AnimatePresence onExitComplete={() => projectReturnFocus.current?.focus({ preventScroll: true })}>
+          {activeProject && detailIndex !== null ? (
+            <ProjectDetailViewer
+              item={activeProject}
+              currentIndex={detailIndex}
+              reduceMotion={reduceMotion}
+              onClose={closeProject}
+              onNavigate={navigateProject}
+            />
+          ) : null}
+        </AnimatePresence>,
+        document.body,
+      )}
     </motion.section>
   );
 }
