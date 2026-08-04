@@ -965,7 +965,11 @@ function WorkViewer({
               <span>{category.english}</span>
             </p>
             <div className="work-dossier-title">
-              <small>{work.year} / SELECTED WORK</small>
+              <div className="work-dossier-title-meta" aria-hidden="true">
+                <span>{work.year}</span>
+                <i />
+                <small>SELECTED WORK</small>
+              </div>
               <h2 id={titleId}>{work.title}</h2>
             </div>
             <p className="work-dossier-summary" id={summaryId}>{workDescription}</p>

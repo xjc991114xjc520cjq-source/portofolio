@@ -2029,28 +2029,63 @@ video {
   background: rgba(235, 238, 238, 0.22);
 }
 
-.work-dossier-title small {
-  display: block;
-  margin-bottom: 13px;
+.work-dossier-title {
+  position: relative;
+  padding-bottom: clamp(22px, 3.2vh, 30px);
+}
+
+.work-dossier-title::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: min(100%, 390px);
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, var(--work-accent) 0 42px, rgba(235, 238, 238, 0.14) 42px 100%);
+}
+
+.work-dossier-title-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: clamp(18px, 2.5vh, 26px);
+}
+
+.work-dossier-title-meta span {
+  color: var(--work-accent);
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: 0.05em;
+  font-variant-numeric: tabular-nums;
+}
+
+.work-dossier-title-meta i {
+  width: 28px;
+  height: 1px;
+  background: rgba(235, 238, 238, 0.22);
+}
+
+.work-dossier-title-meta small {
   color: rgba(235, 238, 238, 0.42);
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 720;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.18em;
 }
 
 .work-dossier-title h2 {
-  max-width: 8em;
+  max-width: 10em;
   margin: 0;
-  font-size: clamp(48px, 5vw, 82px);
-  font-weight: 820;
-  line-height: 0.96;
-  letter-spacing: -0.075em;
+  font-family: "XJ Noto Sans SC", "Noto Sans SC", "Microsoft YaHei UI", sans-serif;
+  font-size: clamp(46px, 4.25vw, 70px);
+  font-weight: 700;
+  line-height: 1.14;
+  letter-spacing: 0.005em;
   text-wrap: balance;
 }
 
 .work-dossier-summary {
   max-width: 36em;
-  margin: clamp(25px, 4vh, 42px) 0 0;
+  margin: clamp(28px, 4.5vh, 46px) 0 0;
   color: rgba(235, 238, 238, 0.62);
   font-size: 13px;
   line-height: 1.9;
@@ -3430,7 +3465,7 @@ video {
   }
 
   .work-dossier-title h2 {
-    font-size: clamp(46px, 7vw, 68px);
+    font-size: clamp(40px, 5.2vw, 56px);
   }
 
   .work-dossier-summary {
@@ -3832,12 +3867,13 @@ video {
   }
 
   .work-dossier-title h2 {
-    max-width: 9em;
-    font-size: clamp(42px, 13.5vw, 62px);
+    max-width: 10em;
+    font-size: clamp(40px, 12vw, 54px);
+    line-height: 1.13;
   }
 
   .work-dossier-summary {
-    margin-top: 21px;
+    margin-top: 27px;
     font-size: 12px;
     line-height: 1.8;
   }
