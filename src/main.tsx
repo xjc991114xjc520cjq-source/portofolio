@@ -688,6 +688,122 @@ function GalleryCard({
   );
 }
 
+type SampledColor = {
+  red: number;
+  green: number;
+  blue: number;
+  count: number;
+};
+
+type PaletteMode = "auto" | "default";
+
+const workPaletteCache = new Map<string, string[]>();
+
+const colorDistance = (first: SampledColor, second: SampledColor) => Math.sqrt(
+  (first.red - second.red) ** 2
+  + (first.green - second.green) ** 2
+  + (first.blue - second.blue) ** 2,
+);
+
+const colorToHex = ({ red, green, blue }: SampledColor) => `#${[red, green, blue]
+  .map((channel) => Math.round(channel).toString(16).padStart(2, "0"))
+  .join("")}`.toUpperCase();
+
+const extractWorkPalette = (image: HTMLImageElement, cacheKey: string) => {
+  const cachedPalette = workPaletteCache.get(cacheKey);
+  if (cachedPalette) return cachedPalette;
+
+  try {
+    const longestSide = 56;
+    const imageRatio = image.naturalWidth / image.naturalHeight;
+    const sampleWidth = imageRatio >= 1
+      ? longestSide
+      : Math.max(12, Math.round(longestSide * imageRatio));
+    const sampleHeight = imageRatio >= 1
+      ? Math.max(12, Math.round(longestSide / imageRatio))
+      : longestSide;
+    const canvas = document.createElement("canvas");
+    canvas.width = sampleWidth;
+    canvas.height = sampleHeight;
+    const context = canvas.getContext("2d", { willReadFrequently: true });
+    if (!context) return null;
+
+    context.drawImage(image, 0, 0, sampleWidth, sampleHeight);
+    const pixels = context.getImageData(0, 0, sampleWidth, sampleHeight).data;
+    const buckets = new Map<string, SampledColor>();
+    const quantizeStep = 24;
+
+    for (let index = 0; index < pixels.length; index += 4) {
+      const alpha = pixels[index + 3];
+      if (alpha < 180) continue;
+      const red = pixels[index];
+      const green = pixels[index + 1];
+      const blue = pixels[index + 2];
+      const key = [red, green, blue]
+        .map((channel) => Math.min(255, Math.round(channel / quantizeStep) * quantizeStep))
+        .join("-");
+      const bucket = buckets.get(key);
+      if (bucket) {
+        bucket.red += red;
+        bucket.green += green;
+        bucket.blue += blue;
+        bucket.count += 1;
+      } else {
+        buckets.set(key, { red, green, blue, count: 1 });
+      }
+    }
+
+    const rankedColors = Array.from(buckets.values())
+      .map((bucket) => ({
+        red: bucket.red / bucket.count,
+        green: bucket.green / bucket.count,
+        blue: bucket.blue / bucket.count,
+        count: bucket.count,
+      }))
+      .sort((first, second) => {
+        const firstRange = Math.max(first.red, first.green, first.blue) - Math.min(first.red, first.green, first.blue);
+        const secondRange = Math.max(second.red, second.green, second.blue) - Math.min(second.red, second.green, second.blue);
+        return second.count * (1 + secondRange / 1020) - first.count * (1 + firstRange / 1020);
+      });
+
+    const selectedColors: SampledColor[] = [];
+    for (const minimumDistance of [92, 68, 44, 0]) {
+      for (const color of rankedColors) {
+        if (selectedColors.includes(color)) continue;
+        if (selectedColors.every((selected) => colorDistance(color, selected) >= minimumDistance)) {
+          selectedColors.push(color);
+        }
+        if (selectedColors.length === 4) break;
+      }
+      if (selectedColors.length === 4) break;
+    }
+
+    if (selectedColors.length === 0) return null;
+    const palette = selectedColors.map(colorToHex);
+    workPaletteCache.set(cacheKey, palette);
+    return palette;
+  } catch {
+    // Remote images without permissive CORS can still display; only palette
+    // sampling falls back to the category defaults in that case.
+    return null;
+  }
+};
+
+const getPaletteAccent = (palette: string[], fallback: string) => {
+  const candidates = palette.flatMap((color) => {
+    const match = /^#([\dA-F]{2})([\dA-F]{2})([\dA-F]{2})$/i.exec(color);
+    if (!match) return [];
+    const [red, green, blue] = match.slice(1).map((value) => Number.parseInt(value, 16));
+    const maximum = Math.max(red, green, blue);
+    const minimum = Math.min(red, green, blue);
+    const saturation = maximum === 0 ? 0 : (maximum - minimum) / maximum;
+    const luminance = red * 0.2126 + green * 0.7152 + blue * 0.0722;
+    if (luminance < 72 || luminance > 232) return [];
+    return [{ color, score: saturation * 1.4 + (1 - Math.abs(luminance - 154) / 154) * 0.45 }];
+  });
+  return candidates.sort((first, second) => second.score - first.score)[0]?.color ?? fallback;
+};
+
 function WorkViewer({
   work,
   category,
@@ -706,6 +822,10 @@ function WorkViewer({
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageFailed, setImageFailed] = useState(false);
   const [detectedLong, setDetectedLong] = useState(false);
+  const [palette, setPalette] = useState(() => workPaletteCache.get(work.image) ?? category.palette);
+  const [paletteMode, setPaletteMode] = useState<PaletteMode>(() => (
+    workPaletteCache.has(work.image) ? "auto" : "default"
+  ));
   const { scrollYProgress } = useScroll({ container: scrollRef });
   const isLong = work.thumbnailMode === "long" || detectedLong;
   const thumbnailSource = work.thumbnail ?? work.image;
@@ -715,6 +835,7 @@ function WorkViewer({
     ?? `${work.title}从${work.alt}切入。${category.description}`;
   const titleId = `work-dossier-title-${work.id}`;
   const summaryId = `work-dossier-summary-${work.id}`;
+  const accentColor = getPaletteAccent(palette, category.palette[2]);
 
   const requestClose = () => {
     if (viewerRef.current) viewerRef.current.style.pointerEvents = "none";
@@ -725,8 +846,11 @@ function WorkViewer({
     setImageLoaded(false);
     setImageFailed(false);
     setDetectedLong(false);
+    const cachedPalette = workPaletteCache.get(work.image);
+    setPalette(cachedPalette ?? category.palette);
+    setPaletteMode(cachedPalette ? "auto" : "default");
     scrollRef.current?.scrollTo({ top: 0, left: 0 });
-  }, [work.id]);
+  }, [category.palette, work.id, work.image]);
 
   useEffect(() => {
     viewerRef.current?.focus({ preventScroll: true });
@@ -796,7 +920,7 @@ function WorkViewer({
     >
       <motion.article
         className="work-dossier"
-        style={{ "--work-accent": category.palette[2] } as CSSProperties}
+        style={{ "--work-accent": accentColor } as CSSProperties}
         initial={reduceMotion ? false : {
           opacity: 0,
           y: 28,
@@ -864,10 +988,10 @@ function WorkViewer({
               </ul>
             </div>
 
-            <div className="work-dossier-palette" aria-label="项目配色">
-              <span>COLOR SAMPLE</span>
+            <div className="work-dossier-palette" aria-label="从作品图片自动提取的项目配色">
+              <span aria-live="polite">COLOR SAMPLE / {paletteMode === "auto" ? "AUTO" : "DEFAULT"}</span>
               <div>
-                {category.palette.map((color) => (
+                {palette.map((color) => (
                   <i key={color} style={{ backgroundColor: color }} title={color} />
                 ))}
               </div>
@@ -906,6 +1030,11 @@ function WorkViewer({
                     onLoad={(event) => {
                       const { naturalWidth, naturalHeight } = event.currentTarget;
                       setDetectedLong(naturalWidth / naturalHeight < 0.52);
+                      const extractedPalette = extractWorkPalette(event.currentTarget, work.image);
+                      if (extractedPalette) {
+                        setPalette(extractedPalette);
+                        setPaletteMode("auto");
+                      }
                       setImageLoaded(true);
                     }}
                     onError={() => setImageFailed(true)}

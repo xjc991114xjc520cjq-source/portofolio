@@ -2128,6 +2128,11 @@ video {
   border: 3px solid #0a0c0e;
   border-radius: 50%;
   box-shadow: 0 0 0 1px rgba(221, 229, 235, 0.26);
+  transition: background-color 420ms cubic-bezier(0.16, 1, 0.3, 1), transform 220ms ease;
+}
+
+.work-dossier-palette i:hover {
+  transform: translateY(-2px);
 }
 
 .work-dossier-hint {
