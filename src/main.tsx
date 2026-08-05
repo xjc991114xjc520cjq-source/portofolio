@@ -389,43 +389,56 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
 
 function Nav() {
   const [activeSection, setActiveSection] = useState("top");
-  const navScrollAnimation = useRef<ReturnType<typeof animate> | null>(null);
-  const previousScrollBehavior = useRef("");
+  const pendingEntryCleanup = useRef<(() => void) | null>(null);
+  const entryResetTimeout = useRef<number | null>(null);
+  const activeEntrySection = useRef<HTMLElement | null>(null);
 
-  const restoreScrollBehavior = () => {
-    document.documentElement.style.scrollBehavior = previousScrollBehavior.current;
+  const triggerComponentEntry = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+    if (entryResetTimeout.current !== null) window.clearTimeout(entryResetTimeout.current);
+    activeEntrySection.current?.classList.remove("nav-component-enter");
+    section.classList.remove("nav-component-enter");
+    void section.offsetWidth;
+    section.classList.add("nav-component-enter");
+    activeEntrySection.current = section;
+    entryResetTimeout.current = window.setTimeout(() => {
+      section.classList.remove("nav-component-enter");
+      if (activeEntrySection.current === section) activeEntrySection.current = null;
+      entryResetTimeout.current = null;
+    }, 1300);
   };
 
-  const stopNavigationScroll = () => {
-    if (!navScrollAnimation.current) return;
-    const activeAnimation = navScrollAnimation.current;
-    navScrollAnimation.current = null;
-    activeAnimation.stop();
-    restoreScrollBehavior();
-  };
-
-  const navigateTo = (target: number, hash: string) => {
-    window.history.replaceState(null, "", hash);
-    stopNavigationScroll();
-    const clampedTarget = Math.max(0, Math.min(target, document.documentElement.scrollHeight - window.innerHeight));
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      window.scrollTo({ top: clampedTarget, behavior: "auto" });
+  const scheduleComponentEntry = (sectionId: string, target: number) => {
+    pendingEntryCleanup.current?.();
+    pendingEntryCleanup.current = null;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (Math.abs(window.scrollY - target) < 1) {
+      window.requestAnimationFrame(() => triggerComponentEntry(sectionId));
       return;
     }
-    const distance = Math.abs(clampedTarget - window.scrollY);
-    if (distance < 1) return;
-    previousScrollBehavior.current = document.documentElement.style.scrollBehavior;
-    document.documentElement.style.scrollBehavior = "auto";
-    const duration = 0.9 + Math.min(distance / 1800, 1) * 0.55;
-    navScrollAnimation.current = animate(window.scrollY, clampedTarget, {
-      type: "spring",
-      bounce: 0,
-      duration,
-      onUpdate: (value) => window.scrollTo(0, value),
-      onComplete: () => {
-        navScrollAnimation.current = null;
-        restoreScrollBehavior();
-      },
+    let fallbackTimeout = 0;
+    const finish = () => {
+      window.removeEventListener("scrollend", finish);
+      if (fallbackTimeout) window.clearTimeout(fallbackTimeout);
+      pendingEntryCleanup.current = null;
+      triggerComponentEntry(sectionId);
+    };
+    window.addEventListener("scrollend", finish, { once: true });
+    fallbackTimeout = window.setTimeout(finish, 1400);
+    pendingEntryCleanup.current = () => {
+      window.removeEventListener("scrollend", finish);
+      window.clearTimeout(fallbackTimeout);
+    };
+  };
+
+  const navigateTo = (sectionId: string, target: number) => {
+    const clampedTarget = Math.max(0, Math.min(target, document.documentElement.scrollHeight - window.innerHeight));
+    window.history.replaceState(null, "", `#${sectionId}`);
+    scheduleComponentEntry(sectionId, clampedTarget);
+    window.scrollTo({
+      top: clampedTarget,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
     });
   };
 
@@ -456,30 +469,16 @@ function Nav() {
     };
   }, []);
 
-  useEffect(() => {
-    const interruptNavigation = () => stopNavigationScroll();
-    const interruptWithKeyboard = (event: globalThis.KeyboardEvent) => {
-      if (["ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End", " "].includes(event.key)) {
-        stopNavigationScroll();
-      }
-    };
-    window.addEventListener("wheel", interruptNavigation, { passive: true });
-    window.addEventListener("touchstart", interruptNavigation, { passive: true });
-    window.addEventListener("pointerdown", interruptNavigation, { passive: true });
-    window.addEventListener("keydown", interruptWithKeyboard);
-    return () => {
-      window.removeEventListener("wheel", interruptNavigation);
-      window.removeEventListener("touchstart", interruptNavigation);
-      window.removeEventListener("pointerdown", interruptNavigation);
-      window.removeEventListener("keydown", interruptWithKeyboard);
-      stopNavigationScroll();
-    };
+  useEffect(() => () => {
+    pendingEntryCleanup.current?.();
+    if (entryResetTimeout.current !== null) window.clearTimeout(entryResetTimeout.current);
+    activeEntrySection.current?.classList.remove("nav-component-enter");
   }, []);
 
   const returnHome = (event: MouseEvent<HTMLAnchorElement>) => {
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
-    navigateTo(0, "#top");
+    navigateTo("top", 0);
   };
 
   const showProfile = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -487,7 +486,7 @@ function Nav() {
     const profile = document.getElementById("profile");
     if (!profile) return;
     event.preventDefault();
-    navigateTo(profile.offsetTop + window.innerHeight * 0.08, "#profile");
+    navigateTo("profile", profile.offsetTop + window.innerHeight * 0.08);
   };
 
   const showWorks = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -496,7 +495,7 @@ function Nav() {
     if (!works) return;
     event.preventDefault();
     const centeredInset = Math.max(0, (window.innerHeight - works.offsetHeight) / 2);
-    navigateTo(works.offsetTop - centeredInset, "#work");
+    navigateTo("work", works.offsetTop - centeredInset);
   };
 
   const showProjects = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -505,7 +504,7 @@ function Nav() {
     if (!projectShowcase) return;
     event.preventDefault();
     const centeredInset = Math.max(0, (window.innerHeight - projectShowcase.offsetHeight) / 2);
-    navigateTo(projectShowcase.offsetTop - centeredInset, "#project-showcase");
+    navigateTo("project-showcase", projectShowcase.offsetTop - centeredInset);
   };
 
   return (
