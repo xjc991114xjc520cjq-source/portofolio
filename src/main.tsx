@@ -415,6 +415,7 @@ function Nav() {
     if (activeEntrySection.current !== section) return;
     section.classList.remove("nav-component-pending");
     entryResetTimeout.current = window.setTimeout(() => {
+      if (section.id === "top") section.classList.add("nav-component-settled");
       section.classList.remove("nav-component-enter", "nav-component-pending");
       if (activeEntrySection.current === section) activeEntrySection.current = null;
       entryResetTimeout.current = null;

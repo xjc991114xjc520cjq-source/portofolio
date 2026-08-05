@@ -1168,6 +1168,14 @@ video {
   animation-play-state: var(--nav-component-play-state);
 }
 
+#top.nav-component-settled .name-reveal,
+#top.nav-component-settled .blur-in {
+  opacity: 1;
+  translate: none;
+  filter: none;
+  animation: none;
+}
+
 .works {
   position: relative;
   z-index: 4;
