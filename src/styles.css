@@ -1141,6 +1141,33 @@ video {
   animation-delay: 290ms;
 }
 
+.nav-component-enter {
+  --nav-component-play-state: running;
+}
+
+.nav-component-enter.nav-component-pending {
+  --nav-component-play-state: paused;
+}
+
+#top.nav-component-enter .hero-signature,
+#top.nav-component-enter .name-reveal,
+#top.nav-component-enter .hero-title-index,
+#top.nav-component-enter .hero-desc,
+#top.nav-component-enter .hero-controls,
+#profile.nav-component-enter .profile-topline,
+#profile.nav-component-enter .profile-copy,
+#profile.nav-component-enter .profile-portrait,
+#profile.nav-component-enter .profile-facts,
+#profile.nav-component-enter .profile-bottomline,
+#work.nav-component-enter .works-topline,
+#work.nav-component-enter .works-footer,
+#work.nav-component-enter .gallery-heading,
+#work.nav-component-enter .gallery-stage,
+#project-showcase.nav-component-enter .project-showcase-heading,
+#project-showcase.nav-component-enter .project-showcase-item {
+  animation-play-state: var(--nav-component-play-state);
+}
+
 .works {
   position: relative;
   z-index: 4;

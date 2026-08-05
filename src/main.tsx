@@ -393,17 +393,29 @@ function Nav() {
   const entryResetTimeout = useRef<number | null>(null);
   const activeEntrySection = useRef<HTMLElement | null>(null);
 
-  const triggerComponentEntry = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    if (!section) return;
+  const clearComponentEntry = () => {
     if (entryResetTimeout.current !== null) window.clearTimeout(entryResetTimeout.current);
-    activeEntrySection.current?.classList.remove("nav-component-enter");
-    section.classList.remove("nav-component-enter");
+    activeEntrySection.current?.classList.remove("nav-component-enter", "nav-component-pending");
+    activeEntrySection.current = null;
+    entryResetTimeout.current = null;
+  };
+
+  const prepareComponentEntry = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (!section) return null;
+    clearComponentEntry();
+    section.classList.remove("nav-component-enter", "nav-component-pending");
     void section.offsetWidth;
-    section.classList.add("nav-component-enter");
+    section.classList.add("nav-component-enter", "nav-component-pending");
     activeEntrySection.current = section;
+    return section;
+  };
+
+  const startComponentEntry = (section: HTMLElement) => {
+    if (activeEntrySection.current !== section) return;
+    section.classList.remove("nav-component-pending");
     entryResetTimeout.current = window.setTimeout(() => {
-      section.classList.remove("nav-component-enter");
+      section.classList.remove("nav-component-enter", "nav-component-pending");
       if (activeEntrySection.current === section) activeEntrySection.current = null;
       entryResetTimeout.current = null;
     }, 1300);
@@ -412,17 +424,19 @@ function Nav() {
   const scheduleComponentEntry = (sectionId: string, target: number) => {
     pendingEntryCleanup.current?.();
     pendingEntryCleanup.current = null;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    if (Math.abs(window.scrollY - target) < 1) {
-      window.requestAnimationFrame(() => triggerComponentEntry(sectionId));
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      clearComponentEntry();
       return;
     }
+    if (Math.abs(window.scrollY - target) < 1) return;
+    const section = prepareComponentEntry(sectionId);
+    if (!section) return;
     let fallbackTimeout = 0;
     const finish = () => {
       window.removeEventListener("scrollend", finish);
       if (fallbackTimeout) window.clearTimeout(fallbackTimeout);
       pendingEntryCleanup.current = null;
-      triggerComponentEntry(sectionId);
+      startComponentEntry(section);
     };
     window.addEventListener("scrollend", finish, { once: true });
     fallbackTimeout = window.setTimeout(finish, 1400);
@@ -471,8 +485,7 @@ function Nav() {
 
   useEffect(() => () => {
     pendingEntryCleanup.current?.();
-    if (entryResetTimeout.current !== null) window.clearTimeout(entryResetTimeout.current);
-    activeEntrySection.current?.classList.remove("nav-component-enter");
+    clearComponentEntry();
   }, []);
 
   const returnHome = (event: MouseEvent<HTMLAnchorElement>) => {
