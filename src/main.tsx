@@ -439,6 +439,19 @@ function Nav() {
     });
   };
 
+  const showWorks = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const works = document.getElementById("work");
+    if (!works) return;
+    event.preventDefault();
+    window.history.replaceState(null, "", "#work");
+    const centeredInset = Math.max(0, (window.innerHeight - works.offsetHeight) / 2);
+    window.scrollTo({
+      top: Math.max(0, works.offsetTop - centeredInset),
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+    });
+  };
+
   const showProjects = (event: MouseEvent<HTMLAnchorElement>) => {
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     const projectShowcase = document.getElementById("project-showcase");
@@ -460,7 +473,7 @@ function Nav() {
         </a>
         <nav aria-label="主要导航">
           <a href="#top" onClick={returnHome} aria-current={activeSection === "top" ? "page" : undefined}>首页</a>
-          <a href="#work" aria-current={activeSection === "work" ? "page" : undefined}>作品</a>
+          <a href="#work" onClick={showWorks} aria-current={activeSection === "work" ? "page" : undefined}>作品</a>
           <a href="#profile" onClick={showProfile} aria-current={activeSection === "profile" ? "page" : undefined}>履历</a>
           <a href="#project-showcase" onClick={showProjects} aria-current={activeSection === "project-showcase" ? "page" : undefined}>项目</a>
         </nav>
