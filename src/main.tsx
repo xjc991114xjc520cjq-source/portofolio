@@ -388,6 +388,35 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
 }
 
 function Nav() {
+  const [activeSection, setActiveSection] = useState("top");
+
+  useEffect(() => {
+    let frame = 0;
+    const sectionIds = ["top", "profile", "work", "project-showcase", "contact"];
+    const updateActiveSection = () => {
+      frame = 0;
+      const marker = window.scrollY + window.innerHeight * 0.38;
+      let nextSection = "top";
+      for (const sectionId of sectionIds) {
+        const section = document.getElementById(sectionId);
+        if (section && section.offsetTop <= marker) nextSection = sectionId;
+      }
+      setActiveSection((current) => current === nextSection ? current : nextSection);
+    };
+    const requestUpdate = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(updateActiveSection);
+    };
+    updateActiveSection();
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+    return () => {
+      window.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("resize", requestUpdate);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, []);
+
   const returnHome = (event: MouseEvent<HTMLAnchorElement>) => {
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
@@ -398,17 +427,31 @@ function Nav() {
     });
   };
 
+  const showProfile = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const profile = document.getElementById("profile");
+    if (!profile) return;
+    event.preventDefault();
+    window.history.replaceState(null, "", "#profile");
+    window.scrollTo({
+      top: profile.offsetTop + window.innerHeight * 0.08,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+    });
+  };
+
   return (
     <header className="nav">
       <div className="nav-pill">
-        <a className="logo" href="#top" aria-label="Back to top" onClick={returnHome}>
+        <a className="logo" href="#top" aria-label="返回首页" onClick={returnHome}>
           <span>XJ</span>
         </a>
-        <nav aria-label="Main navigation">
-          <a href="#top" onClick={returnHome}>首页</a>
-          <a href="#profile">履历</a>
+        <nav aria-label="主要导航">
+          <a href="#top" onClick={returnHome} aria-current={activeSection === "top" ? "page" : undefined}>首页</a>
+          <a href="#work" aria-current={activeSection === "work" ? "page" : undefined}>作品</a>
+          <a href="#profile" onClick={showProfile} aria-current={activeSection === "profile" ? "page" : undefined}>履历</a>
+          <a href="#project-showcase" aria-current={activeSection === "project-showcase" ? "page" : undefined}>项目</a>
         </nav>
-        <a className="say-hi" href={`mailto:${contactEmail}`}>
+        <a className="say-hi" href={`mailto:${contactEmail}`} aria-current={activeSection === "contact" ? "page" : undefined}>
           联系
         </a>
       </div>
@@ -949,7 +992,7 @@ function WorkViewer({
       initial={reduceMotion ? false : { opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={reduceMotion ? undefined : { opacity: 0 }}
-      transition={{ duration: reduceMotion ? 0 : 0.36, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: reduceMotion ? 0 : 0.22, ease: [0.23, 1, 0.32, 1] }}
       onClick={requestClose}
       onKeyDown={handleKeyDown}
     >
@@ -958,18 +1001,20 @@ function WorkViewer({
         style={{ "--work-accent": accentColor } as CSSProperties}
         initial={reduceMotion ? false : {
           opacity: 0,
-          y: 28,
-          scale: 0.978,
-          clipPath: "inset(47% 4% 47% 4%)",
+          y: 22,
+          scale: 0.985,
+          clipPath: "inset(16% 2% 16% 2%)",
+          filter: "blur(8px)",
         }}
-        animate={{ opacity: 1, y: 0, scale: 1, clipPath: "inset(0% 0% 0% 0%)" }}
+        animate={{ opacity: 1, y: 0, scale: 1, clipPath: "inset(0% 0% 0% 0%)", filter: "blur(0px)" }}
         exit={reduceMotion ? undefined : {
           opacity: 0,
-          y: 18,
-          scale: 0.985,
-          clipPath: "inset(48% 3% 48% 3%)",
+          y: 14,
+          scale: 0.988,
+          clipPath: "inset(12% 2% 12% 2%)",
+          filter: "blur(6px)",
         }}
-        transition={{ duration: reduceMotion ? 0 : 0.62, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: reduceMotion ? 0 : 0.46, ease: [0.32, 0.72, 0, 1] }}
         onClick={(event) => event.stopPropagation()}
       >
         <header className="work-dossier-header">
@@ -1114,11 +1159,14 @@ function SelectedWorks({
   const [expandedWork, setExpandedWork] = useState<GalleryWork | null>(null);
   const [viewerSession, setViewerSession] = useState(0);
   const [categoryTransition, setCategoryTransition] = useState<CategoryTransition | null>(null);
+  const [categoryMenuOpen, setCategoryMenuOpen] = useState(false);
   const [isGalleryDragging, setIsGalleryDragging] = useState(false);
   const [isCardTransitioning, setIsCardTransitioning] = useState(false);
   const suppressCardClick = useRef(false);
   const dragResetTimeout = useRef<number | null>(null);
   const lightboxReturnFocus = useRef<HTMLElement | null>(null);
+  const categorySwitcherRef = useRef<HTMLDivElement>(null);
+  const categoryButtonRef = useRef<HTMLButtonElement>(null);
   const settledTrack = useRef(0);
   const workIndexRef = useRef(0);
   const carouselAnimating = useRef(false);
@@ -1241,6 +1289,15 @@ function SelectedWorks({
     });
   }, []);
 
+  useEffect(() => {
+    if (!categoryMenuOpen) return;
+    const closeOnOutsidePress = (event: globalThis.PointerEvent) => {
+      if (!categorySwitcherRef.current?.contains(event.target as Node)) setCategoryMenuOpen(false);
+    };
+    document.addEventListener("pointerdown", closeOnOutsidePress);
+    return () => document.removeEventListener("pointerdown", closeOnOutsidePress);
+  }, [categoryMenuOpen]);
+
   useMotionValueEvent(galleryTrack, "change", (track) => {
     const nextWorkIndex = ((-Math.round(track) % category.works.length) + category.works.length) % category.works.length;
     if (nextWorkIndex === workIndexRef.current) return;
@@ -1337,6 +1394,7 @@ function SelectedWorks({
 
   const changeCategory = (index: number) => {
     if (index === categoryIndex || categoryTransition) return;
+    setCategoryMenuOpen(false);
     gallerySnapAnimation.current?.stop();
     carouselAnimating.current = false;
     setIsCardTransitioning(false);
@@ -1520,6 +1578,7 @@ function SelectedWorks({
       aria-busy={Boolean(categoryTransition) || isCardTransitioning}
       onKeyDown={(event) => {
         if (expandedWork || categoryTransition || isCardTransitioning) return;
+        if ((event.target as HTMLElement).closest(".category-switcher")) return;
         if (event.key === "ArrowLeft") transitionWork(-1);
         if (event.key === "ArrowRight") transitionWork(1);
       }}
@@ -1594,12 +1653,25 @@ function SelectedWorks({
             <small>{activeWork.year} / VISUAL STUDY</small>
           </div>
 
-          <div className="category-switcher">
+          <div
+            ref={categorySwitcherRef}
+            className={`category-switcher${categoryMenuOpen ? " is-open" : ""}`}
+            onKeyDown={(event) => {
+              if (event.key !== "Escape") return;
+              event.stopPropagation();
+              setCategoryMenuOpen(false);
+              categoryButtonRef.current?.focus({ preventScroll: true });
+            }}
+          >
             <button
+              ref={categoryButtonRef}
               className="category-current"
               type="button"
               aria-label="展开并切换作品分类"
               aria-haspopup="menu"
+              aria-expanded={categoryMenuOpen}
+              aria-controls="work-category-menu"
+              onClick={() => setCategoryMenuOpen((open) => !open)}
             >
               <span className="category-current-index" aria-hidden="true">
                 <b>{category.index}</b>
@@ -1611,25 +1683,32 @@ function SelectedWorks({
               </span>
               <span className="category-current-action" aria-hidden="true">
                 <small className="category-current-note">
-                  <span className="category-current-note-hover">悬停选择分类</span>
-                  <span className="category-current-note-tap">点击选择分类</span>
+                  点击选择分类
                 </small>
                 <span className="category-current-toggle">
                   <ChevronDown size={17} strokeWidth={1.45} />
                 </span>
               </span>
             </button>
-            <div className="category-menu" role="menu" aria-label="作品分类">
+            <div
+              id="work-category-menu"
+              className="category-menu"
+              role="menu"
+              aria-label="作品分类"
+              aria-hidden={!categoryMenuOpen}
+            >
               {workCategories.map((item, index) => (
                 <button
                   type="button"
                   role="menuitem"
+                  tabIndex={categoryMenuOpen ? 0 : -1}
                   key={item.id}
                   className={index === categoryIndex ? "is-current" : ""}
                   aria-current={index === categoryIndex ? "true" : undefined}
                   disabled={Boolean(categoryTransition)}
-                  onClick={(event) => {
-                    event.currentTarget.blur();
+                  onClick={() => {
+                    categoryButtonRef.current?.focus({ preventScroll: true });
+                    setCategoryMenuOpen(false);
                     changeCategory(index);
                   }}
                 >
@@ -1991,6 +2070,7 @@ function ProjectDetailViewer({
   onNavigate: (direction: number) => void;
 }) {
   const viewerRef = useRef<HTMLDivElement>(null);
+  const [keyboardNavigation, setKeyboardNavigation] = useState(false);
   const titleId = `project-detail-title-${item.index}`;
   const summaryId = `project-detail-summary-${item.index}`;
   const total = projectShowcaseItems.length;
@@ -2013,11 +2093,13 @@ function ProjectDetailViewer({
     }
     if (event.key === "ArrowLeft") {
       event.preventDefault();
+      setKeyboardNavigation(true);
       onNavigate(-1);
       return;
     }
     if (event.key === "ArrowRight") {
       event.preventDefault();
+      setKeyboardNavigation(true);
       onNavigate(1);
       return;
     }
@@ -2050,7 +2132,7 @@ function ProjectDetailViewer({
       initial={reduceMotion ? false : { opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={reduceMotion ? undefined : { opacity: 0 }}
-      transition={{ duration: reduceMotion ? 0 : 0.34, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: reduceMotion ? 0 : 0.22, ease: [0.23, 1, 0.32, 1] }}
       onClick={requestClose}
       onKeyDown={handleKeyDown}
     >
@@ -2059,18 +2141,20 @@ function ProjectDetailViewer({
         style={{ "--project-detail-accent": item.accent } as CSSProperties}
         initial={reduceMotion ? false : {
           opacity: 0,
-          x: "7%",
-          scale: 0.985,
-          clipPath: "inset(0 0 0 86%)",
+          x: "4%",
+          scale: 0.988,
+          clipPath: "inset(0 0 0 18%)",
+          filter: "blur(8px)",
         }}
-        animate={{ opacity: 1, x: "0%", scale: 1, clipPath: "inset(0 0 0 0%)" }}
+        animate={{ opacity: 1, x: "0%", scale: 1, clipPath: "inset(0 0 0 0%)", filter: "blur(0px)" }}
         exit={reduceMotion ? undefined : {
           opacity: 0,
-          x: "5%",
+          x: "4%",
           scale: 0.99,
-          clipPath: "inset(0 0 0 94%)",
+          clipPath: "inset(0 0 0 18%)",
+          filter: "blur(6px)",
         }}
-        transition={{ duration: reduceMotion ? 0 : 0.68, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: reduceMotion ? 0 : 0.46, ease: [0.32, 0.72, 0, 1] }}
         onClick={(event) => event.stopPropagation()}
       >
         <header className="project-detail-header">
@@ -2080,11 +2164,11 @@ function ProjectDetailViewer({
             <span>PROJECT FILE</span>
           </div>
           <div className="project-detail-controls">
-            <button type="button" onClick={() => onNavigate(-1)} aria-label="上一个项目">
+            <button type="button" onClick={() => { setKeyboardNavigation(false); onNavigate(-1); }} aria-label="上一个项目">
               <ArrowLeft size={18} strokeWidth={1.5} aria-hidden="true" />
             </button>
             <span>{String(currentIndex + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}</span>
-            <button type="button" onClick={() => onNavigate(1)} aria-label="下一个项目">
+            <button type="button" onClick={() => { setKeyboardNavigation(false); onNavigate(1); }} aria-label="下一个项目">
               <ArrowRight size={18} strokeWidth={1.5} aria-hidden="true" />
             </button>
             <button className="project-detail-close" type="button" onClick={requestClose} aria-label="关闭项目详情">
@@ -2100,7 +2184,7 @@ function ProjectDetailViewer({
             initial={reduceMotion ? false : { opacity: 0, x: 26 }}
             animate={{ opacity: 1, x: 0 }}
             exit={reduceMotion ? undefined : { opacity: 0, x: -20 }}
-            transition={{ duration: reduceMotion ? 0 : 0.36, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: reduceMotion || keyboardNavigation ? 0 : 0.26, ease: [0.23, 1, 0.32, 1] }}
           >
             <figure className="project-detail-visual">
               <img src={item.image} alt={item.alt} decoding="async" />
