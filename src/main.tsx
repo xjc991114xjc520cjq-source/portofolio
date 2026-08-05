@@ -389,6 +389,45 @@ function LoadingScreen({ onComplete }: { onComplete: () => void }) {
 
 function Nav() {
   const [activeSection, setActiveSection] = useState("top");
+  const navScrollAnimation = useRef<ReturnType<typeof animate> | null>(null);
+  const previousScrollBehavior = useRef("");
+
+  const restoreScrollBehavior = () => {
+    document.documentElement.style.scrollBehavior = previousScrollBehavior.current;
+  };
+
+  const stopNavigationScroll = () => {
+    if (!navScrollAnimation.current) return;
+    const activeAnimation = navScrollAnimation.current;
+    navScrollAnimation.current = null;
+    activeAnimation.stop();
+    restoreScrollBehavior();
+  };
+
+  const navigateTo = (target: number, hash: string) => {
+    window.history.replaceState(null, "", hash);
+    stopNavigationScroll();
+    const clampedTarget = Math.max(0, Math.min(target, document.documentElement.scrollHeight - window.innerHeight));
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      window.scrollTo({ top: clampedTarget, behavior: "auto" });
+      return;
+    }
+    const distance = Math.abs(clampedTarget - window.scrollY);
+    if (distance < 1) return;
+    previousScrollBehavior.current = document.documentElement.style.scrollBehavior;
+    document.documentElement.style.scrollBehavior = "auto";
+    const duration = 0.9 + Math.min(distance / 1800, 1) * 0.55;
+    navScrollAnimation.current = animate(window.scrollY, clampedTarget, {
+      type: "spring",
+      bounce: 0,
+      duration,
+      onUpdate: (value) => window.scrollTo(0, value),
+      onComplete: () => {
+        navScrollAnimation.current = null;
+        restoreScrollBehavior();
+      },
+    });
+  };
 
   useEffect(() => {
     let frame = 0;
@@ -417,14 +456,30 @@ function Nav() {
     };
   }, []);
 
+  useEffect(() => {
+    const interruptNavigation = () => stopNavigationScroll();
+    const interruptWithKeyboard = (event: globalThis.KeyboardEvent) => {
+      if (["ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End", " "].includes(event.key)) {
+        stopNavigationScroll();
+      }
+    };
+    window.addEventListener("wheel", interruptNavigation, { passive: true });
+    window.addEventListener("touchstart", interruptNavigation, { passive: true });
+    window.addEventListener("pointerdown", interruptNavigation, { passive: true });
+    window.addEventListener("keydown", interruptWithKeyboard);
+    return () => {
+      window.removeEventListener("wheel", interruptNavigation);
+      window.removeEventListener("touchstart", interruptNavigation);
+      window.removeEventListener("pointerdown", interruptNavigation);
+      window.removeEventListener("keydown", interruptWithKeyboard);
+      stopNavigationScroll();
+    };
+  }, []);
+
   const returnHome = (event: MouseEvent<HTMLAnchorElement>) => {
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
-    window.history.replaceState(null, "", "#top");
-    window.scrollTo({
-      top: 0,
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
-    });
+    navigateTo(0, "#top");
   };
 
   const showProfile = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -432,11 +487,7 @@ function Nav() {
     const profile = document.getElementById("profile");
     if (!profile) return;
     event.preventDefault();
-    window.history.replaceState(null, "", "#profile");
-    window.scrollTo({
-      top: profile.offsetTop + window.innerHeight * 0.08,
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
-    });
+    navigateTo(profile.offsetTop + window.innerHeight * 0.08, "#profile");
   };
 
   const showWorks = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -444,12 +495,8 @@ function Nav() {
     const works = document.getElementById("work");
     if (!works) return;
     event.preventDefault();
-    window.history.replaceState(null, "", "#work");
     const centeredInset = Math.max(0, (window.innerHeight - works.offsetHeight) / 2);
-    window.scrollTo({
-      top: Math.max(0, works.offsetTop - centeredInset),
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
-    });
+    navigateTo(works.offsetTop - centeredInset, "#work");
   };
 
   const showProjects = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -457,12 +504,8 @@ function Nav() {
     const projectShowcase = document.getElementById("project-showcase");
     if (!projectShowcase) return;
     event.preventDefault();
-    window.history.replaceState(null, "", "#project-showcase");
     const centeredInset = Math.max(0, (window.innerHeight - projectShowcase.offsetHeight) / 2);
-    window.scrollTo({
-      top: Math.max(0, projectShowcase.offsetTop - centeredInset),
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
-    });
+    navigateTo(projectShowcase.offsetTop - centeredInset, "#project-showcase");
   };
 
   return (
