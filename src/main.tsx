@@ -439,6 +439,19 @@ function Nav() {
     });
   };
 
+  const showProjects = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const projectShowcase = document.getElementById("project-showcase");
+    if (!projectShowcase) return;
+    event.preventDefault();
+    window.history.replaceState(null, "", "#project-showcase");
+    const centeredInset = Math.max(0, (window.innerHeight - projectShowcase.offsetHeight) / 2);
+    window.scrollTo({
+      top: Math.max(0, projectShowcase.offsetTop - centeredInset),
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+    });
+  };
+
   return (
     <header className="nav">
       <div className="nav-pill">
@@ -449,7 +462,7 @@ function Nav() {
           <a href="#top" onClick={returnHome} aria-current={activeSection === "top" ? "page" : undefined}>首页</a>
           <a href="#work" aria-current={activeSection === "work" ? "page" : undefined}>作品</a>
           <a href="#profile" onClick={showProfile} aria-current={activeSection === "profile" ? "page" : undefined}>履历</a>
-          <a href="#project-showcase" aria-current={activeSection === "project-showcase" ? "page" : undefined}>项目</a>
+          <a href="#project-showcase" onClick={showProjects} aria-current={activeSection === "project-showcase" ? "page" : undefined}>项目</a>
         </nav>
         <a className="say-hi" href={`mailto:${contactEmail}`} aria-current={activeSection === "contact" ? "page" : undefined}>
           联系
