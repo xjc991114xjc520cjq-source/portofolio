@@ -531,8 +531,8 @@ function Nav() {
         </a>
         <nav aria-label="主要导航">
           <a href="#top" onClick={returnHome} aria-current={activeSection === "top" ? "page" : undefined}>首页</a>
-          <a href="#work" onClick={showWorks} aria-current={activeSection === "work" ? "page" : undefined}>作品</a>
           <a href="#profile" onClick={showProfile} aria-current={activeSection === "profile" ? "page" : undefined}>履历</a>
+          <a href="#work" onClick={showWorks} aria-current={activeSection === "work" ? "page" : undefined}>作品</a>
           <a href="#project-showcase" onClick={showProjects} aria-current={activeSection === "project-showcase" ? "page" : undefined}>项目</a>
         </nav>
         <a className="say-hi" href={`mailto:${contactEmail}`} aria-current={activeSection === "contact" ? "page" : undefined}>
