@@ -4177,6 +4177,60 @@ video {
   animation: pulse 1.7s ease infinite;
 }
 
+.filing-bar {
+  display: grid;
+  grid-template-columns: minmax(150px, 1fr) auto minmax(240px, 1fr);
+  align-items: center;
+  gap: 24px;
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.065);
+  color: rgba(245, 245, 243, 0.32);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.filing-bar a {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 0;
+  color: rgba(245, 245, 243, 0.48);
+  transition: color 220ms ease;
+}
+
+.filing-bar a::before {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent-a);
+  box-shadow: 0 0 10px rgba(137, 170, 204, 0.34);
+  content: "";
+}
+
+.filing-bar a span {
+  color: rgba(245, 245, 243, 0.24);
+  font-size: 8px;
+}
+
+.filing-bar a strong {
+  font-size: 10px;
+  font-weight: 760;
+  letter-spacing: 0.08em;
+}
+
+.filing-bar a:hover,
+.filing-bar a:focus-visible {
+  color: rgba(245, 245, 243, 0.86);
+}
+
+.filing-bar-authority {
+  justify-self: end;
+  text-align: right;
+}
+
 @keyframes pulse {
   70% {
     box-shadow: 0 0 0 10px rgba(102, 210, 143, 0);
@@ -4356,6 +4410,14 @@ video {
   .footer-bar {
     flex-direction: column;
   }
+
+  .filing-bar {
+    grid-template-columns: 1fr auto;
+  }
+
+  .filing-bar-authority {
+    display: none;
+  }
 }
 
 @media (max-width: 720px) {
@@ -4441,6 +4503,26 @@ video {
   .profile-copy h2,
   .footer h2 {
     font-size: clamp(42px, 14vw, 78px);
+  }
+
+  .footer-content {
+    padding-bottom: 32px;
+  }
+
+  .filing-bar {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    margin-top: 22px;
+    padding-top: 15px;
+  }
+
+  .filing-bar a {
+    justify-self: start;
+    gap: 9px;
+  }
+
+  .filing-bar-label {
+    font-size: 8px;
   }
 
   .works-stage {

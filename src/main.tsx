@@ -21,6 +21,8 @@ import {
 import "./styles.css";
 
 const contactEmail = "1498224542@qq.com";
+const icpFilingNumber = "备案号待补充";
+const icpFilingUrl = "https://beian.miit.gov.cn/";
 const slowFastScrollEase = (progress: number) => progress ** 1.35;
 const softFoldScrollEase = (progress: number) => progress * progress * (3 - 2 * progress);
 
@@ -2592,6 +2594,14 @@ function Footer() {
         <div className="footer-bar">
           <span>谢敬淳 / Visual Designer / Brand Designer / AIGC Designer</span>
           <strong>Available for projects</strong>
+        </div>
+        <div className="filing-bar" aria-label="网站备案信息">
+          <span className="filing-bar-label">REGISTRATION / CN</span>
+          <a href={icpFilingUrl} target="_blank" rel="noreferrer">
+            <span aria-hidden="true">工信部 ICP 备案</span>
+            <strong>{icpFilingNumber}</strong>
+          </a>
+          <span className="filing-bar-authority">中华人民共和国工业和信息化部</span>
         </div>
       </div>
     </footer>
