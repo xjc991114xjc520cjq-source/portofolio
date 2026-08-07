@@ -21,7 +21,7 @@ import {
 import "./styles.css";
 
 const contactEmail = "1498224542@qq.com";
-const icpFilingNumber = "e9055130469ef8f5a26f534177de7d81";
+const icpFilingNumber = "闽ICP备e9055130469ef8f5a26f534177de7d81";
 const icpFilingUrl = "https://beian.miit.gov.cn/";
 const slowFastScrollEase = (progress: number) => progress ** 1.35;
 const softFoldScrollEase = (progress: number) => progress * progress * (3 - 2 * progress);
