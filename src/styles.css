@@ -4219,6 +4219,7 @@ video {
   font-size: 10px;
   font-weight: 760;
   letter-spacing: 0.08em;
+  text-transform: none;
 }
 
 .filing-bar a:hover,
