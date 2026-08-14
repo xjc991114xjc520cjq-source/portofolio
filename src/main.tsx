@@ -27,102 +27,170 @@ const slowFastScrollEase = (progress: number) => progress ** 1.35;
 const softFoldScrollEase = (progress: number) => progress * progress * (3 - 2 * progress);
 
 const metrics = [
-  { value: "4+", label: "年视觉设计经验" },
-  { value: "60%+", label: "小程序到店引流增长" },
-  { value: "80%", label: "线上商城电商转型" },
+  { value: "4+", label: "年视觉与电商设计经验" },
+  { value: "AI", label: "生成式内容生产与视觉控制" },
+  { value: "FULL", label: "从主图到整合 Campaign" },
 ];
 
 const projectShowcaseItems = [
   {
     index: "01",
-    title: "夜航电台",
-    english: "NOCTURNE FM",
-    category: "品牌识别",
-    categoryEnglish: "BRAND IDENTITY",
+    title: "出版电商系统",
+    english: "PUBLISHING COMMERCE",
+    category: "出版与内容商业视觉",
+    categoryEnglish: "COMMERCE SYSTEM",
     year: "2026",
-    image: "/assets/project-showcase-nocturne.webp",
-    alt: "夜航电台品牌识别海报与广播视觉系统",
-    backdrop: "NOCTURNE",
-    accent: "#70c9ba",
-    summary: "为面向城市夜行者的声音内容平台建立一套克制、低照度且可持续扩展的品牌识别系统。",
-    brief: "声音不可见，品牌需要在不同终端与夜间场景中保持同一频率，同时避开传统电台视觉中过度复古的表达。",
-    response: "以 88.6 频点和广播信号条为核心语法，让冷灰纸张、窄体字与荧光青成为贯穿印刷、屏幕和空间导视的识别线索。",
-    role: "品牌视觉 / 创意指导",
-    duration: "06 周",
-    deliverables: ["标志系统", "广播界面", "节目海报", "空间物料"],
+    image: "/assets/works/commerce-andersen-thumb.jpg",
+    alt: "儿童立体书电商长图中的产品组合与销售信息",
+    backdrop: "PUBLISHING",
+    accent: "#89aacc",
+    summary: "把多 SKU、复杂封面与长页面销售信息组织成统一、可复用的儿童出版电商视觉系统。",
+    brief: "儿童出版产品主题多、产品比例必须准确，同时还需要在主图、详情页和活动物料中快速建立差异化。",
+    response: "以产品真实性为底线，统一光影、比例、信息层级与场景规则，再将视觉方向扩展到完整电商触点。",
+    role: "电商视觉 / AI 视觉控制",
+    scope: "多 SKU 内容系统",
+    deliverables: ["商品主图", "详情长图", "活动 Banner", "套系延展"],
+    workflow: ["产品输入", "参考控制", "场景构建", "精修排版", "多端输出"],
+    system: "以固定产品比例、光影方向和版式层级维持套系一致性，同时允许不同主题拥有清晰辨识度。",
+    outcome: "形成能够覆盖主图、详情页和营销物料的视觉框架，减少每次从零开始设计的成本。",
+    reflection: "真正困难的不是生成背景，而是在视觉变化中持续保护产品身份。",
+    gallery: [
+      { src: "/assets/works/commerce-andersen-thumb.jpg", alt: "儿童出版电商视觉主画面", layout: "portrait" },
+      { src: "/assets/works/commerce-andersen-long.jpg", alt: "儿童出版电商详情长图", layout: "long" },
+    ],
   },
   {
     index: "02",
-    title: "潮汐零九",
-    english: "TIDE / 09",
-    category: "商业视觉",
-    categoryEnglish: "COMMERCE VISUALS",
-    year: "2025",
-    image: "/assets/project-showcase-tide.webp",
-    alt: "潮汐零九深蓝玻璃材质商业视觉",
-    backdrop: "TIDE",
-    accent: "#5b8cff",
-    summary: "围绕深夜饮品系列建立具有潮汐感的商业视觉，将产品质感转译为安静而有张力的消费场景。",
-    brief: "新品需要在深色货架与社交媒体信息流中被快速识别，又不能牺牲品牌希望保留的高级与松弛感。",
-    response: "用深海蓝玻璃作为视觉锚点，通过低照度布光、液体折射和极少量银白文字形成统一的静物叙事。",
-    role: "商业视觉 / 视觉统筹",
-    duration: "04 周",
-    deliverables: ["主视觉", "产品摄影", "社媒模板", "零售物料"],
+    title: "空气循环视觉系统",
+    english: "AIR CIRCULATION SYSTEM",
+    category: "智能生活产品 / AI 商品视觉",
+    categoryEnglish: "SMART LIVING PRODUCT",
+    year: "2026",
+    image: "/assets/projects/table-fan/table-fan-hero.webp",
+    alt: "白色空气循环扇的正面商品主视觉",
+    backdrop: "AIR",
+    accent: "#89aacc",
+    summary: "围绕一款空气循环扇建立从标准产品视图到家庭昼夜场景的完整 AI 商品视觉案例。",
+    brief: "智能生活产品既要准确呈现扇叶、机身、底座和控制面板，也要让产品自然进入日间、亲子与夜间使用场景。",
+    response: "先用正面、侧面和背面视图锁定结构，再围绕送风感、家庭陪伴与夜间使用构建场景，最后统一产品比例和光线关系。",
+    role: "AI Art Direction / 商品视觉",
+    scope: "产品一致性与场景扩展",
+    deliverables: ["产品主视觉", "标准视图", "生活方式场景", "昼夜场景", "光线实验"],
+    workflow: ["结构参考", "视角锁定", "场景生成", "一致性筛选", "系列编排"],
+    system: "以产品结构和白色材质为固定基准，通过人物距离、家居尺度与昼夜光线变化建立丰富但连续的内容系统。",
+    outcome: "形成七张可覆盖商品展示、生活方式传播与场景卖点表达的核心视觉资产。",
+    reflection: "这组案例显示，AI 商品图的关键不是场景数量，而是产品在每种场景中仍然像同一件商品。",
+    gallery: [
+      { src: "/assets/projects/table-fan/table-fan-hero.webp", alt: "空气循环扇正面商品主视觉", layout: "square" },
+      { src: "/assets/projects/table-fan/table-fan-views.webp", alt: "空气循环扇正面、侧面与背面标准视图", layout: "square" },
+      { src: "/assets/projects/table-fan/table-fan-lifestyle.webp", alt: "年轻女性在明亮客厅中使用空气循环扇", layout: "wide" },
+      { src: "/assets/projects/table-fan/table-fan-family.webp", alt: "亲子阅读场景中的空气循环扇", layout: "wide" },
+      { src: "/assets/projects/table-fan/table-fan-night.webp", alt: "夜间卧室中的空气循环扇场景", layout: "square" },
+      { src: "/assets/projects/table-fan/table-fan-night-detail.webp", alt: "冷暖光线中的空气循环扇夜间特写", layout: "square" },
+      { src: "/assets/projects/table-fan/table-fan-dayparts.webp", alt: "空气循环扇在四种时段光线中的场景实验", layout: "square" },
+    ],
   },
   {
     index: "03",
-    title: "场域之物",
-    english: "FIELD OBJECTS",
-    category: "包装系统",
-    categoryEnglish: "PACKAGING SYSTEM",
-    year: "2025",
-    image: "/assets/project-showcase-field-objects.webp",
-    alt: "场域之物灰绿色哑光包装系统",
-    backdrop: "FIELD",
-    accent: "#a7ad8f",
-    summary: "为强调材料来源与触感体验的生活方式产品，构建从单品到系列陈列都保持秩序感的包装系统。",
-    brief: "不同尺寸和结构的产品需要共享清晰家族特征，并在有限印刷工艺下呈现材料本身而不是额外装饰。",
-    response: "以模块比例、克制编号和灰绿色未涂布纸为系统基础，让折叠、开口与触感成为包装最直接的识别。",
-    role: "包装设计 / 系统规范",
-    duration: "08 周",
-    deliverables: ["结构包装", "标签体系", "印刷规范", "陈列组合"],
+    title: "全链路电商",
+    english: "FULL-FUNNEL COMMERCE",
+    category: "电商整合 Campaign",
+    categoryEnglish: "FULL-FUNNEL CAMPAIGN",
+    year: "2026",
+    image: "/assets/project-commerce.png",
+    alt: "电商小程序视觉系统与营销页面示意",
+    backdrop: "COMMERCE",
+    accent: "#89aacc",
+    summary: "让一个核心视觉方向贯穿商品主图、PDP、详情页、活动页面与社交内容，形成完整销售叙事。",
+    brief: "分散的电商触点容易产生不同视觉语言，导致产品卖点、品牌调性和转化路径彼此割裂。",
+    response: "从购买决策路径出发统一视觉层级，再根据不同触点的信息密度调整构图，而不是简单裁切同一张图。",
+    role: "电商视觉 / Campaign 统筹",
+    scope: "全链路内容设计",
+    deliverables: ["商品主图", "PDP", "详情页", "活动页", "社交内容"],
+    workflow: ["用户场景", "卖点排序", "主视觉", "触点适配", "内容复盘"],
+    system: "以购买决策为主线，为不同触点定义清晰的信息任务和统一的视觉资产。",
+    outcome: "让品牌表达和销售信息在整条内容链路中保持连续，避免每个渠道独立生产。",
+    reflection: "全链路设计不是尺寸适配，而是让每个触点承担不同但连续的说服任务。",
+    gallery: [{ src: "/assets/project-commerce.png", alt: "全链路电商视觉系统示意", layout: "wide" }],
   },
   {
     index: "04",
-    title: "余像计划",
-    english: "AFTERIMAGE",
-    category: "编辑海报",
-    categoryEnglish: "EDITORIAL POSTER",
-    year: "2024",
+    title: "人物生活方式",
+    english: "LIFESTYLE CAMPAIGN",
+    category: "真人 / 场景 / 商品",
+    categoryEnglish: "AI LIFESTYLE",
+    year: "2026",
     image: "/assets/project-showcase-afterimage.webp",
-    alt: "余像计划动态人物编辑海报",
-    backdrop: "AFTERIMAGE",
-    accent: "#d8d3ca",
-    summary: "一组关于运动残留与观看延迟的编辑海报实验，让人物影像在静止平面中保留时间感。",
-    brief: "展览传播需要用单张海报传达动态主题，同时形成适用于多期内容的可变版式，而不是重复同一构图。",
-    response: "将拖影、错位和纵向窄体字组合成可变规则，让每张图像拥有不同速度，同时保持系列的一致阅读路径。",
-    role: "编辑设计 / 图像实验",
-    duration: "03 周",
-    deliverables: ["系列海报", "动态版本", "展览手册", "社交切图"],
+    alt: "运动中的人物影像与编辑式字体组成生活方式 Campaign",
+    backdrop: "LIFESTYLE",
+    accent: "#89aacc",
+    summary: "把人物、商品、场景与品牌气质组织成连续的生活方式 Campaign，强调多画面中的身份和光影一致性。",
+    brief: "AI 人物与商品合成最容易在连续画面中失去身份、比例和光线逻辑，削弱商业可信度。",
+    response: "分别控制人物特征、商品参考、镜头语言和环境光，再通过人工筛选与精修建立可用的系列输出。",
+    role: "AI Art Direction / Campaign",
+    scope: "人物与商品一致性",
+    deliverables: ["Campaign KV", "人物套图", "社交内容", "动态延展"],
+    workflow: ["角色定义", "商品锁定", "镜头探索", "一致性筛选", "商业精修"],
+    system: "为人物身份、商品比例、镜头和光线建立连续性标准，使系列画面能够共同讲述同一场景。",
+    outcome: "形成从单张视觉到人物与商品连续叙事的 Campaign 方法。",
+    reflection: "生成次数不是能力证明，筛选标准与一致性控制才是。",
+    gallery: [{ src: "/assets/project-showcase-afterimage.webp", alt: "人物生活方式 Campaign 视觉", layout: "portrait" }],
   },
   {
     index: "05",
-    title: "以太网格",
-    english: "AETHER GRID",
-    category: "技术创新",
-    categoryEnglish: "TECHNOLOGY INNOVATION",
+    title: "品牌创意方向",
+    english: "BRAND ART DIRECTION",
+    category: "文化 / 品牌 / Campaign",
+    categoryEnglish: "ART DIRECTION",
     year: "2026",
     image: "/assets/project-showcase-aether-grid.webp",
-    alt: "以太网格暗场技术创新视觉",
-    backdrop: "AETHER",
-    accent: "#78c7c4",
-    summary: "把实时环境数据转译为空间中的低干扰界面，探索技术信息如何自然进入建筑与日常行为。",
-    brief: "数据密度与空间氛围存在冲突：界面必须足够准确可读，也要在不被使用时退回环境背景。",
-    response: "以网格为信息骨架，将动态曲线、状态编码与低亮度青色光结合，使数据层根据观看距离逐级显现。",
-    role: "体验视觉 / 界面系统",
-    duration: "10 周",
-    deliverables: ["信息架构", "环境界面", "动态规范", "交互原型"],
+    alt: "暗场空间中的数字界面与品牌体验视觉",
+    backdrop: "DIRECTION",
+    accent: "#89aacc",
+    summary: "从文化内容或品牌命题出发建立清晰的视觉概念，再将它扩展为 Campaign、空间与数字内容。",
+    brief: "文化与品牌项目需要辨识度，也需要避免仅依赖符号拼贴或单一风格化画面。",
+    response: "先提炼叙事核心与视觉规则，再选择适合的生成方式，使技术服务概念而不是替代概念。",
+    role: "创意指导 / 品牌视觉",
+    scope: "概念与视觉语言",
+    deliverables: ["视觉概念", "Campaign KV", "内容系统", "数字延展"],
+    workflow: ["命题提炼", "视觉语法", "方向探索", "系统延展", "应用校准"],
+    system: "把叙事、色彩、构图和媒介规则整理成可以被不同输出共同遵循的视觉语言。",
+    outcome: "让传统文化、出版或消费品牌都能从单个概念发展为完整传播系统。",
+    reflection: "AI 可以扩展视觉可能性，但方向判断仍然决定项目是否成立。",
+    gallery: [{ src: "/assets/project-showcase-aether-grid.webp", alt: "品牌创意与数字体验视觉", layout: "portrait" }],
   },
+  {
+    index: "06",
+    title: "商品动态内容",
+    english: "PRODUCT IN MOTION",
+    category: "动态广告 / 产品片",
+    categoryEnglish: "AI MOTION",
+    year: "2026",
+    image: "/assets/project-showcase-tide.webp",
+    alt: "深蓝玻璃商品与低照度场景组成的动态产品视觉",
+    backdrop: "MOTION",
+    accent: "#89aacc",
+    summary: "将静态商品视觉延展为短视频与产品片，保持产品形态、材质、镜头与品牌节奏的连续性。",
+    brief: "图生视频容易产生结构漂移、材质变化和无目的运动，无法直接满足商品内容的可信度要求。",
+    response: "先锁定关键帧与商品结构，再为镜头、动作和节奏设定范围，通过短段生成与后期剪辑维持连续性。",
+    role: "AI Motion / 视觉指导",
+    scope: "静态到动态延展",
+    deliverables: ["产品短片", "动态广告", "社交视频", "关键帧系统"],
+    workflow: ["关键帧", "运动设计", "分段生成", "连续性检查", "剪辑输出"],
+    system: "以关键帧和动作边界控制商品结构，让动态内容继承静态 Campaign 的视觉资产。",
+    outcome: "建立能够连接主视觉、短视频和社交媒体的动态内容路径。",
+    reflection: "有效的运动应当传达材质、功能或叙事，而不是只让画面发生变化。",
+    gallery: [{ src: "/assets/project-showcase-tide.webp", alt: "商品动态内容关键帧视觉", layout: "portrait" }],
+  },
+] as const;
+
+const aiLabItems = [
+  { title: "商品一致性", english: "Product Consistency", description: "固定结构、材质、比例与关键识别点，让商品在不同画面中保持同一身份。" },
+  { title: "人物一致性", english: "Human Consistency", description: "控制人物特征、姿态和镜头关系，使生活方式套图具备连续叙事。" },
+  { title: "光影迁移", english: "Lighting Transfer", description: "在日间、黄昏和夜间场景中保持产品材质可信，并让光线服务卖点。" },
+  { title: "透视控制", english: "Perspective Control", description: "以标准视图校准商品朝向与空间尺度，减少生成过程中的结构漂移。" },
+  { title: "图生视频", english: "Image to Video", description: "通过关键帧、动作边界和分段生成，让静态 Campaign 延展为连续动态内容。" },
+  { title: "生成式插画", english: "Generative Illustration", description: "将风格探索转化为可重复的内容规则，服务出版与品牌传播。" },
 ] as const;
 
 // Keep the selected photography inside the deploy so the gallery never depends
@@ -160,38 +228,20 @@ type WorkCategory = {
 
 const workCategories: WorkCategory[] = [
   {
-    id: "brand",
-    label: "品牌视觉",
-    english: "Brand Identity",
-    index: "01",
-    background: unsplashImage("1494438639946-1ebd1d20bf85"),
-    transitionImage: "/assets/category-transitions/brand-identity.webp",
-    description: "围绕识别、空间与影像建立统一的品牌语法，让核心概念在不同接触点保持清晰而有辨识度。",
-    role: "视觉策略 / 品牌设计",
-    deliverables: ["识别系统", "视觉规范", "场景延展"],
-    keywords: ["识别", "秩序", "延展", "质感"],
-    palette: ["#0A0D10", "#D9D8D2", "#6F8EA7", "#A9B7C1"],
-    works: [
-      { id: "brand-01", title: "识别系统", year: "2024", image: unsplashImage("1494438639946-1ebd1d20bf85"), alt: "现代品牌空间与陈设" },
-      { id: "brand-02", title: "空间延展", year: "2024", image: unsplashImage("1484101403633-562f891dc89a"), alt: "现代室内空间摄影" },
-      { id: "brand-03", title: "品牌影像", year: "2023", image: unsplashImage("1497366754035-f200968a6e72"), alt: "开放式创意办公空间" },
-      { id: "brand-04", title: "视觉语法", year: "2023", image: unsplashImage("1518005020951-eccb494ad742"), alt: "建筑几何与光影" },
-      { id: "brand-05", title: "质感研究", year: "2022", image: "/assets/project-brand-vi.png", alt: "品牌视觉识别项目" },
-    ],
-  },
-  {
     id: "commerce",
-    label: "电商视觉",
-    english: "Commerce Visuals",
-    index: "02",
-    background: unsplashImage("1523275335684-37898b6baf30"),
+    label: "商业视觉",
+    english: "Commerce",
+    index: "01",
+    background: "/assets/projects/table-fan/table-fan-night.webp",
     transitionImage: "/assets/category-transitions/commerce-visuals.webp",
-    description: "从产品卖点与浏览路径出发，以清晰的信息层级和场景化表达推动用户理解、停留与转化。",
-    role: "电商视觉 / 页面设计",
-    deliverables: ["详情页", "活动视觉", "商品陈列"],
-    keywords: ["卖点", "层级", "场景", "转化"],
-    palette: ["#07101F", "#E9EDF2", "#62C8DA", "#2E5EA8"],
+    description: "从商品真实性、卖点层级与购买路径出发，把一个视觉方向扩展到主图、详情页和完整电商触点。",
+    role: "AI 商业视觉 / 电商系统",
+    deliverables: ["商品主视觉", "详情页", "Campaign 延展"],
+    keywords: ["商品", "一致性", "卖点", "转化"],
+    palette: ["#080B0F", "#E8EEF3", "#89AACC", "#4E85BF"],
     works: [
+      { id: "fan-product", title: "台扇商品主视觉", year: "2026", image: "/assets/projects/table-fan/table-fan-hero.webp", alt: "白色空气循环扇商品主视觉" },
+      { id: "fan-views", title: "产品结构视图", year: "2026", image: "/assets/projects/table-fan/table-fan-views.webp", alt: "空气循环扇正面、侧面与背面视图" },
       {
         id: "commerce-andersen",
         title: "安徒生童话详情页",
@@ -203,83 +253,80 @@ const workCategories: WorkCategory[] = [
         alt: "青葫芦立体剧场书安徒生童话电商详情页设计",
         summary: "为青葫芦立体剧场书梳理核心卖点，以童话舞台感串联产品结构、内容价值与阅读场景，形成适合长页面浏览的完整销售叙事。",
       },
-      { id: "commerce-01", title: "静物陈列", year: "2024", image: unsplashImage("1523275335684-37898b6baf30"), alt: "腕表产品静物摄影" },
-      { id: "commerce-02", title: "产品场景", year: "2024", image: unsplashImage("1542291026-7eec264c27ff"), alt: "运动鞋产品摄影" },
-      { id: "commerce-03", title: "材质特写", year: "2023", image: unsplashImage("1543163521-1bf539c55dd2"), alt: "产品材质细节摄影" },
-      { id: "commerce-04", title: "消费叙事", year: "2023", image: unsplashImage("1495474472287-4d71bcdd2085"), alt: "咖啡与生活方式摄影" },
-      { id: "commerce-05", title: "商城视觉", year: "2022", image: "/assets/project-commerce.png", alt: "电商小程序视觉项目" },
+      { id: "commerce-product", title: "商品场景", year: "2024", image: unsplashImage("1542291026-7eec264c27ff"), alt: "消费品场景视觉" },
+      { id: "commerce-store", title: "商城视觉", year: "2022", image: "/assets/project-commerce.png", thumbnailMode: "wide", alt: "电商小程序视觉项目" },
     ],
   },
   {
-    id: "packaging",
-    label: "包装设计",
-    english: "Packaging Design",
-    index: "03",
-    background: unsplashImage("1547891654-e66ed7ebb968"),
-    transitionImage: "/assets/category-transitions/packaging-design.webp",
-    description: "把品牌性格转译为结构、材质与开箱节奏，在货架识别和触感体验之间建立一致的产品印象。",
-    role: "包装视觉 / 系统延展",
-    deliverables: ["包装结构", "系列规范", "零售陈列"],
-    keywords: ["结构", "触感", "系列", "陈列"],
-    palette: ["#0B0D0C", "#E5E0D4", "#9DA687", "#5F6554"],
-    works: [
-      { id: "packaging-01", title: "结构与触感", year: "2024", image: unsplashImage("1547891654-e66ed7ebb968"), alt: "极简产品包装摄影" },
-      { id: "packaging-02", title: "系列包装", year: "2024", image: unsplashImage("1513364776144-60967b0f800f"), alt: "色彩与材质艺术摄影" },
-      { id: "packaging-03", title: "开箱体验", year: "2023", image: unsplashImage("1523726491678-bf852e717f6a"), alt: "设计桌面与纸张细节" },
-      { id: "packaging-04", title: "零售陈列", year: "2023", image: unsplashImage("1503602642458-232111445657"), alt: "零售建筑与展示空间" },
-      { id: "packaging-05", title: "礼盒系统", year: "2022", image: "/assets/project-packaging.png", alt: "产品礼盒包装项目" },
-    ],
-  },
-  {
-    id: "editorial",
-    label: "海报编辑",
-    english: "Editorial & Poster",
-    index: "04",
-    background: unsplashImage("1529139574466-a303027c1d8b"),
+    id: "campaign",
+    label: "创意企划",
+    english: "Campaign",
+    index: "02",
+    background: "/assets/projects/table-fan/table-fan-family.webp",
     transitionImage: "/assets/category-transitions/editorial-poster.webp",
-    description: "利用字体、图像与留白建立阅读节奏，把内容主题转化为具有传播张力的编辑式画面。",
-    role: "艺术指导 / 编辑设计",
-    deliverables: ["主题海报", "版式系统", "传播物料"],
-    keywords: ["叙事", "节奏", "字体", "影像"],
-    palette: ["#100B0B", "#EFE9E2", "#B76D5A", "#70463F"],
+    description: "以品牌命题和使用场景建立视觉概念，统筹人物、商品、光线与媒介之间的连续叙事。",
+    role: "AI Art Direction / Campaign",
+    deliverables: ["Campaign KV", "生活方式套图", "传播内容"],
+    keywords: ["概念", "人物", "场景", "叙事"],
+    palette: ["#090A0C", "#EEECE7", "#89AACC", "#566D84"],
     works: [
-      { id: "editorial-01", title: "造型研究", year: "2024", image: unsplashImage("1529139574466-a303027c1d8b"), alt: "时尚造型编辑摄影" },
-      { id: "editorial-02", title: "版面节奏", year: "2024", image: unsplashImage("1515886657613-9f3515b0c78f"), alt: "街头时尚人物摄影" },
-      { id: "editorial-03", title: "时尚影像", year: "2023", image: unsplashImage("1483985988355-763728e1935b"), alt: "服装陈列摄影" },
-      { id: "editorial-04", title: "城市切片", year: "2023", image: unsplashImage("1509631179647-0177331693ae"), alt: "城市环境中的时尚摄影" },
-      { id: "editorial-05", title: "图形实验", year: "2022", image: unsplashImage("1490481651871-ab68de25d43d"), alt: "编辑式人物摄影" },
+      { id: "fan-lifestyle", title: "清风日常", year: "2026", image: "/assets/projects/table-fan/table-fan-lifestyle.webp", thumbnailMode: "wide", alt: "年轻女性在明亮客厅中使用空气循环扇" },
+      { id: "fan-family", title: "家庭陪伴", year: "2026", image: "/assets/projects/table-fan/table-fan-family.webp", thumbnailMode: "wide", alt: "亲子阅读场景中的空气循环扇" },
+      { id: "campaign-person", title: "人物叙事", year: "2024", image: "/assets/project-showcase-afterimage.webp", alt: "动态人物编辑视觉" },
+      { id: "campaign-style", title: "造型研究", year: "2024", image: unsplashImage("1529139574466-a303027c1d8b"), alt: "时尚造型编辑摄影" },
+      { id: "campaign-exhibition", title: "传播物料", year: "2023", image: "/assets/project-exhibition.png", thumbnailMode: "wide", alt: "展陈与营销物料设计" },
     ],
   },
   {
-    id: "technology",
-    label: "技术创新",
-    english: "Technology Innovation",
-    index: "05",
-    background: unsplashImage("1561070791-2526d30994b5"),
+    id: "motion",
+    label: "动态内容",
+    english: "Motion",
+    index: "03",
+    background: "/assets/projects/table-fan/table-fan-night-detail.webp",
     transitionImage: "/assets/category-transitions/technology-innovation.webp",
-    description: "以界面、原型和生成式视觉探索信息如何被组织、反馈与感知，让技术概念拥有可理解的视觉入口。",
-    role: "体验视觉 / 原型设计",
-    deliverables: ["界面视觉", "交互原型", "内容系统"],
-    keywords: ["界面", "反馈", "生成", "系统"],
-    palette: ["#070A12", "#E6E9F4", "#8294FF", "#354A8C"],
+    description: "从静态关键帧延展到产品片与社交视频，用运动传达材质、功能和情绪，而不是制造无目的变化。",
+    role: "AI Motion / 动态视觉",
+    deliverables: ["关键帧", "产品短片", "动态广告"],
+    keywords: ["关键帧", "连续性", "节奏", "输出"],
+    palette: ["#070A12", "#E6E9F4", "#89AACC", "#354A8C"],
     works: [
-      { id: "digital-01", title: "移动界面", year: "2024", image: unsplashImage("1561070791-2526d30994b5"), alt: "移动端界面设计工作场景" },
-      { id: "digital-02", title: "交互原型", year: "2024", image: unsplashImage("1516321318423-f06f85e504b3"), alt: "笔记本电脑交互设计场景" },
-      { id: "digital-03", title: "数字场景", year: "2023", image: unsplashImage("1558655146-9f40138edfeb"), alt: "数字产品设计工作台" },
-      { id: "digital-04", title: "内容系统", year: "2023", image: unsplashImage("1523726491678-bf852e717f6a"), alt: "创意设计与内容规划桌面" },
-      { id: "digital-05", title: "界面视觉", year: "2022", image: "/assets/project-commerce.png", alt: "数字商业界面项目" },
+      { id: "fan-night", title: "夜间运行", year: "2026", image: "/assets/projects/table-fan/table-fan-night.webp", alt: "夜间卧室中的空气循环扇" },
+      { id: "fan-dayparts", title: "光线序列", year: "2026", image: "/assets/projects/table-fan/table-fan-dayparts.webp", alt: "四种时段光线中的空气循环扇" },
+      { id: "fan-night-detail", title: "冷暖光线", year: "2026", image: "/assets/projects/table-fan/table-fan-night-detail.webp", alt: "冷暖光线中的空气循环扇特写" },
+      { id: "motion-product", title: "商品关键帧", year: "2025", image: "/assets/project-showcase-tide.webp", alt: "深蓝玻璃商品关键帧视觉" },
+      { id: "motion-digital", title: "数字场景", year: "2024", image: "/assets/project-showcase-aether-grid.webp", alt: "暗场数字体验视觉" },
+    ],
+  },
+  {
+    id: "publishing",
+    label: "出版内容",
+    english: "Publishing",
+    index: "04",
+    background: "/assets/works/commerce-andersen-thumb.jpg",
+    transitionImage: "/assets/category-transitions/packaging-design.webp",
+    description: "把内容价值、产品结构与阅读场景转化成清晰的出版商业视觉，同时保留插画与文化叙事的吸引力。",
+    role: "出版视觉 / 内容商业化",
+    deliverables: ["套系视觉", "详情长图", "内容传播"],
+    keywords: ["出版", "内容", "套系", "阅读"],
+    palette: ["#0B0D0C", "#E5E0D4", "#89AACC", "#5F6554"],
+    works: [
+      { id: "publishing-andersen", title: "立体剧场书", year: "2026", image: "/assets/works/commerce-andersen-thumb.jpg", alt: "安徒生童话立体剧场书电商视觉" },
+      { id: "publishing-long", title: "内容销售叙事", year: "2026", image: "/assets/works/commerce-andersen-long.jpg", thumbnail: "/assets/works/commerce-andersen-thumb.jpg", thumbnailMode: "long", focalPoint: "50% 0%", alt: "儿童出版电商详情长图" },
+      { id: "publishing-package", title: "套系包装", year: "2024", image: "/assets/project-packaging.png", thumbnailMode: "wide", alt: "出版套系包装视觉" },
+      { id: "publishing-content", title: "内容编排", year: "2023", image: unsplashImage("1523726491678-bf852e717f6a"), alt: "内容设计与编排工作场景" },
+      { id: "publishing-illustration", title: "生成式插画", year: "2023", image: unsplashImage("1513364776144-60967b0f800f"), alt: "色彩与材质构成的生成式插画实验" },
     ],
   },
 ];
 
 const heroImages = [
   "/assets/hero-landscape-v2.webp",
-  "/assets/hero-commerce-v2.webp",
-  "/assets/hero-editorial-v2.webp",
-  "/assets/project-brand-vi.png",
-  "/assets/project-commerce.png",
-  "/assets/project-packaging.png",
-  "/assets/project-exhibition.png",
+  "/assets/projects/table-fan/table-fan-hero.webp",
+  "/assets/projects/table-fan/table-fan-lifestyle.webp",
+  "/assets/works/commerce-andersen-thumb.jpg",
+  "/assets/projects/table-fan/table-fan-night.webp",
+  "/assets/project-showcase-afterimage.webp",
+  "/assets/project-showcase-aether-grid.webp",
   "/assets/hero-poster.png",
 ];
 
@@ -460,30 +507,21 @@ function Nav() {
   };
 
   useEffect(() => {
-    let frame = 0;
-    const sectionIds = ["top", "profile", "work", "project-showcase", "contact"];
-    const updateActiveSection = () => {
-      frame = 0;
-      const marker = window.scrollY + window.innerHeight * 0.38;
-      let nextSection = "top";
-      for (const sectionId of sectionIds) {
-        const section = document.getElementById(sectionId);
-        if (section && section.offsetTop <= marker) nextSection = sectionId;
-      }
-      setActiveSection((current) => current === nextSection ? current : nextSection);
-    };
-    const requestUpdate = () => {
-      if (frame) return;
-      frame = window.requestAnimationFrame(updateActiveSection);
-    };
-    updateActiveSection();
-    window.addEventListener("scroll", requestUpdate, { passive: true });
-    window.addEventListener("resize", requestUpdate);
-    return () => {
-      window.removeEventListener("scroll", requestUpdate);
-      window.removeEventListener("resize", requestUpdate);
-      if (frame) window.cancelAnimationFrame(frame);
-    };
+    const sectionIds = ["top", "profile", "work", "project-showcase", "ai-lab", "contact"];
+    const sections = sectionIds
+      .map((sectionId) => document.getElementById(sectionId))
+      .filter((section): section is HTMLElement => Boolean(section));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((first, second) => second.intersectionRatio - first.intersectionRatio)[0];
+        if (visible?.target.id) setActiveSection(visible.target.id);
+      },
+      { rootMargin: "-30% 0px -52%", threshold: [0, 0.2, 0.5, 0.8] },
+    );
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => () => {
@@ -523,17 +561,25 @@ function Nav() {
     navigateTo("project-showcase", projectShowcase.offsetTop - centeredInset);
   };
 
+  const showLab = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const lab = document.getElementById("ai-lab");
+    if (!lab) return;
+    event.preventDefault();
+    navigateTo("ai-lab", lab.offsetTop - 72);
+  };
+
   return (
     <header className="nav">
       <div className="nav-pill">
-        <a className="logo" href="#top" aria-label="返回首页" onClick={returnHome}>
+        <a className="logo" href="#top" aria-label="返回首页" aria-current={activeSection === "top" ? "page" : undefined} onClick={returnHome}>
           <span>XJ</span>
         </a>
         <nav aria-label="主要导航">
-          <a href="#top" onClick={returnHome} aria-current={activeSection === "top" ? "page" : undefined}>首页</a>
-          <a href="#profile" onClick={showProfile} aria-current={activeSection === "profile" ? "page" : undefined}>履历</a>
           <a href="#work" onClick={showWorks} aria-current={activeSection === "work" ? "page" : undefined}>作品</a>
           <a href="#project-showcase" onClick={showProjects} aria-current={activeSection === "project-showcase" ? "page" : undefined}>项目</a>
+          <a href="#ai-lab" onClick={showLab} aria-current={activeSection === "ai-lab" ? "page" : undefined}>实验</a>
+          <a href="#profile" onClick={showProfile} aria-current={activeSection === "profile" ? "page" : undefined}>关于</a>
         </nav>
         <a className="say-hi" href={`mailto:${contactEmail}`} aria-current={activeSection === "contact" ? "page" : undefined}>
           联系
@@ -667,7 +713,7 @@ function Hero() {
           <p className="hero-signature blur-in">
             <span>XIE JINGCHUN</span>
             <i aria-hidden="true" />
-            <span>PORTFOLIO</span>
+            <span>AI COMMERCE PORTFOLIO</span>
           </p>
           <h1 className="name-reveal" aria-label="DESIGN WORKS">
             <span className="title-line design-line" aria-hidden="true">
@@ -679,16 +725,16 @@ function Hero() {
             <span className="title-glyph title-glyph-d" data-letter="D" aria-hidden="true">D</span>
             <span className="title-glyph title-glyph-w" data-letter="W" aria-hidden="true">W</span>
           </h1>
-          <div className="hero-title-index blur-in" aria-label="精选设计作品，品牌、商业视觉与技术创新，2021 至 2026">
-            <span><b>01</b> SELECTED WORKS</span>
+          <div className="hero-title-index blur-in" aria-label="AI 商业视觉设计师与 AI 艺术指导作品集">
+            <span>AI COMMERCE DESIGNER</span>
             <i aria-hidden="true" />
-            <span>BRAND · COMMERCE · TECHNOLOGY</span>
+            <span>AI ART DIRECTOR</span>
             <i aria-hidden="true" />
-            <span>2021-2026</span>
+            <span>2026</span>
           </div>
           <p className="hero-desc blur-in">
-            <strong>视觉设计 / 品牌系统 / AIGC 视觉</strong>
-            <span>以策略为起点，构建从品牌识别、视觉叙事到技术创新的完整设计作品。</span>
+            <strong>AI 创新设计 / 电商视觉 / 商业转化</strong>
+            <span>以 AI 为生产方式，构建可控、稳定、可扩展的商业视觉系统。</span>
           </p>
         </motion.div>
         <motion.div className="hero-controls" style={motionActive ? { opacity: centerOpacity } : undefined}>
@@ -1723,7 +1769,7 @@ function SelectedWorks({
             <i />
             <span>Selected Works</span>
           </div>
-          <span>{category.index} / 05</span>
+          <span>{category.index} / {String(workCategories.length).padStart(2, "0")}</span>
         </motion.header>
 
         <motion.nav
@@ -1759,7 +1805,7 @@ function SelectedWorks({
             >
               <span className="category-current-index" aria-hidden="true">
                 <b>{category.index}</b>
-                <small>/ 05</small>
+                <small>/ {String(workCategories.length).padStart(2, "0")}</small>
               </span>
               <span className="category-current-copy">
                 <strong>{category.label}</strong>
@@ -2019,8 +2065,8 @@ function Profile({ handoffProgress }: { handoffProgress: MotionValue<number> }) 
           className="profile-topline"
           style={reduceMotion ? undefined : { opacity: toplineOpacity, y: toplineY }}
         >
-          <span>VISUAL DESIGNER / DIGITAL CREATOR</span>
-          <span>AVAILABLE FOR SELECTED PROJECTS <b aria-hidden="true">✦</b></span>
+          <span>AI COMMERCE DESIGNER / AI ART DIRECTOR</span>
+          <span>GENERATIVE CONTENT PRODUCTION</span>
         </motion.div>
 
         <motion.div
@@ -2045,16 +2091,16 @@ function Profile({ handoffProgress }: { handoffProgress: MotionValue<number> }) 
             <em>XIE JINGCHUN</em>
           </h2>
           <strong className="profile-role">
-            <span>视觉设计师</span><span>品牌体验</span><span>AIGC 创意</span>
+            <span>AI 商业视觉</span><span>电商系统</span><span>创意指导</span>
           </strong>
           <p className="profile-intro">
-            <strong className="profile-intro-lead">以品牌策略为起点</strong>
+            <strong className="profile-intro-lead">以 AI 为生产方式</strong>
             <span className="profile-intro-copy">
-              <span>把概念转译为清晰、有记忆点的视觉系统，</span>
-              <span>持续探索平面、技术创新与生成式视觉之间的边界。</span>
+              <span>把商业目标转译为可控、稳定的视觉方向，</span>
+              <span>并扩展到商品、Campaign、内容与动态触点。</span>
             </span>
           </p>
-          <span className="profile-location">CHENGDU, CN / WORKING WORLDWIDE</span>
+          <span className="profile-location">COMMERCE / CAMPAIGN / MOTION / PUBLISHING</span>
         </motion.div>
 
         <motion.figure
@@ -2070,10 +2116,10 @@ function Profile({ handoffProgress }: { handoffProgress: MotionValue<number> }) 
           style={reduceMotion ? undefined : { opacity: factsOpacity, x: factsX }}
         >
           <p className="profile-statement">
-            <span className="profile-statement-label">DESIGN PHILOSOPHY</span>
+            <span className="profile-statement-label">CORE PRACTICE</span>
             <strong>
-              <span className="profile-statement-lead">系统性的视觉语言</span>
-              <span className="profile-statement-copy">让创意成为可识别、可传播的品牌资产。</span>
+              <span className="profile-statement-lead">可控、稳定、可扩展</span>
+              <span className="profile-statement-copy">让 AI 创意成为可以进入真实商业链路的视觉资产。</span>
             </strong>
           </p>
           <div className="metric-strip">
@@ -2088,7 +2134,7 @@ function Profile({ handoffProgress }: { handoffProgress: MotionValue<number> }) 
             ))}
           </div>
           <a className="profile-contact" href={`mailto:${contactEmail}`}>
-            <span>START A PROJECT</span>
+            <span>合作咨询</span>
             <b aria-hidden="true">↗</b>
           </a>
         </motion.aside>
@@ -2097,8 +2143,8 @@ function Profile({ handoffProgress }: { handoffProgress: MotionValue<number> }) 
           className="profile-bottomline"
           style={reduceMotion ? undefined : { opacity: composedBottomlineOpacity, y: composedBottomlineY }}
         >
-          <span>BRAND / COMMERCE / CAMPAIGN / AIGC</span>
-          <span>SELECTED WORKS / NEXT</span>
+          <span>AI COMMERCE / ART DIRECTION / GENERATIVE PRODUCTION</span>
+          <span>SYSTEM / SCALE / CONSISTENCY</span>
         </motion.div>
       </motion.div>
       <motion.span
@@ -2294,16 +2340,58 @@ function ProjectDetailViewer({
 
               <div className="project-detail-narrative">
                 <article>
-                  <span>01 / DESIGN BRIEF</span>
+                  <span>DESIGN BRIEF</span>
                   <h3>设计命题</h3>
                   <p>{item.brief}</p>
                 </article>
                 <article>
-                  <span>02 / RESPONSE</span>
+                  <span>DESIGN RESPONSE</span>
                   <h3>设计回应</h3>
                   <p>{item.response}</p>
                 </article>
               </div>
+
+              <section className="project-detail-process" aria-label="项目工作流">
+                <div>
+                  <span>PROCESS / 工作流</span>
+                  <h3>从输入到商业输出</h3>
+                </div>
+                <ol>
+                  {item.workflow.map((step) => <li key={step}>{step}</li>)}
+                </ol>
+              </section>
+
+              <section className="project-detail-gallery" aria-label="项目视觉输出">
+                <div className="project-detail-section-heading">
+                  <span>SELECTED OUTPUTS</span>
+                  <h3>核心视觉输出</h3>
+                </div>
+                <div className="project-detail-gallery-grid">
+                  {item.gallery.map((visual) => (
+                    <figure className={`is-${visual.layout}`} key={visual.src}>
+                      <img src={visual.src} alt={visual.alt} loading="lazy" decoding="async" />
+                    </figure>
+                  ))}
+                </div>
+              </section>
+
+              <section className="project-detail-system" aria-label="项目系统与结果">
+                <article>
+                  <span>VISUAL SYSTEM</span>
+                  <h3>视觉系统</h3>
+                  <p>{item.system}</p>
+                </article>
+                <article>
+                  <span>OUTCOME</span>
+                  <h3>项目成果</h3>
+                  <p>{item.outcome}</p>
+                </article>
+                <article>
+                  <span>REFLECTION</span>
+                  <h3>项目复盘</h3>
+                  <p>{item.reflection}</p>
+                </article>
+              </section>
 
               <footer className="project-detail-footer">
                 <dl>
@@ -2312,8 +2400,8 @@ function ProjectDetailViewer({
                     <dd>{item.role}</dd>
                   </div>
                   <div>
-                    <dt>DURATION / 周期</dt>
-                    <dd>{item.duration}</dd>
+                    <dt>FOCUS / 重点</dt>
+                    <dd>{item.scope}</dd>
                   </div>
                 </dl>
                 <div className="project-detail-deliverables">
@@ -2487,7 +2575,7 @@ function ProjectShowcase({
           </h2>
           <div className="project-showcase-heading-meta">
             <strong>PROJECT SHOWCASE</strong>
-            <span>FIVE SELECTED STUDIES</span>
+            <span>SIX CAPABILITY-LED STUDIES</span>
           </div>
         </motion.header>
 
@@ -2544,6 +2632,70 @@ function ProjectShowcase({
   );
 }
 
+function AILab() {
+  const reduceMotion = useReducedMotion();
+
+  return (
+    <section className="ai-lab" id="ai-lab" aria-labelledby="ai-lab-title">
+      <div className="ai-lab-shell shell">
+        <header className="ai-lab-heading">
+          <p>AI LAB / CONTROL STUDIES</p>
+          <h2 id="ai-lab-title">
+            <span>让实验</span>
+            <span>回到商业问题</span>
+          </h2>
+          <p className="ai-lab-intro">
+            AI Lab 不展示随机风格，而是验证商品、人物、光影、透视与动态如何进入稳定生产流程。
+          </p>
+        </header>
+
+        <motion.figure
+          className="ai-lab-visual"
+          initial={reduceMotion ? false : { opacity: 0, y: 54, scale: 0.97 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, amount: 0.24 }}
+          transition={{ duration: reduceMotion ? 0 : 0.72, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <img
+            src="/assets/projects/table-fan/table-fan-dayparts.webp"
+            alt="同一空气循环扇在四种光线环境中的一致性实验"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>
+            <strong>同一产品，不同光线</strong>
+            <span>结构控制 / 场景延展 / 商业可用性</span>
+          </figcaption>
+        </motion.figure>
+
+        <div className="ai-lab-workflow" aria-label="AI 商业视觉工作流">
+          {['Input', 'Exploration', 'Control', 'Refinement', 'Output'].map((step) => (
+            <span key={step}>{step}</span>
+          ))}
+        </div>
+
+        <div className="ai-lab-list">
+          {aiLabItems.map((item, index) => (
+            <motion.article
+              key={item.title}
+              initial={reduceMotion ? false : { opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.35 }}
+              transition={{ duration: reduceMotion ? 0 : 0.56, delay: reduceMotion ? 0 : index * 0.055, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <div>
+                <strong>{item.title}</strong>
+                <span>{item.english}</span>
+              </div>
+              <p>{item.description}</p>
+            </motion.article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   const footerRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -2582,17 +2734,17 @@ function Footer() {
       />
       <div className="marquee" aria-hidden="true">
         <div>
-          BUILDING VISUAL SYSTEMS / BRAND MEMORY / DESIGN ASSETS / BUILDING VISUAL SYSTEMS / BRAND MEMORY /
+          AI COMMERCE SYSTEMS / ART DIRECTION / GENERATIVE PRODUCTION / AI COMMERCE SYSTEMS / ART DIRECTION /
         </div>
       </div>
       <div className="footer-content shell">
         <p className="eyebrow">Contact</p>
-        <h2>让视觉从好看，继续走向可识别、可传播、可转化。</h2>
+        <h2>让一个视觉方向，成为可控、稳定、可扩展的商业内容系统。</h2>
         <a className="mail-link" href={`mailto:${contactEmail}`}>
           {contactEmail}
         </a>
         <div className="footer-bar">
-          <span>谢敬淳 / Visual Designer / Brand Designer / AIGC Designer</span>
+          <span>谢敬淳 / AI Commerce Designer / AI Art Director</span>
           <strong>Available for projects</strong>
         </div>
         <div className="filing-bar" aria-label="网站备案信息">
@@ -2618,6 +2770,7 @@ function App() {
       <main className="app">
         <Hero />
         <PortfolioSequence />
+        <AILab />
         <Footer />
       </main>
     </>
