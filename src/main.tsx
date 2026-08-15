@@ -8,6 +8,8 @@ import {
   type MouseEvent,
   type PointerEvent,
   type RefObject,
+  type SyntheticEvent,
+  type WheelEvent,
 } from "react";
 import { createPortal } from "react-dom";
 import { createRoot } from "react-dom/client";
@@ -16,6 +18,9 @@ import {
   ArrowLeft,
   ArrowRight,
   ChevronDown,
+  Minus,
+  Plus,
+  RotateCcw,
   X,
 } from "lucide-react";
 import "./styles.css";
@@ -187,6 +192,51 @@ const projectShowcaseItems = [
       { src: "/assets/project-showcase-field-objects.webp", alt: "消费科技产品影片的商品运动方向", layout: "portrait" },
       { src: "/assets/project-showcase-nocturne.webp", alt: "消费科技产品影片的低照度光线方向", layout: "portrait" },
     ],
+  },
+] as const;
+
+const projectShowcaseCollections = [
+  {
+    id: "smart-living",
+    index: "01",
+    title: "智能生活产品",
+    english: "SMART LIVING PRODUCTS",
+    projects: [projectShowcaseItems[0]],
+  },
+  {
+    id: "beauty-care",
+    index: "02",
+    title: "美妆与个人护理",
+    english: "BEAUTY & PERSONAL CARE",
+    projects: [projectShowcaseItems[1]],
+  },
+  {
+    id: "consumer-commerce",
+    index: "03",
+    title: "新消费与电商",
+    english: "CONSUMER COMMERCE",
+    projects: [projectShowcaseItems[2]],
+  },
+  {
+    id: "lifestyle-campaign",
+    index: "04",
+    title: "人物生活方式",
+    english: "LIFESTYLE CAMPAIGNS",
+    projects: [projectShowcaseItems[3]],
+  },
+  {
+    id: "cultural-publishing",
+    index: "05",
+    title: "文化出版",
+    english: "CULTURAL PUBLISHING",
+    projects: [projectShowcaseItems[4]],
+  },
+  {
+    id: "product-motion",
+    index: "06",
+    title: "产品动态影像",
+    english: "PRODUCT MOTION",
+    projects: [projectShowcaseItems[5]],
   },
 ] as const;
 
@@ -1084,6 +1134,289 @@ function useDocumentScrollLock(locked: boolean) {
   }, [locked]);
 }
 
+type ProjectImageSource = {
+  src: string;
+  alt: string;
+};
+
+type ZoomableProjectImageProps = ProjectImageSource & {
+  onOpen: (image: ProjectImageSource) => void;
+  loading?: "eager" | "lazy";
+  className?: string;
+  style?: CSSProperties;
+  onLoad?: (event: SyntheticEvent<HTMLImageElement>) => void;
+  onError?: () => void;
+};
+
+const clamp = (value: number, minimum: number, maximum: number) => Math.min(maximum, Math.max(minimum, value));
+
+function ZoomableProjectImage({
+  src,
+  alt,
+  onOpen,
+  loading = "lazy",
+  className,
+  style,
+  onLoad,
+  onError,
+}: ZoomableProjectImageProps) {
+  return (
+    <button
+      className={`project-image-trigger${className ? ` ${className}` : ""}`}
+      type="button"
+      aria-label={`放大查看：${alt}`}
+      onClick={() => onOpen({ src, alt })}
+    >
+      <img
+        src={src}
+        alt={alt}
+        loading={loading}
+        decoding="async"
+        draggable={false}
+        style={style}
+        onLoad={onLoad}
+        onError={onError}
+      />
+      <span className="project-image-trigger-hint" aria-hidden="true">放大查看</span>
+    </button>
+  );
+}
+
+function ProjectImageLightbox({
+  image,
+  reduceMotion,
+  onClose,
+}: {
+  image: ProjectImageSource;
+  reduceMotion: boolean | null;
+  onClose: () => void;
+}) {
+  const viewerRef = useRef<HTMLDivElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
+  const pointerRef = useRef<{ id: number; clientX: number; clientY: number; x: number; y: number } | null>(null);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const scale = useMotionValue(1);
+  const [scaleLabel, setScaleLabel] = useState(100);
+  const [isDragging, setIsDragging] = useState(false);
+
+  useDocumentScrollLock(true);
+  useMotionValueEvent(scale, "change", (latest) => setScaleLabel(Math.round(latest * 100)));
+
+  const panBounds = (nextScale = scale.get()) => {
+    const rect = stageRef.current?.getBoundingClientRect();
+    if (!rect) return { x: 0, y: 0 };
+    return {
+      x: Math.max(0, rect.width * (nextScale - 1) * 0.5),
+      y: Math.max(0, rect.height * (nextScale - 1) * 0.5),
+    };
+  };
+
+  const setPosition = (nextX: number, nextY: number, nextScale = scale.get()) => {
+    const bounds = panBounds(nextScale);
+    x.set(clamp(nextX, -bounds.x, bounds.x));
+    y.set(clamp(nextY, -bounds.y, bounds.y));
+  };
+
+  const animateTo = (nextScale: number, nextX = 0, nextY = 0) => {
+    const boundedScale = clamp(nextScale, 1, 5);
+    const bounds = panBounds(boundedScale);
+    const boundedX = clamp(nextX, -bounds.x, bounds.x);
+    const boundedY = clamp(nextY, -bounds.y, bounds.y);
+    if (reduceMotion) {
+      scale.set(boundedScale);
+      x.set(boundedX);
+      y.set(boundedY);
+      return;
+    }
+    const spring = { type: "spring" as const, bounce: 0, duration: 0.32 };
+    animate(scale, boundedScale, spring);
+    animate(x, boundedX, spring);
+    animate(y, boundedY, spring);
+  };
+
+  const zoomAt = (nextScale: number, clientX?: number, clientY?: number) => {
+    const currentScale = scale.get();
+    const boundedScale = clamp(nextScale, 1, 5);
+    const rect = stageRef.current?.getBoundingClientRect();
+    if (!rect || clientX === undefined || clientY === undefined || boundedScale === 1) {
+      animateTo(boundedScale, boundedScale === 1 ? 0 : x.get(), boundedScale === 1 ? 0 : y.get());
+      return;
+    }
+    const pointerX = clientX - rect.left - rect.width / 2;
+    const pointerY = clientY - rect.top - rect.height / 2;
+    const ratio = boundedScale / currentScale;
+    const nextX = pointerX - (pointerX - x.get()) * ratio;
+    const nextY = pointerY - (pointerY - y.get()) * ratio;
+    animateTo(boundedScale, nextX, nextY);
+  };
+
+  const resetView = () => animateTo(1, 0, 0);
+
+  useEffect(() => {
+    scale.set(1);
+    x.set(0);
+    y.set(0);
+    setScaleLabel(100);
+    viewerRef.current?.focus({ preventScroll: true });
+  }, [image.src, scale, x, y]);
+
+  const handleWheel = (event: WheelEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    const factor = Math.exp(-event.deltaY * 0.0014);
+    zoomAt(scale.get() * factor, event.clientX, event.clientY);
+  };
+
+  const handlePointerDown = (event: PointerEvent<HTMLDivElement>) => {
+    if (event.button !== 0 || scale.get() <= 1) return;
+    event.currentTarget.setPointerCapture(event.pointerId);
+    pointerRef.current = {
+      id: event.pointerId,
+      clientX: event.clientX,
+      clientY: event.clientY,
+      x: x.get(),
+      y: y.get(),
+    };
+    setIsDragging(true);
+  };
+
+  const handlePointerMove = (event: PointerEvent<HTMLDivElement>) => {
+    const pointer = pointerRef.current;
+    if (!pointer || pointer.id !== event.pointerId) return;
+    setPosition(pointer.x + event.clientX - pointer.clientX, pointer.y + event.clientY - pointer.clientY);
+  };
+
+  const endPointer = (event: PointerEvent<HTMLDivElement>) => {
+    if (pointerRef.current?.id !== event.pointerId) return;
+    pointerRef.current = null;
+    setIsDragging(false);
+  };
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    event.stopPropagation();
+    if (event.key === "Escape") {
+      event.preventDefault();
+      onClose();
+    } else if (event.key === "+" || event.key === "=") {
+      event.preventDefault();
+      zoomAt(scale.get() * 1.25);
+    } else if (event.key === "-") {
+      event.preventDefault();
+      zoomAt(scale.get() / 1.25);
+    } else if (event.key === "0") {
+      event.preventDefault();
+      resetView();
+    }
+  };
+
+  useEffect(() => {
+    const handleWindowKeyDown = (event: globalThis.KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        onClose();
+      } else if (event.key === "+" || event.key === "=") {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        zoomAt(scale.get() * 1.25);
+      } else if (event.key === "-") {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        zoomAt(scale.get() / 1.25);
+      } else if (event.key === "0") {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        resetView();
+      }
+    };
+    window.addEventListener("keydown", handleWindowKeyDown, true);
+    return () => window.removeEventListener("keydown", handleWindowKeyDown, true);
+  });
+
+  return createPortal(
+    <motion.div
+      ref={viewerRef}
+      className="project-image-lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label={`图片查看器：${image.alt}`}
+      tabIndex={-1}
+      initial={reduceMotion ? false : { opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={reduceMotion ? undefined : { opacity: 0 }}
+      transition={{ duration: reduceMotion ? 0 : 0.2 }}
+      onClick={onClose}
+      onKeyDown={handleKeyDown}
+    >
+      <div className="project-image-lightbox-bar" onClick={(event) => event.stopPropagation()}>
+        <div className="project-image-lightbox-title">
+          <span>IMAGE VIEWER</span>
+          <strong>{image.alt}</strong>
+        </div>
+        <div className="project-image-lightbox-controls">
+          <button type="button" onClick={() => zoomAt(scale.get() / 1.25)} aria-label="缩小图片">
+            <Minus size={18} strokeWidth={1.5} aria-hidden="true" />
+          </button>
+          <span aria-live="polite">{scaleLabel}%</span>
+          <button type="button" onClick={() => zoomAt(scale.get() * 1.25)} aria-label="放大图片">
+            <Plus size={18} strokeWidth={1.5} aria-hidden="true" />
+          </button>
+          <button type="button" onClick={resetView} aria-label="复位图片">
+            <RotateCcw size={17} strokeWidth={1.5} aria-hidden="true" />
+          </button>
+          <button className="project-image-lightbox-close" type="button" onClick={onClose} aria-label="关闭图片查看器">
+            <X size={20} strokeWidth={1.5} aria-hidden="true" />
+          </button>
+        </div>
+      </div>
+
+      <div
+        ref={stageRef}
+        className={`project-image-lightbox-stage${isDragging ? " is-dragging" : ""}${scaleLabel > 100 ? " is-zoomed" : ""}`}
+        onClick={(event) => event.stopPropagation()}
+        onWheel={handleWheel}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={endPointer}
+        onPointerCancel={endPointer}
+        onDoubleClick={(event) => {
+          if (scale.get() > 1.02) resetView();
+          else zoomAt(2, event.clientX, event.clientY);
+        }}
+      >
+        <motion.img
+          src={image.src}
+          alt={image.alt}
+          draggable={false}
+          style={{ x, y, scale }}
+        />
+      </div>
+
+      <p className="project-image-lightbox-hint" onClick={(event) => event.stopPropagation()}>
+        滚轮缩放 / 拖动查看 / 双击复位 / ESC 关闭
+      </p>
+    </motion.div>,
+    document.body,
+  );
+}
+
+function useProjectImageLightbox() {
+  const [activeImage, setActiveImage] = useState<ProjectImageSource | null>(null);
+  const returnFocusRef = useRef<HTMLElement | null>(null);
+
+  const openImage = (image: ProjectImageSource) => {
+    returnFocusRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    setActiveImage(image);
+  };
+
+  const closeImage = () => {
+    setActiveImage(null);
+    requestAnimationFrame(() => returnFocusRef.current?.focus({ preventScroll: true }));
+  };
+
+  return { activeImage, openImage, closeImage };
+}
+
 const wrapGalleryPosition = (position: number, total: number) => {
   const half = total / 2;
   return ((position + half) % total + total) % total - half;
@@ -1310,6 +1643,7 @@ function WorkViewer({
   const [paletteMode, setPaletteMode] = useState<PaletteMode>(() => (
     workPaletteCache.has(work.image) ? "auto" : "default"
   ));
+  const { activeImage, openImage, closeImage } = useProjectImageLightbox();
   const { scrollYProgress } = useScroll({ container: scrollRef });
   const isLong = work.gallery.length > 1
     || work.gallery.some((media) => media.layout === "long")
@@ -1534,12 +1868,11 @@ function WorkViewer({
                       className={`${mediaIndex === 0 && !imageLoaded ? "" : "is-loaded"} is-${media.layout}`}
                       key={`${work.id}-${media.src}`}
                     >
-                      <img
+                      <ZoomableProjectImage
                         src={media.src}
                         alt={media.alt}
+                        onOpen={openImage}
                         loading={mediaIndex === 0 ? "eager" : "lazy"}
-                        decoding="async"
-                        draggable={false}
                         onLoad={mediaIndex === 0 ? (event) => {
                           const { naturalWidth, naturalHeight } = event.currentTarget;
                           setDetectedLong(naturalWidth / naturalHeight < 0.52);
@@ -1572,6 +1905,15 @@ function WorkViewer({
           </section>
         </div>
       </motion.article>
+      <AnimatePresence>
+        {activeImage ? (
+          <ProjectImageLightbox
+            image={activeImage}
+            reduceMotion={reduceMotion}
+            onClose={closeImage}
+          />
+        ) : null}
+      </AnimatePresence>
     </motion.div>
   );
 }
@@ -2488,8 +2830,9 @@ function PortfolioSequence() {
 }
 
 type ProjectShowcaseItem = (typeof projectShowcaseItems)[number];
+type ProjectShowcaseCollection = (typeof projectShowcaseCollections)[number];
 
-function SmartLivingCaseStudy() {
+function SmartLivingCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageSource) => void }) {
   return (
     <div className="smart-case">
       <section className="smart-case-context" aria-labelledby="smart-case-context-title">
@@ -2536,11 +2879,11 @@ function SmartLivingCaseStudy() {
         </header>
         <div className="smart-case-control-board">
           <figure>
-            <img
+            <ZoomableProjectImage
               src="/assets/projects/table-fan/table-fan-views.webp"
               alt="空气循环扇正面、侧面和背面结构参考板"
+              onOpen={onImageOpen}
               loading="lazy"
-              decoding="async"
             />
             <figcaption>三视图作为后续场景生成与人工复核的结构基准。</figcaption>
           </figure>
@@ -2570,7 +2913,12 @@ function SmartLivingCaseStudy() {
           {smartLivingCaseStudy.scenes.map((scene) => (
             <article key={scene.title}>
               <figure>
-                <img src={scene.image} alt={scene.alt} loading="lazy" decoding="async" />
+                <ZoomableProjectImage
+                  src={scene.image}
+                  alt={scene.alt}
+                  onOpen={onImageOpen}
+                  loading="lazy"
+                />
               </figure>
               <div>
                 <span>{scene.touchpoint}</span>
@@ -2594,17 +2942,17 @@ function SmartLivingCaseStudy() {
           </ul>
         </div>
         <div className="smart-case-lighting-media">
-          <img
+          <ZoomableProjectImage
             src="/assets/projects/table-fan/table-fan-dayparts.webp"
             alt="空气循环扇从日间到夜间的四种光线实验"
+            onOpen={onImageOpen}
             loading="lazy"
-            decoding="async"
           />
-          <img
+          <ZoomableProjectImage
             src="/assets/projects/table-fan/table-fan-night-detail.webp"
             alt="空气循环扇夜间低照度材质表现"
+            onOpen={onImageOpen}
             loading="lazy"
-            decoding="async"
           />
         </div>
       </section>
@@ -2688,23 +3036,30 @@ function SmartLivingCaseStudy() {
 }
 
 function ProjectDetailViewer({
+  collection,
   item,
   currentIndex,
+  projectIndex,
   reduceMotion,
   onClose,
   onNavigate,
+  onSelectProject,
 }: {
+  collection: ProjectShowcaseCollection;
   item: ProjectShowcaseItem;
   currentIndex: number;
+  projectIndex: number;
   reduceMotion: boolean | null;
   onClose: () => void;
   onNavigate: (direction: number) => void;
+  onSelectProject: (index: number) => void;
 }) {
   const viewerRef = useRef<HTMLDivElement>(null);
   const [keyboardNavigation, setKeyboardNavigation] = useState(false);
+  const { activeImage, openImage, closeImage } = useProjectImageLightbox();
   const titleId = `project-detail-title-${item.index}`;
   const summaryId = `project-detail-summary-${item.index}`;
-  const total = projectShowcaseItems.length;
+  const total = projectShowcaseCollections.length;
 
   useEffect(() => {
     viewerRef.current?.focus({ preventScroll: true });
@@ -2818,7 +3173,12 @@ function ProjectDetailViewer({
             transition={{ duration: reduceMotion || keyboardNavigation ? 0 : 0.26, ease: [0.23, 1, 0.32, 1] }}
           >
             <figure className="project-detail-visual">
-              <img src={item.image} alt={item.alt} decoding="async" />
+              <ZoomableProjectImage
+                src={item.image}
+                alt={item.alt}
+                onOpen={openImage}
+                loading="eager"
+              />
               <span className="project-detail-visual-shade" aria-hidden="true" />
               <figcaption>
                 <span>{item.categoryEnglish}</span>
@@ -2828,6 +3188,27 @@ function ProjectDetailViewer({
             </figure>
 
             <section className="project-detail-copy">
+              <div className="project-collection-strip">
+                <div>
+                  <span>PROJECT COLLECTION</span>
+                  <strong>{collection.title}</strong>
+                  <small>{String(collection.projects.length).padStart(2, "0")} CASE STUDIES</small>
+                </div>
+                <nav aria-label={`${collection.title}项目列表`}>
+                  {collection.projects.map((project, index) => (
+                    <button
+                      className={projectIndex === index ? "is-active" : ""}
+                      type="button"
+                      aria-current={projectIndex === index ? "page" : undefined}
+                      onClick={() => onSelectProject(index)}
+                      key={project.index}
+                    >
+                      <span>{String(index + 1).padStart(2, "0")}</span>
+                      <strong>{project.title}</strong>
+                    </button>
+                  ))}
+                </nav>
+              </div>
               <p className="project-detail-kicker">
                 <span>CASE STUDY</span>
                 <i />
@@ -2853,7 +3234,7 @@ function ProjectDetailViewer({
               </div>
 
               {item.index === "01" ? (
-                <SmartLivingCaseStudy />
+                <SmartLivingCaseStudy onImageOpen={openImage} />
               ) : (
                 <>
                   <section className="project-detail-process" aria-label="项目工作流">
@@ -2874,7 +3255,12 @@ function ProjectDetailViewer({
                     <div className="project-detail-gallery-grid">
                       {item.gallery.map((visual) => (
                         <figure className={`is-${visual.layout}`} key={visual.src}>
-                          <img src={visual.src} alt={visual.alt} loading="lazy" decoding="async" />
+                          <ZoomableProjectImage
+                            src={visual.src}
+                            alt={visual.alt}
+                            onOpen={openImage}
+                            loading="lazy"
+                          />
                         </figure>
                       ))}
                     </div>
@@ -2922,6 +3308,15 @@ function ProjectDetailViewer({
           </motion.div>
         </AnimatePresence>
       </motion.article>
+      <AnimatePresence>
+        {activeImage ? (
+          <ProjectImageLightbox
+            image={activeImage}
+            reduceMotion={reduceMotion}
+            onClose={closeImage}
+          />
+        ) : null}
+      </AnimatePresence>
     </motion.div>
   );
 }
@@ -2937,7 +3332,7 @@ function ProjectShowcaseCard({
   onBlur,
   onClick,
 }: {
-  item: ProjectShowcaseItem;
+  item: ProjectShowcaseCollection;
   index: number;
   entryProgress: MotionValue<number>;
   isActive: boolean;
@@ -2948,6 +3343,7 @@ function ProjectShowcaseCard({
   onClick: () => void;
 }) {
   const reduceMotion = useReducedMotion();
+  const coverProject = item.projects[0];
   const start = 0.1 + index * 0.045;
   const settle = 0.68 + index * 0.055;
   const opacity = useTransform(entryProgress, [start, start + 0.16, settle], [0, 0.7, 1]);
@@ -2961,7 +3357,7 @@ function ProjectShowcaseCard({
       className={`project-showcase-item${isFocused ? " is-focused" : ""}${isSuppressed ? " is-suppressed" : ""}`}
       type="button"
       data-project-index={index}
-      aria-label={`查看项目：${item.title}`}
+      aria-label={`查看项目分类：${item.title}，共${item.projects.length}个项目`}
       aria-haspopup="dialog"
       aria-expanded={isActive}
       onFocus={onFocus}
@@ -2978,19 +3374,19 @@ function ProjectShowcaseCard({
       }}
     >
       <span className="project-showcase-art">
-        <img src={item.image} alt={item.alt} loading="lazy" decoding="async" />
+        <img src={coverProject.image} alt={coverProject.alt} loading="lazy" decoding="async" />
         <span className="project-showcase-art-shade" aria-hidden="true" />
-        <span className="project-showcase-backdrop" aria-hidden="true">{item.backdrop}</span>
+        <span className="project-showcase-backdrop" aria-hidden="true">{coverProject.backdrop}</span>
       </span>
       <span className="project-showcase-index">{item.index}</span>
       <span className="project-showcase-meta">
         <strong>{item.title}</strong>
         <em>{item.english}</em>
         <span>
-          {item.category}
-          <small>{item.categoryEnglish}</small>
+          {coverProject.category}
+          <small>{coverProject.categoryEnglish} / {String(item.projects.length).padStart(2, "0")} PROJECTS</small>
         </span>
-        <b>{item.year}</b>
+        <b>{coverProject.year}</b>
       </span>
     </motion.button>
   );
@@ -3006,6 +3402,7 @@ function ProjectShowcase({
   const reduceMotion = useReducedMotion();
   const isMobile = useViewportMatch("(max-width: 720px)");
   const [detailIndex, setDetailIndex] = useState<number | null>(null);
+  const [detailProjectIndex, setDetailProjectIndex] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
   const projectReturnFocus = useRef<HTMLElement | null>(null);
@@ -3023,13 +3420,15 @@ function ProjectShowcase({
   const trackScale = useTransform(entryProgress, [0.08, 0.78, 1], [isMobile ? 0.94 : 0.86, 1.012, 1]);
   const entryEdgeOpacity = useTransform(entryProgress, [0.02, 0.12, 0.72, 0.92], [0, 1, 0.7, 0]);
   const entryEdgeScaleX = useTransform(entryProgress, [0.02, 0.58, 1], [0.025, 1, 1]);
-  const activeProject = detailIndex === null ? null : projectShowcaseItems[detailIndex];
+  const activeCollection = detailIndex === null ? null : projectShowcaseCollections[detailIndex];
+  const activeProject = activeCollection?.projects[detailProjectIndex] ?? null;
 
   useDocumentScrollLock(detailIndex !== null);
 
   const openProject = (index: number) => {
     const card = document.querySelector<HTMLElement>(`[data-project-index="${index}"]`);
     projectReturnFocus.current = card ?? (document.activeElement instanceof HTMLElement ? document.activeElement : null);
+    setDetailProjectIndex(0);
     setDetailIndex(index);
   };
 
@@ -3040,7 +3439,8 @@ function ProjectShowcase({
   const navigateProject = (direction: number) => {
     setDetailIndex((current) => {
       if (current === null) return current;
-      return (current + direction + projectShowcaseItems.length) % projectShowcaseItems.length;
+      setDetailProjectIndex(0);
+      return (current + direction + projectShowcaseCollections.length) % projectShowcaseCollections.length;
     });
   };
 
@@ -3090,9 +3490,9 @@ function ProjectShowcase({
           className={`project-showcase-track${displayIndex !== null ? " has-focus" : ""}`}
           style={reduceMotion ? undefined : { opacity: trackOpacity, x: trackX, scale: trackScale }}
         >
-          {projectShowcaseItems.map((item, index) => (
+          {projectShowcaseCollections.map((item, index) => (
             <ProjectShowcaseCard
-              key={item.index}
+              key={item.id}
               item={item}
               index={index}
               entryProgress={entryProgress}
@@ -3109,9 +3509,9 @@ function ProjectShowcase({
             aria-hidden="true"
             onMouseLeave={() => setHoveredIndex(null)}
           >
-            {projectShowcaseItems.map((item, index) => (
+            {projectShowcaseCollections.map((item, index) => (
               <span
-                key={item.index}
+                key={item.id}
                 className={displayIndex === index ? "is-focused" : displayIndex !== null ? "is-suppressed" : ""}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onClick={() => openProject(index)}
@@ -3123,13 +3523,16 @@ function ProjectShowcase({
 
       {createPortal(
         <AnimatePresence onExitComplete={() => projectReturnFocus.current?.focus({ preventScroll: true })}>
-          {activeProject && detailIndex !== null ? (
+          {activeCollection && activeProject && detailIndex !== null ? (
             <ProjectDetailViewer
+              collection={activeCollection}
               item={activeProject}
               currentIndex={detailIndex}
+              projectIndex={detailProjectIndex}
               reduceMotion={reduceMotion}
               onClose={closeProject}
               onNavigate={navigateProject}
+              onSelectProject={setDetailProjectIndex}
             />
           ) : null}
         </AnimatePresence>,

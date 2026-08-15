@@ -2086,6 +2086,212 @@ video {
   letter-spacing: -0.035em;
 }
 
+.project-image-trigger {
+  position: relative;
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: inherit;
+  color: inherit;
+  background: transparent;
+  cursor: zoom-in;
+  text-align: inherit;
+}
+
+.project-image-trigger:focus-visible {
+  outline: 2px solid var(--project-detail-accent, var(--accent-a));
+  outline-offset: -2px;
+}
+
+.project-image-trigger-hint {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 3;
+  padding: 7px 9px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  color: rgba(250, 250, 248, 0.86);
+  background: rgba(8, 10, 12, 0.72);
+  font-size: 8px;
+  font-weight: 680;
+  letter-spacing: 0.06em;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(5px);
+  backdrop-filter: blur(12px) saturate(1.2);
+  transition: opacity 180ms ease, transform 220ms var(--ease-out);
+}
+
+.project-image-trigger:hover .project-image-trigger-hint,
+.project-image-trigger:focus-visible .project-image-trigger-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: grid;
+  overflow: hidden;
+  color: rgba(248, 248, 245, 0.92);
+  background: rgba(4, 5, 7, 0.94);
+  isolation: isolate;
+  backdrop-filter: blur(24px) saturate(0.74);
+  -webkit-backdrop-filter: blur(24px) saturate(0.74);
+}
+
+.project-image-lightbox::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(137, 170, 204, 0.08), transparent 38%),
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px) 0 0 / 100% 88px;
+}
+
+.project-image-lightbox-bar {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  left: 22px;
+  z-index: 5;
+  display: flex;
+  min-height: 54px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 6px 6px 6px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 999px;
+  background: rgba(12, 14, 16, 0.72);
+  box-shadow: 0 16px 52px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px) saturate(1.25);
+  -webkit-backdrop-filter: blur(20px) saturate(1.25);
+}
+
+.project-image-lightbox-title {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.project-image-lightbox-title span {
+  color: var(--accent-a);
+  font-size: 7px;
+  font-weight: 760;
+  letter-spacing: 0.16em;
+}
+
+.project-image-lightbox-title strong {
+  overflow: hidden;
+  color: rgba(248, 248, 245, 0.72);
+  font-size: 10px;
+  font-weight: 560;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.project-image-lightbox-controls {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 5px;
+}
+
+.project-image-lightbox-controls button {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  color: rgba(248, 248, 245, 0.76);
+  background: rgba(255, 255, 255, 0.025);
+  cursor: pointer;
+  place-items: center;
+  transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease, transform 100ms ease-out;
+}
+
+.project-image-lightbox-controls button:hover,
+.project-image-lightbox-controls button:focus-visible {
+  outline: none;
+  border-color: rgba(137, 170, 204, 0.64);
+  color: #f6f6f2;
+  background: rgba(137, 170, 204, 0.09);
+}
+
+.project-image-lightbox-controls button:active {
+  transform: scale(0.94);
+}
+
+.project-image-lightbox-controls > span {
+  min-width: 54px;
+  color: rgba(248, 248, 245, 0.68);
+  font-size: 9px;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.project-image-lightbox-controls .project-image-lightbox-close {
+  width: 44px;
+  height: 44px;
+  margin-left: 3px;
+}
+
+.project-image-lightbox-stage {
+  position: absolute;
+  inset: 88px 22px 50px;
+  display: grid;
+  overflow: hidden;
+  cursor: zoom-in;
+  place-items: center;
+  touch-action: none;
+}
+
+.project-image-lightbox-stage.is-zoomed {
+  cursor: grab;
+}
+
+.project-image-lightbox-stage.is-dragging {
+  cursor: grabbing;
+}
+
+.project-image-lightbox-stage img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(94vw, 1800px);
+  max-height: calc(100dvh - 160px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 2px;
+  object-fit: contain;
+  box-shadow: 0 38px 120px rgba(0, 0, 0, 0.56);
+  user-select: none;
+  -webkit-user-drag: none;
+  will-change: transform;
+}
+
+.project-image-lightbox-hint {
+  position: absolute;
+  bottom: 17px;
+  left: 50%;
+  z-index: 4;
+  margin: 0;
+  color: rgba(248, 248, 245, 0.4);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  text-align: center;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
 .work-viewer {
   position: fixed;
   inset: 0;
@@ -2532,6 +2738,13 @@ video {
   transition: opacity 420ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.work-dossier-scroll figure .project-image-trigger {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+}
+
 .work-dossier-scroll figure.is-loaded {
   opacity: 1;
 }
@@ -2574,6 +2787,10 @@ video {
   width: 100%;
   height: auto;
   max-height: none;
+}
+
+.work-dossier-media.is-long .work-dossier-scroll figure .project-image-trigger {
+  height: auto;
 }
 
 .work-dossier-media.is-long .work-dossier-scroll figure.is-wide {
@@ -3744,6 +3961,11 @@ video {
   background: #070809;
 }
 
+.project-detail-visual .project-image-trigger {
+  width: 100%;
+  height: 100%;
+}
+
 .project-detail-visual img {
   width: 100%;
   height: 100%;
@@ -3824,6 +4046,94 @@ video {
     #090b0c;
   scrollbar-width: thin;
   scrollbar-color: color-mix(in srgb, var(--project-detail-accent) 42%, transparent) transparent;
+}
+
+.project-collection-strip {
+  display: grid;
+  gap: 14px;
+  margin: 0 0 30px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(225, 229, 225, 0.12);
+  grid-template-columns: minmax(170px, 0.42fr) minmax(0, 1.58fr);
+}
+
+.project-collection-strip > div {
+  display: grid;
+  align-content: start;
+  gap: 5px;
+}
+
+.project-collection-strip > div > span {
+  color: var(--project-detail-accent);
+  font-size: 7px;
+  font-weight: 760;
+  letter-spacing: 0.15em;
+}
+
+.project-collection-strip > div > strong {
+  color: rgba(245, 245, 242, 0.82);
+  font-size: 12px;
+  font-weight: 660;
+}
+
+.project-collection-strip > div > small {
+  color: rgba(241, 241, 237, 0.38);
+  font-size: 7px;
+  font-weight: 650;
+  letter-spacing: 0.1em;
+}
+
+.project-collection-strip nav {
+  display: flex;
+  min-width: 0;
+  gap: 7px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--project-detail-accent) 42%, transparent) transparent;
+}
+
+.project-collection-strip nav button {
+  display: grid;
+  min-width: min(220px, 72%);
+  align-content: center;
+  gap: 5px;
+  padding: 10px 13px;
+  border: 1px solid rgba(225, 229, 225, 0.1);
+  border-radius: 2px;
+  color: rgba(241, 241, 237, 0.5);
+  background: rgba(255, 255, 255, 0.018);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 180ms ease, color 180ms ease, background-color 180ms ease, transform 100ms ease-out;
+}
+
+.project-collection-strip nav button:hover,
+.project-collection-strip nav button:focus-visible,
+.project-collection-strip nav button.is-active {
+  outline: none;
+  border-color: color-mix(in srgb, var(--project-detail-accent) 54%, transparent);
+  color: rgba(245, 245, 242, 0.88);
+  background: color-mix(in srgb, var(--project-detail-accent) 7%, transparent);
+}
+
+.project-collection-strip nav button:active {
+  transform: scale(0.985);
+}
+
+.project-collection-strip nav button span {
+  color: var(--project-detail-accent);
+  font-size: 7px;
+  font-weight: 730;
+  letter-spacing: 0.12em;
+}
+
+.project-collection-strip nav button strong {
+  overflow: hidden;
+  font-size: 10px;
+  font-weight: 610;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .project-detail-kicker {
@@ -3993,6 +4303,11 @@ video {
   border: 1px solid rgba(225, 229, 225, 0.12);
   border-radius: 3px;
   background: #0c0e10;
+}
+
+.project-detail-gallery-grid .project-image-trigger {
+  width: 100%;
+  height: 100%;
 }
 
 .project-detail-gallery-grid figure.is-wide,
@@ -4272,6 +4587,10 @@ video {
   filter: saturate(0.8) contrast(1.02);
 }
 
+.smart-case-control-board .project-image-trigger {
+  width: 100%;
+}
+
 .smart-case-control-board figcaption {
   margin-top: 12px;
   color: rgba(241, 241, 237, 0.43);
@@ -4349,6 +4668,10 @@ video {
   margin: 0;
   overflow: hidden;
   background: #0d0f10;
+}
+
+.smart-case-scene-grid .project-image-trigger {
+  width: 100%;
 }
 
 .smart-case-scene-grid img {
@@ -4437,6 +4760,11 @@ video {
   gap: 9px;
   min-width: 0;
   grid-template-columns: minmax(0, 1.28fr) minmax(110px, 0.72fr);
+}
+
+.smart-case-lighting-media .project-image-trigger {
+  width: 100%;
+  height: 100%;
 }
 
 .smart-case-lighting-media img {
@@ -4954,6 +5282,56 @@ video {
 }
 
 @media (max-width: 720px) {
+  .project-image-trigger-hint {
+    display: none;
+  }
+
+  .project-image-lightbox-bar {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    min-height: 52px;
+    gap: 8px;
+    padding: 5px 5px 5px 13px;
+  }
+
+  .project-image-lightbox-title strong {
+    display: none;
+  }
+
+  .project-image-lightbox-controls {
+    gap: 3px;
+  }
+
+  .project-image-lightbox-controls button {
+    width: 38px;
+    height: 38px;
+  }
+
+  .project-image-lightbox-controls > span {
+    min-width: 44px;
+  }
+
+  .project-image-lightbox-controls .project-image-lightbox-close {
+    width: 42px;
+    height: 42px;
+    margin-left: 0;
+  }
+
+  .project-image-lightbox-stage {
+    inset: 72px 0 46px;
+  }
+
+  .project-image-lightbox-stage img {
+    max-width: 96vw;
+    max-height: calc(100dvh - 132px);
+  }
+
+  .project-image-lightbox-hint {
+    bottom: 14px;
+    font-size: 7px;
+  }
+
   .project-detail-viewer {
     padding: 0;
   }
@@ -5032,6 +5410,16 @@ video {
     overflow: visible;
     border-top: 1px solid rgba(225, 229, 225, 0.14);
     border-left: 0;
+  }
+
+  .project-collection-strip {
+    gap: 13px;
+    margin-bottom: 26px;
+    grid-template-columns: 1fr;
+  }
+
+  .project-collection-strip nav button {
+    min-width: min(250px, 82vw);
   }
 
   .project-detail-kicker {
@@ -6382,6 +6770,13 @@ video {
 
   .project-detail-viewer {
     background: #060708;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .project-image-lightbox,
+  .project-image-lightbox-bar {
+    background: #080a0c;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
