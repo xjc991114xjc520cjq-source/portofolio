@@ -2238,6 +2238,17 @@ video {
   transform: scale(0.94);
 }
 
+.project-image-lightbox-controls button:disabled {
+  opacity: 0.28;
+  cursor: wait;
+}
+
+.project-image-lightbox-controls .project-image-lightbox-actual {
+  font-size: 9px;
+  font-weight: 720;
+  letter-spacing: -0.02em;
+}
+
 .project-image-lightbox-controls > span {
   min-width: 54px;
   color: rgba(248, 248, 245, 0.68);
@@ -2270,19 +2281,22 @@ video {
   cursor: grabbing;
 }
 
-.project-image-lightbox-stage img {
+.project-image-lightbox-canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.project-image-lightbox-canvas img {
   display: block;
-  width: auto;
-  height: auto;
-  max-width: min(94vw, 1800px);
-  max-height: calc(100dvh - 160px);
+  width: 100%;
+  height: 100%;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 2px;
   object-fit: contain;
   box-shadow: 0 38px 120px rgba(0, 0, 0, 0.56);
   user-select: none;
   -webkit-user-drag: none;
-  will-change: transform;
 }
 
 .project-image-lightbox-hint {

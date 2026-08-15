@@ -1280,25 +1280,67 @@ function ProjectImageLightbox({
 }) {
   const viewerRef = useRef<HTMLDivElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
   const pointerRef = useRef<{ id: number; clientX: number; clientY: number; x: number; y: number } | null>(null);
+  const zoomFocusRef = useRef<{ clientX: number; clientY: number } | null>(null);
+  const fittedSizeRef = useRef({ width: 0, height: 0, naturalWidth: 0, naturalHeight: 0 });
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const scale = useMotionValue(1);
+  const renderedWidth = useMotionValue(1);
+  const renderedHeight = useMotionValue(1);
+  const renderedOffsetX = useTransform(renderedWidth, (latest) => latest * -0.5);
+  const renderedOffsetY = useTransform(renderedHeight, (latest) => latest * -0.5);
   const [scaleLabel, setScaleLabel] = useState(100);
+  const [hasMeasuredImage, setHasMeasuredImage] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [viewerSrc, setViewerSrc] = useState(image.src);
   const [isOriginalLoaded, setIsOriginalLoaded] = useState(false);
   const [originalLoadFailed, setOriginalLoadFailed] = useState(false);
 
   useDocumentScrollLock(true);
-  useMotionValueEvent(scale, "change", (latest) => setScaleLabel(Math.round(latest * 100)));
+  useMotionValueEvent(scale, "change", (latest) => {
+    setScaleLabel(Math.round(latest * 100));
+    const fittedSize = fittedSizeRef.current;
+    if (fittedSize.width > 0) {
+      renderedWidth.set(fittedSize.width * latest);
+      renderedHeight.set(fittedSize.height * latest);
+    }
+  });
+
+  const measureImageFit = (element: HTMLImageElement) => {
+    const stageRect = stageRef.current?.getBoundingClientRect();
+    if (!stageRect || !element.naturalWidth || !element.naturalHeight) return;
+    const maximumWidth = Math.min(stageRect.width, window.innerWidth * 0.94, 1800);
+    const maximumHeight = stageRect.height;
+    const fitRatio = Math.min(maximumWidth / element.naturalWidth, maximumHeight / element.naturalHeight, 1);
+    const fittedSize = {
+      width: element.naturalWidth * fitRatio,
+      height: element.naturalHeight * fitRatio,
+      naturalWidth: element.naturalWidth,
+      naturalHeight: element.naturalHeight,
+    };
+    fittedSizeRef.current = fittedSize;
+    renderedWidth.set(fittedSize.width * scale.get());
+    renderedHeight.set(fittedSize.height * scale.get());
+    setHasMeasuredImage(true);
+  };
+
+  const oneToOneScale = () => {
+    const fittedSize = fittedSizeRef.current;
+    if (!fittedSize.width || !fittedSize.naturalWidth) return 1;
+    return Math.max(1, fittedSize.naturalWidth / fittedSize.width);
+  };
+
+  const maximumScale = () => oneToOneScale();
 
   const panBounds = (nextScale = scale.get()) => {
     const rect = stageRef.current?.getBoundingClientRect();
     if (!rect) return { x: 0, y: 0 };
+    const fittedSize = fittedSizeRef.current;
     return {
-      x: Math.max(0, rect.width * (nextScale - 1) * 0.5),
-      y: Math.max(0, rect.height * (nextScale - 1) * 0.5),
+      x: Math.max(0, (fittedSize.width * nextScale - rect.width) * 0.5),
+      y: Math.max(0, (fittedSize.height * nextScale - rect.height) * 0.5),
     };
   };
 
@@ -1309,7 +1351,7 @@ function ProjectImageLightbox({
   };
 
   const animateTo = (nextScale: number, nextX = 0, nextY = 0) => {
-    const boundedScale = clamp(nextScale, 1, 5);
+    const boundedScale = clamp(nextScale, 1, maximumScale());
     const bounds = panBounds(boundedScale);
     const boundedX = clamp(nextX, -bounds.x, bounds.x);
     const boundedY = clamp(nextY, -bounds.y, bounds.y);
@@ -1327,7 +1369,7 @@ function ProjectImageLightbox({
 
   const zoomAt = (nextScale: number, clientX?: number, clientY?: number) => {
     const currentScale = scale.get();
-    const boundedScale = clamp(nextScale, 1, 5);
+    const boundedScale = clamp(nextScale, 1, maximumScale());
     const rect = stageRef.current?.getBoundingClientRect();
     if (!rect || clientX === undefined || clientY === undefined || boundedScale === 1) {
       animateTo(boundedScale, boundedScale === 1 ? 0 : x.get(), boundedScale === 1 ? 0 : y.get());
@@ -1342,14 +1384,29 @@ function ProjectImageLightbox({
   };
 
   const resetView = () => animateTo(1, 0, 0);
+  const showActualPixels = () => {
+    const focus = zoomFocusRef.current;
+    zoomAt(oneToOneScale(), focus?.clientX, focus?.clientY);
+  };
 
   useEffect(() => {
     scale.set(1);
     x.set(0);
     y.set(0);
     setScaleLabel(100);
+    setHasMeasuredImage(false);
     viewerRef.current?.focus({ preventScroll: true });
   }, [image.src, scale, x, y]);
+
+  useEffect(() => {
+    const stage = stageRef.current;
+    if (!stage || typeof ResizeObserver === "undefined") return undefined;
+    const observer = new ResizeObserver(() => {
+      if (imageRef.current?.naturalWidth) measureImageFit(imageRef.current);
+    });
+    observer.observe(stage);
+    return () => observer.disconnect();
+  }, [viewerSrc]);
 
   useEffect(() => {
     let isCurrentImage = true;
@@ -1391,6 +1448,7 @@ function ProjectImageLightbox({
   };
 
   const handlePointerMove = (event: PointerEvent<HTMLDivElement>) => {
+    zoomFocusRef.current = { clientX: event.clientX, clientY: event.clientY };
     const pointer = pointerRef.current;
     if (!pointer || pointer.id !== event.pointerId) return;
     setPosition(pointer.x + event.clientX - pointer.clientX, pointer.y + event.clientY - pointer.clientY);
@@ -1416,6 +1474,9 @@ function ProjectImageLightbox({
     } else if (event.key === "0") {
       event.preventDefault();
       resetView();
+    } else if (event.key === "1" && isOriginalLoaded) {
+      event.preventDefault();
+      showActualPixels();
     }
   };
 
@@ -1437,6 +1498,10 @@ function ProjectImageLightbox({
         event.preventDefault();
         event.stopImmediatePropagation();
         resetView();
+      } else if (event.key === "1" && isOriginalLoaded) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        showActualPixels();
       }
     };
     window.addEventListener("keydown", handleWindowKeyDown, true);
@@ -1470,9 +1535,20 @@ function ProjectImageLightbox({
           <button type="button" onClick={() => zoomAt(scale.get() / 1.25)} aria-label="缩小图片">
             <Minus size={18} strokeWidth={1.5} aria-hidden="true" />
           </button>
-          <span aria-live="polite">{scaleLabel}%</span>
+          <span aria-live="polite">
+            {scaleLabel <= 100 ? "适应" : Math.abs(scale.get() - oneToOneScale()) < 0.03 ? "1:1" : `${scaleLabel}%`}
+          </span>
           <button type="button" onClick={() => zoomAt(scale.get() * 1.25)} aria-label="放大图片">
             <Plus size={18} strokeWidth={1.5} aria-hidden="true" />
+          </button>
+          <button
+            className="project-image-lightbox-actual"
+            type="button"
+            onClick={showActualPixels}
+            disabled={!isOriginalLoaded || originalLoadFailed}
+            aria-label="按原始像素一比一查看"
+          >
+            1:1
           </button>
           <button type="button" onClick={resetView} aria-label="复位图片">
             <RotateCcw size={17} strokeWidth={1.5} aria-hidden="true" />
@@ -1494,20 +1570,33 @@ function ProjectImageLightbox({
         onPointerCancel={endPointer}
         onDoubleClick={(event) => {
           if (scale.get() > 1.02) resetView();
-          else zoomAt(2, event.clientX, event.clientY);
+          else zoomAt(oneToOneScale(), event.clientX, event.clientY);
         }}
       >
-        <motion.img
-          src={viewerSrc}
-          alt={image.alt}
-          decoding="async"
-          draggable={false}
-          style={{ x, y, scale }}
-        />
+        <motion.div
+          className={`project-image-lightbox-canvas${hasMeasuredImage ? " is-measured" : ""}`}
+          style={{
+            x,
+            y,
+            width: renderedWidth,
+            height: renderedHeight,
+            marginLeft: renderedOffsetX,
+            marginTop: renderedOffsetY,
+          }}
+        >
+          <img
+            ref={imageRef}
+            src={viewerSrc}
+            alt={image.alt}
+            decoding="async"
+            draggable={false}
+            onLoad={(event) => measureImageFit(event.currentTarget)}
+          />
+        </motion.div>
       </div>
 
       <p className="project-image-lightbox-hint" onClick={(event) => event.stopPropagation()}>
-        滚轮缩放 / 拖动查看 / 双击复位 / ESC 关闭
+        滚轮缩放 / 拖动查看 / 双击 1:1 或复位 / ESC 关闭
       </p>
     </motion.div>,
     document.body,
