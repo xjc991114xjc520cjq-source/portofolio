@@ -40,6 +40,42 @@ const metrics = [
 const projectShowcaseItems = [
   {
     index: "01",
+    title: "空气炸锅全链路商业视觉系统",
+    english: "AIR FRYER COMMERCE SYSTEM",
+    category: "智能厨电 / 商品视觉",
+    categoryEnglish: "SMART KITCHEN APPLIANCE",
+    year: "2026",
+    image: "/assets/projects/air-fryer/air-fryer-hero.webp",
+    alt: "白色空气炸锅与热食构成的快炸锁嫩商业主视觉",
+    backdrop: "AIR FRYER",
+    accent: "#dc8a52",
+    summary: "以一款白色空气炸锅为对象，从产品真实性校准、卖点拆解与创意路线规划出发，完成覆盖商品主图、使用场景和内容延展的商业视觉系统。",
+    brief: "项目需要在高点击电商表达与产品可信度之间取得平衡，让产品结构、操作方式和使用结果在不同创意画面中保持连续。",
+    response: "先用白底图、三视图与真实操作场景锁定产品，再按操作、结果、生活方式和细节信任四条内容路径组织画面，最后统一筛选为可组合的商业资产。",
+    role: "AI Art Direction / 电商视觉",
+    scope: "智能厨电全链路内容系统",
+    deliverables: ["产品基准图", "三视图", "商品主视觉", "操作场景", "生活方式场景", "清洁场景", "电商创意套图"],
+    workflow: ["资料归档", "产品校准", "卖点拆解", "创意分镜", "系列生成", "质量复核", "商业编排"],
+    system: "以机身轮廓、抽屉结构、顶部旋钮、前面板和暖白材质作为固定识别锚点，再用机位、食物、人物动作、空间和标题骨架建立差异化。",
+    outcome: "完成十二张核心视觉资产，其中包含七张方形商业主图与五张横向产品、操作及生活方式素材。",
+    reflection: "项目证明了同一产品可以在不牺牲结构一致性的前提下，形成从产品理解到购买吸引的连续内容节奏。",
+    gallery: [
+      { src: "/assets/projects/air-fryer/air-fryer-product.webp", alt: "空气炸锅白底标准产品图", layout: "wide" },
+      { src: "/assets/projects/air-fryer/air-fryer-views.webp", alt: "空气炸锅正面、侧面与顶面结构视图", layout: "wide" },
+      { src: "/assets/projects/air-fryer/air-fryer-reference.webp", alt: "空气炸锅抽屉取出与食物出锅场景", layout: "wide" },
+      { src: "/assets/projects/air-fryer/air-fryer-operation.webp", alt: "空气炸锅抽屉操作商业画面", layout: "square" },
+      { src: "/assets/projects/air-fryer/air-fryer-lifestyle.webp", alt: "空气炸锅家庭厨房生活方式场景", layout: "wide" },
+      { src: "/assets/projects/air-fryer/air-fryer-cleaning.webp", alt: "空气炸锅炸篮清洁使用场景", layout: "wide" },
+      { src: "/assets/projects/air-fryer/air-fryer-hero.webp", alt: "空气炸锅快炸锁嫩商业主视觉", layout: "square" },
+      { src: "/assets/projects/air-fryer/air-fryer-crispy.webp", alt: "空气炸锅外脆里嫩商业主视觉", layout: "square" },
+      { src: "/assets/projects/air-fryer/air-fryer-table.webp", alt: "空气炸锅速享美味俯拍餐桌主视觉", layout: "square" },
+      { src: "/assets/projects/air-fryer/air-fryer-smart-cook.webp", alt: "空气炸锅智控美味商业主视觉", layout: "square" },
+      { src: "/assets/projects/air-fryer/air-fryer-light-crisp.webp", alt: "空气炸锅轻脂烹饪商业主视觉", layout: "square" },
+      { src: "/assets/projects/air-fryer/air-fryer-control.webp", alt: "空气炸锅旋控面板细节商业画面", layout: "square" },
+    ],
+  },
+  {
+    index: "02",
     title: "AI 空气循环扇全链路商业视觉系统",
     english: "AI AIR CIRCULATOR COMMERCE SYSTEM",
     category: "商业渲染 / 商品视觉",
@@ -201,119 +237,126 @@ const projectShowcaseCollections = [
     index: "01",
     title: "智能生活产品",
     english: "SMART LIVING PRODUCTS",
-    projects: [projectShowcaseItems[0]],
+    projects: [projectShowcaseItems[0], projectShowcaseItems[1]],
   },
   {
     id: "beauty-care",
     index: "02",
     title: "美妆与个人护理",
     english: "BEAUTY & PERSONAL CARE",
-    projects: [projectShowcaseItems[1]],
+    projects: [projectShowcaseItems[2]],
   },
   {
     id: "consumer-commerce",
     index: "03",
     title: "新消费与电商",
     english: "CONSUMER COMMERCE",
-    projects: [projectShowcaseItems[2]],
+    projects: [projectShowcaseItems[3]],
   },
   {
     id: "lifestyle-campaign",
     index: "04",
     title: "人物生活方式",
     english: "LIFESTYLE CAMPAIGNS",
-    projects: [projectShowcaseItems[3]],
+    projects: [projectShowcaseItems[4]],
   },
   {
     id: "cultural-publishing",
     index: "05",
     title: "文化出版",
     english: "CULTURAL PUBLISHING",
-    projects: [projectShowcaseItems[4]],
+    projects: [projectShowcaseItems[5]],
   },
   {
     id: "product-motion",
     index: "06",
     title: "产品动态影像",
     english: "PRODUCT MOTION",
-    projects: [projectShowcaseItems[5]],
+    projects: [projectShowcaseItems[6]],
   },
 ] as const;
 
 const smartLivingCaseStudy = {
   context: [
-    { label: "产品角色", value: "桌面空气循环产品" },
-    { label: "目标人群", value: "重视舒适、安静与家居质感的年轻家庭" },
-    { label: "核心任务", value: "把功能商品转化为可感知的生活体验" },
-    { label: "内容范围", value: "商品展示、场景传播、电商触点与动态延展" },
+    { label: "产品角色", value: "家用台面式空气炸锅" },
+    { label: "目标人群", value: "重视烹饪效率、操作直观与厨房整洁的家庭用户" },
+    { label: "核心任务", value: "同时建立产品可信度、食欲吸引与使用理解" },
+    { label: "内容范围", value: "标准产品图、结构视图、操作流程、生活场景与电商主图" },
   ],
   strategy: [
-    { title: "看懂产品", detail: "清楚呈现格栅、中心轴、机身、底座与控制区域。" },
-    { title: "感受价值", detail: "用送风、陪伴、安静与昼夜使用表达产品价值。" },
-    { title: "形成信任", detail: "让结构、材质、尺度与透视在不同画面中保持连续。" },
-    { title: "支持转化", detail: "让视觉资产可以进入主图、PDP、详情页和社交内容。" },
+    { title: "确认产品", detail: "先交代机身、炸篮、顶部旋钮与前置控制区域的真实关系。" },
+    { title: "解释使用", detail: "通过抽出、放入、出锅与清洁动作建立完整使用理解。" },
+    { title: "制造食欲", detail: "以真实食物结果、热感光线和近景构图强化购买吸引。" },
+    { title: "形成系列", detail: "让不同标题、机位和场景仍维持同一产品身份与视觉品质。" },
   ],
-  fixedAnchors: ["螺旋格栅方向", "圆形中心轴", "机身与支架比例", "梯形控制底座", "白色哑光材质"],
-  variables: ["正面、侧面与背面视角", "日间、黄昏与夜间光线", "单人、亲子与无人物场景", "桌面、卧室与客厅空间", "功能展示与情绪传播镜头"],
+  fixedAnchors: ["圆角矩形机身比例", "下置抽屉与黑色内腔", "玫瑰金把手与顶部旋钮", "前置屏幕和操作面板", "暖白色细纹外壳"],
+  variables: ["正面、侧面、顶视与近景机位", "白棚、日间厨房和暖色餐桌光线", "操作手势、人物与无人物场景", "食物类型、出锅状态和餐桌组合", "标题骨架、遮挡关系与信息承载方式"],
   scenes: [
     {
-      title: "产品识别",
-      purpose: "先让用户快速看懂结构与操作区域，建立可靠的商品第一印象。",
-      touchpoint: "主图 / PDP 首屏",
-      image: "/assets/projects/table-fan/table-fan-views.webp",
-      alt: "空气循环扇多角度结构控制视图",
+      title: "真实性底稿",
+      purpose: "保留原始使用场景中的机身、炸篮、控制区域和实际尺度，作为项目起点。",
+      touchpoint: "REFERENCE / 输入",
+      image: "/assets/projects/air-fryer/air-fryer-reference.webp",
+      alt: "空气炸锅原始操作与食物出锅参考画面",
     },
     {
-      title: "日间体验",
-      purpose: "通过自然光和人物距离表现轻松、舒适的日常使用状态。",
-      touchpoint: "Campaign / 社交内容",
-      image: "/assets/projects/table-fan/table-fan-lifestyle.webp",
-      alt: "空气循环扇日间人物使用场景",
+      title: "操作瞬间",
+      purpose: "用抽出炸篮的明确动作展示交互方式，让产品卖点进入可理解的使用情境。",
+      touchpoint: "PDP / 操作说明",
+      image: "/assets/projects/air-fryer/air-fryer-operation.webp",
+      alt: "用户抽出空气炸锅炸篮的操作场景",
     },
     {
-      title: "家庭陪伴",
-      purpose: "把产品置入亲子阅读情境，传达安全、安静与陪伴价值。",
-      touchpoint: "详情页 / 人群沟通",
-      image: "/assets/projects/table-fan/table-fan-family.webp",
-      alt: "空气循环扇亲子家庭使用场景",
+      title: "生活结果",
+      purpose: "把完成的食物与人物放回自然厨房环境，连接烹饪效率和家庭日常。",
+      touchpoint: "CAMPAIGN / 人群沟通",
+      image: "/assets/projects/air-fryer/air-fryer-lifestyle.webp",
+      alt: "用户在厨房展示空气炸锅烹饪结果",
     },
     {
-      title: "夜间需求",
-      purpose: "用低照度卧室环境突出夜间使用、柔和送风和安静氛围。",
-      touchpoint: "卖点模块 / 短视频",
-      image: "/assets/projects/table-fan/table-fan-night.webp",
-      alt: "空气循环扇夜间卧室使用场景",
+      title: "清洁闭环",
+      purpose: "用可拆炸篮的清洗动作补全使用后流程，让视觉不只停留在出锅瞬间。",
+      touchpoint: "DETAIL / 使用信任",
+      image: "/assets/projects/air-fryer/air-fryer-cleaning.webp",
+      alt: "用户在水槽清洗空气炸锅炸篮",
     },
+  ],
+  commercialOutputs: [
+    { src: "/assets/projects/air-fryer/air-fryer-hero.webp", alt: "空气炸锅快炸锁嫩商业主视觉", layout: "square" },
+    { src: "/assets/projects/air-fryer/air-fryer-crispy.webp", alt: "空气炸锅外脆里嫩商业主视觉", layout: "square" },
+    { src: "/assets/projects/air-fryer/air-fryer-table.webp", alt: "空气炸锅速享美味餐桌商业主视觉", layout: "square" },
+    { src: "/assets/projects/air-fryer/air-fryer-smart-cook.webp", alt: "空气炸锅智控美味商业主视觉", layout: "square" },
+    { src: "/assets/projects/air-fryer/air-fryer-light-crisp.webp", alt: "空气炸锅轻脂烹饪商业主视觉", layout: "square" },
+    { src: "/assets/projects/air-fryer/air-fryer-control.webp", alt: "空气炸锅旋控面板细节商业画面", layout: "square" },
   ],
   workflow: [
-    { name: "需求拆解", input: "产品资料与商业目标", output: "人群、卖点与触点优先级" },
-    { name: "结构锁定", input: "正面、侧面与背面参考", output: "产品识别锚点和禁改项" },
-    { name: "策略定义", input: "送风体验与使用时段", output: "产品、人物、场景和光线规则" },
-    { name: "场景生产", input: "结构参考与视觉方向", output: "日间、家庭和夜间候选画面" },
-    { name: "质量筛选", input: "多轮生成与精修结果", output: "结构、尺度、光影一致的核心资产" },
-    { name: "商业适配", input: "通过审核的视觉资产", output: "电商、Campaign、社交与动态路径" },
+    { name: "资料归档", input: "产品原图与操作场景", output: "产品结构、材质和禁改项清单" },
+    { name: "产品校准", input: "白底图与三视图", output: "统一比例、角度和关键识别锚点" },
+    { name: "卖点拆解", input: "可确认的产品信息", output: "操作、结果、生活方式与细节四条内容路径" },
+    { name: "创意分镜", input: "内容路径与电商版位", output: "机位、动作、场景、标题和光线组合" },
+    { name: "系列生成", input: "产品基准与独立创意路线", output: "方形主图与横向场景候选资产" },
+    { name: "质量复核", input: "候选画面", output: "结构、文字、手部、食物与空间审核结果" },
+    { name: "商业编排", input: "通过审核的核心视觉", output: "主图、PDP、详情页和传播套图顺序" },
   ],
   touchpoints: [
-    { title: "电商转化", items: ["商品主图", "PDP 首屏", "详情页卖点"] },
-    { title: "品牌传播", items: ["Campaign KV", "生活方式套图", "社交内容"] },
-    { title: "内容增长", items: ["昼夜主题", "人群场景", "季节延展"] },
-    { title: "动态延展", items: ["送风表现", "昼夜切换", "产品短片"] },
+    { title: "商品入口", items: ["搜索缩略图", "商品主图", "活动入口"] },
+    { title: "产品理解", items: ["PDP 首屏", "结构视图", "操作说明"] },
+    { title: "购买说服", items: ["食物结果", "生活方式", "清洁场景"] },
+    { title: "传播延展", items: ["Campaign KV", "社交套图", "短视频关键帧"] },
   ],
   qualityChecks: [
-    { title: "结构身份", detail: "格栅、中心轴、支架和底座保持同一产品特征。" },
-    { title: "材质可信", detail: "白色哑光外壳在冷暖光线下不过曝、不变色。" },
-    { title: "空间尺度", detail: "产品与桌面、床体、人物之间保持合理尺寸关系。" },
-    { title: "透视逻辑", detail: "机身朝向、底座角度和环境消失点保持一致。" },
-    { title: "光影融合", detail: "产品受光方向与场景主光一致，并保留接触阴影。" },
-    { title: "场景价值", detail: "每张画面承担明确卖点，避免只有气氛没有信息。" },
+    { title: "产品结构", detail: "机身比例、炸篮开口、把手、旋钮与前面板保持同一型号特征。" },
+    { title: "文字准确", detail: "大标题与卖点保持清晰，避免乱码、重复字和无依据参数。" },
+    { title: "操作可信", detail: "手部、炸篮方向与使用动作符合真实烹饪和清洁逻辑。" },
+    { title: "食物关系", detail: "食物数量、尺度和位置服务产品，不遮挡关键结构或抢走第一焦点。" },
+    { title: "光影融合", detail: "产品受光、接触阴影与环境光一致，暖白材质不偏色或过曝。" },
+    { title: "系列差异", detail: "每张图在机位、构图、场景和标题骨架上形成独立表达。" },
   ],
-  // Portfolio narrative metrics. Replace with validated analytics when available.
   results: [
-    { value: "7", label: "核心视觉资产", note: "已完成" },
-    { value: "5", label: "商业触点", note: "内容覆盖" },
-    { value: "-62%", label: "首轮场景制作周期", note: "效率提升" },
-    { value: "+31%", label: "内容复用效率", note: "资产增效" },
-    { value: "+18%", label: "商品主图点击率", note: "表现提升" },
+    { value: "12", label: "核心视觉资产", note: "完整交付" },
+    { value: "7", label: "方形商业画面", note: "主图与传播" },
+    { value: "5", label: "横向流程素材", note: "产品与场景" },
+    { value: "4", label: "内容触点方向", note: "组合扩展" },
   ],
 } as const;
 
@@ -3180,8 +3223,8 @@ function SmartLivingCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectIma
     <div className="smart-case">
       <section className="smart-case-context" aria-labelledby="smart-case-context-title">
         <header className="smart-case-heading">
-          <h3 id="smart-case-context-title">项目从哪里开始</h3>
-          <p>这不是单纯扩展七张场景图，而是先定义商品必须被记住的部分，再决定每类视觉在商业链路中承担什么任务。</p>
+          <h3 id="smart-case-context-title">先明确产品与商业任务</h3>
+          <p>项目从真实产品和使用动作出发，先建立可信的产品底稿，再组织能够吸引点击、解释使用并支持购买判断的内容路径。</p>
         </header>
         <dl>
           {smartLivingCaseStudy.context.map((item) => (
@@ -3196,13 +3239,13 @@ function SmartLivingCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectIma
       <section className="smart-case-strategy" aria-labelledby="smart-case-strategy-title">
         <header className="smart-case-heading">
           <span>COMMERCIAL STRATEGY</span>
-          <h3 id="smart-case-strategy-title">从商品信息到商业任务</h3>
-          <p>商业目标被拆成四个连续问题，后续每一张图都需要回答其中至少一个。</p>
+          <h3 id="smart-case-strategy-title">把内容拆成四个连续问题</h3>
+          <p>每一张图都需要承担明确任务，顺序从产品确认、使用理解和结果吸引，推进到完整系列表达。</p>
         </header>
         <div className="smart-case-tree">
           <div className="smart-case-tree-root">
             <small>BUSINESS GOAL</small>
-            <strong>建立可识别、可相信、可转化的智能生活产品视觉</strong>
+            <strong>建立可识别、可理解、能激发食欲的智能厨电商业视觉</strong>
           </div>
           <div className="smart-case-tree-branches">
             {smartLivingCaseStudy.strategy.map((branch) => (
@@ -3217,18 +3260,18 @@ function SmartLivingCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectIma
 
       <section className="smart-case-control" aria-labelledby="smart-case-control-title">
         <header className="smart-case-heading">
-          <h3 id="smart-case-control-title">先固定产品，再扩展世界</h3>
-          <p>将产品拆成不可改变的识别锚点与可以变化的叙事变量，避免生成过程中用场景丰富度交换产品准确性。</p>
+          <h3 id="smart-case-control-title">产品校准先于创意扩展</h3>
+          <p>白底图负责确认整体产品，三视图负责校准结构。只有产品身份稳定后，才进入场景、人物、食物和标题的创意变化。</p>
         </header>
         <div className="smart-case-control-board">
           <figure>
             <ZoomableProjectImage
-              src="/assets/projects/table-fan/table-fan-views.webp"
-              alt="空气循环扇正面、侧面和背面结构参考板"
+              src="/assets/projects/air-fryer/air-fryer-views.webp"
+              alt="空气炸锅正面、侧面与顶面结构校准图"
               onOpen={onImageOpen}
               loading="lazy"
             />
-            <figcaption>三视图作为后续场景生成与人工复核的结构基准。</figcaption>
+            <figcaption>正面、侧面与顶面视图共同构成后续生成和人工复核的结构基准。</figcaption>
           </figure>
           <div className="smart-case-control-rules">
             <article>
@@ -3247,10 +3290,29 @@ function SmartLivingCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectIma
         </div>
       </section>
 
+      <section className="smart-case-workflow" aria-labelledby="smart-case-workflow-title">
+        <header className="smart-case-heading">
+          <span>PRODUCTION PIPELINE</span>
+          <h3 id="smart-case-workflow-title">从资料输入到商业编排</h3>
+          <p>流程先完成产品校准与卖点定义，再进入创意生产、质量审核和触点编排，避免边生成边决定项目方向。</p>
+        </header>
+        <ol>
+          {smartLivingCaseStudy.workflow.map((step) => (
+            <li key={step.name}>
+              <strong>{step.name}</strong>
+              <dl>
+                <div><dt>输入</dt><dd>{step.input}</dd></div>
+                <div><dt>输出</dt><dd>{step.output}</dd></div>
+              </dl>
+            </li>
+          ))}
+        </ol>
+      </section>
+
       <section className="smart-case-scenes" aria-labelledby="smart-case-scenes-title">
         <header className="smart-case-heading">
-          <h3 id="smart-case-scenes-title">场景不是装饰，而是卖点的载体</h3>
-          <p>从产品识别到生活方式，每个场景模块拥有明确的人群、信息与使用触点。</p>
+          <h3 id="smart-case-scenes-title">使用链路形成内容顺序</h3>
+          <p>素材按照真实性底稿、操作瞬间、生活结果和清洁闭环展开，让产品价值从一次点击延续到完整使用过程。</p>
         </header>
         <div className="smart-case-scene-grid">
           {smartLivingCaseStudy.scenes.map((scene) => (
@@ -3275,54 +3337,54 @@ function SmartLivingCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectIma
 
       <section className="smart-case-lighting" aria-labelledby="smart-case-lighting-title">
         <div className="smart-case-lighting-copy">
-          <h3 id="smart-case-lighting-title">同一产品，不同时段</h3>
-          <p>昼夜变化用来扩展内容主题，但产品的白色材质、结构比例和空间尺度始终保持为审核基准。</p>
+          <h3 id="smart-case-lighting-title">商业主图建立三层信息</h3>
+          <p>先让产品占据第一焦点，再用食物结果制造吸引，最后通过标题和细节信息完成缩略图沟通。</p>
           <ul>
-            <li><strong>日间</strong><span>轻松、通透、自然使用</span></li>
-            <li><strong>午后</strong><span>温暖、陪伴、家庭关系</span></li>
-            <li><strong>黄昏</strong><span>柔和、放松、空间氛围</span></li>
-            <li><strong>夜间</strong><span>安静、低照度、睡眠场景</span></li>
+            <li><strong>产品</strong><span>结构清楚，轮廓完整，体量充足</span></li>
+            <li><strong>结果</strong><span>食物真实，热感明确，不遮挡产品</span></li>
+            <li><strong>标题</strong><span>一句核心表达，服从画面动线</span></li>
+            <li><strong>细节</strong><span>操作面板与旋钮承担信任信息</span></li>
           </ul>
         </div>
         <div className="smart-case-lighting-media">
           <ZoomableProjectImage
-            src="/assets/projects/table-fan/table-fan-dayparts.webp"
-            alt="空气循环扇从日间到夜间的四种光线实验"
+            src="/assets/projects/air-fryer/air-fryer-hero.webp"
+            alt="空气炸锅高冲击商业主视觉"
             onOpen={onImageOpen}
             loading="lazy"
           />
           <ZoomableProjectImage
-            src="/assets/projects/table-fan/table-fan-night-detail.webp"
-            alt="空气循环扇夜间低照度材质表现"
+            src="/assets/projects/air-fryer/air-fryer-control.webp"
+            alt="空气炸锅旋钮与控制面板细节视觉"
             onOpen={onImageOpen}
             loading="lazy"
           />
         </div>
       </section>
 
-      <section className="smart-case-workflow" aria-labelledby="smart-case-workflow-title">
-        <header className="smart-case-heading">
-          <span>PRODUCTION PIPELINE</span>
-          <h3 id="smart-case-workflow-title">从输入到可交付资产</h3>
-          <p>每个环节都定义输入与输出，使生成过程可以被复盘、校验和继续扩展。</p>
-        </header>
-        <ol>
-          {smartLivingCaseStudy.workflow.map((step) => (
-            <li key={step.name}>
-              <strong>{step.name}</strong>
-              <dl>
-                <div><dt>输入</dt><dd>{step.input}</dd></div>
-                <div><dt>输出</dt><dd>{step.output}</dd></div>
-              </dl>
-            </li>
+      <section className="project-detail-gallery air-fryer-output" aria-labelledby="air-fryer-output-title">
+        <div className="project-detail-section-heading">
+          <span>SELECTED OUTPUTS</span>
+          <h3 id="air-fryer-output-title">方形电商创意输出</h3>
+        </div>
+        <div className="project-detail-gallery-grid">
+          {smartLivingCaseStudy.commercialOutputs.map((visual) => (
+            <figure className={`is-${visual.layout}`} key={visual.src}>
+              <ZoomableProjectImage
+                src={visual.src}
+                alt={visual.alt}
+                onOpen={onImageOpen}
+                loading="lazy"
+              />
+            </figure>
           ))}
-        </ol>
+        </div>
       </section>
 
       <section className="smart-case-touchpoints" aria-labelledby="smart-case-touchpoints-title">
         <header className="smart-case-heading">
-          <h3 id="smart-case-touchpoints-title">一套资产，进入多条商业路径</h3>
-          <p>通过审核的视觉不止用于作品展示，而是被组织为可继续裁切、组合和动态化的内容母版。</p>
+          <h3 id="smart-case-touchpoints-title">素材按购买路径重新组合</h3>
+          <p>通过审核的画面可以根据触点改变顺序和信息密度，在商品入口、产品理解、购买说服与传播延展之间保持连续。</p>
         </header>
         <div className="smart-case-touchpoint-tree">
           <div className="smart-case-touchpoint-root">已审核核心视觉资产</div>
@@ -3340,7 +3402,7 @@ function SmartLivingCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectIma
       <section className="smart-case-quality" aria-labelledby="smart-case-quality-title">
         <header className="smart-case-heading">
           <h3 id="smart-case-quality-title">商业可用性的六项检查</h3>
-          <p>候选图需要同时通过产品、空间和传播价值检查，画面完成度不是唯一判断标准。</p>
+          <p>候选图同时检查产品、文字、动作、食物、光影和系列差异，画面完成度不是唯一判断标准。</p>
         </header>
         <div className="smart-case-quality-grid">
           {smartLivingCaseStudy.qualityChecks.map((check) => (
@@ -3356,10 +3418,10 @@ function SmartLivingCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectIma
       <section className="smart-case-results" aria-labelledby="smart-case-results-title">
         <header>
           <div>
-            <span>PROJECT IMPACT</span>
-            <h3 id="smart-case-results-title">从视觉产出回到商业结果</h3>
+            <span>PROJECT DELIVERY</span>
+            <h3 id="smart-case-results-title">最终形成可编排的内容资产</h3>
           </div>
-          <p>核心视觉资产覆盖商品展示、内容传播与转化触点，并缩短多场景内容的生产周期。</p>
+          <p>十二张核心视觉覆盖产品校准、操作过程、生活方式、清洁细节与方形电商传播，并保留继续扩展的结构。</p>
         </header>
         <div className="smart-case-result-grid">
           {smartLivingCaseStudy.results.map((result) => (
@@ -3371,7 +3433,7 @@ function SmartLivingCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectIma
           ))}
         </div>
         <p className="smart-case-conclusion">
-          最终交付的不只是七张图，而是一套从产品识别、场景生产、质量筛选到商业触点扩展的视觉工作方法。
+          最终交付不只是单张高点击主图，而是一套从产品校准、内容拆解、创意生产到触点编排的智能厨电视觉工作方法。
         </p>
       </section>
     </div>

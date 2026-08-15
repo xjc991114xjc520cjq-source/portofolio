@@ -4602,9 +4602,10 @@ video {
 
 .smart-case-control-board figure img {
   width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
   border: 1px solid rgba(225, 229, 225, 0.12);
+  background: #f4f2ed;
   filter: saturate(0.8) contrast(1.02);
 }
 
@@ -4697,7 +4698,7 @@ video {
 
 .smart-case-scene-grid img {
   width: 100%;
-  aspect-ratio: 16 / 11;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   filter: saturate(0.78) brightness(0.9);
   transition: transform 420ms var(--ease-out), filter 320ms ease;
@@ -4795,6 +4796,24 @@ video {
   object-fit: cover;
   border: 1px solid rgba(225, 229, 225, 0.1);
   filter: saturate(0.78) brightness(0.88);
+}
+
+.air-fryer-output {
+  margin-top: 0;
+}
+
+.air-fryer-output .project-detail-gallery-grid {
+  gap: 12px;
+}
+
+.air-fryer-output .project-detail-gallery-grid img {
+  filter: saturate(0.84) brightness(0.92);
+  transition: transform 420ms var(--ease-out), filter 320ms ease;
+}
+
+.air-fryer-output .project-detail-gallery-grid figure:hover img {
+  filter: saturate(0.96) brightness(0.98);
+  transform: scale(1.012);
 }
 
 .smart-case-workflow {
@@ -4991,7 +5010,7 @@ video {
   display: grid;
   border-top: 1px solid rgba(225, 229, 225, 0.13);
   border-bottom: 1px solid rgba(225, 229, 225, 0.1);
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .smart-case-result-grid article {
