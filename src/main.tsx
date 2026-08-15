@@ -40,8 +40,8 @@ const metrics = [
 const projectShowcaseItems = [
   {
     index: "01",
-    title: "智能生活产品视觉系统",
-    english: "SMART LIVING VISUAL SYSTEM",
+    title: "AI 空气循环扇全链路商业视觉系统",
+    english: "AI AIR CIRCULATOR COMMERCE SYSTEM",
     category: "商业渲染 / 商品视觉",
     categoryEnglish: "COMMERCIAL RENDERING",
     year: "2026",
