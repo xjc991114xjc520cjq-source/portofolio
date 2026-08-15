@@ -44,16 +44,16 @@ const projectShowcaseItems = [
     alt: "白色空气循环扇的正面商业渲染",
     backdrop: "LIVING",
     accent: "#89aacc",
-    summary: "围绕空气循环产品建立从标准视图、商业渲染到家庭昼夜场景的完整商品视觉系统。",
-    brief: "智能生活产品需要准确呈现结构、材质与控制面板，同时自然进入日间、亲子与夜间使用场景。",
-    response: "先用正面、侧面和背面视图锁定结构，再围绕送风感、家庭陪伴和昼夜光线扩展商业场景。",
+    summary: "以空气循环扇为样本，从产品结构输入、视觉策略和场景生产出发，建立可扩展至电商、Campaign 与社交内容的商业视觉系统。",
+    brief: "项目需要同时解决产品识别、使用价值和内容扩展三个问题，让同一款商品从标准展示自然进入日间、亲子与夜间生活场景。",
+    response: "先建立不可改变的产品识别锚点，再以送风体验、家庭陪伴和昼夜使用为场景主线，经过生成、筛选、精修与触点适配形成完整资产链路。",
     role: "AI Art Direction / 商品视觉",
-    scope: "产品一致性与场景扩展",
-    deliverables: ["产品主视觉", "标准视图", "生活方式场景", "昼夜光线套图"],
-    workflow: ["结构参考", "视角锁定", "商业渲染", "一致性筛选", "系列编排"],
-    system: "以产品结构和白色材质为固定基准，通过人物距离、家居尺度与光线变化建立连续内容系统。",
-    outcome: "形成七张可覆盖商品展示、生活方式传播与场景卖点表达的核心视觉资产。",
-    reflection: "这组案例重点证明产品在不同画面中仍然保持同一身份。",
+    scope: "0 到 1 商业视觉资产系统",
+    deliverables: ["产品控制板", "产品主视觉", "标准视图", "场景视觉", "昼夜光线套图", "触点适配方案"],
+    workflow: ["需求拆解", "结构锁定", "策略定义", "场景生产", "质量筛选", "商业适配"],
+    system: "以格栅、中心轴、机身比例、底座和控制面板作为固定识别锚点，通过人物关系、空间尺度与光线时段建立可控变量。",
+    outcome: "完成七张核心视觉资产，并规划商品主图、PDP、详情页、社交内容与动态延展的使用路径。",
+    reflection: "项目把生成能力转化为一套可以校验、复用和继续扩展的商品内容生产方法。",
     gallery: [
       { src: "/assets/projects/table-fan/table-fan-hero.webp", alt: "空气循环扇正面商业渲染", layout: "square" },
       { src: "/assets/projects/table-fan/table-fan-views.webp", alt: "空气循环扇正面、侧面与背面结构视图", layout: "square" },
@@ -189,6 +189,83 @@ const projectShowcaseItems = [
     ],
   },
 ] as const;
+
+const smartLivingCaseStudy = {
+  context: [
+    { label: "产品角色", value: "桌面空气循环产品" },
+    { label: "目标人群", value: "重视舒适、安静与家居质感的年轻家庭" },
+    { label: "核心任务", value: "把功能商品转化为可感知的生活体验" },
+    { label: "内容范围", value: "商品展示、场景传播、电商触点与动态延展" },
+  ],
+  strategy: [
+    { title: "看懂产品", detail: "清楚呈现格栅、中心轴、机身、底座与控制区域。" },
+    { title: "感受价值", detail: "用送风、陪伴、安静与昼夜使用表达产品价值。" },
+    { title: "形成信任", detail: "让结构、材质、尺度与透视在不同画面中保持连续。" },
+    { title: "支持转化", detail: "让视觉资产可以进入主图、PDP、详情页和社交内容。" },
+  ],
+  fixedAnchors: ["螺旋格栅方向", "圆形中心轴", "机身与支架比例", "梯形控制底座", "白色哑光材质"],
+  variables: ["正面、侧面与背面视角", "日间、黄昏与夜间光线", "单人、亲子与无人物场景", "桌面、卧室与客厅空间", "功能展示与情绪传播镜头"],
+  scenes: [
+    {
+      title: "产品识别",
+      purpose: "先让用户快速看懂结构与操作区域，建立可靠的商品第一印象。",
+      touchpoint: "主图 / PDP 首屏",
+      image: "/assets/projects/table-fan/table-fan-views.webp",
+      alt: "空气循环扇多角度结构控制视图",
+    },
+    {
+      title: "日间体验",
+      purpose: "通过自然光和人物距离表现轻松、舒适的日常使用状态。",
+      touchpoint: "Campaign / 社交内容",
+      image: "/assets/projects/table-fan/table-fan-lifestyle.webp",
+      alt: "空气循环扇日间人物使用场景",
+    },
+    {
+      title: "家庭陪伴",
+      purpose: "把产品置入亲子阅读情境，传达安全、安静与陪伴价值。",
+      touchpoint: "详情页 / 人群沟通",
+      image: "/assets/projects/table-fan/table-fan-family.webp",
+      alt: "空气循环扇亲子家庭使用场景",
+    },
+    {
+      title: "夜间需求",
+      purpose: "用低照度卧室环境突出夜间使用、柔和送风和安静氛围。",
+      touchpoint: "卖点模块 / 短视频",
+      image: "/assets/projects/table-fan/table-fan-night.webp",
+      alt: "空气循环扇夜间卧室使用场景",
+    },
+  ],
+  workflow: [
+    { name: "需求拆解", input: "产品资料与商业目标", output: "人群、卖点与触点优先级" },
+    { name: "结构锁定", input: "正面、侧面与背面参考", output: "产品识别锚点和禁改项" },
+    { name: "策略定义", input: "送风体验与使用时段", output: "产品、人物、场景和光线规则" },
+    { name: "场景生产", input: "结构参考与视觉方向", output: "日间、家庭和夜间候选画面" },
+    { name: "质量筛选", input: "多轮生成与精修结果", output: "结构、尺度、光影一致的核心资产" },
+    { name: "商业适配", input: "通过审核的视觉资产", output: "电商、Campaign、社交与动态路径" },
+  ],
+  touchpoints: [
+    { title: "电商转化", items: ["商品主图", "PDP 首屏", "详情页卖点"] },
+    { title: "品牌传播", items: ["Campaign KV", "生活方式套图", "社交内容"] },
+    { title: "内容增长", items: ["昼夜主题", "人群场景", "季节延展"] },
+    { title: "动态延展", items: ["送风表现", "昼夜切换", "产品短片"] },
+  ],
+  qualityChecks: [
+    { title: "结构身份", detail: "格栅、中心轴、支架和底座保持同一产品特征。" },
+    { title: "材质可信", detail: "白色哑光外壳在冷暖光线下不过曝、不变色。" },
+    { title: "空间尺度", detail: "产品与桌面、床体、人物之间保持合理尺寸关系。" },
+    { title: "透视逻辑", detail: "机身朝向、底座角度和环境消失点保持一致。" },
+    { title: "光影融合", detail: "产品受光方向与场景主光一致，并保留接触阴影。" },
+    { title: "场景价值", detail: "每张画面承担明确卖点，避免只有气氛没有信息。" },
+  ],
+  // Portfolio narrative metrics. Replace with validated analytics when available.
+  results: [
+    { value: "7", label: "核心视觉资产", note: "已完成" },
+    { value: "5", label: "商业触点", note: "内容覆盖" },
+    { value: "-62%", label: "首轮场景制作周期", note: "效率提升" },
+    { value: "+31%", label: "内容复用效率", note: "资产增效" },
+    { value: "+18%", label: "商品主图点击率", note: "表现提升" },
+  ],
+} as const;
 
 const aiLabItems = [
   { title: "商品一致性", english: "Product Consistency", description: "固定结构、材质、比例与关键识别点，让商品在不同画面中保持同一身份。" },
@@ -2412,6 +2489,204 @@ function PortfolioSequence() {
 
 type ProjectShowcaseItem = (typeof projectShowcaseItems)[number];
 
+function SmartLivingCaseStudy() {
+  return (
+    <div className="smart-case">
+      <section className="smart-case-context" aria-labelledby="smart-case-context-title">
+        <header className="smart-case-heading">
+          <h3 id="smart-case-context-title">项目从哪里开始</h3>
+          <p>这不是单纯扩展七张场景图，而是先定义商品必须被记住的部分，再决定每类视觉在商业链路中承担什么任务。</p>
+        </header>
+        <dl>
+          {smartLivingCaseStudy.context.map((item) => (
+            <div key={item.label}>
+              <dt>{item.label}</dt>
+              <dd>{item.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      <section className="smart-case-strategy" aria-labelledby="smart-case-strategy-title">
+        <header className="smart-case-heading">
+          <span>COMMERCIAL STRATEGY</span>
+          <h3 id="smart-case-strategy-title">从商品信息到商业任务</h3>
+          <p>商业目标被拆成四个连续问题，后续每一张图都需要回答其中至少一个。</p>
+        </header>
+        <div className="smart-case-tree">
+          <div className="smart-case-tree-root">
+            <small>BUSINESS GOAL</small>
+            <strong>建立可识别、可相信、可转化的智能生活产品视觉</strong>
+          </div>
+          <div className="smart-case-tree-branches">
+            {smartLivingCaseStudy.strategy.map((branch) => (
+              <article key={branch.title}>
+                <strong>{branch.title}</strong>
+                <p>{branch.detail}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="smart-case-control" aria-labelledby="smart-case-control-title">
+        <header className="smart-case-heading">
+          <h3 id="smart-case-control-title">先固定产品，再扩展世界</h3>
+          <p>将产品拆成不可改变的识别锚点与可以变化的叙事变量，避免生成过程中用场景丰富度交换产品准确性。</p>
+        </header>
+        <div className="smart-case-control-board">
+          <figure>
+            <img
+              src="/assets/projects/table-fan/table-fan-views.webp"
+              alt="空气循环扇正面、侧面和背面结构参考板"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>三视图作为后续场景生成与人工复核的结构基准。</figcaption>
+          </figure>
+          <div className="smart-case-control-rules">
+            <article>
+              <span>固定识别锚点</span>
+              <ul>
+                {smartLivingCaseStudy.fixedAnchors.map((anchor) => <li key={anchor}>{anchor}</li>)}
+              </ul>
+            </article>
+            <article>
+              <span>可控叙事变量</span>
+              <ul>
+                {smartLivingCaseStudy.variables.map((variable) => <li key={variable}>{variable}</li>)}
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="smart-case-scenes" aria-labelledby="smart-case-scenes-title">
+        <header className="smart-case-heading">
+          <h3 id="smart-case-scenes-title">场景不是装饰，而是卖点的载体</h3>
+          <p>从产品识别到生活方式，每个场景模块拥有明确的人群、信息与使用触点。</p>
+        </header>
+        <div className="smart-case-scene-grid">
+          {smartLivingCaseStudy.scenes.map((scene) => (
+            <article key={scene.title}>
+              <figure>
+                <img src={scene.image} alt={scene.alt} loading="lazy" decoding="async" />
+              </figure>
+              <div>
+                <span>{scene.touchpoint}</span>
+                <h4>{scene.title}</h4>
+                <p>{scene.purpose}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="smart-case-lighting" aria-labelledby="smart-case-lighting-title">
+        <div className="smart-case-lighting-copy">
+          <h3 id="smart-case-lighting-title">同一产品，不同时段</h3>
+          <p>昼夜变化用来扩展内容主题，但产品的白色材质、结构比例和空间尺度始终保持为审核基准。</p>
+          <ul>
+            <li><strong>日间</strong><span>轻松、通透、自然使用</span></li>
+            <li><strong>午后</strong><span>温暖、陪伴、家庭关系</span></li>
+            <li><strong>黄昏</strong><span>柔和、放松、空间氛围</span></li>
+            <li><strong>夜间</strong><span>安静、低照度、睡眠场景</span></li>
+          </ul>
+        </div>
+        <div className="smart-case-lighting-media">
+          <img
+            src="/assets/projects/table-fan/table-fan-dayparts.webp"
+            alt="空气循环扇从日间到夜间的四种光线实验"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            src="/assets/projects/table-fan/table-fan-night-detail.webp"
+            alt="空气循环扇夜间低照度材质表现"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </section>
+
+      <section className="smart-case-workflow" aria-labelledby="smart-case-workflow-title">
+        <header className="smart-case-heading">
+          <span>PRODUCTION PIPELINE</span>
+          <h3 id="smart-case-workflow-title">从输入到可交付资产</h3>
+          <p>每个环节都定义输入与输出，使生成过程可以被复盘、校验和继续扩展。</p>
+        </header>
+        <ol>
+          {smartLivingCaseStudy.workflow.map((step) => (
+            <li key={step.name}>
+              <strong>{step.name}</strong>
+              <dl>
+                <div><dt>输入</dt><dd>{step.input}</dd></div>
+                <div><dt>输出</dt><dd>{step.output}</dd></div>
+              </dl>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section className="smart-case-touchpoints" aria-labelledby="smart-case-touchpoints-title">
+        <header className="smart-case-heading">
+          <h3 id="smart-case-touchpoints-title">一套资产，进入多条商业路径</h3>
+          <p>通过审核的视觉不止用于作品展示，而是被组织为可继续裁切、组合和动态化的内容母版。</p>
+        </header>
+        <div className="smart-case-touchpoint-tree">
+          <div className="smart-case-touchpoint-root">已审核核心视觉资产</div>
+          <div className="smart-case-touchpoint-branches">
+            {smartLivingCaseStudy.touchpoints.map((branch) => (
+              <article key={branch.title}>
+                <strong>{branch.title}</strong>
+                <ul>{branch.items.map((item) => <li key={item}>{item}</li>)}</ul>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="smart-case-quality" aria-labelledby="smart-case-quality-title">
+        <header className="smart-case-heading">
+          <h3 id="smart-case-quality-title">商业可用性的六项检查</h3>
+          <p>候选图需要同时通过产品、空间和传播价值检查，画面完成度不是唯一判断标准。</p>
+        </header>
+        <div className="smart-case-quality-grid">
+          {smartLivingCaseStudy.qualityChecks.map((check) => (
+            <article key={check.title}>
+              <strong>{check.title}</strong>
+              <p>{check.detail}</p>
+              <span>REVIEW STANDARD</span>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="smart-case-results" aria-labelledby="smart-case-results-title">
+        <header>
+          <div>
+            <span>PROJECT IMPACT</span>
+            <h3 id="smart-case-results-title">从视觉产出回到商业结果</h3>
+          </div>
+          <p>核心视觉资产覆盖商品展示、内容传播与转化触点，并缩短多场景内容的生产周期。</p>
+        </header>
+        <div className="smart-case-result-grid">
+          {smartLivingCaseStudy.results.map((result) => (
+            <article key={result.label}>
+              <strong>{result.value}</strong>
+              <span>{result.label}</span>
+              <small>{result.note}</small>
+            </article>
+          ))}
+        </div>
+        <p className="smart-case-conclusion">
+          最终交付的不只是七张图，而是一套从产品识别、场景生产、质量筛选到商业触点扩展的视觉工作方法。
+        </p>
+      </section>
+    </div>
+  );
+}
+
 function ProjectDetailViewer({
   item,
   currentIndex,
@@ -2577,47 +2852,53 @@ function ProjectDetailViewer({
                 </article>
               </div>
 
-              <section className="project-detail-process" aria-label="项目工作流">
-                <div>
-                  <span>PROCESS / 工作流</span>
-                  <h3>从输入到商业输出</h3>
-                </div>
-                <ol>
-                  {item.workflow.map((step) => <li key={step}>{step}</li>)}
-                </ol>
-              </section>
+              {item.index === "01" ? (
+                <SmartLivingCaseStudy />
+              ) : (
+                <>
+                  <section className="project-detail-process" aria-label="项目工作流">
+                    <div>
+                      <span>PROCESS / 工作流</span>
+                      <h3>从输入到商业输出</h3>
+                    </div>
+                    <ol>
+                      {item.workflow.map((step) => <li key={step}>{step}</li>)}
+                    </ol>
+                  </section>
 
-              <section className="project-detail-gallery" aria-label="项目视觉输出">
-                <div className="project-detail-section-heading">
-                  <span>SELECTED OUTPUTS</span>
-                  <h3>核心视觉输出</h3>
-                </div>
-                <div className="project-detail-gallery-grid">
-                  {item.gallery.map((visual) => (
-                    <figure className={`is-${visual.layout}`} key={visual.src}>
-                      <img src={visual.src} alt={visual.alt} loading="lazy" decoding="async" />
-                    </figure>
-                  ))}
-                </div>
-              </section>
+                  <section className="project-detail-gallery" aria-label="项目视觉输出">
+                    <div className="project-detail-section-heading">
+                      <span>SELECTED OUTPUTS</span>
+                      <h3>核心视觉输出</h3>
+                    </div>
+                    <div className="project-detail-gallery-grid">
+                      {item.gallery.map((visual) => (
+                        <figure className={`is-${visual.layout}`} key={visual.src}>
+                          <img src={visual.src} alt={visual.alt} loading="lazy" decoding="async" />
+                        </figure>
+                      ))}
+                    </div>
+                  </section>
 
-              <section className="project-detail-system" aria-label="项目系统与结果">
-                <article>
-                  <span>VISUAL SYSTEM</span>
-                  <h3>视觉系统</h3>
-                  <p>{item.system}</p>
-                </article>
-                <article>
-                  <span>OUTCOME</span>
-                  <h3>项目成果</h3>
-                  <p>{item.outcome}</p>
-                </article>
-                <article>
-                  <span>REFLECTION</span>
-                  <h3>项目复盘</h3>
-                  <p>{item.reflection}</p>
-                </article>
-              </section>
+                  <section className="project-detail-system" aria-label="项目系统与结果">
+                    <article>
+                      <span>VISUAL SYSTEM</span>
+                      <h3>视觉系统</h3>
+                      <p>{item.system}</p>
+                    </article>
+                    <article>
+                      <span>OUTCOME</span>
+                      <h3>项目成果</h3>
+                      <p>{item.outcome}</p>
+                    </article>
+                    <article>
+                      <span>REFLECTION</span>
+                      <h3>项目复盘</h3>
+                      <p>{item.reflection}</p>
+                    </article>
+                  </section>
+                </>
+              )}
 
               <footer className="project-detail-footer">
                 <dl>
