@@ -1137,6 +1137,17 @@ function useDocumentScrollLock(locked: boolean) {
 type ProjectImageSource = {
   src: string;
   alt: string;
+  fullSrc?: string;
+};
+
+const projectOriginalImageSources: Record<string, string> = {
+  "/assets/projects/table-fan/table-fan-hero.webp": "/assets/projects/table-fan/originals/table-fan-hero-4k.webp",
+  "/assets/projects/table-fan/table-fan-views.webp": "/assets/projects/table-fan/originals/table-fan-views-4k.webp",
+  "/assets/projects/table-fan/table-fan-lifestyle.webp": "/assets/projects/table-fan/originals/table-fan-lifestyle-4k.webp",
+  "/assets/projects/table-fan/table-fan-family.webp": "/assets/projects/table-fan/originals/table-fan-family-4k.webp",
+  "/assets/projects/table-fan/table-fan-night.webp": "/assets/projects/table-fan/originals/table-fan-night-4k.webp",
+  "/assets/projects/table-fan/table-fan-night-detail.webp": "/assets/projects/table-fan/originals/table-fan-night-detail-4k.webp",
+  "/assets/projects/table-fan/table-fan-dayparts.webp": "/assets/projects/table-fan/originals/table-fan-dayparts-4k.webp",
 };
 
 type ZoomableProjectImageProps = ProjectImageSource & {
@@ -1165,7 +1176,7 @@ function ZoomableProjectImage({
       className={`project-image-trigger${className ? ` ${className}` : ""}`}
       type="button"
       aria-label={`放大查看：${alt}`}
-      onClick={() => onOpen({ src, alt })}
+      onClick={() => onOpen({ src, alt, fullSrc: projectOriginalImageSources[src] })}
     >
       <img
         src={src}
@@ -1199,6 +1210,7 @@ function ProjectImageLightbox({
   const scale = useMotionValue(1);
   const [scaleLabel, setScaleLabel] = useState(100);
   const [isDragging, setIsDragging] = useState(false);
+  const [viewerSrc, setViewerSrc] = useState(image.src);
 
   useDocumentScrollLock(true);
   useMotionValueEvent(scale, "change", (latest) => setScaleLabel(Math.round(latest * 100)));
@@ -1260,6 +1272,24 @@ function ProjectImageLightbox({
     setScaleLabel(100);
     viewerRef.current?.focus({ preventScroll: true });
   }, [image.src, scale, x, y]);
+
+  useEffect(() => {
+    let isCurrentImage = true;
+    setViewerSrc(image.src);
+    if (!image.fullSrc || image.fullSrc === image.src) return undefined;
+
+    const originalImage = new Image();
+    originalImage.decoding = "async";
+    originalImage.onload = () => {
+      if (isCurrentImage) setViewerSrc(image.fullSrc ?? image.src);
+    };
+    originalImage.src = image.fullSrc;
+
+    return () => {
+      isCurrentImage = false;
+      originalImage.onload = null;
+    };
+  }, [image.fullSrc, image.src]);
 
   const handleWheel = (event: WheelEvent<HTMLDivElement>) => {
     event.preventDefault();
@@ -1385,8 +1415,9 @@ function ProjectImageLightbox({
         }}
       >
         <motion.img
-          src={image.src}
+          src={viewerSrc}
           alt={image.alt}
+          decoding="async"
           draggable={false}
           style={{ x, y, scale }}
         />
