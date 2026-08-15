@@ -2198,6 +2198,13 @@ video {
   white-space: nowrap;
 }
 
+.project-image-lightbox-title small {
+  color: rgba(248, 248, 245, 0.46);
+  font-size: 8px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+}
+
 .project-image-lightbox-controls {
   display: flex;
   flex: 0 0 auto;

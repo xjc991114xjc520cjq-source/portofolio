@@ -1141,14 +1141,85 @@ type ProjectImageSource = {
 };
 
 const projectOriginalImageSources: Record<string, string> = {
-  "/assets/projects/table-fan/table-fan-hero.webp": "/assets/projects/table-fan/originals/table-fan-hero-4k.webp",
-  "/assets/projects/table-fan/table-fan-views.webp": "/assets/projects/table-fan/originals/table-fan-views-4k.webp",
-  "/assets/projects/table-fan/table-fan-lifestyle.webp": "/assets/projects/table-fan/originals/table-fan-lifestyle-4k.webp",
-  "/assets/projects/table-fan/table-fan-family.webp": "/assets/projects/table-fan/originals/table-fan-family-4k.webp",
-  "/assets/projects/table-fan/table-fan-night.webp": "/assets/projects/table-fan/originals/table-fan-night-4k.webp",
-  "/assets/projects/table-fan/table-fan-night-detail.webp": "/assets/projects/table-fan/originals/table-fan-night-detail-4k.webp",
-  "/assets/projects/table-fan/table-fan-dayparts.webp": "/assets/projects/table-fan/originals/table-fan-dayparts-4k.webp",
+  "/assets/projects/table-fan/table-fan-hero.webp": "/assets/projects/table-fan/originals/table-fan-hero-4k.jpg",
+  "/assets/projects/table-fan/table-fan-views.webp": "/assets/projects/table-fan/originals/table-fan-views-4k.jpg",
+  "/assets/projects/table-fan/table-fan-lifestyle.webp": "/assets/projects/table-fan/originals/table-fan-lifestyle-4k.jpg",
+  "/assets/projects/table-fan/table-fan-family.webp": "/assets/projects/table-fan/originals/table-fan-family-4k.jpg",
+  "/assets/projects/table-fan/table-fan-night.webp": "/assets/projects/table-fan/originals/table-fan-night-4k.jpg",
+  "/assets/projects/table-fan/table-fan-night-detail.webp": "/assets/projects/table-fan/originals/table-fan-night-detail-4k.jpg",
+  "/assets/projects/table-fan/table-fan-dayparts.webp": "/assets/projects/table-fan/originals/table-fan-dayparts-4k.jpg",
 };
+
+const projectOriginalPreloadOrder = [
+  projectOriginalImageSources["/assets/projects/table-fan/table-fan-hero.webp"],
+  projectOriginalImageSources["/assets/projects/table-fan/table-fan-views.webp"],
+  projectOriginalImageSources["/assets/projects/table-fan/table-fan-lifestyle.webp"],
+  projectOriginalImageSources["/assets/projects/table-fan/table-fan-family.webp"],
+  projectOriginalImageSources["/assets/projects/table-fan/table-fan-night.webp"],
+  projectOriginalImageSources["/assets/projects/table-fan/table-fan-dayparts.webp"],
+  projectOriginalImageSources["/assets/projects/table-fan/table-fan-night-detail.webp"],
+];
+
+type OriginalImageLoad = {
+  image: HTMLImageElement;
+  promise: Promise<string>;
+};
+
+const projectOriginalImageLoads = new Map<string, OriginalImageLoad>();
+
+const loadProjectOriginalImage = (src: string, priority: "high" | "low" = "low") => {
+  const existingLoad = projectOriginalImageLoads.get(src);
+  if (existingLoad) {
+    existingLoad.image.fetchPriority = priority;
+    return existingLoad.promise;
+  }
+
+  const image = new Image();
+  image.decoding = "async";
+  image.fetchPriority = priority;
+  const promise = new Promise<string>((resolve, reject) => {
+    image.onload = () => resolve(src);
+    image.onerror = () => {
+      projectOriginalImageLoads.delete(src);
+      reject(new Error(`Unable to load original project image: ${src}`));
+    };
+  });
+  projectOriginalImageLoads.set(src, { image, promise });
+  image.src = src;
+  return promise;
+};
+
+const waitForBrowserIdle = () => new Promise<void>((resolve) => {
+  if ("requestIdleCallback" in window) {
+    window.requestIdleCallback(() => resolve(), { timeout: 1400 });
+  } else {
+    globalThis.setTimeout(resolve, 450);
+  }
+});
+
+function useProjectOriginalPreloading(enabled: boolean) {
+  useEffect(() => {
+    if (!enabled) return undefined;
+    let cancelled = false;
+
+    const preloadInPageOrder = async () => {
+      for (const src of projectOriginalPreloadOrder) {
+        await waitForBrowserIdle();
+        if (cancelled) return;
+        try {
+          await loadProjectOriginalImage(src, "low");
+        } catch {
+          // A failed background request can be retried with high priority when clicked.
+        }
+      }
+    };
+
+    void preloadInPageOrder();
+    return () => {
+      cancelled = true;
+    };
+  }, [enabled]);
+}
 
 type ZoomableProjectImageProps = ProjectImageSource & {
   onOpen: (image: ProjectImageSource) => void;
@@ -1171,12 +1242,17 @@ function ZoomableProjectImage({
   onLoad,
   onError,
 }: ZoomableProjectImageProps) {
+  const fullSrc = projectOriginalImageSources[src];
+
   return (
     <button
       className={`project-image-trigger${className ? ` ${className}` : ""}`}
       type="button"
       aria-label={`放大查看：${alt}`}
-      onClick={() => onOpen({ src, alt, fullSrc: projectOriginalImageSources[src] })}
+      onClick={() => {
+        if (fullSrc) void loadProjectOriginalImage(fullSrc, "high");
+        onOpen({ src, alt, fullSrc });
+      }}
     >
       <img
         src={src}
@@ -1211,6 +1287,8 @@ function ProjectImageLightbox({
   const [scaleLabel, setScaleLabel] = useState(100);
   const [isDragging, setIsDragging] = useState(false);
   const [viewerSrc, setViewerSrc] = useState(image.src);
+  const [isOriginalLoaded, setIsOriginalLoaded] = useState(false);
+  const [originalLoadFailed, setOriginalLoadFailed] = useState(false);
 
   useDocumentScrollLock(true);
   useMotionValueEvent(scale, "change", (latest) => setScaleLabel(Math.round(latest * 100)));
@@ -1276,18 +1354,20 @@ function ProjectImageLightbox({
   useEffect(() => {
     let isCurrentImage = true;
     setViewerSrc(image.src);
+    setIsOriginalLoaded(false);
+    setOriginalLoadFailed(false);
     if (!image.fullSrc || image.fullSrc === image.src) return undefined;
 
-    const originalImage = new Image();
-    originalImage.decoding = "async";
-    originalImage.onload = () => {
-      if (isCurrentImage) setViewerSrc(image.fullSrc ?? image.src);
-    };
-    originalImage.src = image.fullSrc;
+    void loadProjectOriginalImage(image.fullSrc, "high").then((loadedSrc) => {
+      if (!isCurrentImage) return;
+      setViewerSrc(loadedSrc);
+      setIsOriginalLoaded(true);
+    }).catch(() => {
+      if (isCurrentImage) setOriginalLoadFailed(true);
+    });
 
     return () => {
       isCurrentImage = false;
-      originalImage.onload = null;
     };
   }, [image.fullSrc, image.src]);
 
@@ -1382,6 +1462,9 @@ function ProjectImageLightbox({
         <div className="project-image-lightbox-title">
           <span>IMAGE VIEWER</span>
           <strong>{image.alt}</strong>
+          {image.fullSrc ? (
+            <small>{originalLoadFailed ? "4K 原图加载失败" : isOriginalLoaded ? "4K 原图已加载" : "4K 原图加载中…"}</small>
+          ) : null}
         </div>
         <div className="project-image-lightbox-controls">
           <button type="button" onClick={() => zoomAt(scale.get() / 1.25)} aria-label="缩小图片">
@@ -3703,6 +3786,7 @@ function Footer() {
 
 function App() {
   const [loading, setLoading] = useState(() => !window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  useProjectOriginalPreloading(!loading);
 
   return (
     <>
