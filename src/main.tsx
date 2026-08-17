@@ -82,27 +82,35 @@ const projectShowcaseItems = [
     categoryEnglish: "COMMERCIAL RENDERING",
     year: "2026",
     image: "/assets/projects/table-fan/table-fan-hero.webp",
-    alt: "白色空气循环扇的正面商业渲染",
+    alt: "白色空气循环扇正面商业渲染主视觉",
     backdrop: "LIVING",
     accent: "#89aacc",
-    summary: "以空气循环扇为样本，从产品结构输入、视觉策略和场景生产出发，建立可扩展至电商、Campaign 与社交内容的商业视觉系统。",
-    brief: "项目需要同时解决产品识别、使用价值和内容扩展三个问题，让同一款商品从标准展示自然进入日间、亲子与夜间生活场景。",
-    response: "先建立不可改变的产品识别锚点，再以送风体验、家庭陪伴和昼夜使用为场景主线，经过生成、筛选、精修与触点适配形成完整资产链路。",
+    summary: "以空气循环扇为样本，构建一套从产品校准、卖点拆解、创意生产到触点编排的 AI 商业主图系统，把同一款商品稳定延展为覆盖搜索缩略图、商品主图、PDP 与社交传播的连续视觉资产。",
+    brief: "项目需要在不虚构功能的前提下，让同一款循环扇在高点击电商表达与产品可信度之间取得平衡，并用十套独立创意路线证明内容可以被稳定复制与扩展。",
+    response: "先以圆形螺旋格栅、中心圆盘、机身比例、底座按键与控制面板锁定不可改变的产品识别锚点，再沿十套创意路线展开机位、动作、场景与标题的受控变化，最后统一审核为可编排的商业资产。",
     role: "AI Art Direction / 商品视觉",
     scope: "0 到 1 商业视觉资产系统",
-    deliverables: ["产品控制板", "产品主视觉", "标准视图", "场景视觉", "昼夜光线套图", "触点适配方案"],
-    workflow: ["需求拆解", "结构锁定", "策略定义", "场景生产", "质量筛选", "商业适配"],
-    system: "以格栅、中心轴、机身比例、底座和控制面板作为固定识别锚点，通过人物关系、空间尺度与光线时段建立可控变量。",
-    outcome: "完成七张核心视觉资产，并规划商品主图、PDP、详情页、社交内容与动态延展的使用路径。",
-    reflection: "项目把生成能力转化为一套可以校验、复用和继续扩展的商品内容生产方法。",
+    deliverables: ["产品基准图", "三视图", "商品主视觉", "创意路线套图", "昼夜场景", "触点适配方案"],
+    workflow: ["资料归档", "产品校准", "卖点拆解", "创意分镜", "系列生成", "质量复核", "商业编排"],
+    system: "以格栅、中心轴、机身比例、底座和控制面板作为固定识别锚点，通过人物关系、空间尺度、光线时段与标题骨架建立可控变量。",
+    outcome: "完成十六张核心视觉资产，覆盖十套创意路线与昼夜光线变体，并规划商品主图、PDP、详情页、社交内容与动态延展的使用路径。",
+    reflection: "项目把生成能力收敛为一套可校验、可复用、可继续扩展的商品主图生产方法，而非一次性出图。",
     gallery: [
-      { src: "/assets/projects/table-fan/table-fan-hero.webp", alt: "空气循环扇正面商业渲染", layout: "square" },
-      { src: "/assets/projects/table-fan/table-fan-views.webp", alt: "空气循环扇正面、侧面与背面结构视图", layout: "square" },
-      { src: "/assets/projects/table-fan/table-fan-lifestyle.webp", alt: "空气循环扇日间人物生活方式场景", layout: "wide" },
-      { src: "/assets/projects/table-fan/table-fan-family.webp", alt: "空气循环扇家庭陪伴场景", layout: "wide" },
-      { src: "/assets/projects/table-fan/table-fan-night.webp", alt: "空气循环扇夜间室内场景", layout: "square" },
-      { src: "/assets/projects/table-fan/table-fan-night-detail.webp", alt: "空气循环扇夜间光线特写", layout: "square" },
-      { src: "/assets/projects/table-fan/table-fan-dayparts.webp", alt: "空气循环扇四种时段光线序列", layout: "square" },
+      { src: "/assets/projects/table-fan/table-fan-m01.webp", alt: "空气循环扇 · 清风巨物创意路线主图", layout: "square" },
+      { src: "/assets/projects/table-fan/table-fan-m02.webp", alt: "空气循环扇 · 抬手送风创意路线主图", layout: "square" },
+      { src: "/assets/projects/table-fan/table-fan-m03.webp", alt: "空气循环扇 · 桌面风场创意路线主图", layout: "square" },
+      { src: "/assets/projects/table-fan/table-fan-m04.webp", alt: "空气循环扇 · 床头清晨创意路线主图", layout: "square" },
+      { src: "/assets/projects/table-fan/table-fan-m05.webp", alt: "空气循环扇 · 一隅好放创意路线主图", layout: "square" },
+      { src: "/assets/projects/table-fan/table-fan-m06.webp", alt: "空气循环扇 · 风罩微距创意路线主图", layout: "square" },
+      { src: "/assets/projects/table-fan/table-fan-m07.webp", alt: "空气循环扇 · 窗边引风创意路线主图", layout: "square" },
+      { src: "/assets/projects/table-fan/table-fan-m08.webp", alt: "空气循环扇 · 阅读清风创意路线主图", layout: "square" },
+      { src: "/assets/projects/table-fan/table-fan-m09.webp", alt: "空气循环扇 · 框中清风创意路线主图", layout: "square" },
+      { src: "/assets/projects/table-fan/table-fan-m10.webp", alt: "空气循环扇 · 清风轨迹创意路线主图", layout: "square" },
+      { src: "/assets/projects/table-fan/table-fan-m11.webp", alt: "空气循环扇 · 清风巨物变体主图", layout: "square" },
+      { src: "/assets/projects/table-fan/table-fan-m12.webp", alt: "空气循环扇 · 抬手送风变体主图", layout: "square" },
+      { src: "/assets/projects/table-fan/table-fan-m13.webp", alt: "空气循环扇 · 阅读清风变体主图", layout: "square" },
+      { src: "/assets/projects/table-fan/table-fan-m14.webp", alt: "空气循环扇 · 窗边引风变体主图", layout: "square" },
+      { src: "/assets/projects/table-fan/table-fan-m15.webp", alt: "空气循环扇 · 清风轨迹变体主图", layout: "square" },
     ],
   },
   {
@@ -356,6 +364,106 @@ const smartLivingCaseStudy = {
     { value: "12", label: "核心视觉资产", note: "完整交付" },
     { value: "7", label: "方形商业画面", note: "主图与传播" },
     { value: "5", label: "横向流程素材", note: "产品与场景" },
+    { value: "4", label: "内容触点方向", note: "组合扩展" },
+  ],
+} as const;
+
+const tableFanCaseStudy = {
+  context: [
+    { label: "产品角色", value: "家用台面式空气循环扇" },
+    { label: "目标人群", value: "重视空气流通、居家舒适与空间占用控制的家庭与租房用户" },
+    { label: "核心任务", value: "同时建立产品识别、使用理解与高点击电商表达" },
+    { label: "内容范围", value: "产品基准图、三视图、创意主图、昼夜场景与触点套图" },
+  ],
+  strategy: [
+    { title: "确认产品", detail: "先交代圆形螺旋格栅、中心圆盘、机身比例、底座按键与控制面板的真实关系。" },
+    { title: "解释使用", detail: "通过抬手触碰、机头转向与房间引风动作建立清晰可理解的使用情境。" },
+    { title: "建立场景", detail: "以明亮家居、床头清晨、窗边引风与夜间室内构成连续的空气感叙事。" },
+    { title: "形成系列", detail: "让十套创意路线在机位、标题骨架与光线时段上彼此独立，又维持同一产品身份。" },
+  ],
+  fixedAnchors: ["圆形螺旋格栅与中心圆盘", "机身弧面比例与底座", "底部按键与转向结构", "控制面板与指示灯", "哑光白塑料质感"],
+  variables: ["正面、侧面、俯视与近景微距机位", "日间自然光、床头晨光与夜间室内光", "局部人物手部、家庭陪伴与无人物场景", "创意路线对应的标题字体骨架", "画外主卖点的无底色承载方式"],
+  scenes: [
+    {
+      title: "真实性底稿",
+      purpose: "保留原始产品结构、格栅排列与底座按键，作为后续生成的校准基准。",
+      touchpoint: "REFERENCE / 输入",
+      image: "/assets/projects/table-fan/table-fan-views.webp",
+      alt: "空气循环扇正面、侧面与顶面结构校准图",
+    },
+    {
+      title: "操作瞬间",
+      purpose: "用抬手轻触底座按键或转向机头的明确动作展示交互方式，让卖点进入可理解情境。",
+      touchpoint: "PDP / 操作说明",
+      image: "/assets/projects/table-fan/table-fan-m02.webp",
+      alt: "空气循环扇抬手送风创意路线主图",
+    },
+    {
+      title: "生活结果",
+      purpose: "把循环扇放回家庭陪伴与阅读场景，连接空气流通与居家日常。",
+      touchpoint: "CAMPAIGN / 人群沟通",
+      image: "/assets/projects/table-fan/table-fan-family.webp",
+      alt: "空气循环扇家庭陪伴场景",
+    },
+    {
+      title: "昼夜闭环",
+      purpose: "用夜间室内与四种时段光线补全使用环境，让视觉不只停留在白天。",
+      touchpoint: "DETAIL / 使用信任",
+      image: "/assets/projects/table-fan/table-fan-night.webp",
+      alt: "空气循环扇夜间室内渲染",
+    },
+  ],
+  commercialOutputs: [
+    { src: "/assets/projects/table-fan/table-fan-m01.webp", alt: "空气循环扇 · 清风巨物创意路线主图", layout: "square" },
+    { src: "/assets/projects/table-fan/table-fan-m02.webp", alt: "空气循环扇 · 抬手送风创意路线主图", layout: "square" },
+    { src: "/assets/projects/table-fan/table-fan-m03.webp", alt: "空气循环扇 · 桌面风场创意路线主图", layout: "square" },
+    { src: "/assets/projects/table-fan/table-fan-m04.webp", alt: "空气循环扇 · 床头清晨创意路线主图", layout: "square" },
+    { src: "/assets/projects/table-fan/table-fan-m05.webp", alt: "空气循环扇 · 一隅好放创意路线主图", layout: "square" },
+    { src: "/assets/projects/table-fan/table-fan-m06.webp", alt: "空气循环扇 · 风罩微距创意路线主图", layout: "square" },
+    { src: "/assets/projects/table-fan/table-fan-m07.webp", alt: "空气循环扇 · 窗边引风创意路线主图", layout: "square" },
+    { src: "/assets/projects/table-fan/table-fan-m08.webp", alt: "空气循环扇 · 阅读清风创意路线主图", layout: "square" },
+    { src: "/assets/projects/table-fan/table-fan-m09.webp", alt: "空气循环扇 · 框中清风创意路线主图", layout: "square" },
+    { src: "/assets/projects/table-fan/table-fan-m10.webp", alt: "空气循环扇 · 清风轨迹创意路线主图", layout: "square" },
+    { src: "/assets/projects/table-fan/table-fan-m11.webp", alt: "空气循环扇 · 清风巨物变体主图", layout: "square" },
+    { src: "/assets/projects/table-fan/table-fan-m12.webp", alt: "空气循环扇 · 抬手送风变体主图", layout: "square" },
+    { src: "/assets/projects/table-fan/table-fan-m13.webp", alt: "空气循环扇 · 阅读清风变体主图", layout: "square" },
+    { src: "/assets/projects/table-fan/table-fan-m14.webp", alt: "空气循环扇 · 窗边引风变体主图", layout: "square" },
+    { src: "/assets/projects/table-fan/table-fan-m15.webp", alt: "空气循环扇 · 清风轨迹变体主图", layout: "square" },
+    { src: "/assets/projects/table-fan/table-fan-j01.webp", alt: "空气循环扇 · 早期生成探索 01", layout: "square" },
+    { src: "/assets/projects/table-fan/table-fan-j02.webp", alt: "空气循环扇 · 早期生成探索 02", layout: "square" },
+    { src: "/assets/projects/table-fan/table-fan-j03.webp", alt: "空气循环扇 · 早期生成探索 03", layout: "square" },
+    { src: "/assets/projects/table-fan/table-fan-j04.webp", alt: "空气循环扇 · 早期生成探索 04", layout: "square" },
+    { src: "/assets/projects/table-fan/table-fan-j05.webp", alt: "空气循环扇 · 早期生成探索 05", layout: "square" },
+    { src: "/assets/projects/table-fan/table-fan-j06.webp", alt: "空气循环扇 · 早期生成探索 06", layout: "square" },
+    { src: "/assets/projects/table-fan/table-fan-j07.webp", alt: "空气循环扇 · 早期生成探索 07", layout: "square" },
+  ],
+  workflow: [
+    { name: "资料归档", input: "产品参考图与使用场景", output: "产品结构、材质与禁改项清单" },
+    { name: "产品校准", input: "白底图与三视图", output: "统一比例、角度与关键识别锚点" },
+    { name: "卖点拆解", input: "可确认的产品信息", output: "识别、使用、场景与光线四条内容路径" },
+    { name: "创意分镜", input: "内容路径与电商版位", output: "十套独立创意路线与标题骨架" },
+    { name: "系列生成", input: "产品基准与独立路线", output: "方形主图与场景候选资产" },
+    { name: "质量复核", input: "候选画面", output: "结构、文字、动作、光影与系列差异审核" },
+    { name: "商业编排", input: "通过审核的核心视觉", output: "主图、PDP、详情页与传播套图顺序" },
+  ],
+  touchpoints: [
+    { title: "商品入口", items: ["搜索缩略图", "商品主图", "活动入口"] },
+    { title: "产品理解", items: ["PDP 首屏", "结构视图", "操作说明"] },
+    { title: "购买说服", items: ["昼夜场景", "家庭陪伴", "生活方式"] },
+    { title: "传播延展", items: ["Campaign KV", "社交套图", "短视频关键帧"] },
+  ],
+  qualityChecks: [
+    { title: "产品结构", detail: "圆形格栅、中心圆盘、机身比例、底座按键与控制面板保持同一型号特征。" },
+    { title: "文字准确", detail: "大标题与卖点逐字准确，避免乱码、重复字与无依据参数。" },
+    { title: "操作可信", detail: "手部、转向动作与送风方向符合真实家居使用逻辑。" },
+    { title: "场景关系", detail: "陪衬物与人物局部不比产品更抢眼，且服务于空气感叙事。" },
+    { title: "光影融合", detail: "产品受光、接触阴影与环境光一致，哑光白材质不偏色或过曝。" },
+    { title: "系列差异", detail: "每张图在机位、构图、场景与标题骨架上形成独立表达。" },
+  ],
+  results: [
+    { value: "16", label: "核心视觉资产", note: "完整交付" },
+    { value: "10", label: "独立创意路线", note: "主图变体" },
+    { value: "6", label: "场景与昼夜素材", note: "产品与场景" },
     { value: "4", label: "内容触点方向", note: "组合扩展" },
   ],
 } as const;
@@ -1331,6 +1439,28 @@ const projectOriginalImageSources: Record<string, string> = {
   "/assets/projects/table-fan/table-fan-night.webp": "/assets/projects/table-fan/originals/table-fan-night-4k.jpg",
   "/assets/projects/table-fan/table-fan-night-detail.webp": "/assets/projects/table-fan/originals/table-fan-night-detail-4k.jpg",
   "/assets/projects/table-fan/table-fan-dayparts.webp": "/assets/projects/table-fan/originals/table-fan-dayparts-4k.jpg",
+  "/assets/projects/table-fan/table-fan-m01.webp": "/assets/projects/table-fan/originals/table-fan-m01-4k.jpg",
+  "/assets/projects/table-fan/table-fan-m02.webp": "/assets/projects/table-fan/originals/table-fan-m02-4k.jpg",
+  "/assets/projects/table-fan/table-fan-m03.webp": "/assets/projects/table-fan/originals/table-fan-m03-4k.jpg",
+  "/assets/projects/table-fan/table-fan-m04.webp": "/assets/projects/table-fan/originals/table-fan-m04-4k.jpg",
+  "/assets/projects/table-fan/table-fan-m05.webp": "/assets/projects/table-fan/originals/table-fan-m05-4k.jpg",
+  "/assets/projects/table-fan/table-fan-m06.webp": "/assets/projects/table-fan/originals/table-fan-m06-4k.jpg",
+  "/assets/projects/table-fan/table-fan-m07.webp": "/assets/projects/table-fan/originals/table-fan-m07-4k.jpg",
+  "/assets/projects/table-fan/table-fan-m08.webp": "/assets/projects/table-fan/originals/table-fan-m08-4k.jpg",
+  "/assets/projects/table-fan/table-fan-m09.webp": "/assets/projects/table-fan/originals/table-fan-m09-4k.jpg",
+  "/assets/projects/table-fan/table-fan-m10.webp": "/assets/projects/table-fan/originals/table-fan-m10-4k.jpg",
+  "/assets/projects/table-fan/table-fan-m11.webp": "/assets/projects/table-fan/originals/table-fan-m11-4k.jpg",
+  "/assets/projects/table-fan/table-fan-m12.webp": "/assets/projects/table-fan/originals/table-fan-m12-4k.jpg",
+  "/assets/projects/table-fan/table-fan-m13.webp": "/assets/projects/table-fan/originals/table-fan-m13-4k.jpg",
+  "/assets/projects/table-fan/table-fan-m14.webp": "/assets/projects/table-fan/originals/table-fan-m14-4k.jpg",
+  "/assets/projects/table-fan/table-fan-m15.webp": "/assets/projects/table-fan/originals/table-fan-m15-4k.jpg",
+  "/assets/projects/table-fan/table-fan-j01.webp": "/assets/projects/table-fan/originals/table-fan-j01-4k.jpg",
+  "/assets/projects/table-fan/table-fan-j02.webp": "/assets/projects/table-fan/originals/table-fan-j02-4k.jpg",
+  "/assets/projects/table-fan/table-fan-j03.webp": "/assets/projects/table-fan/originals/table-fan-j03-4k.jpg",
+  "/assets/projects/table-fan/table-fan-j04.webp": "/assets/projects/table-fan/originals/table-fan-j04-4k.jpg",
+  "/assets/projects/table-fan/table-fan-j05.webp": "/assets/projects/table-fan/originals/table-fan-j05-4k.jpg",
+  "/assets/projects/table-fan/table-fan-j06.webp": "/assets/projects/table-fan/originals/table-fan-j06-4k.jpg",
+  "/assets/projects/table-fan/table-fan-j07.webp": "/assets/projects/table-fan/originals/table-fan-j07-4k.jpg",
 };
 
 const projectOriginalPreloadOrder = [
@@ -1341,6 +1471,21 @@ const projectOriginalPreloadOrder = [
   projectOriginalImageSources["/assets/projects/table-fan/table-fan-night.webp"],
   projectOriginalImageSources["/assets/projects/table-fan/table-fan-dayparts.webp"],
   projectOriginalImageSources["/assets/projects/table-fan/table-fan-night-detail.webp"],
+  projectOriginalImageSources["/assets/projects/table-fan/table-fan-m01.webp"],
+  projectOriginalImageSources["/assets/projects/table-fan/table-fan-m02.webp"],
+  projectOriginalImageSources["/assets/projects/table-fan/table-fan-m03.webp"],
+  projectOriginalImageSources["/assets/projects/table-fan/table-fan-m04.webp"],
+  projectOriginalImageSources["/assets/projects/table-fan/table-fan-m05.webp"],
+  projectOriginalImageSources["/assets/projects/table-fan/table-fan-m06.webp"],
+  projectOriginalImageSources["/assets/projects/table-fan/table-fan-m07.webp"],
+  projectOriginalImageSources["/assets/projects/table-fan/table-fan-m08.webp"],
+  projectOriginalImageSources["/assets/projects/table-fan/table-fan-m09.webp"],
+  projectOriginalImageSources["/assets/projects/table-fan/table-fan-m10.webp"],
+  projectOriginalImageSources["/assets/projects/table-fan/table-fan-m11.webp"],
+  projectOriginalImageSources["/assets/projects/table-fan/table-fan-m12.webp"],
+  projectOriginalImageSources["/assets/projects/table-fan/table-fan-m13.webp"],
+  projectOriginalImageSources["/assets/projects/table-fan/table-fan-m14.webp"],
+  projectOriginalImageSources["/assets/projects/table-fan/table-fan-m15.webp"],
 ];
 
 type OriginalImageLoad = {
@@ -3440,6 +3585,228 @@ function SmartLivingCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectIma
   );
 }
 
+function TableFanCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageSource) => void }) {
+  return (
+    <div className="smart-case">
+      <section className="smart-case-context" aria-labelledby="table-fan-case-context-title">
+        <header className="smart-case-heading">
+          <h3 id="table-fan-case-context-title">先明确产品与商业任务</h3>
+          <p>项目从真实产品和使用动作出发，先建立可信的产品底稿，再组织能够吸引点击、解释使用并支持购买判断的内容路径。</p>
+        </header>
+        <dl>
+          {tableFanCaseStudy.context.map((item) => (
+            <div key={item.label}>
+              <dt>{item.label}</dt>
+              <dd>{item.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      <section className="smart-case-strategy" aria-labelledby="table-fan-case-strategy-title">
+        <header className="smart-case-heading">
+          <span>COMMERCIAL STRATEGY</span>
+          <h3 id="table-fan-case-strategy-title">把内容拆成四个连续问题</h3>
+          <p>每一张图都需要承担明确任务，顺序从产品确认、使用理解、场景建立和系列表达，推进到完整资产节奏。</p>
+        </header>
+        <div className="smart-case-tree">
+          <div className="smart-case-tree-root">
+            <small>BUSINESS GOAL</small>
+            <strong>建立可识别、可理解、能唤醒空气感的智能家电商业视觉</strong>
+          </div>
+          <div className="smart-case-tree-branches">
+            {tableFanCaseStudy.strategy.map((branch) => (
+              <article key={branch.title}>
+                <strong>{branch.title}</strong>
+                <p>{branch.detail}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="smart-case-control" aria-labelledby="table-fan-case-control-title">
+        <header className="smart-case-heading">
+          <h3 id="table-fan-case-control-title">产品校准先于创意扩展</h3>
+          <p>白底图负责确认整体产品，三视图负责校准结构。只有产品身份稳定后，才进入场景、人物、光线和标题的创意变化。</p>
+        </header>
+        <div className="smart-case-control-board">
+          <figure>
+            <ZoomableProjectImage
+              src="/assets/projects/table-fan/table-fan-views.webp"
+              alt="空气循环扇正面、侧面与顶面结构校准图"
+              onOpen={onImageOpen}
+              loading="lazy"
+            />
+            <figcaption>正面、侧面与顶面视图共同构成后续生成和人工复核的结构基准。</figcaption>
+          </figure>
+          <div className="smart-case-control-rules">
+            <article>
+              <span>固定识别锚点</span>
+              <ul>
+                {tableFanCaseStudy.fixedAnchors.map((anchor) => <li key={anchor}>{anchor}</li>)}
+              </ul>
+            </article>
+            <article>
+              <span>可控叙事变量</span>
+              <ul>
+                {tableFanCaseStudy.variables.map((variable) => <li key={variable}>{variable}</li>)}
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="smart-case-workflow" aria-labelledby="table-fan-case-workflow-title">
+        <header className="smart-case-heading">
+          <span>PRODUCTION PIPELINE</span>
+          <h3 id="table-fan-case-workflow-title">从资料输入到商业编排</h3>
+          <p>流程先完成产品校准与卖点定义，再进入创意生产、质量审核和触点编排，避免边生成边决定项目方向。</p>
+        </header>
+        <ol>
+          {tableFanCaseStudy.workflow.map((step) => (
+            <li key={step.name}>
+              <strong>{step.name}</strong>
+              <dl>
+                <div><dt>输入</dt><dd>{step.input}</dd></div>
+                <div><dt>输出</dt><dd>{step.output}</dd></div>
+              </dl>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section className="smart-case-scenes" aria-labelledby="table-fan-case-scenes-title">
+        <header className="smart-case-heading">
+          <h3 id="table-fan-case-scenes-title">使用链路形成内容顺序</h3>
+          <p>素材按照真实性底稿、操作瞬间、生活结果与昼夜闭环展开，让产品价值从一次点击延续到完整使用过程。</p>
+        </header>
+        <div className="smart-case-scene-grid">
+          {tableFanCaseStudy.scenes.map((scene) => (
+            <article key={scene.title}>
+              <figure>
+                <ZoomableProjectImage
+                  src={scene.image}
+                  alt={scene.alt}
+                  onOpen={onImageOpen}
+                  loading="lazy"
+                />
+              </figure>
+              <div>
+                <span>{scene.touchpoint}</span>
+                <h4>{scene.title}</h4>
+                <p>{scene.purpose}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="smart-case-lighting" aria-labelledby="table-fan-case-lighting-title">
+        <div className="smart-case-lighting-copy">
+          <h3 id="table-fan-case-lighting-title">商业主图建立三层信息</h3>
+          <p>先让产品占据第一焦点，再用场景与光线制造空气感吸引，最后通过标题和细节信息完成缩略图沟通。</p>
+          <ul>
+            <li><strong>产品</strong><span>结构清楚，轮廓完整，体量充足</span></li>
+            <li><strong>场景</strong><span>真实家居，空气线索明确，不遮挡产品</span></li>
+            <li><strong>标题</strong><span>一句核心表达，服从画面动线</span></li>
+            <li><strong>细节</strong><span>底座按键与指示灯承担信任信息</span></li>
+          </ul>
+        </div>
+        <div className="smart-case-lighting-media">
+          <ZoomableProjectImage
+            src="/assets/projects/table-fan/table-fan-hero.webp"
+            alt="空气循环扇高冲击商业主视觉"
+            onOpen={onImageOpen}
+            loading="lazy"
+          />
+          <ZoomableProjectImage
+            src="/assets/projects/table-fan/table-fan-night-detail.webp"
+            alt="空气循环扇夜间光线细节视觉"
+            onOpen={onImageOpen}
+            loading="lazy"
+          />
+        </div>
+      </section>
+
+      <section className="project-detail-gallery air-fryer-output" aria-labelledby="table-fan-output-title">
+        <div className="project-detail-section-heading">
+          <span>SELECTED OUTPUTS</span>
+          <h3 id="table-fan-output-title">方形电商创意输出</h3>
+        </div>
+        <div className="project-detail-gallery-grid">
+          {tableFanCaseStudy.commercialOutputs.map((visual) => (
+            <figure className={`is-${visual.layout}`} key={visual.src}>
+              <ZoomableProjectImage
+                src={visual.src}
+                alt={visual.alt}
+                onOpen={onImageOpen}
+                loading="lazy"
+              />
+            </figure>
+          ))}
+        </div>
+      </section>
+
+      <section className="smart-case-touchpoints" aria-labelledby="table-fan-case-touchpoints-title">
+        <header className="smart-case-heading">
+          <h3 id="table-fan-case-touchpoints-title">素材按购买路径重新组合</h3>
+          <p>通过审核的画面可以根据触点改变顺序和信息密度，在商品入口、产品理解、购买说服与传播延展之间保持连续。</p>
+        </header>
+        <div className="smart-case-touchpoint-tree">
+          <div className="smart-case-touchpoint-root">已审核核心视觉资产</div>
+          <div className="smart-case-touchpoint-branches">
+            {tableFanCaseStudy.touchpoints.map((branch) => (
+              <article key={branch.title}>
+                <strong>{branch.title}</strong>
+                <ul>{branch.items.map((item) => <li key={item}>{item}</li>)}</ul>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="smart-case-quality" aria-labelledby="table-fan-case-quality-title">
+        <header className="smart-case-heading">
+          <h3 id="table-fan-case-quality-title">商业可用性的六项检查</h3>
+          <p>候选图同时检查产品、文字、动作、场景、光影和系列差异，画面完成度不是唯一判断标准。</p>
+        </header>
+        <div className="smart-case-quality-grid">
+          {tableFanCaseStudy.qualityChecks.map((check) => (
+            <article key={check.title}>
+              <strong>{check.title}</strong>
+              <p>{check.detail}</p>
+              <span>REVIEW STANDARD</span>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="smart-case-results" aria-labelledby="table-fan-case-results-title">
+        <header>
+          <div>
+            <span>PROJECT DELIVERY</span>
+            <h3 id="table-fan-case-results-title">最终形成可编排的内容资产</h3>
+          </div>
+          <p>十六张核心视觉覆盖产品校准、操作过程、昼夜场景、创意路线与方形电商传播，并保留继续扩展的结构。</p>
+        </header>
+        <div className="smart-case-result-grid">
+          {tableFanCaseStudy.results.map((result) => (
+            <article key={result.label}>
+              <strong>{result.value}</strong>
+              <span>{result.label}</span>
+              <small>{result.note}</small>
+            </article>
+          ))}
+        </div>
+        <p className="smart-case-conclusion">
+          最终交付不只是单张高点击主图，而是一套从产品校准、内容拆解、创意生产到触点编排的空气循环扇视觉工作方法。
+        </p>
+      </section>
+    </div>
+  );
+}
+
 function ProjectDetailViewer({
   collection,
   item,
@@ -3638,8 +4005,10 @@ function ProjectDetailViewer({
                 </article>
               </div>
 
-              {item.index === "01" ? (
+              {item === projectShowcaseItems[0] ? (
                 <SmartLivingCaseStudy onImageOpen={openImage} />
+              ) : item === projectShowcaseItems[1] ? (
+                <TableFanCaseStudy onImageOpen={openImage} />
               ) : (
                 <>
                   <section className="project-detail-process" aria-label="项目工作流">
