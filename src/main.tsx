@@ -4268,16 +4268,17 @@ function ProjectDetailViewer({
         onClick={(event) => event.stopPropagation()}
       >
         <header className="project-detail-header">
-          <div className="project-detail-identity" aria-hidden="true">
-            <strong>{item.index}</strong>
-            <i />
-            <span>PROJECT FILE</span>
+          <div className="project-detail-identity">
+            <span>PROJECT ARCHIVE</span>
+            <strong>{collection.title}</strong>
           </div>
           <div className="project-detail-controls">
+            <span className="project-detail-collection-progress">
+              COLLECTION {String(currentIndex + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
+            </span>
             <button type="button" onClick={() => { setKeyboardNavigation(false); onNavigate(-1); }} aria-label="上一个项目">
               <ArrowLeft size={18} strokeWidth={1.5} aria-hidden="true" />
             </button>
-            <span>{String(currentIndex + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}</span>
             <button type="button" onClick={() => { setKeyboardNavigation(false); onNavigate(1); }} aria-label="下一个项目">
               <ArrowRight size={18} strokeWidth={1.5} aria-hidden="true" />
             </button>
@@ -4287,10 +4288,38 @@ function ProjectDetailViewer({
           </div>
         </header>
 
+        <nav className="project-detail-projects" aria-label={`${collection.title}项目切换`}>
+          <div className="project-detail-projects-label">
+            <span>IN THIS COLLECTION</span>
+            <strong>{String(collection.projects.length).padStart(2, "0")} 个项目</strong>
+          </div>
+          <div className="project-detail-project-tabs">
+            {collection.projects.map((project, index) => (
+              <button
+                className={projectIndex === index ? "is-active" : ""}
+                type="button"
+                aria-current={projectIndex === index ? "page" : undefined}
+                onClick={() => {
+                  setKeyboardNavigation(false);
+                  onSelectProject(index);
+                }}
+                key={`${collection.id}-${project.index}`}
+              >
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <span className="project-detail-project-tab-copy">
+                  <strong>{project.title}</strong>
+                  <small>{project.english}</small>
+                </span>
+                <i aria-hidden="true" />
+              </button>
+            ))}
+          </div>
+        </nav>
+
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             className="project-detail-layout"
-            key={item.index}
+            key={`${collection.id}-${item.index}`}
             initial={reduceMotion ? false : { opacity: 0, x: 26 }}
             animate={{ opacity: 1, x: 0 }}
             exit={reduceMotion ? undefined : { opacity: 0, x: -20 }}
@@ -4312,32 +4341,11 @@ function ProjectDetailViewer({
             </figure>
 
             <section className="project-detail-copy">
-              <div className="project-collection-strip">
-                <div>
-                  <span>PROJECT COLLECTION</span>
-                  <strong>{collection.title}</strong>
-                  <small>{String(collection.projects.length).padStart(2, "0")} CASE STUDIES</small>
-                </div>
-                <nav aria-label={`${collection.title}项目列表`}>
-                  {collection.projects.map((project, index) => (
-                    <button
-                      className={projectIndex === index ? "is-active" : ""}
-                      type="button"
-                      aria-current={projectIndex === index ? "page" : undefined}
-                      onClick={() => onSelectProject(index)}
-                      key={project.index}
-                    >
-                      <span>{String(index + 1).padStart(2, "0")}</span>
-                      <strong>{project.title}</strong>
-                    </button>
-                  ))}
-                </nav>
-              </div>
-              <p className="project-detail-kicker">
-                <span>CASE STUDY</span>
-                <i />
+              <div className="project-detail-meta" aria-label="项目基本信息">
                 <span>{item.category}</span>
-              </p>
+                <span>{item.year}</span>
+                <span>{item.role}</span>
+              </div>
               <div className="project-detail-title">
                 <small>{item.english}</small>
                 <h2 id={titleId}>{item.title}</h2>
