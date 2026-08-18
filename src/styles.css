@@ -4743,6 +4743,11 @@ video {
   grid-template-columns: minmax(210px, 0.65fr) minmax(0, 1.35fr);
 }
 
+.serum-case .smart-case-lighting {
+  background:
+    linear-gradient(135deg, rgba(197, 150, 99, 0.12), rgba(107, 66, 38, 0.055) 48%, rgba(255, 255, 255, 0.012));
+}
+
 .smart-case-lighting-copy {
   align-self: center;
 }
@@ -4813,6 +4818,16 @@ video {
 
 .air-fryer-output .project-detail-gallery-grid figure:hover img {
   filter: saturate(0.96) brightness(0.98);
+  transform: scale(1.012);
+}
+
+.serum-scene-output .project-detail-gallery-grid img {
+  filter: saturate(0.8) brightness(0.92);
+  transition: transform 420ms var(--ease-out), filter 320ms ease;
+}
+
+.serum-scene-output .project-detail-gallery-grid figure:hover img {
+  filter: saturate(0.94) brightness(0.98);
   transform: scale(1.012);
 }
 
