@@ -4290,7 +4290,7 @@ function ProjectDetailViewer({
 
         <nav className="project-detail-projects" aria-label={`${collection.title}项目切换`}>
           <div className="project-detail-projects-label">
-            <span>IN THIS COLLECTION</span>
+            <span>项目索引</span>
             <strong>{String(collection.projects.length).padStart(2, "0")} 个项目</strong>
           </div>
           <div className="project-detail-project-tabs">
@@ -4341,28 +4341,30 @@ function ProjectDetailViewer({
             </figure>
 
             <section className="project-detail-copy">
-              <div className="project-detail-meta" aria-label="项目基本信息">
-                <span>{item.category}</span>
-                <span>{item.year}</span>
-                <span>{item.role}</span>
-              </div>
-              <div className="project-detail-title">
-                <small>{item.english}</small>
-                <h2 id={titleId}>{item.title}</h2>
-              </div>
-              <p className="project-detail-summary" id={summaryId}>{item.summary}</p>
+              <div className="project-detail-intro">
+                <div className="project-detail-meta" aria-label="项目基本信息">
+                  <span>{item.category}</span>
+                  <span>{item.year}</span>
+                  <span>{item.role}</span>
+                </div>
+                <div className="project-detail-title">
+                  <small>{item.english}</small>
+                  <h2 id={titleId}>{item.title}</h2>
+                </div>
+                <p className="project-detail-summary" id={summaryId}>{item.summary}</p>
 
-              <div className="project-detail-narrative">
-                <article>
-                  <span>DESIGN BRIEF</span>
-                  <h3>设计命题</h3>
-                  <p>{item.brief}</p>
-                </article>
-                <article>
-                  <span>DESIGN RESPONSE</span>
-                  <h3>设计回应</h3>
-                  <p>{item.response}</p>
-                </article>
+                <div className="project-detail-narrative">
+                  <article>
+                    <span>DESIGN BRIEF</span>
+                    <h3>设计命题</h3>
+                    <p>{item.brief}</p>
+                  </article>
+                  <article>
+                    <span>DESIGN RESPONSE</span>
+                    <h3>设计回应</h3>
+                    <p>{item.response}</p>
+                  </article>
+                </div>
               </div>
 
               {item === projectShowcaseItems[0] ? (
