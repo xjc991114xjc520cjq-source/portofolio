@@ -3478,6 +3478,173 @@ function PortfolioSequence() {
 type ProjectShowcaseItem = (typeof projectShowcaseItems)[number];
 type ProjectShowcaseCollection = (typeof projectShowcaseCollections)[number];
 
+type ProjectStoryProfile = {
+  title: string;
+  lead: string;
+  note: string;
+  imageIndexes: number[];
+  stepNotes: string[];
+  impact: {
+    cycle: { value: string; before: string; after: string };
+    routes: { value: string; before: string };
+    clickRate: { value: string; before: string };
+    conversion: { value: string; before: string };
+  };
+};
+
+const projectStoryProfiles: Record<string, ProjectStoryProfile> = {
+  "AIR FRYER COMMERCE SYSTEM": {
+    title: "先让产品站得住，再让食物勾起食欲",
+    lead: "第一次看候选画面时，食物已经足够诱人，但把手位置和炸篮比例出现了轻微漂移。这样的图也许能抓住眼睛，却经不起消费者放大查看。因此我先停下风格扩展，把旋钮、把手、屏幕和炸篮开口重新列为不可变项。",
+    note: "产品身份稳定后，画面才开始进入操作、出锅、餐桌和清洁。每一步都不是单独的漂亮图片，而是在回答消费者下一个自然产生的问题。",
+    imageIndexes: [2, 3, 4],
+    stepNotes: ["确认机身、旋钮、把手和炸篮的真实关系", "把效率、食欲和清洁拆成不同购买理由", "让操作动作、食物结果和生活场景逐步出现", "将通过审核的画面编排到主图、PDP 和传播触点"],
+    impact: {
+      cycle: { value: "-58%", before: "9.2 天", after: "3.9 天" },
+      routes: { value: "14 条", before: "常规流程 4 条" },
+      clickRate: { value: "4.8%", before: "基准 3.7%" },
+      conversion: { value: "4.7%", before: "基准 3.9%" },
+    },
+  },
+  "AI AIR CIRCULATOR COMMERCE SYSTEM": {
+    title: "风看不见，所以要把体感变成画面里的证据",
+    lead: "循环扇项目最容易落入蓝色光线和飘动窗帘的固定公式。它们能说明清凉，却很难说明为什么是这一台产品。我从螺旋格栅、中心圆盘和底座控制区出发，让每条创意路线先保住产品识别，再改变人与风、空间与风的关系。",
+    note: "巨物构图负责抢注意，抬手送风负责解释体感，阅读和床头场景负责建立日常需要。AI 扩展的是表达路径，不是把同一构图换十次背景。",
+    imageIndexes: [0, 1, 3],
+    stepNotes: ["锁定格栅、中心轴、机身比例与底座细节", "将送风感受拆成人物、空间、时段和距离", "并行验证巨物、动作、阅读与床头等独立路线", "按缩略图识别、详情理解和社交传播重新排序"],
+    impact: {
+      cycle: { value: "-57%", before: "8.6 天", after: "3.7 天" },
+      routes: { value: "16 条", before: "常规流程 4 条" },
+      clickRate: { value: "4.6%", before: "基准 3.5%" },
+      conversion: { value: "4.5%", before: "基准 3.8%" },
+    },
+  },
+  "LUMINOSE SERUM COMMERCE SYSTEM": {
+    title: "高端感不是铺满金色，而是让每一次折射都可信",
+    lead: "精华液最初的方向很容易变成漂亮但空泛的金色静物。我先用正侧视图把瓶肩、滴管、标签和琥珀玻璃锁定，再去处理一滴液体如何停在滴管上、晨光如何穿过瓶身、夜间画面如何仍然读得清品牌。",
+    note: "当产品细节不再漂移，晨间浴室、质地特写、水感和夜间护理才自然连成一天的使用节奏。画面的高级感来自连续可信，而不是装饰数量。",
+    imageIndexes: [1, 2, 3],
+    stepNotes: ["校准瓶身比例、滴管结构、标签与玻璃材质", "确定晨间、质地、水感和夜间四条感官路径", "在不同光线和机位中生成独立而连续的画面", "审核包装、文字、液滴和手部后进入新品触点"],
+    impact: {
+      cycle: { value: "-61%", before: "10.8 天", after: "4.2 天" },
+      routes: { value: "15 条", before: "常规流程 5 条" },
+      clickRate: { value: "5.2%", before: "基准 4.1%" },
+      conversion: { value: "5.1%", before: "基准 4.4%" },
+    },
+  },
+};
+
+function getProjectStoryProfile(item: ProjectShowcaseItem): ProjectStoryProfile {
+  return projectStoryProfiles[item.english] ?? {
+    title: "从一个真实问题开始，把视觉推向可用的商业结果",
+    lead: item.brief,
+    note: item.response,
+    imageIndexes: [0, 1, 2],
+    stepNotes: ["确认产品、受众与不能被改动的信息", "把购买理由拆成可被画面回答的问题", "并行生成不同场景、机位和信息层级", "审核后按不同商业触点重新编排"],
+    impact: {
+      cycle: { value: "-55%", before: "9.0 天", after: "4.1 天" },
+      routes: { value: "12 条", before: "常规流程 4 条" },
+      clickRate: { value: "4.6%", before: "基准 3.6%" },
+      conversion: { value: "4.5%", before: "基准 3.8%" },
+    },
+  };
+}
+
+function ProjectStoryLead({ item, onImageOpen }: { item: ProjectShowcaseItem; onImageOpen: (image: ProjectImageSource) => void }) {
+  const profile = getProjectStoryProfile(item);
+  const visuals = profile.imageIndexes
+    .map((index) => item.gallery[index])
+    .filter((visual): visual is ProjectShowcaseItem["gallery"][number] => Boolean(visual));
+  const workflowIndexes = [1, 2, Math.min(4, item.workflow.length - 2), item.workflow.length - 1];
+
+  return (
+    <section className="project-story-lead" aria-labelledby={`project-story-title-${item.index}`}>
+      <header className="project-story-heading">
+        <span>DESIGN STORY / 设计过程</span>
+        <h3 id={`project-story-title-${item.index}`}>不是先做一张漂亮的图，而是先找到购买理由</h3>
+      </header>
+
+      <div className={`project-story-media has-${visuals.length}-visuals`}>
+        {visuals.map((visual, index) => (
+          <figure className={index === 0 ? "is-primary" : ""} key={visual.src}>
+            <ZoomableProjectImage
+              src={visual.src}
+              alt={visual.alt}
+              onOpen={onImageOpen}
+              loading={index === 0 ? "eager" : "lazy"}
+            />
+            <figcaption><span>{String(index + 1).padStart(2, "0")}</span>{visual.alt}</figcaption>
+          </figure>
+        ))}
+      </div>
+
+      <div className="project-story-body">
+        <article className="project-story-turn">
+          <span>THE TURNING POINT</span>
+          <h3>{profile.title}</h3>
+          <p>{profile.lead}</p>
+          <p>{profile.note}</p>
+        </article>
+
+        <ol className="project-story-process" aria-label="项目设计流程">
+          {workflowIndexes.map((workflowIndex, index) => (
+            <li key={`${item.workflow[workflowIndex]}-${index}`}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <div>
+                <strong>{item.workflow[workflowIndex]}</strong>
+                <p>{profile.stepNotes[index]}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
+function ProjectCommerceImpact({ item }: { item: ProjectShowcaseItem }) {
+  const impact = getProjectStoryProfile(item).impact;
+
+  return (
+    <section className="project-commerce-impact" aria-labelledby={`project-impact-title-${item.index}`}>
+      <div className="project-commerce-impact-inner">
+        <header>
+          <span>AI COMMERCE IMPACT</span>
+          <h3 id={`project-impact-title-${item.index}`}>AI 进入的不只是出图环节，而是整条商业验证链路</h3>
+          <p>更快建立可比较的创意路线，把时间留给产品校准、人工判断和转化复盘，最终让效率与商业结果同时改善。</p>
+        </header>
+
+        <div className="project-commerce-impact-grid">
+          <article className="is-primary">
+            <small>内容交付周期</small>
+            <strong>{impact.cycle.value}</strong>
+            <p><span>{impact.cycle.before}</span><i aria-hidden="true">→</i><b>{impact.cycle.after}</b></p>
+          </article>
+          <div className="project-commerce-impact-list">
+            <article>
+              <div><small>可测试创意路线</small><span>{impact.routes.before}</span></div>
+              <strong>{impact.routes.value}</strong>
+            </article>
+            <article>
+              <div><small>主图点击率 CTR</small><span>{impact.clickRate.before}</span></div>
+              <strong>{impact.clickRate.value}</strong>
+            </article>
+            <article>
+              <div><small>购买转化率 CVR</small><span>{impact.conversion.before}</span></div>
+              <strong>{impact.conversion.value}</strong>
+            </article>
+          </div>
+        </div>
+
+        <footer>
+          <strong>项目复盘测算</strong>
+          <p>基于同等预算、相同投放周期与相近素材测试量级的模型估算，用于呈现工作方法的商业价值，不代表平台审计数据。</p>
+        </footer>
+      </div>
+    </section>
+  );
+}
+
 function SmartLivingCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageSource) => void }) {
   return (
     <div className="smart-case">
@@ -4354,18 +4521,8 @@ function ProjectDetailViewer({
                 <p className="project-detail-summary" id={summaryId}>{item.summary}</p>
               </div>
 
-              <div className="project-detail-narrative">
-                <article>
-                  <span>DESIGN BRIEF</span>
-                  <h3>设计命题</h3>
-                  <p>{item.brief}</p>
-                </article>
-                <article>
-                  <span>DESIGN RESPONSE</span>
-                  <h3>设计回应</h3>
-                  <p>{item.response}</p>
-                </article>
-              </div>
+              <ProjectStoryLead item={item} onImageOpen={openImage} />
+              <ProjectCommerceImpact item={item} />
 
               {item === projectShowcaseItems[0] ? (
                 <SmartLivingCaseStudy onImageOpen={openImage} />
