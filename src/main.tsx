@@ -4352,19 +4352,19 @@ function ProjectDetailViewer({
                   <h2 id={titleId}>{item.title}</h2>
                 </div>
                 <p className="project-detail-summary" id={summaryId}>{item.summary}</p>
+              </div>
 
-                <div className="project-detail-narrative">
-                  <article>
-                    <span>DESIGN BRIEF</span>
-                    <h3>设计命题</h3>
-                    <p>{item.brief}</p>
-                  </article>
-                  <article>
-                    <span>DESIGN RESPONSE</span>
-                    <h3>设计回应</h3>
-                    <p>{item.response}</p>
-                  </article>
-                </div>
+              <div className="project-detail-narrative">
+                <article>
+                  <span>DESIGN BRIEF</span>
+                  <h3>设计命题</h3>
+                  <p>{item.brief}</p>
+                </article>
+                <article>
+                  <span>DESIGN RESPONSE</span>
+                  <h3>设计回应</h3>
+                  <p>{item.response}</p>
+                </article>
               </div>
 
               {item === projectShowcaseItems[0] ? (
