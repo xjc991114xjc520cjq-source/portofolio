@@ -2924,7 +2924,7 @@ video {
 .profile {
   position: relative;
   z-index: 2;
-  min-height: 108dvh;
+  min-height: 140dvh;
   margin-top: -100dvh;
   overflow: clip;
   transform-origin: center bottom;
