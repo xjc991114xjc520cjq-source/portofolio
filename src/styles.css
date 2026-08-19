@@ -4903,6 +4903,12 @@ video {
     linear-gradient(135deg, rgba(197, 150, 99, 0.12), rgba(107, 66, 38, 0.055) 48%, rgba(255, 255, 255, 0.012));
 }
 
+.glacier-case .smart-case-lighting {
+  background:
+    radial-gradient(circle at 82% 14%, rgba(168, 216, 239, 0.12), transparent 34%),
+    linear-gradient(135deg, rgba(80, 143, 180, 0.13), rgba(22, 52, 72, 0.055) 52%, rgba(255, 255, 255, 0.012));
+}
+
 .smart-case-lighting-copy {
   align-self: center;
 }
@@ -4976,12 +4982,14 @@ video {
   transform: scale(1.012);
 }
 
-.serum-scene-output .project-detail-gallery-grid img {
+.serum-scene-output .project-detail-gallery-grid img,
+.glacier-scene-output .project-detail-gallery-grid img {
   filter: saturate(0.8) brightness(0.92);
   transition: transform 420ms var(--ease-out), filter 320ms ease;
 }
 
-.serum-scene-output .project-detail-gallery-grid figure:hover img {
+.serum-scene-output .project-detail-gallery-grid figure:hover img,
+.glacier-scene-output .project-detail-gallery-grid figure:hover img {
   filter: saturate(0.94) brightness(0.98);
   transform: scale(1.012);
 }

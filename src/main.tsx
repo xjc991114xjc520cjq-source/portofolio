@@ -135,6 +135,74 @@ const projectShowcaseItems = [
   },
   {
     index: "01",
+    title: "GLACIER 冰川洁面乳全链路商业视觉系统",
+    english: "GLACIER CLEANSER COMMERCE SYSTEM",
+    category: "洁面护理 / 新品视觉",
+    categoryEnglish: "SKINCARE CLEANSING CAMPAIGN",
+    year: "2026",
+    image: "/assets/projects/glacier-cleanser/glacier-sunrise-wide.webp",
+    alt: "透明冰蓝色 GLACIER 洁面乳置于破晓冰川中的商业主视觉",
+    backdrop: "GLACIER",
+    accent: "#82b9d5",
+    introTheme: {
+      surface: "#dce9f1",
+      surfaceDeep: "#bfd4e1",
+      title: "#142a3d",
+      body: "#344f62",
+      muted: "#3a586c",
+      accent: "#285f8a",
+      rule: "#7195ad",
+      shadow: "rgba(29, 65, 88, 0.2)",
+    },
+    summary: "围绕 GLACIER 冰川洁面乳，建立从瓶体三视图、包装与泵头校准，到冰川、浴室、日夜场景和十五套方形商业图的完整新品视觉系统。",
+    brief: "项目需要在不虚构成分、功效与认证信息的前提下，让透明冰蓝瓶体、银色泵头、内部吸管和标签在不同机位与场景中保持同一产品身份。",
+    response: "先以正面、侧面和顶视图锁定瓶体结构，再用冰、水、浴室、实验室与昼夜光线扩展感官场景，最后将十五条独立方图路线编排为可用于主图、PDP 和传播的内容资产。",
+    role: "AI Art Direction / 美妆视觉",
+    scope: "洁面新品全链路内容系统",
+    deliverables: ["产品三视图", "包装与泵头细节", "冰川场景", "浴室场景", "Campaign KV", "电商创意套图"],
+    workflow: ["资料归档", "产品校准", "视觉定位", "场景分镜", "系列生成", "质量复核", "触点编排"],
+    system: "以透明冰蓝圆角瓶体、厚实瓶底、银色泵头、细密金属环纹、内部吸管和标签位置作为固定识别锚点，通过机位、冰水材质、空间、光线时段与标题骨架建立可控变化。",
+    outcome: "完成三十四张视觉资产，覆盖产品校准、材质微距、冰川与浴室场景、横竖构图研究和十五套方形商业主图。",
+    reflection: "项目将冰感视觉从单一背景风格转化为可校验的产品一致性、材质秩序与多触点内容方法，同时严格收住未经证实的功效表达。",
+    gallery: [
+      { src: "/assets/projects/glacier-cleanser/glacier-views.webp", alt: "GLACIER 洁面乳正面、侧面与顶面产品校准图", layout: "wide" },
+      { src: "/assets/projects/glacier-cleanser/glacier-sunrise-wide.webp", alt: "GLACIER 洁面乳破晓冰川横向主视觉", layout: "wide" },
+      { src: "/assets/projects/glacier-cleanser/glacier-bathroom-wide.webp", alt: "GLACIER 洁面乳明亮浴室横向场景", layout: "wide" },
+      { src: "/assets/projects/glacier-cleanser/glacier-water-ripple-wide.webp", alt: "GLACIER 洁面乳水面波纹横向场景", layout: "wide" },
+      { src: "/assets/projects/glacier-cleanser/glacier-lab-wide.webp", alt: "GLACIER 洁面乳冷白实验室横向场景", layout: "wide" },
+      { src: "/assets/projects/glacier-cleanser/glacier-macro-wide.webp", alt: "GLACIER 洁面乳瓶体与泵头材质微距", layout: "wide" },
+      { src: "/assets/projects/glacier-cleanser/glacier-night-wide.webp", alt: "GLACIER 洁面乳深蓝夜间冰川场景", layout: "wide" },
+      { src: "/assets/projects/glacier-cleanser/glacier-pedestal-portrait.webp", alt: "GLACIER 洁面乳冷白展台竖向场景", layout: "portrait" },
+      { src: "/assets/projects/glacier-cleanser/glacier-minimal-portrait.webp", alt: "GLACIER 洁面乳极简竖向产品场景", layout: "portrait" },
+      { src: "/assets/projects/glacier-cleanser/glacier-arch-portrait.webp", alt: "GLACIER 洁面乳拱形空间竖向场景", layout: "portrait" },
+      { src: "/assets/projects/glacier-cleanser/glacier-flatlay-portrait.webp", alt: "GLACIER 洁面乳冰水俯拍竖向场景", layout: "portrait" },
+      { src: "/assets/projects/glacier-cleanser/glacier-tilted-ice-portrait.webp", alt: "GLACIER 洁面乳倾斜冰面竖向场景", layout: "portrait" },
+      { src: "/assets/projects/glacier-cleanser/glacier-bathroom-portrait.webp", alt: "GLACIER 洁面乳浴室台面竖向场景", layout: "portrait" },
+      { src: "/assets/projects/glacier-cleanser/glacier-hero-portrait.webp", alt: "GLACIER 洁面乳冰川中央竖向主视觉", layout: "portrait" },
+      { src: "/assets/projects/glacier-cleanser/glacier-snow-portrait.webp", alt: "GLACIER 洁面乳雪地冰晶竖向场景", layout: "portrait" },
+      { src: "/assets/projects/glacier-cleanser/glacier-cave-portrait.webp", alt: "GLACIER 洁面乳深色冰洞竖向场景", layout: "portrait" },
+      { src: "/assets/projects/glacier-cleanser/glacier-waterfall-portrait.webp", alt: "GLACIER 洁面乳水幕竖向场景", layout: "portrait" },
+      { src: "/assets/projects/glacier-cleanser/glacier-snow-wide.webp", alt: "GLACIER 洁面乳雪原横向场景", layout: "wide" },
+      { src: "/assets/projects/glacier-cleanser/glacier-crystal-wide.webp", alt: "GLACIER 洁面乳冰晶横向场景", layout: "wide" },
+      { src: "/assets/projects/glacier-cleanser/glacier-square-clean-focus.webp", alt: "GLACIER 洁面乳冰感净澈方形商业图", layout: "square" },
+      { src: "/assets/projects/glacier-cleanser/glacier-square-clear-as-ice.webp", alt: "GLACIER 洁面乳净澈如冰方形商业图", layout: "square" },
+      { src: "/assets/projects/glacier-cleanser/glacier-square-clean-front.webp", alt: "GLACIER 洁面乳正面净澈方形商业图", layout: "square" },
+      { src: "/assets/projects/glacier-cleanser/glacier-square-crystal-stage.webp", alt: "GLACIER 洁面乳冰晶展台方形商业图", layout: "square" },
+      { src: "/assets/projects/glacier-cleanser/glacier-square-morning-bathroom-a.webp", alt: "GLACIER 洁面乳晨间浴室方形商业图一", layout: "square" },
+      { src: "/assets/projects/glacier-cleanser/glacier-square-texture.webp", alt: "GLACIER 洁面乳冰川质感方形商业图", layout: "square" },
+      { src: "/assets/projects/glacier-cleanser/glacier-square-top-water.webp", alt: "GLACIER 洁面乳水面俯拍方形商业图", layout: "square" },
+      { src: "/assets/projects/glacier-cleanser/glacier-square-minimal-ice.webp", alt: "GLACIER 洁面乳极简冰感方形商业图", layout: "square" },
+      { src: "/assets/projects/glacier-cleanser/glacier-square-flow.webp", alt: "GLACIER 洁面乳冰感流动方形商业图", layout: "square" },
+      { src: "/assets/projects/glacier-cleanser/glacier-square-night.webp", alt: "GLACIER 洁面乳冷冽夜色方形商业图", layout: "square" },
+      { src: "/assets/projects/glacier-cleanser/glacier-square-morning-bathroom-b.webp", alt: "GLACIER 洁面乳晨间浴室方形商业图二", layout: "square" },
+      { src: "/assets/projects/glacier-cleanser/glacier-square-pump-fresh.webp", alt: "GLACIER 洁面乳一泵清爽方形商业图", layout: "square" },
+      { src: "/assets/projects/glacier-cleanser/glacier-square-cave-focus-a.webp", alt: "GLACIER 洁面乳冰境聚焦方形商业图一", layout: "square" },
+      { src: "/assets/projects/glacier-cleanser/glacier-square-cave-focus-b.webp", alt: "GLACIER 洁面乳冰境聚焦方形商业图二", layout: "square" },
+      { src: "/assets/projects/glacier-cleanser/glacier-square-cave-focus-c.webp", alt: "GLACIER 洁面乳冰境聚焦方形商业图三", layout: "square" },
+    ],
+  },
+  {
+    index: "02",
     title: "LUMINOSE 精华液全链路商业视觉系统",
     english: "LUMINOSE SERUM COMMERCE SYSTEM",
     category: "功效护肤 / 新品企划",
@@ -335,35 +403,35 @@ const projectShowcaseCollections = [
     index: "02",
     title: "美妆与个人护理",
     english: "BEAUTY & PERSONAL CARE",
-    projects: [projectShowcaseItems[2]],
+    projects: [projectShowcaseItems[2], projectShowcaseItems[3]],
   },
   {
     id: "consumer-commerce",
     index: "03",
     title: "新消费与电商",
     english: "CONSUMER COMMERCE",
-    projects: [projectShowcaseItems[3]],
+    projects: [projectShowcaseItems[4]],
   },
   {
     id: "lifestyle-campaign",
     index: "04",
     title: "人物生活方式",
     english: "LIFESTYLE CAMPAIGNS",
-    projects: [projectShowcaseItems[4]],
+    projects: [projectShowcaseItems[5]],
   },
   {
     id: "cultural-publishing",
     index: "05",
     title: "文化出版",
     english: "CULTURAL PUBLISHING",
-    projects: [projectShowcaseItems[5]],
+    projects: [projectShowcaseItems[6]],
   },
   {
     id: "product-motion",
     index: "06",
     title: "产品动态影像",
     english: "PRODUCT MOTION",
-    projects: [projectShowcaseItems[6]],
+    projects: [projectShowcaseItems[7]],
   },
 ] as const;
 
@@ -548,6 +616,115 @@ const tableFanCaseStudy = {
     { value: "10", label: "独立创意路线", note: "主图变体" },
     { value: "6", label: "场景与昼夜素材", note: "产品与场景" },
     { value: "4", label: "内容触点方向", note: "组合扩展" },
+  ],
+} as const;
+
+const glacierCleanserCaseStudy = {
+  context: [
+    { label: "产品角色", value: "GLACIER 透明冰蓝泵式洁面乳" },
+    { label: "核心识别", value: "圆角透明瓶体、厚实瓶底、银色泵头、金属环纹与内部吸管" },
+    { label: "核心任务", value: "建立包装可信度、冰水材质感知与新品场景吸引力" },
+    { label: "内容范围", value: "三视图、材质微距、冰川与浴室场景、横竖 Campaign 及方形商业图" },
+  ],
+  strategy: [
+    { title: "锁定包装", detail: "以瓶体比例、泵头方向、吸管路径、厚底和标签位置建立统一产品底稿。" },
+    { title: "建立材质", detail: "通过透明瓶体、冰晶、水面和冷白高光传递清冽感，不借助未经证实的成分或功效。" },
+    { title: "扩展场景", detail: "从冷白棚拍进入浴室、冰原、冰洞和夜景，让同一产品适应不同传播氛围。" },
+    { title: "形成系列", detail: "让十五套方形商业图在机位、标题和空间上独立表达，同时保持同一包装身份。" },
+  ],
+  fixedAnchors: ["透明冰蓝圆角瓶体", "厚实通透的瓶底", "银色横向泵头", "泵颈细密金属环纹", "内部吸管与品牌标签位置"],
+  variables: ["正面、侧面、顶视与微距机位", "冷白、破晓、深蓝夜色与浴室自然光", "冰晶、水面、水幕、雪原与冷白建筑", "正置、倾斜、俯拍与近距离裁切", "环绕、错位、留白与框景式标题骨架"],
+  scenes: [
+    {
+      title: "破晓冰川主场",
+      purpose: "用低饱和冰川、晨光和开阔横向构图建立项目第一眼，同时让瓶体承担绝对视觉中心。",
+      touchpoint: "HERO / 品牌首屏",
+      image: "/assets/projects/glacier-cleanser/glacier-sunrise-wide.webp",
+      alt: "GLACIER 洁面乳破晓冰川横向主视觉",
+    },
+    {
+      title: "日常浴室入口",
+      purpose: "把产品从概念冰境带回真实护理空间，以明亮台面与自然光建立日常使用联想。",
+      touchpoint: "PDP / 场景理解",
+      image: "/assets/projects/glacier-cleanser/glacier-bathroom-wide.webp",
+      alt: "GLACIER 洁面乳明亮浴室横向场景",
+    },
+    {
+      title: "瓶体材质微距",
+      purpose: "放大泵头、金属环纹、透明瓶肩与水珠关系，让结构细节成为商品信任证据。",
+      touchpoint: "DETAIL / 材质说明",
+      image: "/assets/projects/glacier-cleanser/glacier-macro-wide.webp",
+      alt: "GLACIER 洁面乳瓶体与泵头材质微距",
+    },
+    {
+      title: "深蓝夜间延展",
+      purpose: "以深蓝环境和集中轮廓光补全日夜节奏，在不改变包装的前提下形成更沉静的传播气质。",
+      touchpoint: "CAMPAIGN / 氛围延展",
+      image: "/assets/projects/glacier-cleanser/glacier-night-wide.webp",
+      alt: "GLACIER 洁面乳深蓝夜间冰川场景",
+    },
+  ],
+  commercialOutputs: [
+    { src: "/assets/projects/glacier-cleanser/glacier-square-clean-focus.webp", alt: "洁面乳冰感净澈方形商业图", layout: "square" },
+    { src: "/assets/projects/glacier-cleanser/glacier-square-clear-as-ice.webp", alt: "洁面乳净澈如冰方形商业图", layout: "square" },
+    { src: "/assets/projects/glacier-cleanser/glacier-square-clean-front.webp", alt: "洁面乳正面净澈方形商业图", layout: "square" },
+    { src: "/assets/projects/glacier-cleanser/glacier-square-crystal-stage.webp", alt: "洁面乳冰晶展台方形商业图", layout: "square" },
+    { src: "/assets/projects/glacier-cleanser/glacier-square-morning-bathroom-a.webp", alt: "洁面乳晨间浴室方形商业图一", layout: "square" },
+    { src: "/assets/projects/glacier-cleanser/glacier-square-texture.webp", alt: "洁面乳冰川质感方形商业图", layout: "square" },
+    { src: "/assets/projects/glacier-cleanser/glacier-square-top-water.webp", alt: "洁面乳水面俯拍方形商业图", layout: "square" },
+    { src: "/assets/projects/glacier-cleanser/glacier-square-minimal-ice.webp", alt: "洁面乳极简冰感方形商业图", layout: "square" },
+    { src: "/assets/projects/glacier-cleanser/glacier-square-flow.webp", alt: "洁面乳冰感流动方形商业图", layout: "square" },
+    { src: "/assets/projects/glacier-cleanser/glacier-square-night.webp", alt: "洁面乳冷冽夜色方形商业图", layout: "square" },
+    { src: "/assets/projects/glacier-cleanser/glacier-square-morning-bathroom-b.webp", alt: "洁面乳晨间浴室方形商业图二", layout: "square" },
+    { src: "/assets/projects/glacier-cleanser/glacier-square-pump-fresh.webp", alt: "洁面乳一泵清爽方形商业图", layout: "square" },
+    { src: "/assets/projects/glacier-cleanser/glacier-square-cave-focus-a.webp", alt: "洁面乳冰境聚焦方形商业图一", layout: "square" },
+    { src: "/assets/projects/glacier-cleanser/glacier-square-cave-focus-b.webp", alt: "洁面乳冰境聚焦方形商业图二", layout: "square" },
+    { src: "/assets/projects/glacier-cleanser/glacier-square-cave-focus-c.webp", alt: "洁面乳冰境聚焦方形商业图三", layout: "square" },
+  ],
+  campaignScenes: [
+    { src: "/assets/projects/glacier-cleanser/glacier-water-ripple-wide.webp", alt: "洁面乳水面波纹横向场景", layout: "wide" },
+    { src: "/assets/projects/glacier-cleanser/glacier-lab-wide.webp", alt: "洁面乳冷白实验室横向场景", layout: "wide" },
+    { src: "/assets/projects/glacier-cleanser/glacier-snow-wide.webp", alt: "洁面乳雪原横向场景", layout: "wide" },
+    { src: "/assets/projects/glacier-cleanser/glacier-crystal-wide.webp", alt: "洁面乳冰晶横向场景", layout: "wide" },
+    { src: "/assets/projects/glacier-cleanser/glacier-pedestal-portrait.webp", alt: "洁面乳冷白展台竖向场景", layout: "portrait" },
+    { src: "/assets/projects/glacier-cleanser/glacier-minimal-portrait.webp", alt: "洁面乳极简竖向场景", layout: "portrait" },
+    { src: "/assets/projects/glacier-cleanser/glacier-arch-portrait.webp", alt: "洁面乳拱形空间竖向场景", layout: "portrait" },
+    { src: "/assets/projects/glacier-cleanser/glacier-flatlay-portrait.webp", alt: "洁面乳冰水俯拍竖向场景", layout: "portrait" },
+    { src: "/assets/projects/glacier-cleanser/glacier-tilted-ice-portrait.webp", alt: "洁面乳倾斜冰面竖向场景", layout: "portrait" },
+    { src: "/assets/projects/glacier-cleanser/glacier-bathroom-portrait.webp", alt: "洁面乳浴室台面竖向场景", layout: "portrait" },
+    { src: "/assets/projects/glacier-cleanser/glacier-hero-portrait.webp", alt: "洁面乳冰川中央竖向主视觉", layout: "portrait" },
+    { src: "/assets/projects/glacier-cleanser/glacier-snow-portrait.webp", alt: "洁面乳雪地冰晶竖向场景", layout: "portrait" },
+    { src: "/assets/projects/glacier-cleanser/glacier-cave-portrait.webp", alt: "洁面乳深色冰洞竖向场景", layout: "portrait" },
+    { src: "/assets/projects/glacier-cleanser/glacier-waterfall-portrait.webp", alt: "洁面乳水幕竖向场景", layout: "portrait" },
+  ],
+  workflow: [
+    { name: "资料归档", input: "产品参考与四套视觉需求", output: "事实边界、结构锚点与禁改项清单" },
+    { name: "产品校准", input: "正面、侧面与顶视图", output: "统一瓶体、泵头、吸管与标签位置" },
+    { name: "视觉定位", input: "洁面品类与包装材质", output: "冰蓝、冷白、银色与深蓝的光色系统" },
+    { name: "场景分镜", input: "触点任务与横竖版位", output: "冰川、浴室、水感、实验室与日夜路径" },
+    { name: "系列生成", input: "产品基准与独立路线", output: "场景画面与十五套方形商业图" },
+    { name: "质量复核", input: "候选画面", output: "结构、标签、泵头、光影与文案审核" },
+    { name: "触点编排", input: "通过审核的视觉资产", output: "主图、PDP、详情页与传播内容顺序" },
+  ],
+  touchpoints: [
+    { title: "新品入口", items: ["品牌首页", "商品主图", "活动首屏"] },
+    { title: "产品理解", items: ["PDP 首屏", "三视图", "泵头与瓶体细节"] },
+    { title: "感官沟通", items: ["冰水材质", "浴室场景", "日夜光线"] },
+    { title: "传播延展", items: ["Campaign KV", "社交套图", "内容封面"] },
+  ],
+  qualityChecks: [
+    { title: "包装一致", detail: "瓶体比例、厚底、银色泵头、金属环纹、吸管和标签保持同一产品身份。" },
+    { title: "文字准确", detail: "品牌名、产品名和画外标题清晰，避免乱码、镜像及未经证实的成分或功效。" },
+    { title: "结构可信", detail: "泵头方向、瓶口连接、内部吸管和透明瓶体符合真实包装逻辑。" },
+    { title: "材质可辨", detail: "透明瓶体、液体、银色金属、冰晶与水面保持不同的反射和厚度。" },
+    { title: "光影融合", detail: "瓶体受光、接触阴影与环境一致，标签可读且透明材质不过曝。" },
+    { title: "系列差异", detail: "各路线在机位、场景、光线和标题骨架上形成独立表达。" },
+  ],
+  results: [
+    { value: "34", label: "视觉资产", note: "完整收录" },
+    { value: "15", label: "商业方图", note: "独立路线" },
+    { value: "19", label: "校准与场景", note: "横竖延展" },
+    { value: "4", label: "内容触点", note: "组合扩展" },
   ],
 } as const;
 
@@ -4159,6 +4336,181 @@ function TableFanCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageS
   );
 }
 
+function GlacierCleanserCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageSource) => void }) {
+  return (
+    <div className="smart-case glacier-case">
+      <section className="smart-case-context" aria-labelledby="glacier-case-context-title">
+        <header className="smart-case-heading">
+          <h3 id="glacier-case-context-title">先把冰感风格建立在真实包装上</h3>
+          <p>项目先确认瓶体、泵头、吸管与标签，再让冰、水、浴室和昼夜场景围绕同一件产品展开。</p>
+        </header>
+        <dl>
+          {glacierCleanserCaseStudy.context.map((item) => (
+            <div key={item.label}><dt>{item.label}</dt><dd>{item.value}</dd></div>
+          ))}
+        </dl>
+      </section>
+
+      <section className="smart-case-strategy" aria-labelledby="glacier-case-strategy-title">
+        <header className="smart-case-heading">
+          <span>COMMERCIAL STRATEGY</span>
+          <h3 id="glacier-case-strategy-title">从包装识别走向完整新品场景</h3>
+          <p>产品、材质、场景和系列四条路径连续推进，让每类素材承担明确任务，同时守住信息事实边界。</p>
+        </header>
+        <div className="smart-case-tree">
+          <div className="smart-case-tree-root">
+            <small>BUSINESS GOAL</small>
+            <strong>建立可信、清冽、可持续扩展的洁面新品商业视觉</strong>
+          </div>
+          <div className="smart-case-tree-branches">
+            {glacierCleanserCaseStudy.strategy.map((branch) => (
+              <article key={branch.title}><strong>{branch.title}</strong><p>{branch.detail}</p></article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="smart-case-control" aria-labelledby="glacier-case-control-title">
+        <header className="smart-case-heading">
+          <h3 id="glacier-case-control-title">三视图先锁定瓶体与泵头</h3>
+          <p>正面、侧面和顶面共同校准透明瓶体、泵头方向、金属环纹与标签位置，再把冰水材质和空间作为变量。</p>
+        </header>
+        <div className="smart-case-control-board">
+          <figure>
+            <ZoomableProjectImage
+              src="/assets/projects/glacier-cleanser/glacier-views.webp"
+              alt="GLACIER 洁面乳正面、侧面与顶面产品校准图"
+              onOpen={onImageOpen}
+              loading="lazy"
+            />
+            <figcaption>三种视角构成后续场景生成与人工复核的包装基准。</figcaption>
+          </figure>
+          <div className="smart-case-control-rules">
+            <article><span>固定识别锚点</span><ul>{glacierCleanserCaseStudy.fixedAnchors.map((anchor) => <li key={anchor}>{anchor}</li>)}</ul></article>
+            <article><span>可控叙事变量</span><ul>{glacierCleanserCaseStudy.variables.map((variable) => <li key={variable}>{variable}</li>)}</ul></article>
+          </div>
+        </div>
+      </section>
+
+      <section className="smart-case-workflow" aria-labelledby="glacier-case-workflow-title">
+        <header className="smart-case-heading">
+          <span>PRODUCTION PIPELINE</span>
+          <h3 id="glacier-case-workflow-title">从事实边界到商业编排</h3>
+          <p>流程依次处理产品校准、视觉定位、场景分镜和质量审核，确保场景丰富但包装与信息不漂移。</p>
+        </header>
+        <ol>
+          {glacierCleanserCaseStudy.workflow.map((step) => (
+            <li key={step.name}>
+              <strong>{step.name}</strong>
+              <dl><div><dt>输入</dt><dd>{step.input}</dd></div><div><dt>输出</dt><dd>{step.output}</dd></div></dl>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section className="smart-case-scenes" aria-labelledby="glacier-case-scenes-title">
+        <header className="smart-case-heading">
+          <h3 id="glacier-case-scenes-title">场景从品牌第一眼进入商品细节</h3>
+          <p>破晓冰川建立记忆，浴室连接日常，微距补充结构证据，深蓝夜景完成传播气质的日夜闭环。</p>
+        </header>
+        <div className="smart-case-scene-grid">
+          {glacierCleanserCaseStudy.scenes.map((scene) => (
+            <article key={scene.title}>
+              <figure><ZoomableProjectImage src={scene.image} alt={scene.alt} onOpen={onImageOpen} loading="lazy" /></figure>
+              <div><span>{scene.touchpoint}</span><h4>{scene.title}</h4><p>{scene.purpose}</p></div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="smart-case-lighting" aria-labelledby="glacier-case-lighting-title">
+        <div className="smart-case-lighting-copy">
+          <h3 id="glacier-case-lighting-title">清冽感来自透明度与光线层次</h3>
+          <p>冰蓝瓶体承担品牌记忆，银色泵头提供精密质感，冷白与深蓝环境形成时段差异，画外文字始终服从产品。</p>
+          <ul>
+            <li><strong>产品</strong><span>瓶体完整，标签清晰，体量占据第一焦点</span></li>
+            <li><strong>材质</strong><span>透明瓶体、银色金属、冰晶与水面彼此可辨</span></li>
+            <li><strong>光线</strong><span>冷白、破晓和深蓝夜景形成连续节奏</span></li>
+            <li><strong>版式</strong><span>标题使用留白、错位与框景，不遮挡包装识别</span></li>
+          </ul>
+        </div>
+        <div className="smart-case-lighting-media">
+          <ZoomableProjectImage src="/assets/projects/glacier-cleanser/glacier-sunrise-wide.webp" alt="GLACIER 洁面乳破晓冰川主视觉" onOpen={onImageOpen} loading="lazy" />
+          <ZoomableProjectImage src="/assets/projects/glacier-cleanser/glacier-macro-wide.webp" alt="GLACIER 洁面乳泵头与瓶体材质微距" onOpen={onImageOpen} loading="lazy" />
+        </div>
+      </section>
+
+      <section className="project-detail-gallery air-fryer-output" aria-labelledby="glacier-output-title">
+        <div className="project-detail-section-heading">
+          <span>SELECTED OUTPUTS</span>
+          <h3 id="glacier-output-title">十五套方形商业创意路线</h3>
+        </div>
+        <div className="project-detail-gallery-grid">
+          {glacierCleanserCaseStudy.commercialOutputs.map((visual) => (
+            <figure className={`is-${visual.layout}`} key={visual.src}>
+              <ZoomableProjectImage src={visual.src} alt={visual.alt} onOpen={onImageOpen} loading="lazy" />
+            </figure>
+          ))}
+        </div>
+      </section>
+
+      <section className="project-detail-gallery glacier-scene-output" aria-labelledby="glacier-scenes-output-title">
+        <div className="project-detail-section-heading">
+          <span>SCENE EXTENSIONS</span>
+          <h3 id="glacier-scenes-output-title">冰川、浴室与横竖场景延展</h3>
+        </div>
+        <div className="project-detail-gallery-grid">
+          {glacierCleanserCaseStudy.campaignScenes.map((visual) => (
+            <figure className={`is-${visual.layout}`} key={visual.src}>
+              <ZoomableProjectImage src={visual.src} alt={visual.alt} onOpen={onImageOpen} loading="lazy" />
+            </figure>
+          ))}
+        </div>
+      </section>
+
+      <section className="smart-case-touchpoints" aria-labelledby="glacier-case-touchpoints-title">
+        <header className="smart-case-heading">
+          <h3 id="glacier-case-touchpoints-title">素材按新品购买路径重新组合</h3>
+          <p>同一套资产根据触点改变顺序和信息密度，从新品入口、包装理解与感官沟通延伸到持续传播。</p>
+        </header>
+        <div className="smart-case-touchpoint-tree">
+          <div className="smart-case-touchpoint-root">已审核洁面乳核心视觉资产</div>
+          <div className="smart-case-touchpoint-branches">
+            {glacierCleanserCaseStudy.touchpoints.map((branch) => (
+              <article key={branch.title}><strong>{branch.title}</strong><ul>{branch.items.map((item) => <li key={item}>{item}</li>)}</ul></article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="smart-case-quality" aria-labelledby="glacier-case-quality-title">
+        <header className="smart-case-heading">
+          <h3 id="glacier-case-quality-title">商业可用性的六项检查</h3>
+          <p>候选画面同时检查包装、文字、结构、材质、光影与系列差异，风格判断不能越过产品事实。</p>
+        </header>
+        <div className="smart-case-quality-grid">
+          {glacierCleanserCaseStudy.qualityChecks.map((check) => (
+            <article key={check.title}><strong>{check.title}</strong><p>{check.detail}</p><span>REVIEW STANDARD</span></article>
+          ))}
+        </div>
+      </section>
+
+      <section className="smart-case-results" aria-labelledby="glacier-case-results-title">
+        <header>
+          <div><span>PROJECT DELIVERY</span><h3 id="glacier-case-results-title">最终形成完整的洁面新品内容资产</h3></div>
+          <p>三十四张画面覆盖产品校准、材质微距、日夜与空间场景、横竖构图研究和方形商业图，并保留继续扩展的触点结构。</p>
+        </header>
+        <div className="smart-case-result-grid">
+          {glacierCleanserCaseStudy.results.map((result) => (
+            <article key={result.label}><strong>{result.value}</strong><span>{result.label}</span><small>{result.note}</small></article>
+          ))}
+        </div>
+        <p className="smart-case-conclusion">最终交付不只是十五张冰感方图，而是一套从包装校准、场景叙事到新品触点编排的洁面乳商业视觉方法。</p>
+      </section>
+    </div>
+  );
+}
+
 function SerumCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageSource) => void }) {
   return (
     <div className="smart-case serum-case">
@@ -4609,6 +4961,8 @@ function ProjectDetailViewer({
               ) : item === projectShowcaseItems[1] ? (
                 <TableFanCaseStudy onImageOpen={openImage} />
               ) : item === projectShowcaseItems[2] ? (
+                <GlacierCleanserCaseStudy onImageOpen={openImage} />
+              ) : item === projectShowcaseItems[3] ? (
                 <SerumCaseStudy onImageOpen={openImage} />
               ) : (
                 <>
