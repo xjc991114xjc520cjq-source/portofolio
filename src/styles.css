@@ -3598,6 +3598,10 @@ video {
   transform: skewX(-3.4deg);
 }
 
+.project-showcase-track.has-focus .project-showcase-item.is-suppressed::after {
+  opacity: 0;
+}
+
 .project-showcase-item.is-suppressed {
   filter: brightness(0.46) saturate(0.3);
 }
