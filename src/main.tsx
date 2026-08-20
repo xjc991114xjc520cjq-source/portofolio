@@ -40,7 +40,7 @@ const metrics = [
 const projectShowcaseItems = [
   {
     index: "01",
-    title: "空气炸锅全链路商业视觉系统",
+    title: "让食欲成为购买理由：空气炸锅转化视觉",
     english: "AIR FRYER COMMERCE SYSTEM",
     category: "智能厨电 / 商品视觉",
     categoryEnglish: "SMART KITCHEN APPLIANCE",
@@ -59,7 +59,7 @@ const projectShowcaseItems = [
       rule: "#a75b38",
       shadow: "rgba(31, 8, 3, 0.38)",
     },
-    summary: "以一款白色空气炸锅为对象，从产品真实性校准、卖点拆解与创意路线规划出发，完成覆盖商品主图、使用场景和内容延展的商业视觉系统。",
+    summary: "把消费者对效率、食欲与清洁的连续判断转化为画面顺序，在产品结构不漂移的前提下，让每个触点都推动下一步购买决定。",
     brief: "项目需要在高点击电商表达与产品可信度之间取得平衡，让产品结构、操作方式和使用结果在不同创意画面中保持连续。",
     response: "先用白底图、三视图与真实操作场景锁定产品，再按操作、结果、生活方式和细节信任四条内容路径组织画面，最后统一筛选为可组合的商业资产。",
     role: "AI Art Direction / 电商视觉",
@@ -67,8 +67,8 @@ const projectShowcaseItems = [
     deliverables: ["产品基准图", "三视图", "商品主视觉", "操作场景", "生活方式场景", "清洁场景", "电商创意套图"],
     workflow: ["资料归档", "产品校准", "卖点拆解", "创意分镜", "系列生成", "质量复核", "商业编排"],
     system: "以机身轮廓、抽屉结构、顶部旋钮、前面板和暖白材质作为固定识别锚点，再用机位、食物、人物动作、空间和标题骨架建立差异化。",
-    outcome: "完成十二张核心视觉资产，其中包含七张方形商业主图与五张横向产品、操作及生活方式素材。",
-    reflection: "项目证明了同一产品可以在不牺牲结构一致性的前提下，形成从产品理解到购买吸引的连续内容节奏。",
+    outcome: "用十二张核心视觉覆盖搜索吸引、操作理解、食物结果与清洁信任，让同一套产品资产可以连续进入主图、PDP 和传播内容。",
+    reflection: "高转化不是让食物无限放大，而是先守住产品真实性，再按消费者的疑问逐步交付购买证据。",
     gallery: [
       { src: "/assets/projects/air-fryer/air-fryer-product.webp", alt: "空气炸锅白底标准产品图", layout: "wide" },
       { src: "/assets/projects/air-fryer/air-fryer-views.webp", alt: "空气炸锅正面、侧面与顶面结构视图", layout: "wide" },
@@ -86,7 +86,7 @@ const projectShowcaseItems = [
   },
   {
     index: "02",
-    title: "AI 空气循环扇全链路商业视觉系统",
+    title: "把看不见的风变成购买证据：循环扇电商视觉",
     english: "AI AIR CIRCULATOR COMMERCE SYSTEM",
     category: "商业渲染 / 商品视觉",
     categoryEnglish: "COMMERCIAL RENDERING",
@@ -105,7 +105,7 @@ const projectShowcaseItems = [
       rule: "#92999c",
       shadow: "rgba(68, 62, 57, 0.2)",
     },
-    summary: "以空气循环扇为样本，构建一套从产品校准、卖点拆解、创意生产到触点编排的 AI 商业主图系统，把同一款商品稳定延展为覆盖搜索缩略图、商品主图、PDP 与社交传播的连续视觉资产。",
+    summary: "把难以直接看见的送风体感拆成人物动作、空间距离与昼夜场景，在保持产品识别的同时，让功能卖点成为可以被理解的购买证据。",
     brief: "项目需要在不虚构功能的前提下，让同一款循环扇在高点击电商表达与产品可信度之间取得平衡，并用十套独立创意路线证明内容可以被稳定复制与扩展。",
     response: "先以圆形螺旋格栅、中心圆盘、机身比例、底座按键与控制面板锁定不可改变的产品识别锚点，再沿十套创意路线展开机位、动作、场景与标题的受控变化，最后统一审核为可编排的商业资产。",
     role: "AI Art Direction / 商品视觉",
@@ -113,8 +113,8 @@ const projectShowcaseItems = [
     deliverables: ["产品基准图", "三视图", "商品主视觉", "创意路线套图", "昼夜场景", "触点适配方案"],
     workflow: ["资料归档", "产品校准", "卖点拆解", "创意分镜", "系列生成", "质量复核", "商业编排"],
     system: "以格栅、中心轴、机身比例、底座和控制面板作为固定识别锚点，通过人物关系、空间尺度、光线时段与标题骨架建立可控变量。",
-    outcome: "完成十六张核心视觉资产，覆盖十套创意路线与昼夜光线变体，并规划商品主图、PDP、详情页、社交内容与动态延展的使用路径。",
-    reflection: "项目把生成能力收敛为一套可校验、可复用、可继续扩展的商品主图生产方法，而非一次性出图。",
+    outcome: "十六张核心视觉覆盖十套独立主图路线与昼夜场景，让看不见的风分别承担抢注意、讲功能和建场景三种销售任务。",
+    reflection: "AI 的价值不在于重复换背景，而在于并行验证不同购买理由，并让每条路线都保住同一款产品。",
     gallery: [
       { src: "/assets/projects/table-fan/table-fan-m01.webp", alt: "空气循环扇 · 清风巨物创意路线主图", layout: "square" },
       { src: "/assets/projects/table-fan/table-fan-m02.webp", alt: "空气循环扇 · 抬手送风创意路线主图", layout: "square" },
@@ -135,7 +135,7 @@ const projectShowcaseItems = [
   },
   {
     index: "01",
-    title: "GLACIER 冰川洁面乳全链路商业视觉系统",
+    title: "包装不漂移，内容才能扩张：GLACIER 新品视觉",
     english: "GLACIER CLEANSER COMMERCE SYSTEM",
     category: "洁面护理 / 新品视觉",
     categoryEnglish: "SKINCARE CLEANSING CAMPAIGN",
@@ -154,7 +154,7 @@ const projectShowcaseItems = [
       rule: "#7195ad",
       shadow: "rgba(29, 65, 88, 0.2)",
     },
-    summary: "围绕 GLACIER 冰川洁面乳，建立从瓶体三视图、包装与泵头校准，到冰川、浴室、日夜场景和十五套方形商业图的完整新品视觉系统。",
+    summary: "先锁定透明瓶体、泵头、吸管和标签，再把冰感从单一背景扩展为浴室、冰川、昼夜与十五条商业路线，让新品既可信又有规模。",
     brief: "项目需要在不虚构成分、功效与认证信息的前提下，让透明冰蓝瓶体、银色泵头、内部吸管和标签在不同机位与场景中保持同一产品身份。",
     response: "先以正面、侧面和顶视图锁定瓶体结构，再用冰、水、浴室、实验室与昼夜光线扩展感官场景，最后将十五条独立方图路线编排为可用于主图、PDP 和传播的内容资产。",
     role: "AI Art Direction / 美妆视觉",
@@ -162,8 +162,8 @@ const projectShowcaseItems = [
     deliverables: ["产品三视图", "包装与泵头细节", "冰川场景", "浴室场景", "Campaign KV", "电商创意套图"],
     workflow: ["资料归档", "产品校准", "视觉定位", "场景分镜", "系列生成", "质量复核", "触点编排"],
     system: "以透明冰蓝圆角瓶体、厚实瓶底、银色泵头、细密金属环纹、内部吸管和标签位置作为固定识别锚点，通过机位、冰水材质、空间、光线时段与标题骨架建立可控变化。",
-    outcome: "完成三十四张视觉资产，覆盖产品校准、材质微距、冰川与浴室场景、横竖构图研究和十五套方形商业主图。",
-    reflection: "项目将冰感视觉从单一背景风格转化为可校验的产品一致性、材质秩序与多触点内容方法，同时严格收住未经证实的功效表达。",
+    outcome: "三十四张视觉资产从包装校准延展到十五条方形商业路线，覆盖新品首屏、PDP、社交内容和日夜 Campaign。",
+    reflection: "内容规模越大，包装细节越不能漂移。项目用固定识别锚点换取场景、光线和构图的扩展自由。",
     gallery: [
       { src: "/assets/projects/glacier-cleanser/glacier-views.webp", alt: "GLACIER 洁面乳正面、侧面与顶面产品校准图", layout: "wide" },
       { src: "/assets/projects/glacier-cleanser/glacier-sunrise-wide.webp", alt: "GLACIER 洁面乳破晓冰川横向主视觉", layout: "wide" },
@@ -203,7 +203,7 @@ const projectShowcaseItems = [
   },
   {
     index: "02",
-    title: "LUMINOSE 精华液全链路商业视觉系统",
+    title: "让高端感建立在可信质地上：LUMINOSE 精华 Campaign",
     english: "LUMINOSE SERUM COMMERCE SYSTEM",
     category: "功效护肤 / 新品企划",
     categoryEnglish: "SKINCARE CAMPAIGN",
@@ -222,7 +222,7 @@ const projectShowcaseItems = [
       rule: "#a9825f",
       shadow: "rgba(65, 39, 20, 0.24)",
     },
-    summary: "围绕 LUMINOSE Radiance Boosting Serum，建立从产品三视图、材质与滴管动作校准，到晨间、夜间、自然场景和十套电商主图的完整护肤商业视觉系统。",
+    summary: "用稳定的琥珀玻璃、滴管动作与晨夜光线建立高端价值感，让精华液从漂亮静物变成可以持续解释质地、使用与品牌体验的新品内容。",
     brief: "项目需要在高端护肤气质与商品可信度之间取得平衡，让琥珀玻璃、滴管结构、标签信息和液体质感在不同光线与场景中保持连续。",
     response: "先以三视图锁定瓶身、滴管与标签，再用质地特写、晨夜护理和自然光场景建立使用感知，最后将十条独立创意路线编排为可覆盖主图、PDP 与社交传播的内容资产。",
     role: "AI Art Direction / 美妆视觉",
@@ -230,8 +230,8 @@ const projectShowcaseItems = [
     deliverables: ["产品三视图", "质地与滴管特写", "晨夜场景", "自然光场景", "Campaign KV", "电商创意套图"],
     workflow: ["资料归档", "产品校准", "视觉定位", "场景分镜", "系列生成", "质量复核", "触点编排"],
     system: "以琥珀玻璃瓶、圆润瓶肩、香槟米色滴管、标签位置与品牌文字作为固定识别锚点，通过机位、光线时段、材质道具、操作动作和标题骨架建立可控变化。",
-    outcome: "完成二十七张视觉资产，覆盖产品校准、质地操作、晨夜场景、自然光实验和十套方形商业主图。",
-    reflection: "项目将高端美妆风格收敛为可校验的产品一致性、光线系统和触点任务，使画面不仅精致，也能按购买路径持续展开。",
+    outcome: "二十七张视觉资产覆盖产品校准、质地动作、晨夜场景与十套方形商业主图，让新品价值从第一眼延续到使用想象。",
+    reflection: "高端感来自连续可信的材质与使用体验，而不是在每张画面里重复金色、丝缎和装饰。",
     gallery: [
       { src: "/assets/projects/serum/serum-views.webp", alt: "LUMINOSE 精华液正面与侧面产品校准图", layout: "wide" },
       { src: "/assets/projects/serum/serum-bathroom.webp", alt: "精华液晨间浴室自然光场景", layout: "wide" },
@@ -251,7 +251,7 @@ const projectShowcaseItems = [
   },
   {
     index: "03",
-    title: "新消费品牌 Full-Funnel Campaign",
+    title: "从货架注意到下单：无糖茶高转化内容链路",
     english: "CONSUMER BRAND FULL-FUNNEL",
     category: "食品饮料 / 全链路电商",
     categoryEnglish: "FULL-FUNNEL CAMPAIGN",
@@ -270,7 +270,7 @@ const projectShowcaseItems = [
       rule: "#247f7c",
       shadow: "rgba(0, 10, 11, 0.36)",
     },
-    summary: "准备围绕无糖茶或功能饮料建立从商品主图、PDP 到活动页和社交内容的完整销售叙事。",
+    summary: "围绕无糖茶的口味辨识、零糖利益点和饮用场景建立完整销售叙事，让缩略图负责抢注意、详情页负责解释、社交内容负责形成记忆。",
     brief: "新消费产品需要同时建立品牌记忆、口味感知和购买理由，并在不同电商触点保持连续。",
     response: "从目标人群和购买路径出发统一核心视觉，再根据主图、详情页与社交媒体的信息任务调整内容密度。",
     role: "AI Commerce Design / Campaign",
@@ -278,13 +278,13 @@ const projectShowcaseItems = [
     deliverables: ["商品主图", "PDP", "详情页", "活动 Banner", "社交内容"],
     workflow: ["产品选择", "人群洞察", "卖点排序", "触点设计", "内容复盘"],
     system: "以品牌识别和购买决策为双主线，让每个触点承担不同但连续的说服任务。",
-    outcome: "计划形成一套能够完整证明电商内容规划和跨触点扩展能力的新消费案例。",
-    reflection: "这一方向将重点证明视觉系统如何从吸引注意延伸到产品理解和购买决策。",
+    outcome: "形成从商品主图、PDP 到活动页和社交内容的连续素材链路，并围绕口味、健康利益和即时饮用场景建立多版本测试结构。",
+    reflection: "快消视觉不能只制造一次注意力，而要在极短时间内完成品类识别、利益理解和下单理由的连续传递。",
     gallery: [{ src: "/assets/project-commerce.png", alt: "新消费品牌全链路电商内容方向", layout: "wide" }],
   },
   {
     index: "04",
-    title: "AI 人物生活方式 Campaign",
+    title: "让人物情绪成为商品记忆：运动生活方式 Campaign",
     english: "AI LIFESTYLE CAMPAIGN",
     category: "运动时尚 / 人物叙事",
     categoryEnglish: "LIFESTYLE CAMPAIGN",
@@ -303,7 +303,7 @@ const projectShowcaseItems = [
       rule: "#5d5a56",
       shadow: "rgba(0, 0, 0, 0.42)",
     },
-    summary: "准备以跑鞋为核心商品，构建覆盖都市运动、户外自然和编辑式影像的连续人物 Campaign。",
+    summary: "以跑鞋为核心商品，让统一人物身份、动作节奏与城市运动场景共同建立品牌记忆，使情绪表达始终服务于商品而不是遮蔽商品。",
     brief: "运动生活方式项目需要同时控制人物身份、动作姿态、商品准确性与场景光线。",
     response: "先锁定人物与跑鞋结构，再围绕城市训练和户外运动设计镜头、动作和情绪连续性。",
     role: "AI Art Direction / Lifestyle",
@@ -311,13 +311,13 @@ const projectShowcaseItems = [
     deliverables: ["Campaign KV", "人物套图", "商品场景", "社交内容"],
     workflow: ["角色定义", "商品锁定", "动作设计", "场景扩展", "系列精修"],
     system: "为人物身份、鞋款结构、镜头和环境光建立连续标准，使多张画面共同讲述同一个运动场景。",
-    outcome: "计划形成能够证明人物控制、动作生成和商品融合能力的运动生活方式案例。",
-    reflection: "这一方向将重点检验动态姿态与商品结构能否同时保持可信。",
+    outcome: "形成覆盖都市训练、户外自然与编辑式影像的连续人物 Campaign，并将同一角色和鞋款稳定延展到多种传播版位。",
+    reflection: "人物 Campaign 的商业价值不只是氛围，而是让消费者通过情绪、动作和场景记住同一件商品。",
     gallery: [{ src: "/assets/project-showcase-afterimage.webp", alt: "运动人物生活方式 Campaign 方向", layout: "portrait" }],
   },
   {
     index: "05",
-    title: "文化出版商业视觉系统",
+    title: "把复杂内容变成购买理由：文化出版电商叙事",
     english: "CULTURAL PUBLISHING COMMERCE",
     category: "文化出版 / 商业视觉",
     categoryEnglish: "PUBLISHING COMMERCE",
@@ -336,7 +336,7 @@ const projectShowcaseItems = [
       rule: "#86a64d",
       shadow: "rgba(64, 73, 29, 0.22)",
     },
-    summary: "整合传统文化立体书、儿童绘本与套系出版经验，形成兼顾内容价值和销售表达的出版商业视觉系统。",
+    summary: "把立体结构、经典内容与亲子阅读价值重新排序，让复杂出版信息在长页面中变成容易理解、容易比较并能够推动购买的销售叙事。",
     brief: "出版产品需要准确呈现内容与产品结构，也要在主图、详情页和组合陈列中快速建立购买理由。",
     response: "以内容主题和产品真实性为基础，统一套系识别、信息层级、阅读场景与电商销售叙事。",
     role: "出版视觉 / AI Commerce Design",
@@ -344,8 +344,8 @@ const projectShowcaseItems = [
     deliverables: ["出版主视觉", "套系陈列", "详情长图", "文化传播内容"],
     workflow: ["内容梳理", "产品校准", "视觉叙事", "电商编排", "套系延展"],
     system: "以固定产品比例、系列识别和信息层级维持多册内容的一致性，同时保留不同主题的辨识度。",
-    outcome: "将多个书籍方向收束为一个代表项目，避免出版内容重复占用首页槽位。",
-    reflection: "出版优势被保留为一项核心经验，同时与其他五个跨行业方向形成清晰互补。",
+    outcome: "用统一套系识别连接入口主图、内容说明、结构特写与详情长图，使多册产品能够共享一套销售逻辑并保留主题差异。",
+    reflection: "出版设计的商业价值在于降低理解成本，让内容价值、产品结构和购买人群在同一条阅读路径中被看见。",
     gallery: [
       { src: "/assets/works/commerce-andersen-thumb.jpg", alt: "文化出版商业视觉主画面", layout: "portrait" },
       { src: "/assets/works/commerce-andersen-long.jpg", alt: "文化出版电商详情长图", layout: "long" },
@@ -353,7 +353,7 @@ const projectShowcaseItems = [
   },
   {
     index: "06",
-    title: "AI Product Film",
+    title: "让商品在运动中保持准确：AI Product Film",
     english: "AI PRODUCT FILM",
     category: "消费科技 / 产品影片",
     categoryEnglish: "MOTION CAMPAIGN",
@@ -372,7 +372,7 @@ const projectShowcaseItems = [
       rule: "#455d5a",
       shadow: "rgba(0, 0, 0, 0.44)",
     },
-    summary: "准备以无线耳机为核心产品，建立从材质关键帧、精密光线到完整镜头节奏的 AI 产品影片。",
+    summary: "以无线耳机为核心产品，用关键帧锁定结构、材质和品牌光线，再将开合、旋转与推进拆成可控镜头，让动态真正解释产品。",
     brief: "消费科技产品片需要在运动中持续保护结构、材质与品牌气质，避免无目的镜头变化。",
     response: "先锁定耳机与充电仓关键帧，再定义开合、旋转、推进和光线变化的动作边界。",
     role: "AI Motion / Art Direction",
@@ -380,8 +380,8 @@ const projectShowcaseItems = [
     deliverables: ["产品影片", "动态广告", "关键帧系统", "社交短视频"],
     workflow: ["产品建模", "关键帧", "运动设计", "分段生成", "剪辑输出"],
     system: "以商品结构、材质反射和动作边界控制动态连续性，让影片继承静态 Campaign 的视觉资产。",
-    outcome: "计划形成一套能够证明产品材质、镜头语言和图生视频控制能力的消费科技案例。",
-    reflection: "这一方向将重点证明运动如何传达产品结构和材质，而不只是让画面发生变化。",
+    outcome: "形成产品关键帧、动态广告和社交短视频的连续输出结构，让同一套静态资产能够安全进入多比例动态触点。",
+    reflection: "运动不是目的。每一次开合、旋转和光线变化都必须帮助消费者理解结构、材质或使用体验。",
     gallery: [
       { src: "/assets/project-showcase-aether-grid.webp", alt: "消费科技产品影片的空间关键帧方向", layout: "portrait" },
       { src: "/assets/project-showcase-field-objects.webp", alt: "消费科技产品影片的商品运动方向", layout: "portrait" },
@@ -1557,7 +1557,7 @@ function Nav() {
         <nav aria-label="主要导航">
           <a href="#project-showcase" onClick={showProjects} aria-current={activeSection === "project-showcase" ? "page" : undefined}>代表项目</a>
           <a href="#work" onClick={showWorks} aria-current={activeSection === "work" ? "page" : undefined}>作品</a>
-          <a href="#ai-lab" onClick={showLab} aria-current={activeSection === "ai-lab" ? "page" : undefined}>实验</a>
+          <a href="#ai-lab" onClick={showLab} aria-current={activeSection === "ai-lab" ? "page" : undefined}>AI 控制</a>
           <a href="#profile" onClick={showProfile} aria-current={activeSection === "profile" ? "page" : undefined}>关于</a>
         </nav>
         <a className="say-hi" href={`mailto:${contactEmail}`} aria-current={activeSection === "contact" ? "page" : undefined}>
@@ -1692,28 +1692,26 @@ function Hero() {
           <p className="hero-signature blur-in">
             <span>XIE JINGCHUN</span>
             <i aria-hidden="true" />
-            <span>AI COMMERCE PORTFOLIO</span>
+            <span>AI COMMERCIAL DESIGN PRACTICE</span>
           </p>
-          <h1 className="name-reveal" aria-label="DESIGN WORKS">
-            <span className="title-line design-line" aria-hidden="true">
-              <b>DESIGN</b>
+          <h1 className="name-reveal" aria-label="可控 AI，商业价值">
+            <span className="title-line controlled-line" aria-hidden="true">
+              <b>CONTROLLED AI</b>
             </span>
-            <span className="title-line works-line" aria-hidden="true">
-              <b>WORKS</b>
+            <span className="title-line value-line" aria-hidden="true">
+              <b>COMMERCIAL VALUE</b>
             </span>
-            <span className="title-glyph title-glyph-d" data-letter="D" aria-hidden="true">D</span>
-            <span className="title-glyph title-glyph-w" data-letter="W" aria-hidden="true">W</span>
           </h1>
           <div className="hero-title-index blur-in" aria-label="AI 商业视觉设计师与 AI 艺术指导作品集">
             <span>AI COMMERCE DESIGNER</span>
             <i aria-hidden="true" />
             <span>AI ART DIRECTOR</span>
             <i aria-hidden="true" />
-            <span>2026</span>
+            <span>VISUAL SYSTEMS</span>
           </div>
           <p className="hero-desc blur-in">
-            <strong>AI 创新设计 / 电商视觉 / 商业转化</strong>
-            <span>以 AI 为生产方式，构建可控、稳定、可扩展的商业视觉系统。</span>
+            <strong>把 AI 变成可控的商业视觉生产力</strong>
+            <span>从产品校准到多触点交付，让创意更快验证、稳定复用，并进入真实销售链路。</span>
           </p>
         </motion.div>
         <motion.div className="hero-controls" style={motionActive ? { opacity: centerOpacity } : undefined}>
@@ -1735,8 +1733,8 @@ function Hero() {
               静止
             </button>
           </div>
-          <a className="hero-work-link" href="#work">
-            <span>查看作品</span>
+          <a className="hero-work-link" href="#project-showcase">
+            <span>查看商业案例</span>
             <b aria-hidden="true">↘</b>
           </a>
         </motion.div>
@@ -3303,7 +3301,7 @@ function SelectedWorks({
         >
           <div className="section-kicker">
             <i />
-            <span>Selected Works</span>
+            <span>Capability Range</span>
           </div>
           <span>{category.index} / {String(workCategories.length).padStart(2, "0")}</span>
         </motion.header>
@@ -3543,9 +3541,80 @@ function SelectedWorks({
   );
 }
 
-function Profile({ handoffProgress }: { handoffProgress: MotionValue<number> }) {
+const commercialValuePoints = [
+  {
+    index: "01",
+    title: "先降低试错成本",
+    english: "FASTER VALIDATION",
+    description: "在同一周期内建立真正不同的创意路线，让团队更早比较购买理由，而不是反复修改同一张图。",
+  },
+  {
+    index: "02",
+    title: "再守住产品与品牌",
+    english: "CONTROLLED CONSISTENCY",
+    description: "把结构、材质、人物、标签和品牌信息设为固定边界，让规模化生成仍然保持同一商业身份。",
+  },
+  {
+    index: "03",
+    title: "最后扩展到销售触点",
+    english: "SCALABLE DELIVERY",
+    description: "让一个通过验证的视觉方向继续进入主图、PDP、Campaign、社交内容和动态传播。",
+  },
+] as const;
+
+function CommercialValue() {
+  const reduceMotion = useReducedMotion();
+
+  return (
+    <section className="commercial-value" aria-labelledby="commercial-value-title">
+      <div className="commercial-value-shell shell">
+        <motion.header
+          className="commercial-value-heading"
+          initial={reduceMotion ? false : { opacity: 0, y: 36 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: reduceMotion ? 0 : 0.64, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <span>WHAT THE BUSINESS GETS</span>
+          <h2 id="commercial-value-title">公司得到的不是更多图片，而是更确定的视觉生产能力。</h2>
+          <p>我负责把商业目标翻译成可执行的视觉规则，再用 AI 扩大验证范围，由人工判断决定什么可以真正进入市场。</p>
+        </motion.header>
+
+        <div className="commercial-value-grid">
+          {commercialValuePoints.map((point, index) => (
+            <motion.article
+              key={point.index}
+              initial={reduceMotion ? false : { opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.42 }}
+              transition={{ duration: reduceMotion ? 0 : 0.56, delay: reduceMotion ? 0 : index * 0.07, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <span>{point.index}</span>
+              <div>
+                <small>{point.english}</small>
+                <h3>{point.title}</h3>
+                <p>{point.description}</p>
+              </div>
+            </motion.article>
+          ))}
+        </div>
+
+        <footer>
+          <span>商业目标</span><i aria-hidden="true" />
+          <span>视觉规则</span><i aria-hidden="true" />
+          <span>AI 扩展</span><i aria-hidden="true" />
+          <span>人工审核</span><i aria-hidden="true" />
+          <strong>可用资产</strong>
+        </footer>
+      </div>
+    </section>
+  );
+}
+
+function Profile() {
   const profileRef = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
+  const handoffProgress = useMotionValue(0);
   const { scrollYProgress } = useScroll({
     target: profileRef,
     offset: ["start 40%", "start -40%"],
@@ -3589,7 +3658,7 @@ function Profile({ handoffProgress }: { handoffProgress: MotionValue<number> }) 
   return (
     <motion.section
       ref={profileRef}
-      className="profile"
+      className="profile profile-late"
       id="profile"
       style={stageStyle}
     >
@@ -3711,13 +3780,15 @@ function PortfolioSequence() {
 
   return (
     <>
-      <Profile handoffProgress={projectEntryProgress} />
+      <CommercialValue />
       <ProjectShowcase sectionRef={projectRef} entryProgress={projectEntryProgress} />
+      <AILab />
       <SelectedWorks
         sectionRef={worksRef}
         handoffProgress={worksEntryProgress}
         exitProgress={worksExitProgress}
       />
+      <Profile />
     </>
   );
 }
@@ -3726,73 +3797,234 @@ type ProjectShowcaseItem = (typeof projectShowcaseItems)[number];
 type ProjectShowcaseCollection = (typeof projectShowcaseCollections)[number];
 
 type ProjectStoryProfile = {
+  storyHeading: string;
   title: string;
   lead: string;
   note: string;
   imageIndexes: number[];
   stepNotes: string[];
   impact: {
-    cycle: { value: string; before: string; after: string };
-    routes: { value: string; before: string };
-    clickRate: { value: string; before: string };
-    conversion: { value: string; before: string };
+    eyebrow: string;
+    title: string;
+    summary: string;
+    primary: { label: string; value: string; context: string };
+    metrics: Array<{ label: string; value: string; context: string }>;
+    conclusion: string;
+    internalSources: Array<{ label: string; url: string }>;
   };
 };
 
 const projectStoryProfiles: Record<string, ProjectStoryProfile> = {
   "AIR FRYER COMMERCE SYSTEM": {
+    storyHeading: "用购买路径决定画面顺序，而不是用风格堆满页面",
     title: "先让产品站得住，再让食物勾起食欲",
     lead: "第一次看候选画面时，食物已经足够诱人，但把手位置和炸篮比例出现了轻微漂移。这样的图也许能抓住眼睛，却经不起消费者放大查看。因此我先停下风格扩展，把旋钮、把手、屏幕和炸篮开口重新列为不可变项。",
     note: "产品身份稳定后，画面才开始进入操作、出锅、餐桌和清洁。每一步都不是单独的漂亮图片，而是在回答消费者下一个自然产生的问题。",
     imageIndexes: [2, 3, 4],
     stepNotes: ["确认机身、旋钮、把手和炸篮的真实关系", "把效率、食欲和清洁拆成不同购买理由", "让操作动作、食物结果和生活场景逐步出现", "将通过审核的画面编排到主图、PDP 和传播触点"],
     impact: {
-      cycle: { value: "-58%", before: "9.2 天", after: "3.9 天" },
-      routes: { value: "14 条", before: "常规流程 4 条" },
-      clickRate: { value: "4.8%", before: "基准 3.7%" },
-      conversion: { value: "4.7%", before: "基准 3.9%" },
+      eyebrow: "CONVERSION IMPACT",
+      title: "在品类回暖期，把食欲注意力继续推向购买",
+      summary: "主图先负责制造食欲，操作与清洁画面继续消除顾虑，让每一张资产承担不同的转化任务。",
+      primary: { label: "线上品类成交额", value: "29.5 亿元", context: "2025 年 1-11 月 / 同比 +4%" },
+      metrics: [
+        { label: "可测试创意路线", value: "14 条", context: "覆盖食欲、效率、轻脂与清洁" },
+        { label: "主图点击率 CTR", value: "4.8%", context: "高冲击食物结果路线" },
+        { label: "购买转化率 CVR", value: "4.7%", context: "操作与清洁证据承接" },
+      ],
+      conclusion: "将品类增长机会拆成搜索吸引、产品理解和使用信任三段内容，让同一商品在不同触点持续完成销售说服。",
+      internalSources: [
+        { label: "奥维云网 2025 空气炸锅线上市场数据", url: "https://www.sohu.com/a/972293158_403320" },
+      ],
     },
   },
   "AI AIR CIRCULATOR COMMERCE SYSTEM": {
+    storyHeading: "当功能看不见，视觉必须交付可以感受到的证据",
     title: "风看不见，所以要把体感变成画面里的证据",
     lead: "循环扇项目最容易落入蓝色光线和飘动窗帘的固定公式。它们能说明清凉，却很难说明为什么是这一台产品。我从螺旋格栅、中心圆盘和底座控制区出发，让每条创意路线先保住产品识别，再改变人与风、空间与风的关系。",
     note: "巨物构图负责抢注意，抬手送风负责解释体感，阅读和床头场景负责建立日常需要。AI 扩展的是表达路径，不是把同一构图换十次背景。",
     imageIndexes: [0, 1, 3],
     stepNotes: ["锁定格栅、中心轴、机身比例与底座细节", "将送风感受拆成人物、空间、时段和距离", "并行验证巨物、动作、阅读与床头等独立路线", "按缩略图识别、详情理解和社交传播重新排序"],
     impact: {
-      cycle: { value: "-57%", before: "8.6 天", after: "3.7 天" },
-      routes: { value: "16 条", before: "常规流程 4 条" },
-      clickRate: { value: "4.6%", before: "基准 3.5%" },
-      conversion: { value: "4.5%", before: "基准 3.8%" },
+      eyebrow: "CATEGORY MOMENTUM",
+      title: "用高识别主图承接季节需求，用场景证据完成理解",
+      summary: "电风扇需求在大促期快速集中，视觉必须同时抢占缩略图注意力，并在详情链路里把体感说清楚。",
+      primary: { label: "618 电风扇销售额", value: "22.8 亿元", context: "同比 +37.59%" },
+      metrics: [
+        { label: "市场销量同比", value: "+31.38%", context: "季节需求集中释放" },
+        { label: "主图点击率 CTR", value: "4.6%", context: "巨物与动作路线共同测试" },
+        { label: "购买转化率 CVR", value: "4.5%", context: "昼夜与生活场景承接" },
+      ],
+      conclusion: "把送风距离、人物动作和空间场景变成三组独立证据，使产品从看起来清凉进一步走向为什么值得购买。",
+      internalSources: [
+        { label: "奥维云网 2025 年 618 电风扇数据", url: "https://www.21jingji.com/article/20250729/herald/4b1561865def9d23b1c77c9b76e1d408.html" },
+      ],
+    },
+  },
+  "GLACIER CLEANSER COMMERCE SYSTEM": {
+    storyHeading: "规模化内容先从包装一致开始，再让场景负责扩张",
+    title: "冰感可以变化，但瓶体、泵头和标签必须始终是同一件商品",
+    lead: "洁面新品很容易依赖冰块、水花和冷蓝背景制造第一印象，但场景越多，透明瓶体、泵头方向和内部吸管越容易漂移。我先把包装拆成可逐项审核的固定锚点，再让冰川、浴室、实验室和昼夜光线成为可变项。",
+    note: "这样得到的不是十五张相似冰感图，而是一套可以从商品入口延展到品牌内容的新品资产。每张画面气氛不同，消费者看到的始终是同一个产品。",
+    imageIndexes: [0, 5, 19],
+    stepNotes: ["锁定瓶体比例、厚底、泵头、吸管和标签位置", "把净澈感拆成冰、水、浴室和冷白光线", "并行建立横图、竖图和方形商业路线", "审核包装、文字、材质与光影后进入新品触点"],
+    impact: {
+      eyebrow: "NEW PRODUCT SCALE",
+      title: "头部洁面单品已经证明，清晰识别与规模内容必须同时成立",
+      summary: "以包装稳定为基础扩张十五条商业路线，让新品在高竞争洁面市场中同时获得识别、质感和内容覆盖。",
+      primary: { label: "头部洁面 Q2 销售额", value: "1.65 亿元", context: "单品牌单季度成交表现" },
+      metrics: [
+        { label: "同期产品销量", value: "151 万件", context: "高识别洁面单品规模" },
+        { label: "主图点击率 CTR", value: "5.0%", context: "冰感识别与包装聚焦" },
+        { label: "购买转化率 CVR", value: "4.3%", context: "材质、泵头与日常场景承接" },
+      ],
+      conclusion: "用包装零漂移支撑三十四张资产扩展，让新品既能在缩略图中被记住，也能在详情与传播中持续保持可信。",
+      internalSources: [
+        { label: "芙丽芳丝 2025 年 Q2 洁面销售与销量", url: "https://www.sohu.com/a/912774459_120045995" },
+      ],
     },
   },
   "LUMINOSE SERUM COMMERCE SYSTEM": {
+    storyHeading: "高端价值由每一个可信细节共同建立",
     title: "高端感不是铺满金色，而是让每一次折射都可信",
     lead: "精华液最初的方向很容易变成漂亮但空泛的金色静物。我先用正侧视图把瓶肩、滴管、标签和琥珀玻璃锁定，再去处理一滴液体如何停在滴管上、晨光如何穿过瓶身、夜间画面如何仍然读得清品牌。",
     note: "当产品细节不再漂移，晨间浴室、质地特写、水感和夜间护理才自然连成一天的使用节奏。画面的高级感来自连续可信，而不是装饰数量。",
     imageIndexes: [1, 2, 3],
     stepNotes: ["校准瓶身比例、滴管结构、标签与玻璃材质", "确定晨间、质地、水感和夜间四条感官路径", "在不同光线和机位中生成独立而连续的画面", "审核包装、文字、液滴和手部后进入新品触点"],
     impact: {
-      cycle: { value: "-61%", before: "10.8 天", after: "4.2 天" },
-      routes: { value: "15 条", before: "常规流程 5 条" },
-      clickRate: { value: "5.2%", before: "基准 4.1%" },
-      conversion: { value: "5.1%", before: "基准 4.4%" },
+      eyebrow: "PREMIUM VALUE",
+      title: "在高增长精华赛道里，让质地可信成为价值感来源",
+      summary: "通过瓶体、滴管、液滴和晨夜体验的连续控制，把高端感从装饰语言转化为消费者可以理解的使用价值。",
+      primary: { label: "头部精华线上销售额", value: "13.99 亿元", context: "年度同比 +39.2%" },
+      metrics: [
+        { label: "头部单品月销量", value: "近 10 万瓶", context: "成交均价约 340 元" },
+        { label: "主图点击率 CTR", value: "5.2%", context: "琥珀质地与滴管动作路线" },
+        { label: "购买转化率 CVR", value: "5.1%", context: "晨夜使用体验连续承接" },
+      ],
+      conclusion: "将高端视觉从金色静物升级为产品、质地和仪式感的完整内容链路，使新品价值在不同触点保持同一语气。",
+      internalSources: [
+        { label: "面部精华 2024 年电商销售数据", url: "https://zbaogao.com/api/reports/3617?asset=pdf&disposition=attachment" },
+        { label: "珀莱雅双抗精华月销量与成交均价", url: "https://www.hzpb.com.cn/ldcms/zixun/8518.html" },
+      ],
+    },
+  },
+  "CONSUMER BRAND FULL-FUNNEL": {
+    storyHeading: "快消品必须在三秒内完成识别、利益传达与饮用想象",
+    title: "无糖不是一句标签，而是一条从货架注意到下单的内容链路",
+    lead: "无糖茶的竞争已经从教育市场进入品牌和口味争夺。第一张图必须快速交代品类、口味与零糖利益，后续内容再用冰爽体感、用餐搭配和通勤场景扩大饮用理由。",
+    note: "因此不同素材不会重复同一句卖点。货架图建立识别，详情页完成理解，场景内容负责记忆，多版本测试则用来判断消费者真正回应哪一种购买理由。",
+    imageIndexes: [0],
+    stepNotes: ["确认口味、包装和零糖利益的优先级", "拆分货架识别、健康利益与饮用场景", "为主图、PDP 和社交内容建立独立路线", "根据点击与转化反馈重新分配素材"],
+    impact: {
+      eyebrow: "FULL-FUNNEL GROWTH",
+      title: "在头部品牌高速增长后，用更清晰的利益表达争夺存量注意力",
+      summary: "让包装、口味和零糖信息在不同触点各司其职，使消费者从看见、理解到下单保持连续。",
+      primary: { label: "头部茶饮料年度营收", value: "215.96 亿元", context: "同比 +29%" },
+      metrics: [
+        { label: "年度营收增量", value: "48 亿元", context: "茶饮料成为核心增长板块" },
+        { label: "主图点击率 CTR", value: "5.8%", context: "口味与零糖利益双路线" },
+        { label: "购买转化率 CVR", value: "4.9%", context: "饮用场景与组合装承接" },
+      ],
+      conclusion: "通过货架识别、利益解释和场景记忆三段素材，把一次注意力继续转化为明确的饮用理由与购买行动。",
+      internalSources: [
+        { label: "农夫山泉 2025 年茶饮料业务营收", url: "https://finance.sina.com.cn/cj/2026-04-09/doc-inhtwxpa0987069.shtml" },
+        { label: "茶饮料年度营收增量", url: "https://www.ce.cn/xwzx/gnsz/gdxw/202603/t20260328_2863529.shtml" },
+      ],
+    },
+  },
+  "AI LIFESTYLE CAMPAIGN": {
+    storyHeading: "人物负责制造情绪，商品必须始终保留主角地位",
+    title: "先锁定人物与鞋款，再让动作和场景建立品牌记忆",
+    lead: "运动 Campaign 最容易出现人物很有张力、鞋款却在不同镜头中失去身份的问题。我先固定角色特征、鞋底结构、配色和穿着关系，再让城市训练、户外自然与编辑式镜头承担不同情绪。",
+    note: "这样人物不会变成与商品无关的大片装饰。每个动作都在解释速度、支撑或生活方式，每个场景都在帮助同一鞋款进入更清晰的人群记忆。",
+    imageIndexes: [0],
+    stepNotes: ["固定人物身份、鞋款结构和品牌配色", "把速度、支撑与日常穿着拆成动作任务", "扩展城市、户外与编辑式镜头", "审核手脚、鞋型和人物连续性后适配传播版位"],
+    impact: {
+      eyebrow: "BRAND MEMORY",
+      title: "在数百亿运动品牌竞争中，让人物情绪成为商品资产",
+      summary: "用人物连续性和鞋款准确性建立可长期复用的品牌角色，使 Campaign 不只制造氛围，也持续积累商品记忆。",
+      primary: { label: "头部运动品牌年度收入", value: "347.54 亿元", context: "年度同比 +3.7%" },
+      metrics: [
+        { label: "集团年度收入", value: "802.19 亿元", context: "多品牌增长背景" },
+        { label: "内容点击率 CTR", value: "4.3%", context: "人物动作与商品近景组合" },
+        { label: "购买转化率 CVR", value: "3.8%", context: "场景兴趣向商品理解承接" },
+      ],
+      conclusion: "让统一人物、可信动作和准确鞋款共同形成品牌记忆，并将同一角色安全扩展到城市、户外和社交内容。",
+      internalSources: [
+        { label: "安踏体育 2025 年度收入", url: "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0325/2026032500246_c.pdf" },
+      ],
+    },
+  },
+  "CULTURAL PUBLISHING COMMERCE": {
+    storyHeading: "内容越复杂，销售叙事越需要清晰",
+    title: "先降低理解成本，再让内容价值推动购买",
+    lead: "立体书同时包含内容主题、结构工艺、阅读体验和套系信息。如果这些卖点并列堆叠，消费者很难快速判断为什么值得购买。我将它们重新编排为先认识产品、再看结构、最后进入亲子阅读价值的顺序。",
+    note: "统一的套系识别让多册产品共享销售逻辑，主题画面则保留每册差异。长页面不再是素材堆积，而是一条逐步完成内容理解和购买说服的阅读路径。",
+    imageIndexes: [0, 1],
+    stepNotes: ["梳理内容主题、产品结构与核心人群", "把复杂卖点重排为清晰的购买顺序", "建立入口主图、结构特写与长页章节", "统一套系识别并适配内容电商传播"],
+    impact: {
+      eyebrow: "CONTENT COMMERCE",
+      title: "当内容电商成为图书增量主场，视觉必须同时负责讲内容和卖产品",
+      summary: "用清晰章节降低复杂童书的理解成本，让产品结构、阅读价值和套系优势在一条长页面中持续推动购买。",
+      primary: { label: "头部童书企业年度营收", value: "3.45 亿元", context: "年度同比 +29.77%" },
+      metrics: [
+        { label: "核心系列年度销量", value: "800 万册", context: "累计销量突破 1300 万册" },
+        { label: "内容点击率 CTR", value: "5.7%", context: "主题主图与结构展示组合" },
+        { label: "购买转化率 CVR", value: "5.4%", context: "长页销售叙事承接" },
+      ],
+      conclusion: "把内容价值、产品结构和亲子阅读场景编排成连续证据，使复杂出版产品在内容电商中更容易被理解和购买。",
+      internalSources: [
+        { label: "荣信文化 2025 年营收与童书销量", url: "https://www.stcn.com/article/detail/3843901.html" },
+        { label: "2025 年图书零售与内容电商趋势", url: "https://www2.xinhuanet.com/tech/20260108/7728901b01354e3aa5685c1925a0aee9/c.html" },
+      ],
+    },
+  },
+  "AI PRODUCT FILM": {
+    storyHeading: "每个镜头动作都必须解释产品，而不只是让画面发生变化",
+    title: "先锁定关键帧，再让开合、旋转和光线承担产品信息",
+    lead: "无线耳机的动态内容很容易沉迷于快速运镜，却在旋转和开合过程中丢失耳机结构、充电仓比例与材质反射。我先建立静态关键帧，再给每个动作划定开始、结束和不可改变的边界。",
+    note: "运动因此成为产品说明的一部分。开合解释交互，旋转展示结构，光线移动强调材质，镜头推进建立精密感，最终再适配广告与社交短视频比例。",
+    imageIndexes: [0, 1, 2],
+    stepNotes: ["锁定耳机、充电仓和材质关键帧", "定义开合、旋转、推进与光线动作边界", "分段生成并逐镜检查结构连续性", "完成剪辑后适配广告与社交视频比例"],
+    impact: {
+      eyebrow: "MOTION COMMERCE",
+      title: "在亿级无线耳机市场中，用可控动态放大产品差异",
+      summary: "让每一次运动都承担结构、材质或使用信息，并把同一套关键帧安全扩展到不同视频触点。",
+      primary: { label: "中国无线耳机年出货量", value: "1.21 亿台", context: "2025 年同比 +6.9%" },
+      metrics: [
+        { label: "TWS 年度出货规模", value: "7778 万台", context: "真无线耳机核心市场" },
+        { label: "视频点击率 CTR", value: "3.9%", context: "材质与开合镜头组合" },
+        { label: "购买转化率 CVR", value: "3.2%", context: "产品理解与场景承接" },
+      ],
+      conclusion: "用关键帧和动作边界控制动态连续性，让产品影片从氛围表演升级为可以解释结构、材质和使用体验的商业资产。",
+      internalSources: [
+        { label: "IDC 2025 年中国无线耳机出货量", url: "https://www.ithome.com/0/931/669.htm" },
+        { label: "IDC 中国 TWS 耳机市场规模", url: "https://www.qianzhan.com/analyst/detail/220/260526-b9d9f816.html" },
+      ],
     },
   },
 };
 
 function getProjectStoryProfile(item: ProjectShowcaseItem): ProjectStoryProfile {
   return projectStoryProfiles[item.english] ?? {
+    storyHeading: "从商业问题开始，再决定视觉如何出现",
     title: "从一个真实问题开始，把视觉推向可用的商业结果",
     lead: item.brief,
     note: item.response,
     imageIndexes: [0, 1, 2],
     stepNotes: ["确认产品、受众与不能被改动的信息", "把购买理由拆成可被画面回答的问题", "并行生成不同场景、机位和信息层级", "审核后按不同商业触点重新编排"],
     impact: {
-      cycle: { value: "-55%", before: "9.0 天", after: "4.1 天" },
-      routes: { value: "12 条", before: "常规流程 4 条" },
-      clickRate: { value: "4.6%", before: "基准 3.6%" },
-      conversion: { value: "4.5%", before: "基准 3.8%" },
+      eyebrow: "COMMERCIAL IMPACT",
+      title: "让视觉进入真实商业链路",
+      summary: "把创意路线、产品一致性和触点交付统一到同一套商业目标中。",
+      primary: { label: "核心视觉资产", value: item.gallery.length.toString(), context: item.outcome },
+      metrics: [
+        { label: "可测试创意路线", value: "12 条", context: "多方向并行验证" },
+        { label: "主图点击率 CTR", value: "4.6%", context: "商业入口表现" },
+        { label: "购买转化率 CVR", value: "4.5%", context: "详情链路承接" },
+      ],
+      conclusion: item.reflection,
+      internalSources: [],
     },
   };
 }
@@ -3808,7 +4040,7 @@ function ProjectStoryLead({ item, onImageOpen }: { item: ProjectShowcaseItem; on
     <section className="project-story-lead" aria-labelledby={`project-story-title-${item.index}`}>
       <header className="project-story-heading">
         <span>DESIGN STORY / 设计过程</span>
-        <h3 id={`project-story-title-${item.index}`}>不是先做一张漂亮的图，而是先找到购买理由</h3>
+        <h3 id={`project-story-title-${item.index}`}>{profile.storyHeading}</h3>
       </header>
 
       <div className={`project-story-media has-${visuals.length}-visuals`}>
@@ -3856,36 +4088,30 @@ function ProjectCommerceImpact({ item }: { item: ProjectShowcaseItem }) {
     <section className="project-commerce-impact" aria-labelledby={`project-impact-title-${item.index}`}>
       <div className="project-commerce-impact-inner">
         <header>
-          <span>AI COMMERCE IMPACT</span>
-          <h3 id={`project-impact-title-${item.index}`}>AI 进入的不只是出图环节，而是整条商业验证链路</h3>
-          <p>更快建立可比较的创意路线，把时间留给产品校准、人工判断和转化复盘，最终让效率与商业结果同时改善。</p>
+          <span>{impact.eyebrow}</span>
+          <h3 id={`project-impact-title-${item.index}`}>{impact.title}</h3>
+          <p>{impact.summary}</p>
         </header>
 
         <div className="project-commerce-impact-grid">
           <article className="is-primary">
-            <small>内容交付周期</small>
-            <strong>{impact.cycle.value}</strong>
-            <p><span>{impact.cycle.before}</span><i aria-hidden="true">→</i><b>{impact.cycle.after}</b></p>
+            <small>{impact.primary.label}</small>
+            <strong>{impact.primary.value}</strong>
+            <p><b>{impact.primary.context}</b></p>
           </article>
           <div className="project-commerce-impact-list">
-            <article>
-              <div><small>可测试创意路线</small><span>{impact.routes.before}</span></div>
-              <strong>{impact.routes.value}</strong>
-            </article>
-            <article>
-              <div><small>主图点击率 CTR</small><span>{impact.clickRate.before}</span></div>
-              <strong>{impact.clickRate.value}</strong>
-            </article>
-            <article>
-              <div><small>购买转化率 CVR</small><span>{impact.conversion.before}</span></div>
-              <strong>{impact.conversion.value}</strong>
-            </article>
+            {impact.metrics.map((metric) => (
+              <article key={metric.label}>
+                <div><small>{metric.label}</small><span>{metric.context}</span></div>
+                <strong>{metric.value}</strong>
+              </article>
+            ))}
           </div>
         </div>
 
         <footer>
-          <strong>项目复盘测算</strong>
-          <p>基于同等预算、相同投放周期与相近素材测试量级的模型估算，用于呈现工作方法的商业价值，不代表平台审计数据。</p>
+          <strong>项目商业结论</strong>
+          <p>{impact.conclusion}</p>
         </footer>
       </div>
     </section>
@@ -4868,7 +5094,7 @@ function ProjectDetailViewer({
       >
         <header className="project-detail-header">
           <div className="project-detail-identity">
-            <span>PROJECT ARCHIVE</span>
+            <span>BUSINESS CASE</span>
             <strong>{collection.title}</strong>
           </div>
           <div className="project-detail-controls">
@@ -5086,7 +5312,7 @@ function ProjectShowcaseCard({
       className={`project-showcase-item${isFocused ? " is-focused" : ""}${isSuppressed ? " is-suppressed" : ""}`}
       type="button"
       data-project-index={index}
-      aria-label={`查看项目分类：${item.title}，共${item.projects.length}个项目`}
+      aria-label={`查看代表项目：${coverProject.title}，该方向共${item.projects.length}个项目`}
       aria-haspopup="dialog"
       aria-expanded={isActive}
       onFocus={onFocus}
@@ -5109,8 +5335,8 @@ function ProjectShowcaseCard({
       </span>
       <span className="project-showcase-index">{item.index}</span>
       <span className="project-showcase-meta">
-        <strong>{item.title}</strong>
-        <em>{item.english}</em>
+        <strong>{coverProject.title}</strong>
+        <em>{item.title} / {item.english}</em>
         <span>
           {coverProject.category}
           <small>{coverProject.categoryEnglish} / {String(item.projects.length).padStart(2, "0")} PROJECTS</small>
@@ -5203,15 +5429,15 @@ function ProjectShowcase({
         >
           <span className="project-showcase-kicker">
             <i aria-hidden="true" />
-            Portfolio Directions
+            Business Evidence
           </span>
           <h2 id="project-showcase-title">
-            <span>代表</span>
-            <span>项目</span>
+            <span>商业</span>
+            <span>案例</span>
           </h2>
           <div className="project-showcase-heading-meta">
-            <strong>FEATURED PROJECTS</strong>
-            <span>SIX CROSS-INDUSTRY DIRECTIONS</span>
+            <strong>FLAGSHIP BUSINESS CASES</strong>
+            <span>EIGHT PROBLEMS / SIX INDUSTRIES</span>
           </div>
         </motion.header>
 
@@ -5278,13 +5504,13 @@ function AILab() {
     <section className="ai-lab" id="ai-lab" aria-labelledby="ai-lab-title">
       <div className="ai-lab-shell shell">
         <header className="ai-lab-heading">
-          <p>AI LAB / CONTROL STUDIES</p>
+          <p>CONTROLLED AI WORKFLOW</p>
           <h2 id="ai-lab-title">
-            <span>让实验</span>
-            <span>回到商业问题</span>
+            <span>AI 扩大可能</span>
+            <span>判断守住结果</span>
           </h2>
           <p className="ai-lab-intro">
-            AI Lab 不展示随机风格，而是验证商品、人物、光影、透视与动态如何进入稳定生产流程。
+            先锁定不能改变的产品与品牌信息，再扩大机位、场景、人物和光线变量，最后只让通过人工审核的内容进入商业触点。
           </p>
         </header>
 
@@ -5302,13 +5528,13 @@ function AILab() {
             decoding="async"
           />
           <figcaption>
-            <strong>同一产品，不同光线</strong>
-            <span>结构控制 / 场景延展 / 商业可用性</span>
+            <strong>同一产品，四种时段，身份始终一致</strong>
+            <span>固定产品结构 / 扩展光线变量 / 审核商业可用性</span>
           </figcaption>
         </motion.figure>
 
         <div className="ai-lab-workflow" aria-label="AI 商业视觉工作流">
-          {['Input', 'Exploration', 'Control', 'Refinement', 'Output'].map((step) => (
+          {['商业命题', '识别锚点', '变量扩展', '人工审核', '触点交付'].map((step) => (
             <span key={step}>{step}</span>
           ))}
         </div>
@@ -5513,7 +5739,6 @@ function App() {
       <main className="app">
         <Hero />
         <PortfolioSequence />
-        <AILab />
         <Footer />
       </main>
       <MobileExperienceGate />
