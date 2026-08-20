@@ -5399,6 +5399,109 @@ function Footer() {
   );
 }
 
+const mobileExperienceGateSessionKey = "xj-portfolio-mobile-gate-dismissed";
+
+function MobileExperienceGate() {
+  const isNarrowViewport = useViewportMatch("(max-width: 820px)");
+  const usesTouchPointer = useViewportMatch("(hover: none) and (pointer: coarse)");
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const [dismissed, setDismissed] = useState(() => {
+    try {
+      return window.sessionStorage.getItem(mobileExperienceGateSessionKey) === "true";
+    } catch {
+      return false;
+    }
+  });
+  const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "failed">("idle");
+  const visible = isNarrowViewport && usesTouchPointer && !dismissed;
+
+  useDocumentScrollLock(visible);
+
+  useEffect(() => {
+    if (!visible) return;
+    dialogRef.current?.querySelector<HTMLButtonElement>("button")?.focus({ preventScroll: true });
+  }, [visible]);
+
+  const continueOnMobile = () => {
+    try {
+      window.sessionStorage.setItem(mobileExperienceGateSessionKey, "true");
+    } catch {
+      // The current in-memory choice still dismisses the prompt when storage is unavailable.
+    }
+    setDismissed(true);
+  };
+
+  const copyCurrentLink = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      setCopyStatus("copied");
+    } catch {
+      setCopyStatus("failed");
+    }
+  };
+
+  const keepFocusInsideDialog = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key !== "Tab") return;
+    const buttons = dialogRef.current?.querySelectorAll<HTMLButtonElement>("button:not(:disabled)");
+    if (!buttons?.length) return;
+    const first = buttons[0];
+    const last = buttons[buttons.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  };
+
+  if (!visible) return null;
+
+  return createPortal(
+    <div
+      ref={dialogRef}
+      className="mobile-experience-gate"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="mobile-experience-gate-title"
+      aria-describedby="mobile-experience-gate-description"
+      onKeyDown={keepFocusInsideDialog}
+    >
+      <img className="mobile-experience-gate-media" src="/assets/hero-poster.png" alt="" aria-hidden="true" />
+      <span className="mobile-experience-gate-shade" aria-hidden="true" />
+
+      <header className="mobile-experience-gate-brand">
+        <span>XJ</span>
+        <div>
+          <strong>谢敬淳作品集</strong>
+          <small>AI COMMERCE / ART DIRECTION</small>
+        </div>
+      </header>
+
+      <section className="mobile-experience-gate-copy">
+        <span>DESKTOP EXPERIENCE</span>
+        <h1 id="mobile-experience-gate-title">建议使用桌面端查看</h1>
+        <p id="mobile-experience-gate-description">
+          本作品集包含大尺寸视觉、滚动叙事与交互细节。使用电脑浏览器可以获得更完整的观看体验。
+        </p>
+      </section>
+
+      <footer className="mobile-experience-gate-actions">
+        <button className="mobile-experience-gate-copy-link" type="button" onClick={copyCurrentLink}>
+          {copyStatus === "copied" ? "链接已复制" : "复制链接，稍后在电脑打开"}
+        </button>
+        <button className="mobile-experience-gate-continue" type="button" onClick={continueOnMobile}>
+          仍然使用移动端浏览
+        </button>
+        <p aria-live="polite">
+          {copyStatus === "failed" ? "复制失败，请手动复制浏览器地址。" : "继续浏览后，本次访问不再重复提示。"}
+        </p>
+      </footer>
+    </div>,
+    document.body,
+  );
+}
+
 function App() {
   const [loading, setLoading] = useState(() => !window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   useProjectOriginalPreloading(!loading);
@@ -5413,6 +5516,7 @@ function App() {
         <AILab />
         <Footer />
       </main>
+      <MobileExperienceGate />
     </>
   );
 }
