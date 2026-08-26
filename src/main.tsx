@@ -135,13 +135,13 @@ const projectShowcaseItems = [
   },
   {
     index: "01",
-    title: "从冰感概念到可成交内容：GLACIER 洁面商业系统",
+    title: "GLACIER 洁面商业系统",
     english: "GLACIER CLEANSER COMMERCE SYSTEM",
     category: "功效洁面 / 电商内容系统",
     categoryEnglish: "SKINCARE E-COMMERCE SYSTEM",
     year: "2026",
-    image: "/assets/projects/glacier-cleanser/glacier-commerce-after-wash.webp",
-    alt: "GLACIER 洁面啫喱洗后水润不紧绷使用场景商业主视觉",
+    image: "/assets/projects/glacier-cleanser/glacier-bathroom-wide.webp",
+    alt: "晨光浴室中的 GLACIER 洁面啫喱产品主视觉",
     backdrop: "GLACIER",
     accent: "#82b9d5",
     introTheme: {
@@ -154,7 +154,7 @@ const projectShowcaseItems = [
       rule: "#7195ad",
       shadow: "rgba(29, 65, 88, 0.2)",
     },
-    summary: "把混合偏油敏感肌的晨洁、晚卸与洗后肤感拆成购买路径，精选十张不重复视觉，形成可直接用于商品主图、PDP 和详情页的概念电商全套。",
+    summary: "围绕混合偏油敏感肌的晨洁与晚卸需求，把十张独立视觉编排成商品首图、PDP 与详情页可直接调用的内容链路。",
     brief: "原项目有完整的冰蓝包装与氛围资产，但缺少目标人群、真实使用时刻和购买说服顺序。相似的冰川与展台画面过多，消费者看见了风格，却不容易理解产品为什么适合自己。",
     response: "以混合偏油敏感肌为核心人群，将产品设定为透明水感氨基酸洁面啫喱。内容按定位主图、控油、泵取、质地、卸除防晒淡妆、毛孔清洁、洗后肤感、三步使用、晨晚路径与功效验证依次建立。",
     role: "AI Art Direction / 电商视觉策略",
@@ -165,7 +165,7 @@ const projectShowcaseItems = [
     outcome: "从五十余张候选素材中精选十张商业成片，覆盖四段购买路径、三个核心使用场景和一套概念验证收口，案例内不重复使用同一图片。",
     reflection: "商业完整度不来自图片数量，而来自每张图在购买路径中的责任。删除同义画面后，定位、使用、功效和信任之间的关系更清楚。",
     gallery: [
-      { src: "/assets/projects/glacier-cleanser/glacier-sunrise-wide.webp", alt: "重定位前以冰川氛围为主的横向概念视觉", layout: "wide" },
+      { src: "/assets/projects/glacier-cleanser/glacier-night-wide.webp", alt: "重定位前以冰川氛围为主的横向概念视觉", layout: "wide" },
       { src: "/assets/projects/glacier-cleanser/glacier-views.webp", alt: "GLACIER 洁面产品正面、侧面与顶面校准图", layout: "wide" },
       { src: "/assets/projects/glacier-cleanser/glacier-commerce-pump.webp", alt: "一泵刚刚好按压取用商业图", layout: "square" },
       { src: "/assets/projects/glacier-cleanser/glacier-commerce-positioning.webp", alt: "一泵深净不紧绷核心定位商业图", layout: "square" },
@@ -4143,13 +4143,14 @@ function getProjectStoryProfile(item: ProjectShowcaseItem): ProjectStoryProfile 
 
 function ProjectStoryLead({ item, onImageOpen }: { item: ProjectShowcaseItem; onImageOpen: (image: ProjectImageSource) => void }) {
   const profile = getProjectStoryProfile(item);
+  const isGlacierStory = item.english === "GLACIER CLEANSER COMMERCE SYSTEM";
   const visuals = profile.imageIndexes
     .map((index) => item.gallery[index])
     .filter((visual): visual is ProjectShowcaseItem["gallery"][number] => Boolean(visual));
   const workflowIndexes = [1, 2, Math.min(4, item.workflow.length - 2), item.workflow.length - 1];
 
   return (
-    <section className="project-story-lead" aria-labelledby={`project-story-title-${item.index}`}>
+    <section className={`project-story-lead${isGlacierStory ? " is-glacier-story" : ""}`} aria-labelledby={`project-story-title-${item.index}`}>
       <header className="project-story-heading">
         <span>DESIGN STORY / 设计过程</span>
         <h3 id={`project-story-title-${item.index}`}>{profile.storyHeading}</h3>
@@ -4157,7 +4158,7 @@ function ProjectStoryLead({ item, onImageOpen }: { item: ProjectShowcaseItem; on
 
       <div className={`project-story-media has-${visuals.length}-visuals`}>
         {visuals.map((visual, index) => (
-          <figure className={index === 0 ? "is-primary" : ""} key={visual.src}>
+          <figure className={`${index === 0 ? "is-primary " : ""}is-${visual.layout}`} key={visual.src}>
             <ZoomableProjectImage
               src={visual.src}
               alt={visual.alt}
@@ -4746,7 +4747,7 @@ function GlacierCleanserCaseStudy({ onImageOpen }: { onImageOpen: (image: Projec
         </header>
         <div className="glacier-use-case-ledger">
           {glacierCleanserCaseStudy.useCases.map((useCase, index) => (
-            <article className={index === 0 ? "is-primary" : ""} key={useCase.title}>
+            <article className={`is-use-case-${index + 1}${index === 0 ? " is-primary" : ""}`} key={useCase.title}>
               <figure>
                 <ZoomableProjectImage src={useCase.image} alt={useCase.alt} onOpen={onImageOpen} loading="lazy" />
               </figure>
@@ -5282,6 +5283,13 @@ function ProjectDetailViewer({
   const titleId = `project-detail-title-${item.index}`;
   const summaryId = `project-detail-summary-${item.index}`;
   const total = projectShowcaseCollections.length;
+  const isGlacierProject = item.english === "GLACIER CLEANSER COMMERCE SYSTEM";
+  const detailHeroImage = isGlacierProject
+    ? "/assets/projects/glacier-cleanser/glacier-sunrise-wide.webp"
+    : item.image;
+  const detailHeroAlt = isGlacierProject
+    ? "晨光冰原中的 GLACIER 洁面啫喱产品主视觉"
+    : item.alt;
 
   useEffect(() => {
     viewerRef.current?.focus({ preventScroll: true });
@@ -5433,10 +5441,10 @@ function ProjectDetailViewer({
             exit={reduceMotion ? undefined : { opacity: 0, x: -20 }}
             transition={{ duration: reduceMotion || keyboardNavigation ? 0 : 0.26, ease: [0.23, 1, 0.32, 1] }}
           >
-            <figure className="project-detail-visual">
+            <figure className={`project-detail-visual${isGlacierProject ? " is-glacier-detail-visual" : ""}`}>
               <ZoomableProjectImage
-                src={item.image}
-                alt={item.alt}
+                src={detailHeroImage}
+                alt={detailHeroAlt}
                 onOpen={openImage}
                 loading="eager"
               />
@@ -5584,6 +5592,7 @@ function ProjectShowcaseCard({
 }) {
   const reduceMotion = useReducedMotion();
   const coverProject = item.projects[0];
+  const isGlacierCover = coverProject.english === "GLACIER CLEANSER COMMERCE SYSTEM";
   const start = 0.1 + index * 0.045;
   const settle = 0.68 + index * 0.055;
   const opacity = useTransform(entryProgress, [start, start + 0.16, settle], [0, 0.7, 1]);
@@ -5594,7 +5603,7 @@ function ProjectShowcaseCard({
 
   return (
     <motion.button
-      className={`project-showcase-item${isFocused ? " is-focused" : ""}${isSuppressed ? " is-suppressed" : ""}`}
+      className={`project-showcase-item${isGlacierCover ? " is-glacier-cover" : ""}${isFocused ? " is-focused" : ""}${isSuppressed ? " is-suppressed" : ""}`}
       type="button"
       data-project-index={index}
       aria-label={`查看代表项目：${coverProject.title}，该方向共${item.projects.length}个项目`}
