@@ -180,50 +180,39 @@ const projectShowcaseItems = [
   },
   {
     index: "02",
-    title: "让高端感建立在可信质地上：LUMINOSE 精华 Campaign",
+    title: "从漂亮静物到购买链路：LUMINOSE 精华液商业系统",
     english: "LUMINOSE SERUM COMMERCE SYSTEM",
-    category: "功效护肤 / 新品企划",
-    categoryEnglish: "SKINCARE CAMPAIGN",
+    category: "功效护肤 / 概念新品",
+    categoryEnglish: "SKINCARE COMMERCE",
     year: "2026",
-    image: "/assets/projects/serum/serum-morning-hero.webp",
-    alt: "琥珀色 LUMINOSE 精华液与暖金晨光构成的新品商业主视觉",
+    image: "/assets/projects/serum/serum-commerce-positioning.webp",
+    alt: "一滴轻润透亮有光的 LUMINOSE 精华液核心定位商业图",
     backdrop: "LUMINOSE",
-    accent: "#c59663",
+    accent: "#d08a4c",
     introTheme: {
-      surface: "#ead9be",
-      surfaceDeep: "#cdb38f",
-      title: "#3e291d",
-      body: "#61462f",
-      muted: "#58402c",
-      accent: "#653e1e",
-      rule: "#a9825f",
-      shadow: "rgba(65, 39, 20, 0.24)",
+      surface: "#dedbd4",
+      surfaceDeep: "#bcb6aa",
+      title: "#2d241d",
+      body: "#4d4137",
+      muted: "#5b4d42",
+      accent: "#7a421e",
+      rule: "#9a7658",
+      shadow: "rgba(56, 39, 27, 0.22)",
     },
-    summary: "用稳定的琥珀玻璃、滴管动作与晨夜光线建立高端价值感，让精华液从漂亮静物变成可以持续解释质地、使用与品牌体验的新品内容。",
-    brief: "项目需要在高端护肤气质与商品可信度之间取得平衡，让琥珀玻璃、滴管结构、标签信息和液体质感在不同光线与场景中保持连续。",
-    response: "先以三视图锁定瓶身、滴管与标签，再用质地特写、晨夜护理和自然光场景建立使用感知，最后将十条独立创意路线编排为可覆盖主图、PDP 与社交传播的内容资产。",
-    role: "AI Art Direction / 美妆视觉",
-    scope: "功效护肤新品全链路内容系统",
-    deliverables: ["产品三视图", "质地与滴管特写", "晨夜场景", "自然光场景", "Campaign KV", "电商创意套图"],
-    workflow: ["资料归档", "产品校准", "视觉定位", "场景分镜", "系列生成", "质量复核", "触点编排"],
-    system: "以琥珀玻璃瓶、圆润瓶肩、香槟米色滴管、标签位置与品牌文字作为固定识别锚点，通过机位、光线时段、材质道具、操作动作和标题骨架建立可控变化。",
-    outcome: "二十七张视觉资产覆盖产品校准、质地动作、晨夜场景与十套方形商业主图，让新品价值从第一眼延续到使用想象。",
-    reflection: "高端感来自连续可信的材质与使用体验，而不是在每张画面里重复金色、丝缎和装饰。",
+    summary: "将产品定位为都市缺水暗沉肌的晨晚轻润亮采精华，从四十余张候选图中精选不同职责的画面，补齐人群、成分、质地、上脸、晨晚路径与配方收口。",
+    brief: "原项目已经拥有稳定的琥珀包装与高端氛围，但大量暖金静物反复表达同一种奢华感。消费者能看见风格，却难以快速理解产品适合谁、怎样使用以及为什么值得购买。",
+    response: "保留三视图作为产品真实性底稿，以一滴轻润为核心定位，按目标人群、补水亮采逻辑、质地吸收、真实上脸、晨晚护理和配方用法依次建立购买说服。",
+    role: "AI Art Direction / 电商视觉策略",
+    scope: "概念精华产品定位与电商全链路",
+    deliverables: ["产品校准", "核心定位主图", "目标人群图", "成分利益图", "质地与上脸", "晨晚护理", "配方用法收口"],
+    workflow: ["资产审计", "产品重定位", "购买路径", "独立分镜", "系列生成", "文字与产品复核", "渠道编排"],
+    system: "固定琥珀玻璃瓶、圆润瓶肩、香槟米色滴管盖与标签层级；允许人物、滴管、液滴、晨夜光线和信息结构随购买问题变化。每张入选图只回答一个问题。",
+    outcome: "从四十余张候选素材中精选七张新增商业成片与一张产品校准图，覆盖四段购买路径、三类使用证据，案例内不重复使用同一图片。",
+    reflection: "商业完整度不是把所有暖金图排成画廊，而是让定位、理解、体验与信任各自拥有一张不可替代的画面。",
     gallery: [
-      { src: "/assets/projects/serum/serum-views.webp", alt: "LUMINOSE 精华液正面与侧面产品校准图", layout: "wide" },
-      { src: "/assets/projects/serum/serum-bathroom.webp", alt: "精华液晨间浴室自然光场景", layout: "wide" },
-      { src: "/assets/projects/serum/serum-dropper-scene.webp", alt: "精华液滴管提起与液滴质地场景", layout: "wide" },
-      { src: "/assets/projects/serum/serum-night-scene.webp", alt: "精华液夜间修护冷暖光场景", layout: "wide" },
-      { src: "/assets/projects/serum/serum-morning-hero.webp", alt: "精华液晨光奢润商业主视觉", layout: "square" },
-      { src: "/assets/projects/serum/serum-dropper-kv.webp", alt: "精华液一滴焕亮商业主视觉", layout: "square" },
-      { src: "/assets/projects/serum/serum-top-view.webp", alt: "精华液奢养时刻顶视商业主视觉", layout: "square" },
-      { src: "/assets/projects/serum/serum-morning-hand.webp", alt: "精华液晨护高光生活方式主视觉", layout: "square" },
-      { src: "/assets/projects/serum/serum-vanity-kv.webp", alt: "精华液台面主角商业主视觉", layout: "square" },
-      { src: "/assets/projects/serum/serum-amber-detail.webp", alt: "精华液琥珀流光材质主视觉", layout: "square" },
-      { src: "/assets/projects/serum/serum-floating-kv.webp", alt: "精华液奢润引力动态主视觉", layout: "square" },
-      { src: "/assets/projects/serum/serum-radiance.webp", alt: "精华液光采已现结果主视觉", layout: "square" },
-      { src: "/assets/projects/serum/serum-mirror-kv.webp", alt: "精华液镜映奢光框景主视觉", layout: "square" },
-      { src: "/assets/projects/serum/serum-golden-kv.webp", alt: "精华液金曜焕采概念主视觉", layout: "square" },
+      { src: "/assets/projects/serum/serum-morning-hero.webp", alt: "重定位前以暖金奢华气氛为主的方形商业视觉", layout: "square" },
+      { src: "/assets/projects/serum/serum-dropper-wide.webp", alt: "LUMINOSE 精华液滴管动作横向场景", layout: "wide" },
+      { src: "/assets/projects/serum/serum-night-scene.webp", alt: "LUMINOSE 精华液夜间冷暖光护理场景", layout: "wide" },
     ],
   },
   {
@@ -729,104 +718,105 @@ const glacierCleanserCaseStudy = {
 
 const serumCaseStudy = {
   context: [
-    { label: "产品角色", value: "LUMINOSE 琥珀玻璃滴管精华液" },
-    { label: "目标人群", value: "重视护肤仪式、质地感知与高端品牌体验的都市消费者" },
-    { label: "核心任务", value: "同时建立包装识别、质地想象、使用理解与新品吸引力" },
-    { label: "内容范围", value: "三视图、滴管与液滴、晨夜护理、自然光实验及方形商业主图" },
+    { label: "项目性质", value: "自主命题概念产品，不代表已经上市或完成法规审核" },
+    { label: "目标人群", value: "面向容易显得缺水、粗糙与暗沉的都市肌肤" },
+    { label: "产品定位", value: "洁面后晨晚使用的轻润亮采精华" },
+    { label: "购买路径", value: "定位入口、产品理解、使用说服与配方信任" },
   ],
   strategy: [
-    { title: "锁定产品", detail: "以瓶身比例、滴管结构、标签位置和琥珀玻璃质感建立统一产品底稿。" },
-    { title: "呈现质地", detail: "通过滴管、液滴、玻璃折射与水感光影传递轻润、通透的感官印象。" },
-    { title: "进入日常", detail: "以晨间梳妆、浴室自然光和夜间护理建立清晰的使用时段与仪式感。" },
-    { title: "形成系列", detail: "让十套方形主图在构图与标题骨架上独立表达，同时维持同一品牌气质。" },
+    { title: "先被看见", detail: "用一滴轻润、透亮有光建立缩略图中的核心定位，而不是继续泛化奢华。" },
+    { title: "再被理解", detail: "用目标人群与玻尿酸、维C概念配方逻辑回答适合谁、为什么需要。" },
+    { title: "产生体验", detail: "通过滴管液滴、轻润质地和真实上脸动作解释如何使用与吸收。" },
+    { title: "完成信任", detail: "以晨晚路径、概念成分矩阵和用法信息完成详情页收口。" },
   ],
   fixedAnchors: ["琥珀棕透明玻璃瓶", "圆润瓶肩与瓶身比例", "香槟米色滴管盖", "品牌与产品名标签位置", "瓶底容量与细节文字"],
-  variables: ["正面、顶视、微距与框景机位", "晨光、自然光、柔金光与夜间冷暖光", "滴管动作、水感、石材、丝缎与镜面", "浴室、梳妆台、自然庭院与摄影棚", "环绕、竖排、错位与遮挡式标题骨架"],
-  scenes: [
+  variables: ["方形、竖向与横向渠道比例", "定位、人群、成分、质地与用法信息", "滴管、液滴、面部动作与晨夜光线", "标题大小、穿插、遮挡与光学折射关系"],
+  journey: [
     {
-      title: "晨间产品主场",
-      purpose: "用明亮浴室、天然石材与柔和窗光建立纯净的品牌第一印象。",
-      touchpoint: "HERO / 品牌首屏",
-      image: "/assets/projects/serum/serum-bathroom.webp",
-      alt: "LUMINOSE 精华液晨间浴室自然光场景",
+      step: "01 / CLICK",
+      title: "一句话建立产品定位",
+      detail: "一滴轻润、透亮有光同时连接剂型感知与亮采利益，承担电商缩略图和详情首屏入口。",
+      touchpoint: "商品主图 / PDP 首屏",
+      image: "/assets/projects/serum/serum-commerce-positioning.webp",
+      alt: "一滴轻润透亮有光的 LUMINOSE 精华液核心定位商业图",
+      layout: "square",
     },
     {
-      title: "滴管质地瞬间",
-      purpose: "以提起滴管和将落未落的液滴，让产品形态转化为可理解的使用动作。",
-      touchpoint: "PDP / 质地说明",
-      image: "/assets/projects/serum/serum-dropper-scene.webp",
-      alt: "LUMINOSE 精华液滴管与液滴质地场景",
+      step: "02 / IDENTIFY",
+      title: "把人群问题放进真实肤感",
+      detail: "人物不再只是装饰，画面明确承接都市倦容与日常光采需求，同时保留自然皮肤纹理。",
+      touchpoint: "人群需求 / 搜索承接",
+      image: "/assets/projects/serum/serum-commerce-audience.webp",
+      alt: "倦容退场光采上线的都市女性目标人群商业图",
+      layout: "portrait",
     },
     {
-      title: "水感光学表达",
-      purpose: "通过克制水面、玻璃与自然折射建立清透感知，不用夸张功能符号。",
-      touchpoint: "DETAIL / 感官沟通",
-      image: "/assets/projects/serum/serum-water-scene.webp",
-      alt: "LUMINOSE 精华液水感石台商业场景",
+      step: "03 / UNDERSTAND",
+      title: "把成分翻译成购买利益",
+      detail: "以玻尿酸补水支持与维C亮采逻辑组织信息，不虚构浓度、检测结果或治疗性承诺。",
+      touchpoint: "成分利益 / PDP 说服",
+      image: "/assets/projects/serum/serum-commerce-hydration.webp",
+      alt: "玻尿酸与维C补水亮采概念成分商业图",
+      layout: "portrait",
     },
     {
-      title: "夜间护理闭环",
-      purpose: "用深蓝环境与香槟暖光补全晨夜节奏，强化安静而高级的护理仪式。",
-      touchpoint: "CAMPAIGN / 场景延展",
-      image: "/assets/projects/serum/serum-night-scene.webp",
-      alt: "LUMINOSE 精华液夜间修护冷暖光场景",
+      step: "04 / FEEL",
+      title: "让一滴质地成为可信证据",
+      detail: "滴管、圆润液滴与薄透精华膜共同解释轻润和延展，避免用金粉、厚重精油或夸张拉丝替代质地。",
+      touchpoint: "质地说明 / 商品详情",
+      image: "/assets/projects/serum/serum-commerce-texture.webp",
+      alt: "滴滴沁润光采绽放的轻润精华质地商业图",
+      layout: "square",
     },
-  ],
-  commercialOutputs: [
-    { src: "/assets/projects/serum/serum-morning-hero.webp", alt: "精华液 · 晨光奢润商业主视觉", layout: "square" },
-    { src: "/assets/projects/serum/serum-dropper-kv.webp", alt: "精华液 · 一滴焕亮商业主视觉", layout: "square" },
-    { src: "/assets/projects/serum/serum-top-view.webp", alt: "精华液 · 奢养时刻顶视商业主视觉", layout: "square" },
-    { src: "/assets/projects/serum/serum-morning-hand.webp", alt: "精华液 · 晨护高光生活方式主视觉", layout: "square" },
-    { src: "/assets/projects/serum/serum-vanity-kv.webp", alt: "精华液 · 台面主角商业主视觉", layout: "square" },
-    { src: "/assets/projects/serum/serum-amber-detail.webp", alt: "精华液 · 琥珀流光材质主视觉", layout: "square" },
-    { src: "/assets/projects/serum/serum-floating-kv.webp", alt: "精华液 · 奢润引力动态主视觉", layout: "square" },
-    { src: "/assets/projects/serum/serum-radiance.webp", alt: "精华液 · 光采已现结果主视觉", layout: "square" },
-    { src: "/assets/projects/serum/serum-mirror-kv.webp", alt: "精华液 · 镜映奢光框景主视觉", layout: "square" },
-    { src: "/assets/projects/serum/serum-golden-kv.webp", alt: "精华液 · 金曜焕采概念主视觉", layout: "square" },
-  ],
-  campaignScenes: [
-    { src: "/assets/projects/serum/serum-clinical-scene.webp", alt: "精华液明亮功效护肤场景", layout: "wide" },
-    { src: "/assets/projects/serum/serum-botanical-wide.webp", alt: "精华液自然植物庭院横向场景", layout: "wide" },
-    { src: "/assets/projects/serum/serum-garden-wide.webp", alt: "精华液花园晨光横向场景", layout: "wide" },
-    { src: "/assets/projects/serum/serum-morning-wide.webp", alt: "精华液清晨窗光横向场景", layout: "wide" },
-    { src: "/assets/projects/serum/serum-halo-wide.webp", alt: "精华液柔光圆环横向场景", layout: "wide" },
-    { src: "/assets/projects/serum/serum-dropper-wide.webp", alt: "精华液滴管动作横向场景", layout: "wide" },
-    { src: "/assets/projects/serum/serum-botanical-portrait-01.webp", alt: "精华液自然环境竖向研究一", layout: "portrait" },
-    { src: "/assets/projects/serum/serum-botanical-portrait-02.webp", alt: "精华液自然环境竖向研究二", layout: "portrait" },
-    { src: "/assets/projects/serum/serum-botanical-portrait-03.webp", alt: "精华液自然环境竖向研究三", layout: "portrait" },
-    { src: "/assets/projects/serum/serum-botanical-portrait-04.webp", alt: "精华液自然环境竖向研究四", layout: "portrait" },
-    { src: "/assets/projects/serum/serum-botanical-portrait-05.webp", alt: "精华液自然环境竖向研究五", layout: "portrait" },
-    { src: "/assets/projects/serum/serum-botanical-portrait-06.webp", alt: "精华液自然环境竖向研究六", layout: "portrait" },
-  ],
-  workflow: [
-    { name: "资料归档", input: "产品三视图与场景方向", output: "结构、材质、标签与禁改项清单" },
-    { name: "产品校准", input: "正面与侧面视图", output: "统一瓶身比例、滴管结构和品牌位置" },
-    { name: "视觉定位", input: "护肤品类与品牌气质", output: "琥珀、奶油米与香槟金的光色系统" },
-    { name: "场景分镜", input: "触点任务与使用时段", output: "晨间、质地、水感、夜间与自然光路径" },
-    { name: "系列生成", input: "产品基准与独立创意路线", output: "场景画面与十套方形商业主图" },
-    { name: "质量复核", input: "候选画面", output: "结构、标签、滴管、光影与文案审核" },
-    { name: "触点编排", input: "通过审核的视觉资产", output: "主图、PDP、详情页与社交传播顺序" },
+    {
+      step: "05 / APPLY",
+      title: "用真实动作完成上脸想象",
+      detail: "滴管落点、指腹按压与面部关系形成连续动作，说明产品不是静物，而是洁面后的真实护理步骤。",
+      touchpoint: "使用手法 / 详情中段",
+      image: "/assets/projects/serum/serum-commerce-application.webp",
+      alt: "女性滴取并轻柔按压 LUMINOSE 精华液的使用商业图",
+      layout: "portrait",
+    },
+    {
+      step: "06 / ROUTINE",
+      title: "晨晚一瓶接入日常路径",
+      detail: "用同一画面区分晨间水润光采与夜间柔润护理，补齐使用频次和时段，而非重复一张夜景静物。",
+      touchpoint: "晨晚路径 / 复购沟通",
+      image: "/assets/projects/serum/serum-commerce-day-night.webp",
+      alt: "晨晚一瓶光采在线的 LUMINOSE 精华液护理路径图",
+      layout: "portrait",
+    },
+    {
+      step: "07 / TRUST",
+      title: "配方与用法在一张图中收口",
+      detail: "概念成分矩阵、晨晚使用、3至4滴、面部颈部与后续保湿被集中整理，作为提案中的信息闭环。",
+      touchpoint: "配方说明 / 信任收口",
+      image: "/assets/projects/serum/serum-commerce-formula.webp",
+      alt: "LUMINOSE 精华液概念成分矩阵与晨晚用法信息图",
+      layout: "square",
+    },
   ],
   touchpoints: [
-    { title: "新品入口", items: ["品牌首页", "商品主图", "活动首屏"] },
-    { title: "产品理解", items: ["PDP 首屏", "包装识别", "滴管与质地"] },
-    { title: "感官说服", items: ["水感光学", "晨夜护理", "自然光场景"] },
-    { title: "传播延展", items: ["Campaign KV", "社交套图", "内容封面"] },
+    { title: "定位入口", items: ["商品缩略图", "品牌首屏", "搜索承接"] },
+    { title: "产品理解", items: ["目标人群", "成分逻辑", "质地说明"] },
+    { title: "使用说服", items: ["滴管取用", "面部按压", "晨晚路径"] },
+    { title: "信任收口", items: ["概念配方", "3至4滴", "面部与颈部"] },
   ],
   qualityChecks: [
     { title: "包装一致", detail: "瓶身比例、瓶肩、滴管、标签位置与容量细节保持同一产品身份。" },
-    { title: "文字准确", detail: "品牌名、产品名和画外标题清晰，避免乱码、镜像与无依据功效。" },
+    { title: "文字准确", detail: "品牌名、产品名和中文标题逐字检查，避免乱码、镜像、错字和无依据功效。" },
     { title: "操作可信", detail: "滴管、液滴和手部关系符合真实使用逻辑，动作不遮挡核心标签。" },
-    { title: "材质真实", detail: "琥珀玻璃、液体、石材与丝缎保持各自的厚度、反射与触感。" },
-    { title: "光影融合", detail: "瓶身受光、接触阴影与环境光一致，标签可读且玻璃不过曝。" },
-    { title: "系列差异", detail: "各路线在机位、场景、标题与光线时段上形成独立表达。" },
+    { title: "利益分工", detail: "定位、人群、成分、质地、上脸、晨晚和配方分别回答不同购买问题。" },
+    { title: "证据分级", detail: "概念配方和感官设定明确标注项目性质，不伪装成真实检测或认证。" },
+    { title: "系列去重", detail: "同角度、同背景和同义卖点只保留完成度最高的一张，页面不重复用图。" },
   ],
   results: [
-    { value: "27", label: "视觉资产", note: "完整收录" },
-    { value: "10", label: "商业主图", note: "独立路线" },
-    { value: "12", label: "场景研究", note: "横竖延展" },
-    { value: "4", label: "内容触点", note: "组合扩展" },
+    { value: "7", label: "新增商业成片", note: "每张承担独立任务" },
+    { value: "4", label: "购买路径节点", note: "入口到信任收口" },
+    { value: "3", label: "使用证据类型", note: "质地、上脸、晨晚" },
+    { value: "0", label: "项目内重复图片", note: "同义变体已剔除" },
   ],
+  disclosure: "本项目为自主命题概念产品。画面中的成分利益与使用感属于概念设定，不代表真实上市功效、配方浓度、检测结果或认证；实际商业发布必须替换为最终配方与合规资料。",
 } as const;
 
 const qinglanTeaCaseStudy = {
@@ -3997,27 +3987,25 @@ const projectStoryProfiles: Record<string, ProjectStoryProfile> = {
     },
   },
   "LUMINOSE SERUM COMMERCE SYSTEM": {
-    storyHeading: "高端价值由每一个可信细节共同建立",
-    title: "高端感不是铺满金色，而是让每一次折射都可信",
-    lead: "精华液最初的方向很容易变成漂亮但空泛的金色静物。我先用正侧视图把瓶肩、滴管、标签和琥珀玻璃锁定，再去处理一滴液体如何停在滴管上、晨光如何穿过瓶身、夜间画面如何仍然读得清品牌。",
-    note: "当产品细节不再漂移，晨间浴室、质地特写、水感和夜间护理才自然连成一天的使用节奏。画面的高级感来自连续可信，而不是装饰数量。",
-    imageIndexes: [1, 2, 3],
-    stepNotes: ["校准瓶身比例、滴管结构、标签与玻璃材质", "确定晨间、质地、水感和夜间四条感官路径", "在不同光线和机位中生成独立而连续的画面", "审核包装、文字、液滴和手部后进入新品触点"],
+    storyHeading: "先识别漂亮静物解决不了的购买问题",
+    title: "当金色氛围开始重复，项目需要重新回到产品定位",
+    lead: "第一轮已经稳定了琥珀瓶、滴管与暖金光线，但梳妆台、丝缎、花园和镜面反复承担同一个高端氛围。它们证明了风格，却没有继续回答适合谁、成分如何理解、质地怎样使用和晨晚如何接入日常。",
+    note: "重定位后，一张旧暖金图保留为策略转折证据，滴管与夜间场景说明已有资产基础。新增画面则分别承担核心定位、人群、成分、质地、上脸、晨晚与配方用法，页面不再展示同义变体。",
+    imageIndexes: [0, 1, 2],
+    stepNotes: ["清点四十余张候选图，标记暖金静物与同义卖点", "用三视图重新确认瓶体、滴管、标签与概念成分", "围绕定位、人群、质地、上脸和晨晚建立独立分镜", "只将通过文字、产品与重复度审核的画面编入购买路径"],
     impact: {
-      eyebrow: "PREMIUM VALUE",
-      title: "在高增长精华赛道里，让质地可信成为价值感来源",
-      summary: "通过瓶体、滴管、液滴和晨夜体验的连续控制，把高端感从装饰语言转化为消费者可以理解的使用价值。",
-      primary: { label: "头部精华线上销售额", value: "13.99 亿元", context: "年度同比 +39.2%" },
+      eyebrow: "COMMERCE READINESS",
+      title: "把七张新增画面编成可以直接调用的精华液电商路径",
+      summary: "项目不再用资产数量证明完整度，而是用购买问题检查每张图是否拥有不可替代的沟通责任。",
+      primary: { label: "精选新增商业成片", value: "7 张", context: "定位、理解、使用与信任各自承担独立任务" },
       metrics: [
-        { label: "头部单品月销量", value: "近 10 万瓶", context: "成交均价约 340 元" },
-        { label: "主图点击率 CTR", value: "5.2%", context: "琥珀质地与滴管动作路线" },
-        { label: "购买转化率 CVR", value: "5.1%", context: "晨夜使用体验连续承接" },
+        { label: "购买路径", value: "4 段", context: "定位入口、产品理解、使用说服、信任收口" },
+        { label: "使用证据", value: "3 类", context: "质地液滴、真实上脸、晨晚护理" },
+        { label: "重复图片", value: "0 张", context: "同角度、同背景和同义标题变体不进入案例" },
       ],
-      conclusion: "将高端视觉从金色静物升级为产品、质地和仪式感的完整内容链路，使新品价值在不同触点保持同一语气。",
-      internalSources: [
-        { label: "面部精华 2024 年电商销售数据", url: "https://zbaogao.com/api/reports/3617?asset=pdf&disposition=attachment" },
-        { label: "珀莱雅双抗精华月销量与成交均价", url: "https://www.hzpb.com.cn/ldcms/zixun/8518.html" },
-      ],
+      conclusion: "通过删除同义暖金画面并补齐关键使用节点，LUMINOSE 从高端氛围练习升级为可以按商品首图、PDP 与详情页顺序直接调用的商业内容系统。",
+      internalSources: [],
+      disclosure: "本项目为自主命题概念产品。成分利益、使用感与视觉结果属于概念设定，不代表真实上市功效、检测数据或认证。",
     },
   },
   "QINGLAN TEA COMMERCE SYSTEM": {
@@ -4144,13 +4132,14 @@ function getProjectStoryProfile(item: ProjectShowcaseItem): ProjectStoryProfile 
 function ProjectStoryLead({ item, onImageOpen }: { item: ProjectShowcaseItem; onImageOpen: (image: ProjectImageSource) => void }) {
   const profile = getProjectStoryProfile(item);
   const isGlacierStory = item.english === "GLACIER CLEANSER COMMERCE SYSTEM";
+  const isSerumStory = item.english === "LUMINOSE SERUM COMMERCE SYSTEM";
   const visuals = profile.imageIndexes
     .map((index) => item.gallery[index])
     .filter((visual): visual is ProjectShowcaseItem["gallery"][number] => Boolean(visual));
   const workflowIndexes = [1, 2, Math.min(4, item.workflow.length - 2), item.workflow.length - 1];
 
   return (
-    <section className={`project-story-lead${isGlacierStory ? " is-glacier-story" : ""}`} aria-labelledby={`project-story-title-${item.index}`}>
+    <section className={`project-story-lead${isGlacierStory ? " is-glacier-story" : ""}${isSerumStory ? " is-serum-story" : ""}`} aria-labelledby={`project-story-title-${item.index}`}>
       <header className="project-story-heading">
         <span>DESIGN STORY / 设计过程</span>
         <h3 id={`project-story-title-${item.index}`}>{profile.storyHeading}</h3>
@@ -4823,12 +4812,18 @@ function GlacierCleanserCaseStudy({ onImageOpen }: { onImageOpen: (image: Projec
 }
 
 function SerumCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageSource) => void }) {
+  const positioning = serumCaseStudy.journey[0];
+  const persuasion = serumCaseStudy.journey.slice(1, 3);
+  const usage = serumCaseStudy.journey.slice(3, 6);
+  const formula = serumCaseStudy.journey[6];
+
   return (
     <div className="smart-case serum-case">
       <section className="smart-case-context" aria-labelledby="serum-case-context-title">
         <header className="smart-case-heading">
-          <h3 id="serum-case-context-title">先建立可信的产品身份</h3>
-          <p>项目先确认包装、滴管与标签，再让质地、晨夜场景和高端美妆语言围绕同一瓶产品展开。</p>
+          <span>POSITIONING RESET</span>
+          <h3 id="serum-case-context-title">先说清产品是谁，再讨论画面是否高级</h3>
+          <p>项目从氛围导向转为购买问题导向。所有入选画面围绕都市缺水暗沉肌、晨晚精华步骤和轻润亮采体验展开。</p>
         </header>
         <dl>
           {serumCaseStudy.context.map((item) => (
@@ -4840,32 +4835,28 @@ function SerumCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageSour
         </dl>
       </section>
 
-      <section className="smart-case-strategy" aria-labelledby="serum-case-strategy-title">
+      <section className="serum-strategy" aria-labelledby="serum-case-strategy-title">
         <header className="smart-case-heading">
           <span>COMMERCIAL STRATEGY</span>
-          <h3 id="serum-case-strategy-title">把新品沟通拆成四条路径</h3>
-          <p>从产品识别、质地感知和使用时段推进到系列传播，让每一类素材承担明确的购买沟通任务。</p>
+          <h3 id="serum-case-strategy-title">四段购买路径决定图片是否保留</h3>
+          <p>同一角度、同一暖金背景或同义卖点只保留完成度最高的一张；新的图片必须填补路径空缺。</p>
         </header>
-        <div className="smart-case-tree">
-          <div className="smart-case-tree-root">
-            <small>BUSINESS GOAL</small>
-            <strong>建立可识别、可感知、可持续扩展的高端精华液商业视觉</strong>
-          </div>
-          <div className="smart-case-tree-branches">
-            {serumCaseStudy.strategy.map((branch) => (
-              <article key={branch.title}>
-                <strong>{branch.title}</strong>
-                <p>{branch.detail}</p>
-              </article>
-            ))}
-          </div>
+        <div className="serum-strategy-track">
+          {serumCaseStudy.strategy.map((branch, index) => (
+            <article key={branch.title}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <strong>{branch.title}</strong>
+              <p>{branch.detail}</p>
+            </article>
+          ))}
         </div>
       </section>
 
       <section className="smart-case-control" aria-labelledby="serum-case-control-title">
         <header className="smart-case-heading">
-          <h3 id="serum-case-control-title">三视图先锁定包装结构</h3>
-          <p>正面与侧面共同校准琥珀瓶身、滴管比例和标签位置，再把场景、光线与版式作为可控变量展开。</p>
+          <span>PRODUCT CALIBRATION</span>
+          <h3 id="serum-case-control-title">三视图是所有商业画面的产品底稿</h3>
+          <p>固定瓶身、滴管和标签之后，变化只发生在购买任务、机位、动作、光线与标题结构中。</p>
         </header>
         <div className="smart-case-control-board">
           <figure>
@@ -4890,123 +4881,76 @@ function SerumCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageSour
         </div>
       </section>
 
-      <section className="smart-case-workflow" aria-labelledby="serum-case-workflow-title">
-        <header className="smart-case-heading">
-          <span>PRODUCTION PIPELINE</span>
-          <h3 id="serum-case-workflow-title">从产品底稿到新品传播</h3>
-          <p>流程依次解决包装一致性、视觉定位、场景分镜与商业编排，避免让单张风格探索取代完整内容系统。</p>
-        </header>
-        <ol>
-          {serumCaseStudy.workflow.map((step) => (
-            <li key={step.name}>
-              <strong>{step.name}</strong>
-              <dl>
-                <div><dt>输入</dt><dd>{step.input}</dd></div>
-                <div><dt>输出</dt><dd>{step.output}</dd></div>
-              </dl>
-            </li>
-          ))}
-        </ol>
+      <section className="serum-positioning-stage" aria-labelledby="serum-positioning-title">
+        <figure>
+          <ZoomableProjectImage src={positioning.image} alt={positioning.alt} onOpen={onImageOpen} loading="lazy" />
+        </figure>
+        <div>
+          <span>{positioning.step}</span>
+          <small>{positioning.touchpoint}</small>
+          <h3 id="serum-positioning-title">{positioning.title}</h3>
+          <p>{positioning.detail}</p>
+          <blockquote>“一滴轻润”负责解释质地，“透亮有光”负责建立结果想象，产品与标题共同成为第一视觉中心。</blockquote>
+        </div>
       </section>
 
-      <section className="smart-case-scenes" aria-labelledby="serum-case-scenes-title">
+      <section className="serum-persuasion" aria-labelledby="serum-persuasion-title">
         <header className="smart-case-heading">
-          <h3 id="serum-case-scenes-title">场景沿使用感知逐步展开</h3>
-          <p>从晨间品牌首屏进入滴管与质地，再延伸到水感表达和夜间护理，形成连续而不重复的新品叙事。</p>
+          <span>WHO &amp; WHY</span>
+          <h3 id="serum-persuasion-title">从目标人群推进到成分利益</h3>
+          <p>两张竖图并不重复产品站姿：一张负责需求代入，一张负责把概念成分翻译成可理解的购买理由。</p>
         </header>
-        <div className="smart-case-scene-grid">
-          {serumCaseStudy.scenes.map((scene) => (
-            <article key={scene.title}>
+        <div className="serum-persuasion-grid">
+          {persuasion.map((visual) => (
+            <article key={visual.image}>
               <figure>
-                <ZoomableProjectImage
-                  src={scene.image}
-                  alt={scene.alt}
-                  onOpen={onImageOpen}
-                  loading="lazy"
-                />
+                <ZoomableProjectImage src={visual.image} alt={visual.alt} onOpen={onImageOpen} loading="lazy" />
               </figure>
-              <div>
-                <span>{scene.touchpoint}</span>
-                <h4>{scene.title}</h4>
-                <p>{scene.purpose}</p>
-              </div>
+              <div><span>{visual.step}</span><small>{visual.touchpoint}</small><h4>{visual.title}</h4><p>{visual.detail}</p></div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="smart-case-lighting" aria-labelledby="serum-case-lighting-title">
-        <div className="smart-case-lighting-copy">
-          <h3 id="serum-case-lighting-title">高端感来自材质与光线秩序</h3>
-          <p>琥珀玻璃承担品牌记忆，柔金晨光建立温度，滴管和镜面细节补充使用想象，标题始终服从产品轮廓。</p>
-          <ul>
-            <li><strong>产品</strong><span>包装完整，标签清晰，体量占据第一焦点</span></li>
-            <li><strong>材质</strong><span>玻璃、液滴、石材与丝缎彼此可辨</span></li>
-            <li><strong>光线</strong><span>晨光、柔金与冷暖夜景形成时段差异</span></li>
-            <li><strong>版式</strong><span>标题与瓶身建立遮挡、环绕和留白关系</span></li>
-          </ul>
-        </div>
-        <div className="smart-case-lighting-media">
-          <ZoomableProjectImage
-            src="/assets/projects/serum/serum-morning-hero.webp"
-            alt="LUMINOSE 精华液晨光奢润商业主视觉"
-            onOpen={onImageOpen}
-            loading="lazy"
-          />
-          <ZoomableProjectImage
-            src="/assets/projects/serum/serum-amber-detail.webp"
-            alt="LUMINOSE 精华液琥珀流光材质主视觉"
-            onOpen={onImageOpen}
-            loading="lazy"
-          />
-        </div>
-      </section>
-
-      <section className="project-detail-gallery air-fryer-output" aria-labelledby="serum-output-title">
-        <div className="project-detail-section-heading">
-          <span>SELECTED OUTPUTS</span>
-          <h3 id="serum-output-title">十套方形商业创意路线</h3>
-        </div>
-        <div className="project-detail-gallery-grid">
-          {serumCaseStudy.commercialOutputs.map((visual) => (
-            <figure className={`is-${visual.layout}`} key={visual.src}>
-              <ZoomableProjectImage
-                src={visual.src}
-                alt={visual.alt}
-                onOpen={onImageOpen}
-                loading="lazy"
-              />
-            </figure>
+      <section className="serum-usage" aria-labelledby="serum-usage-title">
+        <header className="smart-case-heading">
+          <span>TEXTURE TO ROUTINE</span>
+          <h3 id="serum-usage-title">质地、上脸与晨晚路径构成使用证据</h3>
+          <p>画面从产品特写进入人物动作，再回到一天的护理顺序。三个节点互相承接，不用换背景重复“水润有光”。</p>
+        </header>
+        <div className="serum-usage-grid">
+          {usage.map((visual) => (
+            <article className={`is-${visual.layout}`} key={visual.image}>
+              <figure>
+                <ZoomableProjectImage src={visual.image} alt={visual.alt} onOpen={onImageOpen} loading="lazy" />
+              </figure>
+              <div><span>{visual.step}</span><small>{visual.touchpoint}</small><h4>{visual.title}</h4><p>{visual.detail}</p></div>
+            </article>
           ))}
         </div>
       </section>
 
-      <section className="project-detail-gallery serum-scene-output" aria-labelledby="serum-scenes-output-title">
-        <div className="project-detail-section-heading">
-          <span>SCENE EXTENSIONS</span>
-          <h3 id="serum-scenes-output-title">自然光与横竖场景延展</h3>
+      <section className="serum-formula-stage" aria-labelledby="serum-formula-title">
+        <div>
+          <span>{formula.step}</span>
+          <small>{formula.touchpoint}</small>
+          <h3 id="serum-formula-title">{formula.title}</h3>
+          <p>{formula.detail}</p>
+          <p className="serum-disclosure">{serumCaseStudy.disclosure}</p>
         </div>
-        <div className="project-detail-gallery-grid">
-          {serumCaseStudy.campaignScenes.map((visual) => (
-            <figure className={`is-${visual.layout}`} key={visual.src}>
-              <ZoomableProjectImage
-                src={visual.src}
-                alt={visual.alt}
-                onOpen={onImageOpen}
-                loading="lazy"
-              />
-            </figure>
-          ))}
-        </div>
+        <figure>
+          <ZoomableProjectImage src={formula.image} alt={formula.alt} onOpen={onImageOpen} loading="lazy" />
+        </figure>
       </section>
 
       <section className="smart-case-touchpoints" aria-labelledby="serum-case-touchpoints-title">
         <header className="smart-case-heading">
-          <h3 id="serum-case-touchpoints-title">素材按新品购买路径重新组合</h3>
-          <p>同一套视觉资产根据触点改变顺序和信息密度，从新品入口、包装理解和感官说服延伸到持续传播。</p>
+          <span>CHANNEL ASSEMBLY</span>
+          <h3 id="serum-case-touchpoints-title">精选图可以直接按渠道顺序调用</h3>
+          <p>不是把所有素材一次铺满，而是根据商品首图、PDP 和详情页的阅读深度，调用对应的信息责任。</p>
         </header>
         <div className="smart-case-touchpoint-tree">
-          <div className="smart-case-touchpoint-root">已审核精华液核心视觉资产</div>
+          <div className="smart-case-touchpoint-root">七张已审核商业成片</div>
           <div className="smart-case-touchpoint-branches">
             {serumCaseStudy.touchpoints.map((branch) => (
               <article key={branch.title}>
@@ -5020,8 +4964,9 @@ function SerumCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageSour
 
       <section className="smart-case-quality" aria-labelledby="serum-case-quality-title">
         <header className="smart-case-heading">
+          <span>FINAL REVIEW</span>
           <h3 id="serum-case-quality-title">商业可用性的六项检查</h3>
-          <p>候选画面同时检查包装、文字、操作、材质、光影与系列差异，避免风格完成但产品失真。</p>
+          <p>产品真实、文字准确与信息分工同时通过，图片才进入最终提案；好看但重复的变体继续留在素材库。</p>
         </header>
         <div className="smart-case-quality-grid">
           {serumCaseStudy.qualityChecks.map((check) => (
@@ -5038,9 +4983,9 @@ function SerumCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageSour
         <header>
           <div>
             <span>PROJECT DELIVERY</span>
-            <h3 id="serum-case-results-title">最终形成完整的新品内容资产</h3>
+            <h3 id="serum-case-results-title">数量收缩，商业项目反而更完整</h3>
           </div>
-          <p>二十七张画面覆盖产品校准、质地动作、晨夜场景、自然光实验与方形主图，并保留继续扩展的触点结构。</p>
+          <p>七张新增商业成片与一张产品校准图覆盖定位、人群、成分、体验与信任。未入选的暖金静物、花园和同义标题变体不再进入详情页。</p>
         </header>
         <div className="smart-case-result-grid">
           {serumCaseStudy.results.map((result) => (
@@ -5052,7 +4997,7 @@ function SerumCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageSour
           ))}
         </div>
         <p className="smart-case-conclusion">
-          最终交付不只是十张高端美妆主图，而是一套从包装校准、感官叙事到新品触点编排的精华液商业视觉方法。
+          最终交付不是更多琥珀色精华图片，而是一套从产品定位、购买说服、使用场景到概念配方说明都能直接进入电商渠道的内容系统。
         </p>
       </section>
     </div>
@@ -5284,11 +5229,16 @@ function ProjectDetailViewer({
   const summaryId = `project-detail-summary-${item.index}`;
   const total = projectShowcaseCollections.length;
   const isGlacierProject = item.english === "GLACIER CLEANSER COMMERCE SYSTEM";
+  const isSerumProject = item.english === "LUMINOSE SERUM COMMERCE SYSTEM";
   const detailHeroImage = isGlacierProject
     ? "/assets/projects/glacier-cleanser/glacier-sunrise-wide.webp"
+    : isSerumProject
+      ? "/assets/projects/serum/serum-bathroom.webp"
     : item.image;
   const detailHeroAlt = isGlacierProject
     ? "晨光冰原中的 GLACIER 洁面啫喱产品主视觉"
+    : isSerumProject
+      ? "自然晨光浴室中的 LUMINOSE 琥珀玻璃精华液产品场景"
     : item.alt;
 
   useEffect(() => {
@@ -5441,7 +5391,7 @@ function ProjectDetailViewer({
             exit={reduceMotion ? undefined : { opacity: 0, x: -20 }}
             transition={{ duration: reduceMotion || keyboardNavigation ? 0 : 0.26, ease: [0.23, 1, 0.32, 1] }}
           >
-            <figure className={`project-detail-visual${isGlacierProject ? " is-glacier-detail-visual" : ""}`}>
+            <figure className={`project-detail-visual${isGlacierProject ? " is-glacier-detail-visual" : ""}${isSerumProject ? " is-serum-detail-visual" : ""}`}>
               <ZoomableProjectImage
                 src={detailHeroImage}
                 alt={detailHeroAlt}

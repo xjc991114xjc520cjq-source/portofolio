@@ -9806,3 +9806,410 @@ video {
     padding: 16px 1px 3px;
   }
 }
+
+/* LUMINOSE: curated commerce proposal, not an exhaustive amber-image gallery. */
+.project-detail-visual.is-serum-detail-visual img {
+  object-position: center 48%;
+  filter: saturate(0.72) brightness(0.8) contrast(1.02);
+  transform: scale(1.002);
+}
+
+.project-detail-visual.is-serum-detail-visual .project-detail-visual-shade {
+  background:
+    linear-gradient(90deg, rgba(7, 8, 8, 0.02) 0%, rgba(7, 8, 8, 0.05) 46%, rgba(7, 8, 8, 0.5) 80%, rgba(7, 8, 8, 0.72) 100%),
+    linear-gradient(180deg, rgba(7, 8, 8, 0.16) 0%, transparent 34%, rgba(7, 8, 8, 0.42) 100%);
+}
+
+.project-detail-visual.is-serum-detail-visual > strong {
+  display: none;
+}
+
+.project-detail-visual.is-serum-detail-visual + .project-detail-copy .project-detail-title h2 {
+  max-width: 11.5em;
+  font-size: clamp(41px, 3vw, 50px);
+}
+
+.project-story-lead.is-serum-story .project-story-media {
+  min-height: 0;
+  align-items: start;
+  gap: 14px;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: auto;
+}
+
+.project-story-lead.is-serum-story .project-story-media figure.is-primary {
+  aspect-ratio: 1 / 1;
+  grid-column: span 7;
+  grid-row: 1 / 3;
+}
+
+.project-story-lead.is-serum-story .project-story-media figure:nth-child(2),
+.project-story-lead.is-serum-story .project-story-media figure:nth-child(3) {
+  aspect-ratio: 16 / 9;
+  grid-column: span 5;
+}
+
+.project-detail-copy > .serum-case .smart-case-context {
+  display: grid;
+}
+
+.serum-case {
+  --serum-rule: rgba(229, 218, 205, 0.14);
+  --serum-copy: rgba(241, 237, 231, 0.56);
+}
+
+.serum-case figure {
+  margin: 0;
+}
+
+.serum-case .project-image-trigger {
+  width: 100%;
+  height: 100%;
+}
+
+.serum-strategy {
+  display: grid;
+  gap: 34px;
+}
+
+.serum-strategy-track {
+  display: grid;
+  border-top: 1px solid var(--serum-rule);
+  border-bottom: 1px solid var(--serum-rule);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.serum-strategy-track article {
+  position: relative;
+  display: grid;
+  align-content: start;
+  min-width: 0;
+  gap: 11px;
+  padding: 26px 25px 30px 0;
+}
+
+.serum-strategy-track article + article {
+  padding-left: 25px;
+  border-left: 1px solid var(--serum-rule);
+}
+
+.serum-strategy-track span,
+.serum-positioning-stage > div > span,
+.serum-persuasion article > div > span,
+.serum-usage article > div > span,
+.serum-formula-stage > div > span {
+  color: var(--project-detail-accent);
+  font-size: 8px;
+  font-weight: 780;
+  letter-spacing: 0.15em;
+}
+
+.serum-strategy-track strong {
+  color: rgba(245, 242, 237, 0.9);
+  font-size: 15px;
+  font-weight: 670;
+}
+
+.serum-strategy-track p,
+.serum-positioning-stage p,
+.serum-persuasion article p,
+.serum-usage article p,
+.serum-formula-stage p {
+  margin: 0;
+  color: var(--serum-copy);
+  font-size: 11px;
+  line-height: 1.82;
+}
+
+.serum-positioning-stage {
+  display: grid;
+  align-items: stretch;
+  border-top: 1px solid var(--serum-rule);
+  border-bottom: 1px solid var(--serum-rule);
+  grid-template-columns: minmax(0, 1.35fr) minmax(310px, 0.65fr);
+}
+
+.serum-positioning-stage > figure {
+  min-width: 0;
+  padding: 20px 22px 20px 0;
+  border-right: 1px solid var(--serum-rule);
+}
+
+.serum-positioning-stage > figure img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.serum-positioning-stage > div,
+.serum-formula-stage > div {
+  display: grid;
+  align-content: center;
+  gap: 13px;
+  padding: clamp(34px, 4vw, 62px);
+}
+
+.serum-positioning-stage small,
+.serum-persuasion article small,
+.serum-usage article small,
+.serum-formula-stage small {
+  color: rgba(241, 237, 231, 0.4);
+  font-size: 8px;
+  font-weight: 680;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.serum-positioning-stage h3,
+.serum-formula-stage h3 {
+  max-width: 9em;
+  margin: 8px 0 0;
+  color: rgba(247, 243, 237, 0.94);
+  font-size: clamp(29px, 3vw, 46px);
+  font-weight: 670;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+}
+
+.serum-positioning-stage blockquote {
+  margin: 20px 0 0;
+  padding: 18px 0 0;
+  border-top: 1px solid var(--serum-rule);
+  color: rgba(241, 237, 231, 0.74);
+  font-size: 12px;
+  line-height: 1.85;
+}
+
+.serum-persuasion,
+.serum-usage {
+  display: grid;
+  gap: 38px;
+}
+
+.serum-persuasion-grid {
+  display: grid;
+  align-items: start;
+  gap: clamp(16px, 2vw, 28px);
+  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+}
+
+.serum-persuasion article,
+.serum-usage article {
+  display: grid;
+  align-content: start;
+  min-width: 0;
+}
+
+.serum-persuasion article:nth-child(1) {
+  padding-top: clamp(52px, 7vw, 110px);
+}
+
+.serum-persuasion article figure,
+.serum-usage article figure,
+.serum-formula-stage figure {
+  overflow: hidden;
+  border: 1px solid var(--serum-rule);
+  background: #17120f;
+}
+
+.serum-persuasion article figure {
+  aspect-ratio: 3 / 4;
+}
+
+.serum-persuasion article img,
+.serum-usage article img,
+.serum-formula-stage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.88) brightness(0.94);
+  transition: transform 650ms var(--ease-out), filter 420ms ease;
+}
+
+.serum-persuasion article:hover img,
+.serum-usage article:hover img,
+.serum-formula-stage:hover img {
+  filter: saturate(0.98) brightness(0.99);
+  transform: scale(1.012);
+}
+
+.serum-persuasion article > div,
+.serum-usage article > div {
+  display: grid;
+  gap: 9px;
+  padding: 18px 2px 0;
+}
+
+.serum-persuasion h4,
+.serum-usage h4 {
+  margin: 5px 0 0;
+  color: rgba(247, 243, 237, 0.92);
+  font-size: clamp(18px, 1.55vw, 24px);
+  font-weight: 660;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.serum-usage-grid {
+  display: grid;
+  align-items: start;
+  gap: clamp(26px, 4vw, 64px) clamp(16px, 2vw, 28px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.serum-usage article.is-square figure {
+  aspect-ratio: 1;
+}
+
+.serum-usage article.is-portrait figure {
+  aspect-ratio: 3 / 4;
+}
+
+.serum-usage article:nth-child(2) {
+  padding-top: clamp(62px, 7vw, 120px);
+}
+
+.serum-usage article:nth-child(3) {
+  display: grid;
+  align-items: center;
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(320px, 0.82fr) minmax(0, 1.18fr);
+}
+
+.serum-usage article:nth-child(3) > div {
+  padding: clamp(30px, 5vw, 76px);
+}
+
+.serum-formula-stage {
+  display: grid;
+  align-items: stretch;
+  border-top: 1px solid var(--serum-rule);
+  border-bottom: 1px solid var(--serum-rule);
+  grid-template-columns: minmax(310px, 0.66fr) minmax(0, 1.34fr);
+}
+
+.serum-formula-stage > div {
+  padding-left: 0;
+  border-right: 1px solid var(--serum-rule);
+}
+
+.serum-formula-stage > figure {
+  margin: 20px 0 20px 22px;
+  aspect-ratio: 1;
+}
+
+.serum-disclosure {
+  margin-top: 18px !important;
+  padding-top: 18px;
+  border-top: 1px solid var(--serum-rule);
+  color: rgba(241, 237, 231, 0.38) !important;
+  font-size: 9px !important;
+  line-height: 1.75 !important;
+}
+
+@media (max-width: 980px) {
+  .serum-strategy-track {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .serum-strategy-track article:nth-child(3) {
+    padding-left: 0;
+    border-top: 1px solid var(--serum-rule);
+    border-left: 0;
+  }
+
+  .serum-strategy-track article:nth-child(4) {
+    border-top: 1px solid var(--serum-rule);
+  }
+
+  .serum-positioning-stage,
+  .serum-formula-stage {
+    grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .project-detail-visual.is-serum-detail-visual img {
+    object-position: 48% center;
+  }
+
+  .project-detail-visual.is-serum-detail-visual + .project-detail-copy .project-detail-title h2 {
+    font-size: clamp(34px, 9.6vw, 42px);
+  }
+
+  .project-story-lead.is-serum-story .project-story-media {
+    grid-template-columns: 1fr;
+  }
+
+  .project-story-lead.is-serum-story .project-story-media figure.is-primary,
+  .project-story-lead.is-serum-story .project-story-media figure:nth-child(2),
+  .project-story-lead.is-serum-story .project-story-media figure:nth-child(3) {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .project-story-lead.is-serum-story .project-story-media figure.is-primary {
+    aspect-ratio: 1;
+  }
+
+  .serum-strategy-track,
+  .serum-positioning-stage,
+  .serum-persuasion-grid,
+  .serum-usage-grid,
+  .serum-usage article:nth-child(3),
+  .serum-formula-stage {
+    grid-template-columns: 1fr;
+  }
+
+  .serum-strategy-track article,
+  .serum-strategy-track article + article,
+  .serum-strategy-track article:nth-child(3) {
+    padding: 20px 0 22px;
+    border-top: 1px solid var(--serum-rule);
+    border-left: 0;
+  }
+
+  .serum-strategy-track article:first-child {
+    border-top: 0;
+  }
+
+  .serum-positioning-stage > figure {
+    padding: 14px 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--serum-rule);
+  }
+
+  .serum-positioning-stage > div,
+  .serum-formula-stage > div {
+    padding: 30px 0 34px;
+  }
+
+  .serum-positioning-stage h3,
+  .serum-formula-stage h3 {
+    font-size: clamp(28px, 9vw, 38px);
+  }
+
+  .serum-persuasion article:nth-child(1),
+  .serum-usage article:nth-child(2) {
+    padding-top: 0;
+  }
+
+  .serum-usage article:nth-child(3) {
+    display: grid;
+  }
+
+  .serum-usage article:nth-child(3) > div {
+    padding: 18px 2px 0;
+  }
+
+  .serum-formula-stage > div {
+    border-right: 0;
+    border-bottom: 1px solid var(--serum-rule);
+  }
+
+  .serum-formula-stage > figure {
+    margin: 14px 0;
+  }
+}
