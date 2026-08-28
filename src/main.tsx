@@ -180,7 +180,7 @@ const projectShowcaseItems = [
   },
   {
     index: "02",
-    title: "从漂亮静物到购买链路：LUMINOSE 精华液商业系统",
+    title: "LUMINOSE 晨晚亮采精华商业系统",
     english: "LUMINOSE SERUM COMMERCE SYSTEM",
     category: "功效护肤 / 概念新品",
     categoryEnglish: "SKINCARE COMMERCE",
@@ -199,7 +199,7 @@ const projectShowcaseItems = [
       rule: "#9a7658",
       shadow: "rgba(56, 39, 27, 0.22)",
     },
-    summary: "将产品定位为都市缺水暗沉肌的晨晚轻润亮采精华，从四十余张候选图中精选不同职责的画面，补齐人群、成分、质地、上脸、晨晚路径与配方收口。",
+    summary: "面向都市缺水暗沉肌，以人群、成分、质地、上脸、晨晚护理和配方用法组成可直接调用的精华液电商路径。",
     brief: "原项目已经拥有稳定的琥珀包装与高端氛围，但大量暖金静物反复表达同一种奢华感。消费者能看见风格，却难以快速理解产品适合谁、怎样使用以及为什么值得购买。",
     response: "保留三视图作为产品真实性底稿，以一滴轻润为核心定位，按目标人群、补水亮采逻辑、质地吸收、真实上脸、晨晚护理和配方用法依次建立购买说服。",
     role: "AI Art Direction / 电商视觉策略",
@@ -645,7 +645,7 @@ const glacierCleanserCaseStudy = {
     },
     {
       title: "再建立晨间控油理由",
-      purpose: "浴室晨光、8H 和油脂趋势线共同表达长时清爽，避免把控油只写成孤立参数。",
+      purpose: "浴室晨光、8H 和油脂趋势线共同表达晨间清爽与控油利益。",
       touchpoint: "功效承接",
       image: "/assets/projects/glacier-cleanser/glacier-commerce-oil-control.webp",
       alt: "8H 清爽控油概念功效商业图",
@@ -659,7 +659,7 @@ const glacierCleanserCaseStudy = {
     },
     {
       title: "把晚间清洁变成可见证据",
-      purpose: "防晒乳、粉底与眉粉的清洁前后对比，对应通勤后的一次洁面需求，避免使用无场景的深层清洁口号。",
+      purpose: "防晒乳、粉底与眉粉的清洁前后对比，对应通勤后的晚间洁面需求。",
       touchpoint: "清洁证明",
       image: "/assets/projects/glacier-cleanser/glacier-commerce-makeup.webp",
       alt: "卸除日常防晒淡妆清洁前后商业图",
@@ -668,7 +668,7 @@ const glacierCleanserCaseStudy = {
   useCases: [
     {
       title: "毛孔油脂清洁",
-      purpose: "皮肤微距和透明水膜把深层清洁落到鼻翼与毛孔油脂，而不是继续使用宏大冰川隐喻。",
+      purpose: "皮肤微距和透明水膜把深层清洁落到鼻翼与毛孔油脂。",
       image: "/assets/projects/glacier-cleanser/glacier-commerce-pores.webp",
       alt: "鼻翼微距与深入清洁毛孔油脂概念图",
     },
@@ -679,10 +679,10 @@ const glacierCleanserCaseStudy = {
       alt: "湿润、按压揉开与清水冲洗三步使用图",
     },
     {
-      title: "晨净油光，夜卸脏污",
-      purpose: "同一瓶产品覆盖晨间油光和夜间通勤残留，形成一天两次的高频使用闭环。",
-      image: "/assets/projects/glacier-cleanser/glacier-commerce-day-night.webp",
-      alt: "晨间净油光与夜间卸脏污使用闭环图",
+      title: "洗后清爽，不以紧绷换清洁",
+      purpose: "真实人物与擦干动作把洗后肤感放到具体时刻，补足清洁力之外的温和使用证据。",
+      image: "/assets/projects/glacier-cleanser/glacier-commerce-after-wash.webp",
+      alt: "敏感肌女性洁面后擦干面部的清爽不紧绷概念图",
     },
   ],
   proof: {
@@ -712,16 +712,16 @@ const glacierCleanserCaseStudy = {
     { value: "10", label: "精选商业成片", note: "每张承担不同任务" },
     { value: "4", label: "购买路径节点", note: "入口到信任收口" },
     { value: "3", label: "核心使用场景", note: "晨洁、晚卸、敏感肤感" },
-    { value: "0", label: "项目内重复图片", note: "同义变体已剔除" },
+    { value: "1", label: "概念验证模块", note: "控油、清洁与温和" },
   ],
 } as const;
 
 const serumCaseStudy = {
   context: [
-    { label: "项目性质", value: "自主命题概念产品，不代表已经上市或完成法规审核" },
     { label: "目标人群", value: "面向容易显得缺水、粗糙与暗沉的都市肌肤" },
     { label: "产品定位", value: "洁面后晨晚使用的轻润亮采精华" },
-    { label: "购买路径", value: "定位入口、产品理解、使用说服与配方信任" },
+    { label: "使用方法", value: "洁面后取 3 至 4 滴，按压于面部与颈部" },
+    { label: "核心内容", value: "人群、成分、质地、上脸、晨晚护理与配方用法" },
   ],
   strategy: [
     { title: "先被看见", detail: "用一滴轻润、透亮有光建立缩略图中的核心定位，而不是继续泛化奢华。" },
@@ -733,7 +733,6 @@ const serumCaseStudy = {
   variables: ["方形、竖向与横向渠道比例", "定位、人群、成分、质地与用法信息", "滴管、液滴、面部动作与晨夜光线", "标题大小、穿插、遮挡与光学折射关系"],
   journey: [
     {
-      step: "01 / CLICK",
       title: "一句话建立产品定位",
       detail: "一滴轻润、透亮有光同时连接剂型感知与亮采利益，承担电商缩略图和详情首屏入口。",
       touchpoint: "商品主图 / PDP 首屏",
@@ -742,16 +741,14 @@ const serumCaseStudy = {
       layout: "square",
     },
     {
-      step: "02 / IDENTIFY",
       title: "把人群问题放进真实肤感",
-      detail: "人物不再只是装饰，画面明确承接都市倦容与日常光采需求，同时保留自然皮肤纹理。",
+      detail: "都市女性与自然皮肤纹理让缺水、粗糙和暗沉需求获得明确的人群承接。",
       touchpoint: "人群需求 / 搜索承接",
       image: "/assets/projects/serum/serum-commerce-audience.webp",
       alt: "倦容退场光采上线的都市女性目标人群商业图",
       layout: "portrait",
     },
     {
-      step: "03 / UNDERSTAND",
       title: "把成分翻译成购买利益",
       detail: "以玻尿酸补水支持与维C亮采逻辑组织信息，不虚构浓度、检测结果或治疗性承诺。",
       touchpoint: "成分利益 / PDP 说服",
@@ -760,7 +757,6 @@ const serumCaseStudy = {
       layout: "portrait",
     },
     {
-      step: "04 / FEEL",
       title: "让一滴质地成为可信证据",
       detail: "滴管、圆润液滴与薄透精华膜共同解释轻润和延展，避免用金粉、厚重精油或夸张拉丝替代质地。",
       touchpoint: "质地说明 / 商品详情",
@@ -769,7 +765,6 @@ const serumCaseStudy = {
       layout: "square",
     },
     {
-      step: "05 / APPLY",
       title: "用真实动作完成上脸想象",
       detail: "滴管落点、指腹按压与面部关系形成连续动作，说明产品不是静物，而是洁面后的真实护理步骤。",
       touchpoint: "使用手法 / 详情中段",
@@ -778,16 +773,14 @@ const serumCaseStudy = {
       layout: "portrait",
     },
     {
-      step: "06 / ROUTINE",
       title: "晨晚一瓶接入日常路径",
-      detail: "用同一画面区分晨间水润光采与夜间柔润护理，补齐使用频次和时段，而非重复一张夜景静物。",
+      detail: "同一画面区分晨间水润光采与夜间柔润护理，说明使用频次和时段。",
       touchpoint: "晨晚路径 / 复购沟通",
       image: "/assets/projects/serum/serum-commerce-day-night.webp",
       alt: "晨晚一瓶光采在线的 LUMINOSE 精华液护理路径图",
       layout: "portrait",
     },
     {
-      step: "07 / TRUST",
       title: "配方与用法在一张图中收口",
       detail: "概念成分矩阵、晨晚使用、3至4滴、面部颈部与后续保湿被集中整理，作为提案中的信息闭环。",
       touchpoint: "配方说明 / 信任收口",
@@ -814,7 +807,7 @@ const serumCaseStudy = {
     { value: "7", label: "新增商业成片", note: "每张承担独立任务" },
     { value: "4", label: "购买路径节点", note: "入口到信任收口" },
     { value: "3", label: "使用证据类型", note: "质地、上脸、晨晚" },
-    { value: "0", label: "项目内重复图片", note: "同义变体已剔除" },
+    { value: "1", label: "配方用法收口", note: "信息集中展示" },
   ],
   disclosure: "本项目为自主命题概念产品。画面中的成分利益与使用感属于概念设定，不代表真实上市功效、配方浓度、检测结果或认证；实际商业发布必须替换为最终配方与合规资料。",
 } as const;
@@ -4674,44 +4667,67 @@ function TableFanCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageS
   );
 }
 
+function BeautyPositioningOverview({
+  id,
+  tone,
+  image,
+  alt,
+  title,
+  summary,
+  facts,
+  disclosure,
+  onImageOpen,
+}: {
+  id: string;
+  tone: "glacier" | "serum";
+  image: string;
+  alt: string;
+  title: string;
+  summary: string;
+  facts: readonly { readonly label: string; readonly value: string }[];
+  disclosure: string;
+  onImageOpen: (image: ProjectImageSource) => void;
+}) {
+  return (
+    <section className={`beauty-positioning-overview is-${tone}`} aria-labelledby={id}>
+      <figure>
+        <ZoomableProjectImage src={image} alt={alt} onOpen={onImageOpen} loading="eager" />
+      </figure>
+      <div className="beauty-positioning-copy">
+        <header>
+          <h3 id={id}>{title}</h3>
+          <p>{summary}</p>
+        </header>
+        <dl>
+          {facts.map((fact) => (
+            <div key={fact.label}><dt>{fact.label}</dt><dd>{fact.value}</dd></div>
+          ))}
+        </dl>
+        <p className="beauty-positioning-disclosure">{disclosure}</p>
+      </div>
+    </section>
+  );
+}
+
 function GlacierCleanserCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageSource) => void }) {
   return (
     <div className="smart-case glacier-case">
-      <section className="smart-case-context" aria-labelledby="glacier-case-context-title">
-        <header className="smart-case-heading">
-          <h3 id="glacier-case-context-title">先给概念产品一个能进入市场的位置</h3>
-          <p>GLACIER 不再只是冰蓝色包装练习，而是一款面向混合偏油敏感肌、覆盖晨洁与晚卸的清透氨基酸洁面啫喱。</p>
-        </header>
-        <dl>
-          {glacierCleanserCaseStudy.context.map((item) => (
-            <div key={item.label}><dt>{item.label}</dt><dd>{item.value}</dd></div>
-          ))}
-        </dl>
-      </section>
-
-      <section className="smart-case-strategy" aria-labelledby="glacier-case-strategy-title">
-        <header className="smart-case-heading">
-          <span>COMMERCIAL STRATEGY</span>
-          <h3 id="glacier-case-strategy-title">用购买顺序决定每张图的责任</h3>
-          <p>消费者先判断是否适合自己，再理解剂型和使用方式，随后验证清洁力与肤感，最后才需要检测与配方信息。</p>
-        </header>
-        <div className="smart-case-tree">
-          <div className="smart-case-tree-root">
-            <small>BUSINESS GOAL</small>
-            <strong>把概念产品整理成商品主图、PDP 与详情页可以直接调用的完整内容链路</strong>
-          </div>
-          <div className="smart-case-tree-branches">
-            {glacierCleanserCaseStudy.strategy.map((branch) => (
-              <article key={branch.title}><strong>{branch.title}</strong><p>{branch.detail}</p></article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <BeautyPositioningOverview
+        id="glacier-case-positioning-title"
+        tone="glacier"
+        image="/assets/projects/glacier-cleanser/glacier-views.webp"
+        alt="GLACIER 洁面啫喱正面、侧面与泵头产品校准图"
+        title="晨洁油光，晚卸防晒淡妆"
+        summary="面向混合偏油敏感肌的清透氨基酸洁面啫喱，一瓶覆盖早晚两段日常清洁。"
+        facts={glacierCleanserCaseStudy.context.slice(1, 5)}
+        disclosure="自主命题概念产品。画面中的配方浓度、8H 与测试结果用于展示商业信息设计，实际发布需替换为最终合规资料。"
+        onImageOpen={onImageOpen}
+      />
 
       <section className="glacier-commerce-sequence" aria-labelledby="glacier-commerce-sequence-title">
         <header className="smart-case-heading">
           <h3 id="glacier-commerce-sequence-title">从商品首图进入购买说服</h3>
-          <p>四张图依次回答适用人群、控油理由、啫喱剂型和晚间清洁力，不用相同浴室背景重复同一句卖点。</p>
+          <p>四张图依次回答适用人群、晨间控油、啫喱剂型和晚间清洁力。</p>
         </header>
         <div className="glacier-commerce-sequence-grid">
           {glacierCleanserCaseStudy.commerceStages.map((stage, index) => (
@@ -4731,8 +4747,8 @@ function GlacierCleanserCaseStudy({ onImageOpen }: { onImageOpen: (image: Projec
 
       <section className="glacier-use-cases" aria-labelledby="glacier-use-cases-title">
         <header className="smart-case-heading">
-          <h3 id="glacier-use-cases-title">使用场景必须比冰感氛围更具体</h3>
-          <p>毛孔油脂、三步洁面和晨晚路径分别解释清洁对象、操作方式与使用频次，三张图没有意义重叠。</p>
+          <h3 id="glacier-use-cases-title">三类画面回答清洁对象、使用方法与洗后肤感</h3>
+          <p>毛孔微距、三步洁面和洗后擦干分别对应消费者在意的三个问题。</p>
         </header>
         <div className="glacier-use-case-ledger">
           {glacierCleanserCaseStudy.useCases.map((useCase, index) => (
@@ -4768,44 +4784,17 @@ function GlacierCleanserCaseStudy({ onImageOpen }: { onImageOpen: (image: Projec
         </div>
       </section>
 
-      <section className="smart-case-workflow" aria-labelledby="glacier-case-workflow-title">
-        <header className="smart-case-heading">
-          <h3 id="glacier-case-workflow-title">先筛选，再生成，最后按渠道排序</h3>
-          <p>流程把资产审计放在创意扩展之前，确保新增内容补缺口，而不是继续增加相同意义的图片。</p>
-        </header>
-        <ol>
-          {glacierCleanserCaseStudy.workflow.map((step) => (
-            <li key={step.name}>
-              <strong>{step.name}</strong>
-              <dl><div><dt>输入</dt><dd>{step.input}</dd></div><div><dt>输出</dt><dd>{step.output}</dd></div></dl>
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      <section className="smart-case-quality" aria-labelledby="glacier-case-quality-title">
-        <header className="smart-case-heading">
-          <h3 id="glacier-case-quality-title">商业可用性的六项检查</h3>
-          <p>不是所有新增图片都会进入案例。包装、动作、文案、场景、证据和系列差异必须同时成立。</p>
-        </header>
-        <div className="smart-case-quality-grid">
-          {glacierCleanserCaseStudy.qualityChecks.map((check) => (
-            <article key={check.title}><strong>{check.title}</strong><p>{check.detail}</p><span>REVIEW STANDARD</span></article>
-          ))}
-        </div>
-      </section>
-
       <section className="smart-case-results" aria-labelledby="glacier-case-results-title">
         <header>
-          <div><span>PROJECT DELIVERY</span><h3 id="glacier-case-results-title">数量收缩，商业链路反而更完整</h3></div>
-          <p>十张精选成片覆盖从点击、理解、说服到信任的完整顺序。重复的冰洞、雪原、展台和同义标题变体不进入最终案例。</p>
+          <div><span>PROJECT DELIVERY</span><h3 id="glacier-case-results-title">十张画面覆盖从商品首图到信任收口</h3></div>
+          <p>定位、控油、质地、晚卸、毛孔、步骤、洗后肤感与概念验证分别承担独立用途。</p>
         </header>
         <div className="smart-case-result-grid">
           {glacierCleanserCaseStudy.results.map((result) => (
             <article key={result.label}><strong>{result.value}</strong><span>{result.label}</span><small>{result.note}</small></article>
           ))}
         </div>
-        <p className="smart-case-conclusion">最终交付不是更多冰感图片，而是一套从产品定位、使用场景、功效沟通到概念验证都能直接进入电商渠道的洁面内容系统。</p>
+        <p className="smart-case-conclusion">最终交付可以直接对应商品首图、PDP 卖点、使用说明和详情页验证模块。</p>
       </section>
     </div>
   );
@@ -4819,78 +4808,26 @@ function SerumCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageSour
 
   return (
     <div className="smart-case serum-case">
-      <section className="smart-case-context" aria-labelledby="serum-case-context-title">
-        <header className="smart-case-heading">
-          <span>POSITIONING RESET</span>
-          <h3 id="serum-case-context-title">先说清产品是谁，再讨论画面是否高级</h3>
-          <p>项目从氛围导向转为购买问题导向。所有入选画面围绕都市缺水暗沉肌、晨晚精华步骤和轻润亮采体验展开。</p>
-        </header>
-        <dl>
-          {serumCaseStudy.context.map((item) => (
-            <div key={item.label}>
-              <dt>{item.label}</dt>
-              <dd>{item.value}</dd>
-            </div>
-          ))}
-        </dl>
-      </section>
-
-      <section className="serum-strategy" aria-labelledby="serum-case-strategy-title">
-        <header className="smart-case-heading">
-          <span>COMMERCIAL STRATEGY</span>
-          <h3 id="serum-case-strategy-title">四段购买路径决定图片是否保留</h3>
-          <p>同一角度、同一暖金背景或同义卖点只保留完成度最高的一张；新的图片必须填补路径空缺。</p>
-        </header>
-        <div className="serum-strategy-track">
-          {serumCaseStudy.strategy.map((branch, index) => (
-            <article key={branch.title}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <strong>{branch.title}</strong>
-              <p>{branch.detail}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="smart-case-control" aria-labelledby="serum-case-control-title">
-        <header className="smart-case-heading">
-          <span>PRODUCT CALIBRATION</span>
-          <h3 id="serum-case-control-title">三视图是所有商业画面的产品底稿</h3>
-          <p>固定瓶身、滴管和标签之后，变化只发生在购买任务、机位、动作、光线与标题结构中。</p>
-        </header>
-        <div className="smart-case-control-board">
-          <figure>
-            <ZoomableProjectImage
-              src="/assets/projects/serum/serum-views.webp"
-              alt="LUMINOSE 精华液正面与侧面产品校准图"
-              onOpen={onImageOpen}
-              loading="lazy"
-            />
-            <figcaption>同一瓶产品的不同视角构成后续场景生成与人工复核的包装基准。</figcaption>
-          </figure>
-          <div className="smart-case-control-rules">
-            <article>
-              <span>固定识别锚点</span>
-              <ul>{serumCaseStudy.fixedAnchors.map((anchor) => <li key={anchor}>{anchor}</li>)}</ul>
-            </article>
-            <article>
-              <span>可控叙事变量</span>
-              <ul>{serumCaseStudy.variables.map((variable) => <li key={variable}>{variable}</li>)}</ul>
-            </article>
-          </div>
-        </div>
-      </section>
+      <BeautyPositioningOverview
+        id="serum-case-positioning-overview-title"
+        tone="serum"
+        image="/assets/projects/serum/serum-views.webp"
+        alt="LUMINOSE 精华液正面与侧面产品校准图"
+        title="都市缺水暗沉肌的晨晚轻润亮采精华"
+        summary="洁面后取 3 至 4 滴，按压于面部与颈部，晨晚都能进入日常护理步骤。"
+        facts={serumCaseStudy.context}
+        disclosure="自主命题概念产品。实际发布需以最终配方、检测结果和合规资料替换画面中的概念信息。"
+        onImageOpen={onImageOpen}
+      />
 
       <section className="serum-positioning-stage" aria-labelledby="serum-positioning-title">
         <figure>
           <ZoomableProjectImage src={positioning.image} alt={positioning.alt} onOpen={onImageOpen} loading="lazy" />
         </figure>
         <div>
-          <span>{positioning.step}</span>
           <small>{positioning.touchpoint}</small>
           <h3 id="serum-positioning-title">{positioning.title}</h3>
           <p>{positioning.detail}</p>
-          <blockquote>“一滴轻润”负责解释质地，“透亮有光”负责建立结果想象，产品与标题共同成为第一视觉中心。</blockquote>
         </div>
       </section>
 
@@ -4898,7 +4835,7 @@ function SerumCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageSour
         <header className="smart-case-heading">
           <span>WHO &amp; WHY</span>
           <h3 id="serum-persuasion-title">从目标人群推进到成分利益</h3>
-          <p>两张竖图并不重复产品站姿：一张负责需求代入，一张负责把概念成分翻译成可理解的购买理由。</p>
+          <p>人物图建立需求代入，成分图解释玻尿酸与维C的概念利益。</p>
         </header>
         <div className="serum-persuasion-grid">
           {persuasion.map((visual) => (
@@ -4906,7 +4843,7 @@ function SerumCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageSour
               <figure>
                 <ZoomableProjectImage src={visual.image} alt={visual.alt} onOpen={onImageOpen} loading="lazy" />
               </figure>
-              <div><span>{visual.step}</span><small>{visual.touchpoint}</small><h4>{visual.title}</h4><p>{visual.detail}</p></div>
+              <div><small>{visual.touchpoint}</small><h4>{visual.title}</h4><p>{visual.detail}</p></div>
             </article>
           ))}
         </div>
@@ -4916,7 +4853,7 @@ function SerumCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageSour
         <header className="smart-case-heading">
           <span>TEXTURE TO ROUTINE</span>
           <h3 id="serum-usage-title">质地、上脸与晨晚路径构成使用证据</h3>
-          <p>画面从产品特写进入人物动作，再回到一天的护理顺序。三个节点互相承接，不用换背景重复“水润有光”。</p>
+          <p>三个节点分别回答精华是什么质地、怎样上脸以及什么时候使用。</p>
         </header>
         <div className="serum-usage-grid">
           {usage.map((visual) => (
@@ -4924,7 +4861,7 @@ function SerumCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageSour
               <figure>
                 <ZoomableProjectImage src={visual.image} alt={visual.alt} onOpen={onImageOpen} loading="lazy" />
               </figure>
-              <div><span>{visual.step}</span><small>{visual.touchpoint}</small><h4>{visual.title}</h4><p>{visual.detail}</p></div>
+              <div><small>{visual.touchpoint}</small><h4>{visual.title}</h4><p>{visual.detail}</p></div>
             </article>
           ))}
         </div>
@@ -4932,7 +4869,6 @@ function SerumCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageSour
 
       <section className="serum-formula-stage" aria-labelledby="serum-formula-title">
         <div>
-          <span>{formula.step}</span>
           <small>{formula.touchpoint}</small>
           <h3 id="serum-formula-title">{formula.title}</h3>
           <p>{formula.detail}</p>
@@ -4943,49 +4879,13 @@ function SerumCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageSour
         </figure>
       </section>
 
-      <section className="smart-case-touchpoints" aria-labelledby="serum-case-touchpoints-title">
-        <header className="smart-case-heading">
-          <span>CHANNEL ASSEMBLY</span>
-          <h3 id="serum-case-touchpoints-title">精选图可以直接按渠道顺序调用</h3>
-          <p>不是把所有素材一次铺满，而是根据商品首图、PDP 和详情页的阅读深度，调用对应的信息责任。</p>
-        </header>
-        <div className="smart-case-touchpoint-tree">
-          <div className="smart-case-touchpoint-root">七张已审核商业成片</div>
-          <div className="smart-case-touchpoint-branches">
-            {serumCaseStudy.touchpoints.map((branch) => (
-              <article key={branch.title}>
-                <strong>{branch.title}</strong>
-                <ul>{branch.items.map((item) => <li key={item}>{item}</li>)}</ul>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="smart-case-quality" aria-labelledby="serum-case-quality-title">
-        <header className="smart-case-heading">
-          <span>FINAL REVIEW</span>
-          <h3 id="serum-case-quality-title">商业可用性的六项检查</h3>
-          <p>产品真实、文字准确与信息分工同时通过，图片才进入最终提案；好看但重复的变体继续留在素材库。</p>
-        </header>
-        <div className="smart-case-quality-grid">
-          {serumCaseStudy.qualityChecks.map((check) => (
-            <article key={check.title}>
-              <strong>{check.title}</strong>
-              <p>{check.detail}</p>
-              <span>REVIEW STANDARD</span>
-            </article>
-          ))}
-        </div>
-      </section>
-
       <section className="smart-case-results" aria-labelledby="serum-case-results-title">
         <header>
           <div>
             <span>PROJECT DELIVERY</span>
-            <h3 id="serum-case-results-title">数量收缩，商业项目反而更完整</h3>
+            <h3 id="serum-case-results-title">七张画面覆盖从产品定位到配方说明</h3>
           </div>
-          <p>七张新增商业成片与一张产品校准图覆盖定位、人群、成分、体验与信任。未入选的暖金静物、花园和同义标题变体不再进入详情页。</p>
+          <p>定位、人群、成分、质地、上脸、晨晚和用法分别对应商品首图与详情页中的不同阅读节点。</p>
         </header>
         <div className="smart-case-result-grid">
           {serumCaseStudy.results.map((result) => (
@@ -4997,7 +4897,7 @@ function SerumCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageSour
           ))}
         </div>
         <p className="smart-case-conclusion">
-          最终交付不是更多琥珀色精华图片，而是一套从产品定位、购买说服、使用场景到概念配方说明都能直接进入电商渠道的内容系统。
+          最终交付可以直接对应商品首图、PDP 卖点、使用说明和配方信息模块。
         </p>
       </section>
     </div>
@@ -5420,8 +5320,12 @@ function ProjectDetailViewer({
                 <p className="project-detail-summary" id={summaryId}>{item.summary}</p>
               </div>
 
-              <ProjectStoryLead item={item} onImageOpen={openImage} />
-              <ProjectCommerceImpact item={item} />
+              {!isGlacierProject && !isSerumProject ? (
+                <>
+                  <ProjectStoryLead item={item} onImageOpen={openImage} />
+                  <ProjectCommerceImpact item={item} />
+                </>
+              ) : null}
 
               {item === projectShowcaseItems[0] ? (
                 <SmartLivingCaseStudy onImageOpen={openImage} />

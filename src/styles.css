@@ -9893,17 +9893,6 @@ video {
   border-left: 1px solid var(--serum-rule);
 }
 
-.serum-strategy-track span,
-.serum-positioning-stage > div > span,
-.serum-persuasion article > div > span,
-.serum-usage article > div > span,
-.serum-formula-stage > div > span {
-  color: var(--project-detail-accent);
-  font-size: 8px;
-  font-weight: 780;
-  letter-spacing: 0.15em;
-}
-
 .serum-strategy-track strong {
   color: rgba(245, 242, 237, 0.9);
   font-size: 15px;
@@ -10211,5 +10200,187 @@ video {
 
   .serum-formula-stage > figure {
     margin: 14px 0;
+  }
+}
+
+/* Beauty case studies start with visible product evidence, not revision history. */
+.project-detail-copy > .glacier-case,
+.project-detail-copy > .serum-case {
+  margin-top: clamp(64px, 7vw, 104px);
+}
+
+.beauty-positioning-overview {
+  display: grid;
+  min-width: 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(225, 229, 225, 0.14);
+  border-bottom: 1px solid rgba(225, 229, 225, 0.14);
+  grid-template-columns: minmax(0, 1.18fr) minmax(360px, 0.82fr);
+}
+
+.beauty-positioning-overview > figure {
+  min-width: 0;
+  margin: 0;
+  padding: 22px 24px 22px 0;
+  border-right: 1px solid rgba(225, 229, 225, 0.12);
+}
+
+.beauty-positioning-overview .project-image-trigger,
+.beauty-positioning-overview .project-image-trigger > img {
+  width: 100%;
+  height: 100%;
+}
+
+.beauty-positioning-overview .project-image-trigger > img {
+  display: block;
+  aspect-ratio: 11 / 6;
+  object-fit: cover;
+}
+
+.beauty-positioning-copy {
+  display: grid;
+  align-content: center;
+  min-width: 0;
+  gap: 26px;
+  padding: clamp(34px, 4vw, 62px);
+}
+
+.beauty-positioning-copy header {
+  display: grid;
+  gap: 16px;
+}
+
+.beauty-positioning-copy h3 {
+  max-width: 10em;
+  margin: 0;
+  color: rgba(247, 245, 241, 0.95);
+  font-size: clamp(30px, 3vw, 48px);
+  font-weight: 680;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.beauty-positioning-copy header p {
+  max-width: 36em;
+  margin: 0;
+  color: rgba(241, 241, 237, 0.62);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.beauty-positioning-copy dl {
+  display: grid;
+  margin: 0;
+  border-top: 1px solid rgba(225, 229, 225, 0.12);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.beauty-positioning-copy dl > div {
+  display: grid;
+  align-content: start;
+  gap: 7px;
+  min-width: 0;
+  padding: 16px 16px 16px 0;
+  border-bottom: 1px solid rgba(225, 229, 225, 0.09);
+}
+
+.beauty-positioning-copy dl > div:nth-child(even) {
+  padding-right: 0;
+  padding-left: 16px;
+  border-left: 1px solid rgba(225, 229, 225, 0.09);
+}
+
+.beauty-positioning-copy dt {
+  color: var(--project-detail-accent);
+  font-size: 8px;
+  font-weight: 740;
+  letter-spacing: 0.08em;
+}
+
+.beauty-positioning-copy dd {
+  margin: 0;
+  color: rgba(241, 241, 237, 0.76);
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+.beauty-positioning-disclosure {
+  margin: 0;
+  color: rgba(241, 241, 237, 0.38);
+  font-size: 9px;
+  line-height: 1.75;
+}
+
+.beauty-positioning-overview.is-serum {
+  grid-template-columns: minmax(360px, 0.82fr) minmax(0, 1.18fr);
+}
+
+.beauty-positioning-overview.is-serum > figure {
+  order: 2;
+  padding-right: 0;
+  padding-left: 24px;
+  border-right: 0;
+  border-left: 1px solid rgba(229, 218, 205, 0.14);
+}
+
+.beauty-positioning-overview.is-serum .beauty-positioning-copy {
+  padding-left: 0;
+}
+
+@media (max-width: 980px) {
+  .beauty-positioning-overview,
+  .beauty-positioning-overview.is-serum {
+    grid-template-columns: 1fr;
+  }
+
+  .beauty-positioning-overview > figure,
+  .beauty-positioning-overview.is-serum > figure {
+    order: 0;
+    padding: 16px 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(225, 229, 225, 0.12);
+    border-left: 0;
+  }
+
+  .beauty-positioning-overview .beauty-positioning-copy,
+  .beauty-positioning-overview.is-serum .beauty-positioning-copy {
+    padding: 36px 0 42px;
+  }
+}
+
+@media (max-width: 720px) {
+  .project-detail-copy > .glacier-case,
+  .project-detail-copy > .serum-case {
+    margin-top: 54px;
+  }
+
+  .beauty-positioning-overview > figure,
+  .beauty-positioning-overview.is-serum > figure {
+    padding: 10px 0;
+  }
+
+  .beauty-positioning-overview .project-image-trigger > img {
+    aspect-ratio: 16 / 9;
+  }
+
+  .beauty-positioning-overview .beauty-positioning-copy,
+  .beauty-positioning-overview.is-serum .beauty-positioning-copy {
+    gap: 22px;
+    padding: 28px 0 34px;
+  }
+
+  .beauty-positioning-copy h3 {
+    font-size: clamp(29px, 9vw, 38px);
+  }
+
+  .beauty-positioning-copy dl {
+    grid-template-columns: 1fr;
+  }
+
+  .beauty-positioning-copy dl > div,
+  .beauty-positioning-copy dl > div:nth-child(even) {
+    padding: 13px 0 15px;
+    border-left: 0;
   }
 }
