@@ -86,14 +86,14 @@ const projectShowcaseItems = [
   },
   {
     index: "02",
-    title: "把看不见的风变成购买证据：循环扇电商视觉",
+    title: "把无形风感变成可购买的功能证据：循环扇商业系统",
     english: "AI AIR CIRCULATOR COMMERCE SYSTEM",
-    category: "商业渲染 / 商品视觉",
-    categoryEnglish: "COMMERCIAL RENDERING",
+    category: "智能硬件 / 功能商业化",
+    categoryEnglish: "SMART HARDWARE COMMERCE",
     year: "2026",
-    image: "/assets/projects/table-fan/table-fan-hero.webp",
-    alt: "白色空气循环扇正面商业渲染主视觉",
-    backdrop: "LIVING",
+    image: "/assets/projects/table-fan/table-fan-circulation-distance.webp",
+    alt: "十二米远距循环送风的空气循环扇商业主视觉",
+    backdrop: "AIRFLOW",
     accent: "#89aacc",
     introTheme: {
       surface: "#e5dfd8",
@@ -105,32 +105,25 @@ const projectShowcaseItems = [
       rule: "#92999c",
       shadow: "rgba(68, 62, 57, 0.2)",
     },
-    summary: "把难以直接看见的送风体感拆成人物动作、空间距离与昼夜场景，在保持产品识别的同时，让功能卖点成为可以被理解的购买证据。",
-    brief: "项目需要在不虚构功能的前提下，让同一款循环扇在高点击电商表达与产品可信度之间取得平衡，并用十套独立创意路线证明内容可以被稳定复制与扩展。",
-    response: "先以圆形螺旋格栅、中心圆盘、机身比例、底座按键与控制面板锁定不可改变的产品识别锚点，再沿十套创意路线展开机位、动作、场景与标题的受控变化，最后统一审核为可编排的商业资产。",
-    role: "AI Art Direction / 商品视觉",
-    scope: "0 到 1 商业视觉资产系统",
-    deliverables: ["产品基准图", "三视图", "商品主视觉", "创意路线套图", "昼夜场景", "触点适配方案"],
-    workflow: ["资料归档", "产品校准", "卖点拆解", "创意分镜", "系列生成", "质量复核", "商业编排"],
-    system: "以格栅、中心轴、机身比例、底座和控制面板作为固定识别锚点，通过人物关系、空间尺度、光线时段与标题骨架建立可控变量。",
-    outcome: "十六张核心视觉覆盖十套独立主图路线与昼夜场景，让看不见的风分别承担抢注意、讲功能和建场景三种销售任务。",
-    reflection: "AI 的价值不在于重复换背景，而在于并行验证不同购买理由，并让每条路线都保住同一款产品。",
+    summary: "以十二米循环送风、全屋风量与夜间低扰为三组功能证据，展示我把智能硬件规格翻译成商品主图、PDP 和生活场景的能力。",
+    brief: "空气循环的功能看不见，单纯依赖窗帘和蓝色气流只能制造氛围，不能解释产品为什么值得购买。项目需要同时建立硬件可信度、功能理解与场景转化。",
+    response: "先锁定格栅、中心圆盘、机身比例与控制区，再将距离、风量、夜间体验和操作动作分别交给独立画面，最后只保留能够承担不同购买问题的代表资产。",
+    role: "AI Art Direction / 智能硬件商业化",
+    scope: "功能证据、产品一致性与电商内容系统",
+    deliverables: ["产品校准", "概念规格视觉", "商品主视觉", "操作证据", "昼夜场景", "PDP 内容编排"],
+    workflow: ["硬件校准", "概念规格定义", "功能证据拆分", "独立分镜", "系列生成", "产品与文字复核", "渠道编排"],
+    system: "固定螺旋格栅、中心圆盘、机身比例、底座与控制面板；让距离、风量、噪声、时段和人物动作成为可控变量，每张图只证明一个购买理由。",
+    outcome: "精选十一张核心资产，覆盖产品校准、三组功能证据、真实操作、昼夜场景和五条差异化电商表达，不用相似背景数量冒充系统完整度。",
+    reflection: "智能硬件的 AI 商业价值不是把风画得更夸张，而是让结构、规格、体感和场景在同一条购买路径里彼此验证。",
     gallery: [
-      { src: "/assets/projects/table-fan/table-fan-m01.webp", alt: "空气循环扇 · 清风巨物创意路线主图", layout: "square" },
-      { src: "/assets/projects/table-fan/table-fan-m02.webp", alt: "空气循环扇 · 抬手送风创意路线主图", layout: "square" },
-      { src: "/assets/projects/table-fan/table-fan-m03.webp", alt: "空气循环扇 · 桌面风场创意路线主图", layout: "square" },
-      { src: "/assets/projects/table-fan/table-fan-m04.webp", alt: "空气循环扇 · 床头清晨创意路线主图", layout: "square" },
-      { src: "/assets/projects/table-fan/table-fan-m05.webp", alt: "空气循环扇 · 一隅好放创意路线主图", layout: "square" },
-      { src: "/assets/projects/table-fan/table-fan-m06.webp", alt: "空气循环扇 · 风罩微距创意路线主图", layout: "square" },
-      { src: "/assets/projects/table-fan/table-fan-m07.webp", alt: "空气循环扇 · 窗边引风创意路线主图", layout: "square" },
-      { src: "/assets/projects/table-fan/table-fan-m08.webp", alt: "空气循环扇 · 阅读清风创意路线主图", layout: "square" },
-      { src: "/assets/projects/table-fan/table-fan-m09.webp", alt: "空气循环扇 · 框中清风创意路线主图", layout: "square" },
-      { src: "/assets/projects/table-fan/table-fan-m10.webp", alt: "空气循环扇 · 清风轨迹创意路线主图", layout: "square" },
-      { src: "/assets/projects/table-fan/table-fan-m11.webp", alt: "空气循环扇 · 清风巨物变体主图", layout: "square" },
-      { src: "/assets/projects/table-fan/table-fan-m12.webp", alt: "空气循环扇 · 抬手送风变体主图", layout: "square" },
-      { src: "/assets/projects/table-fan/table-fan-m13.webp", alt: "空气循环扇 · 阅读清风变体主图", layout: "square" },
-      { src: "/assets/projects/table-fan/table-fan-m14.webp", alt: "空气循环扇 · 窗边引风变体主图", layout: "square" },
-      { src: "/assets/projects/table-fan/table-fan-m15.webp", alt: "空气循环扇 · 清风轨迹变体主图", layout: "square" },
+      { src: "/assets/projects/table-fan/table-fan-circulation-distance.webp", alt: "十二米远距循环送风商业主视觉", layout: "square" },
+      { src: "/assets/projects/table-fan/table-fan-room-circulation.webp", alt: "全屋空气循环与大风量商业主视觉", layout: "square" },
+      { src: "/assets/projects/table-fan/table-fan-sleep-specs.webp", alt: "二十二分贝夜间低扰与八档风速商业主视觉", layout: "square" },
+      { src: "/assets/projects/table-fan/table-fan-views.webp", alt: "空气循环扇多视角产品校准图", layout: "square" },
+      { src: "/assets/projects/table-fan/table-fan-m02.webp", alt: "空气循环扇抬手操作主图", layout: "square" },
+      { src: "/assets/projects/table-fan/table-fan-family.webp", alt: "空气循环扇家庭陪伴场景", layout: "wide" },
+      { src: "/assets/projects/table-fan/table-fan-dayparts.webp", alt: "空气循环扇四时段光线场景", layout: "square" },
+      { src: "/assets/projects/table-fan/table-fan-m06.webp", alt: "空气循环扇风罩与控制区细节主图", layout: "square" },
     ],
   },
   {
@@ -217,13 +210,13 @@ const projectShowcaseItems = [
   },
   {
     index: "03",
-    title: "从包装识别到购买场景：青岚茶事无糖茶视觉系统",
+    title: "从无糖心智到消费场景：青岚茶事品牌商业系统",
     english: "QINGLAN TEA COMMERCE SYSTEM",
     category: "食品饮料 / 概念品牌",
     categoryEnglish: "BEVERAGE COMMERCE",
     year: "2026",
-    image: "/assets/projects/qinglan-tea/qinglan-square-heatwave-vending.webp",
-    alt: "青岚茶事原叶茉莉绿茶与自动贩卖机组成的热浪退场商业主视觉",
+    image: "/assets/projects/qinglan-tea/qinglan-commerce-core.webp",
+    alt: "零糖也有真茶香的青岚茶事原叶茉莉绿茶品牌主视觉",
     backdrop: "QINGLAN",
     accent: "#82915f",
     introTheme: {
@@ -236,51 +229,27 @@ const projectShowcaseItems = [
       rule: "#819071",
       shadow: "rgba(31, 48, 24, 0.24)",
     },
-    summary: "以原创概念包装为起点，先锁定瓶型、茶汤与标签识别，再把原叶、零糖和清爽饮用理由扩展到货架、场景与十条电商创意路线。",
-    brief: "自主命题需要从零建立一个可信的年轻无糖茶品牌，同时证明包装原型可以稳定进入商品主图、生活方式场景和传播触点。",
-    response: "先用三视图建立包装与材质基准，再将原叶感、清爽感和即饮便利拆成不同画面任务，最后以统一审核标准编排成完整商业内容系统。",
-    role: "AI Art Direction / Packaging & Commerce Visual",
-    scope: "自主命题概念品牌全链路视觉",
-    deliverables: ["概念包装系统", "产品三视图", "生活方式场景", "电商主视觉", "Campaign 套图", "触点编排"],
-    workflow: ["品牌命题", "包装原型", "产品校准", "场景分镜", "系列生成", "质量复核", "触点编排"],
-    system: "以透明 PET 瓶、浅金茶汤、竹青瓶盖和雾白标签作为固定识别锚点，通过机位、光线、饮用场景、标题骨架与产品数量建立可控变化。",
-    outcome: "完成一套概念品牌包装、十条电商创意路线与三十四张核心视觉，覆盖包装理解、货架注意、饮用想象和传播延展。",
-    reflection: "概念快消项目的价值不在于生成更多饮料图，而在于先建立可信商品，再让每条创意路线承担不同的购买理由。",
+    summary: "从零定义“0糖也有真茶香”的品牌心智，再用包装识别、开盖倒饮、口感表达和零售场景构成快消新品的完整上市内容。",
+    brief: "第一轮已经积累三十四张清爽茶饮素材，但同义花叶静物过多，核心主张分散，包装背标还出现与零糖定位冲突的信息，无法作为成熟商业案例直接交付。",
+    response: "停止继续扩图，先删除错误包装证据和重复场景，再以零糖真茶香为唯一核心心智，补齐开盖、倒茶与口感画面，精选十张拥有独立商业职责的资产。",
+    role: "AI Art Direction / 品牌与快消商业化",
+    scope: "概念新品定位、包装识别与上市内容系统",
+    deliverables: ["品牌定位", "正面包装母版", "核心 Campaign", "口感利益图", "真实饮用动作", "零售与生活场景"],
+    workflow: ["资产自审", "品牌重定位", "包装信息复核", "消费心智拆分", "动作与口感补图", "文字与产品复核", "上市触点编排"],
+    system: "固定透明 PET 瓶、浅金茶汤、竹青瓶盖、雾白标签和品牌层级；让无糖利益、真茶香、饮用动作、口感与渠道场景分别承担不同购买问题。",
+    outcome: "从四十张候选素材中精选十张核心资产，形成品牌入口、产品理解、饮用体验与渠道转化四段上市内容，不再用同义花叶背景堆叠数量。",
+    reflection: "快消品牌的 AI 价值不是无限生成清新饮料图，而是建立一句可记忆的定位，并让包装、口感、动作与渠道共同证明它。",
     gallery: [
-      { src: "/assets/projects/qinglan-tea/qinglan-packaging-views.webp", alt: "青岚茶事原叶茉莉绿茶正面、右侧与背面概念包装三视图", layout: "wide" },
+      { src: "/assets/projects/qinglan-tea/qinglan-commerce-core.webp", alt: "零糖也有真茶香品牌核心主视觉", layout: "square" },
+      { src: "/assets/projects/qinglan-tea/qinglan-commerce-zero-sugar.webp", alt: "清爽不靠甜零糖利益主视觉", layout: "square" },
+      { src: "/assets/projects/qinglan-tea/qinglan-commerce-flavor.webp", alt: "花香轻茶感净口感结构主视觉", layout: "square" },
+      { src: "/assets/projects/qinglan-tea/qinglan-open-cap.webp", alt: "青岚茶事原叶茉莉绿茶真实开盖动作", layout: "portrait" },
+      { src: "/assets/projects/qinglan-tea/qinglan-pour.webp", alt: "青岚茶事茉莉绿茶倒入玻璃杯的真实茶汤画面", layout: "wide" },
+      { src: "/assets/projects/qinglan-tea/qinglan-scene-studio-reference.webp", alt: "青岚茶事正面包装与茶汤产品母版", layout: "portrait" },
       { src: "/assets/projects/qinglan-tea/qinglan-square-heatwave-vending.webp", alt: "青岚茶事热浪退场自动贩卖机商业主视觉", layout: "square" },
-      { src: "/assets/projects/qinglan-tea/qinglan-square-one-leaf.webp", alt: "青岚茶事一叶入香轻东方商业主视觉", layout: "square" },
       { src: "/assets/projects/qinglan-tea/qinglan-square-original-leaf.webp", alt: "青岚茶事原叶见真章茶园商业主视觉", layout: "square" },
-      { src: "/assets/projects/qinglan-tea/qinglan-square-shake-awake.webp", alt: "青岚茶事摇一摇茶香就醒了手持商业主视觉", layout: "square" },
-      { src: "/assets/projects/qinglan-tea/qinglan-square-fresh-aroma-float.webp", alt: "青岚茶事清爽有茶香水面商业主视觉", layout: "square" },
-      { src: "/assets/projects/qinglan-tea/qinglan-square-ice-bucket.webp", alt: "青岚茶事户外冰桶冷藏商业主视觉", layout: "square" },
-      { src: "/assets/projects/qinglan-tea/qinglan-square-grab-and-go.webp", alt: "青岚茶事便利店随手一瓶茶商业主视觉", layout: "square" },
-      { src: "/assets/projects/qinglan-tea/qinglan-square-wind-aroma.webp", alt: "青岚茶事风里有茶香自然商业主视觉", layout: "square" },
-      { src: "/assets/projects/qinglan-tea/qinglan-square-tea-aroma.webp", alt: "青岚茶事茶香正好俯拍商业主视觉", layout: "square" },
-      { src: "/assets/projects/qinglan-tea/qinglan-square-cool-wake.webp", alt: "青岚茶事冷意醒茶水感商业主视觉", layout: "square" },
-      { src: "/assets/projects/qinglan-tea/qinglan-square-fresh-aroma-water.webp", alt: "青岚茶事清爽有茶香冰水商业主视觉", layout: "square" },
-      { src: "/assets/projects/qinglan-tea/qinglan-square-ice-again-sky.webp", alt: "青岚茶事冰一下再喝夏日商业主视觉", layout: "square" },
-      { src: "/assets/projects/qinglan-tea/qinglan-square-enjoy-moment.webp", alt: "青岚茶事悠享一刻生活方式商业主视觉", layout: "square" },
-      { src: "/assets/projects/qinglan-tea/qinglan-square-light-sip-close.webp", alt: "青岚茶事轻一点喝茶瓶身近景商业主视觉", layout: "square" },
-      { src: "/assets/projects/qinglan-tea/qinglan-square-light-sip-garden.webp", alt: "青岚茶事轻一点喝茶花园商业主视觉", layout: "square" },
-      { src: "/assets/projects/qinglan-tea/qinglan-square-light-sip-rock.webp", alt: "青岚茶事轻一点喝茶自然石台商业主视觉", layout: "square" },
-      { src: "/assets/projects/qinglan-tea/qinglan-square-light-sip-macro.webp", alt: "青岚茶事轻一点喝茶瓶身微距商业主视觉", layout: "square" },
-      { src: "/assets/projects/qinglan-tea/qinglan-scene-morning-window.webp", alt: "青岚茶事清晨窗边原叶茶产品场景", layout: "portrait" },
       { src: "/assets/projects/qinglan-tea/qinglan-scene-light-lunch.webp", alt: "青岚茶事轻食午餐搭配场景", layout: "wide" },
-      { src: "/assets/projects/qinglan-tea/qinglan-scene-light-fitness.webp", alt: "青岚茶事轻运动日常饮用场景", layout: "portrait" },
       { src: "/assets/projects/qinglan-tea/qinglan-scene-urban-commute.webp", alt: "青岚茶事都市通勤随行场景", layout: "portrait" },
-      { src: "/assets/projects/qinglan-tea/qinglan-scene-jasmine-still-life.webp", alt: "青岚茶事茉莉花与茶叶静物场景", layout: "portrait" },
-      { src: "/assets/projects/qinglan-tea/qinglan-scene-reading-afternoon.webp", alt: "青岚茶事午后阅读生活方式场景", layout: "wide" },
-      { src: "/assets/projects/qinglan-tea/qinglan-scene-studio-reference.webp", alt: "青岚茶事纯净摄影棚产品基准场景", layout: "portrait" },
-      { src: "/assets/projects/qinglan-tea/qinglan-scene-tea-garden-sunrise.webp", alt: "青岚茶事茶园晨光横向产品场景", layout: "wide" },
-      { src: "/assets/projects/qinglan-tea/qinglan-scene-travertine-portrait.webp", alt: "青岚茶事洞石台面竖向产品场景", layout: "portrait" },
-      { src: "/assets/projects/qinglan-tea/qinglan-scene-leaf-shadow-portrait.webp", alt: "青岚茶事叶影洞石竖向产品场景", layout: "portrait" },
-      { src: "/assets/projects/qinglan-tea/qinglan-scene-jasmine-table.webp", alt: "青岚茶事茉莉花浅木桌横向产品场景", layout: "wide" },
-      { src: "/assets/projects/qinglan-tea/qinglan-scene-water-stone.webp", alt: "青岚茶事清水石面横向产品场景", layout: "wide" },
-      { src: "/assets/projects/qinglan-tea/qinglan-scene-botanical-flatlay.webp", alt: "青岚茶事茉莉与茶叶俯拍产品场景", layout: "portrait" },
-      { src: "/assets/projects/qinglan-tea/qinglan-scene-linen-table.webp", alt: "青岚茶事浅色亚麻桌面横向产品场景", layout: "wide" },
-      { src: "/assets/projects/qinglan-tea/qinglan-scene-garden-wide.webp", alt: "青岚茶事自然花园横向产品场景", layout: "wide" },
-      { src: "/assets/projects/qinglan-tea/qinglan-scene-sunlit-linen.webp", alt: "青岚茶事阳光与亚麻横向产品场景", layout: "wide" },
     ],
   },
   {
@@ -522,81 +491,63 @@ const smartLivingCaseStudy = {
 
 const tableFanCaseStudy = {
   context: [
-    { label: "产品角色", value: "家用台面式空气循环扇" },
-    { label: "目标人群", value: "重视空气流通、居家舒适与空间占用控制的家庭与租房用户" },
-    { label: "核心任务", value: "同时建立产品识别、使用理解与高点击电商表达" },
-    { label: "内容范围", value: "产品基准图、三视图、创意主图、昼夜场景与触点套图" },
+    { label: "项目方向", value: "自主命题智能硬件商业化案例" },
+    { label: "概念产品", value: "家用台面式空气循环扇，8 档风速、4 种风感与 12 小时预约" },
+    { label: "功能设定", value: "12 米循环送风、18m³/min 风量与低至 22dB(A) 夜间运行" },
+    { label: "商业任务", value: "把规格、体感、操作与场景组织为可直接进入电商的购买证据" },
   ],
   strategy: [
-    { title: "确认产品", detail: "先交代圆形螺旋格栅、中心圆盘、机身比例、底座按键与控制面板的真实关系。" },
-    { title: "解释使用", detail: "通过抬手触碰、机头转向与房间引风动作建立清晰可理解的使用情境。" },
-    { title: "建立场景", detail: "以明亮家居、床头清晨、窗边引风与夜间室内构成连续的空气感叙事。" },
-    { title: "形成系列", detail: "让十套创意路线在机位、标题骨架与光线时段上彼此独立，又维持同一产品身份。" },
+    { title: "结构可信", detail: "先校准格栅、中心圆盘、机身比例、转轴和底座控制区，避免功能图中产品身份漂移。" },
+    { title: "规格可见", detail: "把送风距离、循环风量、风速、风感和预约信息分别翻译成缩略图可读的画面层级。" },
+    { title: "体感可懂", detail: "用空间流向、人物操作和夜间陪伴说明规格如何进入真实生活，而不是只画装饰性气流。" },
+    { title: "触点可用", detail: "按商品首图、PDP 功能页、场景说服与传播内容重新编排精选资产。" },
   ],
   fixedAnchors: ["圆形螺旋格栅与中心圆盘", "机身弧面比例与底座", "底部按键与转向结构", "控制面板与指示灯", "哑光白塑料质感"],
   variables: ["正面、侧面、俯视与近景微距机位", "日间自然光、床头晨光与夜间室内光", "局部人物手部、家庭陪伴与无人物场景", "创意路线对应的标题字体骨架", "画外主卖点的无底色承载方式"],
   scenes: [
     {
-      title: "真实性底稿",
-      purpose: "保留原始产品结构、格栅排列与底座按键，作为后续生成的校准基准。",
-      touchpoint: "REFERENCE / 输入",
-      image: "/assets/projects/table-fan/table-fan-views.webp",
-      alt: "空气循环扇正面、侧面与顶面结构校准图",
-    },
-    {
       title: "操作瞬间",
-      purpose: "用抬手轻触底座按键或转向机头的明确动作展示交互方式，让卖点进入可理解情境。",
+      purpose: "手部轻触底座控制区，让档位与操作关系从参数文字进入真实使用动作。",
       touchpoint: "PDP / 操作说明",
       image: "/assets/projects/table-fan/table-fan-m02.webp",
       alt: "空气循环扇抬手送风创意路线主图",
     },
     {
-      title: "生活结果",
-      purpose: "把循环扇放回家庭陪伴与阅读场景，连接空气流通与居家日常。",
-      touchpoint: "CAMPAIGN / 人群沟通",
+      title: "家庭体感",
+      purpose: "把产品放回家庭陪伴场景，说明空气循环不是孤立功能，而是持续发生的居家舒适体验。",
+      touchpoint: "CAMPAIGN / 生活方式",
       image: "/assets/projects/table-fan/table-fan-family.webp",
       alt: "空气循环扇家庭陪伴场景",
     },
     {
-      title: "昼夜闭环",
-      purpose: "用夜间室内与四种时段光线补全使用环境，让视觉不只停留在白天。",
-      touchpoint: "DETAIL / 使用信任",
-      image: "/assets/projects/table-fan/table-fan-night.webp",
-      alt: "空气循环扇夜间室内渲染",
+      title: "夜间低扰",
+      purpose: "将 22dB(A)、4 种风感、12 小时预约和 8 档风速集中到睡眠场景，形成完整夜间购买理由。",
+      touchpoint: "PDP / 参数说服",
+      image: "/assets/projects/table-fan/table-fan-sleep-specs.webp",
+      alt: "空气循环扇夜间低扰与多档风速商业主视觉",
+    },
+    {
+      title: "时段适配",
+      purpose: "四段光线验证同一产品在晨间、日间、傍晚和夜间仍保持材质与结构一致。",
+      touchpoint: "SYSTEM / 光影控制",
+      image: "/assets/projects/table-fan/table-fan-dayparts.webp",
+      alt: "空气循环扇四个时段的光线控制序列",
     },
   ],
   commercialOutputs: [
-    { src: "/assets/projects/table-fan/table-fan-m01.webp", alt: "空气循环扇 · 清风巨物创意路线主图", layout: "square" },
-    { src: "/assets/projects/table-fan/table-fan-m02.webp", alt: "空气循环扇 · 抬手送风创意路线主图", layout: "square" },
-    { src: "/assets/projects/table-fan/table-fan-m03.webp", alt: "空气循环扇 · 桌面风场创意路线主图", layout: "square" },
-    { src: "/assets/projects/table-fan/table-fan-m04.webp", alt: "空气循环扇 · 床头清晨创意路线主图", layout: "square" },
-    { src: "/assets/projects/table-fan/table-fan-m05.webp", alt: "空气循环扇 · 一隅好放创意路线主图", layout: "square" },
-    { src: "/assets/projects/table-fan/table-fan-m06.webp", alt: "空气循环扇 · 风罩微距创意路线主图", layout: "square" },
-    { src: "/assets/projects/table-fan/table-fan-m07.webp", alt: "空气循环扇 · 窗边引风创意路线主图", layout: "square" },
-    { src: "/assets/projects/table-fan/table-fan-m08.webp", alt: "空气循环扇 · 阅读清风创意路线主图", layout: "square" },
-    { src: "/assets/projects/table-fan/table-fan-m09.webp", alt: "空气循环扇 · 框中清风创意路线主图", layout: "square" },
-    { src: "/assets/projects/table-fan/table-fan-m10.webp", alt: "空气循环扇 · 清风轨迹创意路线主图", layout: "square" },
-    { src: "/assets/projects/table-fan/table-fan-m11.webp", alt: "空气循环扇 · 清风巨物变体主图", layout: "square" },
-    { src: "/assets/projects/table-fan/table-fan-m12.webp", alt: "空气循环扇 · 抬手送风变体主图", layout: "square" },
-    { src: "/assets/projects/table-fan/table-fan-m13.webp", alt: "空气循环扇 · 阅读清风变体主图", layout: "square" },
-    { src: "/assets/projects/table-fan/table-fan-m14.webp", alt: "空气循环扇 · 窗边引风变体主图", layout: "square" },
-    { src: "/assets/projects/table-fan/table-fan-m15.webp", alt: "空气循环扇 · 清风轨迹变体主图", layout: "square" },
-    { src: "/assets/projects/table-fan/table-fan-j01.webp", alt: "空气循环扇 · 早期生成探索 01", layout: "square" },
-    { src: "/assets/projects/table-fan/table-fan-j02.webp", alt: "空气循环扇 · 早期生成探索 02", layout: "square" },
-    { src: "/assets/projects/table-fan/table-fan-j03.webp", alt: "空气循环扇 · 早期生成探索 03", layout: "square" },
-    { src: "/assets/projects/table-fan/table-fan-j04.webp", alt: "空气循环扇 · 早期生成探索 04", layout: "square" },
-    { src: "/assets/projects/table-fan/table-fan-j05.webp", alt: "空气循环扇 · 早期生成探索 05", layout: "square" },
-    { src: "/assets/projects/table-fan/table-fan-j06.webp", alt: "空气循环扇 · 早期生成探索 06", layout: "square" },
-    { src: "/assets/projects/table-fan/table-fan-j07.webp", alt: "空气循环扇 · 早期生成探索 07", layout: "square" },
+    { src: "/assets/projects/table-fan/table-fan-m01.webp", alt: "空气循环扇高产品占比核心主图", layout: "square" },
+    { src: "/assets/projects/table-fan/table-fan-m03.webp", alt: "空气循环扇桌面风场主图", layout: "square" },
+    { src: "/assets/projects/table-fan/table-fan-m06.webp", alt: "空气循环扇格栅与控制区细节主图", layout: "square" },
+    { src: "/assets/projects/table-fan/table-fan-night-detail.webp", alt: "空气循环扇夜间材质与轮廓光细节", layout: "square" },
   ],
   workflow: [
-    { name: "资料归档", input: "产品参考图与使用场景", output: "产品结构、材质与禁改项清单" },
-    { name: "产品校准", input: "白底图与三视图", output: "统一比例、角度与关键识别锚点" },
-    { name: "卖点拆解", input: "可确认的产品信息", output: "识别、使用、场景与光线四条内容路径" },
-    { name: "创意分镜", input: "内容路径与电商版位", output: "十套独立创意路线与标题骨架" },
-    { name: "系列生成", input: "产品基准与独立路线", output: "方形主图与场景候选资产" },
-    { name: "质量复核", input: "候选画面", output: "结构、文字、动作、光影与系列差异审核" },
-    { name: "商业编排", input: "通过审核的核心视觉", output: "主图、PDP、详情页与传播套图顺序" },
+    { name: "硬件校准", input: "产品图与多视角结构", output: "格栅、转轴、底座和控制区识别锚点" },
+    { name: "规格定义", input: "概念产品定位与使用需求", output: "距离、风量、噪声、风速与预约信息" },
+    { name: "证据拆分", input: "规格与消费者问题", output: "功能、操作、夜间和场景四条内容路径" },
+    { name: "独立分镜", input: "内容路径与电商版位", output: "机位、空间、动作、标题与光线组合" },
+    { name: "系列生成", input: "产品母版与分镜", output: "功能主图、使用场景和传播候选" },
+    { name: "质量复核", input: "全部候选画面", output: "结构、参数、文字、动作与重复度审核" },
+    { name: "渠道编排", input: "精选核心资产", output: "商品首图、PDP、详情页和 Campaign 顺序" },
   ],
   touchpoints: [
     { title: "商品入口", items: ["搜索缩略图", "商品主图", "活动入口"] },
@@ -613,10 +564,10 @@ const tableFanCaseStudy = {
     { title: "系列差异", detail: "每张图在机位、构图、场景与标题骨架上形成独立表达。" },
   ],
   results: [
-    { value: "16", label: "核心视觉资产", note: "完整交付" },
-    { value: "10", label: "独立创意路线", note: "主图变体" },
-    { value: "6", label: "场景与昼夜素材", note: "产品与场景" },
-    { value: "4", label: "内容触点方向", note: "组合扩展" },
+    { value: "11", label: "精选核心资产", note: "每张承担独立任务" },
+    { value: "3", label: "功能证据组", note: "距离、风量、夜间低扰" },
+    { value: "4", label: "内容路径节点", note: "识别、理解、体验、转化" },
+    { value: "0", label: "同义变体入选", note: "删除重复背景与卖点" },
   ],
 } as const;
 
@@ -814,47 +765,47 @@ const serumCaseStudy = {
 
 const qinglanTeaCaseStudy = {
   context: [
-    { label: "项目性质", value: "自主命题概念品牌，不代表已上市客户项目" },
-    { label: "产品角色", value: "500mL 原叶茉莉绿茶概念即饮产品" },
-    { label: "目标人群", value: "关注控糖、原叶茶感与日常清爽体验的年轻消费者" },
-    { label: "核心任务", value: "从零建立包装识别，并扩展为可进入电商与传播的内容系统" },
+    { label: "项目方向", value: "自主命题快消品牌从 0 到 1 商业化案例" },
+    { label: "概念产品", value: "500mL 原叶茉莉绿茶，0 糖、0 脂、0 能量" },
+    { label: "核心人群", value: "不喜欢甜腻、希望保留真实茶感的年轻都市消费者" },
+    { label: "商业任务", value: "建立一句可记忆的无糖心智，并扩展到包装、饮用、口感与渠道内容" },
   ],
   strategy: [
-    { title: "先被看见", detail: "用大产品占比、清晰品牌名和差异化标题结构争取缩略图注意。" },
-    { title: "再被理解", detail: "把原叶茉莉、0 糖、0 脂和真实茶汤放到明确的信息层级中。" },
-    { title: "产生想象", detail: "以冰镇、轻食、通勤、阅读和户外场景扩大日常饮用理由。" },
-    { title: "形成系统", detail: "让包装、主图、场景和触点共享同一套商品身份与审查标准。" },
+    { title: "建立心智", detail: "用“0 糖也有真茶香”把无糖利益与原叶茶感放进同一句品牌主张。" },
+    { title: "解释差异", detail: "用“清爽不靠甜”和“花香轻、茶感净”分别解释配方利益与口感结果。" },
+    { title: "证明体验", detail: "以开盖、倒茶和真实茶汤补足静物素材缺少的饮用证据。" },
+    { title: "进入渠道", detail: "让货架、轻食和通勤画面继续回答在哪看见、何时饮用与为什么随手购买。" },
   ],
-  fixedAnchors: ["修长透明 PET 瓶型", "浅灰竹青色防滑瓶盖", "浅金黄色透明茶汤", "雾白与浅灰绿环绕标签", "青岚茶事与原叶茉莉绿茶信息层级"],
-  variables: ["正面、低机位、俯拍与倾斜机位", "自然晨光、夏日硬光与冷柜白光", "单瓶、手持、多瓶陈列与平躺构图", "洞石、浅木、清水、茉莉与真实生活场景", "宽体、现代宋体、手写与环绕式标题骨架"],
+  fixedAnchors: ["修长透明 PET 瓶型", "浅灰竹青色防滑瓶盖", "浅金黄色透明茶汤", "雾白与浅灰绿正面标签", "青岚茶事与原叶茉莉绿茶信息层级"],
+  variables: ["商品主图、动作证据与横向生活场景", "晨光、冷柜光与夏日自然光", "正面站立、开盖、倒饮与多瓶陈列", "茉莉、茶叶、洞石、轻食与都市环境", "核心心智、无糖利益、口感和渠道文案"],
   scenes: [
     {
-      title: "包装真实性底稿",
-      purpose: "用正面、右侧和背面三视图确认瓶型、茶汤、瓶盖、标签衔接与信息层级，作为所有后续画面的共同起点。",
-      touchpoint: "CALIBRATION / 包装校准",
-      image: "/assets/projects/qinglan-tea/qinglan-packaging-views.webp",
-      alt: "青岚茶事原叶茉莉绿茶概念包装三视图",
+      title: "真实开盖",
+      purpose: "瓶口、防盗环、手部与正面标签共同说明真实使用方式，让产品从静态包装进入饮用动作。",
+      touchpoint: "PDP / 使用体验",
+      image: "/assets/projects/qinglan-tea/qinglan-open-cap.webp",
+      alt: "青岚茶事原叶茉莉绿茶真实开盖动作",
     },
     {
       title: "货架注意入口",
-      purpose: "以自动贩卖机、多瓶陈列和高产品占比建立即时识别，让清爽利益在缩略图中先被看见。",
+      purpose: "自动贩卖机、多瓶陈列与高产品占比建立冷柜识别，把品牌心智接入即时购买场景。",
       touchpoint: "COMMERCE / 商品入口",
       image: "/assets/projects/qinglan-tea/qinglan-square-heatwave-vending.webp",
       alt: "青岚茶事热浪退场自动贩卖机商业主视觉",
     },
     {
-      title: "真实饮用动作",
-      purpose: "通过手持倾斜、冷凝水和逆光茶汤建立即拿即饮的产品尺度与清爽体感。",
-      touchpoint: "SOCIAL / 饮用记忆",
-      image: "/assets/projects/qinglan-tea/qinglan-square-shake-awake.webp",
-      alt: "青岚茶事手持即饮商业主视觉",
-    },
-    {
-      title: "轻食生活方式",
-      purpose: "把原叶茶放入明亮午餐场景，连接控糖意识、日常轻负担与真实消费时刻。",
+      title: "轻食搭配",
+      purpose: "原叶茶进入午餐桌，连接不甜腻口感与日常轻食，给消费者一个具体饮用理由。",
       touchpoint: "PDP / 场景说服",
       image: "/assets/projects/qinglan-tea/qinglan-scene-light-lunch.webp",
       alt: "青岚茶事轻食午餐生活方式场景",
+    },
+    {
+      title: "都市随行",
+      purpose: "办公桌与城市窗景把产品接入通勤节奏，扩展即饮茶在工作日的消费时刻。",
+      touchpoint: "SOCIAL / 人群沟通",
+      image: "/assets/projects/qinglan-tea/qinglan-scene-urban-commute.webp",
+      alt: "青岚茶事都市通勤随行场景",
     },
   ],
   commercialOutputs: [
@@ -895,33 +846,33 @@ const qinglanTeaCaseStudy = {
     { src: "/assets/projects/qinglan-tea/qinglan-scene-sunlit-linen.webp", alt: "无糖茶阳光与亚麻横向产品场景", layout: "wide" },
   ],
   workflow: [
-    { name: "品牌命题", input: "品类趋势与目标人群", output: "自然原叶、清爽低负担与年轻轻东方定位" },
-    { name: "包装原型", input: "定位与货架识别目标", output: "瓶型、标签、品牌字与信息层级" },
-    { name: "产品校准", input: "包装三视图", output: "固定结构、材质、比例与禁改项" },
-    { name: "场景分镜", input: "购买路径与版位", output: "货架、饮用、轻食、通勤与自然场景" },
-    { name: "系列生成", input: "产品基准与十条创意路线", output: "方形主图与横竖场景候选资产" },
-    { name: "质量复核", input: "候选画面", output: "包装、文字、手部、透视与光影审核" },
-    { name: "触点编排", input: "通过审核的视觉资产", output: "商品入口、PDP、社交与 Campaign 顺序" },
+    { name: "资产自审", input: "三十四张旧素材与六张新增候选", output: "重复画面、错误包装与叙事缺口清单" },
+    { name: "品牌重定位", input: "无糖茶人群与口感机会", output: "0 糖也有真茶香的核心心智" },
+    { name: "商品校准", input: "正面产品母版", output: "瓶型、茶汤、瓶盖、标签与禁改项" },
+    { name: "购买拆分", input: "心智、利益、体验与渠道", output: "每张画面的唯一沟通责任" },
+    { name: "关键补图", input: "开盖、倒茶与口感缺口", output: "动作证据与三张核心电商表达" },
+    { name: "质量复核", input: "全部候选画面", output: "包装、文字、手部、液流与重复度审核" },
+    { name: "上市编排", input: "十张精选核心资产", output: "品牌入口、PDP、零售与社交顺序" },
   ],
   touchpoints: [
     { title: "货架入口", items: ["搜索缩略图", "商品主图", "冷柜陈列"] },
-    { title: "产品理解", items: ["包装三视图", "PDP 首屏", "卖点说明"] },
-    { title: "饮用想象", items: ["轻食搭配", "通勤随行", "午后阅读"] },
-    { title: "品牌延展", items: ["Campaign KV", "社交套图", "活动入口"] },
+    { title: "产品理解", items: ["正面商品母版", "无糖利益", "口感说明"] },
+    { title: "饮用体验", items: ["真实开盖", "茶汤倒饮", "轻食搭配"] },
+    { title: "品牌延展", items: ["Campaign KV", "通勤社交内容", "零售活动入口"] },
   ],
   qualityChecks: [
-    { title: "包装一致", detail: "瓶型、瓶肩、瓶盖、茶汤液位和标签位置保持同一产品身份。" },
-    { title: "文字准确", detail: "品牌名、产品名、0 糖、0 脂与画外标题逐字复核，不接受镜像或乱码。" },
+    { title: "包装一致", detail: "瓶型、瓶肩、瓶盖、茶汤液位和正面标签保持同一产品身份；冲突背标不进入展示。" },
+    { title: "文字准确", detail: "品牌名、产品名、0 糖、0 脂、0 能量与画外标题逐字复核，不接受镜像或乱码。" },
     { title: "材质可信", detail: "透明 PET、茶汤、磨砂标签、冷凝水和石材保留各自的厚度与反射。" },
     { title: "动作合理", detail: "手持角度、瓶身重心与取饮动作符合真实使用关系，手部不遮挡核心标签。" },
     { title: "场景克制", detail: "茉莉、茶叶、轻食与生活道具只负责解释饮用理由，不替代产品主角。" },
-    { title: "系列差异", detail: "不同路线在机位、场景、光线和标题骨架上形成独立表达。" },
+    { title: "职责去重", detail: "核心心智、无糖利益、口感、动作和渠道分别回答不同问题，同义花叶静物只留一张。" },
   ],
   results: [
-    { value: "34", label: "视觉成片", note: "完整收录" },
-    { value: "17", label: "方形商业图", note: "主图与变体" },
-    { value: "16", label: "生活方式场景", note: "横竖延展" },
-    { value: "10", label: "创意路线", note: "差异化表达" },
+    { value: "10", label: "精选核心资产", note: "从四十张候选中筛选" },
+    { value: "1", label: "核心品牌心智", note: "0 糖也有真茶香" },
+    { value: "4", label: "购买路径节点", note: "心智、利益、体验、渠道" },
+    { value: "0", label: "冲突包装入选", note: "错误背标退出展示" },
   ],
 } as const;
 
@@ -3935,26 +3886,24 @@ const projectStoryProfiles: Record<string, ProjectStoryProfile> = {
     },
   },
   "AI AIR CIRCULATOR COMMERCE SYSTEM": {
-    storyHeading: "当功能看不见，视觉必须交付可以感受到的证据",
-    title: "风看不见，所以要把体感变成画面里的证据",
-    lead: "循环扇项目最容易落入蓝色光线和飘动窗帘的固定公式。它们能说明清凉，却很难说明为什么是这一台产品。我从螺旋格栅、中心圆盘和底座控制区出发，让每条创意路线先保住产品识别，再改变人与风、空间与风的关系。",
-    note: "巨物构图负责抢注意，抬手送风负责解释体感，阅读和床头场景负责建立日常需要。AI 扩展的是表达路径，不是把同一构图换十次背景。",
-    imageIndexes: [0, 1, 3],
-    stepNotes: ["锁定格栅、中心轴、机身比例与底座细节", "将送风感受拆成人物、空间、时段和距离", "并行验证巨物、动作、阅读与床头等独立路线", "按缩略图识别、详情理解和社交传播重新排序"],
+    storyHeading: "把智能硬件参数翻译成招聘方一眼能看懂的商业证据",
+    title: "先证明产品可信，再证明功能值得购买",
+    lead: "旧版本依赖窗帘、绿植和昼夜背景反复说明清凉，但没有让距离、风量和夜间体验形成独立证据。重构后，产品结构先被固定，三组概念规格分别进入不同画面，场景只负责解释参数如何进入生活。",
+    note: "AI 在这里承担硬件一致性控制、规格可视化和多触点适配。项目不再用相似图数量证明能力，也不使用虚构 CTR 或 CVR 充当商业结果。",
+    imageIndexes: [1, 2, 3],
+    stepNotes: ["锁定格栅、转轴、机身比例与底座控制区", "定义距离、风量、噪声、风速和预约的概念规格", "分别建立功能、操作、夜间和生活场景证据", "删除同义背景后编入商品首图、PDP 与 Campaign"],
     impact: {
-      eyebrow: "CATEGORY MOMENTUM",
-      title: "用高识别主图承接季节需求，用场景证据完成理解",
-      summary: "电风扇需求在大促期快速集中，视觉必须同时抢占缩略图注意力，并在详情链路里把体感说清楚。",
-      primary: { label: "618 电风扇销售额", value: "22.8 亿元", context: "同比 +37.59%" },
+      eyebrow: "CAPABILITY VALUE",
+      title: "用三组功能证据建立智能硬件的完整购买路径",
+      summary: "结果以可核验的资产结构呈现，不将概念项目包装成已经发生的销售成绩。",
+      primary: { label: "精选核心资产", value: "11 张", context: "每张承担独立沟通任务" },
       metrics: [
-        { label: "市场销量同比", value: "+31.38%", context: "季节需求集中释放" },
-        { label: "主图点击率 CTR", value: "4.6%", context: "巨物与动作路线共同测试" },
-        { label: "购买转化率 CVR", value: "4.5%", context: "昼夜与生活场景承接" },
+        { label: "功能证据", value: "3 组", context: "距离、风量与夜间低扰" },
+        { label: "购买路径", value: "4 段", context: "识别、理解、体验与转化" },
+        { label: "同义变体", value: "0 张", context: "重复背景不进入案例" },
       ],
-      conclusion: "把送风距离、人物动作和空间场景变成三组独立证据，使产品从看起来清凉进一步走向为什么值得购买。",
-      internalSources: [
-        { label: "奥维云网 2025 年 618 电风扇数据", url: "https://www.21jingji.com/article/20250729/herald/4b1561865def9d23b1c77c9b76e1d408.html" },
-      ],
+      conclusion: "把硬件结构、概念规格与真实场景组织成连续证据，使循环扇从看起来清凉推进到为什么值得购买。",
+      internalSources: [],
     },
   },
   "GLACIER CLEANSER COMMERCE SYSTEM": {
@@ -4002,27 +3951,25 @@ const projectStoryProfiles: Record<string, ProjectStoryProfile> = {
     },
   },
   "QINGLAN TEA COMMERCE SYSTEM": {
-    storyHeading: "先建立可信商品，再让每个场景承担不同的购买理由",
-    title: "概念品牌不能只靠氛围成立，包装必须先经得起连续观看",
-    lead: "第一轮方向已经形成清爽的原叶茶气质，但如果瓶肩、瓶盖、标签和茶汤在不同画面中变化，消费者看到的就不是同一款商品。因此项目先建立三视图与固定识别锚点，再进入场景和标题扩展。",
-    note: "产品身份稳定后，自动贩卖机负责货架注意，手持与冰镇画面负责即时饮用，轻食、通勤和阅读场景继续扩展日常理由。AI 在这里是受控生产方法，不是作品类别。",
-    imageIndexes: [4, 2, 19],
-    stepNotes: ["确定自然原叶、清爽低负担和年轻轻东方的品牌定位", "用三视图锁定瓶型、茶汤、瓶盖与标签信息层级", "拆分货架、饮用、轻食、通勤与自然场景任务", "审核后将三十四张成片编排到不同商业触点"],
+    storyHeading: "把快消品牌从视觉氛围推进到可以记住的消费心智",
+    title: "先删除冲突包装和重复花叶，再建立一句核心主张",
+    lead: "第一轮有三十四张清爽茶饮素材，但大量画面承担相同的花香与自然氛围，核心购买理由被数量稀释。更严重的是包装背标与零糖定位发生冲突，因此这张三视图退出商业展示。",
+    note: "重构后以“0 糖也有真茶香”为唯一品牌入口，再用无糖利益、口感、开盖、倒茶、货架和日常场景继续解释。AI 在这里承担品牌定位、包装一致性、消费场景与渠道内容的受控扩展。",
+    imageIndexes: [1, 3, 4],
+    stepNotes: ["审计旧素材并删除错误包装与同义场景", "建立 0 糖也有真茶香的核心品牌心智", "补齐开盖、倒茶和口感三类关键证据", "精选十张资产进入品牌、PDP、零售和社交触点"],
     impact: {
-      eyebrow: "CATEGORY CONTEXT",
-      title: "茶饮料增长正在抬高第一眼表达的门槛",
-      summary: "行业数据只用于说明品类竞争背景。青岚茶事是自主命题概念项目，项目结果以实际交付资产和设计系统完整度衡量。",
-      primary: { label: "头部茶饮料年度营收", value: "215.96 亿元", context: "同比 +29%" },
+      eyebrow: "BRAND VALUE",
+      title: "用一句心智和四段内容建立概念新品上市路径",
+      summary: "项目价值由品牌定位、视觉职责和资产可用性证明，不借用头部品牌数据代替自己的设计结果。",
+      primary: { label: "精选核心资产", value: "10 张", context: "从四十张候选中筛选" },
       metrics: [
-        { label: "营收占比", value: "41.1%", context: "茶饮料占集团年度收益" },
-        { label: "年度营收增量", value: "48.51 亿元", context: "2025 年对比 2024 年" },
-        { label: "项目视觉资产", value: "34 张", context: "三视图、场景与商业主图" },
+        { label: "核心心智", value: "1 条", context: "0 糖也有真茶香" },
+        { label: "购买路径", value: "4 段", context: "心智、利益、体验与渠道" },
+        { label: "冲突包装", value: "0 张", context: "错误背标退出展示" },
       ],
-      conclusion: "用包装校准、货架入口、饮用动作和生活方式四段内容，把概念品牌从一张包装图推进为可持续扩展的商业视觉系统。",
-      internalSources: [
-        { label: "农夫山泉 2025 年度报告", url: "https://www.hkexnews.hk/listedco/listconews/sehk/2026/0417/2026041701389.pdf" },
-      ],
-      disclosure: "行业数据来自农夫山泉 2025 年度报告，仅作为无糖茶品类竞争背景，不代表青岚茶事的销售表现。项目没有真实平台 CTR、CVR 或销量数据，因此不以模型估算冒充运营结果。",
+      conclusion: "用品牌心智、无糖利益、真实动作与渠道场景四段内容，把概念包装推进为可持续扩展的快消上市系统。",
+      internalSources: [],
+      disclosure: "青岚茶事为自主命题概念品牌。项目不展示未经验证的销量、CTR 或 CVR。",
     },
   },
   "AI LIFESTYLE CAMPAIGN": {
@@ -4447,7 +4394,30 @@ function SmartLivingCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectIma
 
 function TableFanCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageSource) => void }) {
   return (
-    <div className="smart-case">
+    <div className="smart-case table-fan-case">
+      <section className="case-capability-intro table-fan-capability" aria-labelledby="table-fan-capability-title">
+        <header>
+          <span>SMART HARDWARE CAPABILITY</span>
+          <h3 id="table-fan-capability-title">我在这个项目里证明的，不是会生成家电图，而是能把硬件功能变成购买证据</h3>
+          <p>产品一致性、概念规格、空间体感和渠道编排同时成立，才是一套能被商品团队直接讨论和继续测试的智能硬件方案。</p>
+        </header>
+        <div className="table-fan-capability-stage">
+          <figure>
+            <ZoomableProjectImage
+              src="/assets/projects/table-fan/table-fan-room-circulation.webp"
+              alt="十八立方米每分钟全屋空气循环商业主视觉"
+              onOpen={onImageOpen}
+              loading="eager"
+            />
+          </figure>
+          <div className="table-fan-capability-proof" aria-label="循环扇概念规格与商业用途">
+            <article><strong>12m</strong><span>远距循环送风</span><p>把空间距离转成首屏可见的功能利益。</p></article>
+            <article><strong>18m³/min</strong><span>全屋循环风量</span><p>让风量与房间关系共同解释使用结果。</p></article>
+            <article><strong>22dB(A)</strong><span>夜间低扰运行</span><p>连接睡眠时刻、档位与预约定时。</p></article>
+          </div>
+        </div>
+      </section>
+
       <section className="smart-case-context" aria-labelledby="table-fan-case-context-title">
         <header className="smart-case-heading">
           <h3 id="table-fan-case-context-title">先明确产品与商业任务</h3>
@@ -4517,25 +4487,6 @@ function TableFanCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageS
         </div>
       </section>
 
-      <section className="smart-case-workflow" aria-labelledby="table-fan-case-workflow-title">
-        <header className="smart-case-heading">
-          <span>PRODUCTION PIPELINE</span>
-          <h3 id="table-fan-case-workflow-title">从资料输入到商业编排</h3>
-          <p>流程先完成产品校准与卖点定义，再进入创意生产、质量审核和触点编排，避免边生成边决定项目方向。</p>
-        </header>
-        <ol>
-          {tableFanCaseStudy.workflow.map((step) => (
-            <li key={step.name}>
-              <strong>{step.name}</strong>
-              <dl>
-                <div><dt>输入</dt><dd>{step.input}</dd></div>
-                <div><dt>输出</dt><dd>{step.output}</dd></div>
-              </dl>
-            </li>
-          ))}
-        </ol>
-      </section>
-
       <section className="smart-case-scenes" aria-labelledby="table-fan-case-scenes-title">
         <header className="smart-case-heading">
           <h3 id="table-fan-case-scenes-title">使用链路形成内容顺序</h3>
@@ -4562,37 +4513,10 @@ function TableFanCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageS
         </div>
       </section>
 
-      <section className="smart-case-lighting" aria-labelledby="table-fan-case-lighting-title">
-        <div className="smart-case-lighting-copy">
-          <h3 id="table-fan-case-lighting-title">商业主图建立三层信息</h3>
-          <p>先让产品占据第一焦点，再用场景与光线制造空气感吸引，最后通过标题和细节信息完成缩略图沟通。</p>
-          <ul>
-            <li><strong>产品</strong><span>结构清楚，轮廓完整，体量充足</span></li>
-            <li><strong>场景</strong><span>真实家居，空气线索明确，不遮挡产品</span></li>
-            <li><strong>标题</strong><span>一句核心表达，服从画面动线</span></li>
-            <li><strong>细节</strong><span>底座按键与指示灯承担信任信息</span></li>
-          </ul>
-        </div>
-        <div className="smart-case-lighting-media">
-          <ZoomableProjectImage
-            src="/assets/projects/table-fan/table-fan-hero.webp"
-            alt="空气循环扇高冲击商业主视觉"
-            onOpen={onImageOpen}
-            loading="lazy"
-          />
-          <ZoomableProjectImage
-            src="/assets/projects/table-fan/table-fan-night-detail.webp"
-            alt="空气循环扇夜间光线细节视觉"
-            onOpen={onImageOpen}
-            loading="lazy"
-          />
-        </div>
-      </section>
-
       <section className="project-detail-gallery air-fryer-output" aria-labelledby="table-fan-output-title">
         <div className="project-detail-section-heading">
           <span>SELECTED OUTPUTS</span>
-          <h3 id="table-fan-output-title">方形电商创意输出</h3>
+          <h3 id="table-fan-output-title">四条补充表达，不再重复功能首图</h3>
         </div>
         <div className="project-detail-gallery-grid">
           {tableFanCaseStudy.commercialOutputs.map((visual) => (
@@ -4606,6 +4530,24 @@ function TableFanCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageS
             </figure>
           ))}
         </div>
+      </section>
+
+      <section className="smart-case-workflow" aria-labelledby="table-fan-case-workflow-title">
+        <header className="smart-case-heading">
+          <h3 id="table-fan-case-workflow-title">从硬件校准到渠道编排</h3>
+          <p>流程先定义产品和概念规格，再拆分购买证据。创意生成发生在功能责任明确之后。</p>
+        </header>
+        <ol>
+          {tableFanCaseStudy.workflow.map((step) => (
+            <li key={step.name}>
+              <strong>{step.name}</strong>
+              <dl>
+                <div><dt>输入</dt><dd>{step.input}</dd></div>
+                <div><dt>输出</dt><dd>{step.output}</dd></div>
+              </dl>
+            </li>
+          ))}
+        </ol>
       </section>
 
       <section className="smart-case-touchpoints" aria-labelledby="table-fan-case-touchpoints-title">
@@ -4646,9 +4588,9 @@ function TableFanCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageS
         <header>
           <div>
             <span>PROJECT DELIVERY</span>
-            <h3 id="table-fan-case-results-title">最终形成可编排的内容资产</h3>
+            <h3 id="table-fan-case-results-title">招聘方可以直接判断的能力结果</h3>
           </div>
-          <p>十六张核心视觉覆盖产品校准、操作过程、昼夜场景、创意路线与方形电商传播，并保留继续扩展的结构。</p>
+          <p>结果不使用虚构点击率或转化率。十一张精选资产直接证明硬件一致性、功能翻译、场景控制和电商编排能力。</p>
         </header>
         <div className="smart-case-result-grid">
           {tableFanCaseStudy.results.map((result) => (
@@ -4660,7 +4602,7 @@ function TableFanCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageS
           ))}
         </div>
         <p className="smart-case-conclusion">
-          最终交付不只是单张高点击主图，而是一套从产品校准、内容拆解、创意生产到触点编排的空气循环扇视觉工作方法。
+          这个项目代表我的智能硬件方向：AI 不只生成画面，还能把结构、概念规格、使用体感和商业触点组织成同一套可复用系统。
         </p>
       </section>
     </div>
@@ -4907,10 +4849,29 @@ function SerumCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageSour
 function QinglanTeaCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageSource) => void }) {
   return (
     <div className="smart-case qinglan-case">
+      <section className="case-capability-intro qinglan-capability" aria-labelledby="qinglan-capability-title">
+        <header>
+          <span>FMCG BRAND CAPABILITY</span>
+          <h3 id="qinglan-capability-title">这个项目代表我的快消品牌方向：从一句消费心智开始，而不是从更多饮料图开始</h3>
+          <p>核心主张、无糖利益、真实口感和饮用动作共同建立新品价值，让 AI 成为品牌策略与上市内容的受控生产方式。</p>
+        </header>
+        <div className="qinglan-capability-media">
+          <figure className="is-primary">
+            <ZoomableProjectImage src="/assets/projects/qinglan-tea/qinglan-commerce-zero-sugar.webp" alt="清爽不靠甜的青岚茶事零糖利益主视觉" onOpen={onImageOpen} loading="eager" />
+          </figure>
+          <figure>
+            <ZoomableProjectImage src="/assets/projects/qinglan-tea/qinglan-commerce-flavor.webp" alt="花香轻茶感净的青岚茶事口感主视觉" onOpen={onImageOpen} loading="eager" />
+          </figure>
+          <figure>
+            <ZoomableProjectImage src="/assets/projects/qinglan-tea/qinglan-commerce-core.webp" alt="零糖也有真茶香的青岚茶事品牌核心主视觉" onOpen={onImageOpen} loading="eager" />
+          </figure>
+        </div>
+      </section>
+
       <section className="smart-case-context" aria-labelledby="qinglan-case-context-title">
         <header className="smart-case-heading">
-          <h3 id="qinglan-case-context-title">先说清项目性质，再展示商业能力</h3>
-          <p>这是一次自主命题的概念品牌实践。案例展示包装、商品控制与内容扩展能力，不将概念包装描述成已经上市或完成法规审核的真实客户产品。</p>
+          <h3 id="qinglan-case-context-title">先完成自审，再重新定义项目价值</h3>
+          <p>旧版本的问题不是图片不够，而是核心心智不够集中、同义场景太多，并且背标与零糖定位冲突。重构从删除错误证据开始。</p>
         </header>
         <dl>
           {qinglanTeaCaseStudy.context.map((item) => (
@@ -4924,18 +4885,18 @@ function QinglanTeaCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImag
 
       <section className="qinglan-case-calibration" aria-labelledby="qinglan-calibration-title">
         <header className="smart-case-heading">
-          <h3 id="qinglan-calibration-title">包装原型是内容扩展的共同底稿</h3>
-          <p>三视图用于确认瓶型、标签衔接和信息层级。背标为概念展示信息，不作为真实食品包装法规文件。</p>
+          <h3 id="qinglan-calibration-title">正面商品母版先守住品牌识别</h3>
+          <p>不再展示信息冲突的背标三视图。当前母版只承担瓶型、茶汤、瓶盖、正面标签与品牌层级校准。</p>
         </header>
         <div className="qinglan-calibration-layout">
           <figure>
             <ZoomableProjectImage
-              src="/assets/projects/qinglan-tea/qinglan-packaging-views.webp"
-              alt="青岚茶事原叶茉莉绿茶概念包装三视图"
+              src="/assets/projects/qinglan-tea/qinglan-scene-studio-reference.webp"
+              alt="青岚茶事原叶茉莉绿茶正面产品母版"
               onOpen={onImageOpen}
               loading="eager"
             />
-            <figcaption>概念包装校准图，用于视觉一致性控制，不代表已量产包装。</figcaption>
+            <figcaption>正面产品母版用于视觉一致性控制。冲突背标已退出本次商业展示。</figcaption>
           </figure>
           <div className="qinglan-anchor-grid">
             <article>
@@ -4943,7 +4904,7 @@ function QinglanTeaCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImag
               <ul>{qinglanTeaCaseStudy.fixedAnchors.map((item) => <li key={item}>{item}</li>)}</ul>
             </article>
             <article>
-              <strong>允许变化的表达</strong>
+              <strong>允许变化的商业表达</strong>
               <ul>{qinglanTeaCaseStudy.variables.map((item) => <li key={item}>{item}</li>)}</ul>
             </article>
           </div>
@@ -4959,7 +4920,7 @@ function QinglanTeaCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImag
         <div className="qinglan-strategy-track">
           {qinglanTeaCaseStudy.strategy.map((item, index) => (
             <article key={item.title}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
+              <span>{["心智", "利益", "体验", "渠道"][index]}</span>
               <strong>{item.title}</strong>
               <p>{item.detail}</p>
             </article>
@@ -4969,11 +4930,11 @@ function QinglanTeaCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImag
 
       <section className="qinglan-case-scenes" aria-labelledby="qinglan-scenes-title">
         <header className="smart-case-heading">
-          <h3 id="qinglan-scenes-title">四个画面节点形成完整购买叙事</h3>
-          <p>包装、货架、饮用动作与生活方式承担不同信息，不让同一句卖点在所有图片中重复出现。</p>
+          <h3 id="qinglan-scenes-title">四个消费节点继续完成购买说服</h3>
+          <p>开盖、货架、轻食和通勤承担不同任务，不用花叶背景重复解释清爽。</p>
         </header>
         <div className="qinglan-scene-ledger">
-          {qinglanTeaCaseStudy.scenes.map((scene, index) => (
+          {qinglanTeaCaseStudy.scenes.map((scene) => (
             <article key={scene.title}>
               <figure>
                 <ZoomableProjectImage src={scene.image} alt={scene.alt} onOpen={onImageOpen} loading="lazy" />
@@ -4982,44 +4943,26 @@ function QinglanTeaCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImag
                 <span>{scene.touchpoint}</span>
                 <h4>{scene.title}</h4>
                 <p>{scene.purpose}</p>
-                <small>{String(index + 1).padStart(2, "0")}</small>
               </div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="project-detail-gallery air-fryer-output qinglan-commercial-output" aria-labelledby="qinglan-output-title">
-        <div className="project-detail-section-heading">
-          <span>COMMERCIAL OUTPUTS</span>
-          <h3 id="qinglan-output-title">十条方向扩展为十七张方形商业图</h3>
-        </div>
-        <div className="project-detail-gallery-grid">
-          {qinglanTeaCaseStudy.commercialOutputs.map((visual) => (
-            <figure className={`is-${visual.layout}`} key={visual.src}>
-              <ZoomableProjectImage src={visual.src} alt={visual.alt} onOpen={onImageOpen} loading="lazy" />
-            </figure>
-          ))}
-        </div>
-      </section>
-
-      <section className="project-detail-gallery qinglan-scene-output" aria-labelledby="qinglan-scene-output-title">
-        <div className="project-detail-section-heading">
-          <h3 id="qinglan-scene-output-title">十六张横竖场景覆盖真实饮用时刻</h3>
-        </div>
-        <div className="project-detail-gallery-grid">
-          {qinglanTeaCaseStudy.campaignScenes.map((visual) => (
-            <figure className={`is-${visual.layout}`} key={visual.src}>
-              <ZoomableProjectImage src={visual.src} alt={visual.alt} onOpen={onImageOpen} loading="lazy" />
-            </figure>
-          ))}
+      <section className="qinglan-brand-proof" aria-labelledby="qinglan-brand-proof-title">
+        <figure>
+          <ZoomableProjectImage src="/assets/projects/qinglan-tea/qinglan-square-original-leaf.webp" alt="青岚茶事原叶见真章品牌来源主视觉" onOpen={onImageOpen} loading="lazy" />
+        </figure>
+        <div>
+          <h3 id="qinglan-brand-proof-title">一张原叶图负责品牌来源，其他画面不再重复同一句自然感</h3>
+          <p>保留一张完成度最高的原叶表达，足以建立茉莉绿茶与自然产地联想。其余位置让给无糖利益、真实动作和渠道场景。</p>
         </div>
       </section>
 
       <section className="smart-case-workflow" aria-labelledby="qinglan-workflow-title">
         <header className="smart-case-heading">
-          <h3 id="qinglan-workflow-title">从品牌命题到触点编排</h3>
-          <p>每一步都有明确输入和输出，创意生成只发生在产品校准之后。</p>
+          <h3 id="qinglan-workflow-title">从资产自审到新品上市内容</h3>
+          <p>每一步都有明确输入和输出。删除错误与重复，是这次品牌重构的第一步。</p>
         </header>
         <ol>
           {qinglanTeaCaseStudy.workflow.map((step) => (
@@ -5071,8 +5014,8 @@ function QinglanTeaCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImag
       <section className="qinglan-case-results" aria-labelledby="qinglan-results-title">
         <header>
           <span>DELIVERY & DATA</span>
-          <h3 id="qinglan-results-title">数据分层，避免把概念项目写成虚假业绩</h3>
-          <p>项目数据只呈现可核验的交付数量、带来源的行业背景和明确的项目性质，不使用虚构点击率或转化率。</p>
+          <h3 id="qinglan-results-title">招聘方可以直接判断的品牌能力结果</h3>
+          <p>项目结果只呈现精选资产、核心心智和购买路径，不借用头部品牌行业数据代替自己的设计价值。</p>
         </header>
         <div className="qinglan-result-grid">
           {qinglanTeaCaseStudy.results.map((result) => (
@@ -5085,19 +5028,19 @@ function QinglanTeaCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImag
         </div>
         <div className="qinglan-data-provenance">
           <article>
-            <strong>实际产出</strong>
-            <p>根据项目源文件逐项清点，三视图、十六张场景图和十七张方形商业图均已进入案例。</p>
+            <strong>资产取舍</strong>
+            <p>从四十张候选中只保留十张拥有独立沟通责任的核心资产，旧素材仍归档但不再全量铺开。</p>
           </article>
           <article>
-            <strong>行业背景</strong>
-            <p>只引用公开年度报告，并在数据区展示来源与时间，不把头部企业数据写成项目成绩。</p>
+            <strong>错误修正</strong>
+            <p>与零糖定位冲突的背标三视图退出展示，产品校准改用正面商品母版和连续场景核验。</p>
           </article>
           <article>
-            <strong>运营结果</strong>
-            <p>项目没有真实平台销量、CTR 或 CVR，因此不展示未经验证的转化结果。</p>
+            <strong>商业价值</strong>
+            <p>一条核心心智连接包装、利益、口感、动作与渠道，形成可继续扩展的概念新品上市内容。</p>
           </article>
         </div>
-        <p className="smart-case-conclusion">最终交付不是三十四张相似饮料图，而是一套从概念包装、商品控制、购买叙事到触点编排的快消商业视觉方法。</p>
+        <p className="smart-case-conclusion">这个项目代表我的快消品牌方向：AI 不只扩展画面，还参与定位、取舍、口感表达、消费场景和上市触点的系统决策。</p>
       </section>
     </div>
   );
@@ -5130,15 +5073,25 @@ function ProjectDetailViewer({
   const total = projectShowcaseCollections.length;
   const isGlacierProject = item.english === "GLACIER CLEANSER COMMERCE SYSTEM";
   const isSerumProject = item.english === "LUMINOSE SERUM COMMERCE SYSTEM";
+  const isTableFanProject = item.english === "AI AIR CIRCULATOR COMMERCE SYSTEM";
+  const isQinglanProject = item.english === "QINGLAN TEA COMMERCE SYSTEM";
   const detailHeroImage = isGlacierProject
     ? "/assets/projects/glacier-cleanser/glacier-sunrise-wide.webp"
     : isSerumProject
       ? "/assets/projects/serum/serum-bathroom.webp"
+      : isTableFanProject
+        ? "/assets/projects/table-fan/table-fan-lifestyle.webp"
+        : isQinglanProject
+          ? "/assets/projects/qinglan-tea/qinglan-pour.webp"
     : item.image;
   const detailHeroAlt = isGlacierProject
     ? "晨光冰原中的 GLACIER 洁面啫喱产品主视觉"
     : isSerumProject
       ? "自然晨光浴室中的 LUMINOSE 琥珀玻璃精华液产品场景"
+      : isTableFanProject
+        ? "日间客厅中的空气循环扇与真实居家使用场景"
+        : isQinglanProject
+          ? "青岚茶事原叶茉莉绿茶倒入玻璃杯的真实茶汤画面"
     : item.alt;
 
   useEffect(() => {
@@ -5320,7 +5273,7 @@ function ProjectDetailViewer({
                 <p className="project-detail-summary" id={summaryId}>{item.summary}</p>
               </div>
 
-              {!isGlacierProject && !isSerumProject ? (
+              {!isGlacierProject && !isSerumProject && !isTableFanProject && !isQinglanProject ? (
                 <>
                   <ProjectStoryLead item={item} onImageOpen={openImage} />
                   <ProjectCommerceImpact item={item} />
