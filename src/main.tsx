@@ -370,7 +370,6 @@ const projectShowcaseCollections = [
     coverImages: [
       "/assets/projects/air-fryer/air-fryer-reference.webp",
       "/assets/projects/table-fan/table-fan-family.webp",
-      "/assets/projects/table-fan/table-fan-hero.webp",
     ],
     projects: [projectShowcaseItems[0], projectShowcaseItems[1]],
   },
@@ -383,7 +382,6 @@ const projectShowcaseCollections = [
     coverImages: [
       "/assets/projects/glacier-cleanser/glacier-bathroom-wide.webp",
       "/assets/projects/serum/serum-bathroom.webp",
-      "/assets/projects/serum/serum-dropper-wide.webp",
     ],
     projects: [projectShowcaseItems[2], projectShowcaseItems[3]],
   },
@@ -395,8 +393,6 @@ const projectShowcaseCollections = [
     facets: ["食品饮料", "品牌定位", "上市内容"],
     coverImages: [
       "/assets/projects/qinglan-tea/qinglan-open-cap.webp",
-      "/assets/projects/qinglan-tea/qinglan-pour.webp",
-      "/assets/projects/qinglan-tea/qinglan-scene-light-lunch.webp",
     ],
     projects: [projectShowcaseItems[4]],
   },
@@ -408,8 +404,6 @@ const projectShowcaseCollections = [
     facets: ["人物一致性", "运动叙事", "社交传播"],
     coverImages: [
       "/assets/project-showcase-afterimage.webp",
-      "/assets/work-photos/1529139574466-a303027c1d8b.webp",
-      "/assets/work-photos/1558655146-9f40138edfeb.webp",
     ],
     projects: [projectShowcaseItems[5]],
   },
@@ -421,8 +415,6 @@ const projectShowcaseCollections = [
     facets: ["内容梳理", "套系识别", "电商叙事"],
     coverImages: [
       "/assets/works/commerce-andersen-thumb.jpg",
-      "/assets/project-packaging.png",
-      "/assets/hero-editorial-v2.webp",
     ],
     projects: [projectShowcaseItems[6]],
   },
@@ -434,8 +426,6 @@ const projectShowcaseCollections = [
     facets: ["关键帧", "材质运动", "镜头连续性"],
     coverImages: [
       "/assets/project-showcase-aether-grid.webp",
-      "/assets/project-showcase-field-objects.webp",
-      "/assets/project-showcase-nocturne.webp",
     ],
     projects: [projectShowcaseItems[7]],
   },
@@ -5454,6 +5444,7 @@ function ProjectShowcaseCard({
   onClick: () => void;
 }) {
   const reduceMotion = useReducedMotion();
+  const [activeCoverIndex, setActiveCoverIndex] = useState(0);
   const coverProject = item.projects[0];
   const isGlacierCover = coverProject.english === "GLACIER CLEANSER COMMERCE SYSTEM";
   const start = 0.1 + index * 0.045;
@@ -5464,9 +5455,22 @@ function ProjectShowcaseCard({
   const scale = useTransform(entryProgress, [start, settle], [0.82 + index * 0.018, 1]);
   const rotateZ = useTransform(entryProgress, [start, settle], [(2 - index) * 1.65, 0]);
 
+  useEffect(() => {
+    if (!isFocused || isActive || reduceMotion || item.coverImages.length < 2) {
+      setActiveCoverIndex(0);
+      return;
+    }
+
+    const intervalId = window.setInterval(() => {
+      setActiveCoverIndex((current) => (current + 1) % item.coverImages.length);
+    }, 2400);
+
+    return () => window.clearInterval(intervalId);
+  }, [isActive, isFocused, item.coverImages.length, reduceMotion]);
+
   return (
     <motion.button
-      className={`project-showcase-item${isGlacierCover ? " is-glacier-cover" : ""}${isFocused ? " is-focused" : ""}${isSuppressed ? " is-suppressed" : ""}`}
+      className={`project-showcase-item${item.coverImages.length > 1 ? " has-cover-cycle" : ""}${isGlacierCover ? " is-glacier-cover" : ""}${isFocused ? " is-focused" : ""}${isSuppressed ? " is-suppressed" : ""}`}
       type="button"
       data-project-index={index}
       aria-label={`查看作品方向：${item.title}，包含${item.projects.length}个完整商业项目`}
@@ -5486,12 +5490,17 @@ function ProjectShowcaseCard({
       }}
     >
       <span className="project-showcase-art">
-        <img className="project-showcase-art-primary" src={item.coverImages[0]} alt={`${item.title}作品方向组合预览`} loading="lazy" decoding="async" />
-        <span className="project-showcase-art-mosaic" aria-hidden="true">
-          {item.coverImages.slice(1).map((image, imageIndex) => (
-            <img src={image} alt="" loading="lazy" decoding="async" key={`${image}-${imageIndex}`} />
-          ))}
-        </span>
+        {item.coverImages.map((image, imageIndex) => (
+          <img
+            className={`project-showcase-art-primary${activeCoverIndex === imageIndex ? " is-active" : ""}`}
+            src={image}
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+            key={image}
+          />
+        ))}
         <span className="project-showcase-art-shade" aria-hidden="true" />
         <span className="project-showcase-backdrop" aria-hidden="true">{item.english}</span>
       </span>
@@ -5501,7 +5510,14 @@ function ProjectShowcaseCard({
         <em>{item.english}</em>
         <span className="project-showcase-facets">
           {item.facets.join(" / ")}
-          <small>能力分类入口 / 点击查看完整内容</small>
+          {item.projects.length > 1 ? (
+            <>
+              <small className="project-showcase-pointer-hint">{item.projects.length} 个完整项目 / 悬停切换主视觉</small>
+              <small className="project-showcase-touch-hint">{item.projects.length} 个完整项目 / 点击查看内容</small>
+            </>
+          ) : (
+            <small>1 个完整项目 / 点击查看内容</small>
+          )}
         </span>
         <b>进入分类查看全部案例</b>
       </span>
