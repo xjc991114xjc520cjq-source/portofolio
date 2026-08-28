@@ -1,6 +1,6 @@
 @font-face {
   font-family: "XJ Noto Sans SC";
-  src: url("/assets/fonts/noto-sans-sc-portfolio.ttf") format("truetype");
+  src: url("/assets/fonts/noto-sans-sc-portfolio.ttf?v=20260828-2") format("truetype");
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
@@ -3912,7 +3912,7 @@ video {
   transition: transform var(--press-duration) var(--ease-out);
 }
 
-.project-showcase-art img {
+.project-showcase-art-primary {
   width: 100%;
   height: 100%;
   max-width: none;
@@ -3926,16 +3926,50 @@ video {
     opacity 360ms ease;
 }
 
-.project-showcase-item:focus-visible .project-showcase-art img,
-.project-showcase-item.is-focused .project-showcase-art img {
+.project-showcase-item:focus-visible .project-showcase-art-primary,
+.project-showcase-item.is-focused .project-showcase-art-primary {
   filter: saturate(0.82) brightness(0.9) contrast(1.06);
   transform: scale(1.01);
 }
 
-.project-showcase-item.is-suppressed .project-showcase-art img {
+.project-showcase-item.is-suppressed .project-showcase-art-primary {
   opacity: 0.34;
   filter: grayscale(0.65) saturate(0.18) brightness(0.42) contrast(1.12);
   transform: scale(1.12);
+}
+
+.project-showcase-art-mosaic {
+  position: absolute;
+  top: clamp(24px, 4vh, 42px);
+  right: clamp(28px, 4vw, 68px);
+  z-index: 2;
+  display: grid;
+  width: clamp(190px, 27%, 320px);
+  gap: 8px;
+  opacity: 0;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  transform: translateX(28px);
+  transition: opacity 360ms ease, transform 560ms var(--project-showcase-expand-ease);
+  pointer-events: none;
+}
+
+.project-showcase-art-mosaic img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 8;
+  object-fit: cover;
+  border: 1px solid rgba(238, 236, 231, 0.42);
+  filter: saturate(0.76) brightness(0.86) contrast(1.04);
+}
+
+.project-showcase-item:focus-visible .project-showcase-art-mosaic,
+.project-showcase-item.is-focused .project-showcase-art-mosaic {
+  opacity: 0.92;
+  transform: translateX(0);
+}
+
+.project-showcase-item.is-suppressed .project-showcase-art-mosaic {
+  opacity: 0;
 }
 
 .project-showcase-art-shade {
@@ -4088,6 +4122,13 @@ video {
   white-space: nowrap;
 }
 
+.project-showcase-meta strong,
+.project-showcase-facets,
+.project-showcase-facets small,
+.project-showcase-meta b {
+  font-family: "XJ Noto Sans SC", "Microsoft YaHei", sans-serif;
+}
+
 .project-showcase-meta em {
   margin-top: 9px;
   overflow: hidden;
@@ -4120,7 +4161,7 @@ video {
 .project-showcase-meta b {
   margin-top: 9px;
   color: rgba(245, 245, 245, 0.54);
-  font-family: "Arial Narrow", "Roboto Condensed", Inter, sans-serif;
+  font-family: "XJ Noto Sans SC", "Microsoft YaHei", sans-serif;
   font-size: 10px;
   font-weight: 520;
   letter-spacing: 0.16em;
@@ -7236,7 +7277,7 @@ video {
     transform: skewX(-8.1deg);
   }
 
-  .project-showcase-item.is-suppressed .project-showcase-art img {
+  .project-showcase-item.is-suppressed .project-showcase-art-primary {
     opacity: 1;
     filter: saturate(0.62) brightness(0.75) contrast(1.08);
     transform: scale(1.045);
@@ -9092,6 +9133,174 @@ video {
   line-height: 1.9;
 }
 
+.case-evidence-brief-layout {
+  display: grid;
+  min-width: 0;
+  border-top: 1px solid color-mix(in srgb, var(--project-detail-accent) 34%, transparent);
+  border-bottom: 1px solid rgba(225, 229, 225, 0.1);
+  grid-template-columns: minmax(420px, 0.94fr) minmax(0, 1.06fr);
+}
+
+.case-evidence-artwork {
+  min-width: 0;
+  margin: 0;
+  padding: 18px 18px 18px 0;
+}
+
+.case-evidence-artwork .project-image-trigger,
+.case-evidence-artwork img {
+  width: 100%;
+}
+
+.case-evidence-artwork img {
+  display: block;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+.case-evidence-artwork figcaption,
+.case-strategy-visual-layout figcaption {
+  margin-top: 11px;
+  color: rgba(241, 241, 237, 0.42);
+  font-size: 9px;
+  line-height: 1.7;
+}
+
+.case-evidence-brief .case-evidence-brief-layout > dl {
+  display: grid;
+  align-content: stretch;
+  margin: 0;
+  border: 0;
+  border-left: 1px solid rgba(225, 229, 225, 0.1);
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, minmax(0, 1fr));
+}
+
+.case-evidence-brief .case-evidence-brief-layout > dl > div,
+.case-evidence-brief .case-evidence-brief-layout > dl > div:nth-child(even) {
+  display: grid;
+  align-content: center;
+  gap: 9px;
+  min-width: 0;
+  padding: 22px clamp(24px, 3vw, 42px);
+  border: 0;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--project-detail-accent) 5%, transparent), transparent 72%);
+}
+
+.case-evidence-brief .case-evidence-brief-layout > dl > div + div {
+  border-top: 1px solid rgba(225, 229, 225, 0.09);
+}
+
+.case-evidence-brief .case-evidence-brief-layout > dl > div:nth-child(even) {
+  padding-left: clamp(42px, 5vw, 76px);
+  background: transparent;
+}
+
+.case-evidence-brief dt {
+  font-size: 9px;
+}
+
+.case-evidence-brief dd {
+  max-width: 44em;
+  font-size: 12px;
+  line-height: 1.72;
+}
+
+.case-strategy-visual-layout {
+  display: grid;
+  align-items: stretch;
+  min-width: 0;
+  border-top: 1px solid color-mix(in srgb, var(--project-detail-accent) 34%, transparent);
+  border-bottom: 1px solid rgba(225, 229, 225, 0.1);
+  grid-template-columns: minmax(0, 1.18fr) minmax(320px, 0.82fr);
+}
+
+.case-strategy-visual-layout > figure {
+  min-width: 0;
+  margin: 0;
+  padding: 18px 18px 18px 0;
+}
+
+.case-strategy-visual-layout .project-image-trigger,
+.case-strategy-visual-layout img {
+  width: 100%;
+}
+
+.case-strategy-visual-layout img {
+  display: block;
+  height: auto;
+  object-fit: contain;
+}
+
+.table-fan-strategy-visual .case-strategy-visual-layout img {
+  aspect-ratio: 1;
+}
+
+.qinglan-strategy-visual .case-strategy-visual-layout {
+  grid-template-columns: minmax(330px, 0.72fr) minmax(0, 1.28fr);
+}
+
+.qinglan-strategy-visual .case-strategy-visual-layout img {
+  aspect-ratio: 3 / 4;
+}
+
+.case-strategy-steps {
+  display: grid;
+  border-left: 1px solid rgba(225, 229, 225, 0.1);
+  grid-template-rows: repeat(4, minmax(0, 1fr));
+}
+
+.case-strategy-steps article {
+  position: relative;
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 22px clamp(24px, 3vw, 42px);
+  background: linear-gradient(90deg, color-mix(in srgb, var(--project-detail-accent) 5%, transparent), transparent 74%);
+}
+
+.case-strategy-steps article + article {
+  border-top: 1px solid rgba(225, 229, 225, 0.09);
+}
+
+.case-strategy-steps article:nth-child(even) {
+  padding-left: clamp(42px, 5vw, 76px);
+  background: transparent;
+}
+
+.case-strategy-steps article::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: clamp(12px, 1.5vw, 24px);
+  height: 1px;
+  content: "";
+  background: var(--project-detail-accent);
+  opacity: 0.58;
+}
+
+.case-strategy-steps article > span {
+  color: var(--project-detail-accent);
+  font-size: 8px;
+  font-weight: 740;
+  letter-spacing: 0.1em;
+}
+
+.case-strategy-steps strong {
+  color: rgba(245, 245, 242, 0.9);
+  font-size: 15px;
+  font-weight: 680;
+}
+
+.case-strategy-steps p {
+  max-width: 46em;
+  margin: 0;
+  color: rgba(241, 241, 237, 0.5);
+  font-size: 10px;
+  line-height: 1.72;
+}
+
 .table-fan-capability-stage {
   display: grid;
   min-width: 0;
@@ -9101,6 +9310,8 @@ video {
 }
 
 .table-fan-capability-stage figure {
+  display: flex;
+  align-items: flex-start;
   min-width: 0;
   margin: 0;
   padding: 18px 18px 18px 0;
@@ -9109,12 +9320,13 @@ video {
 .table-fan-capability-stage .project-image-trigger,
 .table-fan-capability-stage img {
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 
 .table-fan-capability-stage img {
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  display: block;
+  aspect-ratio: 1;
+  object-fit: contain;
 }
 
 .table-fan-capability-proof {
@@ -9159,7 +9371,8 @@ video {
 
 .qinglan-capability-media {
   display: grid;
-  min-height: min(720px, 58vw);
+  min-height: 0;
+  aspect-ratio: 3 / 2;
   gap: 12px;
   grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
   grid-template-rows: repeat(2, minmax(0, 1fr));
@@ -9184,7 +9397,7 @@ video {
 }
 
 .qinglan-capability-media img {
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 700ms cubic-bezier(0.23, 1, 0.32, 1), filter 500ms ease;
 }
 
@@ -9429,6 +9642,55 @@ video {
   background: #111410;
 }
 
+.table-fan-case .smart-case-scene-grid article.is-square img {
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+.table-fan-case .smart-case-scene-grid article.is-wide img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.table-fan-case .air-fryer-output .project-detail-gallery-grid img {
+  object-fit: contain;
+}
+
+.table-fan-case .air-fryer-output .project-detail-gallery-grid figure:hover img {
+  transform: none;
+}
+
+.qinglan-case .qinglan-scene-ledger article:nth-child(1) {
+  grid-column: span 5;
+}
+
+.qinglan-case .qinglan-scene-ledger article:nth-child(2) {
+  grid-column: span 7;
+}
+
+.qinglan-case .qinglan-scene-ledger article:nth-child(3) {
+  grid-column: 4 / span 6;
+}
+
+.qinglan-case .qinglan-scene-ledger .project-image-trigger {
+  height: auto;
+}
+
+.qinglan-case .qinglan-scene-ledger article.is-square img {
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+.qinglan-case .qinglan-scene-ledger article.is-wide img {
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+}
+
+.qinglan-case .qinglan-scene-ledger article.is-portrait img {
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+}
+
 .qinglan-scene-ledger article > div {
   position: relative;
   display: grid;
@@ -9612,6 +9874,66 @@ video {
 }
 
 @media (max-width: 960px) {
+  .project-showcase-art-mosaic {
+    display: none;
+  }
+
+  .case-evidence-brief-layout,
+  .case-strategy-visual-layout,
+  .qinglan-strategy-visual .case-strategy-visual-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .case-evidence-artwork,
+  .case-strategy-visual-layout > figure {
+    padding-right: 0;
+  }
+
+  .case-evidence-brief .case-evidence-brief-layout > dl {
+    border-top: 1px solid rgba(225, 229, 225, 0.1);
+    border-left: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+  }
+
+  .case-evidence-brief .case-evidence-brief-layout > dl > div,
+  .case-evidence-brief .case-evidence-brief-layout > dl > div:nth-child(even) {
+    padding: 20px 22px;
+  }
+
+  .case-evidence-brief .case-evidence-brief-layout > dl > div:nth-child(even) {
+    border-left: 1px solid rgba(225, 229, 225, 0.09);
+  }
+
+  .case-evidence-brief .case-evidence-brief-layout > dl > div:nth-child(n + 3) {
+    border-top: 1px solid rgba(225, 229, 225, 0.09);
+  }
+
+  .case-strategy-steps {
+    border-top: 1px solid rgba(225, 229, 225, 0.1);
+    border-left: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+  }
+
+  .case-strategy-steps article,
+  .case-strategy-steps article:nth-child(even) {
+    padding: 22px 26px;
+  }
+
+  .case-strategy-steps article:nth-child(even) {
+    border-left: 1px solid rgba(225, 229, 225, 0.09);
+  }
+
+  .case-strategy-steps article:nth-child(n + 3) {
+    border-top: 1px solid rgba(225, 229, 225, 0.09);
+  }
+
+  .qinglan-strategy-visual .case-strategy-visual-layout img {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
   .table-fan-capability-stage,
   .qinglan-brand-proof {
     grid-template-columns: 1fr;
@@ -9700,6 +10022,29 @@ video {
     font-size: 30px;
   }
 
+  .case-evidence-brief .case-evidence-brief-layout > dl,
+  .case-strategy-steps {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+  }
+
+  .case-evidence-brief .case-evidence-brief-layout > dl > div,
+  .case-evidence-brief .case-evidence-brief-layout > dl > div:nth-child(even),
+  .case-strategy-steps article,
+  .case-strategy-steps article:nth-child(even) {
+    padding: 19px 0 21px;
+    border-left: 0;
+  }
+
+  .case-evidence-brief .case-evidence-brief-layout > dl > div + div,
+  .case-strategy-steps article + article {
+    border-top: 1px solid rgba(225, 229, 225, 0.09);
+  }
+
+  .case-strategy-steps article::before {
+    display: none;
+  }
+
   .table-fan-capability-stage img {
     aspect-ratio: 1;
   }
@@ -9720,6 +10065,7 @@ video {
 
   .qinglan-capability-media {
     min-height: 0;
+    aspect-ratio: auto;
     grid-template-columns: 1fr;
     grid-template-rows: none;
   }
@@ -9868,7 +10214,7 @@ video {
 }
 
 /* GLACIER layout correction: every selected image keeps its intended ratio. */
-.project-showcase-item.is-glacier-cover .project-showcase-art img {
+.project-showcase-item.is-glacier-cover .project-showcase-art-primary {
   object-position: 34% center;
 }
 

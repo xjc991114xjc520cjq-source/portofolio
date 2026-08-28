@@ -91,8 +91,8 @@ const projectShowcaseItems = [
     category: "智能硬件 / 功能商业化",
     categoryEnglish: "SMART HARDWARE COMMERCE",
     year: "2026",
-    image: "/assets/projects/table-fan/table-fan-circulation-distance.webp",
-    alt: "十二米远距循环送风的空气循环扇商业主视觉",
+    image: "/assets/projects/table-fan/table-fan-hero.webp",
+    alt: "空气循环扇正面产品商业渲染",
     backdrop: "AIRFLOW",
     accent: "#89aacc",
     introTheme: {
@@ -215,8 +215,8 @@ const projectShowcaseItems = [
     category: "食品饮料 / 概念品牌",
     categoryEnglish: "BEVERAGE COMMERCE",
     year: "2026",
-    image: "/assets/projects/qinglan-tea/qinglan-commerce-core.webp",
-    alt: "零糖也有真茶香的青岚茶事原叶茉莉绿茶品牌主视觉",
+    image: "/assets/projects/qinglan-tea/qinglan-open-cap.webp",
+    alt: "青岚茶事原叶茉莉绿茶真实开盖动作",
     backdrop: "QINGLAN",
     accent: "#82915f",
     introTheme: {
@@ -366,6 +366,12 @@ const projectShowcaseCollections = [
     index: "01",
     title: "智能生活产品",
     english: "SMART LIVING PRODUCTS",
+    facets: ["智能厨电", "智能硬件", "功能商业化"],
+    coverImages: [
+      "/assets/projects/air-fryer/air-fryer-reference.webp",
+      "/assets/projects/table-fan/table-fan-family.webp",
+      "/assets/projects/table-fan/table-fan-hero.webp",
+    ],
     projects: [projectShowcaseItems[0], projectShowcaseItems[1]],
   },
   {
@@ -373,6 +379,12 @@ const projectShowcaseCollections = [
     index: "02",
     title: "美妆与个人护理",
     english: "BEAUTY & PERSONAL CARE",
+    facets: ["功效洁面", "功效精华", "晨晚护理"],
+    coverImages: [
+      "/assets/projects/glacier-cleanser/glacier-bathroom-wide.webp",
+      "/assets/projects/serum/serum-bathroom.webp",
+      "/assets/projects/serum/serum-dropper-wide.webp",
+    ],
     projects: [projectShowcaseItems[2], projectShowcaseItems[3]],
   },
   {
@@ -380,6 +392,12 @@ const projectShowcaseCollections = [
     index: "03",
     title: "新消费与电商",
     english: "CONSUMER COMMERCE",
+    facets: ["食品饮料", "品牌定位", "上市内容"],
+    coverImages: [
+      "/assets/projects/qinglan-tea/qinglan-open-cap.webp",
+      "/assets/projects/qinglan-tea/qinglan-pour.webp",
+      "/assets/projects/qinglan-tea/qinglan-scene-light-lunch.webp",
+    ],
     projects: [projectShowcaseItems[4]],
   },
   {
@@ -387,6 +405,12 @@ const projectShowcaseCollections = [
     index: "04",
     title: "人物生活方式",
     english: "LIFESTYLE CAMPAIGNS",
+    facets: ["人物一致性", "运动叙事", "社交传播"],
+    coverImages: [
+      "/assets/project-showcase-afterimage.webp",
+      "/assets/work-photos/1529139574466-a303027c1d8b.webp",
+      "/assets/work-photos/1558655146-9f40138edfeb.webp",
+    ],
     projects: [projectShowcaseItems[5]],
   },
   {
@@ -394,6 +418,12 @@ const projectShowcaseCollections = [
     index: "05",
     title: "文化出版",
     english: "CULTURAL PUBLISHING",
+    facets: ["内容梳理", "套系识别", "电商叙事"],
+    coverImages: [
+      "/assets/works/commerce-andersen-thumb.jpg",
+      "/assets/project-packaging.png",
+      "/assets/hero-editorial-v2.webp",
+    ],
     projects: [projectShowcaseItems[6]],
   },
   {
@@ -401,6 +431,12 @@ const projectShowcaseCollections = [
     index: "06",
     title: "产品动态影像",
     english: "PRODUCT MOTION",
+    facets: ["关键帧", "材质运动", "镜头连续性"],
+    coverImages: [
+      "/assets/project-showcase-aether-grid.webp",
+      "/assets/project-showcase-field-objects.webp",
+      "/assets/project-showcase-nocturne.webp",
+    ],
     projects: [projectShowcaseItems[7]],
   },
 ] as const;
@@ -511,6 +547,7 @@ const tableFanCaseStudy = {
       touchpoint: "PDP / 操作说明",
       image: "/assets/projects/table-fan/table-fan-m02.webp",
       alt: "空气循环扇抬手送风创意路线主图",
+      layout: "square",
     },
     {
       title: "家庭体感",
@@ -518,6 +555,7 @@ const tableFanCaseStudy = {
       touchpoint: "CAMPAIGN / 生活方式",
       image: "/assets/projects/table-fan/table-fan-family.webp",
       alt: "空气循环扇家庭陪伴场景",
+      layout: "wide",
     },
     {
       title: "夜间低扰",
@@ -525,13 +563,7 @@ const tableFanCaseStudy = {
       touchpoint: "PDP / 参数说服",
       image: "/assets/projects/table-fan/table-fan-sleep-specs.webp",
       alt: "空气循环扇夜间低扰与多档风速商业主视觉",
-    },
-    {
-      title: "时段适配",
-      purpose: "四段光线验证同一产品在晨间、日间、傍晚和夜间仍保持材质与结构一致。",
-      touchpoint: "SYSTEM / 光影控制",
-      image: "/assets/projects/table-fan/table-fan-dayparts.webp",
-      alt: "空气循环扇四个时段的光线控制序列",
+      layout: "square",
     },
   ],
   commercialOutputs: [
@@ -780,18 +812,12 @@ const qinglanTeaCaseStudy = {
   variables: ["商品主图、动作证据与横向生活场景", "晨光、冷柜光与夏日自然光", "正面站立、开盖、倒饮与多瓶陈列", "茉莉、茶叶、洞石、轻食与都市环境", "核心心智、无糖利益、口感和渠道文案"],
   scenes: [
     {
-      title: "真实开盖",
-      purpose: "瓶口、防盗环、手部与正面标签共同说明真实使用方式，让产品从静态包装进入饮用动作。",
-      touchpoint: "PDP / 使用体验",
-      image: "/assets/projects/qinglan-tea/qinglan-open-cap.webp",
-      alt: "青岚茶事原叶茉莉绿茶真实开盖动作",
-    },
-    {
       title: "货架注意入口",
       purpose: "自动贩卖机、多瓶陈列与高产品占比建立冷柜识别，把品牌心智接入即时购买场景。",
       touchpoint: "COMMERCE / 商品入口",
       image: "/assets/projects/qinglan-tea/qinglan-square-heatwave-vending.webp",
       alt: "青岚茶事热浪退场自动贩卖机商业主视觉",
+      layout: "square",
     },
     {
       title: "轻食搭配",
@@ -799,6 +825,7 @@ const qinglanTeaCaseStudy = {
       touchpoint: "PDP / 场景说服",
       image: "/assets/projects/qinglan-tea/qinglan-scene-light-lunch.webp",
       alt: "青岚茶事轻食午餐生活方式场景",
+      layout: "wide",
     },
     {
       title: "都市随行",
@@ -806,6 +833,7 @@ const qinglanTeaCaseStudy = {
       touchpoint: "SOCIAL / 人群沟通",
       image: "/assets/projects/qinglan-tea/qinglan-scene-urban-commute.webp",
       alt: "青岚茶事都市通勤随行场景",
+      layout: "portrait",
     },
   ],
   commercialOutputs: [
@@ -4418,33 +4446,49 @@ function TableFanCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageS
         </div>
       </section>
 
-      <section className="smart-case-context" aria-labelledby="table-fan-case-context-title">
+      <section className="smart-case-context case-evidence-brief table-fan-evidence-brief" aria-labelledby="table-fan-case-context-title">
         <header className="smart-case-heading">
           <h3 id="table-fan-case-context-title">先明确产品与商业任务</h3>
-          <p>项目从真实产品和使用动作出发，先建立可信的产品底稿，再组织能够吸引点击、解释使用并支持购买判断的内容路径。</p>
+          <p>一张功能画面先回答消费者为什么需要它，项目属性、概念产品、功能设定和商业任务围绕同一证据展开。</p>
         </header>
-        <dl>
-          {tableFanCaseStudy.context.map((item) => (
-            <div key={item.label}>
-              <dt>{item.label}</dt>
-              <dd>{item.value}</dd>
-            </div>
-          ))}
-        </dl>
+        <div className="case-evidence-brief-layout">
+          <figure className="case-evidence-artwork">
+            <ZoomableProjectImage
+              src="/assets/projects/table-fan/table-fan-circulation-distance.webp"
+              alt="让风走在屋里与十二米远距循环送风商业主视觉"
+              onOpen={onImageOpen}
+              loading="lazy"
+            />
+            <figcaption>首屏功能证据：十二米循环送风进入真实客厅空间。</figcaption>
+          </figure>
+          <dl>
+            {tableFanCaseStudy.context.map((item) => (
+              <div key={item.label}>
+                <dt>{item.label}</dt>
+                <dd>{item.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
       </section>
 
-      <section className="smart-case-strategy" aria-labelledby="table-fan-case-strategy-title">
+      <section className="smart-case-strategy case-strategy-visual table-fan-strategy-visual" aria-labelledby="table-fan-case-strategy-title">
         <header className="smart-case-heading">
           <span>COMMERCIAL STRATEGY</span>
-          <h3 id="table-fan-case-strategy-title">把内容拆成四个连续问题</h3>
-          <p>每一张图都需要承担明确任务，顺序从产品确认、使用理解、场景建立和系列表达，推进到完整资产节奏。</p>
+          <h3 id="table-fan-case-strategy-title">让四个时段承载四种商业责任</h3>
+          <p>同一产品先通过光线与空间连续性证明稳定，再分别承担结构、规格、体感和触点任务。</p>
         </header>
-        <div className="smart-case-tree">
-          <div className="smart-case-tree-root">
-            <small>BUSINESS GOAL</small>
-            <strong>建立可识别、可理解、能唤醒空气感的智能家电商业视觉</strong>
-          </div>
-          <div className="smart-case-tree-branches">
+        <div className="case-strategy-visual-layout">
+          <figure>
+            <ZoomableProjectImage
+              src="/assets/projects/table-fan/table-fan-dayparts.webp"
+              alt="空气循环扇晨间、日间、傍晚与夜间四时段光线序列"
+              onOpen={onImageOpen}
+              loading="lazy"
+            />
+            <figcaption>四时段连续光线用于检验产品身份与场景适配。</figcaption>
+          </figure>
+          <div className="case-strategy-steps">
             {tableFanCaseStudy.strategy.map((branch) => (
               <article key={branch.title}>
                 <strong>{branch.title}</strong>
@@ -4494,7 +4538,7 @@ function TableFanCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageS
         </header>
         <div className="smart-case-scene-grid">
           {tableFanCaseStudy.scenes.map((scene) => (
-            <article key={scene.title}>
+            <article className={`is-${scene.layout}`} key={scene.title}>
               <figure>
                 <ZoomableProjectImage
                   src={scene.image}
@@ -4868,19 +4912,30 @@ function QinglanTeaCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImag
         </div>
       </section>
 
-      <section className="smart-case-context" aria-labelledby="qinglan-case-context-title">
+      <section className="smart-case-context case-evidence-brief qinglan-evidence-brief" aria-labelledby="qinglan-case-context-title">
         <header className="smart-case-heading">
           <h3 id="qinglan-case-context-title">先完成自审，再重新定义项目价值</h3>
-          <p>旧版本的问题不是图片不够，而是核心心智不够集中、同义场景太多，并且背标与零糖定位冲突。重构从删除错误证据开始。</p>
+          <p>原叶视觉负责品牌来源，四项任务说明这款无糖茶如何从自然印象进入可记忆、可购买的新品系统。</p>
         </header>
-        <dl>
-          {qinglanTeaCaseStudy.context.map((item) => (
-            <div key={item.label}>
-              <dt>{item.label}</dt>
-              <dd>{item.value}</dd>
-            </div>
-          ))}
-        </dl>
+        <div className="case-evidence-brief-layout">
+          <figure className="case-evidence-artwork">
+            <ZoomableProjectImage
+              src="/assets/projects/qinglan-tea/qinglan-square-original-leaf.webp"
+              alt="青岚茶事原叶见真章茶园品牌来源主视觉"
+              onOpen={onImageOpen}
+              loading="lazy"
+            />
+            <figcaption>品牌来源证据：用一张原叶画面建立茉莉绿茶的自然联想。</figcaption>
+          </figure>
+          <dl>
+            {qinglanTeaCaseStudy.context.map((item) => (
+              <div key={item.label}>
+                <dt>{item.label}</dt>
+                <dd>{item.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
       </section>
 
       <section className="qinglan-case-calibration" aria-labelledby="qinglan-calibration-title">
@@ -4911,31 +4966,42 @@ function QinglanTeaCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImag
         </div>
       </section>
 
-      <section className="qinglan-case-strategy" aria-labelledby="qinglan-strategy-title">
+      <section className="qinglan-case-strategy case-strategy-visual qinglan-strategy-visual" aria-labelledby="qinglan-strategy-title">
         <header className="smart-case-heading">
           <span>COMMERCIAL STRATEGY</span>
-          <h3 id="qinglan-strategy-title">用购买顺序决定画面任务</h3>
-          <p>消费者先识别商品，再理解利益，随后才会把产品放进自己的生活。四段内容对应四种不同的视觉责任。</p>
+          <h3 id="qinglan-strategy-title">从开盖动作进入完整消费路径</h3>
+          <p>真实动作是静物图与消费体验之间的转折点，心智、利益、体验和渠道围绕这一刻继续展开。</p>
         </header>
-        <div className="qinglan-strategy-track">
-          {qinglanTeaCaseStudy.strategy.map((item, index) => (
-            <article key={item.title}>
-              <span>{["心智", "利益", "体验", "渠道"][index]}</span>
-              <strong>{item.title}</strong>
-              <p>{item.detail}</p>
-            </article>
-          ))}
+        <div className="case-strategy-visual-layout">
+          <figure>
+            <ZoomableProjectImage
+              src="/assets/projects/qinglan-tea/qinglan-open-cap.webp"
+              alt="青岚茶事原叶茉莉绿茶真实开盖动作"
+              onOpen={onImageOpen}
+              loading="lazy"
+            />
+            <figcaption>真实开盖动作连接包装识别与饮用体验。</figcaption>
+          </figure>
+          <div className="case-strategy-steps">
+            {qinglanTeaCaseStudy.strategy.map((item, index) => (
+              <article key={item.title}>
+                <span>{["心智", "利益", "体验", "渠道"][index]}</span>
+                <strong>{item.title}</strong>
+                <p>{item.detail}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
       <section className="qinglan-case-scenes" aria-labelledby="qinglan-scenes-title">
         <header className="smart-case-heading">
-          <h3 id="qinglan-scenes-title">四个消费节点继续完成购买说服</h3>
-          <p>开盖、货架、轻食和通勤承担不同任务，不用花叶背景重复解释清爽。</p>
+          <h3 id="qinglan-scenes-title">三个渠道节点继续完成购买说服</h3>
+          <p>货架、轻食和通勤承担不同任务，不用花叶背景重复解释清爽。</p>
         </header>
         <div className="qinglan-scene-ledger">
           {qinglanTeaCaseStudy.scenes.map((scene) => (
-            <article key={scene.title}>
+            <article className={`is-${scene.layout}`} key={scene.title}>
               <figure>
                 <ZoomableProjectImage src={scene.image} alt={scene.alt} onOpen={onImageOpen} loading="lazy" />
               </figure>
@@ -4946,16 +5012,6 @@ function QinglanTeaCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImag
               </div>
             </article>
           ))}
-        </div>
-      </section>
-
-      <section className="qinglan-brand-proof" aria-labelledby="qinglan-brand-proof-title">
-        <figure>
-          <ZoomableProjectImage src="/assets/projects/qinglan-tea/qinglan-square-original-leaf.webp" alt="青岚茶事原叶见真章品牌来源主视觉" onOpen={onImageOpen} loading="lazy" />
-        </figure>
-        <div>
-          <h3 id="qinglan-brand-proof-title">一张原叶图负责品牌来源，其他画面不再重复同一句自然感</h3>
-          <p>保留一张完成度最高的原叶表达，足以建立茉莉绿茶与自然产地联想。其余位置让给无糖利益、真实动作和渠道场景。</p>
         </div>
       </section>
 
@@ -5413,7 +5469,7 @@ function ProjectShowcaseCard({
       className={`project-showcase-item${isGlacierCover ? " is-glacier-cover" : ""}${isFocused ? " is-focused" : ""}${isSuppressed ? " is-suppressed" : ""}`}
       type="button"
       data-project-index={index}
-      aria-label={`查看代表项目：${coverProject.title}，该方向共${item.projects.length}个项目`}
+      aria-label={`查看作品方向：${item.title}，包含${item.projects.length}个完整商业项目`}
       aria-haspopup="dialog"
       aria-expanded={isActive}
       onFocus={onFocus}
@@ -5430,19 +5486,24 @@ function ProjectShowcaseCard({
       }}
     >
       <span className="project-showcase-art">
-        <img src={coverProject.image} alt={coverProject.alt} loading="lazy" decoding="async" />
+        <img className="project-showcase-art-primary" src={item.coverImages[0]} alt={`${item.title}作品方向组合预览`} loading="lazy" decoding="async" />
+        <span className="project-showcase-art-mosaic" aria-hidden="true">
+          {item.coverImages.slice(1).map((image, imageIndex) => (
+            <img src={image} alt="" loading="lazy" decoding="async" key={`${image}-${imageIndex}`} />
+          ))}
+        </span>
         <span className="project-showcase-art-shade" aria-hidden="true" />
-        <span className="project-showcase-backdrop" aria-hidden="true">{coverProject.backdrop}</span>
+        <span className="project-showcase-backdrop" aria-hidden="true">{item.english}</span>
       </span>
       <span className="project-showcase-index">{item.index}</span>
       <span className="project-showcase-meta">
-        <strong>{coverProject.title}</strong>
-        <em>{item.title} / {item.english}</em>
-        <span>
-          {coverProject.category}
-          <small>{coverProject.categoryEnglish} / {String(item.projects.length).padStart(2, "0")} PROJECTS</small>
+        <strong>{item.title}</strong>
+        <em>{item.english}</em>
+        <span className="project-showcase-facets">
+          {item.facets.join(" / ")}
+          <small>能力分类入口 / 点击查看完整内容</small>
         </span>
-        <b>{coverProject.year}</b>
+        <b>进入分类查看全部案例</b>
       </span>
     </motion.button>
   );
