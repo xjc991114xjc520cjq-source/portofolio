@@ -9671,52 +9671,33 @@ video {
 }
 
 .glacier-use-case-ledger {
-  align-items: start;
-  gap: clamp(14px, 1.5vw, 22px);
-  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
-  grid-template-rows: repeat(2, auto);
+  align-items: stretch;
+  gap: clamp(18px, 1.8vw, 28px);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: auto;
 }
 
 .glacier-use-case-ledger article,
 .glacier-use-case-ledger article.is-primary {
-  display: block;
-  align-self: start;
+  display: grid;
+  align-self: stretch;
+  align-content: start;
   overflow: visible;
   border: 0;
   border-radius: 0;
   background: transparent;
+  grid-column: auto;
   grid-row: auto;
-  grid-template-columns: none;
-}
-
-.glacier-use-case-ledger article.is-use-case-1 {
-  grid-column: 1;
-  grid-row: 1 / 3;
-}
-
-.glacier-use-case-ledger article.is-use-case-2,
-.glacier-use-case-ledger article.is-use-case-3 {
-  display: grid;
-  align-items: center;
-  grid-column: 2;
-  grid-template-columns: minmax(240px, 0.78fr) minmax(0, 1.22fr);
+  grid-template-columns: 1fr;
 }
 
 .glacier-use-case-ledger article figure,
 .glacier-use-case-ledger article.is-primary figure,
 .glacier-use-case-ledger article:not(.is-primary) figure {
   min-height: 0;
+  aspect-ratio: 3 / 4;
   border: 1px solid rgba(225, 229, 225, 0.13);
   border-radius: 3px;
-}
-
-.glacier-use-case-ledger article.is-use-case-1 figure,
-.glacier-use-case-ledger article.is-use-case-2 figure {
-  aspect-ratio: 3 / 4;
-}
-
-.glacier-use-case-ledger article.is-use-case-3 figure {
-  aspect-ratio: 1 / 1;
 }
 
 .glacier-use-case-ledger article:not(.is-primary) img {
@@ -9728,12 +9709,7 @@ video {
   display: grid;
   align-content: start;
   gap: 8px;
-  padding: 18px 2px 0;
-}
-
-.glacier-use-case-ledger article.is-use-case-2 > div,
-.glacier-use-case-ledger article.is-use-case-3 > div {
-  padding: 18px 4px 18px 24px;
+  padding: 17px 2px 0;
 }
 
 .glacier-proof-module {
@@ -9746,20 +9722,16 @@ video {
 
 @media (max-width: 980px) {
   .glacier-use-case-ledger {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-template-rows: auto;
   }
 
   .glacier-use-case-ledger article.is-use-case-1,
   .glacier-use-case-ledger article.is-use-case-2,
   .glacier-use-case-ledger article.is-use-case-3 {
-    display: block;
+    display: grid;
     grid-column: auto;
     grid-row: auto;
-  }
-
-  .glacier-use-case-ledger article.is-use-case-3 {
-    grid-column: 2;
   }
 }
 
@@ -9979,8 +9951,8 @@ video {
 .serum-persuasion-grid {
   display: grid;
   align-items: start;
-  gap: clamp(16px, 2vw, 28px);
-  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+  gap: clamp(18px, 2vw, 30px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .serum-persuasion article,
@@ -9991,7 +9963,7 @@ video {
 }
 
 .serum-persuasion article:nth-child(1) {
-  padding-top: clamp(52px, 7vw, 110px);
+  padding-top: 0;
 }
 
 .serum-persuasion article figure,
@@ -10044,8 +10016,8 @@ video {
 .serum-usage-grid {
   display: grid;
   align-items: start;
-  gap: clamp(26px, 4vw, 64px) clamp(16px, 2vw, 28px);
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(22px, 2vw, 30px);
+  grid-template-columns: minmax(0, 1.24fr) repeat(2, minmax(0, 1fr));
 }
 
 .serum-usage article.is-square figure {
@@ -10057,18 +10029,18 @@ video {
 }
 
 .serum-usage article:nth-child(2) {
-  padding-top: clamp(62px, 7vw, 120px);
+  padding-top: 0;
 }
 
 .serum-usage article:nth-child(3) {
   display: grid;
-  align-items: center;
-  grid-column: 1 / -1;
-  grid-template-columns: minmax(320px, 0.82fr) minmax(0, 1.18fr);
+  align-items: start;
+  grid-column: auto;
+  grid-template-columns: 1fr;
 }
 
 .serum-usage article:nth-child(3) > div {
-  padding: clamp(30px, 5vw, 76px);
+  padding: 18px 2px 0;
 }
 
 .serum-formula-stage {
@@ -10116,6 +10088,19 @@ video {
   .serum-positioning-stage,
   .serum-formula-stage {
     grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
+  }
+}
+
+@media (max-width: 860px) {
+  .glacier-use-case-ledger,
+  .serum-usage-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .glacier-use-case-ledger article,
+  .glacier-use-case-ledger article.is-primary,
+  .serum-usage article:nth-child(3) {
+    grid-column: 1;
   }
 }
 
