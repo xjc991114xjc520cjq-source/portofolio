@@ -5563,11 +5563,11 @@ function ProjectDetailViewer({
           <div className="narrow-viewport-notice-group" aria-label="浏览器窗口宽度提示">
             <span className="narrow-viewport-notice is-left" role="status">
               建议扩大浏览器窗口
-              <small>宽度建议 ≥ 1400px</small>
+              <small>宽度建议 ≥ 1700px</small>
             </span>
             <span className="narrow-viewport-notice is-right" aria-hidden="true">
               建议扩大浏览器窗口
-              <small>宽度建议 ≥ 1400px</small>
+              <small>宽度建议 ≥ 1700px</small>
             </span>
           </div>
         ) : null}
