@@ -4700,19 +4700,35 @@ function TableFanCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageS
 function SonaEarbudsCaseStudy({
   onImageOpen,
   reduceMotion,
+  scrollRoot,
 }: {
   onImageOpen: (image: ProjectImageSource) => void;
   reduceMotion: boolean | null;
+  scrollRoot: RefObject<HTMLDivElement>;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
-    if (reduceMotion === false) video.play().catch(() => undefined);
-    else video.pause();
-    return () => video.pause();
-  }, [reduceMotion]);
+    const pauseVideo = () => video.pause();
+    const syncPlayback = (entry?: IntersectionObserverEntry) => {
+      const fullyVisible = Boolean(entry?.isIntersecting && entry.intersectionRatio >= 0.995);
+      if (fullyVisible && reduceMotion === false) video.play().catch(() => undefined);
+      else pauseVideo();
+    };
+
+    pauseVideo();
+    const observer = new IntersectionObserver(
+      ([entry]) => syncPlayback(entry),
+      { root: scrollRoot.current ?? null, threshold: [0, 0.995, 1] },
+    );
+    observer.observe(video);
+    return () => {
+      observer.disconnect();
+      pauseVideo();
+    };
+  }, [reduceMotion, scrollRoot]);
 
   return (
     <div className="smart-case earbuds-case">
@@ -4726,7 +4742,6 @@ function SonaEarbudsCaseStudy({
           <figure>
             <video
               ref={videoRef}
-              autoPlay={reduceMotion === false}
               controls
               loop
               muted
@@ -5397,6 +5412,7 @@ function ProjectDetailViewer({
   onSelectProject: (index: number) => void;
 }) {
   const viewerRef = useRef<HTMLDivElement>(null);
+  const detailLayoutRef = useRef<HTMLDivElement>(null);
   const [keyboardNavigation, setKeyboardNavigation] = useState(false);
   const { activeImage, openImage, closeImage } = useProjectImageLightbox();
   const titleId = `project-detail-title-${item.index}`;
@@ -5543,6 +5559,19 @@ function ProjectDetailViewer({
           </div>
         </header>
 
+        {isSonaEarbudsProject ? (
+          <div className="narrow-viewport-notice-group" aria-label="浏览器窗口宽度提示">
+            <span className="narrow-viewport-notice is-left" role="status">
+              建议扩大浏览器窗口
+              <small>宽度建议 ≥ 1400px</small>
+            </span>
+            <span className="narrow-viewport-notice is-right" aria-hidden="true">
+              建议扩大浏览器窗口
+              <small>宽度建议 ≥ 1400px</small>
+            </span>
+          </div>
+        ) : null}
+
         <nav className="project-detail-projects" aria-label={`${collection.title}项目切换`}>
           <div className="project-detail-projects-label">
             <span>项目索引</span>
@@ -5573,6 +5602,7 @@ function ProjectDetailViewer({
 
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
+            ref={detailLayoutRef}
             className="project-detail-layout"
             key={`${collection.id}-${item.index}`}
             initial={reduceMotion ? false : { opacity: 0, x: 26 }}
@@ -5629,7 +5659,7 @@ function ProjectDetailViewer({
               ) : item === projectShowcaseItems[4] ? (
                 <QinglanTeaCaseStudy onImageOpen={openImage} />
               ) : item === projectShowcaseItems[7] ? (
-                <SonaEarbudsCaseStudy onImageOpen={openImage} reduceMotion={reduceMotion} />
+                <SonaEarbudsCaseStudy onImageOpen={openImage} reduceMotion={reduceMotion} scrollRoot={detailLayoutRef} />
               ) : (
                 <>
                   <section className="project-detail-process" aria-label="项目工作流">

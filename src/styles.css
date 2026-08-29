@@ -710,7 +710,7 @@
   display: grid;
   min-width: 0;
   gap: 12px;
-  grid-template-columns: minmax(180px, 0.64fr) minmax(180px, 0.52fr) minmax(360px, 1.34fr);
+  grid-template-columns: minmax(0, 0.64fr) minmax(0, 0.52fr) minmax(0, 1.34fr);
 }
 
 .earbuds-format-grid article {
@@ -736,7 +736,7 @@
 
 .earbuds-format-grid img {
   display: block;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .earbuds-format-grid .is-ratio-1-1 img {
@@ -7213,6 +7213,73 @@ video {
 
   .works {
     margin-top: 0;
+  }
+}
+
+/* SONA ARC ONE: keep channel thumbnails intact before the mobile breakpoint. */
+@media (min-width: 781px) and (max-width: 1360px) {
+  .earbuds-format-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .earbuds-format-grid .is-ratio-16-9 {
+    grid-column: 1 / -1;
+  }
+}
+
+/* SONA ARC ONE: make the viewing-width constraint explicit on a narrow desktop. */
+.narrow-viewport-notice-group {
+  display: none;
+}
+
+@media (min-width: 721px) and (max-width: 1399px) {
+  .narrow-viewport-notice-group {
+    display: block;
+    pointer-events: none;
+  }
+
+  .narrow-viewport-notice {
+    position: fixed;
+    top: 50%;
+    z-index: 30;
+    display: grid;
+    width: 146px;
+    gap: 5px;
+    padding: 12px 10px 11px;
+    border: 1px solid color-mix(in srgb, var(--project-detail-accent) 68%, rgba(225, 229, 225, 0.24));
+    border-radius: 10px;
+    color: #f2f3ef;
+    background: rgba(7, 12, 16, 0.94);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.38), 0 0 0 1px rgba(255, 255, 255, 0.035);
+    font-size: 10px;
+    font-weight: 680;
+    line-height: 1.45;
+    text-align: center;
+    transform: translateY(-50%);
+  }
+
+  .narrow-viewport-notice::before {
+    display: block;
+    width: 22px;
+    height: 2px;
+    margin: 0 auto 2px;
+    background: var(--project-detail-accent);
+    content: "";
+  }
+
+  .narrow-viewport-notice small {
+    color: color-mix(in srgb, var(--project-detail-accent) 82%, #f2f3ef);
+    font-size: 8px;
+    font-weight: 560;
+    letter-spacing: 0.04em;
+  }
+
+  .narrow-viewport-notice.is-left {
+    left: 10px;
+  }
+
+  .narrow-viewport-notice.is-right {
+    right: 10px;
   }
 }
 
