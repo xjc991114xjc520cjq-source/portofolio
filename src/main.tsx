@@ -322,40 +322,42 @@ const projectShowcaseItems = [
     ],
   },
   {
-    index: "06",
-    title: "让商品在运动中保持准确：AI Product Film",
-    english: "AI PRODUCT FILM",
-    category: "消费科技 / 产品影片",
-    categoryEnglish: "MOTION CAMPAIGN",
+    index: "01",
+    title: "SONA ARC ONE 耳机上市视觉系统",
+    english: "SONA ARC ONE EARBUDS LAUNCH SYSTEM",
+    category: "消费科技 / 产品动态",
+    categoryEnglish: "CONSUMER TECHNOLOGY LAUNCH",
     year: "2026",
-    image: "/assets/project-showcase-aether-grid.webp",
-    alt: "暗场科技空间与精密光线组成的消费科技产品影片方向",
-    backdrop: "MOTION",
-    accent: "#89aacc",
+    image: "/assets/projects/sona-earbuds/sona-campaign-silence.webp",
+    alt: "SONA ARC ONE 真无线耳机一戴入静上市主视觉",
+    backdrop: "ARC ONE",
+    accent: "#83b8d5",
     introTheme: {
-      surface: "#171a19",
-      surfaceDeep: "#090b0b",
-      title: "#ece8df",
-      body: "#b8b5ae",
-      muted: "#858b88",
-      accent: "#78aaa5",
-      rule: "#455d5a",
-      shadow: "rgba(0, 0, 0, 0.44)",
+      surface: "#222831",
+      surfaceDeep: "#090d12",
+      title: "#eef4f7",
+      body: "#bdcad2",
+      muted: "#8698a4",
+      accent: "#8bc5e3",
+      rule: "#486577",
+      shadow: "rgba(2, 7, 12, 0.52)",
     },
-    summary: "以无线耳机为核心产品，用关键帧锁定结构、材质和品牌光线，再将开合、旋转与推进拆成可控镜头，让动态真正解释产品。",
-    brief: "消费科技产品片需要在运动中持续保护结构、材质与品牌气质，避免无目的镜头变化。",
-    response: "先锁定耳机与充电仓关键帧，再定义开合、旋转、推进和光线变化的动作边界。",
-    role: "AI Motion / Art Direction",
-    scope: "商品动态连续性",
-    deliverables: ["产品影片", "动态广告", "关键帧系统", "社交短视频"],
-    workflow: ["产品建模", "关键帧", "运动设计", "分段生成", "剪辑输出"],
-    system: "以商品结构、材质反射和动作边界控制动态连续性，让影片继承静态 Campaign 的视觉资产。",
-    outcome: "形成产品关键帧、动态广告和社交短视频的连续输出结构，让同一套静态资产能够安全进入多比例动态触点。",
-    reflection: "运动不是目的。每一次开合、旋转和光线变化都必须帮助消费者理解结构、材质或使用体验。",
+    summary: "从产品母版、四段连续关键帧到十秒产品片和多比例上市内容，证明我能让精密硬件在动态、电商与人物场景中保持同一身份。",
+    brief: "消费科技上市内容不能只靠单张氛围图。项目需要同时解决耳机与充电仓的一致性、影片动作连续、卖点解释和跨渠道适配。",
+    response: "先用产品母版和结构板锁定识别锚点，再将闭合、开盖、升起与展开拆成连续动作，最后让同一套资产进入电商主图、人物场景和上市横幅。",
+    role: "AI Art Direction / Product Motion",
+    scope: "消费科技新品上市整合视觉系统",
+    deliverables: ["产品母版", "结构校准", "产品影片", "功能主图", "人物场景", "多比例上市内容"],
+    workflow: ["产品设定", "母版校准", "关键帧设计", "连续动作生成", "影片剪辑", "静态 Campaign", "渠道编排"],
+    system: "固定充电仓比例、水平开合缝、冰蓝状态灯、短柄耳机和触控面结构，以机位、声场、人物、标题和比例作为可控变量。",
+    outcome: "形成十九张承担独立职责的核心视觉和一支十秒产品片，覆盖产品真实性、动态解释、功能销售与三种主流内容比例。",
+    reflection: "消费科技的 AI 价值不在于增加未来感，而在于让同一精密产品跨过静态、动态和渠道后仍然准确、清楚并可销售。",
     gallery: [
-      { src: "/assets/project-showcase-aether-grid.webp", alt: "消费科技产品影片的空间关键帧方向", layout: "portrait" },
-      { src: "/assets/project-showcase-field-objects.webp", alt: "消费科技产品影片的商品运动方向", layout: "portrait" },
-      { src: "/assets/project-showcase-nocturne.webp", alt: "消费科技产品影片的低照度光线方向", layout: "portrait" },
+      { src: "/assets/projects/sona-earbuds/sona-product-master.webp", alt: "SONA ARC ONE 耳机与充电仓三状态产品母版", layout: "square" },
+      { src: "/assets/projects/sona-earbuds/sona-film-finale.webp", alt: "耳机展开与声场形成的产品影片结束关键帧", layout: "wide" },
+      { src: "/assets/projects/sona-earbuds/sona-campaign-silence.webp", alt: "一戴入静核心上市主视觉", layout: "square" },
+      { src: "/assets/projects/sona-earbuds/sona-comfort-fit.webp", alt: "城市通勤人物佩戴舒适卖点主视觉", layout: "portrait" },
+      { src: "/assets/projects/sona-earbuds/sona-launch-banner.webp", alt: "听见自己的节奏新品上市横幅", layout: "wide" },
     ],
   },
 ] as const;
@@ -423,9 +425,9 @@ const projectShowcaseCollections = [
     index: "06",
     title: "产品动态影像",
     english: "PRODUCT MOTION",
-    facets: ["关键帧", "材质运动", "镜头连续性"],
+    facets: ["精密硬件一致性", "产品影片", "多比例交付"],
     coverImages: [
-      "/assets/project-showcase-aether-grid.webp",
+      "/assets/projects/sona-earbuds/sona-campaign-silence.webp",
     ],
     projects: [projectShowcaseItems[7]],
   },
@@ -590,6 +592,54 @@ const tableFanCaseStudy = {
     { value: "3", label: "功能证据组", note: "距离、风量、夜间低扰" },
     { value: "4", label: "内容路径节点", note: "识别、理解、体验、转化" },
     { value: "0", label: "同义变体入选", note: "删除重复背景与卖点" },
+  ],
+} as const;
+
+const sonaEarbudsCaseStudy = {
+  context: [
+    { label: "项目属性", value: "自主命题消费科技新品上市整合视觉案例" },
+    { label: "概念产品", value: "SONA ARC ONE 真无线降噪耳机与充电仓" },
+    { label: "目标人群", value: "城市通勤、办公与轻运动人群" },
+    { label: "商业任务", value: "让同一产品同时进入产品影片、电商功能图、人物场景和多比例渠道" },
+  ],
+  anchors: [
+    { title: "充电仓轮廓", detail: "低矮横向卵石比例、水平开合缝和隐藏式转轴保持一致。" },
+    { title: "状态识别", detail: "正面冰蓝状态灯与小号 SONA 标识不随场景和机位漂移。" },
+    { title: "耳机结构", detail: "短柄、椭圆触控面、硅胶耳帽和麦克风孔形成稳定型号特征。" },
+    { title: "材料关系", detail: "钛灰金属、深石墨内腔和冷银切面维持同一消费科技质感。" },
+  ],
+  filmFrames: [
+    { title: "静默闭合", purpose: "建立产品比例、材质和起始机位。", image: "/assets/projects/sona-earbuds/sona-film-closed.webp", alt: "SONA ARC ONE 充电仓静默闭合产品影片起始关键帧" },
+    { title: "开盖唤醒", purpose: "用灯带和开盖动作交代状态变化。", image: "/assets/projects/sona-earbuds/sona-film-awake.webp", alt: "SONA ARC ONE 充电仓开盖与状态灯唤醒关键帧" },
+    { title: "磁吸升起", purpose: "让双耳运动共享同一轴线与空间方向。", image: "/assets/projects/sona-earbuds/sona-film-lift.webp", alt: "SONA ARC ONE 双耳从充电仓磁吸升起关键帧" },
+    { title: "声场展开", purpose: "以产品完整展开收束新品识别。", image: "/assets/projects/sona-earbuds/sona-film-finale.webp", alt: "SONA ARC ONE 双耳展开与声场形成结束关键帧" },
+  ],
+  commerceOutputs: [
+    { src: "/assets/projects/sona-earbuds/sona-campaign-silence.webp", alt: "SONA ARC ONE 一戴入静核心上市主视觉", layout: "hero" },
+    { src: "/assets/projects/sona-earbuds/sona-anc-45db.webp", alt: "SONA ARC ONE 45dB 深度降噪功能主视觉", layout: "square" },
+    { src: "/assets/projects/sona-earbuds/sona-spatial-audio.webp", alt: "SONA ARC ONE 沉浸式空间音频功能主视觉", layout: "square" },
+    { src: "/assets/projects/sona-earbuds/sona-call-clarity.webp", alt: "SONA ARC ONE 风中通话清晰功能主视觉", layout: "square" },
+    { src: "/assets/projects/sona-earbuds/sona-battery-36h.webp", alt: "SONA ARC ONE 36 小时综合续航功能主视觉", layout: "square" },
+    { src: "/assets/projects/sona-earbuds/sona-fast-charge.webp", alt: "SONA ARC ONE 充电十分钟畅听四小时快充主视觉", layout: "square" },
+  ],
+  formats: [
+    { ratio: "1:1", title: "操作理解", note: "开盖即连进入商品入口和社交信息流。", image: "/assets/projects/sona-earbuds/sona-instant-connect.webp", alt: "SONA ARC ONE 开盖即连方形功能主视觉" },
+    { ratio: "3:4", title: "佩戴说服", note: "人物近景说明入耳方向、尺度与久戴体验。", image: "/assets/projects/sona-earbuds/sona-comfort-fit.webp", alt: "SONA ARC ONE 轻贴耳廓久戴不压竖版人物主视觉" },
+    { ratio: "16:9", title: "上市收口", note: "横向画面同时服务新品横幅与影片封面。", image: "/assets/projects/sona-earbuds/sona-launch-banner.webp", alt: "SONA ARC ONE 听见自己的节奏新品上市横幅" },
+  ],
+  qualityChecks: [
+    { title: "产品结构", detail: "充电仓比例、开合缝、状态灯、转轴、耳机短柄和耳帽方向维持同一型号。" },
+    { title: "动作连续", detail: "上一帧的机位、光线和产品状态能够自然进入下一帧，不依赖跳切掩盖漂移。" },
+    { title: "人物关系", detail: "耳机真实进入耳甲腔，头发、耳部、手指与产品之间没有穿插或比例错误。" },
+    { title: "功能表达", detail: "每张商业图只承担一个购买理由，参数、标题与画面证据互相对应。" },
+    { title: "文字准确", detail: "中文标题、45dB、36 小时、10 分钟和蓝牙 5.4 等概念信息逐项复核。" },
+    { title: "渠道适配", detail: "方形、竖版和横版不是简单裁切，而是重新安排产品、人物和信息重心。" },
+  ],
+  results: [
+    { value: "19", label: "核心视觉", note: "每张承担独立职责" },
+    { value: "10s", label: "产品影片", note: "完整开合与展开动作" },
+    { value: "4", label: "连续关键帧", note: "同一产品与机位逻辑" },
+    { value: "3", label: "交付比例", note: "方形、竖版与横版" },
   ],
 } as const;
 
@@ -1164,7 +1214,7 @@ const workCategories: WorkCategory[] = [
     label: "动态内容",
     english: "Motion",
     index: "03",
-    background: "/assets/projects/table-fan/table-fan-night-detail.webp",
+    background: "/assets/projects/sona-earbuds/sona-film-finale.webp",
     transitionImage: "/assets/category-transitions/technology-innovation.webp",
     description: "从静态关键帧延展到产品片与社交视频，用运动传达材质、功能和情绪，而不是制造无目的变化。",
     role: "AI Motion / 动态视觉",
@@ -1173,20 +1223,24 @@ const workCategories: WorkCategory[] = [
     palette: ["#070A12", "#E6E9F4", "#89AACC", "#354A8C"],
     works: [
       {
-        id: "fan-light-sequence",
-        title: "空气循环光线序列",
+        id: "sona-arc-one-launch",
+        title: "SONA ARC ONE 产品影片与上市系统",
         year: "2026",
-        image: "/assets/projects/table-fan/table-fan-dayparts.webp",
-        alt: "四种时段光线中的空气循环扇",
-        summary: "以同一商品为固定对象，验证日间、黄昏与夜间光线变化中的结构稳定和材质连续。",
-        brief: "动态内容的关键帧需要先建立可靠的光线序列，避免商品在镜头变化中失去身份。",
-        approach: "固定视角与商品结构，以环境亮度、冷暖关系和局部光源作为主要变量。",
-        result: "形成可继续用于图生视频与剪辑节奏设计的关键帧组。",
-        deliverables: ["昼夜关键帧", "冷暖光线实验", "夜间场景"],
+        image: "/assets/projects/sona-earbuds/sona-film-finale.webp",
+        thumbnailMode: "wide",
+        alt: "SONA ARC ONE 耳机展开与声场形成的产品影片结束关键帧",
+        summary: "从产品母版和结构校准开始，完成连续关键帧、十秒产品片、功能主图与多比例上市内容。",
+        brief: "让耳机与充电仓在开合、升起、展开、人物佩戴和电商画面中保持一致，同时让每个镜头承担明确商业任务。",
+        approach: "锁定结构与材质后再设计动作边界，用上一帧控制下一帧的机位和光线，并把稳定资产延展到静态销售内容。",
+        result: "形成十九张核心视觉和一支十秒产品片，直接证明精密硬件一致性、动态连续性与跨渠道交付能力。",
+        deliverables: ["产品母版", "连续关键帧", "产品影片", "功能主图", "上市横幅"],
         gallery: [
-          { src: "/assets/projects/table-fan/table-fan-dayparts.webp", alt: "空气循环扇四时段光线关键帧", layout: "square" },
-          { src: "/assets/projects/table-fan/table-fan-night.webp", alt: "空气循环扇夜间空间关键帧", layout: "square" },
-          { src: "/assets/projects/table-fan/table-fan-night-detail.webp", alt: "空气循环扇冷暖光线关键帧", layout: "square" },
+          { src: "/assets/projects/sona-earbuds/sona-product-master.webp", alt: "耳机与充电仓三状态产品母版", layout: "square" },
+          { src: "/assets/projects/sona-earbuds/sona-film-closed.webp", alt: "产品影片闭合起始关键帧", layout: "wide" },
+          { src: "/assets/projects/sona-earbuds/sona-film-awake.webp", alt: "产品影片开盖唤醒关键帧", layout: "wide" },
+          { src: "/assets/projects/sona-earbuds/sona-film-lift.webp", alt: "产品影片耳机磁吸升起关键帧", layout: "wide" },
+          { src: "/assets/projects/sona-earbuds/sona-film-finale.webp", alt: "产品影片双耳展开结束关键帧", layout: "wide" },
+          { src: "/assets/projects/sona-earbuds/sona-launch-banner.webp", alt: "听见自己的节奏新品上市横幅", layout: "wide" },
         ],
       },
       {
@@ -1369,7 +1423,7 @@ const heroImages = [
   "/assets/works/commerce-andersen-thumb.jpg",
   "/assets/projects/table-fan/table-fan-night.webp",
   "/assets/project-showcase-afterimage.webp",
-  "/assets/project-showcase-aether-grid.webp",
+  "/assets/projects/sona-earbuds/sona-film-finale.webp",
   "/assets/hero-poster.png",
 ];
 
@@ -4643,6 +4697,237 @@ function TableFanCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageS
   );
 }
 
+function SonaEarbudsCaseStudy({
+  onImageOpen,
+  reduceMotion,
+}: {
+  onImageOpen: (image: ProjectImageSource) => void;
+  reduceMotion: boolean | null;
+}) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (reduceMotion === false) video.play().catch(() => undefined);
+    else video.pause();
+    return () => video.pause();
+  }, [reduceMotion]);
+
+  return (
+    <div className="smart-case earbuds-case">
+      <section className="case-capability-intro earbuds-capability" aria-labelledby="earbuds-capability-title">
+        <header>
+          <span>PRODUCT MOTION CAPABILITY</span>
+          <h3 id="earbuds-capability-title">把同一精密产品带过静态、动态与渠道，仍然保持准确</h3>
+          <p>这个项目不以单张科技氛围图作为结果。产品母版、连续关键帧、十秒成片和上市内容共享同一套结构与材质标准。</p>
+        </header>
+        <div className="earbuds-film-stage">
+          <figure>
+            <video
+              ref={videoRef}
+              autoPlay={reduceMotion === false}
+              controls
+              loop
+              muted
+              playsInline
+              poster="/assets/projects/sona-earbuds/sona-film-finale.webp"
+              preload="metadata"
+              aria-label="SONA ARC ONE 耳机从充电仓闭合到双耳展开的十秒产品影片"
+            >
+              <source src="/assets/projects/sona-earbuds/sona-product-film.webm" type="video/webm" />
+              <source src="/assets/projects/sona-earbuds/sona-product-film.mp4" type="video/mp4" />
+            </video>
+            <figcaption>10.1 秒产品片：闭合、开盖、升起、展开形成一条可审查动作链。</figcaption>
+          </figure>
+          <div className="earbuds-capability-proof" aria-label="SONA ARC ONE 项目交付概览">
+            <article><strong>19</strong><span>核心视觉</span><p>从结构底稿到上市触点，每张承担独立责任。</p></article>
+            <article><strong>4</strong><span>连续关键帧</span><p>动作发生时仍守住同一产品身份与机位逻辑。</p></article>
+            <article><strong>3</strong><span>内容比例</span><p>方形、竖版与横版分别按渠道重新编排。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section className="earbuds-context" aria-labelledby="earbuds-context-title">
+        <header className="smart-case-heading">
+          <h3 id="earbuds-context-title">先明确产品与上市任务</h3>
+          <p>项目设定、目标人群、产品角色与商业输出必须指向同一件事：让消费者快速理解这是谁、为何需要、如何使用。</p>
+        </header>
+        <dl>
+          {sonaEarbudsCaseStudy.context.map((item) => (
+            <div key={item.label}><dt>{item.label}</dt><dd>{item.value}</dd></div>
+          ))}
+        </dl>
+      </section>
+
+      <section className="earbuds-calibration" aria-labelledby="earbuds-calibration-title">
+        <header className="smart-case-heading">
+          <h3 id="earbuds-calibration-title">先锁定产品，再允许镜头变化</h3>
+          <p>三状态母版解决整体识别，结构板补齐转轴、接口、触控面和耳帽方向。后续所有画面以这两张底稿为准。</p>
+        </header>
+        <div className="earbuds-calibration-layout">
+          <div className="earbuds-calibration-media">
+            <figure>
+              <ZoomableProjectImage
+                src="/assets/projects/sona-earbuds/sona-product-master.webp"
+                alt="SONA ARC ONE 充电仓闭合、开盖与双耳独立三状态产品母版"
+                onOpen={onImageOpen}
+                loading="lazy"
+              />
+              <figcaption>产品母版：先固定整体比例与三种基础状态。</figcaption>
+            </figure>
+            <figure>
+              <ZoomableProjectImage
+                src="/assets/projects/sona-earbuds/sona-structure-board.webp"
+                alt="SONA ARC ONE 充电仓背部、内部与耳机内外侧结构板"
+                onOpen={onImageOpen}
+                loading="lazy"
+              />
+              <figcaption>结构板：补齐转轴、接口、耳帽和触控面方向。</figcaption>
+            </figure>
+          </div>
+          <div className="earbuds-anchor-list">
+            {sonaEarbudsCaseStudy.anchors.map((anchor) => (
+              <article key={anchor.title}><strong>{anchor.title}</strong><p>{anchor.detail}</p></article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="earbuds-film-sequence" aria-labelledby="earbuds-film-sequence-title">
+        <header className="smart-case-heading">
+          <h3 id="earbuds-film-sequence-title">影片不是随机运动，是四个连续状态</h3>
+          <p>每个状态都解释产品变化，并为下一帧保留同一机位、材质受光与动作方向。</p>
+        </header>
+        <div className="earbuds-frame-track">
+          {sonaEarbudsCaseStudy.filmFrames.map((frame) => (
+            <article key={frame.title}>
+              <figure>
+                <ZoomableProjectImage src={frame.image} alt={frame.alt} onOpen={onImageOpen} loading="lazy" />
+              </figure>
+              <div><strong>{frame.title}</strong><p>{frame.purpose}</p></div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="earbuds-material-story" aria-labelledby="earbuds-material-title">
+        <div className="earbuds-material-copy">
+          <h3 id="earbuds-material-title">动态之前，先让材质和结构可信</h3>
+          <p>开盖英雄图建立商品识别，微距画面负责金属切面、触控纹理、耳帽和状态灯。镜头推进有明确观察对象，不用抽象光效代替产品细节。</p>
+          <ul>
+            <li><strong>整体</strong><span>低矮横向仓体与短柄入耳结构</span></li>
+            <li><strong>细节</strong><span>冷银切面、同心纹理与冰蓝状态灯</span></li>
+            <li><strong>运动</strong><span>开合、升起和展开围绕结构发生</span></li>
+          </ul>
+        </div>
+        <div className="earbuds-material-media">
+          <figure className="is-portrait">
+            <ZoomableProjectImage
+              src="/assets/projects/sona-earbuds/sona-open-hero.webp"
+              alt="暗色背景中的 SONA ARC ONE 开盖产品英雄渲染"
+              onOpen={onImageOpen}
+              loading="lazy"
+            />
+          </figure>
+          <figure className="is-wide">
+            <ZoomableProjectImage
+              src="/assets/projects/sona-earbuds/sona-material-macro.webp"
+              alt="SONA ARC ONE 充电仓状态灯、耳帽与触控面材质微距"
+              onOpen={onImageOpen}
+              loading="lazy"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <section className="earbuds-commerce" aria-labelledby="earbuds-commerce-title">
+        <header className="smart-case-heading">
+          <h3 id="earbuds-commerce-title">静态销售内容继承同一产品资产</h3>
+          <p>核心心智、降噪、空间音频、通话、续航与快充各自回答一个购买问题，不用同义背景扩充数量。</p>
+        </header>
+        <div className="earbuds-commerce-grid">
+          {sonaEarbudsCaseStudy.commerceOutputs.map((visual) => (
+            <figure className={`is-${visual.layout}`} key={visual.src}>
+              <ZoomableProjectImage src={visual.src} alt={visual.alt} onOpen={onImageOpen} loading="lazy" />
+            </figure>
+          ))}
+        </div>
+      </section>
+
+      <section className="earbuds-wear-context" aria-labelledby="earbuds-wear-title">
+        <header className="smart-case-heading">
+          <h3 id="earbuds-wear-title">人物场景验证佩戴与通话关系</h3>
+          <p>原始人物画面不承担促销排版，重点检查耳机方向、入耳尺度、头发遮挡和城市环境中的真实动作。</p>
+        </header>
+        <div className="earbuds-wear-grid">
+          <figure className="is-portrait">
+            <ZoomableProjectImage
+              src="/assets/projects/sona-earbuds/sona-commute.webp"
+              alt="城市站台中佩戴 SONA ARC ONE 耳机的通勤人物场景"
+              onOpen={onImageOpen}
+              loading="lazy"
+            />
+            <figcaption>通勤佩戴：验证耳机方向、尺度与耳部贴合。</figcaption>
+          </figure>
+          <figure className="is-wide">
+            <ZoomableProjectImage
+              src="/assets/projects/sona-earbuds/sona-wind-call.webp"
+              alt="城市街道中使用 SONA ARC ONE 耳机进行通话的人物场景"
+              onOpen={onImageOpen}
+              loading="lazy"
+            />
+            <figcaption>风中通话：用自然风、人物动作和环境噪声建立功能情境。</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section className="earbuds-format-system" aria-labelledby="earbuds-format-title">
+        <header className="smart-case-heading">
+          <h3 id="earbuds-format-title">三种比例对应三种渠道责任</h3>
+          <p>适配不是把同一张图强行裁切。产品占比、人物位置和标题重心根据浏览环境重新组织。</p>
+        </header>
+        <div className="earbuds-format-grid">
+          {sonaEarbudsCaseStudy.formats.map((format) => (
+            <article className={`is-ratio-${format.ratio.replace(":", "-")}`} key={format.ratio}>
+              <figure>
+                <ZoomableProjectImage src={format.image} alt={format.alt} onOpen={onImageOpen} loading="lazy" />
+              </figure>
+              <div><strong>{format.ratio}</strong><span>{format.title}</span><p>{format.note}</p></div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="earbuds-review" aria-labelledby="earbuds-review-title">
+        <header className="smart-case-heading">
+          <h3 id="earbuds-review-title">商业可用性按六类问题复核</h3>
+          <p>画面完成度只是第一关。产品、动作、人物、功能、文字和渠道必须同时通过，才进入最终展示。</p>
+        </header>
+        <div className="earbuds-review-grid">
+          {sonaEarbudsCaseStudy.qualityChecks.map((check) => (
+            <article key={check.title}><strong>{check.title}</strong><p>{check.detail}</p></article>
+          ))}
+        </div>
+      </section>
+
+      <section className="smart-case-results earbuds-results" aria-labelledby="earbuds-results-title">
+        <header>
+          <div><h3 id="earbuds-results-title">招聘方可以直接判断的能力结果</h3></div>
+          <p>不使用虚构点击率和转化率。交付内容本身证明精密硬件控制、动态连续、静态销售与跨渠道编排能力。</p>
+        </header>
+        <div className="smart-case-result-grid">
+          {sonaEarbudsCaseStudy.results.map((result) => (
+            <article key={result.label}><strong>{result.value}</strong><span>{result.label}</span><small>{result.note}</small></article>
+          ))}
+        </div>
+        <p className="smart-case-conclusion">这个项目代表我的消费科技产品动态方向：AI 不只是生成一组图，而是让产品身份、镜头动作、功能销售和渠道输出共享同一套可控资产。</p>
+        <p className="earbuds-concept-note">自主命题概念产品。画面中的参数与功能信息用于展示新品上市内容设计能力，实际发布需替换为最终工程和合规资料。</p>
+      </section>
+    </div>
+  );
+}
+
 function BeautyPositioningOverview({
   id,
   tone,
@@ -5121,6 +5406,7 @@ function ProjectDetailViewer({
   const isSerumProject = item.english === "LUMINOSE SERUM COMMERCE SYSTEM";
   const isTableFanProject = item.english === "AI AIR CIRCULATOR COMMERCE SYSTEM";
   const isQinglanProject = item.english === "QINGLAN TEA COMMERCE SYSTEM";
+  const isSonaEarbudsProject = item.english === "SONA ARC ONE EARBUDS LAUNCH SYSTEM";
   const detailHeroImage = isGlacierProject
     ? "/assets/projects/glacier-cleanser/glacier-sunrise-wide.webp"
     : isSerumProject
@@ -5129,7 +5415,9 @@ function ProjectDetailViewer({
         ? "/assets/projects/table-fan/table-fan-lifestyle.webp"
         : isQinglanProject
           ? "/assets/projects/qinglan-tea/qinglan-pour.webp"
-    : item.image;
+          : isSonaEarbudsProject
+            ? "/assets/projects/sona-earbuds/sona-launch-banner.webp"
+            : item.image;
   const detailHeroAlt = isGlacierProject
     ? "晨光冰原中的 GLACIER 洁面啫喱产品主视觉"
     : isSerumProject
@@ -5138,7 +5426,9 @@ function ProjectDetailViewer({
         ? "日间客厅中的空气循环扇与真实居家使用场景"
         : isQinglanProject
           ? "青岚茶事原叶茉莉绿茶倒入玻璃杯的真实茶汤画面"
-    : item.alt;
+          : isSonaEarbudsProject
+            ? "SONA ARC ONE 听见自己的节奏新品上市横幅"
+            : item.alt;
 
   useEffect(() => {
     viewerRef.current?.focus({ preventScroll: true });
@@ -5290,8 +5580,8 @@ function ProjectDetailViewer({
             exit={reduceMotion ? undefined : { opacity: 0, x: -20 }}
             transition={{ duration: reduceMotion || keyboardNavigation ? 0 : 0.26, ease: [0.23, 1, 0.32, 1] }}
           >
-            <section className={`project-detail-hero${isGlacierProject ? " is-glacier-detail-hero" : ""}${isSerumProject ? " is-serum-detail-hero" : ""}`}>
-              <figure className={`project-detail-visual${isGlacierProject ? " is-glacier-detail-visual" : ""}${isSerumProject ? " is-serum-detail-visual" : ""}`}>
+            <section className={`project-detail-hero${isGlacierProject ? " is-glacier-detail-hero" : ""}${isSerumProject ? " is-serum-detail-hero" : ""}${isSonaEarbudsProject ? " is-sona-earbuds-detail-hero" : ""}`}>
+              <figure className={`project-detail-visual${isGlacierProject ? " is-glacier-detail-visual" : ""}${isSerumProject ? " is-serum-detail-visual" : ""}${isSonaEarbudsProject ? " is-sona-earbuds-detail-visual" : ""}`}>
                 <ZoomableProjectImage
                   src={detailHeroImage}
                   alt={detailHeroAlt}
@@ -5321,7 +5611,7 @@ function ProjectDetailViewer({
 
             <section className="project-detail-copy">
 
-              {!isGlacierProject && !isSerumProject && !isTableFanProject && !isQinglanProject ? (
+              {!isGlacierProject && !isSerumProject && !isTableFanProject && !isQinglanProject && !isSonaEarbudsProject ? (
                 <>
                   <ProjectStoryLead item={item} onImageOpen={openImage} />
                   <ProjectCommerceImpact item={item} />
@@ -5338,6 +5628,8 @@ function ProjectDetailViewer({
                 <SerumCaseStudy onImageOpen={openImage} />
               ) : item === projectShowcaseItems[4] ? (
                 <QinglanTeaCaseStudy onImageOpen={openImage} />
+              ) : item === projectShowcaseItems[7] ? (
+                <SonaEarbudsCaseStudy onImageOpen={openImage} reduceMotion={reduceMotion} />
               ) : (
                 <>
                   <section className="project-detail-process" aria-label="项目工作流">
