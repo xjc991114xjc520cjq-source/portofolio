@@ -4346,6 +4346,7 @@ video {
   min-height: var(--project-showcase-height);
   margin: 0 auto;
   overflow: hidden;
+  background: #08090a;
 }
 
 .project-showcase-heading {
@@ -4441,6 +4442,7 @@ video {
   min-height: var(--project-showcase-height);
   margin-right: 0;
   overflow: hidden;
+  background: #08090a;
   transform-origin: right bottom;
   will-change: transform, opacity;
 }
@@ -7310,6 +7312,19 @@ video {
 /* Keep the angled card divider from flashing while neighboring cards settle. */
 .project-showcase-item::after {
   transition: none;
+}
+
+/*
+ * On compact desktop widths the cards are only a few pixels apart. Interpolating
+ * the clipped polygon creates a one-pixel anti-aliased seam at the track edge;
+ * keep the edge stable and let the card width carry the interaction instead.
+ */
+@media (min-width: 721px) and (max-width: 980px) {
+  .project-showcase-item {
+    transition:
+      flex-grow var(--project-showcase-expand-duration) var(--project-showcase-expand-ease),
+      filter 420ms ease;
+  }
 }
 
 @media (min-width: 981px) and (prefers-reduced-motion: no-preference) {
