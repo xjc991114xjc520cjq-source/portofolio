@@ -7307,6 +7307,11 @@ video {
   }
 }
 
+/* Keep the angled card divider from flashing while neighboring cards settle. */
+.project-showcase-item::after {
+  transition: none;
+}
+
 @media (min-width: 981px) and (prefers-reduced-motion: no-preference) {
   .profile-shell {
     position: sticky;
