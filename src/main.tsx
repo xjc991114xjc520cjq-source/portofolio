@@ -5290,22 +5290,21 @@ function ProjectDetailViewer({
             exit={reduceMotion ? undefined : { opacity: 0, x: -20 }}
             transition={{ duration: reduceMotion || keyboardNavigation ? 0 : 0.26, ease: [0.23, 1, 0.32, 1] }}
           >
-            <figure className={`project-detail-visual${isGlacierProject ? " is-glacier-detail-visual" : ""}${isSerumProject ? " is-serum-detail-visual" : ""}`}>
-              <ZoomableProjectImage
-                src={detailHeroImage}
-                alt={detailHeroAlt}
-                onOpen={openImage}
-                loading="eager"
-              />
-              <span className="project-detail-visual-shade" aria-hidden="true" />
-              <figcaption>
-                <span>{item.categoryEnglish}</span>
-                <b>{item.year}</b>
-              </figcaption>
-              <strong aria-hidden="true">{item.backdrop}</strong>
-            </figure>
-
-            <section className="project-detail-copy">
+            <section className={`project-detail-hero${isGlacierProject ? " is-glacier-detail-hero" : ""}${isSerumProject ? " is-serum-detail-hero" : ""}`}>
+              <figure className={`project-detail-visual${isGlacierProject ? " is-glacier-detail-visual" : ""}${isSerumProject ? " is-serum-detail-visual" : ""}`}>
+                <ZoomableProjectImage
+                  src={detailHeroImage}
+                  alt={detailHeroAlt}
+                  onOpen={openImage}
+                  loading="eager"
+                />
+                <span className="project-detail-visual-shade" aria-hidden="true" />
+                <figcaption>
+                  <span>{item.categoryEnglish}</span>
+                  <b>{item.year}</b>
+                </figcaption>
+                <strong aria-hidden="true">{item.backdrop}</strong>
+              </figure>
               <div className="project-detail-intro">
                 <div className="project-detail-meta" aria-label="项目基本信息">
                   <span>{item.category}</span>
@@ -5318,6 +5317,9 @@ function ProjectDetailViewer({
                 </div>
                 <p className="project-detail-summary" id={summaryId}>{item.summary}</p>
               </div>
+            </section>
+
+            <section className="project-detail-copy">
 
               {!isGlacierProject && !isSerumProject && !isTableFanProject && !isQinglanProject ? (
                 <>

@@ -7537,9 +7537,21 @@ video {
   scrollbar-color: color-mix(in srgb, var(--project-detail-accent) 36%, transparent) transparent;
 }
 
-.project-detail-visual {
+.project-detail-hero {
+  position: relative;
   width: 100%;
   height: max(720px, 100%);
+  min-height: 0;
+  overflow: hidden;
+  background: #090b0c;
+  isolation: isolate;
+}
+
+.project-detail-visual {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   min-height: 0;
 }
 
@@ -7579,10 +7591,12 @@ video {
 }
 
 .project-detail-intro {
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   z-index: 3;
   width: min(760px, 52vw);
-  margin: calc(clamp(380px, 48vh, 520px) * -1) auto 0 0;
+  margin: 0;
   padding: clamp(44px, 4.5vw, 68px) clamp(92px, 8vw, 140px) clamp(50px, 5vw, 76px) clamp(48px, 5vw, 86px);
   border: 0;
   border-radius: 0;
@@ -8152,7 +8166,15 @@ video {
     overflow-y: auto;
   }
 
+  .project-detail-hero {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+
   .project-detail-visual {
+    position: relative;
+    inset: auto;
     width: 100%;
     height: 74dvh;
     min-height: 560px;
@@ -8183,6 +8205,9 @@ video {
   }
 
   .project-detail-intro {
+    position: relative;
+    bottom: auto;
+    left: auto;
     width: calc(100% - 20px);
     margin: -36px 10px 0;
     padding: 38px 20px 52px;
@@ -10235,7 +10260,7 @@ video {
   display: none;
 }
 
-.project-detail-visual.is-glacier-detail-visual + .project-detail-copy .project-detail-title h2 {
+.project-detail-hero.is-glacier-detail-hero .project-detail-title h2 {
   max-width: none;
   font-size: clamp(44px, 3.1vw, 50px);
   white-space: nowrap;
@@ -10371,7 +10396,7 @@ video {
     object-position: 50% center;
   }
 
-  .project-detail-visual.is-glacier-detail-visual + .project-detail-copy .project-detail-title h2 {
+  .project-detail-hero.is-glacier-detail-hero .project-detail-title h2 {
     font-size: clamp(36px, 10vw, 44px);
     white-space: normal;
   }
@@ -10427,7 +10452,7 @@ video {
   display: none;
 }
 
-.project-detail-visual.is-serum-detail-visual + .project-detail-copy .project-detail-title h2 {
+.project-detail-hero.is-serum-detail-hero .project-detail-title h2 {
   max-width: 11.5em;
   font-size: clamp(41px, 3vw, 50px);
 }
@@ -10740,7 +10765,7 @@ video {
     object-position: 48% center;
   }
 
-  .project-detail-visual.is-serum-detail-visual + .project-detail-copy .project-detail-title h2 {
+  .project-detail-hero.is-serum-detail-hero .project-detail-title h2 {
     font-size: clamp(34px, 9.6vw, 42px);
   }
 
