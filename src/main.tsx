@@ -210,46 +210,43 @@ const projectShowcaseItems = [
   },
   {
     index: "03",
-    title: "从无糖心智到消费场景：青岚茶事品牌商业系统",
+    title: "从一瓶到一系：青岚茶事双味增长系统",
     english: "QINGLAN TEA COMMERCE SYSTEM",
     category: "食品饮料 / 概念品牌",
     categoryEnglish: "BEVERAGE COMMERCE",
     year: "2026",
-    image: "/assets/projects/qinglan-tea/qinglan-open-cap.webp",
-    alt: "青岚茶事原叶茉莉绿茶真实开盖动作",
+    image: "/assets/projects/qinglan-tea/qinglan-oolong-launch-hero.webp",
+    alt: "青岚茶事原叶茉莉绿茶与焙香乌龙茶双味产品主视觉",
     backdrop: "QINGLAN",
-    accent: "#82915f",
+    accent: "#a77b5b",
     introTheme: {
-      surface: "#dfe3d5",
-      surfaceDeep: "#bcc6a9",
-      title: "#1f291d",
-      body: "#3d4938",
-      muted: "#59684f",
-      accent: "#3f5a34",
-      rule: "#819071",
-      shadow: "rgba(31, 48, 24, 0.24)",
+      surface: "#dddcd3",
+      surfaceDeep: "#c2beb1",
+      title: "#28271f",
+      body: "#46443a",
+      muted: "#625f53",
+      accent: "#76523b",
+      rule: "#927762",
+      shadow: "rgba(45, 36, 28, 0.24)",
     },
-    summary: "从零定义“0糖也有真茶香”的品牌心智，再用包装识别、开盖倒饮、口感表达和零售场景构成快消新品的完整上市内容。",
-    brief: "第一轮已经积累三十四张清爽茶饮素材，但同义花叶静物过多，核心主张分散，包装背标还出现与零糖定位冲突的信息，无法作为成熟商业案例直接交付。",
-    response: "停止继续扩图，先删除错误包装证据和重复场景，再以零糖真茶香为唯一核心心智，补齐开盖、倒茶与口感画面，精选十张拥有独立商业职责的资产。",
-    role: "AI Art Direction / 品牌与快消商业化",
-    scope: "概念新品定位、包装识别与上市内容系统",
-    deliverables: ["品牌定位", "正面包装母版", "核心 Campaign", "口感利益图", "真实饮用动作", "零售与生活场景"],
-    workflow: ["资产自审", "品牌重定位", "包装信息复核", "消费心智拆分", "动作与口感补图", "文字与产品复核", "上市触点编排"],
-    system: "固定透明 PET 瓶、浅金茶汤、竹青瓶盖、雾白标签和品牌层级；让无糖利益、真茶香、饮用动作、口感与渠道场景分别承担不同购买问题。",
-    outcome: "从四十张候选素材中精选十张核心资产，形成品牌入口、产品理解、饮用体验与渠道转化四段上市内容，不再用同义花叶背景堆叠数量。",
-    reflection: "快消品牌的 AI 价值不是无限生成清新饮料图，而是建立一句可记忆的定位，并让包装、口感、动作与渠道共同证明它。",
+    summary: "以原叶茉莉绿茶建立品牌基线，再扩展焙香乌龙，通过双味定位、包装家族、零售导航、组合销售与动态内容完成产品线增长。",
+    brief: "青岚茶事需要从单一清香口味走向双 SKU 选择，同时保留统一品牌识别，并让两种风味在货架、餐桌和社交场景中承担不同消费理由。",
+    response: "建立共享的透明 PET 瓶型、标签网格与信息层级，再用瓶盖、茶汤、植物线描和场景语义区分花香轻与焙香深，形成可持续扩展的双味资产系统。",
+    role: "AI Art Direction / FMCG Brand System",
+    scope: "概念品牌产品线扩展与上市内容",
+    deliverables: ["双 SKU 定位", "包装家族母版", "风味主视觉", "零售导航", "组合装", "真人饮用", "动态短片"],
+    workflow: ["品牌基线", "SKU 定位", "家族规则", "渠道拆分", "关键帧控制", "动态编排", "上市编排"],
+    system: "共享透明 PET 瓶型、500mL 比例、标签网格与品牌层级；以竹青和浅金表达花香轻，以赤铜和琥珀表达焙香深。",
+    outcome: "形成两款互补 SKU、七类静态商业资产与三段动态内容，覆盖产品识别、选择导航、组合销售、正餐饮用与社交传播。",
+    reflection: "产品线扩展的关键不是增加一个口味名称，而是让品牌共性、风味差异和渠道职责同时清楚。",
     gallery: [
       { src: "/assets/projects/qinglan-tea/qinglan-commerce-core.webp", alt: "零糖也有真茶香品牌核心主视觉", layout: "square" },
-      { src: "/assets/projects/qinglan-tea/qinglan-commerce-zero-sugar.webp", alt: "清爽不靠甜零糖利益主视觉", layout: "square" },
-      { src: "/assets/projects/qinglan-tea/qinglan-commerce-flavor.webp", alt: "花香轻茶感净口感结构主视觉", layout: "square" },
-      { src: "/assets/projects/qinglan-tea/qinglan-open-cap.webp", alt: "青岚茶事原叶茉莉绿茶真实开盖动作", layout: "portrait" },
-      { src: "/assets/projects/qinglan-tea/qinglan-pour.webp", alt: "青岚茶事茉莉绿茶倒入玻璃杯的真实茶汤画面", layout: "wide" },
-      { src: "/assets/projects/qinglan-tea/qinglan-scene-studio-reference.webp", alt: "青岚茶事正面包装与茶汤产品母版", layout: "portrait" },
-      { src: "/assets/projects/qinglan-tea/qinglan-square-heatwave-vending.webp", alt: "青岚茶事热浪退场自动贩卖机商业主视觉", layout: "square" },
-      { src: "/assets/projects/qinglan-tea/qinglan-square-original-leaf.webp", alt: "青岚茶事原叶见真章茶园商业主视觉", layout: "square" },
-      { src: "/assets/projects/qinglan-tea/qinglan-scene-light-lunch.webp", alt: "青岚茶事轻食午餐搭配场景", layout: "wide" },
-      { src: "/assets/projects/qinglan-tea/qinglan-scene-urban-commute.webp", alt: "青岚茶事都市通勤随行场景", layout: "portrait" },
+      { src: "/assets/projects/qinglan-tea/qinglan-oolong-dual-flavor.webp", alt: "青岚茶事花香轻与焙香深双味主视觉", layout: "wide" },
+      { src: "/assets/projects/qinglan-tea/qinglan-oolong-family-master.webp", alt: "青岚茶事双 SKU 产品家族母版", layout: "wide" },
+      { src: "/assets/projects/qinglan-tea/qinglan-oolong-retail-choice.webp", alt: "青岚茶事双味无糖茶冷柜选择场景", layout: "wide" },
+      { src: "/assets/projects/qinglan-tea/qinglan-oolong-combo-case.webp", alt: "青岚茶事双味六瓶组合装", layout: "square" },
+      { src: "/assets/projects/qinglan-tea/qinglan-oolong-meal-drinking.webp", alt: "都市女性在正餐场景中饮用焙香乌龙茶", layout: "wide" },
+      { src: "/assets/projects/qinglan-tea/qinglan-oolong-social-choice.webp", alt: "年轻消费者分别选择青岚茶事两种风味", layout: "wide" },
     ],
   },
   {
@@ -394,7 +391,7 @@ const projectShowcaseCollections = [
     english: "CONSUMER COMMERCE",
     facets: ["食品饮料", "品牌定位", "上市内容"],
     coverImages: [
-      "/assets/projects/qinglan-tea/qinglan-open-cap.webp",
+      "/assets/projects/qinglan-tea/qinglan-oolong-launch-hero.webp",
     ],
     projects: [projectShowcaseItems[4]],
   },
@@ -837,110 +834,95 @@ const serumCaseStudy = {
 
 const qinglanTeaCaseStudy = {
   context: [
-    { label: "项目方向", value: "自主命题快消品牌从 0 到 1 商业化案例" },
-    { label: "概念产品", value: "500mL 原叶茉莉绿茶，0 糖、0 脂、0 能量" },
-    { label: "核心人群", value: "不喜欢甜腻、希望保留真实茶感的年轻都市消费者" },
-    { label: "商业任务", value: "建立一句可记忆的无糖心智，并扩展到包装、饮用、口感与渠道内容" },
+    { label: "品牌阶段", value: "从原叶茉莉绿茶单品扩展为双味无糖茶产品线" },
+    { label: "新增产品", value: "500mL 焙香乌龙茶，0 糖、0 脂、0 能量" },
+    { label: "消费选择", value: "花香轻适合轻饮，焙香深承接更成熟的正餐与浓茶偏好" },
+    { label: "内容范围", value: "包装家族、风味区分、货架导航、组合销售、真人饮用与动态短片" },
   ],
-  strategy: [
-    { title: "建立心智", detail: "用“0 糖也有真茶香”把无糖利益与原叶茶感放进同一句品牌主张。" },
-    { title: "解释差异", detail: "用“清爽不靠甜”和“花香轻、茶感净”分别解释配方利益与口感结果。" },
-    { title: "证明体验", detail: "以开盖、倒茶和真实茶汤补足静物素材缺少的饮用证据。" },
-    { title: "进入渠道", detail: "让货架、轻食和通勤画面继续回答在哪看见、何时饮用与为什么随手购买。" },
-  ],
-  fixedAnchors: ["修长透明 PET 瓶型", "浅灰竹青色防滑瓶盖", "浅金黄色透明茶汤", "雾白与浅灰绿正面标签", "青岚茶事与原叶茉莉绿茶信息层级"],
-  variables: ["商品主图、动作证据与横向生活场景", "晨光、冷柜光与夏日自然光", "正面站立、开盖、倒饮与多瓶陈列", "茉莉、茶叶、洞石、轻食与都市环境", "核心心智、无糖利益、口感和渠道文案"],
-  scenes: [
+  skuRoles: [
     {
-      title: "货架注意入口",
-      purpose: "自动贩卖机、多瓶陈列与高产品占比建立冷柜识别，把品牌心智接入即时购买场景。",
-      touchpoint: "COMMERCE / 商品入口",
-      image: "/assets/projects/qinglan-tea/qinglan-square-heatwave-vending.webp",
-      alt: "青岚茶事热浪退场自动贩卖机商业主视觉",
-      layout: "square",
+      name: "原叶茉莉绿茶",
+      signal: "花香轻",
+      detail: "竹青瓶盖、浅金茶汤与茉莉线描构成轻盈入口，服务清爽和日常轻饮。",
     },
     {
-      title: "轻食搭配",
-      purpose: "原叶茶进入午餐桌，连接不甜腻口感与日常轻食，给消费者一个具体饮用理由。",
-      touchpoint: "PDP / 场景说服",
-      image: "/assets/projects/qinglan-tea/qinglan-scene-light-lunch.webp",
-      alt: "青岚茶事轻食午餐生活方式场景",
+      name: "焙香乌龙茶",
+      signal: "焙香深",
+      detail: "赤铜瓶盖、琥珀茶汤与卷曲乌龙叶构成成熟风味，进入正餐和浓茶场景。",
+    },
+  ],
+  fixedAnchors: ["透明方肩 PET 瓶型", "500mL 容量比例", "温米白标签网格", "青岚茶事品牌层级", "0 糖、0 脂、0 能量信息位置"],
+  controlledDifferences: ["竹青与赤铜瓶盖", "浅金与琥珀茶汤", "茉莉与乌龙叶线描", "轻饮与正餐场景", "花香轻与焙香深文案"],
+  commercialJourney: [
+    {
+      title: "货架选择",
+      purpose: "用瓶盖和茶汤色快速区分两种风味，取瓶动作把产品家族连接到真实零售决策。",
+      touchpoint: "零售导航",
+      image: "/assets/projects/qinglan-tea/qinglan-oolong-retail-choice.webp",
+      alt: "冷柜中按竹青与赤铜色区分的青岚茶事双味无糖茶",
       layout: "wide",
     },
     {
-      title: "都市随行",
-      purpose: "办公桌与城市窗景把产品接入通勤节奏，扩展即饮茶在工作日的消费时刻。",
-      touchpoint: "SOCIAL / 人群沟通",
-      image: "/assets/projects/qinglan-tea/qinglan-scene-urban-commute.webp",
-      alt: "青岚茶事都市通勤随行场景",
-      layout: "portrait",
+      title: "组合销售",
+      purpose: "六瓶双味组合装把风味选择转化为家庭囤货和组合购买方案。",
+      touchpoint: "商品组合",
+      image: "/assets/projects/qinglan-tea/qinglan-oolong-combo-case.webp",
+      alt: "青岚茶事原叶茉莉绿茶与焙香乌龙茶六瓶组合装",
+      layout: "square",
+    },
+    {
+      title: "正餐杯饮",
+      purpose: "透明杯、真实茶汤和桌面双产品建立风味体验，让焙香乌龙进入成熟用餐场景。",
+      touchpoint: "场景说服",
+      image: "/assets/projects/qinglan-tea/qinglan-oolong-meal-drinking.webp",
+      alt: "都市女性在正餐场景中饮用青岚茶事焙香乌龙茶",
+      layout: "wide",
+    },
+    {
+      title: "双味社交",
+      purpose: "两位消费者各自选择一款茶，建立同品牌下不同口感偏好的社交关系。",
+      touchpoint: "社交传播",
+      image: "/assets/projects/qinglan-tea/qinglan-oolong-social-choice.webp",
+      alt: "年轻消费者分别手持青岚茶事茉莉绿茶与焙香乌龙茶",
+      layout: "wide",
     },
   ],
-  commercialOutputs: [
-    { src: "/assets/projects/qinglan-tea/qinglan-square-heatwave-vending.webp", alt: "无糖茶热浪退场自动贩卖机商业主视觉", layout: "square" },
-    { src: "/assets/projects/qinglan-tea/qinglan-square-one-leaf.webp", alt: "无糖茶一叶入香轻东方商业主视觉", layout: "square" },
-    { src: "/assets/projects/qinglan-tea/qinglan-square-original-leaf.webp", alt: "无糖茶原叶见真章茶园商业主视觉", layout: "square" },
-    { src: "/assets/projects/qinglan-tea/qinglan-square-shake-awake.webp", alt: "无糖茶摇一摇茶香就醒了手持商业主视觉", layout: "square" },
-    { src: "/assets/projects/qinglan-tea/qinglan-square-fresh-aroma-float.webp", alt: "无糖茶清爽有茶香水面商业主视觉", layout: "square" },
-    { src: "/assets/projects/qinglan-tea/qinglan-square-ice-bucket.webp", alt: "无糖茶户外冰桶冷藏商业主视觉", layout: "square" },
-    { src: "/assets/projects/qinglan-tea/qinglan-square-grab-and-go.webp", alt: "无糖茶便利店随手一瓶茶商业主视觉", layout: "square" },
-    { src: "/assets/projects/qinglan-tea/qinglan-square-wind-aroma.webp", alt: "无糖茶风里有茶香自然商业主视觉", layout: "square" },
-    { src: "/assets/projects/qinglan-tea/qinglan-square-tea-aroma.webp", alt: "无糖茶茶香正好俯拍商业主视觉", layout: "square" },
-    { src: "/assets/projects/qinglan-tea/qinglan-square-cool-wake.webp", alt: "无糖茶冷意醒茶水感商业主视觉", layout: "square" },
-    { src: "/assets/projects/qinglan-tea/qinglan-square-fresh-aroma-water.webp", alt: "无糖茶清爽有茶香冰水商业主视觉", layout: "square" },
-    { src: "/assets/projects/qinglan-tea/qinglan-square-ice-again-sky.webp", alt: "无糖茶冰一下再喝夏日商业主视觉", layout: "square" },
-    { src: "/assets/projects/qinglan-tea/qinglan-square-enjoy-moment.webp", alt: "无糖茶悠享一刻生活方式商业主视觉", layout: "square" },
-    { src: "/assets/projects/qinglan-tea/qinglan-square-light-sip-close.webp", alt: "无糖茶轻一点喝茶瓶身近景商业主视觉", layout: "square" },
-    { src: "/assets/projects/qinglan-tea/qinglan-square-light-sip-garden.webp", alt: "无糖茶轻一点喝茶花园商业主视觉", layout: "square" },
-    { src: "/assets/projects/qinglan-tea/qinglan-square-light-sip-rock.webp", alt: "无糖茶轻一点喝茶自然石台商业主视觉", layout: "square" },
-    { src: "/assets/projects/qinglan-tea/qinglan-square-light-sip-macro.webp", alt: "无糖茶轻一点喝茶瓶身微距商业主视觉", layout: "square" },
-  ],
-  campaignScenes: [
-    { src: "/assets/projects/qinglan-tea/qinglan-scene-morning-window.webp", alt: "无糖茶清晨窗边原叶产品场景", layout: "portrait" },
-    { src: "/assets/projects/qinglan-tea/qinglan-scene-light-lunch.webp", alt: "无糖茶轻食午餐搭配场景", layout: "wide" },
-    { src: "/assets/projects/qinglan-tea/qinglan-scene-light-fitness.webp", alt: "无糖茶轻运动日常场景", layout: "portrait" },
-    { src: "/assets/projects/qinglan-tea/qinglan-scene-urban-commute.webp", alt: "无糖茶都市通勤随行场景", layout: "portrait" },
-    { src: "/assets/projects/qinglan-tea/qinglan-scene-jasmine-still-life.webp", alt: "无糖茶茉莉花与茶叶静物场景", layout: "portrait" },
-    { src: "/assets/projects/qinglan-tea/qinglan-scene-reading-afternoon.webp", alt: "无糖茶午后阅读生活方式场景", layout: "wide" },
-    { src: "/assets/projects/qinglan-tea/qinglan-scene-studio-reference.webp", alt: "无糖茶纯净摄影棚产品基准场景", layout: "portrait" },
-    { src: "/assets/projects/qinglan-tea/qinglan-scene-tea-garden-sunrise.webp", alt: "无糖茶茶园晨光横向产品场景", layout: "wide" },
-    { src: "/assets/projects/qinglan-tea/qinglan-scene-travertine-portrait.webp", alt: "无糖茶洞石台面竖向产品场景", layout: "portrait" },
-    { src: "/assets/projects/qinglan-tea/qinglan-scene-leaf-shadow-portrait.webp", alt: "无糖茶叶影洞石竖向产品场景", layout: "portrait" },
-    { src: "/assets/projects/qinglan-tea/qinglan-scene-jasmine-table.webp", alt: "无糖茶茉莉花浅木桌横向产品场景", layout: "wide" },
-    { src: "/assets/projects/qinglan-tea/qinglan-scene-water-stone.webp", alt: "无糖茶清水石面横向产品场景", layout: "wide" },
-    { src: "/assets/projects/qinglan-tea/qinglan-scene-botanical-flatlay.webp", alt: "无糖茶茉莉与茶叶俯拍产品场景", layout: "portrait" },
-    { src: "/assets/projects/qinglan-tea/qinglan-scene-linen-table.webp", alt: "无糖茶浅色亚麻桌面横向产品场景", layout: "wide" },
-    { src: "/assets/projects/qinglan-tea/qinglan-scene-garden-wide.webp", alt: "无糖茶自然花园横向产品场景", layout: "wide" },
-    { src: "/assets/projects/qinglan-tea/qinglan-scene-sunlit-linen.webp", alt: "无糖茶阳光与亚麻横向产品场景", layout: "wide" },
-  ],
-  workflow: [
-    { name: "资产自审", input: "三十四张旧素材与六张新增候选", output: "重复画面、错误包装与叙事缺口清单" },
-    { name: "品牌重定位", input: "无糖茶人群与口感机会", output: "0 糖也有真茶香的核心心智" },
-    { name: "商品校准", input: "正面产品母版", output: "瓶型、茶汤、瓶盖、标签与禁改项" },
-    { name: "购买拆分", input: "心智、利益、体验与渠道", output: "每张画面的唯一沟通责任" },
-    { name: "关键补图", input: "开盖、倒茶与口感缺口", output: "动作证据与三张核心电商表达" },
-    { name: "质量复核", input: "全部候选画面", output: "包装、文字、手部、液流与重复度审核" },
-    { name: "上市编排", input: "十张精选核心资产", output: "品牌入口、PDP、零售与社交顺序" },
-  ],
-  touchpoints: [
-    { title: "货架入口", items: ["搜索缩略图", "商品主图", "冷柜陈列"] },
-    { title: "产品理解", items: ["正面商品母版", "无糖利益", "口感说明"] },
-    { title: "饮用体验", items: ["真实开盖", "茶汤倒饮", "轻食搭配"] },
-    { title: "品牌延展", items: ["Campaign KV", "通勤社交内容", "零售活动入口"] },
+  motionClips: [
+    {
+      title: "冷柜聚焦",
+      note: "从满陈列环境收束到冰镇主产品，保留稳定瓶型与清晰标签。",
+      src: "/assets/projects/qinglan-tea/qinglan-oolong-film-cooler.mp4",
+      poster: "/assets/projects/qinglan-tea/qinglan-oolong-film-cooler-poster.webp",
+      label: "青岚茶事焙香乌龙在冷柜中逐渐成为清晰焦点的短片",
+    },
+    {
+      title: "真实开盖",
+      note: "手指、瓶盖螺纹和瓶口形成清晰动作关系，突出即时饮用入口。",
+      src: "/assets/projects/qinglan-tea/qinglan-oolong-film-opening.mp4",
+      poster: "/assets/projects/qinglan-tea/qinglan-oolong-film-opening-poster.webp",
+      label: "年轻女性旋开青岚茶事焙香乌龙瓶盖的动作特写短片",
+    },
+    {
+      title: "真实饮用",
+      note: "以嘴唇接触瓶口、自然持瓶和真实液体重心完成使用体验。",
+      src: "/assets/projects/qinglan-tea/qinglan-oolong-film-drinking.mp4",
+      poster: "/assets/projects/qinglan-tea/qinglan-oolong-film-drinking-poster.webp",
+      label: "年轻女性在户外真实饮用青岚茶事焙香乌龙的短片",
+    },
   ],
   qualityChecks: [
-    { title: "包装一致", detail: "瓶型、瓶肩、瓶盖、茶汤液位和正面标签保持同一产品身份；冲突背标不进入展示。" },
-    { title: "文字准确", detail: "品牌名、产品名、0 糖、0 脂、0 能量与画外标题逐字复核，不接受镜像或乱码。" },
-    { title: "材质可信", detail: "透明 PET、茶汤、磨砂标签、冷凝水和石材保留各自的厚度与反射。" },
-    { title: "动作合理", detail: "手持角度、瓶身重心与取饮动作符合真实使用关系，手部不遮挡核心标签。" },
-    { title: "场景克制", detail: "茉莉、茶叶、轻食与生活道具只负责解释饮用理由，不替代产品主角。" },
-    { title: "职责去重", detail: "核心心智、无糖利益、口感、动作和渠道分别回答不同问题，同义花叶静物只留一张。" },
+    { title: "家族一致", detail: "两款产品共享瓶型、容量、标签网格和品牌层级，不能成为两个无关品牌。" },
+    { title: "风味可分", detail: "瓶盖、茶汤、植物图形与场景语义共同区分花香轻和焙香深。" },
+    { title: "文字准确", detail: "品牌、口味与无糖信息逐字复核，不接受镜像、乱码和未定义功效。" },
+    { title: "动作真实", detail: "取瓶、开盖、杯饮与对瓶饮用符合手部、液面和重力关系。" },
+    { title: "渠道明确", detail: "货架、组合装、正餐和社交画面分别承担选择、购买、体验和传播职责。" },
+    { title: "动态完整", detail: "冷柜聚焦、旋盖与饮用保持动作连续，产品外观和标签识别始终稳定。" },
   ],
   results: [
-    { value: "10", label: "精选核心资产", note: "从四十张候选中筛选" },
-    { value: "1", label: "核心品牌心智", note: "0 糖也有真茶香" },
-    { value: "4", label: "购买路径节点", note: "心智、利益、体验、渠道" },
-    { value: "0", label: "冲突包装入选", note: "错误背标退出展示" },
+    { value: "2", label: "互补产品角色", note: "花香轻与焙香深" },
+    { value: "7", label: "静态商业资产", note: "从产品家族到真人场景" },
+    { value: "4", label: "销售触点", note: "零售、组合、正餐、社交" },
+    { value: "3", label: "动态动作片段", note: "冷柜、开盖、饮用" },
   ],
 } as const;
 
@@ -4023,23 +4005,23 @@ const projectStoryProfiles: Record<string, ProjectStoryProfile> = {
     },
   },
   "QINGLAN TEA COMMERCE SYSTEM": {
-    storyHeading: "把快消品牌从视觉氛围推进到可以记住的消费心智",
-    title: "先删除冲突包装和重复花叶，再建立一句核心主张",
-    lead: "第一轮有三十四张清爽茶饮素材，但大量画面承担相同的花香与自然氛围，核心购买理由被数量稀释。更严重的是包装背标与零糖定位发生冲突，因此这张三视图退出商业展示。",
-    note: "重构后以“0 糖也有真茶香”为唯一品牌入口，再用无糖利益、口感、开盖、倒茶、货架和日常场景继续解释。AI 在这里承担品牌定位、包装一致性、消费场景与渠道内容的受控扩展。",
-    imageIndexes: [1, 3, 4],
-    stepNotes: ["审计旧素材并删除错误包装与同义场景", "建立 0 糖也有真茶香的核心品牌心智", "补齐开盖、倒茶和口感三类关键证据", "精选十张资产进入品牌、PDP、零售和社交触点"],
+    storyHeading: "从单一口味延展为拥有清晰选择理由的双味品牌系统",
+    title: "统一品牌母版，建立花香轻与焙香深的双味架构",
+    lead: "青岚茶事以原叶茉莉绿茶建立清香基线，再引入焙香乌龙茶拓展更醇厚的饮用选择。两款产品共享瓶型、标签网格与零糖信息层级，同时通过风味色、茶汤质感和消费场景形成明确区分。",
+    note: "内容系统覆盖双味主视觉、组合装、冷柜选择、正餐饮用与社交分享，并以开柜、开盖和直饮短片补足动态体验，让同一品牌能够进入电商、零售与社交传播触点。",
+    imageIndexes: [0, 1, 2],
+    stepNotes: ["建立双 SKU 共用的包装识别母版", "用花香轻与焙香深划分风味角色", "组织零售、正餐与社交三类消费触点", "以静态主视觉和动作短片形成可调用的上市资产"],
     impact: {
       eyebrow: "BRAND VALUE",
-      title: "用一句心智和四段内容建立概念新品上市路径",
-      summary: "项目价值由品牌定位、视觉职责和资产可用性证明，不借用头部品牌数据代替自己的设计结果。",
-      primary: { label: "精选核心资产", value: "10 张", context: "从四十张候选中筛选" },
+      title: "用统一识别和差异化场景支撑双味产品线增长",
+      summary: "项目以产品架构、渠道覆盖与动态内容完整度呈现一套可持续扩展的无糖茶上市方法。",
+      primary: { label: "产品架构", value: "2 款", context: "共享母版，风味清晰分工" },
       metrics: [
-        { label: "核心心智", value: "1 条", context: "0 糖也有真茶香" },
-        { label: "购买路径", value: "4 段", context: "心智、利益、体验与渠道" },
-        { label: "冲突包装", value: "0 张", context: "错误背标退出展示" },
+        { label: "商业触点", value: "4 类", context: "品牌、电商、零售与社交" },
+        { label: "动态片段", value: "3 段", context: "冷柜、开盖与真实饮用" },
+        { label: "统一锚点", value: "5 项", context: "瓶型、容量、标签与利益层级" },
       ],
-      conclusion: "用品牌心智、无糖利益、真实动作与渠道场景四段内容，把概念包装推进为可持续扩展的快消上市系统。",
+      conclusion: "从单一产品到双味组合，青岚茶事建立了兼顾品牌一致性、口味区分与渠道调用效率的快消内容系统。",
       internalSources: [],
       disclosure: "青岚茶事为自主命题概念品牌。项目不展示未经验证的销量、CTR 或 CVR。",
     },
@@ -5180,42 +5162,100 @@ function SerumCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageSour
   );
 }
 
-function QinglanTeaCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageSource) => void }) {
+function ViewportProjectVideo({
+  src,
+  poster,
+  label,
+  reduceMotion,
+  scrollRoot,
+}: {
+  src: string;
+  poster: string;
+  label: string;
+  reduceMotion: boolean | null;
+  scrollRoot: RefObject<HTMLDivElement>;
+}) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    const pauseAndReset = () => {
+      video.pause();
+      if (video.currentTime > 0) video.currentTime = 0;
+    };
+
+    pauseAndReset();
+    if (reduceMotion !== false) return pauseAndReset;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.intersectionRatio >= 0.98) {
+          video.play().catch(() => undefined);
+          return;
+        }
+        if (!entry.isIntersecting || entry.intersectionRatio <= 0.02) pauseAndReset();
+      },
+      { root: scrollRoot.current ?? null, threshold: [0, 0.02, 0.98, 1] },
+    );
+    observer.observe(video);
+    return () => {
+      observer.disconnect();
+      pauseAndReset();
+    };
+  }, [reduceMotion, scrollRoot]);
+
+  return (
+    <video ref={videoRef} controls muted playsInline preload="metadata" poster={poster} aria-label={label}>
+      <source src={src} type="video/mp4" />
+    </video>
+  );
+}
+
+function QinglanTeaCaseStudy({
+  onImageOpen,
+  reduceMotion,
+  scrollRoot,
+}: {
+  onImageOpen: (image: ProjectImageSource) => void;
+  reduceMotion: boolean | null;
+  scrollRoot: RefObject<HTMLDivElement>;
+}) {
   return (
     <div className="smart-case qinglan-case">
       <section className="case-capability-intro qinglan-capability" aria-labelledby="qinglan-capability-title">
         <header>
-          <span>FMCG BRAND CAPABILITY</span>
-          <h3 id="qinglan-capability-title">这个项目代表我的快消品牌方向：从一句消费心智开始，而不是从更多饮料图开始</h3>
-          <p>核心主张、无糖利益、真实口感和饮用动作共同建立新品价值，让 AI 成为品牌策略与上市内容的受控生产方式。</p>
+          <span>FMCG BRAND SYSTEM</span>
+          <h3 id="qinglan-capability-title">从单一花香心智，扩展为清晰的双风味选择</h3>
+          <p>原叶茉莉绿茶建立品牌基线，焙香乌龙补充成熟浓茶方向。两款产品共享品牌资产，同时拥有各自的口感、场景和销售责任。</p>
         </header>
         <div className="qinglan-capability-media">
           <figure className="is-primary">
-            <ZoomableProjectImage src="/assets/projects/qinglan-tea/qinglan-commerce-zero-sugar.webp" alt="清爽不靠甜的青岚茶事零糖利益主视觉" onOpen={onImageOpen} loading="eager" />
+            <ZoomableProjectImage src="/assets/projects/qinglan-tea/qinglan-oolong-dual-flavor.webp" alt="花香轻与焙香深组成的青岚茶事双味无糖茶主视觉" onOpen={onImageOpen} loading="eager" />
           </figure>
           <figure>
-            <ZoomableProjectImage src="/assets/projects/qinglan-tea/qinglan-commerce-flavor.webp" alt="花香轻茶感净的青岚茶事口感主视觉" onOpen={onImageOpen} loading="eager" />
+            <ZoomableProjectImage src="/assets/projects/qinglan-tea/qinglan-commerce-core.webp" alt="青岚茶事原叶茉莉绿茶零糖真茶香品牌基线主视觉" onOpen={onImageOpen} loading="eager" />
           </figure>
           <figure>
-            <ZoomableProjectImage src="/assets/projects/qinglan-tea/qinglan-commerce-core.webp" alt="零糖也有真茶香的青岚茶事品牌核心主视觉" onOpen={onImageOpen} loading="eager" />
+            <ZoomableProjectImage src="/assets/projects/qinglan-tea/qinglan-oolong-pour.webp" alt="青岚茶事焙香乌龙茶倒入透明玻璃杯的茶汤画面" onOpen={onImageOpen} loading="eager" />
           </figure>
         </div>
       </section>
 
-      <section className="smart-case-context case-evidence-brief qinglan-evidence-brief" aria-labelledby="qinglan-case-context-title">
+      <section className="qinglan-expansion-context" aria-labelledby="qinglan-case-context-title">
         <header className="smart-case-heading">
-          <h3 id="qinglan-case-context-title">先完成自审，再重新定义项目价值</h3>
-          <p>原叶视觉负责品牌来源，四项任务说明这款无糖茶如何从自然印象进入可记忆、可购买的新品系统。</p>
+          <h3 id="qinglan-case-context-title">同一品牌基线，两种明确的消费理由</h3>
+          <p>产品线扩展从品牌共同点开始，再让口味差异进入包装、场景和渠道。</p>
         </header>
-        <div className="case-evidence-brief-layout">
-          <figure className="case-evidence-artwork">
+        <div className="qinglan-expansion-context-layout">
+          <figure>
             <ZoomableProjectImage
-              src="/assets/projects/qinglan-tea/qinglan-square-original-leaf.webp"
-              alt="青岚茶事原叶见真章茶园品牌来源主视觉"
+              src="/assets/projects/qinglan-tea/qinglan-oolong-family-master.webp"
+              alt="青岚茶事原叶茉莉绿茶与焙香乌龙茶双 SKU 产品家族母版"
               onOpen={onImageOpen}
-              loading="lazy"
+              loading="eager"
             />
-            <figcaption>品牌来源证据：用一张原叶画面建立茉莉绿茶的自然联想。</figcaption>
+            <figcaption>双 SKU 产品母版统一瓶型、比例、标签网格与品牌层级。</figcaption>
           </figure>
           <dl>
             {qinglanTeaCaseStudy.context.map((item) => (
@@ -5228,69 +5268,29 @@ function QinglanTeaCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImag
         </div>
       </section>
 
-      <section className="qinglan-case-calibration" aria-labelledby="qinglan-calibration-title">
+      <section className="qinglan-sku-architecture" aria-labelledby="qinglan-sku-title">
         <header className="smart-case-heading">
-          <h3 id="qinglan-calibration-title">正面商品母版先守住品牌识别</h3>
-          <p>不再展示信息冲突的背标三视图。当前母版只承担瓶型、茶汤、瓶盖、正面标签与品牌层级校准。</p>
+          <h3 id="qinglan-sku-title">口味不是换色，是两套互补的产品角色</h3>
+          <p>颜色、茶汤、植物图形和消费场景共同完成风味导航。</p>
         </header>
-        <div className="qinglan-calibration-layout">
-          <figure>
-            <ZoomableProjectImage
-              src="/assets/projects/qinglan-tea/qinglan-scene-studio-reference.webp"
-              alt="青岚茶事原叶茉莉绿茶正面产品母版"
-              onOpen={onImageOpen}
-              loading="eager"
-            />
-            <figcaption>正面产品母版用于视觉一致性控制。冲突背标已退出本次商业展示。</figcaption>
-          </figure>
-          <div className="qinglan-anchor-grid">
-            <article>
-              <strong>固定识别锚点</strong>
-              <ul>{qinglanTeaCaseStudy.fixedAnchors.map((item) => <li key={item}>{item}</li>)}</ul>
+        <div className="qinglan-sku-lines">
+          {qinglanTeaCaseStudy.skuRoles.map((sku, index) => (
+            <article className={index === 0 ? "is-jasmine" : "is-oolong"} key={sku.name}>
+              <span>{sku.signal}</span>
+              <strong>{sku.name}</strong>
+              <p>{sku.detail}</p>
             </article>
-            <article>
-              <strong>允许变化的商业表达</strong>
-              <ul>{qinglanTeaCaseStudy.variables.map((item) => <li key={item}>{item}</li>)}</ul>
-            </article>
-          </div>
+          ))}
         </div>
       </section>
 
-      <section className="qinglan-case-strategy case-strategy-visual qinglan-strategy-visual" aria-labelledby="qinglan-strategy-title">
+      <section className="qinglan-growth-system" aria-labelledby="qinglan-growth-title">
         <header className="smart-case-heading">
-          <span>COMMERCIAL STRATEGY</span>
-          <h3 id="qinglan-strategy-title">从开盖动作进入完整消费路径</h3>
-          <p>真实动作是静物图与消费体验之间的转折点，心智、利益、体验和渠道围绕这一刻继续展开。</p>
+          <h3 id="qinglan-growth-title">从货架选择到真实饮用</h3>
+          <p>零售选择、组合购买、正餐搭配与社交分享共同覆盖消费路径。</p>
         </header>
-        <div className="case-strategy-visual-layout">
-          <figure>
-            <ZoomableProjectImage
-              src="/assets/projects/qinglan-tea/qinglan-open-cap.webp"
-              alt="青岚茶事原叶茉莉绿茶真实开盖动作"
-              onOpen={onImageOpen}
-              loading="lazy"
-            />
-            <figcaption>真实开盖动作连接包装识别与饮用体验。</figcaption>
-          </figure>
-          <div className="case-strategy-steps">
-            {qinglanTeaCaseStudy.strategy.map((item, index) => (
-              <article key={item.title}>
-                <span>{["心智", "利益", "体验", "渠道"][index]}</span>
-                <strong>{item.title}</strong>
-                <p>{item.detail}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="qinglan-case-scenes" aria-labelledby="qinglan-scenes-title">
-        <header className="smart-case-heading">
-          <h3 id="qinglan-scenes-title">三个渠道节点继续完成购买说服</h3>
-          <p>货架、轻食和通勤承担不同任务，不用花叶背景重复解释清爽。</p>
-        </header>
-        <div className="qinglan-scene-ledger">
-          {qinglanTeaCaseStudy.scenes.map((scene) => (
+        <div className="qinglan-growth-grid">
+          {qinglanTeaCaseStudy.commercialJourney.map((scene) => (
             <article className={`is-${scene.layout}`} key={scene.title}>
               <figure>
                 <ZoomableProjectImage src={scene.image} alt={scene.alt} onOpen={onImageOpen} loading="lazy" />
@@ -5305,53 +5305,54 @@ function QinglanTeaCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImag
         </div>
       </section>
 
-      <section className="smart-case-workflow" aria-labelledby="qinglan-workflow-title">
+      <section className="qinglan-motion-edit" aria-labelledby="qinglan-motion-title">
         <header className="smart-case-heading">
-          <h3 id="qinglan-workflow-title">从资产自审到新品上市内容</h3>
-          <p>每一步都有明确输入和输出。删除错误与重复，是这次品牌重构的第一步。</p>
+          <h3 id="qinglan-motion-title">三个动作建立完整饮用路径</h3>
+          <p>从冷柜发现、即时开盖到户外直饮，短片分别承接选择、开启与体验。</p>
         </header>
-        <ol>
-          {qinglanTeaCaseStudy.workflow.map((step) => (
-            <li key={step.name}>
-              <strong>{step.name}</strong>
-              <dl>
-                <div><dt>INPUT</dt><dd>{step.input}</dd></div>
-                <div><dt>OUTPUT</dt><dd>{step.output}</dd></div>
-              </dl>
-            </li>
+        <div className="qinglan-motion-grid">
+          {qinglanTeaCaseStudy.motionClips.map((clip) => (
+            <figure key={clip.src}>
+              <ViewportProjectVideo
+                src={clip.src}
+                poster={clip.poster}
+                label={clip.label}
+                reduceMotion={reduceMotion}
+                scrollRoot={scrollRoot}
+              />
+              <figcaption><strong>{clip.title}</strong><span>{clip.note}</span></figcaption>
+            </figure>
           ))}
-        </ol>
-      </section>
-
-      <section className="smart-case-touchpoints" aria-labelledby="qinglan-touchpoints-title">
-        <header className="smart-case-heading">
-          <h3 id="qinglan-touchpoints-title">同一资产系统进入不同商业触点</h3>
-          <p>入口素材负责抢注意，包装与场景负责继续解释，传播内容负责积累品牌记忆。</p>
-        </header>
-        <div className="smart-case-touchpoint-tree">
-          <div className="smart-case-touchpoint-root">通过包装与文字审核的青岚茶事核心视觉</div>
-          <div className="smart-case-touchpoint-branches">
-            {qinglanTeaCaseStudy.touchpoints.map((branch) => (
-              <article key={branch.title}>
-                <strong>{branch.title}</strong>
-                <ul>{branch.items.map((item) => <li key={item}>{item}</li>)}</ul>
-              </article>
-            ))}
-          </div>
         </div>
       </section>
 
-      <section className="smart-case-quality" aria-labelledby="qinglan-quality-title">
+      <section className="qinglan-control-system" aria-labelledby="qinglan-control-title">
         <header className="smart-case-heading">
-          <h3 id="qinglan-quality-title">商业可用性的六项检查</h3>
-          <p>不是所有生成结果都进入交付。包装、文字、材质、动作、场景和系列差异需要同时成立。</p>
+          <h3 id="qinglan-control-title">先定义共性，再控制差异</h3>
+          <p>产品家族依靠固定锚点保持同一身份，受控变量负责完成风味区分。</p>
         </header>
-        <div className="smart-case-quality-grid">
+        <div className="qinglan-control-grid">
+          <article>
+            <strong>品牌固定锚点</strong>
+            <ul>{qinglanTeaCaseStudy.fixedAnchors.map((item) => <li key={item}>{item}</li>)}</ul>
+          </article>
+          <article>
+            <strong>口味受控差异</strong>
+            <ul>{qinglanTeaCaseStudy.controlledDifferences.map((item) => <li key={item}>{item}</li>)}</ul>
+          </article>
+        </div>
+      </section>
+
+      <section className="qinglan-review-system" aria-labelledby="qinglan-quality-title">
+        <header className="smart-case-heading">
+          <h3 id="qinglan-quality-title">六项标准决定素材是否进入交付</h3>
+          <p>交付标准同时覆盖产品、文字、动作一致性与渠道职责。</p>
+        </header>
+        <div className="qinglan-review-grid">
           {qinglanTeaCaseStudy.qualityChecks.map((check) => (
             <article key={check.title}>
               <strong>{check.title}</strong>
               <p>{check.detail}</p>
-              <span>REVIEW STANDARD</span>
             </article>
           ))}
         </div>
@@ -5359,9 +5360,9 @@ function QinglanTeaCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImag
 
       <section className="qinglan-case-results" aria-labelledby="qinglan-results-title">
         <header>
-          <span>DELIVERY & DATA</span>
-          <h3 id="qinglan-results-title">招聘方可以直接判断的品牌能力结果</h3>
-          <p>项目结果只呈现精选资产、核心心智和购买路径，不借用头部品牌行业数据代替自己的设计价值。</p>
+          <span>PROJECT DELIVERY</span>
+          <h3 id="qinglan-results-title">可扩展的双 SKU 上市资产系统</h3>
+          <p>交付范围覆盖产品家族、风味导航、渠道销售、真人场景与动态内容，以实际资产呈现项目结果。</p>
         </header>
         <div className="qinglan-result-grid">
           {qinglanTeaCaseStudy.results.map((result) => (
@@ -5374,19 +5375,19 @@ function QinglanTeaCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImag
         </div>
         <div className="qinglan-data-provenance">
           <article>
-            <strong>资产取舍</strong>
-            <p>从四十张候选中只保留十张拥有独立沟通责任的核心资产，旧素材仍归档但不再全量铺开。</p>
+            <strong>品牌资产</strong>
+            <p>一套瓶型、标签网格和品牌层级承接两种风味，后续口味可以沿同一规则继续扩展。</p>
           </article>
           <article>
-            <strong>错误修正</strong>
-            <p>与零糖定位冲突的背标三视图退出展示，产品校准改用正面商品母版和连续场景核验。</p>
+            <strong>动态资产</strong>
+            <p>冷柜聚焦、真实开盖与户外直饮分别形成可独立调用的动作内容。</p>
           </article>
           <article>
-            <strong>商业价值</strong>
-            <p>一条核心心智连接包装、利益、口感、动作与渠道，形成可继续扩展的概念新品上市内容。</p>
+            <strong>项目边界</strong>
+            <p>自主命题概念品牌，包装、内容与渠道设计用于展示快消产品线扩展和上市能力。</p>
           </article>
         </div>
-        <p className="smart-case-conclusion">这个项目代表我的快消品牌方向：AI 不只扩展画面，还参与定位、取舍、口感表达、消费场景和上市触点的系统决策。</p>
+        <p className="smart-case-conclusion">输出覆盖品牌架构、渠道销售、真人场景与动态内容，形成可继续扩展的快消新品内容基础。</p>
       </section>
     </div>
   );
@@ -5430,7 +5431,7 @@ function ProjectDetailViewer({
       : isTableFanProject
         ? "/assets/projects/table-fan/table-fan-lifestyle.webp"
         : isQinglanProject
-          ? "/assets/projects/qinglan-tea/qinglan-pour.webp"
+          ? "/assets/projects/qinglan-tea/qinglan-oolong-launch-hero.webp"
           : isSonaEarbudsProject
             ? "/assets/projects/sona-earbuds/sona-launch-banner.webp"
             : item.image;
@@ -5441,7 +5442,7 @@ function ProjectDetailViewer({
       : isTableFanProject
         ? "日间客厅中的空气循环扇与真实居家使用场景"
         : isQinglanProject
-          ? "青岚茶事原叶茉莉绿茶倒入玻璃杯的真实茶汤画面"
+          ? "青岚茶事原叶茉莉绿茶与焙香乌龙茶双味产品主视觉"
           : isSonaEarbudsProject
             ? "SONA ARC ONE 听见自己的节奏新品上市横幅"
             : item.alt;
@@ -5657,7 +5658,7 @@ function ProjectDetailViewer({
               ) : item === projectShowcaseItems[3] ? (
                 <SerumCaseStudy onImageOpen={openImage} />
               ) : item === projectShowcaseItems[4] ? (
-                <QinglanTeaCaseStudy onImageOpen={openImage} />
+                <QinglanTeaCaseStudy onImageOpen={openImage} reduceMotion={reduceMotion} scrollRoot={detailLayoutRef} />
               ) : item === projectShowcaseItems[7] ? (
                 <SonaEarbudsCaseStudy onImageOpen={openImage} reduceMotion={reduceMotion} scrollRoot={detailLayoutRef} />
               ) : (
