@@ -10455,6 +10455,126 @@ video {
   --qinglan-surface: rgba(125, 145, 83, 0.055);
 }
 
+.smart-case.qinglan-jasmine-case {
+  gap: clamp(68px, 6vw, 94px);
+}
+
+.qinglan-jasmine-case .qinglan-calibration-layout img,
+.qinglan-jasmine-case .qinglan-strategy-visual .case-strategy-visual-layout img {
+  display: block;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: cover;
+  background: transparent;
+}
+
+.qinglan-jasmine-case .qinglan-capability-media img {
+  object-fit: cover;
+}
+
+.qinglan-jasmine-case .qinglan-capability-media figure:hover img {
+  transform: none;
+}
+
+.qinglan-jasmine-evidence,
+.qinglan-jasmine-campaign,
+.qinglan-jasmine-lifestyle {
+  display: grid;
+  gap: 30px;
+}
+
+.qinglan-jasmine-evidence-layout {
+  display: grid;
+  align-items: end;
+  gap: 14px;
+  grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+}
+
+.qinglan-jasmine-evidence-layout figure,
+.qinglan-jasmine-campaign-grid figure,
+.qinglan-jasmine-lifestyle-columns figure {
+  min-width: 0;
+  margin: 0;
+}
+
+.qinglan-jasmine-evidence-layout .project-image-trigger,
+.qinglan-jasmine-evidence-layout img,
+.qinglan-jasmine-campaign-grid .project-image-trigger,
+.qinglan-jasmine-campaign-grid img,
+.qinglan-jasmine-lifestyle-columns .project-image-trigger,
+.qinglan-jasmine-lifestyle-columns img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.qinglan-jasmine-evidence-layout figure,
+.qinglan-jasmine-campaign-grid figure,
+.qinglan-jasmine-lifestyle-columns figure {
+  overflow: hidden;
+  background: #10130f;
+}
+
+.qinglan-jasmine-evidence-layout figcaption {
+  padding-top: 11px;
+  color: rgba(241, 241, 237, 0.46);
+  font-size: 9px;
+  line-height: 1.7;
+}
+
+.qinglan-jasmine-campaign-grid {
+  display: grid;
+  gap: 12px;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.qinglan-jasmine-campaign-grid figure.is-featured {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.qinglan-jasmine-campaign-grid img {
+  aspect-ratio: 1;
+  object-fit: cover;
+  transition: filter 500ms ease;
+}
+
+.qinglan-jasmine-campaign-grid figure:hover img {
+  filter: brightness(1.025);
+}
+
+.qinglan-jasmine-lifestyle-columns {
+  columns: 2;
+  column-gap: 14px;
+}
+
+.qinglan-jasmine-lifestyle-columns figure {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 14px;
+  break-inside: avoid;
+}
+
+.qinglan-jasmine-lifestyle-columns figcaption {
+  display: grid;
+  gap: 6px;
+  padding: 15px 2px 18px;
+  border-bottom: 1px solid rgba(225, 229, 225, 0.1);
+}
+
+.qinglan-jasmine-lifestyle-columns figcaption strong {
+  color: rgba(245, 245, 242, 0.9);
+  font-size: 13px;
+  font-weight: 680;
+}
+
+.qinglan-jasmine-lifestyle-columns figcaption span {
+  color: rgba(241, 241, 237, 0.5);
+  font-size: 10px;
+  line-height: 1.7;
+}
+
 .qinglan-case-calibration,
 .qinglan-case-strategy,
 .qinglan-case-scenes,
@@ -11477,6 +11597,10 @@ video {
     width: calc(50% - 7px);
     justify-self: center;
   }
+
+  .qinglan-jasmine-evidence-layout {
+    grid-template-columns: minmax(0, 1.6fr) minmax(220px, 0.8fr);
+  }
 }
 
 @media (max-width: 720px) {
@@ -11546,6 +11670,38 @@ video {
 
   .qinglan-capability-media figure:last-child img {
     aspect-ratio: 16 / 9;
+  }
+
+  .qinglan-jasmine-case .qinglan-capability-media figure:last-child img {
+    aspect-ratio: 1;
+  }
+
+  .smart-case.qinglan-jasmine-case {
+    gap: 62px;
+  }
+
+  .qinglan-jasmine-evidence,
+  .qinglan-jasmine-campaign,
+  .qinglan-jasmine-lifestyle {
+    gap: 24px;
+  }
+
+  .qinglan-jasmine-evidence-layout,
+  .qinglan-jasmine-campaign-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .qinglan-jasmine-campaign-grid figure.is-featured {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .qinglan-jasmine-lifestyle-columns {
+    columns: 1;
+  }
+
+  .qinglan-jasmine-lifestyle-columns figure {
+    margin-bottom: 12px;
   }
 
   .qinglan-brand-proof > div {
