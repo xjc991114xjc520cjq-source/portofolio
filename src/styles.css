@@ -1,6 +1,6 @@
 @font-face {
   font-family: "XJ Noto Sans SC";
-  src: url("/assets/fonts/noto-sans-sc-portfolio.ttf?v=20260902-2") format("truetype");
+  src: url("/assets/fonts/noto-sans-sc-portfolio.ttf?v=20260902-3") format("truetype");
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
@@ -8145,170 +8145,83 @@ video {
   }
 }
 
-/* Native image proportions are the layout contract for both tea cases. */
-.is-qinglan-panel .qinglan-case .project-image-trigger,
-.is-qinglan-panel .project-detail-copy .qinglan-case .project-image-trigger > img {
+/* Oolong body layouts use the artwork's native proportions. */
+.project-detail-copy .qinglan-oolong-case .project-image-trigger,
+.project-detail-copy .qinglan-oolong-case .project-image-trigger > img {
   display: block;
   width: 100%;
   height: auto;
   aspect-ratio: auto;
-  object-fit: fill;
-  transform: none;
-}
-
-.qinglan-case figure:hover .project-image-trigger > img,
-.qinglan-case article:hover .project-image-trigger > img {
-  transform: none;
-}
-
-.qinglan-jasmine-case .qinglan-calibration-layout {
-  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
-}
-
-.is-qinglan-panel .qinglan-jasmine-case .qinglan-scene-ledger {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.339013fr) minmax(0, 0.805455fr);
-  align-items: start;
-}
-
-.is-qinglan-panel .qinglan-jasmine-case .qinglan-scene-ledger article:nth-child(n) {
-  grid-column: auto;
-  align-content: start;
-}
-
-.qinglan-jasmine-case .qinglan-scene-ledger article > div {
-  min-height: 0;
-  padding: 18px 16px 20px;
-}
-
-/* Tea cases keep navigation outside the scrolling artwork and its text. */
-.project-detail-panel.is-qinglan-panel {
-  padding-top: 90px;
-}
-
-.is-qinglan-panel .project-detail-layout {
-  scroll-padding-top: 24px;
-}
-
-.project-detail-hero.is-qinglan-detail-hero {
-  display: grid;
-  height: auto;
-  min-height: 0;
-  padding: clamp(24px, 4vw, 66px);
-  gap: clamp(24px, 3vw, 48px);
-  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
-  align-items: center;
-}
-
-.is-qinglan-detail-hero .project-detail-visual {
-  position: relative;
-  inset: auto;
-  grid-column: 2;
-  grid-row: 1;
-  width: 100%;
-  height: auto;
-  min-height: 0;
-  margin: 0;
-}
-
-.is-qinglan-detail-hero .project-detail-visual .project-image-trigger,
-.is-qinglan-detail-hero .project-detail-visual img {
-  display: block;
-  width: 100%;
-  height: auto;
-  min-height: 0;
-  aspect-ratio: auto;
-  filter: none;
-  transform: none;
-}
-
-.is-qinglan-detail-hero .project-detail-visual-shade,
-.is-qinglan-detail-hero .project-detail-visual > strong,
-.is-qinglan-detail-hero .project-detail-visual figcaption {
-  display: none;
-}
-
-.is-qinglan-detail-hero .project-detail-intro {
-  position: static;
-  grid-column: 1;
-  grid-row: 1;
-  width: auto;
-  max-width: none;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: none;
-  box-shadow: none;
-  backdrop-filter: none;
-  mask-image: none;
-  -webkit-mask-image: none;
-  --project-intro-title: #f1f1ed;
-  --project-intro-body: #b7b9b3;
-  --project-intro-muted: #95988e;
-  --project-intro-accent: var(--project-detail-accent);
-}
-
-.is-qinglan-detail-hero .project-detail-title h2 {
-  font-size: clamp(30px, 3vw, 48px);
-  line-height: 1.2;
-  word-break: normal;
-  overflow-wrap: anywhere;
-}
-
-.project-showcase-item.is-consumer-cover.is-focused .project-showcase-art {
-  inset: 24px 7% auto;
-  aspect-ratio: 2400 / 1340;
-  height: auto;
-}
-
-.project-showcase-item.is-consumer-cover.is-focused .project-showcase-art-primary {
   object-fit: contain;
   transform: none;
-  filter: none;
 }
 
-.project-showcase-item.is-consumer-cover.is-focused .project-showcase-art-shade,
-.project-showcase-item.is-consumer-cover.is-focused .project-showcase-backdrop {
+.qinglan-oolong-case figure:hover .project-image-trigger > img,
+.qinglan-oolong-case article:hover .project-image-trigger > img {
+  transform: none;
+}
+
+.project-showcase-item.is-consumer-cover .project-showcase-art {
+  inset: 0;
+}
+
+.project-showcase-item.is-consumer-cover .project-showcase-art-primary {
+  object-fit: cover;
+  object-position: 77% center;
+  transform: none;
+  filter: saturate(0.9) brightness(0.94);
+}
+
+.project-showcase-item.is-consumer-cover .project-showcase-art-shade {
+  background: linear-gradient(0deg, rgba(8, 7, 6, 0.64), transparent 35%);
+}
+
+.project-showcase-item.is-consumer-cover .project-showcase-backdrop {
   display: none;
 }
 
-@media (max-width: 960px) {
-  .qinglan-jasmine-case .qinglan-calibration-layout {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+.project-showcase-item.is-consumer-cover.is-focused .project-showcase-meta {
+  left: clamp(44px, 3.5vw, 64px);
+  right: auto;
+  width: 300px;
+}
+
+.project-showcase-item.is-consumer-cover.is-focused .project-showcase-meta strong {
+  font-size: clamp(32px, 2.5vw, 40px);
+}
+
+@media (max-width: 1280px) {
+  .project-showcase-item.is-consumer-cover {
+    background: #100e0c;
   }
 
-  .project-detail-hero.is-qinglan-detail-hero {
-    grid-template-columns: 1fr;
-    min-height: 0;
-    padding: 30px 20px;
-    gap: 28px;
+  .project-showcase-item.is-consumer-cover .project-showcase-art {
+    inset: 0 0 230px;
   }
 
-  .is-qinglan-detail-hero .project-detail-intro {
-    grid-column: 1;
-    grid-row: 1;
+  .project-showcase-item.is-consumer-cover .project-showcase-art-primary {
+    object-position: center 42%;
   }
 
-  .is-qinglan-detail-hero .project-detail-visual {
-    grid-column: 1;
-    grid-row: 2;
+  .project-showcase-item.is-consumer-cover .project-showcase-art-shade {
+    background: linear-gradient(0deg, rgba(16, 14, 12, 0.65), transparent 10%);
+  }
+
+  .project-showcase-item.is-consumer-cover.is-focused .project-showcase-meta {
+    left: 44px;
+    right: 40px;
+    width: auto;
+  }
+
+  .project-showcase-item.is-consumer-cover.is-focused .project-showcase-meta strong {
+    font-size: clamp(22px, 3vw, 30px);
   }
 }
 
 @media (max-width: 720px) {
-  .project-showcase-item.is-consumer-cover.is-focused .project-showcase-art {
-    aspect-ratio: 1772 / 2200;
-  }
-
-  .is-qinglan-panel .qinglan-oolong-case .qinglan-capability-media,
-  .qinglan-jasmine-case .qinglan-calibration-layout,
-  .is-qinglan-panel .qinglan-jasmine-case .qinglan-scene-ledger,
+  .project-detail-copy .qinglan-oolong-case .qinglan-capability-media,
   .qinglan-growth-grid .qinglan-growth-row {
     grid-template-columns: 1fr;
-  }
-
-  .project-detail-panel.is-qinglan-panel {
-    padding-top: 150px;
   }
 }
 
@@ -8588,6 +8501,89 @@ video {
   color: var(--project-intro-body);
   font-size: 13px;
   line-height: 1.9;
+}
+
+/* Same immersive hero as the other cases; crop only the photo's spare space. */
+.is-oolong-detail-hero .project-detail-visual img {
+  object-position: 75% center;
+  transform: none;
+  filter: saturate(0.82) brightness(0.88) contrast(1.02);
+}
+
+.is-oolong-detail-hero .project-detail-visual-shade {
+  background: linear-gradient(180deg, rgba(7, 8, 8, 0.22), transparent 30%, rgba(7, 8, 8, 0.16));
+}
+
+.is-oolong-detail-hero .project-detail-visual > strong {
+  display: none;
+}
+
+.is-oolong-detail-hero .project-detail-title h2 {
+  max-width: 11em;
+  font-size: clamp(40px, 3vw, 50px);
+}
+
+/* When the photo and title no longer fit together, use the existing stacked
+   hero pattern rather than crop the product or introduce a split-screen hero. */
+@media (max-width: 960px) {
+  .project-detail-hero.is-oolong-detail-hero {
+    height: auto;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .is-oolong-detail-hero .project-detail-visual {
+    position: relative;
+    inset: auto;
+    height: auto;
+    min-height: 0;
+  }
+
+  .is-oolong-detail-hero .project-detail-visual .project-image-trigger,
+  .is-oolong-detail-hero .project-detail-visual img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 1;
+  }
+
+  .is-oolong-detail-hero .project-detail-visual figcaption {
+    display: none;
+  }
+
+  .is-oolong-detail-hero .project-detail-intro {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+    margin: -24px 0 0;
+    padding: 48px clamp(28px, 5vw, 64px) 52px;
+    background: linear-gradient(110deg, var(--project-intro-surface), var(--project-intro-surface-deep));
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  .is-oolong-detail-hero .project-detail-title h2 {
+    max-width: 18em;
+  }
+}
+
+@media (max-width: 960px) {
+  .is-oolong-detail-hero .project-detail-visual {
+    padding-top: 150px;
+  }
+}
+
+@media (max-width: 720px) {
+  .is-oolong-detail-hero .project-detail-intro {
+    width: calc(100% - 20px);
+    margin: -12px 10px 0;
+    padding: 32px 20px 42px;
+  }
+
+  .is-oolong-detail-hero .project-detail-title h2 {
+    font-size: clamp(32px, 9vw, 40px);
+  }
 }
 
 .project-story-lead {
@@ -10346,16 +10342,13 @@ video {
   line-height: 1.65;
 }
 
-.qinglan-oolong-case .qinglan-capability-media {
-  grid-template-columns: minmax(0, 1.776833156fr) minmax(0, 1.791044776fr);
-}
-
 .qinglan-capability-media {
   display: grid;
   min-height: 0;
+  aspect-ratio: 3 / 2;
   gap: 12px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-items: start;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  grid-template-rows: repeat(2, minmax(0, 1fr));
 }
 
 .qinglan-capability-media figure {
@@ -10367,23 +10360,34 @@ video {
 }
 
 .qinglan-capability-media figure.is-primary {
-  grid-row: auto;
+  grid-row: 1 / -1;
 }
 
 .qinglan-capability-media .project-image-trigger,
 .qinglan-capability-media img {
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 .qinglan-capability-media img {
-  display: block;
+  object-fit: contain;
   transition: transform 700ms cubic-bezier(0.23, 1, 0.32, 1), filter 500ms ease;
 }
 
 .qinglan-capability-media figure:hover img {
   filter: brightness(1.03);
-  transform: none;
+  transform: scale(1.015);
+}
+
+.qinglan-oolong-case .qinglan-capability-media {
+  aspect-ratio: auto;
+  grid-template-columns: minmax(0, 1.776833156fr) minmax(0, 1.791044776fr);
+  grid-template-rows: auto;
+  align-items: start;
+}
+
+.qinglan-oolong-case .qinglan-capability-media figure.is-primary {
+  grid-row: auto;
 }
 
 .qinglan-brand-proof {
@@ -11453,10 +11457,6 @@ video {
 
   .qinglan-capability-media figure:last-child img {
     aspect-ratio: 16 / 9;
-  }
-
-  .qinglan-capability-media figure.is-primary img {
-    aspect-ratio: 16 / 10;
   }
 
   .qinglan-brand-proof > div {

@@ -210,7 +210,7 @@ const projectShowcaseItems = [
   },
   {
     index: "03",
-    title: "青岚茉莉绿茶：无糖茶品牌上市系统",
+    title: "从无糖心智到消费场景：青岚茶事品牌商业系统",
     english: "QINGLAN TEA COMMERCE SYSTEM",
     category: "食品饮料 / 概念品牌",
     categoryEnglish: "BEVERAGE COMMERCE",
@@ -435,7 +435,7 @@ const projectShowcaseCollections = [
     english: "CONSUMER COMMERCE",
     facets: ["食品饮料", "品牌定位", "上市内容"],
     coverImages: [
-      "/assets/projects/qinglan-tea/qinglan-oolong-family-master.webp",
+      "/assets/projects/qinglan-tea/qinglan-oolong-cinematic-wide-v2.webp",
     ],
     projects: [projectShowcaseItems[4], projectShowcaseItems[8]],
   },
@@ -2136,18 +2136,8 @@ type ZoomableProjectImageProps = ProjectImageSource & {
 
 const clamp = (value: number, minimum: number, maximum: number) => Math.min(maximum, Math.max(minimum, value));
 
-// Native dimensions reserve the exact image area without cropping or letterboxing.
-const qinglanImageSizes: Record<string, readonly [number, number]> = {
-  "qinglan-commerce-core.webp": [1254, 1254],
-  "qinglan-commerce-flavor.webp": [1254, 1254],
-  "qinglan-commerce-zero-sugar.webp": [1254, 1254],
-  "qinglan-square-original-leaf.webp": [1254, 1254],
-  "qinglan-square-heatwave-vending.webp": [1254, 1254],
-  "qinglan-open-cap.webp": [1792, 2400],
-  "qinglan-pour.webp": [2400, 1340],
-  "qinglan-scene-studio-reference.webp": [1772, 2200],
-  "qinglan-scene-light-lunch.webp": [2200, 1643],
-  "qinglan-scene-urban-commute.webp": [1772, 2200],
+// Only the oolong layout opts into intrinsic dimensions; legacy cases keep their sizing contract.
+const oolongImageSizes: Record<string, readonly [number, number]> = {
   "qinglan-oolong-launch-hero.webp": [1672, 941],
   "qinglan-oolong-dual-flavor.webp": [1672, 941],
   "qinglan-oolong-pour.webp": [2400, 1340],
@@ -2156,6 +2146,7 @@ const qinglanImageSizes: Record<string, readonly [number, number]> = {
   "qinglan-oolong-combo-case.webp": [1254, 1254],
   "qinglan-oolong-meal-drinking.webp": [1536, 1024],
   "qinglan-oolong-social-choice.webp": [1672, 941],
+  "qinglan-oolong-cinematic-wide-v2.webp": [1774, 887],
 };
 
 function ZoomableProjectImage({
@@ -2169,7 +2160,7 @@ function ZoomableProjectImage({
   onError,
 }: ZoomableProjectImageProps) {
   const fullSrc = projectOriginalImageSources[src];
-  const nativeSize = qinglanImageSizes[src.slice(src.lastIndexOf("/") + 1)];
+  const nativeSize = oolongImageSizes[src.slice(src.lastIndexOf("/") + 1)];
 
   return (
     <button
@@ -5305,7 +5296,7 @@ function SerumCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageSour
 
 function QinglanTeaCaseStudy({ onImageOpen }: { onImageOpen: (image: ProjectImageSource) => void }) {
   return (
-    <div className="smart-case qinglan-case qinglan-jasmine-case">
+    <div className="smart-case qinglan-case">
       <section className="case-capability-intro qinglan-capability" aria-labelledby="qinglan-capability-title">
         <header>
           <span>FMCG BRAND CAPABILITY</span>
@@ -5787,9 +5778,11 @@ function ProjectDetailViewer({
         ? "/assets/projects/table-fan/table-fan-lifestyle.webp"
         : isQinglanProject
           ? "/assets/projects/qinglan-tea/qinglan-pour.webp"
-          : isSonaEarbudsProject
-            ? "/assets/projects/sona-earbuds/sona-launch-banner.webp"
-            : item.image;
+          : isOolongProject
+            ? "/assets/projects/qinglan-tea/qinglan-oolong-cinematic-wide-v2.webp"
+            : isSonaEarbudsProject
+              ? "/assets/projects/sona-earbuds/sona-launch-banner.webp"
+              : item.image;
   const detailHeroAlt = isGlacierProject
     ? "晨光冰原中的 GLACIER 洁面啫喱产品主视觉"
     : isSerumProject
@@ -5798,9 +5791,11 @@ function ProjectDetailViewer({
         ? "日间客厅中的空气循环扇与真实居家使用场景"
         : isQinglanProject
           ? "青岚茶事原叶茉莉绿茶倒入玻璃杯的真实茶汤画面"
-          : isSonaEarbudsProject
-            ? "SONA ARC ONE 听见自己的节奏新品上市横幅"
-            : item.alt;
+          : isOolongProject
+            ? "暖光建筑与深色石台上的青岚焙香乌龙产品主视觉"
+            : isSonaEarbudsProject
+              ? "SONA ARC ONE 听见自己的节奏新品上市横幅"
+              : item.alt;
 
   useEffect(() => {
     viewerRef.current?.focus({ preventScroll: true });
@@ -5864,7 +5859,7 @@ function ProjectDetailViewer({
       onKeyDown={handleKeyDown}
     >
       <motion.article
-        className={`project-detail-panel${isQinglanProject || isOolongProject ? " is-qinglan-panel" : ""}`}
+        className={`project-detail-panel${isOolongProject ? " is-oolong-panel" : ""}`}
         style={{
           "--project-detail-accent": item.accent,
           "--project-intro-surface": item.introTheme.surface,
@@ -5966,7 +5961,7 @@ function ProjectDetailViewer({
             exit={reduceMotion ? undefined : { opacity: 0, x: -20 }}
             transition={{ duration: reduceMotion || keyboardNavigation ? 0 : 0.26, ease: [0.23, 1, 0.32, 1] }}
           >
-            <section className={`project-detail-hero${isQinglanProject || isOolongProject ? " is-qinglan-detail-hero" : ""}${isGlacierProject ? " is-glacier-detail-hero" : ""}${isSerumProject ? " is-serum-detail-hero" : ""}${isSonaEarbudsProject ? " is-sona-earbuds-detail-hero" : ""}`}>
+            <section className={`project-detail-hero${isOolongProject ? " is-oolong-detail-hero" : ""}${isGlacierProject ? " is-glacier-detail-hero" : ""}${isSerumProject ? " is-serum-detail-hero" : ""}${isSonaEarbudsProject ? " is-sona-earbuds-detail-hero" : ""}`}>
               <figure className={`project-detail-visual${isGlacierProject ? " is-glacier-detail-visual" : ""}${isSerumProject ? " is-serum-detail-visual" : ""}${isSonaEarbudsProject ? " is-sona-earbuds-detail-visual" : ""}`}>
                 <ZoomableProjectImage
                   src={detailHeroImage}
@@ -6175,7 +6170,7 @@ function ProjectShowcaseCard({
         {item.coverImages.map((image, imageIndex) => (
           <picture key={image}>
             {item.id === "consumer-commerce" ? (
-              <source media="(max-width: 720px)" srcSet="/assets/projects/qinglan-tea/qinglan-scene-studio-reference.webp" />
+              <source media="(max-width: 1280px)" srcSet="/assets/projects/qinglan-tea/qinglan-oolong-cinematic-portrait.webp" />
             ) : null}
             <img
               className={`project-showcase-art-primary${activeCoverIndex === imageIndex ? " is-active" : ""}`}
