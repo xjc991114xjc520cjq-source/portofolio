@@ -7320,6 +7320,11 @@ video {
  * keep the edge stable and let the card width carry the interaction instead.
  */
 @media (min-width: 721px) and (max-width: 980px) {
+  .project-showcase-track.has-focus .project-showcase-item,
+  .project-showcase-track.has-focus .project-showcase-hit-zones span {
+    min-width: 0;
+  }
+
   .project-showcase-item {
     transition:
       flex-grow var(--project-showcase-expand-duration) var(--project-showcase-expand-ease),
@@ -8167,13 +8172,14 @@ video {
 
 .project-showcase-item.is-consumer-cover .project-showcase-art-primary {
   object-fit: cover;
-  object-position: 77% center;
+  object-position: center;
   transform: none;
   filter: saturate(0.9) brightness(0.94);
 }
 
 .project-showcase-item.is-consumer-cover .project-showcase-art-shade {
-  background: linear-gradient(0deg, rgba(8, 7, 6, 0.64), transparent 35%);
+  opacity: 1;
+  background: linear-gradient(0deg, rgba(8, 7, 6, 0.92), rgba(8, 7, 6, 0.5) 20%, transparent 37%);
 }
 
 .project-showcase-item.is-consumer-cover .project-showcase-backdrop {
@@ -8200,7 +8206,7 @@ video {
   }
 
   .project-showcase-item.is-consumer-cover .project-showcase-art-primary {
-    object-position: center 42%;
+    object-position: center;
   }
 
   .project-showcase-item.is-consumer-cover .project-showcase-art-shade {
@@ -11104,7 +11110,7 @@ video {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
-  object-fit: cover;
+  object-fit: contain;
   background: #090b09;
 }
 
@@ -11126,6 +11132,89 @@ video {
   color: rgba(241, 241, 237, 0.5);
   font-size: 10px;
   line-height: 1.72;
+}
+
+/* Finished campaign art stays uncropped; captions never sit over product copy. */
+.qinglan-oolong-case .oolong-campaign,
+.qinglan-oolong-case .oolong-origin,
+.qinglan-oolong-case .oolong-commerce {
+  display: grid;
+  min-width: 0;
+  gap: 24px;
+}
+
+.qinglan-oolong-case :is(.oolong-campaign, .oolong-origin, .oolong-commerce) figure,
+.qinglan-oolong-case .oolong-lifestyle-lead {
+  min-width: 0;
+  margin: 0;
+  align-self: start;
+}
+
+.qinglan-oolong-case :is(.oolong-campaign, .oolong-origin, .oolong-commerce, .oolong-lifestyle-lead) figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 20px;
+  padding-top: 12px;
+  color: rgba(241, 241, 237, 0.62);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.qinglan-oolong-case :is(.oolong-campaign, .oolong-origin) figcaption strong {
+  color: rgba(245, 245, 242, 0.92);
+  font-weight: 650;
+}
+
+.qinglan-oolong-case .oolong-film-feature {
+  width: min(100%, calc((100dvh - 260px) * 16 / 9));
+  justify-self: center;
+}
+
+.qinglan-oolong-case :is(.oolong-campaign, .oolong-origin) video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #0d0d0c;
+}
+
+.oolong-campaign-pair,
+.oolong-origin-pair,
+.oolong-commerce-primary,
+.oolong-commerce-scenes {
+  display: grid;
+  min-width: 0;
+  gap: 16px;
+  align-items: start;
+}
+
+.oolong-campaign-pair {
+  grid-template-columns: minmax(0, 1.776833156fr) minmax(0, 1.5fr);
+}
+
+.oolong-origin-pair,
+.oolong-commerce-primary {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.oolong-commerce-scenes {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+}
+
+@media (max-width: 720px) {
+  .qinglan-oolong-case .oolong-film-feature {
+    width: 100%;
+  }
+
+  .oolong-campaign-pair,
+  .oolong-origin-pair,
+  .oolong-commerce-primary,
+  .oolong-commerce-scenes {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
 }
 
 .qinglan-control-grid {

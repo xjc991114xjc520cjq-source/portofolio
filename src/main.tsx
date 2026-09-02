@@ -389,7 +389,7 @@ const projectShowcaseItems = [
     deliverables: ["双 SKU 定位", "包装家族母版", "风味主视觉", "零售导航", "组合装", "真人饮用", "动态短片"],
     workflow: ["品牌基线", "SKU 定位", "家族规则", "渠道拆分", "关键帧控制", "动态编排", "上市编排"],
     system: "共享透明 PET 瓶型、500mL 比例、标签网格与品牌层级；以竹青和浅金表达花香轻，以赤铜和琥珀表达焙香深。",
-    outcome: "形成两款互补 SKU、七类静态商业资产与三段动态内容，覆盖产品识别、选择导航、组合销售、正餐饮用与社交传播。",
+    outcome: "形成两款互补 SKU、十五张静态商业资产、两支产品宣传片与三段饮用短片，覆盖品牌识别、电商销售和消费体验。",
     reflection: "产品线扩展的关键不是增加一个口味名称，而是让品牌共性、风味差异和渠道职责同时清楚。",
     gallery: [
       { src: "/assets/projects/qinglan-tea/qinglan-oolong-dual-flavor.webp", alt: "青岚茶事花香轻与焙香深双味主视觉", layout: "wide" },
@@ -435,7 +435,7 @@ const projectShowcaseCollections = [
     english: "CONSUMER COMMERCE",
     facets: ["食品饮料", "品牌定位", "上市内容"],
     coverImages: [
-      "/assets/projects/qinglan-tea/qinglan-oolong-cinematic-wide-v2.webp",
+      "/assets/projects/qinglan-tea/qinglan-dual-cover-square.webp",
     ],
     projects: [projectShowcaseItems[4], projectShowcaseItems[8]],
   },
@@ -1012,15 +1012,15 @@ const qinglanOolongCaseStudy = {
       label: "青岚茶事焙香乌龙在冷柜中逐渐成为清晰焦点的短片",
     },
     {
-      title: "真实开盖",
-      note: "手指、瓶盖螺纹和瓶口形成清晰动作关系，突出即时饮用入口。",
+      title: "旋盖即饮",
+      note: "近景呈现旋盖与开启，让饮用动作成为产品体验的一部分。",
       src: "/assets/projects/qinglan-tea/qinglan-oolong-film-opening.mp4",
       poster: "/assets/projects/qinglan-tea/qinglan-oolong-film-opening-poster.webp",
       label: "年轻女性旋开青岚茶事焙香乌龙瓶盖的动作特写短片",
     },
     {
-      title: "真实饮用",
-      note: "以嘴唇接触瓶口、自然持瓶和真实液体重心完成使用体验。",
+      title: "户外轻饮",
+      note: "日光、微风与饮用特写，传递年轻消费者的轻松日常。",
       src: "/assets/projects/qinglan-tea/qinglan-oolong-film-drinking.mp4",
       poster: "/assets/projects/qinglan-tea/qinglan-oolong-film-drinking-poster.webp",
       label: "年轻女性在户外真实饮用青岚茶事焙香乌龙的短片",
@@ -1036,9 +1036,9 @@ const qinglanOolongCaseStudy = {
   ],
   results: [
     { value: "2", label: "互补产品角色", note: "花香轻与焙香深" },
-    { value: "7", label: "静态商业资产", note: "从产品家族到真人场景" },
-    { value: "4", label: "销售触点", note: "零售、组合、正餐、社交" },
-    { value: "3", label: "动态动作片段", note: "冷柜、开盖、饮用" },
+    { value: "15", label: "静态商业资产", note: "包装、主视觉、电商与生活方式" },
+    { value: "2", label: "产品宣传片", note: "焙香意象与茶园氛围" },
+    { value: "3", label: "饮用短片", note: "冷柜、旋盖、户外直饮" },
   ],
 } as const;
 
@@ -2147,6 +2147,14 @@ const oolongImageSizes: Record<string, readonly [number, number]> = {
   "qinglan-oolong-meal-drinking.webp": [1536, 1024],
   "qinglan-oolong-social-choice.webp": [1672, 941],
   "qinglan-oolong-cinematic-wide-v2.webp": [1774, 887],
+  "qinglan-oolong-commerce-aroma.webp": [1672, 941],
+  "qinglan-oolong-commerce-bold.webp": [1254, 1254],
+  "qinglan-oolong-commerce-choice.webp": [1254, 1254],
+  "qinglan-oolong-commerce-origin.webp": [1672, 941],
+  "qinglan-oolong-commerce-liquid.webp": [1536, 1024],
+  "qinglan-oolong-commerce-meal.webp": [1254, 1254],
+  "qinglan-oolong-commerce-work.webp": [1536, 1024],
+  "qinglan-oolong-commerce-drinking.webp": [1672, 941],
 };
 
 function ZoomableProjectImage({
@@ -5524,28 +5532,30 @@ function ViewportProjectVideo({
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
-    const pauseAndReset = () => {
-      video.pause();
-      if (video.currentTime > 0) video.currentTime = 0;
+    let fullyVisible = false;
+    const pause = () => video.pause();
+    const handleVisibility = () => {
+      if (document.hidden) pause();
     };
-
-    pauseAndReset();
-    if (reduceMotion !== false) return pauseAndReset;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.intersectionRatio >= 0.98) {
+        const wasFullyVisible = fullyVisible;
+        fullyVisible = entry.intersectionRatio >= 1 - 0.000001;
+        if (fullyVisible && !wasFullyVisible && reduceMotion === false && !document.hidden) {
           video.play().catch(() => undefined);
           return;
         }
-        if (!entry.isIntersecting || entry.intersectionRatio <= 0.02) pauseAndReset();
+        if (!entry.isIntersecting || entry.intersectionRatio === 0) pause();
       },
-      { root: scrollRoot.current ?? null, threshold: [0, 0.02, 0.98, 1] },
+      { root: scrollRoot.current ?? null, rootMargin: "-110px 0px -16px 0px", threshold: [0, 0.999999, 1] },
     );
     observer.observe(video);
+    document.addEventListener("visibilitychange", handleVisibility);
     return () => {
       observer.disconnect();
-      pauseAndReset();
+      document.removeEventListener("visibilitychange", handleVisibility);
+      pause();
     };
   }, [reduceMotion, scrollRoot]);
 
@@ -5583,6 +5593,27 @@ function QinglanOolongCaseStudy({
         </div>
       </section>
 
+      <section className="oolong-campaign" aria-labelledby="oolong-campaign-title">
+        <header className="smart-case-heading">
+          <h3 id="oolong-campaign-title">让焙香成为鲜明的上市记忆</h3>
+          <p>赤铜光环、卷曲茶叶与琥珀茶汤形成风味意象，从产品影片延展为新品传播主视觉。</p>
+        </header>
+        <figure className="oolong-film-feature">
+          <ViewportProjectVideo src="/assets/projects/qinglan-tea/qinglan-oolong-film-aroma.mp4" poster="/assets/projects/qinglan-tea/qinglan-oolong-film-aroma-poster.webp" label="焙香乌龙产品宣传片：铜色光环与茶叶环绕瓶身，8 秒完整版" reduceMotion={reduceMotion} scrollRoot={scrollRoot} />
+          <figcaption><strong>焙香意象</strong><span>8 秒产品宣传片</span></figcaption>
+        </figure>
+        <div className="oolong-campaign-pair">
+          <figure>
+            <ZoomableProjectImage src="/assets/projects/qinglan-tea/qinglan-oolong-commerce-aroma.webp" alt="醇厚焙香慢慢回甘，乌龙上市横幅主视觉" onOpen={onImageOpen} />
+            <figcaption>上市横幅 / 以风味主张建立第一印象</figcaption>
+          </figure>
+          <figure>
+            <ZoomableProjectImage src="/assets/projects/qinglan-tea/qinglan-oolong-commerce-liquid.webp" alt="真实茶感看得见，琥珀茶汤环绕乌龙产品的宣传图" onOpen={onImageOpen} />
+            <figcaption>产品特写 / 茶汤质感与包装识别</figcaption>
+          </figure>
+        </div>
+      </section>
+
       <section className="qinglan-expansion-context" aria-labelledby="qinglan-case-context-title">
         <header className="smart-case-heading">
           <h3 id="qinglan-case-context-title">同一品牌基线，两种明确的消费理由</h3>
@@ -5607,13 +5638,6 @@ function QinglanOolongCaseStudy({
             ))}
           </dl>
         </div>
-      </section>
-
-      <section className="qinglan-sku-architecture" aria-labelledby="qinglan-sku-title">
-        <header className="smart-case-heading">
-          <h3 id="qinglan-sku-title">口味不是换色，是两套互补的产品角色</h3>
-          <p>颜色、茶汤、植物图形和消费场景共同完成风味导航。</p>
-        </header>
         <div className="qinglan-sku-lines">
           {qinglanOolongCaseStudy.skuRoles.map((sku, index) => (
             <article className={index === 0 ? "is-jasmine" : "is-oolong"} key={sku.name}>
@@ -5625,11 +5649,59 @@ function QinglanOolongCaseStudy({
         </div>
       </section>
 
+      <section className="oolong-origin" aria-labelledby="oolong-origin-title">
+        <header className="smart-case-heading">
+          <h3 id="oolong-origin-title">从茶园风景，走近一瓶原叶乌龙</h3>
+          <p>茶园晨光与瓶身凝露呈现清新茶感；镜头从环境推进到标签，连接原叶意象与产品识别。</p>
+        </header>
+        <div className="oolong-origin-pair">
+          <figure>
+            <ViewportProjectVideo src="/assets/projects/qinglan-tea/qinglan-oolong-film-garden.mp4" poster="/assets/projects/qinglan-tea/qinglan-oolong-film-garden-poster.webp" label="焙香乌龙茶园产品宣传片：从山间茶园推进至瓶身特写，8 秒完整版" reduceMotion={reduceMotion} scrollRoot={scrollRoot} />
+            <figcaption><strong>茶园晨光</strong><span>8 秒产品宣传片</span></figcaption>
+          </figure>
+          <figure>
+            <ZoomableProjectImage src="/assets/projects/qinglan-tea/qinglan-oolong-commerce-origin.webp" alt="高山原叶焙香好乌龙，茶园背景的电商广告" onOpen={onImageOpen} />
+            <figcaption>原叶主题 / 茶园意象与焙香卖点</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section className="oolong-commerce" aria-labelledby="oolong-commerce-title">
+        <header className="smart-case-heading">
+          <h3 id="oolong-commerce-title">让风味差异变成明确的购买理由</h3>
+          <p>电商首图围绕浓茶偏好、双味选择、正餐搭配与工作日常分别组织产品、标题和场景。</p>
+        </header>
+        <div className="oolong-commerce-primary">
+          <figure>
+            <ZoomableProjectImage src="/assets/projects/qinglan-tea/qinglan-oolong-commerce-bold.webp" alt="浓茶感不靠甜，焙香乌龙方形电商主图" onOpen={onImageOpen} />
+            <figcaption>单品卖点 / 浓茶感，不靠甜</figcaption>
+          </figure>
+          <figure>
+            <ZoomableProjectImage src="/assets/projects/qinglan-tea/qinglan-oolong-commerce-choice.webp" alt="一轻一醇两种不同选择，茉莉绿茶与焙香乌龙双产品电商图" onOpen={onImageOpen} />
+            <figcaption>双味选择 / 同品牌下的互补风味</figcaption>
+          </figure>
+        </div>
+        <div className="oolong-commerce-scenes">
+          <figure>
+            <ZoomableProjectImage src="/assets/projects/qinglan-tea/qinglan-oolong-commerce-meal.webp" alt="一餐一茶恰到好处，焙香乌龙正餐搭配电商图" onOpen={onImageOpen} />
+            <figcaption>正餐搭配 / 把饮用理由带上餐桌</figcaption>
+          </figure>
+          <figure>
+            <ZoomableProjectImage src="/assets/projects/qinglan-tea/qinglan-oolong-commerce-work.webp" alt="专注时刻来瓶乌龙，年轻女性办公饮用电商广告" onOpen={onImageOpen} />
+            <figcaption>工作日常 / 真人饮用连接消费情境</figcaption>
+          </figure>
+        </div>
+      </section>
+
       <section className="qinglan-growth-system" aria-labelledby="qinglan-growth-title">
         <header className="smart-case-heading">
           <h3 id="qinglan-growth-title">从货架选择到真实饮用</h3>
           <p>零售选择、组合购买、正餐搭配与社交分享共同覆盖消费路径。</p>
         </header>
+        <figure className="oolong-lifestyle-lead">
+          <ZoomableProjectImage src="/assets/projects/qinglan-tea/qinglan-oolong-commerce-drinking.webp" alt="入口焙香回味干净，年轻女性在暖光中杯饮乌龙茶的生活方式广告" onOpen={onImageOpen} />
+          <figcaption>生活方式广告 / 以饮用体验传达焙香与回甘</figcaption>
+        </figure>
         <div className="qinglan-growth-grid">
           {[0, 2].map((start) => (
             <div className="qinglan-growth-row" key={start}>
@@ -5652,7 +5724,7 @@ function QinglanOolongCaseStudy({
 
       <section className="qinglan-motion-edit" aria-labelledby="qinglan-motion-title">
         <header className="smart-case-heading">
-          <h3 id="qinglan-motion-title">三个动作建立完整饮用路径</h3>
+          <h3 id="qinglan-motion-title">从发现到入口，呈现轻松饮用体验</h3>
           <p>从冷柜发现、即时开盖到户外直饮，短片分别承接选择、开启与体验。</p>
         </header>
         <div className="qinglan-motion-grid">
@@ -5688,21 +5760,6 @@ function QinglanOolongCaseStudy({
         </div>
       </section>
 
-      <section className="qinglan-review-system" aria-labelledby="qinglan-quality-title">
-        <header className="smart-case-heading">
-          <h3 id="qinglan-quality-title">六项标准决定素材是否进入交付</h3>
-          <p>交付标准同时覆盖产品、文字、动作一致性与渠道职责。</p>
-        </header>
-        <div className="qinglan-review-grid">
-          {qinglanOolongCaseStudy.qualityChecks.map((check) => (
-            <article key={check.title}>
-              <strong>{check.title}</strong>
-              <p>{check.detail}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
       <section className="qinglan-case-results" aria-labelledby="qinglan-results-title">
         <header>
           <span>PROJECT DELIVERY</span>
@@ -5725,7 +5782,7 @@ function QinglanOolongCaseStudy({
           </article>
           <article>
             <strong>动态资产</strong>
-            <p>冷柜聚焦、真实开盖与户外直饮分别形成可独立调用的动作内容。</p>
+            <p>两支产品宣传片建立风味与环境氛围，冷柜、旋盖与户外饮用短片服务不同传播场景。</p>
           </article>
           <article>
             <strong>项目边界</strong>
@@ -6170,7 +6227,7 @@ function ProjectShowcaseCard({
         {item.coverImages.map((image, imageIndex) => (
           <picture key={image}>
             {item.id === "consumer-commerce" ? (
-              <source media="(max-width: 1280px)" srcSet="/assets/projects/qinglan-tea/qinglan-oolong-cinematic-portrait.webp" />
+              <source media="(max-width: 1280px)" srcSet="/assets/projects/qinglan-tea/qinglan-dual-cover-portrait.webp" />
             ) : null}
             <img
               className={`project-showcase-art-primary${activeCoverIndex === imageIndex ? " is-active" : ""}`}
