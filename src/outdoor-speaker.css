@@ -1,0 +1,103 @@
+/* Speaker case: image-native editorial layout, scoped away from existing cases. */
+.speaker-case {
+  --speaker-ink: #efece6;
+  --speaker-muted: #a6adae;
+  --speaker-accent: #e99b62;
+  width: min(1320px, calc(100% - 104px));
+  margin: 72px auto 88px;
+  color: var(--speaker-ink);
+  display: grid;
+  gap: 88px;
+}
+.speaker-case :is(h3, h4, p, figure) { margin: 0; }
+.speaker-case h3 { font-size: clamp(26px, 2.5vw, 40px); font-weight: 650; line-height: 1.35; letter-spacing: -.045em; text-wrap: balance; }
+.speaker-case h4 { font-size: 16px; line-height: 1.6; font-weight: 600; }
+.speaker-case p { font-size: 14px; line-height: 1.95; color: var(--speaker-muted); text-wrap: pretty; }
+.speaker-case .speaker-media { background: #171b1e; aspect-ratio: var(--speaker-ratio); overflow: hidden; }
+.speaker-case .speaker-media .project-image-trigger { display: block; width: 100%; height: 100%; aspect-ratio: var(--speaker-ratio); margin: 0; border: 0; border-radius: 0; padding: 0; background: transparent; }
+.speaker-case .speaker-media img { display: block; width: 100%; height: 100%; max-height: none; object-fit: contain; transform: none; filter: none; }
+.speaker-case .speaker-media .project-image-trigger:focus-visible { outline: 2px solid var(--speaker-accent); outline-offset: -4px; }
+.speaker-figure { min-width: 0; }
+.speaker-figure figcaption { padding: 16px 0 0; display: grid; gap: 5px; }
+.speaker-figure figcaption strong { font-size: 14px; font-weight: 550; color: #dadddb; }
+.speaker-figure figcaption span { font-size: 12px; line-height: 1.7; color: #8f989b; }
+.speaker-opening, .speaker-closing { display: grid; grid-template-columns: 1.08fr 1fr; gap: clamp(28px, 4vw, 64px); align-items: center; }
+.speaker-kicker { color: var(--speaker-accent); font-size: 12px; letter-spacing: .08em; display: block; margin-bottom: 18px; }
+.speaker-opening-copy .speaker-lead { margin: 22px 0 28px; font-size: 16px; color: #c6cbcb; }
+.speaker-path { display: flex; gap: 18px; padding: 20px 0; border-top: 1px solid #343b3e; }
+.speaker-path > span { color: var(--speaker-accent); font-size: 12px; padding-top: 5px; font-variant-numeric: tabular-nums; }
+.speaker-path p { margin-top: 7px; }
+.speaker-opening-copy .speaker-opening-note { margin-top: 16px; font-size: 11px; color: #818b8f; }
+.speaker-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; margin-bottom: 30px; }
+.speaker-heading h3 { flex: 1; }
+.speaker-heading > p { max-width: 430px; flex: 1; }
+.speaker-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.speaker-carry { display: grid; grid-template-columns: .68fr 1fr; gap: 38px; align-items: center; }
+.speaker-carry-right .speaker-heading { display: block; margin-bottom: 30px; }
+.speaker-carry-right .speaker-heading p { max-width: 540px; margin-top: 20px; }
+.speaker-capability { padding-top: 36px; border-top: 1px solid #343b3e; }
+.speaker-portrait-pair { width: 88%; margin: 0 auto; gap: 32px; }
+.speaker-closing { padding-top: 40px; border-top: 1px solid #343b3e; grid-template-columns: .88fr 1fr; }
+.speaker-channel-list { list-style: none; padding: 0; margin: 28px 0; }
+.speaker-channel-list li { display: grid; grid-template-columns: 64px 1fr; gap: 18px; padding: 18px 0; border-top: 1px solid #343b3e; }
+.speaker-channel-list li > span { color: var(--speaker-accent); font-size: 12px; padding-top: 4px; }
+.speaker-channel-list p { margin-top: 5px; font-size: 13px; }
+.speaker-delivery { display: flex; gap: 42px; padding: 22px 0; border-top: 1px solid #343b3e; }
+.speaker-delivery div { display: grid; gap: 6px; }
+.speaker-delivery b { font-size: 38px; font-weight: 500; line-height: 1; letter-spacing: -.05em; font-variant-numeric: tabular-nums; }
+.speaker-delivery span { font-size: 11px; color: var(--speaker-muted); }
+.speaker-closing-copy .speaker-endnote { font-size: 12px; }
+
+.project-detail-hero.is-outdoor-speaker-hero .project-detail-visual > strong,
+.project-detail-hero.is-outdoor-speaker-hero .project-detail-visual > figcaption { display: none; }
+.project-detail-hero.is-outdoor-speaker-hero .project-detail-visual img { object-position: 70% center; filter: brightness(.94); transform: none; }
+.project-detail-hero.is-outdoor-speaker-hero .project-detail-visual-shade { background: linear-gradient(90deg, rgba(5, 8, 10, .25), transparent 48%), linear-gradient(0deg, rgba(5, 8, 10, .15), transparent 35%); }
+.project-detail-hero.is-outdoor-speaker-hero .project-detail-intro { width: min(550px, 37%); padding-right: 38px; background: linear-gradient(90deg, rgba(9, 12, 15, .9), rgba(9, 12, 15, .68) 78%, transparent); }
+.project-detail-hero.is-outdoor-speaker-hero .project-detail-title h2 { font-size: clamp(30px, 2.7vw, 46px); line-height: 1.3; max-width: 8em; }
+.project-detail-hero.is-outdoor-speaker-hero .project-detail-title small { font-size: 10px; line-height: 1.8; }
+.project-detail-hero.is-outdoor-speaker-hero .project-detail-summary { font-size: 13px; line-height: 1.9; }
+.project-detail-hero.is-outdoor-speaker-hero .project-detail-meta { font-size: 10px; }
+.project-showcase-item.is-speaker-cover .project-showcase-backdrop { display: none; }
+.project-showcase-item.is-speaker-cover .project-showcase-art-primary { object-position: 68% center; }
+.project-showcase-item.is-speaker-cover:is(.is-focused, :focus-visible) .project-showcase-art { background: #11161a; }
+.project-showcase-item.is-speaker-cover:is(.is-focused, :focus-visible) .project-showcase-art-primary { object-fit: contain; object-position: center; height: calc(100% - 150px); }
+
+@media (max-width: 1100px) {
+  .speaker-case { width: calc(100% - 64px); gap: 64px; margin-top: 48px; }
+  .speaker-opening, .speaker-closing { gap: 28px; }
+  .speaker-opening-copy .speaker-lead { font-size: 14px; margin: 15px 0; }
+  .speaker-path { padding: 14px 0; gap: 12px; }
+  .speaker-path h4 { font-size: 14px; }
+  .speaker-case p { font-size: 13px; }
+  .speaker-carry { gap: 24px; }
+  .speaker-portrait-pair { width: 100%; gap: 24px; }
+  .project-detail-hero.is-outdoor-speaker-hero { height: auto; min-height: 0; display: block; }
+  .project-detail-hero.is-outdoor-speaker-hero .project-detail-visual { position: relative; inset: auto; width: 100%; height: auto; min-height: 0; margin: 0; aspect-ratio: 2560 / 1717; }
+  .project-detail-hero.is-outdoor-speaker-hero .project-detail-visual .project-image-trigger { width: 100%; height: 100%; }
+  .project-detail-hero.is-outdoor-speaker-hero .project-detail-visual img { width: 100%; height: 100%; object-fit: contain; }
+  .project-detail-hero.is-outdoor-speaker-hero .project-detail-visual-shade { display: none; }
+  .project-detail-hero.is-outdoor-speaker-hero .project-detail-intro { position: relative; inset: auto; width: 100%; max-width: none; margin: 0; border: 0; border-radius: 0; box-shadow: none; padding: 32px; background: #101518; mask-image: none; -webkit-mask-image: none; }
+  .project-detail-hero.is-outdoor-speaker-hero .project-detail-title h2 { max-width: none; font-size: 32px; }
+  .project-detail-hero.is-outdoor-speaker-hero .project-detail-summary { max-width: 660px; }
+}
+@media (max-width: 780px) {
+  .project-detail-panel.is-speaker-panel .project-detail-layout { position: absolute; top: 152px; bottom: 0; width: 100%; height: auto; }
+  .speaker-case { width: calc(100% - 36px); gap: 48px; margin: 40px auto 48px; }
+  .speaker-case h3 { font-size: 27px; }
+  .speaker-opening, .speaker-closing, .speaker-carry { grid-template-columns: 1fr; gap: 26px; }
+  .speaker-heading { display: block; margin-bottom: 23px; }
+  .speaker-heading > p { margin-top: 15px; max-width: none; }
+  .speaker-pair { grid-template-columns: 1fr; gap: 26px; }
+  .speaker-carry-right { display: contents; }
+  .speaker-carry-right .speaker-heading { order: -1; margin: 0; }
+  .speaker-carry > .speaker-figure { max-width: 100%; }
+  .speaker-capability, .speaker-closing { padding-top: 28px; }
+  .speaker-figure figcaption { padding-top: 12px; }
+  .speaker-delivery { justify-content: space-between; gap: 20px; }
+  .speaker-channel-list li { gap: 12px; }
+  .project-detail-hero.is-outdoor-speaker-hero .project-detail-intro { padding: 26px 22px 28px; }
+  .project-detail-hero.is-outdoor-speaker-hero .project-detail-title h2 { font-size: 29px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .speaker-case *, .project-showcase-item.is-speaker-cover .project-showcase-art-primary { transition: none !important; animation: none !important; }
+}

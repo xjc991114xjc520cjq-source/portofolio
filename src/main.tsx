@@ -24,6 +24,8 @@ import {
   X,
 } from "lucide-react";
 import "./styles.css";
+import { OutdoorSpeakerCaseStudy } from "./OutdoorSpeakerCaseStudy";
+import "./outdoor-speaker.css";
 
 const contactEmail = "1498224542@qq.com";
 const icpFilingNumber = "闽ICP备e9055130469ef8f5a26f534177de7d81";
@@ -254,36 +256,40 @@ const projectShowcaseItems = [
   },
   {
     index: "04",
-    title: "让人物情绪成为商品记忆：运动生活方式 Campaign",
-    english: "AI LIFESTYLE CAMPAIGN",
-    category: "运动时尚 / 人物叙事",
-    categoryEnglish: "LIFESTYLE CAMPAIGN",
+    title: "户外音箱：把音乐带进生活",
+    english: "OUTDOOR SPEAKER EXPERIENCE SYSTEM",
+    category: "生活体验 / 概念产品",
+    categoryEnglish: "LIFESTYLE EXPERIENCE",
     year: "2026",
-    image: "/assets/project-showcase-afterimage.webp",
-    alt: "运动人物影像与编辑式字体组成的生活方式 Campaign 方向",
-    backdrop: "LIFESTYLE",
-    accent: "#89aacc",
+    image: "/assets/projects/outdoor-speaker/speaker-rock-hero.webp",
+    alt: "岩壁侧光下的手提户外蓝牙音箱，金属框架与暖色灯带清晰可见",
+    backdrop: "OUTDOOR",
+    accent: "#e99b62",
     introTheme: {
-      surface: "#171717",
-      surfaceDeep: "#080808",
-      title: "#e7e3dc",
-      body: "#bbb7b0",
-      muted: "#8c8984",
-      accent: "#c6c0b6",
-      rule: "#5d5a56",
-      shadow: "rgba(0, 0, 0, 0.42)",
+      surface: "#181c20",
+      surfaceDeep: "#0c1013",
+      title: "#f3eee8",
+      body: "#c6c8c8",
+      muted: "#b5b8b9",
+      accent: "#e99b62",
+      rule: "#626b70",
+      shadow: "rgba(6, 9, 12, 0.42)",
     },
-    summary: "以跑鞋为核心商品，让统一人物身份、动作节奏与城市运动场景共同建立品牌记忆，使情绪表达始终服务于商品而不是遮蔽商品。",
-    brief: "运动生活方式项目需要同时控制人物身份、动作姿态、商品准确性与场景光线。",
-    response: "先锁定人物与跑鞋结构，再围绕城市训练和户外运动设计镜头、动作和情绪连续性。",
-    role: "AI Art Direction / Lifestyle",
-    scope: "人物、商品与场景一致性",
-    deliverables: ["Campaign KV", "人物套图", "商品场景", "社交内容"],
-    workflow: ["角色定义", "商品锁定", "动作设计", "场景扩展", "系列精修"],
-    system: "为人物身份、鞋款结构、镜头和环境光建立连续标准，使多张画面共同讲述同一个运动场景。",
-    outcome: "形成覆盖都市训练、户外自然与编辑式影像的连续人物 Campaign，并将同一角色和鞋款稳定延展到多种传播版位。",
-    reflection: "人物 Campaign 的商业价值不只是氛围，而是让消费者通过情绪、动作和场景记住同一件商品。",
-    gallery: [{ src: "/assets/project-showcase-afterimage.webp", alt: "运动人物生活方式 Campaign 方向", layout: "portrait" }],
+    summary: "以户外能力建立信任，以音乐体验唤起向往。连接山野、自驾、轻运动与朋友相聚，构建从产品识别到电商转化的生活方式视觉系统。",
+    brief: "让兼具户外能力与设计感的音箱走出装备圈层，在没有明确采购计划的日常浏览中建立使用想象。",
+    response: "将耐候功能与生活体验组成两条互补路径，分别用产品细节、真实操作与多元人物场景承接购买理由。",
+    role: "AI Art Direction / Commerce Design",
+    scope: "体验型消费定位与多场景电商视觉",
+    deliverables: ["产品识别", "材质细节", "户外功能表达", "操作体验", "生活方式影像", "电商主视觉", "多比例渠道内容"],
+    workflow: ["消费场景定位", "产品识别", "功能表达", "体验叙事", "渠道编排"],
+    system: "以横向机身、金属提梁、穿孔网罩与橙色控制键维持识别，通过自然光、人物关系和标题层级区分消费情境。",
+    outcome: "十三张精选视觉，其中八张电商创意覆盖商品入口、功能理解、使用体验和场景延展，形成双人群、多触点的内容系统。",
+    reflection: "生活方式设计把功能的安心感转化为具体的使用向往，让产品进入消费者已经拥有的生活。",
+    gallery: [
+      { src: "/assets/projects/outdoor-speaker/speaker-commerce-hero.webp", alt: "把音乐带出去户外音箱电商主视觉", layout: "square" },
+      { src: "/assets/projects/outdoor-speaker/speaker-commerce-fitness.webp", alt: "放松也有节奏轻运动生活体验", layout: "portrait" },
+      { src: "/assets/projects/outdoor-speaker/speaker-commerce-night.webp", alt: "夜色正好听双人营地生活体验", layout: "square" },
+    ],
   },
   {
     index: "05",
@@ -442,11 +448,12 @@ const projectShowcaseCollections = [
   {
     id: "lifestyle-campaign",
     index: "04",
-    title: "人物生活方式",
-    english: "LIFESTYLE CAMPAIGNS",
-    facets: ["人物一致性", "运动叙事", "社交传播"],
+    title: "生活体验",
+    english: "LIFESTYLE EXPERIENCES",
+    facets: ["户外音箱", "体验型消费", "场景商业化"],
     coverImages: [
-      "/assets/project-showcase-afterimage.webp",
+      "/assets/projects/outdoor-speaker/speaker-rock-hero.webp",
+      "/assets/projects/outdoor-speaker/speaker-car-camp.webp",
     ],
     projects: [projectShowcaseItems[5]],
   },
@@ -4205,29 +4212,6 @@ const projectStoryProfiles: Record<string, ProjectStoryProfile> = {
       disclosure: "青岚茶事为自主命题概念品牌。项目不展示未经验证的销量、CTR 或 CVR。",
     },
   },
-  "AI LIFESTYLE CAMPAIGN": {
-    storyHeading: "人物负责制造情绪，商品必须始终保留主角地位",
-    title: "先锁定人物与鞋款，再让动作和场景建立品牌记忆",
-    lead: "运动 Campaign 最容易出现人物很有张力、鞋款却在不同镜头中失去身份的问题。我先固定角色特征、鞋底结构、配色和穿着关系，再让城市训练、户外自然与编辑式镜头承担不同情绪。",
-    note: "这样人物不会变成与商品无关的大片装饰。每个动作都在解释速度、支撑或生活方式，每个场景都在帮助同一鞋款进入更清晰的人群记忆。",
-    imageIndexes: [0],
-    stepNotes: ["固定人物身份、鞋款结构和品牌配色", "把速度、支撑与日常穿着拆成动作任务", "扩展城市、户外与编辑式镜头", "审核手脚、鞋型和人物连续性后适配传播版位"],
-    impact: {
-      eyebrow: "BRAND MEMORY",
-      title: "在数百亿运动品牌竞争中，让人物情绪成为商品资产",
-      summary: "用人物连续性和鞋款准确性建立可长期复用的品牌角色，使 Campaign 不只制造氛围，也持续积累商品记忆。",
-      primary: { label: "头部运动品牌年度收入", value: "347.54 亿元", context: "年度同比 +3.7%" },
-      metrics: [
-        { label: "集团年度收入", value: "802.19 亿元", context: "多品牌增长背景" },
-        { label: "内容点击率 CTR", value: "4.3%", context: "人物动作与商品近景组合" },
-        { label: "购买转化率 CVR", value: "3.8%", context: "场景兴趣向商品理解承接" },
-      ],
-      conclusion: "让统一人物、可信动作和准确鞋款共同形成品牌记忆，并将同一角色安全扩展到城市、户外和社交内容。",
-      internalSources: [
-        { label: "安踏体育 2025 年度收入", url: "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0325/2026032500246_c.pdf" },
-      ],
-    },
-  },
   "CULTURAL PUBLISHING COMMERCE": {
     storyHeading: "内容越复杂，销售叙事越需要清晰",
     title: "先降低理解成本，再让内容价值推动购买",
@@ -5904,6 +5888,7 @@ function ProjectDetailViewer({
   const isQinglanProject = item.english === "QINGLAN TEA COMMERCE SYSTEM";
   const isOolongProject = item.english === "QINGLAN OOLONG GROWTH SYSTEM";
   const isSonaEarbudsProject = item.english === "SONA ARC ONE EARBUDS LAUNCH SYSTEM";
+  const isOutdoorSpeakerProject = item.english === "OUTDOOR SPEAKER EXPERIENCE SYSTEM";
   const detailHeroImage = isGlacierProject
     ? "/assets/projects/glacier-cleanser/glacier-sunrise-wide.webp"
     : isSerumProject
@@ -5993,7 +5978,7 @@ function ProjectDetailViewer({
       onKeyDown={handleKeyDown}
     >
       <motion.article
-        className={`project-detail-panel${isOolongProject ? " is-oolong-panel" : ""}`}
+        className={`project-detail-panel${isOolongProject ? " is-oolong-panel" : ""}${isOutdoorSpeakerProject ? " is-speaker-panel" : ""}`}
         style={{
           "--project-detail-accent": item.accent,
           "--project-intro-surface": item.introTheme.surface,
@@ -6095,7 +6080,7 @@ function ProjectDetailViewer({
             exit={reduceMotion ? undefined : { opacity: 0, x: -20 }}
             transition={{ duration: reduceMotion || keyboardNavigation ? 0 : 0.26, ease: [0.23, 1, 0.32, 1] }}
           >
-            <section className={`project-detail-hero${isOolongProject ? " is-oolong-detail-hero" : ""}${isGlacierProject ? " is-glacier-detail-hero" : ""}${isSerumProject ? " is-serum-detail-hero" : ""}${isSonaEarbudsProject ? " is-sona-earbuds-detail-hero" : ""}`}>
+            <section className={`project-detail-hero${isOolongProject ? " is-oolong-detail-hero" : ""}${isGlacierProject ? " is-glacier-detail-hero" : ""}${isSerumProject ? " is-serum-detail-hero" : ""}${isSonaEarbudsProject ? " is-sona-earbuds-detail-hero" : ""}${isOutdoorSpeakerProject ? " is-outdoor-speaker-hero" : ""}`}>
               <figure className={`project-detail-visual${isGlacierProject ? " is-glacier-detail-visual" : ""}${isSerumProject ? " is-serum-detail-visual" : ""}${isSonaEarbudsProject ? " is-sona-earbuds-detail-visual" : ""}`}>
                 <ZoomableProjectImage
                   src={detailHeroImage}
@@ -6118,7 +6103,7 @@ function ProjectDetailViewer({
                 </div>
                 <div className="project-detail-title">
                   <small>{item.english}</small>
-                  <h2 id={titleId}>{item.title}</h2>
+                  <h2 id={titleId}>{isOutdoorSpeakerProject ? <>户外音箱<br />把音乐带进生活</> : item.title}</h2>
                 </div>
                 <p className="project-detail-summary" id={summaryId}>{item.summary}</p>
               </div>
@@ -6126,7 +6111,7 @@ function ProjectDetailViewer({
 
             <section className="project-detail-copy">
 
-              {!isGlacierProject && !isSerumProject && !isTableFanProject && !isQinglanProject && !isOolongProject && !isSonaEarbudsProject ? (
+              {!isGlacierProject && !isSerumProject && !isTableFanProject && !isQinglanProject && !isOolongProject && !isSonaEarbudsProject && !isOutdoorSpeakerProject ? (
                 <>
                   <ProjectStoryLead item={item} onImageOpen={openImage} />
                   <ProjectCommerceImpact item={item} />
@@ -6147,6 +6132,8 @@ function ProjectDetailViewer({
                 <QinglanOolongCaseStudy onImageOpen={openImage} reduceMotion={reduceMotion} scrollRoot={detailLayoutRef} />
               ) : item === projectShowcaseItems[7] ? (
                 <SonaEarbudsCaseStudy onImageOpen={openImage} reduceMotion={reduceMotion} scrollRoot={detailLayoutRef} />
+              ) : isOutdoorSpeakerProject ? (
+                <OutdoorSpeakerCaseStudy renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />
               ) : (
                 <>
                   <section className="project-detail-process" aria-label="项目工作流">
@@ -6281,7 +6268,7 @@ function ProjectShowcaseCard({
 
   return (
     <motion.button
-      className={`project-showcase-item${item.id === "consumer-commerce" ? " is-consumer-cover" : ""}${item.coverImages.length > 1 ? " has-cover-cycle" : ""}${isGlacierCover ? " is-glacier-cover" : ""}${isFocused ? " is-focused" : ""}${isSuppressed ? " is-suppressed" : ""}`}
+      className={`project-showcase-item${item.id === "consumer-commerce" ? " is-consumer-cover" : ""}${item.id === "lifestyle-campaign" ? " is-speaker-cover" : ""}${item.coverImages.length > 1 ? " has-cover-cycle" : ""}${isGlacierCover ? " is-glacier-cover" : ""}${isFocused ? " is-focused" : ""}${isSuppressed ? " is-suppressed" : ""}`}
       type="button"
       data-project-index={index}
       aria-label={`查看作品方向：${item.title}，包含${item.projects.length}个完整商业项目`}
