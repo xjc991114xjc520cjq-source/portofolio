@@ -452,8 +452,7 @@ const projectShowcaseCollections = [
     english: "LIFESTYLE EXPERIENCES",
     facets: ["户外音箱", "体验型消费", "场景商业化"],
     coverImages: [
-      "/assets/projects/outdoor-speaker/speaker-rock-hero.webp",
-      "/assets/projects/outdoor-speaker/speaker-car-camp.webp",
+      "/assets/projects/outdoor-speaker/speaker-category-cover.webp",
     ],
     projects: [projectShowcaseItems[5]],
   },

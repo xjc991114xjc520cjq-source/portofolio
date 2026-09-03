@@ -9,6 +9,7 @@ ASSETS = {
     "115620_de811395": "speaker-material-macro",
     "104405_546769ef": "speaker-hiking-carry",
     "113114_d6d842e8": "speaker-car-camp",
+    "113404_1a3900c4": "speaker-category-cover",
     "142502_daa0436b": "speaker-commerce-hero",
     "143552_632d4ba8": "speaker-commerce-outdoor",
     "145027_acb5a1a8": "speaker-commerce-control",
