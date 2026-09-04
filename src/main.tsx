@@ -487,7 +487,7 @@ const projectShowcaseCollections = [
     english: "LIFESTYLE EXPERIENCES",
     facets: ["户外音箱", "时装穿搭", "场景商业化"],
     coverImages: [
-      "/assets/projects/outdoor-speaker/speaker-category-cover.webp",
+      "/assets/projects/outdoor-speaker/speaker-product-cover.png",
     ],
     projects: [projectShowcaseItems[5], fishtailSkirtProject],
   },
