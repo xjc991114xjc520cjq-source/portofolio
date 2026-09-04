@@ -4205,17 +4205,7 @@ function ProjectDetailViewer({
   const isSonaEarbudsProject = item.english === "SONA ARC ONE EARBUDS LAUNCH SYSTEM";
   const isOutdoorSpeakerProject = item.english === "OUTDOOR SPEAKER EXPERIENCE SYSTEM";
   const isSkirtProject = item.english === "FISHTAIL LEATHER SKIRT CAMPAIGN SYSTEM";
-  const detailTitles: Record<string, string> = {
-    "01": "空气炸锅\n从食欲，到下厨",
-    "02": "空气循环扇\n让清风走进生活",
-    "03": "青岚茉莉绿茶\n零糖，也有真茶香",
-    "03B": "青岚焙香乌龙\n从一瓶，到一系",
-    "05": "安徒生童话\n让阅读立体起来",
-  };
-  const detailTitle = isGlacierProject ? "GLACIER 洁面\n清洁与轻盈之间" : isSerumProject ? "LUMINOSE 精华\n一滴轻润，晨晚有光" : isSonaEarbudsProject ? "SONA ARC ONE\n听见自己的节奏" : detailTitles[item.index] || item.title;
-  const detailHeroImage = item === projectShowcaseItems[0]
-    ? "/assets/projects/air-fryer/air-fryer-lifestyle.webp"
-    : isGlacierProject
+  const detailHeroImage = isGlacierProject
     ? "/assets/projects/glacier-cleanser/glacier-sunrise-wide.webp"
     : isSerumProject
       ? "/assets/projects/serum/serum-bathroom.webp"
@@ -4226,11 +4216,9 @@ function ProjectDetailViewer({
           : isOolongProject
             ? "/assets/projects/qinglan-tea/qinglan-oolong-cinematic-wide-v2.webp"
             : isSonaEarbudsProject
-              ? "/assets/projects/sona-earbuds/sona-film-finale.webp"
+              ? "/assets/projects/sona-earbuds/sona-launch-banner.webp"
               : item.image;
-  const detailHeroAlt = item === projectShowcaseItems[0]
-    ? "自然光厨房中的空气炸锅与备餐场景"
-    : isGlacierProject
+  const detailHeroAlt = isGlacierProject
     ? "晨光冰原中的 GLACIER 洁面啫喱产品主视觉"
     : isSerumProject
       ? "自然晨光浴室中的 LUMINOSE 琥珀玻璃精华液产品场景"
@@ -4241,7 +4229,7 @@ function ProjectDetailViewer({
           : isOolongProject
             ? "暖光建筑与深色石台上的青岚焙香乌龙产品主视觉"
             : isSonaEarbudsProject
-              ? "SONA ARC ONE 双耳展开与充电仓产品影像"
+              ? "SONA ARC ONE 听见自己的节奏新品上市横幅"
               : item.alt;
 
   useEffect(() => {
@@ -4431,7 +4419,7 @@ function ProjectDetailViewer({
                 </div>
                 <div className="project-detail-title">
                   <small>{item.english}</small>
-                  <h2 id={titleId}>{isOutdoorSpeakerProject ? <>户外音箱<br />把音乐带进生活</> : isSkirtProject ? <>鱼尾皮裙<br />黑裙不止一面</> : detailTitle}</h2>
+                  <h2 id={titleId}>{isOutdoorSpeakerProject ? <>户外音箱<br />把音乐带进生活</> : isSkirtProject ? <>鱼尾皮裙<br />黑裙不止一面</> : item.title}</h2>
                 </div>
                 <p className="project-detail-summary" id={summaryId}>{item.summary}</p>
               </div>
