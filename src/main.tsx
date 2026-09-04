@@ -28,6 +28,8 @@ import { OutdoorSpeakerCaseStudy } from "./OutdoorSpeakerCaseStudy";
 import "./outdoor-speaker.css";
 import { FishtailSkirtCaseStudy } from "./FishtailSkirtCaseStudy";
 import "./fishtail-skirt.css";
+import { YogaSetCaseStudy } from "./YogaSetCaseStudy";
+import "./yoga-set.css";
 import { ProductEditorialCase, PublishingEditorialCase } from "./ProductEditorialCases";
 import { CaseExtensions } from "./CaseExtensions";
 import caseImageSizes from "./case-image-sizes.json";
@@ -417,10 +419,10 @@ const projectShowcaseItems = [
 ] as const;
 
 const fishtailSkirtProject = {
-  index: "04B",
+  index: "05A",
   title: "鱼尾皮裙：黑裙不止一面",
   english: "FISHTAIL LEATHER SKIRT CAMPAIGN SYSTEM",
-  category: "生活体验 / 时装企划",
+  category: "时尚服饰 / 时装企划",
   categoryEnglish: "FASHION EXPERIENCE",
   year: "2026",
   image: "/assets/projects/fishtail-skirt/skirt-rain-composition-v2.png",
@@ -442,6 +444,35 @@ const fishtailSkirtProject = {
     { src: "/assets/projects/fishtail-skirt/skirt-19.webp", alt: "一眼有层次鱼尾皮裙电商主视觉", layout: "square" },
     { src: "/assets/projects/fishtail-skirt/skirt-06.webp", alt: "银色上衣与沙发侧躺时装电商图", layout: "square" },
     { src: "/assets/projects/fishtail-skirt/skirt-04.webp", alt: "夜店群舞与鱼尾皮裙穿搭", layout: "square" },
+  ],
+} as const;
+
+const yogaSetProject = {
+  index: "05B",
+  title: "瑜伽套装：让设计跟着身体流动",
+  english: "YOGA SET FASHION COMMERCE SYSTEM",
+  category: "时尚服饰 / 功能服饰",
+  categoryEnglish: "FUNCTIONAL FASHION COMMERCE",
+  year: "2026",
+  image: "/assets/projects/yoga-set/yoga-park-stretch-wide.webp",
+  alt: "城市湖畔公园侧弓步伸展中的米色与墨岩灰撞色瑜伽套装",
+  backdrop: "YOGA FLOW",
+  accent: "#d8c9b9",
+  introTheme: { surface: "#1a181a", surfaceDeep: "#111214", title: "#f0ece7", body: "#c9c3bd", muted: "#aaa29d", accent: "#d8c9b9", rule: "#6e625c", shadow: "rgba(9,9,11,.42)" },
+  summary: "以不对称肩带、单侧抽绳与斜向撞色腰线建立产品识别，从正背母版、细节理解到伸展动作与城市日常，完成一套功能服饰商业内容系统。",
+  brief: "让瑜伽套装跳出基础款同质化，同时兼顾训练动作中的结构识别与运动之后的日常穿着想象。",
+  response: "先锁定米色与墨岩灰配色及正背版型，再用多种伸展动作检验视觉连续性，最后以建筑、湖畔和咖啡场景拓展渠道内容。",
+  role: "AI Art Direction / Functional Fashion",
+  scope: "功能服饰产品定义与电商内容系统",
+  deliverables: ["产品正背母版", "版型与细节视觉", "动作场景", "生活方式企划", "电商主图", "广告横幅", "渠道延展"],
+  workflow: ["产品定位", "版型锁定", "设计锚点", "动作验证", "场景拓展", "标题编排", "渠道组合"],
+  system: "固定不对称肩带、侧腰抽绳、交叉露背、斜叠腰头与弧形撞色，以人物动作、叠穿和环境切换训练与日常语境。",
+  outcome: "28 张产品、电商与生活方式视觉覆盖商品吸引、结构理解、动作表现和场景转化，形成方图、竖版与横幅可组合的时尚商业资产。",
+  reflection: "功能服饰的差异化不仅来自性能描述，也来自可被记住的版型语言，以及它进入真实生活时仍然成立的风格。",
+  gallery: [
+    { src: "/assets/projects/yoga-set/yoga-commerce-focus.webp", alt: "不对称自成焦点瑜伽套装核心电商主视觉", layout: "square" },
+    { src: "/assets/projects/yoga-set/yoga-commerce-stretch.webp", alt: "侧角伸展动作中的瑜伽套装线条表现", layout: "square" },
+    { src: "/assets/projects/yoga-set/yoga-commerce-everyday.webp", alt: "瑜伽套装从训练场走进日常的城市商业画面", layout: "square" },
   ],
 } as const;
 
@@ -486,16 +517,27 @@ const projectShowcaseCollections = [
     index: "04",
     title: "生活体验",
     english: "LIFESTYLE EXPERIENCES",
-    facets: ["户外音箱", "时装穿搭", "场景商业化"],
+    facets: ["户外音箱", "户外场景", "体验商业化"],
     coverImages: [
       "/assets/projects/outdoor-speaker/speaker-product-cover.png",
-      "/assets/projects/fishtail-skirt/skirt-rain-hero.png",
     ],
-    projects: [projectShowcaseItems[5], fishtailSkirtProject],
+    projects: [projectShowcaseItems[5]],
+  },
+  {
+    id: "fashion-commerce",
+    index: "05",
+    title: "时尚服饰",
+    english: "FASHION COMMERCE",
+    facets: ["时装企划", "功能服饰", "场景商业化"],
+    coverImages: [
+      "/assets/projects/fishtail-skirt/skirt-rain-composition-v2.png",
+      "/assets/projects/yoga-set/yoga-gym-stretch-wide.webp",
+    ],
+    projects: [fishtailSkirtProject, yogaSetProject],
   },
   {
     id: "cultural-publishing",
-    index: "05",
+    index: "06",
     title: "文化出版",
     english: "CULTURAL PUBLISHING",
     facets: ["内容梳理", "套系识别", "电商叙事"],
@@ -506,7 +548,7 @@ const projectShowcaseCollections = [
   },
   {
     id: "product-motion",
-    index: "06",
+    index: "07",
     title: "产品动态影像",
     english: "PRODUCT MOTION",
     facets: ["精密硬件一致性", "产品影片", "多比例交付"],
@@ -4207,6 +4249,7 @@ function ProjectDetailViewer({
   const isSonaEarbudsProject = item.english === "SONA ARC ONE EARBUDS LAUNCH SYSTEM";
   const isOutdoorSpeakerProject = item.english === "OUTDOOR SPEAKER EXPERIENCE SYSTEM";
   const isSkirtProject = item.english === "FISHTAIL LEATHER SKIRT CAMPAIGN SYSTEM";
+  const isYogaProject = item.english === "YOGA SET FASHION COMMERCE SYSTEM";
   const detailHeroImage = isGlacierProject
     ? "/assets/projects/glacier-cleanser/glacier-sunrise-wide.webp"
     : isSerumProject
@@ -4296,7 +4339,7 @@ function ProjectDetailViewer({
       onKeyDown={handleKeyDown}
     >
       <motion.article
-        className={`project-detail-panel${!isSkirtProject ? " is-refined-panel" : ""}${item === projectShowcaseItems[6] ? " is-publishing-panel" : ""}${isOolongProject ? " is-oolong-panel" : ""}${isOutdoorSpeakerProject ? " is-speaker-panel" : ""}${isSkirtProject ? " is-skirt-panel" : ""}`}
+        className={`project-detail-panel${!isSkirtProject && !isYogaProject ? " is-refined-panel" : ""}${item === projectShowcaseItems[6] ? " is-publishing-panel" : ""}${isOolongProject ? " is-oolong-panel" : ""}${isOutdoorSpeakerProject ? " is-speaker-panel" : ""}${isSkirtProject ? " is-skirt-panel" : ""}${isYogaProject ? " is-yoga-panel" : ""}`}
         style={{
           "--project-detail-accent": item.accent,
           "--project-intro-surface": item.introTheme.surface,
@@ -4398,7 +4441,7 @@ function ProjectDetailViewer({
             exit={reduceMotion ? undefined : { opacity: 0, x: -20 }}
             transition={{ duration: reduceMotion || keyboardNavigation ? 0 : 0.26, ease: [0.23, 1, 0.32, 1] }}
           >
-            <section className={`project-detail-hero${isOolongProject ? " is-oolong-detail-hero" : ""}${isGlacierProject ? " is-glacier-detail-hero" : ""}${isSerumProject ? " is-serum-detail-hero" : ""}${isSonaEarbudsProject ? " is-sona-earbuds-detail-hero" : ""}${isOutdoorSpeakerProject ? " is-outdoor-speaker-hero" : ""}${isSkirtProject ? " is-skirt-hero" : ""}`}>
+            <section className={`project-detail-hero${isOolongProject ? " is-oolong-detail-hero" : ""}${isGlacierProject ? " is-glacier-detail-hero" : ""}${isSerumProject ? " is-serum-detail-hero" : ""}${isSonaEarbudsProject ? " is-sona-earbuds-detail-hero" : ""}${isOutdoorSpeakerProject ? " is-outdoor-speaker-hero" : ""}${isSkirtProject ? " is-skirt-hero" : ""}${isYogaProject ? " is-yoga-hero" : ""}`}>
               <figure className={`project-detail-visual${isGlacierProject ? " is-glacier-detail-visual" : ""}${isSerumProject ? " is-serum-detail-visual" : ""}${isSonaEarbudsProject ? " is-sona-earbuds-detail-visual" : ""}`}>
                 <ZoomableProjectImage
                   src={detailHeroImage}
@@ -4421,7 +4464,7 @@ function ProjectDetailViewer({
                 </div>
                 <div className="project-detail-title">
                   <small>{item.english}</small>
-                  <h2 id={titleId}>{isOutdoorSpeakerProject ? <>户外音箱<br />把音乐带进生活</> : isSkirtProject ? <>鱼尾皮裙<br />黑裙不止一面</> : item.title}</h2>
+                  <h2 id={titleId}>{isOutdoorSpeakerProject ? <>户外音箱<br />把音乐带进生活</> : isSkirtProject ? <>鱼尾皮裙<br />黑裙不止一面</> : isYogaProject ? <>瑜伽套装<br />让设计跟着身体流动</> : item.title}</h2>
                 </div>
                 <p className="project-detail-summary" id={summaryId}>{item.summary}</p>
               </div>
@@ -4440,11 +4483,13 @@ function ProjectDetailViewer({
                 <OutdoorSpeakerCaseStudy renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />
               ) : isSkirtProject ? (
                 <FishtailSkirtCaseStudy renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />
+              ) : isYogaProject ? (
+                <YogaSetCaseStudy renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />
               ) : (
                 <PublishingEditorialCase renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />
               )}
 
-              {!isSkirtProject && <CaseExtensions key={item.index} kind={isOolongProject ? "oolong" : isOutdoorSpeakerProject ? "speaker" : isSonaEarbudsProject ? "earbuds" : ["air", "fan", "glacier", "serum", "jasmine"][projectShowcaseItems.indexOf(item as typeof projectShowcaseItems[number])] || "publishing"} renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />}
+              {!isSkirtProject && !isYogaProject && <CaseExtensions key={item.index} kind={isOolongProject ? "oolong" : isOutdoorSpeakerProject ? "speaker" : isSonaEarbudsProject ? "earbuds" : ["air", "fan", "glacier", "serum", "jasmine"][projectShowcaseItems.indexOf(item as typeof projectShowcaseItems[number])] || "publishing"} renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />}
 
               <footer className="project-detail-footer">
                 <dl>
