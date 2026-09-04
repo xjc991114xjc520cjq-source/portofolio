@@ -1,0 +1,1010 @@
+{
+  "air": [
+    {
+      "src": "/assets/projects/extensions/air-07.webp",
+      "alt": "空气炸锅 / 打开炸篮的操作近景",
+      "caption": "打开炸篮的操作近景",
+      "group": "产品与场景影像",
+      "width": 2048,
+      "height": 2048
+    },
+    {
+      "src": "/assets/projects/air-fryer/air-fryer-product.webp",
+      "alt": "空气炸锅 / 完整商品轮廓",
+      "caption": "完整商品轮廓",
+      "group": "产品与场景影像",
+      "width": 2400,
+      "height": 1790
+    }
+  ],
+  "fan": [
+    {
+      "src": "/assets/projects/table-fan/table-fan-m04.webp",
+      "alt": "空气循环扇 / 框景中的清风",
+      "caption": "框景中的清风",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/table-fan/table-fan-m08.webp",
+      "alt": "空气循环扇 / 网罩与按键细节",
+      "caption": "网罩与按键细节",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/table-fan/table-fan-m09.webp",
+      "alt": "空气循环扇 / 轻触送风",
+      "caption": "轻触送风",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/table-fan/table-fan-m10.webp",
+      "alt": "空气循环扇 / 轻柔循环风",
+      "caption": "轻柔循环风",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/extensions/fan-24.webp",
+      "alt": "空气循环扇 / 日间卧室的轻风",
+      "caption": "日间卧室的轻风",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/extensions/fan-28.webp",
+      "alt": "空气循环扇 / 夜间陪伴",
+      "caption": "夜间陪伴",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/table-fan/table-fan-m11.webp",
+      "alt": "空气循环扇 / 桌面占用与尺度",
+      "caption": "桌面占用与尺度",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/table-fan/table-fan-m13.webp",
+      "alt": "空气循环扇 / 窗边光线",
+      "caption": "窗边光线",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/table-fan/table-fan-m14.webp",
+      "alt": "空气循环扇 / 阅读时光",
+      "caption": "阅读时光",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/table-fan/table-fan-m15.webp",
+      "alt": "空气循环扇 / 柔风开场",
+      "caption": "柔风开场",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/table-fan/table-fan-hero.webp",
+      "alt": "空气循环扇 / 白色机身完整轮廓",
+      "caption": "白色机身完整轮廓",
+      "group": "产品与场景影像",
+      "width": 2200,
+      "height": 2200
+    },
+    {
+      "src": "/assets/projects/table-fan/table-fan-j05.webp",
+      "alt": "空气循环扇 / 夜间交互",
+      "caption": "夜间交互",
+      "group": "产品与场景影像",
+      "width": 4096,
+      "height": 4096
+    },
+    {
+      "src": "/assets/projects/table-fan/table-fan-j06.webp",
+      "alt": "空气循环扇 / 卧室灯光与产品",
+      "caption": "卧室灯光与产品",
+      "group": "产品与场景影像",
+      "width": 4096,
+      "height": 4096
+    }
+  ],
+  "glacier": [
+    {
+      "src": "/assets/projects/glacier-cleanser/glacier-square-cave-focus-a.webp",
+      "alt": "GLACIER 洁面啫喱 / 冰境聚焦",
+      "caption": "冰境聚焦",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/glacier-cleanser/glacier-square-clean-focus.webp",
+      "alt": "GLACIER 洁面啫喱 / 冰感净澈",
+      "caption": "冰感净澈",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/glacier-cleanser/glacier-square-texture.webp",
+      "alt": "GLACIER 洁面啫喱 / 冰川质感",
+      "caption": "冰川质感",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/glacier-cleanser/glacier-square-minimal-ice.webp",
+      "alt": "GLACIER 洁面啫喱 / 极简冰感",
+      "caption": "极简冰感",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/glacier-cleanser/glacier-square-flow.webp",
+      "alt": "GLACIER 洁面啫喱 / 冰感流动",
+      "caption": "冰感流动",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/glacier-cleanser/glacier-square-night.webp",
+      "alt": "GLACIER 洁面啫喱 / 冷调夜色",
+      "caption": "冷调夜色",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/glacier-cleanser/glacier-square-pump-fresh.webp",
+      "alt": "GLACIER 洁面啫喱 / 一泵清爽",
+      "caption": "一泵清爽",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/glacier-cleanser/glacier-bathroom-wide.webp",
+      "alt": "GLACIER 洁面啫喱 / 晨光浴室",
+      "caption": "晨光浴室",
+      "group": "产品与场景影像",
+      "width": 2200,
+      "height": 1228
+    },
+    {
+      "src": "/assets/projects/glacier-cleanser/glacier-water-ripple-wide.webp",
+      "alt": "GLACIER 洁面啫喱 / 植物与石台",
+      "caption": "植物与石台",
+      "group": "产品与场景影像",
+      "width": 2200,
+      "height": 1228
+    },
+    {
+      "src": "/assets/projects/glacier-cleanser/glacier-lab-wide.webp",
+      "alt": "GLACIER 洁面啫喱 / 圆弧空间",
+      "caption": "圆弧空间",
+      "group": "产品与场景影像",
+      "width": 2200,
+      "height": 1228
+    },
+    {
+      "src": "/assets/projects/glacier-cleanser/glacier-tilted-ice-portrait.webp",
+      "alt": "GLACIER 洁面啫喱 / 倾斜瓶身与凝露",
+      "caption": "倾斜瓶身与凝露",
+      "group": "产品与场景影像",
+      "width": 1228,
+      "height": 2200
+    },
+    {
+      "src": "/assets/projects/glacier-cleanser/glacier-bathroom-portrait.webp",
+      "alt": "GLACIER 洁面啫喱 / 浴室日常",
+      "caption": "浴室日常",
+      "group": "产品与场景影像",
+      "width": 1228,
+      "height": 2200
+    },
+    {
+      "src": "/assets/projects/glacier-cleanser/glacier-snow-portrait.webp",
+      "alt": "GLACIER 洁面啫喱 / 冰晶近景",
+      "caption": "冰晶近景",
+      "group": "产品与场景影像",
+      "width": 1228,
+      "height": 2200
+    },
+    {
+      "src": "/assets/projects/glacier-cleanser/glacier-cave-portrait.webp",
+      "alt": "GLACIER 洁面啫喱 / 冰洞中的产品",
+      "caption": "冰洞中的产品",
+      "group": "产品与场景影像",
+      "width": 1228,
+      "height": 2200
+    },
+    {
+      "src": "/assets/projects/glacier-cleanser/glacier-waterfall-portrait.webp",
+      "alt": "GLACIER 洁面啫喱 / 冰瀑背景",
+      "caption": "冰瀑背景",
+      "group": "产品与场景影像",
+      "width": 1228,
+      "height": 2200
+    },
+    {
+      "src": "/assets/projects/glacier-cleanser/glacier-snow-wide.webp",
+      "alt": "GLACIER 洁面啫喱 / 雪山与冰台",
+      "caption": "雪山与冰台",
+      "group": "产品与场景影像",
+      "width": 2200,
+      "height": 1228
+    },
+    {
+      "src": "/assets/projects/glacier-cleanser/glacier-crystal-wide.webp",
+      "alt": "GLACIER 洁面啫喱 / 通透冰面",
+      "caption": "通透冰面",
+      "group": "产品与场景影像",
+      "width": 2200,
+      "height": 1228
+    },
+    {
+      "src": "/assets/projects/glacier-cleanser/glacier-night-wide.webp",
+      "alt": "GLACIER 洁面啫喱 / 蓝调冰川夜景",
+      "caption": "蓝调冰川夜景",
+      "group": "产品与场景影像",
+      "width": 2200,
+      "height": 1228
+    },
+    {
+      "src": "/assets/projects/glacier-cleanser/glacier-macro-wide.webp",
+      "alt": "GLACIER 洁面啫喱 / 标签与水滴微距",
+      "caption": "标签与水滴微距",
+      "group": "产品与场景影像",
+      "width": 2200,
+      "height": 1228
+    },
+    {
+      "src": "/assets/projects/glacier-cleanser/glacier-minimal-portrait.webp",
+      "alt": "GLACIER 洁面啫喱 / 浅色空间",
+      "caption": "浅色空间",
+      "group": "产品与场景影像",
+      "width": 1228,
+      "height": 2200
+    },
+    {
+      "src": "/assets/projects/glacier-cleanser/glacier-arch-portrait.webp",
+      "alt": "GLACIER 洁面啫喱 / 环形冰晶",
+      "caption": "环形冰晶",
+      "group": "产品与场景影像",
+      "width": 1228,
+      "height": 2200
+    },
+    {
+      "src": "/assets/projects/glacier-cleanser/glacier-flatlay-portrait.webp",
+      "alt": "GLACIER 洁面啫喱 / 水纹与泡沫",
+      "caption": "水纹与泡沫",
+      "group": "产品与场景影像",
+      "width": 1228,
+      "height": 2200
+    }
+  ],
+  "serum": [
+    {
+      "src": "/assets/projects/serum/serum-radiance.webp",
+      "alt": "LUMINOSE 精华液 / 光采呈现",
+      "caption": "光采呈现",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/serum/serum-top-view.webp",
+      "alt": "LUMINOSE 精华液 / 丝缎与精华",
+      "caption": "丝缎与精华",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/serum/serum-amber-detail.webp",
+      "alt": "LUMINOSE 精华液 / 琥珀流光",
+      "caption": "琥珀流光",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/serum/serum-dropper-kv.webp",
+      "alt": "LUMINOSE 精华液 / 一滴焕亮",
+      "caption": "一滴焕亮",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/serum/serum-golden-kv.webp",
+      "alt": "LUMINOSE 精华液 / 金色焕采",
+      "caption": "金色焕采",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/serum/serum-vanity-kv.webp",
+      "alt": "LUMINOSE 精华液 / 台面主角",
+      "caption": "台面主角",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/serum/serum-morning-hand.webp",
+      "alt": "LUMINOSE 精华液 / 晨护高光",
+      "caption": "晨护高光",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/serum/serum-morning-hero.webp",
+      "alt": "LUMINOSE 精华液 / 晨光中的奢润",
+      "caption": "晨光中的奢润",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/serum/serum-mirror-kv.webp",
+      "alt": "LUMINOSE 精华液 / 镜映光泽",
+      "caption": "镜映光泽",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/serum/serum-floating-kv.webp",
+      "alt": "LUMINOSE 精华液 / 丝缎触感",
+      "caption": "丝缎触感",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/extensions/serum-32.webp",
+      "alt": "LUMINOSE 精华液 / 锁水护理",
+      "caption": "锁水护理",
+      "group": "电商视觉延展",
+      "width": 1086,
+      "height": 1448
+    },
+    {
+      "src": "/assets/projects/extensions/serum-34.webp",
+      "alt": "LUMINOSE 精华液 / 水润透亮",
+      "caption": "水润透亮",
+      "group": "电商视觉延展",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "src": "/assets/projects/extensions/serum-37.webp",
+      "alt": "LUMINOSE 精华液 / 植萃润养",
+      "caption": "植萃润养",
+      "group": "电商视觉延展",
+      "width": 1145,
+      "height": 1374
+    },
+    {
+      "src": "/assets/projects/extensions/serum-41.webp",
+      "alt": "LUMINOSE 精华液 / 夜间护理",
+      "caption": "夜间护理",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/serum/serum-dropper-scene.webp",
+      "alt": "LUMINOSE 精华液 / 滴管取用动作",
+      "caption": "滴管取用动作",
+      "group": "产品与场景影像",
+      "width": 2200,
+      "height": 1200
+    },
+    {
+      "src": "/assets/projects/serum/serum-water-scene.webp",
+      "alt": "LUMINOSE 精华液 / 冷暖自然光",
+      "caption": "冷暖自然光",
+      "group": "产品与场景影像",
+      "width": 2200,
+      "height": 1200
+    },
+    {
+      "src": "/assets/projects/serum/serum-clinical-scene.webp",
+      "alt": "LUMINOSE 精华液 / 液滴与透明器皿",
+      "caption": "液滴与透明器皿",
+      "group": "产品与场景影像",
+      "width": 2200,
+      "height": 1200
+    },
+    {
+      "src": "/assets/projects/serum/serum-night-scene.webp",
+      "alt": "LUMINOSE 精华液 / 夜间床头",
+      "caption": "夜间床头",
+      "group": "产品与场景影像",
+      "width": 2200,
+      "height": 1200
+    },
+    {
+      "src": "/assets/projects/serum/serum-botanical-wide.webp",
+      "alt": "LUMINOSE 精华液 / 植物与白色花朵",
+      "caption": "植物与白色花朵",
+      "group": "产品与场景影像",
+      "width": 2200,
+      "height": 1200
+    },
+    {
+      "src": "/assets/projects/serum/serum-botanical-portrait-01.webp",
+      "alt": "LUMINOSE 精华液 / 暖光户外",
+      "caption": "暖光户外",
+      "group": "产品与场景影像",
+      "width": 1643,
+      "height": 2200
+    },
+    {
+      "src": "/assets/projects/serum/serum-botanical-portrait-02.webp",
+      "alt": "LUMINOSE 精华液 / 石台与玻璃质地",
+      "caption": "石台与玻璃质地",
+      "group": "产品与场景影像",
+      "width": 1228,
+      "height": 2200
+    },
+    {
+      "src": "/assets/projects/serum/serum-botanical-portrait-03.webp",
+      "alt": "LUMINOSE 精华液 / 自然天空",
+      "caption": "自然天空",
+      "group": "产品与场景影像",
+      "width": 1228,
+      "height": 2200
+    },
+    {
+      "src": "/assets/projects/serum/serum-botanical-portrait-04.webp",
+      "alt": "LUMINOSE 精华液 / 斑驳光影",
+      "caption": "斑驳光影",
+      "group": "产品与场景影像",
+      "width": 1228,
+      "height": 2200
+    },
+    {
+      "src": "/assets/projects/serum/serum-botanical-portrait-05.webp",
+      "alt": "LUMINOSE 精华液 / 日落暖光",
+      "caption": "日落暖光",
+      "group": "产品与场景影像",
+      "width": 1228,
+      "height": 2200
+    },
+    {
+      "src": "/assets/projects/serum/serum-botanical-portrait-06.webp",
+      "alt": "LUMINOSE 精华液 / 清水与石面",
+      "caption": "清水与石面",
+      "group": "产品与场景影像",
+      "width": 1228,
+      "height": 2200
+    },
+    {
+      "src": "/assets/projects/serum/serum-morning-wide.webp",
+      "alt": "LUMINOSE 精华液 / 窗影中的瓶身",
+      "caption": "窗影中的瓶身",
+      "group": "产品与场景影像",
+      "width": 2200,
+      "height": 1200
+    },
+    {
+      "src": "/assets/projects/serum/serum-halo-wide.webp",
+      "alt": "LUMINOSE 精华液 / 柑橘与成分意象",
+      "caption": "柑橘与成分意象",
+      "group": "产品与场景影像",
+      "width": 2200,
+      "height": 1200
+    }
+  ],
+  "jasmine": [
+    {
+      "src": "/assets/projects/qinglan-tea/qinglan-square-enjoy-moment.webp",
+      "alt": "青岚茉莉绿茶 / 悠享一刻",
+      "caption": "悠享一刻",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/qinglan-tea/qinglan-square-tea-aroma.webp",
+      "alt": "青岚茉莉绿茶 / 茶香正好",
+      "caption": "茶香正好",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/qinglan-tea/qinglan-square-one-leaf.webp",
+      "alt": "青岚茉莉绿茶 / 一叶入香",
+      "caption": "一叶入香",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/qinglan-tea/qinglan-square-cool-wake.webp",
+      "alt": "青岚茉莉绿茶 / 冷意醒茶",
+      "caption": "冷意醒茶",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/qinglan-tea/qinglan-square-fresh-aroma-water.webp",
+      "alt": "青岚茉莉绿茶 / 清爽有茶香",
+      "caption": "清爽有茶香",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/qinglan-tea/qinglan-square-heatwave-vending.webp",
+      "alt": "青岚茉莉绿茶 / 热浪退场",
+      "caption": "热浪退场",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/qinglan-tea/qinglan-square-light-sip-rock.webp",
+      "alt": "青岚茉莉绿茶 / 轻一点喝茶",
+      "caption": "轻一点喝茶",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/qinglan-tea/qinglan-scene-jasmine-still-life.webp",
+      "alt": "青岚茉莉绿茶 / 茶叶与瓶身",
+      "caption": "茶叶与瓶身",
+      "group": "产品与场景影像",
+      "width": 1643,
+      "height": 2200
+    },
+    {
+      "src": "/assets/projects/qinglan-tea/qinglan-scene-travertine-portrait.webp",
+      "alt": "青岚茉莉绿茶 / 窗边枝叶光影",
+      "caption": "窗边枝叶光影",
+      "group": "产品与场景影像",
+      "width": 1772,
+      "height": 2200
+    },
+    {
+      "src": "/assets/projects/qinglan-tea/qinglan-scene-jasmine-table.webp",
+      "alt": "青岚茉莉绿茶 / 晨间花香",
+      "caption": "晨间花香",
+      "group": "产品与场景影像",
+      "width": 2200,
+      "height": 1476
+    },
+    {
+      "src": "/assets/projects/qinglan-tea/qinglan-scene-linen-table.webp",
+      "alt": "青岚茉莉绿茶 / 轻柔晨光",
+      "caption": "轻柔晨光",
+      "group": "产品与场景影像",
+      "width": 2200,
+      "height": 1476
+    },
+    {
+      "src": "/assets/projects/qinglan-tea/qinglan-scene-garden-wide.webp",
+      "alt": "青岚茉莉绿茶 / 户外茶园",
+      "caption": "户外茶园",
+      "group": "产品与场景影像",
+      "width": 2200,
+      "height": 1228
+    },
+    {
+      "src": "/assets/projects/qinglan-tea/qinglan-scene-sunlit-linen.webp",
+      "alt": "青岚茉莉绿茶 / 自然餐桌",
+      "caption": "自然餐桌",
+      "group": "产品与场景影像",
+      "width": 2200,
+      "height": 1643
+    },
+    {
+      "src": "/assets/projects/qinglan-tea/qinglan-packaging-views.webp",
+      "alt": "青岚茉莉绿茶 / 包装正背与侧面",
+      "caption": "包装正背与侧面",
+      "group": "产品与场景影像",
+      "width": 2200,
+      "height": 1228
+    }
+  ],
+  "oolong": [
+    {
+      "src": "/assets/projects/extensions/oolong-01.webp",
+      "alt": "青岚焙香乌龙 / 一口回甘",
+      "caption": "一口回甘",
+      "group": "电商视觉延展",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "src": "/assets/projects/extensions/oolong-02.webp",
+      "alt": "青岚焙香乌龙 / 原叶好茶",
+      "caption": "原叶好茶",
+      "group": "电商视觉延展",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "src": "/assets/projects/extensions/oolong-14.webp",
+      "alt": "青岚焙香乌龙 / 焙香饮用时刻",
+      "caption": "焙香饮用时刻",
+      "group": "电商视觉延展",
+      "width": 1086,
+      "height": 1448
+    },
+    {
+      "src": "/assets/projects/extensions/oolong-19.webp",
+      "alt": "青岚焙香乌龙 / 入口焙香",
+      "caption": "入口焙香",
+      "group": "电商视觉延展",
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "src": "/assets/projects/extensions/oolong-21.webp",
+      "alt": "青岚焙香乌龙 / 琥珀茶汤与回甘",
+      "caption": "琥珀茶汤与回甘",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/extensions/oolong-22.webp",
+      "alt": "青岚焙香乌龙 / 双味原叶",
+      "caption": "双味原叶",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/extensions/oolong-23.webp",
+      "alt": "青岚焙香乌龙 / 正餐搭配",
+      "caption": "正餐搭配",
+      "group": "电商视觉延展",
+      "width": 1086,
+      "height": 1448
+    },
+    {
+      "src": "/assets/projects/extensions/oolong-27.webp",
+      "alt": "青岚焙香乌龙 / 双味佐餐",
+      "caption": "双味佐餐",
+      "group": "电商视觉延展",
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "src": "/assets/projects/extensions/oolong-30.webp",
+      "alt": "青岚焙香乌龙 / 浓茶感与工作日常",
+      "caption": "浓茶感与工作日常",
+      "group": "电商视觉延展",
+      "width": 1086,
+      "height": 1448
+    },
+    {
+      "src": "/assets/projects/extensions/oolong-31.webp",
+      "alt": "青岚焙香乌龙 / 花香与焙香",
+      "caption": "花香与焙香",
+      "group": "电商视觉延展",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "src": "/assets/projects/extensions/oolong-34.webp",
+      "alt": "青岚焙香乌龙 / 组合礼盒",
+      "caption": "组合礼盒",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/extensions/oolong-35.webp",
+      "alt": "青岚焙香乌龙 / 专注时刻",
+      "caption": "专注时刻",
+      "group": "电商视觉延展",
+      "width": 1537,
+      "height": 1023
+    },
+    {
+      "src": "/assets/projects/extensions/oolong-37.webp",
+      "alt": "青岚焙香乌龙 / 日粮浓茶",
+      "caption": "日粮浓茶",
+      "group": "电商视觉延展",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "src": "/assets/projects/extensions/oolong-39.webp",
+      "alt": "青岚焙香乌龙 / 一餐一茶",
+      "caption": "一餐一茶",
+      "group": "电商视觉延展",
+      "width": 1086,
+      "height": 1448
+    },
+    {
+      "src": "/assets/projects/extensions/oolong-40.webp",
+      "alt": "青岚焙香乌龙 / 慢下来更有茶感",
+      "caption": "慢下来更有茶感",
+      "group": "电商视觉延展",
+      "width": 1673,
+      "height": 940
+    },
+    {
+      "src": "/assets/projects/extensions/oolong-03.webp",
+      "alt": "青岚焙香乌龙 / 乌龙包装正背侧面",
+      "caption": "乌龙包装正背侧面",
+      "group": "产品与场景影像",
+      "width": 2400,
+      "height": 2400
+    },
+    {
+      "src": "/assets/projects/extensions/oolong-06.webp",
+      "alt": "青岚焙香乌龙 / 光影中的茶瓶",
+      "caption": "光影中的茶瓶",
+      "group": "产品与场景影像",
+      "width": 1933,
+      "height": 2400
+    },
+    {
+      "src": "/assets/projects/extensions/oolong-08.webp",
+      "alt": "青岚焙香乌龙 / 餐桌上的焙香乌龙",
+      "caption": "餐桌上的焙香乌龙",
+      "group": "产品与场景影像",
+      "width": 1792,
+      "height": 2400
+    },
+    {
+      "src": "/assets/projects/extensions/oolong-09.webp",
+      "alt": "青岚焙香乌龙 / 冷柜选购",
+      "caption": "冷柜选购",
+      "group": "产品与场景影像",
+      "width": 2400,
+      "height": 1340
+    },
+    {
+      "src": "/assets/projects/extensions/oolong-11.webp",
+      "alt": "青岚焙香乌龙 / 办公饮用",
+      "caption": "办公饮用",
+      "group": "产品与场景影像",
+      "width": 1792,
+      "height": 2400
+    },
+    {
+      "src": "/assets/projects/extensions/oolong-13.webp",
+      "alt": "青岚焙香乌龙 / 轻食与茶饮",
+      "caption": "轻食与茶饮",
+      "group": "产品与场景影像",
+      "width": 2400,
+      "height": 1340
+    }
+  ],
+  "speaker": [
+    {
+      "src": "/assets/projects/extensions/speaker-03.webp",
+      "alt": "户外音箱 / 男性日常携带",
+      "caption": "男性日常携带",
+      "group": "产品与场景影像",
+      "width": 1933,
+      "height": 2400
+    },
+    {
+      "src": "/assets/projects/extensions/speaker-04.webp",
+      "alt": "户外音箱 / 轻运动穿搭与手提",
+      "caption": "轻运动穿搭与手提",
+      "group": "产品与场景影像",
+      "width": 1933,
+      "height": 2400
+    },
+    {
+      "src": "/assets/projects/extensions/speaker-08.webp",
+      "alt": "户外音箱 / 背包与运动穿搭",
+      "caption": "背包与运动穿搭",
+      "group": "产品与场景影像",
+      "width": 1933,
+      "height": 2400
+    },
+    {
+      "src": "/assets/projects/extensions/speaker-07.webp",
+      "alt": "户外音箱 / 湖畔营地休息",
+      "caption": "湖畔营地休息",
+      "group": "产品与场景影像",
+      "width": 2400,
+      "height": 1610
+    },
+    {
+      "src": "/assets/projects/extensions/speaker-10.webp",
+      "alt": "户外音箱 / 林间旋钮操作",
+      "caption": "林间旋钮操作",
+      "group": "产品与场景影像",
+      "width": 1933,
+      "height": 2400
+    },
+    {
+      "src": "/assets/projects/extensions/speaker-11.webp",
+      "alt": "户外音箱 / 搭建完成的营地",
+      "caption": "搭建完成的营地",
+      "group": "产品与场景影像",
+      "width": 1933,
+      "height": 2400
+    },
+    {
+      "src": "/assets/projects/extensions/speaker-18.webp",
+      "alt": "户外音箱 / 入夜后的湖畔",
+      "caption": "入夜后的湖畔",
+      "group": "产品与场景影像",
+      "width": 1921,
+      "height": 2400
+    },
+    {
+      "src": "/assets/projects/extensions/speaker-13.webp",
+      "alt": "户外音箱 / 双人林间休整",
+      "caption": "双人林间休整",
+      "group": "产品与场景影像",
+      "width": 2400,
+      "height": 1792
+    },
+    {
+      "src": "/assets/projects/extensions/speaker-15.webp",
+      "alt": "户外音箱 / 四人营地协作",
+      "caption": "四人营地协作",
+      "group": "产品与场景影像",
+      "width": 2400,
+      "height": 1856
+    },
+    {
+      "src": "/assets/projects/extensions/speaker-17.webp",
+      "alt": "户外音箱 / 不同穿搭的同行者",
+      "caption": "不同穿搭的同行者",
+      "group": "产品与场景影像",
+      "width": 2400,
+      "height": 1921
+    },
+    {
+      "src": "/assets/projects/extensions/speaker-19.webp",
+      "alt": "户外音箱 / 男性户外休整",
+      "caption": "男性户外休整",
+      "group": "产品与场景影像",
+      "width": 2400,
+      "height": 1799
+    }
+  ],
+  "earbuds": [
+    {
+      "src": "/assets/projects/extensions/earbuds-15.webp",
+      "alt": "SONA ARC ONE 耳机 / 户外防护",
+      "caption": "户外防护",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/extensions/earbuds-19.webp",
+      "alt": "SONA ARC ONE 耳机 / 城市空间音频",
+      "caption": "城市空间音频",
+      "group": "电商视觉延展",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "src": "/assets/projects/extensions/earbuds-20.webp",
+      "alt": "SONA ARC ONE 耳机 / 快充与使用时间",
+      "caption": "快充与使用时间",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/extensions/earbuds-23.webp",
+      "alt": "SONA ARC ONE 耳机 / 风雨通勤",
+      "caption": "风雨通勤",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/extensions/earbuds-25.webp",
+      "alt": "SONA ARC ONE 耳机 / 汗水与防护",
+      "caption": "汗水与防护",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/extensions/earbuds-28.webp",
+      "alt": "SONA ARC ONE 耳机 / 蓝牙连接",
+      "caption": "蓝牙连接",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/extensions/earbuds-30.webp",
+      "alt": "SONA ARC ONE 耳机 / 降噪功能",
+      "caption": "降噪功能",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/extensions/earbuds-31.webp",
+      "alt": "SONA ARC ONE 耳机 / 通勤降噪",
+      "caption": "通勤降噪",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/extensions/earbuds-32.webp",
+      "alt": "SONA ARC ONE 耳机 / 个人聆听空间",
+      "caption": "个人聆听空间",
+      "group": "电商视觉延展",
+      "width": 1086,
+      "height": 1448
+    },
+    {
+      "src": "/assets/projects/extensions/earbuds-35.webp",
+      "alt": "SONA ARC ONE 耳机 / 一戴入静",
+      "caption": "一戴入静",
+      "group": "电商视觉延展",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "src": "/assets/projects/extensions/earbuds-36.webp",
+      "alt": "SONA ARC ONE 耳机 / 竖版佩戴场景",
+      "caption": "竖版佩戴场景",
+      "group": "电商视觉延展",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "src": "/assets/projects/extensions/earbuds-09.webp",
+      "alt": "SONA ARC ONE 耳机 / 男性站台通勤",
+      "caption": "男性站台通勤",
+      "group": "产品与场景影像",
+      "width": 1792,
+      "height": 2400
+    },
+    {
+      "src": "/assets/projects/extensions/earbuds-10.webp",
+      "alt": "SONA ARC ONE 耳机 / 女性站台通勤",
+      "caption": "女性站台通勤",
+      "group": "产品与场景影像",
+      "width": 1792,
+      "height": 2400
+    },
+    {
+      "src": "/assets/projects/extensions/earbuds-13.webp",
+      "alt": "SONA ARC ONE 耳机 / 男性街头通话",
+      "caption": "男性街头通话",
+      "group": "产品与场景影像",
+      "width": 2400,
+      "height": 1340
+    }
+  ]
+}

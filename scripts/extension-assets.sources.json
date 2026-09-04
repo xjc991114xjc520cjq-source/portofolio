@@ -1,0 +1,1118 @@
+[
+  {
+    "project": "air",
+    "group": "产品与场景影像",
+    "source": "空气炸锅项目/Gemini_Generated_Image_r5deg2r5deg2r5de.jpg",
+    "existing": null,
+    "target": "/assets/projects/extensions/air-07.webp",
+    "alt": "空气炸锅 / 打开炸篮的操作近景",
+    "caption": "打开炸篮的操作近景"
+  },
+  {
+    "project": "air",
+    "group": "产品与场景影像",
+    "source": "空气炸锅项目/Generated Image August 15, 2026 - 2_10PM.jpg",
+    "existing": "/assets/projects/air-fryer/air-fryer-product.webp",
+    "target": "/assets/projects/air-fryer/air-fryer-product.webp",
+    "alt": "空气炸锅 / 完整商品轮廓",
+    "caption": "完整商品轮廓"
+  },
+  {
+    "project": "fan",
+    "group": "电商视觉延展",
+    "source": "台扇项目/38413666-a679-440e-b091-0e0af12822d0.png",
+    "existing": "/assets/projects/table-fan/table-fan-m04.webp",
+    "target": "/assets/projects/table-fan/table-fan-m04.webp",
+    "alt": "空气循环扇 / 框景中的清风",
+    "caption": "框景中的清风"
+  },
+  {
+    "project": "fan",
+    "group": "电商视觉延展",
+    "source": "台扇项目/6def3f97-069b-454a-b062-f2559aa9ee9a.png",
+    "existing": "/assets/projects/table-fan/table-fan-m08.webp",
+    "target": "/assets/projects/table-fan/table-fan-m08.webp",
+    "alt": "空气循环扇 / 网罩与按键细节",
+    "caption": "网罩与按键细节"
+  },
+  {
+    "project": "fan",
+    "group": "电商视觉延展",
+    "source": "台扇项目/8b7c37a3-10f0-4943-999e-568cf0313037 (1).png",
+    "existing": "/assets/projects/table-fan/table-fan-m09.webp",
+    "target": "/assets/projects/table-fan/table-fan-m09.webp",
+    "alt": "空气循环扇 / 轻触送风",
+    "caption": "轻触送风"
+  },
+  {
+    "project": "fan",
+    "group": "电商视觉延展",
+    "source": "台扇项目/8f18234b-3776-4e04-9fc9-5aeadd6322fb.png",
+    "existing": "/assets/projects/table-fan/table-fan-m10.webp",
+    "target": "/assets/projects/table-fan/table-fan-m10.webp",
+    "alt": "空气循环扇 / 轻柔循环风",
+    "caption": "轻柔循环风"
+  },
+  {
+    "project": "fan",
+    "group": "电商视觉延展",
+    "source": "台扇项目/asset-811f90a4-6bed-4c24-b068-bb7809a2cef2.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/fan-24.webp",
+    "alt": "空气循环扇 / 日间卧室的轻风",
+    "caption": "日间卧室的轻风"
+  },
+  {
+    "project": "fan",
+    "group": "电商视觉延展",
+    "source": "台扇项目/asset-ea0aea10-435b-4e8f-81d9-c87c81b75bef.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/fan-28.webp",
+    "alt": "空气循环扇 / 夜间陪伴",
+    "caption": "夜间陪伴"
+  },
+  {
+    "project": "fan",
+    "group": "电商视觉延展",
+    "source": "台扇项目/b11c3793-0d61-4b78-a5ff-be7fe257d6fc.png",
+    "existing": "/assets/projects/table-fan/table-fan-m11.webp",
+    "target": "/assets/projects/table-fan/table-fan-m11.webp",
+    "alt": "空气循环扇 / 桌面占用与尺度",
+    "caption": "桌面占用与尺度"
+  },
+  {
+    "project": "fan",
+    "group": "电商视觉延展",
+    "source": "台扇项目/c9fa8493-3b9c-4ddc-91e3-6086e80abce6.png",
+    "existing": "/assets/projects/table-fan/table-fan-m13.webp",
+    "target": "/assets/projects/table-fan/table-fan-m13.webp",
+    "alt": "空气循环扇 / 窗边光线",
+    "caption": "窗边光线"
+  },
+  {
+    "project": "fan",
+    "group": "电商视觉延展",
+    "source": "台扇项目/da6166b0-89f2-46a5-ba03-41f4d0173ae6.png",
+    "existing": "/assets/projects/table-fan/table-fan-m14.webp",
+    "target": "/assets/projects/table-fan/table-fan-m14.webp",
+    "alt": "空气循环扇 / 阅读时光",
+    "caption": "阅读时光"
+  },
+  {
+    "project": "fan",
+    "group": "电商视觉延展",
+    "source": "台扇项目/ff92b79c-f36e-4936-bcf8-7fa74b8e18ca.png",
+    "existing": "/assets/projects/table-fan/table-fan-m15.webp",
+    "target": "/assets/projects/table-fan/table-fan-m15.webp",
+    "alt": "空气循环扇 / 柔风开场",
+    "caption": "柔风开场"
+  },
+  {
+    "project": "fan",
+    "group": "产品与场景影像",
+    "source": "台扇项目/Generated Image August 14, 2026 - 1_40PM.jpg",
+    "existing": "/assets/projects/table-fan/table-fan-hero.webp",
+    "target": "/assets/projects/table-fan/table-fan-hero.webp",
+    "alt": "空气循环扇 / 白色机身完整轮廓",
+    "caption": "白色机身完整轮廓"
+  },
+  {
+    "project": "fan",
+    "group": "产品与场景影像",
+    "source": "台扇项目/Generated Image August 14, 2026 - 2_54PM (1).jpg",
+    "existing": "/assets/projects/table-fan/table-fan-j05.webp",
+    "target": "/assets/projects/table-fan/table-fan-j05.webp",
+    "alt": "空气循环扇 / 夜间交互",
+    "caption": "夜间交互"
+  },
+  {
+    "project": "fan",
+    "group": "产品与场景影像",
+    "source": "台扇项目/Generated Image August 14, 2026 - 2_55PM.jpg",
+    "existing": "/assets/projects/table-fan/table-fan-j06.webp",
+    "target": "/assets/projects/table-fan/table-fan-j06.webp",
+    "alt": "空气循环扇 / 卧室灯光与产品",
+    "caption": "卧室灯光与产品"
+  },
+  {
+    "project": "glacier",
+    "group": "电商视觉延展",
+    "source": "冰川洁面乳项目/09f9def3-6cf6-4159-91ac-275a9a71e7e1.png",
+    "existing": "/assets/projects/glacier-cleanser/glacier-square-cave-focus-a.webp",
+    "target": "/assets/projects/glacier-cleanser/glacier-square-cave-focus-a.webp",
+    "alt": "GLACIER 洁面啫喱 / 冰境聚焦",
+    "caption": "冰境聚焦"
+  },
+  {
+    "project": "glacier",
+    "group": "电商视觉延展",
+    "source": "冰川洁面乳项目/112a19a5-4d33-47d9-b967-df4711626ede.png",
+    "existing": "/assets/projects/glacier-cleanser/glacier-square-clean-focus.webp",
+    "target": "/assets/projects/glacier-cleanser/glacier-square-clean-focus.webp",
+    "alt": "GLACIER 洁面啫喱 / 冰感净澈",
+    "caption": "冰感净澈"
+  },
+  {
+    "project": "glacier",
+    "group": "电商视觉延展",
+    "source": "冰川洁面乳项目/88696a30-1e8d-4b85-a644-e39620642879.png",
+    "existing": "/assets/projects/glacier-cleanser/glacier-square-texture.webp",
+    "target": "/assets/projects/glacier-cleanser/glacier-square-texture.webp",
+    "alt": "GLACIER 洁面啫喱 / 冰川质感",
+    "caption": "冰川质感"
+  },
+  {
+    "project": "glacier",
+    "group": "电商视觉延展",
+    "source": "冰川洁面乳项目/c02714b5-379c-4025-af7d-28f0fe8515b1.png",
+    "existing": "/assets/projects/glacier-cleanser/glacier-square-minimal-ice.webp",
+    "target": "/assets/projects/glacier-cleanser/glacier-square-minimal-ice.webp",
+    "alt": "GLACIER 洁面啫喱 / 极简冰感",
+    "caption": "极简冰感"
+  },
+  {
+    "project": "glacier",
+    "group": "电商视觉延展",
+    "source": "冰川洁面乳项目/d27dbb68-2269-4604-ac7e-8d33b4f35d58.png",
+    "existing": "/assets/projects/glacier-cleanser/glacier-square-flow.webp",
+    "target": "/assets/projects/glacier-cleanser/glacier-square-flow.webp",
+    "alt": "GLACIER 洁面啫喱 / 冰感流动",
+    "caption": "冰感流动"
+  },
+  {
+    "project": "glacier",
+    "group": "电商视觉延展",
+    "source": "冰川洁面乳项目/d36450dd-0c90-4a9f-bbe8-4216582ee092.png",
+    "existing": "/assets/projects/glacier-cleanser/glacier-square-night.webp",
+    "target": "/assets/projects/glacier-cleanser/glacier-square-night.webp",
+    "alt": "GLACIER 洁面啫喱 / 冷调夜色",
+    "caption": "冷调夜色"
+  },
+  {
+    "project": "glacier",
+    "group": "电商视觉延展",
+    "source": "冰川洁面乳项目/ed478111-f7f0-47d1-824b-3bdf5d70c80c.png",
+    "existing": "/assets/projects/glacier-cleanser/glacier-square-pump-fresh.webp",
+    "target": "/assets/projects/glacier-cleanser/glacier-square-pump-fresh.webp",
+    "alt": "GLACIER 洁面啫喱 / 一泵清爽",
+    "caption": "一泵清爽"
+  },
+  {
+    "project": "glacier",
+    "group": "产品与场景影像",
+    "source": "冰川洁面乳项目/Generated Image August 18, 2026 - 5_36PM.jpg",
+    "existing": "/assets/projects/glacier-cleanser/glacier-bathroom-wide.webp",
+    "target": "/assets/projects/glacier-cleanser/glacier-bathroom-wide.webp",
+    "alt": "GLACIER 洁面啫喱 / 晨光浴室",
+    "caption": "晨光浴室"
+  },
+  {
+    "project": "glacier",
+    "group": "产品与场景影像",
+    "source": "冰川洁面乳项目/Generated Image August 18, 2026 - 5_56PM.jpg",
+    "existing": "/assets/projects/glacier-cleanser/glacier-water-ripple-wide.webp",
+    "target": "/assets/projects/glacier-cleanser/glacier-water-ripple-wide.webp",
+    "alt": "GLACIER 洁面啫喱 / 植物与石台",
+    "caption": "植物与石台"
+  },
+  {
+    "project": "glacier",
+    "group": "产品与场景影像",
+    "source": "冰川洁面乳项目/Generated Image August 18, 2026 - 5_58PM.jpg",
+    "existing": "/assets/projects/glacier-cleanser/glacier-lab-wide.webp",
+    "target": "/assets/projects/glacier-cleanser/glacier-lab-wide.webp",
+    "alt": "GLACIER 洁面啫喱 / 圆弧空间",
+    "caption": "圆弧空间"
+  },
+  {
+    "project": "glacier",
+    "group": "产品与场景影像",
+    "source": "冰川洁面乳项目/Generated Image August 19, 2026 - 11_08AM.jpg",
+    "existing": "/assets/projects/glacier-cleanser/glacier-tilted-ice-portrait.webp",
+    "target": "/assets/projects/glacier-cleanser/glacier-tilted-ice-portrait.webp",
+    "alt": "GLACIER 洁面啫喱 / 倾斜瓶身与凝露",
+    "caption": "倾斜瓶身与凝露"
+  },
+  {
+    "project": "glacier",
+    "group": "产品与场景影像",
+    "source": "冰川洁面乳项目/Generated Image August 19, 2026 - 11_28AM.jpg",
+    "existing": "/assets/projects/glacier-cleanser/glacier-bathroom-portrait.webp",
+    "target": "/assets/projects/glacier-cleanser/glacier-bathroom-portrait.webp",
+    "alt": "GLACIER 洁面啫喱 / 浴室日常",
+    "caption": "浴室日常"
+  },
+  {
+    "project": "glacier",
+    "group": "产品与场景影像",
+    "source": "冰川洁面乳项目/Generated Image August 19, 2026 - 11_38AM.jpg",
+    "existing": "/assets/projects/glacier-cleanser/glacier-snow-portrait.webp",
+    "target": "/assets/projects/glacier-cleanser/glacier-snow-portrait.webp",
+    "alt": "GLACIER 洁面啫喱 / 冰晶近景",
+    "caption": "冰晶近景"
+  },
+  {
+    "project": "glacier",
+    "group": "产品与场景影像",
+    "source": "冰川洁面乳项目/Generated Image August 19, 2026 - 11_46AM.jpg",
+    "existing": "/assets/projects/glacier-cleanser/glacier-cave-portrait.webp",
+    "target": "/assets/projects/glacier-cleanser/glacier-cave-portrait.webp",
+    "alt": "GLACIER 洁面啫喱 / 冰洞中的产品",
+    "caption": "冰洞中的产品"
+  },
+  {
+    "project": "glacier",
+    "group": "产品与场景影像",
+    "source": "冰川洁面乳项目/Generated Image August 19, 2026 - 1_55PM.jpg",
+    "existing": "/assets/projects/glacier-cleanser/glacier-waterfall-portrait.webp",
+    "target": "/assets/projects/glacier-cleanser/glacier-waterfall-portrait.webp",
+    "alt": "GLACIER 洁面啫喱 / 冰瀑背景",
+    "caption": "冰瀑背景"
+  },
+  {
+    "project": "glacier",
+    "group": "产品与场景影像",
+    "source": "冰川洁面乳项目/Generated Image August 19, 2026 - 2_20PM.jpg",
+    "existing": "/assets/projects/glacier-cleanser/glacier-snow-wide.webp",
+    "target": "/assets/projects/glacier-cleanser/glacier-snow-wide.webp",
+    "alt": "GLACIER 洁面啫喱 / 雪山与冰台",
+    "caption": "雪山与冰台"
+  },
+  {
+    "project": "glacier",
+    "group": "产品与场景影像",
+    "source": "冰川洁面乳项目/Generated Image August 19, 2026 - 2_24PM.jpg",
+    "existing": "/assets/projects/glacier-cleanser/glacier-crystal-wide.webp",
+    "target": "/assets/projects/glacier-cleanser/glacier-crystal-wide.webp",
+    "alt": "GLACIER 洁面啫喱 / 通透冰面",
+    "caption": "通透冰面"
+  },
+  {
+    "project": "glacier",
+    "group": "产品与场景影像",
+    "source": "冰川洁面乳项目/Generated Image August 19, 2026 - 2_28PM.jpg",
+    "existing": "/assets/projects/glacier-cleanser/glacier-night-wide.webp",
+    "target": "/assets/projects/glacier-cleanser/glacier-night-wide.webp",
+    "alt": "GLACIER 洁面啫喱 / 蓝调冰川夜景",
+    "caption": "蓝调冰川夜景"
+  },
+  {
+    "project": "glacier",
+    "group": "产品与场景影像",
+    "source": "冰川洁面乳项目/Generated Image August 19, 2026 - 2_51PM.jpg",
+    "existing": "/assets/projects/glacier-cleanser/glacier-macro-wide.webp",
+    "target": "/assets/projects/glacier-cleanser/glacier-macro-wide.webp",
+    "alt": "GLACIER 洁面啫喱 / 标签与水滴微距",
+    "caption": "标签与水滴微距"
+  },
+  {
+    "project": "glacier",
+    "group": "产品与场景影像",
+    "source": "冰川洁面乳项目/Generated Image August 19, 2026 - 9_15AM.jpg",
+    "existing": "/assets/projects/glacier-cleanser/glacier-minimal-portrait.webp",
+    "target": "/assets/projects/glacier-cleanser/glacier-minimal-portrait.webp",
+    "alt": "GLACIER 洁面啫喱 / 浅色空间",
+    "caption": "浅色空间"
+  },
+  {
+    "project": "glacier",
+    "group": "产品与场景影像",
+    "source": "冰川洁面乳项目/Generated Image August 19, 2026 - 9_30AM.jpg",
+    "existing": "/assets/projects/glacier-cleanser/glacier-arch-portrait.webp",
+    "target": "/assets/projects/glacier-cleanser/glacier-arch-portrait.webp",
+    "alt": "GLACIER 洁面啫喱 / 环形冰晶",
+    "caption": "环形冰晶"
+  },
+  {
+    "project": "glacier",
+    "group": "产品与场景影像",
+    "source": "冰川洁面乳项目/Generated Image August 19, 2026 - 9_52AM.jpg",
+    "existing": "/assets/projects/glacier-cleanser/glacier-flatlay-portrait.webp",
+    "target": "/assets/projects/glacier-cleanser/glacier-flatlay-portrait.webp",
+    "alt": "GLACIER 洁面啫喱 / 水纹与泡沫",
+    "caption": "水纹与泡沫"
+  },
+  {
+    "project": "serum",
+    "group": "电商视觉延展",
+    "source": "护肤精华液项目/165c4c1c-0ef4-469f-b43a-111822d6a39b.png",
+    "existing": "/assets/projects/serum/serum-radiance.webp",
+    "target": "/assets/projects/serum/serum-radiance.webp",
+    "alt": "LUMINOSE 精华液 / 光采呈现",
+    "caption": "光采呈现"
+  },
+  {
+    "project": "serum",
+    "group": "电商视觉延展",
+    "source": "护肤精华液项目/25813336-0976-492a-afd0-9fdaff0ebedd.png",
+    "existing": "/assets/projects/serum/serum-top-view.webp",
+    "target": "/assets/projects/serum/serum-top-view.webp",
+    "alt": "LUMINOSE 精华液 / 丝缎与精华",
+    "caption": "丝缎与精华"
+  },
+  {
+    "project": "serum",
+    "group": "电商视觉延展",
+    "source": "护肤精华液项目/3f786275-4317-4296-8c62-ecc7cb89b601.png",
+    "existing": "/assets/projects/serum/serum-amber-detail.webp",
+    "target": "/assets/projects/serum/serum-amber-detail.webp",
+    "alt": "LUMINOSE 精华液 / 琥珀流光",
+    "caption": "琥珀流光"
+  },
+  {
+    "project": "serum",
+    "group": "电商视觉延展",
+    "source": "护肤精华液项目/5cffc315-8479-48ab-aa5e-8f69f55985f4.png",
+    "existing": "/assets/projects/serum/serum-dropper-kv.webp",
+    "target": "/assets/projects/serum/serum-dropper-kv.webp",
+    "alt": "LUMINOSE 精华液 / 一滴焕亮",
+    "caption": "一滴焕亮"
+  },
+  {
+    "project": "serum",
+    "group": "电商视觉延展",
+    "source": "护肤精华液项目/7ceab712-8138-4892-ba28-daa13606ca92.png",
+    "existing": "/assets/projects/serum/serum-golden-kv.webp",
+    "target": "/assets/projects/serum/serum-golden-kv.webp",
+    "alt": "LUMINOSE 精华液 / 金色焕采",
+    "caption": "金色焕采"
+  },
+  {
+    "project": "serum",
+    "group": "电商视觉延展",
+    "source": "护肤精华液项目/82add8d8-42a9-4f07-a29b-8c47f1570600.png",
+    "existing": "/assets/projects/serum/serum-vanity-kv.webp",
+    "target": "/assets/projects/serum/serum-vanity-kv.webp",
+    "alt": "LUMINOSE 精华液 / 台面主角",
+    "caption": "台面主角"
+  },
+  {
+    "project": "serum",
+    "group": "电商视觉延展",
+    "source": "护肤精华液项目/aab4dd0b-27c8-4570-910c-e7348ef04155.png",
+    "existing": "/assets/projects/serum/serum-morning-hand.webp",
+    "target": "/assets/projects/serum/serum-morning-hand.webp",
+    "alt": "LUMINOSE 精华液 / 晨护高光",
+    "caption": "晨护高光"
+  },
+  {
+    "project": "serum",
+    "group": "电商视觉延展",
+    "source": "护肤精华液项目/ab8cbc56-e821-4527-92e2-d03ee54de5d5.png",
+    "existing": "/assets/projects/serum/serum-morning-hero.webp",
+    "target": "/assets/projects/serum/serum-morning-hero.webp",
+    "alt": "LUMINOSE 精华液 / 晨光中的奢润",
+    "caption": "晨光中的奢润"
+  },
+  {
+    "project": "serum",
+    "group": "电商视觉延展",
+    "source": "护肤精华液项目/bac07e4a-737a-4fe4-8a6e-5ae86dc81833.png",
+    "existing": "/assets/projects/serum/serum-mirror-kv.webp",
+    "target": "/assets/projects/serum/serum-mirror-kv.webp",
+    "alt": "LUMINOSE 精华液 / 镜映光泽",
+    "caption": "镜映光泽"
+  },
+  {
+    "project": "serum",
+    "group": "电商视觉延展",
+    "source": "护肤精华液项目/fae9449b-2c55-4ddd-b9ff-6819e6feba05.png",
+    "existing": "/assets/projects/serum/serum-floating-kv.webp",
+    "target": "/assets/projects/serum/serum-floating-kv.webp",
+    "alt": "LUMINOSE 精华液 / 丝缎触感",
+    "caption": "丝缎触感"
+  },
+  {
+    "project": "serum",
+    "group": "电商视觉延展",
+    "source": "护肤精华液项目/节点组 01_05.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/serum-32.webp",
+    "alt": "LUMINOSE 精华液 / 锁水护理",
+    "caption": "锁水护理"
+  },
+  {
+    "project": "serum",
+    "group": "电商视觉延展",
+    "source": "护肤精华液项目/节点组 01_07.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/serum-34.webp",
+    "alt": "LUMINOSE 精华液 / 水润透亮",
+    "caption": "水润透亮"
+  },
+  {
+    "project": "serum",
+    "group": "电商视觉延展",
+    "source": "护肤精华液项目/节点组 01_10.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/serum-37.webp",
+    "alt": "LUMINOSE 精华液 / 植萃润养",
+    "caption": "植萃润养"
+  },
+  {
+    "project": "serum",
+    "group": "电商视觉延展",
+    "source": "护肤精华液项目/节点组 01_生图任务 05_06.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/serum-41.webp",
+    "alt": "LUMINOSE 精华液 / 夜间护理",
+    "caption": "夜间护理"
+  },
+  {
+    "project": "serum",
+    "group": "产品与场景影像",
+    "source": "护肤精华液项目/Generated Image August 17, 2026 - 5_21PM.jpg",
+    "existing": "/assets/projects/serum/serum-dropper-scene.webp",
+    "target": "/assets/projects/serum/serum-dropper-scene.webp",
+    "alt": "LUMINOSE 精华液 / 滴管取用动作",
+    "caption": "滴管取用动作"
+  },
+  {
+    "project": "serum",
+    "group": "产品与场景影像",
+    "source": "护肤精华液项目/Generated Image August 17, 2026 - 5_50PM.jpg",
+    "existing": "/assets/projects/serum/serum-water-scene.webp",
+    "target": "/assets/projects/serum/serum-water-scene.webp",
+    "alt": "LUMINOSE 精华液 / 冷暖自然光",
+    "caption": "冷暖自然光"
+  },
+  {
+    "project": "serum",
+    "group": "产品与场景影像",
+    "source": "护肤精华液项目/Generated Image August 17, 2026 - 6_00PM.jpg",
+    "existing": "/assets/projects/serum/serum-clinical-scene.webp",
+    "target": "/assets/projects/serum/serum-clinical-scene.webp",
+    "alt": "LUMINOSE 精华液 / 液滴与透明器皿",
+    "caption": "液滴与透明器皿"
+  },
+  {
+    "project": "serum",
+    "group": "产品与场景影像",
+    "source": "护肤精华液项目/Generated Image August 18, 2026 - 10_00AM.jpg",
+    "existing": "/assets/projects/serum/serum-night-scene.webp",
+    "target": "/assets/projects/serum/serum-night-scene.webp",
+    "alt": "LUMINOSE 精华液 / 夜间床头",
+    "caption": "夜间床头"
+  },
+  {
+    "project": "serum",
+    "group": "产品与场景影像",
+    "source": "护肤精华液项目/Generated Image August 18, 2026 - 10_36AM.jpg",
+    "existing": "/assets/projects/serum/serum-botanical-wide.webp",
+    "target": "/assets/projects/serum/serum-botanical-wide.webp",
+    "alt": "LUMINOSE 精华液 / 植物与白色花朵",
+    "caption": "植物与白色花朵"
+  },
+  {
+    "project": "serum",
+    "group": "产品与场景影像",
+    "source": "护肤精华液项目/Generated Image August 18, 2026 - 10_51AM.jpg",
+    "existing": "/assets/projects/serum/serum-botanical-portrait-01.webp",
+    "target": "/assets/projects/serum/serum-botanical-portrait-01.webp",
+    "alt": "LUMINOSE 精华液 / 暖光户外",
+    "caption": "暖光户外"
+  },
+  {
+    "project": "serum",
+    "group": "产品与场景影像",
+    "source": "护肤精华液项目/Generated Image August 18, 2026 - 10_53AM.jpg",
+    "existing": "/assets/projects/serum/serum-botanical-portrait-02.webp",
+    "target": "/assets/projects/serum/serum-botanical-portrait-02.webp",
+    "alt": "LUMINOSE 精华液 / 石台与玻璃质地",
+    "caption": "石台与玻璃质地"
+  },
+  {
+    "project": "serum",
+    "group": "产品与场景影像",
+    "source": "护肤精华液项目/Generated Image August 18, 2026 - 10_56AM.jpg",
+    "existing": "/assets/projects/serum/serum-botanical-portrait-03.webp",
+    "target": "/assets/projects/serum/serum-botanical-portrait-03.webp",
+    "alt": "LUMINOSE 精华液 / 自然天空",
+    "caption": "自然天空"
+  },
+  {
+    "project": "serum",
+    "group": "产品与场景影像",
+    "source": "护肤精华液项目/Generated Image August 18, 2026 - 10_58AM.jpg",
+    "existing": "/assets/projects/serum/serum-botanical-portrait-04.webp",
+    "target": "/assets/projects/serum/serum-botanical-portrait-04.webp",
+    "alt": "LUMINOSE 精华液 / 斑驳光影",
+    "caption": "斑驳光影"
+  },
+  {
+    "project": "serum",
+    "group": "产品与场景影像",
+    "source": "护肤精华液项目/Generated Image August 18, 2026 - 11_04AM.jpg",
+    "existing": "/assets/projects/serum/serum-botanical-portrait-05.webp",
+    "target": "/assets/projects/serum/serum-botanical-portrait-05.webp",
+    "alt": "LUMINOSE 精华液 / 日落暖光",
+    "caption": "日落暖光"
+  },
+  {
+    "project": "serum",
+    "group": "产品与场景影像",
+    "source": "护肤精华液项目/Generated Image August 18, 2026 - 11_10AM.jpg",
+    "existing": "/assets/projects/serum/serum-botanical-portrait-06.webp",
+    "target": "/assets/projects/serum/serum-botanical-portrait-06.webp",
+    "alt": "LUMINOSE 精华液 / 清水与石面",
+    "caption": "清水与石面"
+  },
+  {
+    "project": "serum",
+    "group": "产品与场景影像",
+    "source": "护肤精华液项目/Generated Image August 18, 2026 - 9_09AM.jpg",
+    "existing": "/assets/projects/serum/serum-morning-wide.webp",
+    "target": "/assets/projects/serum/serum-morning-wide.webp",
+    "alt": "LUMINOSE 精华液 / 窗影中的瓶身",
+    "caption": "窗影中的瓶身"
+  },
+  {
+    "project": "serum",
+    "group": "产品与场景影像",
+    "source": "护肤精华液项目/Generated Image August 18, 2026 - 9_21AM.jpg",
+    "existing": "/assets/projects/serum/serum-halo-wide.webp",
+    "target": "/assets/projects/serum/serum-halo-wide.webp",
+    "alt": "LUMINOSE 精华液 / 柑橘与成分意象",
+    "caption": "柑橘与成分意象"
+  },
+  {
+    "project": "jasmine",
+    "group": "电商视觉延展",
+    "source": "无糖茶项目/3229624f-3c8e-4dfa-b17e-401dd801e100.png",
+    "existing": "/assets/projects/qinglan-tea/qinglan-square-enjoy-moment.webp",
+    "target": "/assets/projects/qinglan-tea/qinglan-square-enjoy-moment.webp",
+    "alt": "青岚茉莉绿茶 / 悠享一刻",
+    "caption": "悠享一刻"
+  },
+  {
+    "project": "jasmine",
+    "group": "电商视觉延展",
+    "source": "无糖茶项目/5d82c5ca-914a-4f41-a517-9133c5c8a90c.png",
+    "existing": "/assets/projects/qinglan-tea/qinglan-square-tea-aroma.webp",
+    "target": "/assets/projects/qinglan-tea/qinglan-square-tea-aroma.webp",
+    "alt": "青岚茉莉绿茶 / 茶香正好",
+    "caption": "茶香正好"
+  },
+  {
+    "project": "jasmine",
+    "group": "电商视觉延展",
+    "source": "无糖茶项目/6b55a41b-3016-44ca-88bc-bb84d611b99c.png",
+    "existing": "/assets/projects/qinglan-tea/qinglan-square-one-leaf.webp",
+    "target": "/assets/projects/qinglan-tea/qinglan-square-one-leaf.webp",
+    "alt": "青岚茉莉绿茶 / 一叶入香",
+    "caption": "一叶入香"
+  },
+  {
+    "project": "jasmine",
+    "group": "电商视觉延展",
+    "source": "无糖茶项目/7450cfe3-e51d-4e98-829b-5d96f4aebdb4.png",
+    "existing": "/assets/projects/qinglan-tea/qinglan-square-cool-wake.webp",
+    "target": "/assets/projects/qinglan-tea/qinglan-square-cool-wake.webp",
+    "alt": "青岚茉莉绿茶 / 冷意醒茶",
+    "caption": "冷意醒茶"
+  },
+  {
+    "project": "jasmine",
+    "group": "电商视觉延展",
+    "source": "无糖茶项目/8948ac58-aa8d-4202-8976-be15d53efa0b.png",
+    "existing": "/assets/projects/qinglan-tea/qinglan-square-fresh-aroma-water.webp",
+    "target": "/assets/projects/qinglan-tea/qinglan-square-fresh-aroma-water.webp",
+    "alt": "青岚茉莉绿茶 / 清爽有茶香",
+    "caption": "清爽有茶香"
+  },
+  {
+    "project": "jasmine",
+    "group": "电商视觉延展",
+    "source": "无糖茶项目/dc800aec-a79a-42c5-bb2f-d16b35049f25.png",
+    "existing": "/assets/projects/qinglan-tea/qinglan-square-heatwave-vending.webp",
+    "target": "/assets/projects/qinglan-tea/qinglan-square-heatwave-vending.webp",
+    "alt": "青岚茉莉绿茶 / 热浪退场",
+    "caption": "热浪退场"
+  },
+  {
+    "project": "jasmine",
+    "group": "电商视觉延展",
+    "source": "无糖茶项目/ea20c255-3c30-4b47-9afa-9d15806ecd56.png",
+    "existing": "/assets/projects/qinglan-tea/qinglan-square-light-sip-rock.webp",
+    "target": "/assets/projects/qinglan-tea/qinglan-square-light-sip-rock.webp",
+    "alt": "青岚茉莉绿茶 / 轻一点喝茶",
+    "caption": "轻一点喝茶"
+  },
+  {
+    "project": "jasmine",
+    "group": "产品与场景影像",
+    "source": "无糖茶项目/Generated Image August 20, 2026 - 1_40PM.jpg",
+    "existing": "/assets/projects/qinglan-tea/qinglan-scene-jasmine-still-life.webp",
+    "target": "/assets/projects/qinglan-tea/qinglan-scene-jasmine-still-life.webp",
+    "alt": "青岚茉莉绿茶 / 茶叶与瓶身",
+    "caption": "茶叶与瓶身"
+  },
+  {
+    "project": "jasmine",
+    "group": "产品与场景影像",
+    "source": "无糖茶项目/Generated Image August 20, 2026 - 2_58PM.jpg",
+    "existing": "/assets/projects/qinglan-tea/qinglan-scene-travertine-portrait.webp",
+    "target": "/assets/projects/qinglan-tea/qinglan-scene-travertine-portrait.webp",
+    "alt": "青岚茉莉绿茶 / 窗边枝叶光影",
+    "caption": "窗边枝叶光影"
+  },
+  {
+    "project": "jasmine",
+    "group": "产品与场景影像",
+    "source": "无糖茶项目/Generated Image August 20, 2026 - 3_23PM.jpg",
+    "existing": "/assets/projects/qinglan-tea/qinglan-scene-jasmine-table.webp",
+    "target": "/assets/projects/qinglan-tea/qinglan-scene-jasmine-table.webp",
+    "alt": "青岚茉莉绿茶 / 晨间花香",
+    "caption": "晨间花香"
+  },
+  {
+    "project": "jasmine",
+    "group": "产品与场景影像",
+    "source": "无糖茶项目/Generated Image August 20, 2026 - 4_51PM.jpg",
+    "existing": "/assets/projects/qinglan-tea/qinglan-scene-linen-table.webp",
+    "target": "/assets/projects/qinglan-tea/qinglan-scene-linen-table.webp",
+    "alt": "青岚茉莉绿茶 / 轻柔晨光",
+    "caption": "轻柔晨光"
+  },
+  {
+    "project": "jasmine",
+    "group": "产品与场景影像",
+    "source": "无糖茶项目/Generated Image August 20, 2026 - 4_57PM.jpg",
+    "existing": "/assets/projects/qinglan-tea/qinglan-scene-garden-wide.webp",
+    "target": "/assets/projects/qinglan-tea/qinglan-scene-garden-wide.webp",
+    "alt": "青岚茉莉绿茶 / 户外茶园",
+    "caption": "户外茶园"
+  },
+  {
+    "project": "jasmine",
+    "group": "产品与场景影像",
+    "source": "无糖茶项目/Generated Image August 20, 2026 - 5_06PM.jpg",
+    "existing": "/assets/projects/qinglan-tea/qinglan-scene-sunlit-linen.webp",
+    "target": "/assets/projects/qinglan-tea/qinglan-scene-sunlit-linen.webp",
+    "alt": "青岚茉莉绿茶 / 自然餐桌",
+    "caption": "自然餐桌"
+  },
+  {
+    "project": "jasmine",
+    "group": "产品与场景影像",
+    "source": "无糖茶项目/三视.jpg",
+    "existing": "/assets/projects/qinglan-tea/qinglan-packaging-views.webp",
+    "target": "/assets/projects/qinglan-tea/qinglan-packaging-views.webp",
+    "alt": "青岚茉莉绿茶 / 包装正背与侧面",
+    "caption": "包装正背与侧面"
+  },
+  {
+    "project": "oolong",
+    "group": "电商视觉延展",
+    "source": "无糖乌龙/0c397791-5436-4180-b310-2508af320760.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/oolong-01.webp",
+    "alt": "青岚焙香乌龙 / 一口回甘",
+    "caption": "一口回甘"
+  },
+  {
+    "project": "oolong",
+    "group": "电商视觉延展",
+    "source": "无糖乌龙/5b6b2da2-9d57-4942-ab95-86460d8f30a5.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/oolong-02.webp",
+    "alt": "青岚焙香乌龙 / 原叶好茶",
+    "caption": "原叶好茶"
+  },
+  {
+    "project": "oolong",
+    "group": "电商视觉延展",
+    "source": "无糖乌龙/asset-01d702d4-71e1-4e8b-8f0a-878353d7e003.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/oolong-14.webp",
+    "alt": "青岚焙香乌龙 / 焙香饮用时刻",
+    "caption": "焙香饮用时刻"
+  },
+  {
+    "project": "oolong",
+    "group": "电商视觉延展",
+    "source": "无糖乌龙/asset-229e9c89-7195-4b7f-af43-11abcd1b2823.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/oolong-19.webp",
+    "alt": "青岚焙香乌龙 / 入口焙香",
+    "caption": "入口焙香"
+  },
+  {
+    "project": "oolong",
+    "group": "电商视觉延展",
+    "source": "无糖乌龙/asset-3fe408f2-f3b5-467a-8e8f-7d96d81318b5.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/oolong-21.webp",
+    "alt": "青岚焙香乌龙 / 琥珀茶汤与回甘",
+    "caption": "琥珀茶汤与回甘"
+  },
+  {
+    "project": "oolong",
+    "group": "电商视觉延展",
+    "source": "无糖乌龙/asset-40540529-d5b2-4cad-9671-6a751cfc144e.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/oolong-22.webp",
+    "alt": "青岚焙香乌龙 / 双味原叶",
+    "caption": "双味原叶"
+  },
+  {
+    "project": "oolong",
+    "group": "电商视觉延展",
+    "source": "无糖乌龙/asset-4858a2c1-a1e2-418c-a643-7c4947c5d435.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/oolong-23.webp",
+    "alt": "青岚焙香乌龙 / 正餐搭配",
+    "caption": "正餐搭配"
+  },
+  {
+    "project": "oolong",
+    "group": "电商视觉延展",
+    "source": "无糖乌龙/asset-7c5c670e-630b-4f73-8950-a776bfee3416.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/oolong-27.webp",
+    "alt": "青岚焙香乌龙 / 双味佐餐",
+    "caption": "双味佐餐"
+  },
+  {
+    "project": "oolong",
+    "group": "电商视觉延展",
+    "source": "无糖乌龙/asset-81f96d70-d14e-42cc-9cdf-2b53e5aeaf3e.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/oolong-30.webp",
+    "alt": "青岚焙香乌龙 / 浓茶感与工作日常",
+    "caption": "浓茶感与工作日常"
+  },
+  {
+    "project": "oolong",
+    "group": "电商视觉延展",
+    "source": "无糖乌龙/asset-a3e0d8f7-6c87-4061-a973-6d90da83ffb0.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/oolong-31.webp",
+    "alt": "青岚焙香乌龙 / 花香与焙香",
+    "caption": "花香与焙香"
+  },
+  {
+    "project": "oolong",
+    "group": "电商视觉延展",
+    "source": "无糖乌龙/asset-d55efce4-ae00-403d-8070-407612b81976.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/oolong-34.webp",
+    "alt": "青岚焙香乌龙 / 组合礼盒",
+    "caption": "组合礼盒"
+  },
+  {
+    "project": "oolong",
+    "group": "电商视觉延展",
+    "source": "无糖乌龙/asset-d8aa85b6-9684-42e7-ab97-c1f61c9cb22e.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/oolong-35.webp",
+    "alt": "青岚焙香乌龙 / 专注时刻",
+    "caption": "专注时刻"
+  },
+  {
+    "project": "oolong",
+    "group": "电商视觉延展",
+    "source": "无糖乌龙/asset-ef45803a-b502-4516-a621-6f2649fc5880.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/oolong-37.webp",
+    "alt": "青岚焙香乌龙 / 日粮浓茶",
+    "caption": "日粮浓茶"
+  },
+  {
+    "project": "oolong",
+    "group": "电商视觉延展",
+    "source": "无糖乌龙/asset-f2dec8fb-9993-4dff-85ca-05ac1c85eea7.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/oolong-39.webp",
+    "alt": "青岚焙香乌龙 / 一餐一茶",
+    "caption": "一餐一茶"
+  },
+  {
+    "project": "oolong",
+    "group": "电商视觉延展",
+    "source": "无糖乌龙/asset-f5a910ae-ad01-4aec-8025-b599caf72921.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/oolong-40.webp",
+    "alt": "青岚焙香乌龙 / 慢下来更有茶感",
+    "caption": "慢下来更有茶感"
+  },
+  {
+    "project": "oolong",
+    "group": "产品与场景影像",
+    "source": "无糖乌龙/Gemini 01.jpg",
+    "existing": null,
+    "target": "/assets/projects/extensions/oolong-03.webp",
+    "alt": "青岚焙香乌龙 / 乌龙包装正背侧面",
+    "caption": "乌龙包装正背侧面"
+  },
+  {
+    "project": "oolong",
+    "group": "产品与场景影像",
+    "source": "无糖乌龙/Gemini 03.jpg",
+    "existing": null,
+    "target": "/assets/projects/extensions/oolong-06.webp",
+    "alt": "青岚焙香乌龙 / 光影中的茶瓶",
+    "caption": "光影中的茶瓶"
+  },
+  {
+    "project": "oolong",
+    "group": "产品与场景影像",
+    "source": "无糖乌龙/Gemini 05.jpg",
+    "existing": null,
+    "target": "/assets/projects/extensions/oolong-08.webp",
+    "alt": "青岚焙香乌龙 / 餐桌上的焙香乌龙",
+    "caption": "餐桌上的焙香乌龙"
+  },
+  {
+    "project": "oolong",
+    "group": "产品与场景影像",
+    "source": "无糖乌龙/Gemini 10.1.jpg",
+    "existing": null,
+    "target": "/assets/projects/extensions/oolong-09.webp",
+    "alt": "青岚焙香乌龙 / 冷柜选购",
+    "caption": "冷柜选购"
+  },
+  {
+    "project": "oolong",
+    "group": "产品与场景影像",
+    "source": "无糖乌龙/Gemini 11.jpg",
+    "existing": null,
+    "target": "/assets/projects/extensions/oolong-11.webp",
+    "alt": "青岚焙香乌龙 / 办公饮用",
+    "caption": "办公饮用"
+  },
+  {
+    "project": "oolong",
+    "group": "产品与场景影像",
+    "source": "无糖乌龙/Gemini 12.jpg",
+    "existing": null,
+    "target": "/assets/projects/extensions/oolong-13.webp",
+    "alt": "青岚焙香乌龙 / 轻食与茶饮",
+    "caption": "轻食与茶饮"
+  },
+  {
+    "project": "speaker",
+    "group": "产品与场景影像",
+    "source": "户外音箱/生图任务 42_20260903-095141_1c992e74_01.jpg",
+    "existing": null,
+    "target": "/assets/projects/extensions/speaker-03.webp",
+    "alt": "户外音箱 / 男性日常携带",
+    "caption": "男性日常携带"
+  },
+  {
+    "project": "speaker",
+    "group": "产品与场景影像",
+    "source": "户外音箱/生图任务 42_20260903-101003_bde37270_01.jpg",
+    "existing": null,
+    "target": "/assets/projects/extensions/speaker-04.webp",
+    "alt": "户外音箱 / 轻运动穿搭与手提",
+    "caption": "轻运动穿搭与手提"
+  },
+  {
+    "project": "speaker",
+    "group": "产品与场景影像",
+    "source": "户外音箱/生图任务 42_20260903-104250_5686186d_01.jpg",
+    "existing": null,
+    "target": "/assets/projects/extensions/speaker-08.webp",
+    "alt": "户外音箱 / 背包与运动穿搭",
+    "caption": "背包与运动穿搭"
+  },
+  {
+    "project": "speaker",
+    "group": "产品与场景影像",
+    "source": "户外音箱/生图任务 42_20260903-102333_fbb40255_01.jpg",
+    "existing": null,
+    "target": "/assets/projects/extensions/speaker-07.webp",
+    "alt": "户外音箱 / 湖畔营地休息",
+    "caption": "湖畔营地休息"
+  },
+  {
+    "project": "speaker",
+    "group": "产品与场景影像",
+    "source": "户外音箱/生图任务 42_20260903-104811_080fcd4a_01.jpg",
+    "existing": null,
+    "target": "/assets/projects/extensions/speaker-10.webp",
+    "alt": "户外音箱 / 林间旋钮操作",
+    "caption": "林间旋钮操作"
+  },
+  {
+    "project": "speaker",
+    "group": "产品与场景影像",
+    "source": "户外音箱/生图任务 42_20260903-105326_ffb84d78_01.jpg",
+    "existing": null,
+    "target": "/assets/projects/extensions/speaker-11.webp",
+    "alt": "户外音箱 / 搭建完成的营地",
+    "caption": "搭建完成的营地"
+  },
+  {
+    "project": "speaker",
+    "group": "产品与场景影像",
+    "source": "户外音箱/生图任务 48_20260903-113541_dbcc9f2b_01.jpg",
+    "existing": null,
+    "target": "/assets/projects/extensions/speaker-18.webp",
+    "alt": "户外音箱 / 入夜后的湖畔",
+    "caption": "入夜后的湖畔"
+  },
+  {
+    "project": "speaker",
+    "group": "产品与场景影像",
+    "source": "户外音箱/生图任务 42_20260903-115303_1388082d_01.jpg",
+    "existing": null,
+    "target": "/assets/projects/extensions/speaker-13.webp",
+    "alt": "户外音箱 / 双人林间休整",
+    "caption": "双人林间休整"
+  },
+  {
+    "project": "speaker",
+    "group": "产品与场景影像",
+    "source": "户外音箱/生图任务 48_20260903-112845_2e6aba18_01.jpg",
+    "existing": null,
+    "target": "/assets/projects/extensions/speaker-15.webp",
+    "alt": "户外音箱 / 四人营地协作",
+    "caption": "四人营地协作"
+  },
+  {
+    "project": "speaker",
+    "group": "产品与场景影像",
+    "source": "户外音箱/生图任务 48_20260903-113231_77becb25_01.jpg",
+    "existing": null,
+    "target": "/assets/projects/extensions/speaker-17.webp",
+    "alt": "户外音箱 / 不同穿搭的同行者",
+    "caption": "不同穿搭的同行者"
+  },
+  {
+    "project": "speaker",
+    "group": "产品与场景影像",
+    "source": "户外音箱/生图任务 48_20260903-115351_47b671de_01.jpg",
+    "existing": null,
+    "target": "/assets/projects/extensions/speaker-19.webp",
+    "alt": "户外音箱 / 男性户外休整",
+    "caption": "男性户外休整"
+  },
+  {
+    "project": "earbuds",
+    "group": "电商视觉延展",
+    "source": "无线耳机/asset-024268f0-7ff8-487b-9214-71bba7a9560f.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/earbuds-15.webp",
+    "alt": "SONA ARC ONE 耳机 / 户外防护",
+    "caption": "户外防护"
+  },
+  {
+    "project": "earbuds",
+    "group": "电商视觉延展",
+    "source": "无线耳机/asset-5194e14e-d7d0-4c8b-9284-3efdfe28c8a8.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/earbuds-19.webp",
+    "alt": "SONA ARC ONE 耳机 / 城市空间音频",
+    "caption": "城市空间音频"
+  },
+  {
+    "project": "earbuds",
+    "group": "电商视觉延展",
+    "source": "无线耳机/asset-529e284b-506e-4219-be5f-8ae7983bb584.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/earbuds-20.webp",
+    "alt": "SONA ARC ONE 耳机 / 快充与使用时间",
+    "caption": "快充与使用时间"
+  },
+  {
+    "project": "earbuds",
+    "group": "电商视觉延展",
+    "source": "无线耳机/asset-6b2ac9cf-cba3-45c8-80a1-95a54d8620db.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/earbuds-23.webp",
+    "alt": "SONA ARC ONE 耳机 / 风雨通勤",
+    "caption": "风雨通勤"
+  },
+  {
+    "project": "earbuds",
+    "group": "电商视觉延展",
+    "source": "无线耳机/asset-70836379-5269-47dc-9a33-e47c6ba1c7f1.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/earbuds-25.webp",
+    "alt": "SONA ARC ONE 耳机 / 汗水与防护",
+    "caption": "汗水与防护"
+  },
+  {
+    "project": "earbuds",
+    "group": "电商视觉延展",
+    "source": "无线耳机/asset-bf178b04-5c8b-4371-84a2-2ab4f0afcb0a.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/earbuds-28.webp",
+    "alt": "SONA ARC ONE 耳机 / 蓝牙连接",
+    "caption": "蓝牙连接"
+  },
+  {
+    "project": "earbuds",
+    "group": "电商视觉延展",
+    "source": "无线耳机/asset-cd671863-9ce7-4164-b786-ecea00539e65.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/earbuds-30.webp",
+    "alt": "SONA ARC ONE 耳机 / 降噪功能",
+    "caption": "降噪功能"
+  },
+  {
+    "project": "earbuds",
+    "group": "电商视觉延展",
+    "source": "无线耳机/asset-cf8ec7cc-df52-42a7-8979-b3c365273523.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/earbuds-31.webp",
+    "alt": "SONA ARC ONE 耳机 / 通勤降噪",
+    "caption": "通勤降噪"
+  },
+  {
+    "project": "earbuds",
+    "group": "电商视觉延展",
+    "source": "无线耳机/asset-e74503ef-0404-498d-86e9-abad5b61a1fb.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/earbuds-32.webp",
+    "alt": "SONA ARC ONE 耳机 / 个人聆听空间",
+    "caption": "个人聆听空间"
+  },
+  {
+    "project": "earbuds",
+    "group": "电商视觉延展",
+    "source": "无线耳机/asset-f221ebcc-c45c-44d8-93fb-33ad8b5fa051.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/earbuds-35.webp",
+    "alt": "SONA ARC ONE 耳机 / 一戴入静",
+    "caption": "一戴入静"
+  },
+  {
+    "project": "earbuds",
+    "group": "电商视觉延展",
+    "source": "无线耳机/asset-f4f70c5f-1400-4056-9f86-a244a022aab3.png",
+    "existing": null,
+    "target": "/assets/projects/extensions/earbuds-36.webp",
+    "alt": "SONA ARC ONE 耳机 / 竖版佩戴场景",
+    "caption": "竖版佩戴场景"
+  },
+  {
+    "project": "earbuds",
+    "group": "产品与场景影像",
+    "source": "无线耳机/Gemini 09.1.jpg",
+    "existing": null,
+    "target": "/assets/projects/extensions/earbuds-09.webp",
+    "alt": "SONA ARC ONE 耳机 / 男性站台通勤",
+    "caption": "男性站台通勤"
+  },
+  {
+    "project": "earbuds",
+    "group": "产品与场景影像",
+    "source": "无线耳机/Gemini 09.2.jpg",
+    "existing": null,
+    "target": "/assets/projects/extensions/earbuds-10.webp",
+    "alt": "SONA ARC ONE 耳机 / 女性站台通勤",
+    "caption": "女性站台通勤"
+  },
+  {
+    "project": "earbuds",
+    "group": "产品与场景影像",
+    "source": "无线耳机/Gemini 10.2.jpg",
+    "existing": null,
+    "target": "/assets/projects/extensions/earbuds-13.webp",
+    "alt": "SONA ARC ONE 耳机 / 男性街头通话",
+    "caption": "男性街头通话"
+  }
+]

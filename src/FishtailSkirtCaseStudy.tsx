@@ -1,5 +1,6 @@
 import { useState, type CSSProperties, type ReactNode } from "react";
 import assets from "./fishtail-assets.json";
+import { ArchiveToggle } from "./CaseExtensions";
 
 type Props = { renderImage: (src: string, alt: string) => ReactNode };
 const featured = [19, 32, 33, 21, 35, 12, 28, 7, 18, 6, 4, 34, 22, 15, 16, 9];
@@ -90,7 +91,7 @@ export function FishtailSkirtCaseStudy({ renderImage }: Props) {
 
     <section className="skirt-extensions" aria-labelledby="skirt-extension-title">
       <header className="skirt-heading"><h3 id="skirt-extension-title">同一主题，延展不同触点。</h3><p>主图、竖版与横幅保持同一产品识别，按版型、搭配、场合组织系列内容。完整系列共 35 张电商视觉与 17 张产品及场景影像。</p></header>
-      <button className="skirt-expand" type="button" aria-expanded={showMore} aria-controls="skirt-more-gallery" onClick={() => setShowMore(!showMore)}>{showMore ? "收起延展作品" : "展开延展作品"}<span>{35 - featured.length} 张</span></button>
+      <ArchiveToggle assets={assets.filter(a => a.id <= 35 && !featured.includes(a.id))} expanded={showMore} id="skirt-more-gallery" onClick={() => setShowMore(!showMore)} />
       <div id="skirt-more-gallery" hidden={!showMore}>
         {showMore && <div className="skirt-archive-grid">{assets.filter((a) => a.id <= 35 && !featured.includes(a.id)).map((a) => visual(a.id))}</div>}
       </div>
