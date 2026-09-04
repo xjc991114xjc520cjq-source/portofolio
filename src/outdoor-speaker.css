@@ -58,7 +58,10 @@
 .project-detail-hero.is-outdoor-speaker-hero .project-detail-summary { font-size: 13px; line-height: 1.9; }
 .project-detail-hero.is-outdoor-speaker-hero .project-detail-meta { font-size: 10px; }
 .project-showcase-item.is-speaker-cover .project-showcase-backdrop { display: none; }
-.project-showcase-item.is-speaker-cover .project-showcase-art-primary {
+.project-showcase-item.is-speaker-cover .project-showcase-art-primary.is-lifestyle-fashion {
+  object-position: right center;
+}
+.project-showcase-item.is-speaker-cover .project-showcase-art-primary.is-speaker-product {
   object-fit: cover;
   object-position: 65% 100%;
   height: 100%;
@@ -69,7 +72,7 @@
     linear-gradient(90deg, rgba(5, 8, 10, .72) 0%, rgba(5, 8, 10, .24) 31%, transparent 58%),
     linear-gradient(180deg, rgba(4, 7, 9, .04) 0%, transparent 48%, rgba(4, 7, 9, .52) 100%);
 }
-.project-showcase-item.is-speaker-cover:is(.is-focused, :focus-visible) .project-showcase-art-primary {
+.project-showcase-item.is-speaker-cover:is(.is-focused, :focus-visible) .project-showcase-art-primary.is-speaker-product {
   object-fit: cover;
   object-position: 65% 100%;
   height: 100%;
@@ -78,8 +81,8 @@
 .project-showcase-item.is-speaker-cover:is(.is-focused, :focus-visible) .project-showcase-art-shade { opacity: .76; }
 
 @media (max-width: 1100px) {
-  .project-showcase-item.is-speaker-cover .project-showcase-art-primary,
-  .project-showcase-item.is-speaker-cover:is(.is-focused, :focus-visible) .project-showcase-art-primary {
+  .project-showcase-item.is-speaker-cover .project-showcase-art-primary.is-speaker-product,
+  .project-showcase-item.is-speaker-cover:is(.is-focused, :focus-visible) .project-showcase-art-primary.is-speaker-product {
     object-fit: contain;
     object-position: center bottom;
     background: #111315;

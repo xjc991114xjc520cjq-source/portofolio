@@ -488,6 +488,7 @@ const projectShowcaseCollections = [
     facets: ["户外音箱", "时装穿搭", "场景商业化"],
     coverImages: [
       "/assets/projects/outdoor-speaker/speaker-product-cover.png",
+      fishtailSkirtProject.image,
     ],
     projects: [projectShowcaseItems[5], fishtailSkirtProject],
   },
@@ -4520,7 +4521,7 @@ function ProjectShowcaseCard({
 
     const intervalId = window.setInterval(() => {
       setActiveCoverIndex((current) => (current + 1) % item.coverImages.length);
-    }, 2400);
+    }, 1600);
 
     return () => window.clearInterval(intervalId);
   }, [isActive, isFocused, item.coverImages.length, reduceMotion]);
@@ -4553,7 +4554,7 @@ function ProjectShowcaseCard({
               <source media="(max-width: 1280px)" srcSet="/assets/projects/qinglan-tea/qinglan-dual-cover-portrait.webp" />
             ) : null}
             <img
-              className={`project-showcase-art-primary${activeCoverIndex === imageIndex ? " is-active" : ""}`}
+              className={`project-showcase-art-primary${image === "/assets/projects/outdoor-speaker/speaker-product-cover.png" ? " is-speaker-product" : ""}${item.id === "lifestyle-campaign" && image === fishtailSkirtProject.image ? " is-lifestyle-fashion" : ""}${activeCoverIndex === imageIndex ? " is-active" : ""}`}
               src={image}
               alt=""
               aria-hidden="true"
