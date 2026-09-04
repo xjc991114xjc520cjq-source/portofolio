@@ -76,18 +76,6 @@
   filter: brightness(.88) saturate(.94);
 }
 .project-showcase-item.is-speaker-cover:is(.is-focused, :focus-visible) .project-showcase-art-shade { opacity: .76; }
-.project-showcase-item.is-speaker-cover:is(.is-focused, :focus-visible) .project-showcase-meta {
-  left: clamp(54px, 5vw, 84px);
-  right: auto;
-  top: clamp(160px, 19vh, 194px);
-  bottom: auto;
-  width: min(300px, 31%);
-}
-.project-showcase-item.is-speaker-cover:is(.is-focused, :focus-visible) .project-showcase-index {
-  top: clamp(112px, 13vh, 136px);
-  bottom: auto;
-  left: clamp(54px, 5vw, 84px);
-}
 
 @media (max-width: 1100px) {
   .project-showcase-item.is-speaker-cover .project-showcase-art-primary,
@@ -114,20 +102,6 @@
   .project-detail-hero.is-outdoor-speaker-hero .project-detail-summary { max-width: 660px; }
 }
 @media (max-width: 780px) {
-  .project-showcase-item.is-speaker-cover .project-showcase-meta,
-  .project-showcase-item.is-speaker-cover:is(.is-focused, :focus-visible) .project-showcase-meta {
-    top: 92px;
-    right: 20px;
-    bottom: auto;
-    left: 46px;
-    width: auto;
-  }
-  .project-showcase-item.is-speaker-cover .project-showcase-index,
-  .project-showcase-item.is-speaker-cover:is(.is-focused, :focus-visible) .project-showcase-index {
-    top: 44px;
-    bottom: auto;
-    left: 46px;
-  }
   .project-detail-panel.is-speaker-panel .project-detail-layout { position: absolute; top: 152px; bottom: 0; width: 100%; height: auto; }
   .speaker-case { width: calc(100% - 36px); gap: 48px; margin: 40px auto 48px; }
   .speaker-case h3 { font-size: 27px; }
