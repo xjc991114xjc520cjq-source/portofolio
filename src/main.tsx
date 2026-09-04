@@ -26,6 +26,8 @@ import {
 import "./styles.css";
 import { OutdoorSpeakerCaseStudy } from "./OutdoorSpeakerCaseStudy";
 import "./outdoor-speaker.css";
+import { FishtailSkirtCaseStudy } from "./FishtailSkirtCaseStudy";
+import "./fishtail-skirt.css";
 
 const contactEmail = "1498224542@qq.com";
 const icpFilingNumber = "闽ICP备e9055130469ef8f5a26f534177de7d81";
@@ -409,6 +411,35 @@ const projectShowcaseItems = [
   },
 ] as const;
 
+const fishtailSkirtProject = {
+  index: "04B",
+  title: "鱼尾皮裙：黑裙不止一面",
+  english: "FISHTAIL LEATHER SKIRT CAMPAIGN SYSTEM",
+  category: "生活体验 / 时装企划",
+  categoryEnglish: "FASHION EXPERIENCE",
+  year: "2026",
+  image: "/assets/projects/fishtail-skirt/skirt-43.webp",
+  alt: "中国女性身穿黑色鱼尾皮裙走过建筑长廊，交叠腰线与裙摆完整可见",
+  backdrop: "FISHTAIL",
+  accent: "#c6b9b0",
+  introTheme: { surface: "#171719", surfaceDeep: "#101113", title: "#eeeae7", body: "#c8c5c2", muted: "#b3adaa", accent: "#c6b9b0", rule: "#625e5c", shadow: "rgba(10,10,12,.4)" },
+  summary: "从交叠腰线与双层鱼尾建立设计识别，以多元穿搭、自然姿态和昼夜场景，将一件黑裙转化为完整的时装电商内容系统。",
+  brief: "让消费者看见黑裙的设计差异，也能想象它进入自己的日常与重要场合。",
+  response: "以层次识别吸引注意，按版型、触感、穿搭和场合递进组织视觉，兼顾风格表达与选购理解。",
+  role: "AI Art Direction / Fashion Commerce",
+  scope: "时装产品视觉与多场景电商营销",
+  deliverables: ["产品版型", "材质细节", "穿搭企划", "多姿态场景", "电商主图", "广告横幅", "场景影像"],
+  workflow: ["产品识别", "造型企划", "场景表达", "字体编排", "渠道延展"],
+  system: "以交叠腰线、弧形覆片和鱼尾轮廓贯穿系列，通过上装、鞋履、动作和空间区分场合。",
+  outcome: "35 张电商视觉与 17 张产品及场景影像，覆盖商品识别、细节理解、穿搭选择与生活代入。",
+  reflection: "时装商业表达连接服装设计与自我表达，让同一件单品拥有清晰而多元的购买理由。",
+  gallery: [
+    { src: "/assets/projects/fishtail-skirt/skirt-19.webp", alt: "一眼有层次鱼尾皮裙电商主视觉", layout: "square" },
+    { src: "/assets/projects/fishtail-skirt/skirt-06.webp", alt: "银色上衣与沙发侧躺时装电商图", layout: "square" },
+    { src: "/assets/projects/fishtail-skirt/skirt-04.webp", alt: "夜店群舞与鱼尾皮裙穿搭", layout: "square" },
+  ],
+} as const;
+
 const projectShowcaseCollections = [
   {
     id: "smart-living",
@@ -450,11 +481,11 @@ const projectShowcaseCollections = [
     index: "04",
     title: "生活体验",
     english: "LIFESTYLE EXPERIENCES",
-    facets: ["户外音箱", "体验型消费", "场景商业化"],
+    facets: ["户外音箱", "时装穿搭", "场景商业化"],
     coverImages: [
       "/assets/projects/outdoor-speaker/speaker-category-cover.webp",
     ],
-    projects: [projectShowcaseItems[5]],
+    projects: [projectShowcaseItems[5], fishtailSkirtProject],
   },
   {
     id: "cultural-publishing",
@@ -4078,7 +4109,7 @@ function PortfolioSequence() {
   );
 }
 
-type ProjectShowcaseItem = (typeof projectShowcaseItems)[number];
+type ProjectShowcaseItem = (typeof projectShowcaseCollections)[number]["projects"][number];
 type ProjectShowcaseCollection = (typeof projectShowcaseCollections)[number];
 
 type ProjectStoryProfile = {
@@ -5888,6 +5919,7 @@ function ProjectDetailViewer({
   const isOolongProject = item.english === "QINGLAN OOLONG GROWTH SYSTEM";
   const isSonaEarbudsProject = item.english === "SONA ARC ONE EARBUDS LAUNCH SYSTEM";
   const isOutdoorSpeakerProject = item.english === "OUTDOOR SPEAKER EXPERIENCE SYSTEM";
+  const isSkirtProject = item.english === "FISHTAIL LEATHER SKIRT CAMPAIGN SYSTEM";
   const detailHeroImage = isGlacierProject
     ? "/assets/projects/glacier-cleanser/glacier-sunrise-wide.webp"
     : isSerumProject
@@ -5977,7 +6009,7 @@ function ProjectDetailViewer({
       onKeyDown={handleKeyDown}
     >
       <motion.article
-        className={`project-detail-panel${isOolongProject ? " is-oolong-panel" : ""}${isOutdoorSpeakerProject ? " is-speaker-panel" : ""}`}
+        className={`project-detail-panel${isOolongProject ? " is-oolong-panel" : ""}${isOutdoorSpeakerProject ? " is-speaker-panel" : ""}${isSkirtProject ? " is-skirt-panel" : ""}`}
         style={{
           "--project-detail-accent": item.accent,
           "--project-intro-surface": item.introTheme.surface,
@@ -6079,7 +6111,7 @@ function ProjectDetailViewer({
             exit={reduceMotion ? undefined : { opacity: 0, x: -20 }}
             transition={{ duration: reduceMotion || keyboardNavigation ? 0 : 0.26, ease: [0.23, 1, 0.32, 1] }}
           >
-            <section className={`project-detail-hero${isOolongProject ? " is-oolong-detail-hero" : ""}${isGlacierProject ? " is-glacier-detail-hero" : ""}${isSerumProject ? " is-serum-detail-hero" : ""}${isSonaEarbudsProject ? " is-sona-earbuds-detail-hero" : ""}${isOutdoorSpeakerProject ? " is-outdoor-speaker-hero" : ""}`}>
+            <section className={`project-detail-hero${isOolongProject ? " is-oolong-detail-hero" : ""}${isGlacierProject ? " is-glacier-detail-hero" : ""}${isSerumProject ? " is-serum-detail-hero" : ""}${isSonaEarbudsProject ? " is-sona-earbuds-detail-hero" : ""}${isOutdoorSpeakerProject ? " is-outdoor-speaker-hero" : ""}${isSkirtProject ? " is-skirt-hero" : ""}`}>
               <figure className={`project-detail-visual${isGlacierProject ? " is-glacier-detail-visual" : ""}${isSerumProject ? " is-serum-detail-visual" : ""}${isSonaEarbudsProject ? " is-sona-earbuds-detail-visual" : ""}`}>
                 <ZoomableProjectImage
                   src={detailHeroImage}
@@ -6102,7 +6134,7 @@ function ProjectDetailViewer({
                 </div>
                 <div className="project-detail-title">
                   <small>{item.english}</small>
-                  <h2 id={titleId}>{isOutdoorSpeakerProject ? <>户外音箱<br />把音乐带进生活</> : item.title}</h2>
+                  <h2 id={titleId}>{isOutdoorSpeakerProject ? <>户外音箱<br />把音乐带进生活</> : isSkirtProject ? <>鱼尾皮裙<br />黑裙不止一面</> : item.title}</h2>
                 </div>
                 <p className="project-detail-summary" id={summaryId}>{item.summary}</p>
               </div>
@@ -6110,7 +6142,7 @@ function ProjectDetailViewer({
 
             <section className="project-detail-copy">
 
-              {!isGlacierProject && !isSerumProject && !isTableFanProject && !isQinglanProject && !isOolongProject && !isSonaEarbudsProject && !isOutdoorSpeakerProject ? (
+              {!isGlacierProject && !isSerumProject && !isTableFanProject && !isQinglanProject && !isOolongProject && !isSonaEarbudsProject && !isOutdoorSpeakerProject && !isSkirtProject ? (
                 <>
                   <ProjectStoryLead item={item} onImageOpen={openImage} />
                   <ProjectCommerceImpact item={item} />
@@ -6133,6 +6165,8 @@ function ProjectDetailViewer({
                 <SonaEarbudsCaseStudy onImageOpen={openImage} reduceMotion={reduceMotion} scrollRoot={detailLayoutRef} />
               ) : isOutdoorSpeakerProject ? (
                 <OutdoorSpeakerCaseStudy renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />
+              ) : isSkirtProject ? (
+                <FishtailSkirtCaseStudy renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />
               ) : (
                 <>
                   <section className="project-detail-process" aria-label="项目工作流">
@@ -6416,7 +6450,7 @@ function ProjectShowcase({
           </h2>
           <div className="project-showcase-heading-meta">
             <strong>FLAGSHIP BUSINESS CASES</strong>
-            <span>NINE PROJECTS / SIX INDUSTRIES</span>
+            <span>{projectShowcaseCollections.reduce((count, collection) => count + collection.projects.length, 0)} PROJECTS / {projectShowcaseCollections.length} COLLECTIONS</span>
           </div>
         </motion.header>
 

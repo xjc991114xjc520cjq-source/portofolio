@@ -1,0 +1,470 @@
+[
+  {
+    "id": 1,
+    "src": "/assets/projects/fishtail-skirt/skirt-01.webp",
+    "alt": "步步有型",
+    "width": 1402,
+    "height": 1122,
+    "source": "asset-17eaad4c-1aa0-416b-9539-0e64f8f9cc0e.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 2,
+    "src": "/assets/projects/fishtail-skirt/skirt-02.webp",
+    "alt": "层次从腰间开始",
+    "width": 1254,
+    "height": 1254,
+    "source": "asset-17f230d9-89d3-4cad-a34f-1c13dddd92ba.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 3,
+    "src": "/assets/projects/fishtail-skirt/skirt-03.webp",
+    "alt": "蓝色斜肩上衣与台阶蹲姿",
+    "width": 1254,
+    "height": 1254,
+    "source": "asset-1990297d-9dc2-452a-aa34-c469f536504a.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 4,
+    "src": "/assets/projects/fishtail-skirt/skirt-04.webp",
+    "alt": "今晚随自己的节拍",
+    "width": 1254,
+    "height": 1254,
+    "source": "asset-2ab92b8b-fbf0-4cf3-86e8-f9514e99454a.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 5,
+    "src": "/assets/projects/fishtail-skirt/skirt-05.webp",
+    "alt": "白衬衫通勤",
+    "width": 1145,
+    "height": 1374,
+    "source": "asset-2c59d394-fab2-4e14-a6ec-10a86960870b.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 6,
+    "src": "/assets/projects/fishtail-skirt/skirt-06.webp",
+    "alt": "银色垂领上衣与沙发侧躺",
+    "width": 1254,
+    "height": 1254,
+    "source": "asset-2d64e7c6-8890-464b-981f-606413053b60.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 7,
+    "src": "/assets/projects/fishtail-skirt/skirt-07.webp",
+    "alt": "紫色抹胸与黄色扶手椅坐姿",
+    "width": 1254,
+    "height": 1254,
+    "source": "asset-3074cfab-f933-44ae-9c88-2ea6bd1ca1b4.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 8,
+    "src": "/assets/projects/fishtail-skirt/skirt-08.webp",
+    "alt": "一眼有层次弧面主视觉",
+    "width": 1254,
+    "height": 1254,
+    "source": "asset-568a7ce8-13a3-48c7-8cb5-bc74ffd5b9e5.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 9,
+    "src": "/assets/projects/fishtail-skirt/skirt-09.webp",
+    "alt": "有轮廓也有余地横幅",
+    "width": 1672,
+    "height": 941,
+    "source": "asset-6b79de2a-ce45-4661-a7fe-beac8d1c8938.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 10,
+    "src": "/assets/projects/fishtail-skirt/skirt-10.webp",
+    "alt": "酒红抹胸与腰线表达",
+    "width": 1254,
+    "height": 1254,
+    "source": "asset-79480419-013c-4985-aa83-e5ace3f29f37.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 11,
+    "src": "/assets/projects/fishtail-skirt/skirt-11.webp",
+    "alt": "从日常到重要场合",
+    "width": 1254,
+    "height": 1254,
+    "source": "asset-794f18b1-9eb9-46db-90a5-77340f78a0c5.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 12,
+    "src": "/assets/projects/fishtail-skirt/skirt-12.webp",
+    "alt": "职场也有风格",
+    "width": 1254,
+    "height": 1254,
+    "source": "asset-837f3319-8a7e-4a2b-b798-9fdca7a866c0.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 13,
+    "src": "/assets/projects/fishtail-skirt/skirt-13.webp",
+    "alt": "穿出更多可能",
+    "width": 1254,
+    "height": 1254,
+    "source": "asset-84285071-592c-4381-9b72-ccb9f962c2ae.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 14,
+    "src": "/assets/projects/fishtail-skirt/skirt-14.webp",
+    "alt": "一裙多场景",
+    "width": 1254,
+    "height": 1254,
+    "source": "asset-8740de30-5c4c-4487-93c6-859988718070.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 15,
+    "src": "/assets/projects/fishtail-skirt/skirt-15.webp",
+    "alt": "尖头鞋与踝靴搭配",
+    "width": 1254,
+    "height": 1254,
+    "source": "asset-887e4fa9-b093-4eef-bb4d-42f76a4e96c4.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 16,
+    "src": "/assets/projects/fishtail-skirt/skirt-16.webp",
+    "alt": "镜面试衣与正背轮廓",
+    "width": 1254,
+    "height": 1254,
+    "source": "asset-888793ec-b31d-43ba-ba6d-a6c501f8884a.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 17,
+    "src": "/assets/projects/fishtail-skirt/skirt-17.webp",
+    "alt": "皮面柔软细节",
+    "width": 1254,
+    "height": 1254,
+    "source": "asset-8ae89c88-c43f-45a8-8a91-0bce58515f35.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 18,
+    "src": "/assets/projects/fishtail-skirt/skirt-18.webp",
+    "alt": "台阶蹲姿与层次裙摆",
+    "width": 1254,
+    "height": 1254,
+    "source": "asset-8e3bf04d-618b-49fc-aa48-20421dc56b10.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 19,
+    "src": "/assets/projects/fishtail-skirt/skirt-19.webp",
+    "alt": "一眼有层次动态主视觉",
+    "width": 1254,
+    "height": 1254,
+    "source": "asset-90ff019e-7a01-4bbb-8c36-ac08ca296194.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 20,
+    "src": "/assets/projects/fishtail-skirt/skirt-20.webp",
+    "alt": "一眼有层次静态主视觉",
+    "width": 1254,
+    "height": 1254,
+    "source": "asset-94ea3976-3406-4c22-92c6-9102a847686e.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 21,
+    "src": "/assets/projects/fishtail-skirt/skirt-21.webp",
+    "alt": "柔软皮纹与叠层包边",
+    "width": 1254,
+    "height": 1254,
+    "source": "asset-9849896d-6935-4da9-98ce-f8917c378c52.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 22,
+    "src": "/assets/projects/fishtail-skirt/skirt-22.webp",
+    "alt": "绿色垂领上衣与休息区坐姿",
+    "width": 1254,
+    "height": 1254,
+    "source": "asset-98a576db-4644-48c5-8777-30ad400100d8.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 23,
+    "src": "/assets/projects/fishtail-skirt/skirt-23.webp",
+    "alt": "不止一面从容切换",
+    "width": 1086,
+    "height": 1448,
+    "source": "asset-a5bf9273-a629-4640-a3e1-9710dd0cc31a.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 24,
+    "src": "/assets/projects/fishtail-skirt/skirt-24.webp",
+    "alt": "腰线自有主张",
+    "width": 1254,
+    "height": 1254,
+    "source": "asset-ba653d61-6e00-4150-b55c-24b24b2904e0.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 25,
+    "src": "/assets/projects/fishtail-skirt/skirt-25.webp",
+    "alt": "橙色短外套雨天穿搭",
+    "width": 1254,
+    "height": 1254,
+    "source": "asset-badb6946-e583-411d-b215-8f34dc8f2faf.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 26,
+    "src": "/assets/projects/fishtail-skirt/skirt-26.webp",
+    "alt": "背影也有层次",
+    "width": 1024,
+    "height": 1536,
+    "source": "asset-be5c6490-d923-4f07-8aee-a663f6bf8daa.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 27,
+    "src": "/assets/projects/fishtail-skirt/skirt-27.webp",
+    "alt": "蓝色短西装与姜黄内搭",
+    "width": 1024,
+    "height": 1536,
+    "source": "asset-c024447f-426f-4ca9-8d36-51924af30808.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 28,
+    "src": "/assets/projects/fishtail-skirt/skirt-28.webp",
+    "alt": "雨天换季穿搭",
+    "width": 1254,
+    "height": 1254,
+    "source": "asset-cf83c198-9d03-4562-a78f-dc5fe14bea14.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 29,
+    "src": "/assets/projects/fishtail-skirt/skirt-29.webp",
+    "alt": "米色垂领衬衫与酒店场景",
+    "width": 1254,
+    "height": 1254,
+    "source": "asset-d178e11f-efaf-45d5-bdec-29bb0e235680.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 30,
+    "src": "/assets/projects/fishtail-skirt/skirt-30.webp",
+    "alt": "精致不费力",
+    "width": 1024,
+    "height": 1536,
+    "source": "asset-d232d812-7692-4b45-86ea-4f7730b8c705.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 31,
+    "src": "/assets/projects/fishtail-skirt/skirt-31.webp",
+    "alt": "有轮廓也有余地简洁横幅",
+    "width": 1672,
+    "height": 941,
+    "source": "asset-e1f9b631-2649-446a-9fc2-e2ca562e76c9.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 32,
+    "src": "/assets/projects/fishtail-skirt/skirt-32.webp",
+    "alt": "交叠腰线与弧形覆片",
+    "width": 1254,
+    "height": 1254,
+    "source": "asset-e89fe914-5abe-4d49-bcf4-a6b309f5741d.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 33,
+    "src": "/assets/projects/fishtail-skirt/skirt-33.webp",
+    "alt": "蓝色斜肩上衣正背搭配",
+    "width": 1254,
+    "height": 1254,
+    "source": "asset-f595b623-a8bf-476e-9b48-5f0ff07857bf.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 34,
+    "src": "/assets/projects/fishtail-skirt/skirt-34.webp",
+    "alt": "金色上衣与舞池转身",
+    "width": 1254,
+    "height": 1254,
+    "source": "asset-f7228c72-05cf-4e1c-ae5f-87c9b184310e.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 35,
+    "src": "/assets/projects/fishtail-skirt/skirt-35.webp",
+    "alt": "每一步都有层次",
+    "width": 1254,
+    "height": 1254,
+    "source": "asset-fd55b380-5e9d-4516-aba3-07dfecb4aa80.png",
+    "collection": "commerce"
+  },
+  {
+    "id": 36,
+    "src": "/assets/projects/fishtail-skirt/skirt-36.webp",
+    "alt": "黑色鱼尾皮裙正面版型",
+    "width": 1933,
+    "height": 2400,
+    "source": "生图任务 42_20260903-185104_68e01b80_01.jpg",
+    "collection": "editorial"
+  },
+  {
+    "id": 37,
+    "src": "/assets/projects/fishtail-skirt/skirt-37.webp",
+    "alt": "黑色鱼尾皮裙背面版型",
+    "width": 1933,
+    "height": 2400,
+    "source": "生图任务 42_20260903-185312_21bbb42c_01.jpg",
+    "collection": "editorial"
+  },
+  {
+    "id": 38,
+    "src": "/assets/projects/fishtail-skirt/skirt-38.webp",
+    "alt": "交叠腰头与覆片近景",
+    "width": 2400,
+    "height": 1340,
+    "source": "生图任务 42_20260903-191647_9b80658d_01.jpg",
+    "collection": "editorial"
+  },
+  {
+    "id": 39,
+    "src": "/assets/projects/fishtail-skirt/skirt-39.webp",
+    "alt": "行走时的裙摆",
+    "width": 1933,
+    "height": 2400,
+    "source": "生图任务 42_20260903-191804_36cd349f_01.jpg",
+    "collection": "editorial"
+  },
+  {
+    "id": 40,
+    "src": "/assets/projects/fishtail-skirt/skirt-40.webp",
+    "alt": "台阶坐姿与踝靴",
+    "width": 1933,
+    "height": 2400,
+    "source": "生图任务 42_20260903-191913_2e1fd5f9_01.jpg",
+    "collection": "editorial"
+  },
+  {
+    "id": 41,
+    "src": "/assets/projects/fishtail-skirt/skirt-41.webp",
+    "alt": "办公室通勤穿搭",
+    "width": 1792,
+    "height": 2400,
+    "source": "生图任务 42_20260903-192034_e85e6bf6_01.jpg",
+    "collection": "editorial"
+  },
+  {
+    "id": 42,
+    "src": "/assets/projects/fishtail-skirt/skirt-42.webp",
+    "alt": "酒红上衣晚间穿搭",
+    "width": 1792,
+    "height": 2400,
+    "source": "生图任务 42_20260903-192317_c7aaa7a4_01.jpg",
+    "collection": "editorial"
+  },
+  {
+    "id": 43,
+    "src": "/assets/projects/fishtail-skirt/skirt-43.webp",
+    "alt": "建筑长廊行走横幅",
+    "width": 2400,
+    "height": 1340,
+    "source": "生图任务 42_20260904-090251_e25de4e8_01.jpg",
+    "collection": "editorial"
+  },
+  {
+    "id": 44,
+    "src": "/assets/projects/fishtail-skirt/skirt-44.webp",
+    "alt": "城市广场穿搭",
+    "width": 1933,
+    "height": 2400,
+    "source": "生图任务 42_20260904-091411_b67fce84_01.jpg",
+    "collection": "editorial"
+  },
+  {
+    "id": 45,
+    "src": "/assets/projects/fishtail-skirt/skirt-45.webp",
+    "alt": "建筑台阶休息",
+    "width": 2400,
+    "height": 1340,
+    "source": "生图任务 42_20260904-091517_28f7c8d9_01.jpg",
+    "collection": "editorial"
+  },
+  {
+    "id": 46,
+    "src": "/assets/projects/fishtail-skirt/skirt-46.webp",
+    "alt": "露台傍晚穿搭",
+    "width": 1933,
+    "height": 2400,
+    "source": "生图任务 42_20260904-092817_87fd8f0c_01.jpg",
+    "collection": "editorial"
+  },
+  {
+    "id": 47,
+    "src": "/assets/projects/fishtail-skirt/skirt-47.webp",
+    "alt": "美术馆参观",
+    "width": 1792,
+    "height": 2400,
+    "source": "生图任务 42_20260904-092927_179166a3_01.jpg",
+    "collection": "editorial"
+  },
+  {
+    "id": 48,
+    "src": "/assets/projects/fishtail-skirt/skirt-48.webp",
+    "alt": "晚宴入场",
+    "width": 1933,
+    "height": 2400,
+    "source": "生图任务 42_20260904-093355_312e2101_01.jpg",
+    "collection": "editorial"
+  },
+  {
+    "id": 49,
+    "src": "/assets/projects/fishtail-skirt/skirt-49.webp",
+    "alt": "晚宴背面穿搭",
+    "width": 1933,
+    "height": 2400,
+    "source": "生图任务 42_20260904-093529_7638cbcb_01.jpg",
+    "collection": "editorial"
+  },
+  {
+    "id": 50,
+    "src": "/assets/projects/fishtail-skirt/skirt-50.webp",
+    "alt": "双人舞会",
+    "width": 1933,
+    "height": 2400,
+    "source": "生图任务 42_20260904-094739_e5ed69bf_01.jpg",
+    "collection": "editorial"
+  },
+  {
+    "id": 51,
+    "src": "/assets/projects/fishtail-skirt/skirt-51.webp",
+    "alt": "夜店群舞",
+    "width": 2400,
+    "height": 1350,
+    "source": "生图任务 48_20260904-101458_35677792_01.jpg",
+    "collection": "editorial"
+  },
+  {
+    "id": 52,
+    "src": "/assets/projects/fishtail-skirt/skirt-52.webp",
+    "alt": "高级餐厅约会",
+    "width": 1921,
+    "height": 2400,
+    "source": "生图任务 48_20260904-104653_f8c06d99_01.jpg",
+    "collection": "editorial"
+  }
+]
