@@ -422,7 +422,7 @@ const fishtailSkirtProject = {
   category: "生活体验 / 时装企划",
   categoryEnglish: "FASHION EXPERIENCE",
   year: "2026",
-  image: "/assets/projects/fishtail-skirt/skirt-rain-hero.png",
+  image: "/assets/projects/fishtail-skirt/skirt-rain-composition-v2.png",
   alt: "中国女性撑透明雨伞，身穿红色短外套与黑色鱼尾皮裙走过雨中街道，裙摆层次与红黑穿搭清晰呈现",
   backdrop: "FISHTAIL",
   accent: "#c6b9b0",
@@ -488,7 +488,7 @@ const projectShowcaseCollections = [
     facets: ["户外音箱", "时装穿搭", "场景商业化"],
     coverImages: [
       "/assets/projects/outdoor-speaker/speaker-product-cover.png",
-      fishtailSkirtProject.image,
+      "/assets/projects/fishtail-skirt/skirt-rain-hero.png",
     ],
     projects: [projectShowcaseItems[5], fishtailSkirtProject],
   },
