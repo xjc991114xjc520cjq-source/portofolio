@@ -20,8 +20,8 @@
 .editorial-brief dl > div { padding: 20px 0; border-top: 1px solid #343c3e; }
 .editorial-brief dt { color: var(--case-accent); font-size: 12px; margin-bottom: 9px; }
 .editorial-brief dd { font-size: 14px; color: #a5adaf; line-height: 1.9; }
-.editorial-heading { display: grid; grid-template-columns: 1.15fr 1fr; gap: 52px; align-items: end; margin-bottom: 30px; }
-.editorial-heading p { max-width: 36em; justify-self: end; }
+.editorial-heading { display: grid; max-width: 780px; gap: 13px; margin-bottom: 30px; }
+.editorial-heading p { max-width: 54em; }
 .editorial-rows { display: grid; gap: 26px; }
 .editorial-row { display: grid; grid-template-columns: var(--media-columns); align-items: start; gap: 24px; }
 .editorial-visual { min-width: 0; }
@@ -82,10 +82,10 @@
 }
 
 /* Earlier motion and oolong cases keep their authored sequence and films. */
-.is-refined-panel .smart-case-heading { display: grid; grid-template-columns: 1.15fr 1fr; gap: 12px 48px; align-items: end; margin-bottom: 30px; }
-.is-refined-panel .smart-case-heading > span { grid-column: 1 / -1; }
+.is-refined-panel .smart-case-heading { display: grid; max-width: 780px; gap: 13px; margin-bottom: 30px; }
+.is-refined-panel .smart-case-heading > span { grid-column: auto; }
 .is-refined-panel .smart-case-heading h3 { font-size: clamp(26px, 2.4vw, 39px); line-height: 1.35; letter-spacing: -.04em; max-width: none; }
-.is-refined-panel .smart-case-heading p { font-size: 14px; line-height: 1.95; max-width: 36em; margin: 0; }
+.is-refined-panel .smart-case-heading p { font-size: 14px; line-height: 1.9; max-width: 54em; margin: 0; }
 .is-refined-panel .case-capability-intro > header h3 { font-size: clamp(30px, 2.8vw, 44px); max-width: 18em; line-height: 1.35; }
 .is-refined-panel .case-capability-intro > header p { max-width: 52em; line-height: 1.9; margin-top: 18px; font-size: 14px; }
 .is-refined-panel .earbuds-film-stage { grid-template-columns: minmax(0, 1fr) 190px; gap: 30px; align-items: center; }
@@ -104,6 +104,82 @@
 .is-refined-panel .earbuds-material-layout { align-items: center; }
 .is-refined-panel .qinglan-oolong-case .qinglan-capability-media { grid-template-columns: 1fr 1fr; align-items: start; }
 .is-refined-panel .speaker-portrait-pair { width: 100%; }
+
+/* Body typography: labels identify structure; paragraphs carry the reading flow. */
+.is-refined-panel .project-detail-copy .smart-case :is(p, dd) {
+  font-size: clamp(12.5px, .82vw, 14px);
+  line-height: 1.85;
+}
+
+.is-refined-panel .project-detail-copy .smart-case :is(figcaption, small) {
+  font-size: 11.5px;
+  line-height: 1.7;
+  letter-spacing: .01em;
+}
+
+.is-refined-panel .project-detail-copy .smart-case :is(dt, section > header > span) {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .045em;
+}
+
+.is-refined-panel .earbuds-context dl {
+  border-color: rgba(225, 229, 225, .12);
+}
+
+.is-refined-panel .earbuds-context dl > div {
+  padding-top: 28px;
+  padding-bottom: 29px;
+}
+
+.is-refined-panel .earbuds-context dt,
+.is-refined-panel .earbuds-material-copy li strong {
+  color: rgba(231, 235, 232, .68);
+  font-size: 12px;
+  font-weight: 610;
+  letter-spacing: .015em;
+}
+
+.is-refined-panel .earbuds-context dd {
+  margin-top: 12px;
+  color: rgba(241, 241, 237, .72);
+  font-size: 13px;
+}
+
+.is-refined-panel .earbuds-material-copy > p,
+.is-refined-panel :is(.earbuds-capability-proof, .earbuds-anchor-list, .earbuds-frame-track, .earbuds-format-grid) p {
+  font-size: 13px;
+  line-height: 1.78;
+}
+
+.is-refined-panel .earbuds-material-copy li {
+  gap: 20px;
+  padding: 15px 0;
+  grid-template-columns: 52px minmax(0, 1fr);
+}
+
+.is-refined-panel .earbuds-material-copy li span {
+  color: rgba(241, 241, 237, .62);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.is-refined-panel .earbuds-capability-proof span,
+.is-refined-panel .earbuds-anchor-list strong,
+.is-refined-panel .earbuds-frame-track strong,
+.is-refined-panel .earbuds-format-grid span {
+  font-size: 12px;
+}
+
+.is-refined-panel .smart-case-result-grid span {
+  font-size: 11px;
+}
+
+.is-refined-panel .smart-case-result-grid small,
+.is-refined-panel .earbuds-concept-note {
+  font-size: 11.5px;
+  letter-spacing: .01em;
+}
 
 @media (max-width: 1100px) {
   .case-extensions { width: calc(100% - 64px); margin-bottom: 68px; }

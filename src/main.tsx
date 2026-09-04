@@ -32,6 +32,7 @@ import { ProductEditorialCase, PublishingEditorialCase } from "./ProductEditoria
 import { CaseExtensions } from "./CaseExtensions";
 import caseImageSizes from "./case-image-sizes.json";
 import "./case-detail-refinement.css";
+import "./project-showcase-refinement.css";
 
 const contactEmail = "1498224542@qq.com";
 const icpFilingNumber = "闽ICP备e9055130469ef8f5a26f534177de7d81";
@@ -4554,7 +4555,7 @@ function ProjectShowcaseCard({
               <source media="(max-width: 1280px)" srcSet="/assets/projects/qinglan-tea/qinglan-dual-cover-portrait.webp" />
             ) : null}
             <img
-              className={`project-showcase-art-primary${image === "/assets/projects/outdoor-speaker/speaker-product-cover.png" ? " is-speaker-product" : ""}${item.id === "lifestyle-campaign" && image === fishtailSkirtProject.image ? " is-lifestyle-fashion" : ""}${activeCoverIndex === imageIndex ? " is-active" : ""}`}
+              className={`project-showcase-art-primary${image === "/assets/projects/outdoor-speaker/speaker-product-cover.png" ? " is-speaker-product" : ""}${item.id === "lifestyle-campaign" && String(image) === fishtailSkirtProject.image ? " is-lifestyle-fashion" : ""}${activeCoverIndex === imageIndex ? " is-active" : ""}`}
               src={image}
               alt=""
               aria-hidden="true"
@@ -4566,22 +4567,20 @@ function ProjectShowcaseCard({
         <span className="project-showcase-art-shade" aria-hidden="true" />
         <span className="project-showcase-backdrop" aria-hidden="true">{item.english}</span>
       </span>
-      <span className="project-showcase-index">{item.index}</span>
+      <span className="project-showcase-index" aria-hidden="true">{item.index}</span>
       <span className="project-showcase-meta">
-          <strong>{item.title}</strong>
+        <span className="project-showcase-overline">
+          <span>{item.index}</span>
+          <i aria-hidden="true" />
+          <small>COLLECTION</small>
+        </span>
+        <strong>{item.title}</strong>
         <em>{item.english}</em>
         <span className="project-showcase-facets">
           {item.facets.join(" / ")}
-          {item.projects.length > 1 ? (
-            <>
-              <small className="project-showcase-pointer-hint">{item.projects.length} 个完整项目 / {item.coverImages.length > 1 ? "悬停切换主视觉" : "点击查看内容"}</small>
-              <small className="project-showcase-touch-hint">{item.projects.length} 个完整项目 / 点击查看内容</small>
-            </>
-          ) : (
-            <small>1 个完整项目 / 点击查看内容</small>
-          )}
         </span>
-        <b>进入分类查看全部案例</b>
+        <small className="project-showcase-count">{item.projects.length} 个完整项目</small>
+        <b>查看完整分类</b>
       </span>
     </motion.button>
   );
@@ -4684,6 +4683,10 @@ function ProjectShowcase({
         <motion.div
           className={`project-showcase-track${displayIndex !== null ? " has-focus" : ""}`}
           style={reduceMotion ? undefined : { opacity: trackOpacity, x: trackX, scale: trackScale }}
+          onPointerLeave={(event) => {
+            if (event.pointerType === "mouse" || event.pointerType === "pen") setHoveredIndex(null);
+          }}
+          onPointerCancel={() => setHoveredIndex(null)}
         >
           {projectShowcaseCollections.map((item, index) => (
             <ProjectShowcaseCard
@@ -4702,7 +4705,6 @@ function ProjectShowcase({
           <div
             className="project-showcase-hit-zones"
             aria-hidden="true"
-            onMouseLeave={() => setHoveredIndex(null)}
           >
             {projectShowcaseCollections.map((item, index) => (
               <span
