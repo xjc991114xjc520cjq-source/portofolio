@@ -19,7 +19,11 @@ export function CaseExtensions({kind, renderImage}: {kind: string; renderImage: 
   const id = `case-extensions-${kind}`;
   const close = () => {
     setExpanded(false);
-    requestAnimationFrame(() => { toggle.current?.focus({preventScroll:true}); toggle.current?.scrollIntoView({block:"start"}); });
+    requestAnimationFrame(() => {
+      if (document.activeElement !== document.body) return;
+      toggle.current?.focus({preventScroll:true});
+      toggle.current?.scrollIntoView({block:"start"});
+    });
   };
   return <section className="case-extensions" aria-labelledby={`${id}-title`}>
     <header className="editorial-heading"><h3 id={`${id}-title`}>同一产品，还有更多表达。</h3><p>延展主线之外的视觉作品，独立呈现不同场景、构图与渠道比例。</p></header>
