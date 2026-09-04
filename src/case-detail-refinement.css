@@ -160,7 +160,8 @@
   .editorial-channel-grid, .publishing-reading-map { grid-template-columns: 1fr; gap: 24px; padding: 24px 0; }
   .editorial-expand { font-size: 14px; align-items: center; }
   .editorial-expand span { font-size: 10px; }
-  .is-refined-panel .earbuds-frame-track { grid-template-columns: minmax(0, 1fr); grid-auto-flow: row; grid-auto-columns: auto; }
+  .is-refined-panel .earbuds-frame-track { display: grid; grid-template-columns: minmax(0, 1fr); grid-auto-flow: row; grid-auto-columns: auto; margin-right: 0; padding-right: 0; overflow: visible; }
+  .is-refined-panel .earbuds-frame-track article { width: auto; }
   .is-refined-panel .smart-case-heading h3 { font-size: 26px; }
 }
 
