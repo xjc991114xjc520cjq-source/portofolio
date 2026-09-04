@@ -134,7 +134,7 @@ export function YogaSetCaseStudy({ renderImage }: Props) {
           {visual(visuals.lakesideCommerce, "MORNING / 湖畔舒展强化身体与环境的节奏")}
         </div>
         <div className="yoga-campaign-band">
-          {visual(visuals.campaignWide)}
+          {visual(visuals.parkWide)}
           <div><span>CAMPAIGN LINE</span><h4>让设计，<br />跟着身体流动。</h4><p>以建筑弧线承接服装弧线，让人物、标题与空间共同完成构图。</p></div>
         </div>
       </section>

@@ -42,11 +42,7 @@
 .yoga-design-notes p { margin-top: 9px; font-size: 13px; }
 
 .yoga-details { padding-top: 54px; border-top: 1px solid rgba(216,201,185,.16); }
-.yoga-detail-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; align-items: start; }
-.yoga-detail-grid .yoga-figure { grid-column: span 4; }
-.yoga-detail-grid .yoga-figure:nth-child(1), .yoga-detail-grid .yoga-figure:nth-child(5) { grid-column: span 5; }
-.yoga-detail-grid .yoga-figure:nth-child(2), .yoga-detail-grid .yoga-figure:nth-child(4) { grid-column: span 7; }
-.yoga-detail-grid .yoga-figure:nth-child(3), .yoga-detail-grid .yoga-figure:nth-child(6) { grid-column: span 6; }
+.yoga-detail-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 18px; align-items: start; }
 
 .yoga-motion { position: relative; padding: 64px clamp(26px, 4vw, 58px); overflow: hidden; background: #d7c8b8; color: #262328; }
 .yoga-motion::after { content: ""; position: absolute; inset: -45% 22% auto auto; width: 58%; aspect-ratio: 1; border: 1px solid rgba(39,35,39,.18); border-radius: 50%; pointer-events: none; }
@@ -74,7 +70,10 @@
 .yoga-channel-map span { color: var(--yoga-oat); font: 650 10px/1.4 "Arial Narrow", Inter, sans-serif; letter-spacing: .12em; }
 .yoga-channel-map h4 { margin-top: 38px; }
 .yoga-channel-map p { margin-top: 10px; font-size: 13px; }
-.yoga-editorial-strip { display: grid; grid-template-columns: 1.5fr .72fr 1.5fr; gap: 18px; margin-top: 40px; align-items: start; }
+.yoga-editorial-strip { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 18px; margin-top: 40px; align-items: start; }
+.yoga-editorial-strip .yoga-figure:nth-child(1),
+.yoga-editorial-strip .yoga-figure:nth-child(2) { grid-column: span 3; }
+.yoga-editorial-strip .yoga-figure:nth-child(3) { grid-column: span 6; }
 
 .yoga-extensions { padding-top: 54px; border-top: 1px solid rgba(216,201,185,.16); }
 .yoga-archive-grid { columns: 3; column-gap: 18px; margin-top: 26px; }
@@ -83,26 +82,26 @@
 .yoga-conclusion strong { display: block; margin-top: 15px; font-size: clamp(24px, 2.8vw, 40px); font-weight: 520; line-height: 1.35; letter-spacing: -.045em; }
 
 .project-detail-panel.is-yoga-panel .project-detail-layout { position: absolute; top: 100px; bottom: 0; width: 100%; height: auto; }
-.project-detail-hero.is-yoga-hero { height: auto; min-height: 0; aspect-ratio: 2 / 1; }
+.project-detail-hero.is-yoga-hero { height: auto; min-height: 0; aspect-ratio: 2200 / 1238; background: #111214; }
 .project-detail-hero.is-yoga-hero .project-detail-visual > :is(strong, figcaption),
 .project-detail-hero.is-yoga-hero .project-detail-visual-shade { display: none; }
 .project-detail-hero.is-yoga-hero .project-detail-visual img { object-position: center center; filter: none; transform: none; }
-.project-detail-hero.is-yoga-hero .project-detail-intro { right: 0; left: auto; width: 43%; padding-right: clamp(42px, 5vw, 78px); padding-left: clamp(58px, 6vw, 96px); background: linear-gradient(270deg, rgba(24,22,24,.97), rgba(24,22,24,.87) 72%, transparent); }
-.project-detail-hero.is-yoga-hero .project-detail-title h2 { font-size: clamp(31px, 3vw, 48px); line-height: 1.28; }
+.project-detail-hero.is-yoga-hero .project-detail-intro { position: absolute !important; width: 1px !important; height: 1px !important; margin: -1px !important; padding: 0 !important; overflow: hidden !important; border: 0 !important; white-space: nowrap !important; clip: rect(0 0 0 0) !important; clip-path: inset(50%) !important; }
 
 @media (max-width: 1100px) {
   .yoga-case { width: calc(100% - 56px); gap: 64px; margin-top: 44px; }
   .yoga-opening { grid-template-columns: 1fr 1fr; gap: 30px; }
-  .yoga-detail-grid .yoga-figure { grid-column: span 6 !important; }
+  .yoga-detail-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .yoga-motion-wide { grid-template-columns: 1.2fr .8fr; }
   .yoga-motion-wide .yoga-figure:last-child { grid-column: 1 / -1; width: 58%; justify-self: end; }
   .yoga-channel-map { grid-template-columns: repeat(2, 1fr); }
-  .yoga-editorial-strip { grid-template-columns: 1fr .62fr; }
-  .yoga-editorial-strip .yoga-figure:last-child { grid-column: 1 / -1; }
-  .project-detail-hero.is-yoga-hero { display: block; height: auto; min-height: 0; aspect-ratio: auto; }
-  .project-detail-hero.is-yoga-hero .project-detail-visual { position: relative; inset: auto; height: auto; min-height: 0; aspect-ratio: 2 / 1; }
-  .project-detail-hero.is-yoga-hero .project-detail-visual img { object-fit: contain; }
-  .project-detail-hero.is-yoga-hero .project-detail-intro { position: relative; inset: auto; width: 100%; max-width: none; margin: 0; padding: 32px; border: 0; border-radius: 0; box-shadow: none; background: #111214; mask-image: none; -webkit-mask-image: none; }
+  .yoga-editorial-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .yoga-editorial-strip .yoga-figure:nth-child(1),
+  .yoga-editorial-strip .yoga-figure:nth-child(2) { grid-column: auto; }
+  .yoga-editorial-strip .yoga-figure:nth-child(3) { grid-column: 1 / -1; }
+  .project-detail-hero.is-yoga-hero { display: block; height: auto; min-height: 0; aspect-ratio: 2200 / 1238; }
+  .project-detail-hero.is-yoga-hero .project-detail-visual { position: absolute; inset: 0; height: 100%; min-height: 0; aspect-ratio: auto; }
+  .project-detail-hero.is-yoga-hero .project-detail-visual img { object-fit: cover; }
 }
 
 @media (max-width: 780px) {
@@ -116,15 +115,12 @@
   .yoga-design-notes, .yoga-channel-map { grid-template-columns: 1fr; }
   .yoga-design-notes article, .yoga-channel-map article { min-height: 0; }
   .yoga-detail-grid { grid-template-columns: 1fr; gap: 24px; }
-  .yoga-detail-grid .yoga-figure { grid-column: auto !important; }
   .yoga-motion { margin-right: -18px; margin-left: -18px; padding: 42px 18px; }
   .yoga-motion-wide { grid-template-columns: 1fr; }
   .yoga-motion-wide .yoga-figure:last-child { grid-column: auto; width: 100%; }
   .yoga-editorial-strip { grid-template-columns: 1fr; }
-  .yoga-editorial-strip .yoga-figure:last-child { grid-column: auto; }
+  .yoga-editorial-strip .yoga-figure:nth-child(3) { grid-column: auto; }
   .yoga-archive-grid { columns: 1; }
-  .project-detail-hero.is-yoga-hero .project-detail-intro { padding: 26px 22px; }
-  .project-detail-hero.is-yoga-hero .project-detail-title h2 { max-width: none; font-size: 30px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

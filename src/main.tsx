@@ -4262,7 +4262,9 @@ function ProjectDetailViewer({
             ? "/assets/projects/qinglan-tea/qinglan-oolong-cinematic-wide-v2.webp"
             : isSonaEarbudsProject
               ? "/assets/projects/sona-earbuds/sona-launch-banner.webp"
-              : item.image;
+              : isYogaProject
+                ? "/assets/projects/yoga-set/yoga-commerce-campaign-wide.webp"
+                : item.image;
   const detailHeroAlt = isGlacierProject
     ? "晨光冰原中的 GLACIER 洁面啫喱产品主视觉"
     : isSerumProject
@@ -4275,7 +4277,9 @@ function ProjectDetailViewer({
             ? "暖光建筑与深色石台上的青岚焙香乌龙产品主视觉"
             : isSonaEarbudsProject
               ? "SONA ARC ONE 听见自己的节奏新品上市横幅"
-              : item.alt;
+              : isYogaProject
+                ? "让设计跟着身体流动瑜伽套装横向商业主视觉"
+                : item.alt;
 
   useEffect(() => {
     viewerRef.current?.focus({ preventScroll: true });

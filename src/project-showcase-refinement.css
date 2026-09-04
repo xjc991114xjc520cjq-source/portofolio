@@ -5,17 +5,33 @@
 }
 
 .project-showcase-item,
-.project-showcase-item:last-child,
-.project-showcase-track.has-focus .project-showcase-item,
-.project-showcase-track.has-focus .project-showcase-item.is-focused,
-.project-showcase-track.has-focus .project-showcase-item:last-child,
+.project-showcase-track.has-focus .project-showcase-item {
+  margin: 0 -1px;
+  clip-path: polygon(17.5% 0, 100% 0, 82.5% 100%, 0 100%);
+}
+
+.project-showcase-item:last-child {
+  clip-path: polygon(17.5% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.project-showcase-track.has-focus .project-showcase-item {
+  clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+}
+
+.project-showcase-track.has-focus .project-showcase-item.is-focused {
+  clip-path: polygon(5.5% 0, 100% 0, 94.5% 100%, 0 100%);
+}
+
+.project-showcase-track.has-focus .project-showcase-item:last-child {
+  clip-path: polygon(10px 0, 100% 0, 100% 100%, 0 100%);
+}
+
 .project-showcase-track.has-focus .project-showcase-item.is-focused:last-child {
-  margin: 0;
-  clip-path: none;
+  clip-path: polygon(5.5% 0, 100% 0, 100% 100%, 0 100%);
 }
 
 .project-showcase-item {
-  border-left: 1px solid rgba(214, 222, 226, 0.09);
+  border-left: 0;
 }
 
 .project-showcase-item:first-child {
@@ -26,8 +42,10 @@
 .project-showcase-item:last-child::after,
 .project-showcase-track.has-focus .project-showcase-item::after,
 .project-showcase-track.has-focus .project-showcase-item.is-focused::after {
-  display: none;
+  display: block;
 }
+
+.project-showcase-item:last-child::after { display: none; }
 
 .project-showcase-track.has-focus .project-showcase-item,
 .project-showcase-track.has-focus .project-showcase-hit-zones span {
@@ -248,12 +266,18 @@
   .project-showcase-track.has-focus .project-showcase-item:last-child,
   .project-showcase-track.has-focus .project-showcase-item.is-focused:last-child {
     flex: 0 0 82vw;
-    clip-path: none;
-    border-left: 1px solid rgba(214, 222, 226, 0.09);
+    clip-path: polygon(13% 0, 100% 0, 87% 100%, 0 100%);
+    border-left: 0;
+  }
+
+  .project-showcase-item:last-child,
+  .project-showcase-track.has-focus .project-showcase-item:last-child,
+  .project-showcase-track.has-focus .project-showcase-item.is-focused:last-child {
+    clip-path: polygon(13% 0, 100% 0, 100% 100%, 0 100%);
   }
 
   .project-showcase-item:first-child {
-    margin-left: 0;
+    margin-left: -7vw;
     border-left: 0;
   }
 
