@@ -26,6 +26,8 @@ import {
 import "./styles.css";
 import { OutdoorSpeakerCaseStudy } from "./OutdoorSpeakerCaseStudy";
 import "./outdoor-speaker.css";
+import { ActionCameraCaseStudy } from "./ActionCameraCaseStudy";
+import "./action-camera.css";
 import { FishtailSkirtCaseStudy } from "./FishtailSkirtCaseStudy";
 import "./fishtail-skirt.css";
 import { YogaSetCaseStudy } from "./YogaSetCaseStudy";
@@ -476,6 +478,45 @@ const yogaSetProject = {
   ],
 } as const;
 
+const actionCameraProject = {
+  index: "04A",
+  title: "KOVA 运动相机：不是旁观，是在场",
+  english: "KOVA ACTION CAMERA EXPERIENCE SYSTEM",
+  category: "消费科技 / 行动影像",
+  categoryEnglish: "ACTION CAMERA EXPERIENCE",
+  year: "2026",
+  image: "/assets/projects/kova-action-camera/kova-hero.jpg",
+  alt: "三位户外旅行者在雪山营地使用 KOVA 运动相机记录行程",
+  backdrop: "KOVA",
+  accent: "#c9d0c9",
+  introTheme: {
+    surface: "#1d2021",
+    surfaceDeep: "#0d0f10",
+    title: "#f0f1ee",
+    body: "#c6cbc8",
+    muted: "#a5adaa",
+    accent: "#c9d0c9",
+    rule: "#59605e",
+    shadow: "rgba(4, 6, 7, 0.5)",
+  },
+  summary: "以稳定产品结构连接拍摄、回看、安装与行动场景，再用三支短片把同一台运动相机延展为可用于商品页、Campaign 和内容传播的整合系统。",
+  brief: "运动相机不该只停留在硬件参数。项目需要让消费者看懂产品、相信操作，并在骑行、冲浪、滑雪与水上行动中产生记录欲望。",
+  response: "先锁定机身、前后双屏、镜头、舱盖与顶部三键，再用安装关系和真实动作区分不同场景，最后以静态电商与动态短片完成渠道延展。",
+  role: "AI Art Direction / Consumer Tech",
+  scope: "消费科技产品定义、场景商业化与动态内容",
+  deliverables: ["产品母版", "前后双屏视图", "结构视觉", "操作说明", "行动场景", "电商主视觉", "动态短片", "多比例渠道内容"],
+  workflow: ["产品锁定", "操作拆解", "场景关系", "商业编排", "关键帧控制", "动态生成", "渠道交付"],
+  system: "固定深石墨横向软方机身、左侧前屏、右侧圆形镜头、背部横屏、右侧舱盖与 KOVA 标识；背面视图顶部按键从右向左为快门键、功能键和纹理控制键。",
+  outcome: "从候选素材中精选十三张核心静态视觉与三支动态短片，覆盖产品识别、操作理解、四类行动场景和三种内容比例。",
+  reflection: "消费科技的完整表达不是堆叠参数，而是让产品结构、操作动作、安装方式和行动结果在每个触点都能彼此验证。",
+  gallery: [
+    { src: "/assets/projects/kova-action-camera/kova-product-dual.jpg", alt: "KOVA 运动相机前后双屏产品视图", layout: "wide" },
+    { src: "/assets/projects/kova-action-camera/kova-commerce-buttons.jpg", alt: "KOVA 运动相机顶部三键操作说明商业图", layout: "square" },
+    { src: "/assets/projects/kova-action-camera/kova-commerce-action.jpg", alt: "迎浪不迎合 KOVA 运动相机行动主视觉", layout: "square" },
+    { src: "/assets/projects/kova-action-camera/kova-scene-kayak.jpg", alt: "KOVA 运动相机固定在皮划艇前端记录湖面行程", layout: "wide" },
+  ],
+} as const;
+
 const projectShowcaseCollections = [
   {
     id: "smart-living",
@@ -517,11 +558,12 @@ const projectShowcaseCollections = [
     index: "04",
     title: "生活体验",
     english: "LIFESTYLE EXPERIENCES",
-    facets: ["户外音箱", "户外场景", "体验商业化"],
+    facets: ["运动相机", "户外音箱", "体验商业化"],
     coverImages: [
+      "/assets/projects/kova-action-camera/kova-product-dual.jpg",
       "/assets/projects/outdoor-speaker/speaker-product-cover.png",
     ],
-    projects: [projectShowcaseItems[5]],
+    projects: [actionCameraProject, projectShowcaseItems[5]],
   },
   {
     id: "fashion-commerce",
@@ -4248,6 +4290,7 @@ function ProjectDetailViewer({
   const isOolongProject = item.english === "QINGLAN OOLONG GROWTH SYSTEM";
   const isSonaEarbudsProject = item.english === "SONA ARC ONE EARBUDS LAUNCH SYSTEM";
   const isOutdoorSpeakerProject = item.english === "OUTDOOR SPEAKER EXPERIENCE SYSTEM";
+  const isActionCameraProject = item.english === "KOVA ACTION CAMERA EXPERIENCE SYSTEM";
   const isSkirtProject = item.english === "FISHTAIL LEATHER SKIRT CAMPAIGN SYSTEM";
   const isYogaProject = item.english === "YOGA SET FASHION COMMERCE SYSTEM";
   const detailHeroImage = isGlacierProject
@@ -4343,7 +4386,7 @@ function ProjectDetailViewer({
       onKeyDown={handleKeyDown}
     >
       <motion.article
-        className={`project-detail-panel${!isSkirtProject && !isYogaProject ? " is-refined-panel" : ""}${item === projectShowcaseItems[6] ? " is-publishing-panel" : ""}${isOolongProject ? " is-oolong-panel" : ""}${isOutdoorSpeakerProject ? " is-speaker-panel" : ""}${isSkirtProject ? " is-skirt-panel" : ""}${isYogaProject ? " is-yoga-panel" : ""}`}
+        className={`project-detail-panel${!isSkirtProject && !isYogaProject ? " is-refined-panel" : ""}${item === projectShowcaseItems[6] ? " is-publishing-panel" : ""}${isOolongProject ? " is-oolong-panel" : ""}${isOutdoorSpeakerProject ? " is-speaker-panel" : ""}${isActionCameraProject ? " is-action-camera-panel" : ""}${isSkirtProject ? " is-skirt-panel" : ""}${isYogaProject ? " is-yoga-panel" : ""}`}
         style={{
           "--project-detail-accent": item.accent,
           "--project-intro-surface": item.introTheme.surface,
@@ -4445,7 +4488,7 @@ function ProjectDetailViewer({
             exit={reduceMotion ? undefined : { opacity: 0, x: -20 }}
             transition={{ duration: reduceMotion || keyboardNavigation ? 0 : 0.26, ease: [0.23, 1, 0.32, 1] }}
           >
-            <section className={`project-detail-hero${isOolongProject ? " is-oolong-detail-hero" : ""}${isGlacierProject ? " is-glacier-detail-hero" : ""}${isSerumProject ? " is-serum-detail-hero" : ""}${isSonaEarbudsProject ? " is-sona-earbuds-detail-hero" : ""}${isOutdoorSpeakerProject ? " is-outdoor-speaker-hero" : ""}${isSkirtProject ? " is-skirt-hero" : ""}${isYogaProject ? " is-yoga-hero" : ""}`}>
+            <section className={`project-detail-hero${isOolongProject ? " is-oolong-detail-hero" : ""}${isGlacierProject ? " is-glacier-detail-hero" : ""}${isSerumProject ? " is-serum-detail-hero" : ""}${isSonaEarbudsProject ? " is-sona-earbuds-detail-hero" : ""}${isOutdoorSpeakerProject ? " is-outdoor-speaker-hero" : ""}${isActionCameraProject ? " is-action-camera-hero" : ""}${isSkirtProject ? " is-skirt-hero" : ""}${isYogaProject ? " is-yoga-hero" : ""}`}>
               <figure className={`project-detail-visual${isGlacierProject ? " is-glacier-detail-visual" : ""}${isSerumProject ? " is-serum-detail-visual" : ""}${isSonaEarbudsProject ? " is-sona-earbuds-detail-visual" : ""}`}>
                 <ZoomableProjectImage
                   src={detailHeroImage}
@@ -4468,7 +4511,7 @@ function ProjectDetailViewer({
                 </div>
                 <div className="project-detail-title">
                   <small>{item.english}</small>
-                  <h2 id={titleId}>{isOutdoorSpeakerProject ? <>户外音箱<br />把音乐带进生活</> : isSkirtProject ? <>鱼尾皮裙<br />黑裙不止一面</> : isYogaProject ? <>瑜伽套装<br />让设计跟着身体流动</> : item.title}</h2>
+                  <h2 id={titleId}>{isOutdoorSpeakerProject ? <>户外音箱<br />把音乐带进生活</> : isActionCameraProject ? <>KOVA 运动相机<br />不是旁观，是在场</> : isSkirtProject ? <>鱼尾皮裙<br />黑裙不止一面</> : isYogaProject ? <>瑜伽套装<br />让设计跟着身体流动</> : item.title}</h2>
                 </div>
                 <p className="project-detail-summary" id={summaryId}>{item.summary}</p>
               </div>
@@ -4485,6 +4528,8 @@ function ProjectDetailViewer({
                 <SonaEarbudsCaseStudy onImageOpen={openImage} reduceMotion={reduceMotion} scrollRoot={detailLayoutRef} />
               ) : isOutdoorSpeakerProject ? (
                 <OutdoorSpeakerCaseStudy renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />
+              ) : isActionCameraProject ? (
+                <ActionCameraCaseStudy renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />
               ) : isSkirtProject ? (
                 <FishtailSkirtCaseStudy renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />
               ) : isYogaProject ? (
@@ -4493,7 +4538,7 @@ function ProjectDetailViewer({
                 <PublishingEditorialCase renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />
               )}
 
-              {!isSkirtProject && !isYogaProject && <CaseExtensions key={item.index} kind={isOolongProject ? "oolong" : isOutdoorSpeakerProject ? "speaker" : isSonaEarbudsProject ? "earbuds" : ["air", "fan", "glacier", "serum", "jasmine"][projectShowcaseItems.indexOf(item as typeof projectShowcaseItems[number])] || "publishing"} renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />}
+              {!isSkirtProject && !isYogaProject && !isActionCameraProject && <CaseExtensions key={item.index} kind={isOolongProject ? "oolong" : isOutdoorSpeakerProject ? "speaker" : isSonaEarbudsProject ? "earbuds" : ["air", "fan", "glacier", "serum", "jasmine"][projectShowcaseItems.indexOf(item as typeof projectShowcaseItems[number])] || "publishing"} renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />}
 
               <footer className="project-detail-footer">
                 <dl>
