@@ -1961,6 +1961,18 @@ video {
   }
 }
 
+@keyframes nav-component-title-rise {
+  from {
+    opacity: 0;
+    translate: 0 42px;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
 @keyframes nav-component-slide-left {
   from {
     opacity: 0;
@@ -2028,7 +2040,7 @@ video {
 }
 
 #top.nav-component-enter .name-reveal {
-  animation: nav-component-rise 680ms var(--ease-drawer) 70ms both;
+  animation: nav-component-title-rise 680ms var(--ease-drawer) 70ms both;
 }
 
 #top.nav-component-enter .hero-title-index {
