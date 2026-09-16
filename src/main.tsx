@@ -1490,14 +1490,14 @@ function Hero() {
     target: sceneRef,
     offset: ["start start", "end end"],
   });
-  const centerOpacity = useTransform(scrollYProgress, [0, 0.52, 0.88, 1], [1, 1, 0, 0]);
+  const centerOpacity = useTransform(scrollYProgress, [0, 0.52, 0.9, 1], [1, 1, 0.22, 0.08]);
   const centerY = useTransform(scrollYProgress, [0, 1], [0, -90]);
   const centerScale = useTransform(scrollYProgress, [0, 0.7, 1], [1, 0.96, 0.84]);
   const orbitScale = useTransform(scrollYProgress, [0, 0.68, 1], [1, 1.08, 1.3]);
   const orbitRotate = useTransform(scrollYProgress, [0, 1], [0, -4]);
-  const orbitOpacity = useTransform(scrollYProgress, [0, 0.72, 1], [1, 0.78, 0.16]);
+  const orbitOpacity = useTransform(scrollYProgress, [0, 0.72, 1], [1, 0.82, 0.38]);
   const videoScale = useTransform(scrollYProgress, [0, 1], [1, 1.16]);
-  const videoOpacity = useTransform(scrollYProgress, [0, 0.78, 1], [1, 0.72, 0.18]);
+  const videoOpacity = useTransform(scrollYProgress, [0, 0.78, 1], [1, 0.76, 0.42]);
 
   useEffect(() => {
     const video = videoRef.current;
