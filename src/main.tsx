@@ -1742,91 +1742,92 @@ const projectOriginalImageSources: Record<string, string> = {
   "/assets/projects/table-fan/table-fan-j07.webp": "/assets/projects/table-fan/originals/table-fan-j07-4k.jpg",
 };
 
-const projectOriginalPreloadOrder = [
-  projectOriginalImageSources["/assets/projects/table-fan/table-fan-hero.webp"],
-  projectOriginalImageSources["/assets/projects/table-fan/table-fan-views.webp"],
-  projectOriginalImageSources["/assets/projects/table-fan/table-fan-lifestyle.webp"],
-  projectOriginalImageSources["/assets/projects/table-fan/table-fan-family.webp"],
-  projectOriginalImageSources["/assets/projects/table-fan/table-fan-night.webp"],
-  projectOriginalImageSources["/assets/projects/table-fan/table-fan-dayparts.webp"],
-  projectOriginalImageSources["/assets/projects/table-fan/table-fan-night-detail.webp"],
-  projectOriginalImageSources["/assets/projects/table-fan/table-fan-m01.webp"],
-  projectOriginalImageSources["/assets/projects/table-fan/table-fan-m02.webp"],
-  projectOriginalImageSources["/assets/projects/table-fan/table-fan-m03.webp"],
-  projectOriginalImageSources["/assets/projects/table-fan/table-fan-m04.webp"],
-  projectOriginalImageSources["/assets/projects/table-fan/table-fan-m05.webp"],
-  projectOriginalImageSources["/assets/projects/table-fan/table-fan-m06.webp"],
-  projectOriginalImageSources["/assets/projects/table-fan/table-fan-m07.webp"],
-  projectOriginalImageSources["/assets/projects/table-fan/table-fan-m08.webp"],
-  projectOriginalImageSources["/assets/projects/table-fan/table-fan-m09.webp"],
-  projectOriginalImageSources["/assets/projects/table-fan/table-fan-m10.webp"],
-  projectOriginalImageSources["/assets/projects/table-fan/table-fan-m11.webp"],
-  projectOriginalImageSources["/assets/projects/table-fan/table-fan-m12.webp"],
-  projectOriginalImageSources["/assets/projects/table-fan/table-fan-m13.webp"],
-  projectOriginalImageSources["/assets/projects/table-fan/table-fan-m14.webp"],
-  projectOriginalImageSources["/assets/projects/table-fan/table-fan-m15.webp"],
-];
+type OriginalImageProgress = number | null;
+type OriginalImageProgressListener = (progress: OriginalImageProgress) => void;
 
 type OriginalImageLoad = {
-  image: HTMLImageElement;
   promise: Promise<string>;
+  progress: OriginalImageProgress;
+  listeners: Set<OriginalImageProgressListener>;
 };
 
 const projectOriginalImageLoads = new Map<string, OriginalImageLoad>();
 
-const loadProjectOriginalImage = (src: string, priority: "high" | "low" = "low") => {
+const loadProjectOriginalImage = (src: string, onProgress?: OriginalImageProgressListener) => {
   const existingLoad = projectOriginalImageLoads.get(src);
   if (existingLoad) {
-    existingLoad.image.fetchPriority = priority;
-    return existingLoad.promise;
+    if (onProgress) {
+      existingLoad.listeners.add(onProgress);
+      onProgress(existingLoad.progress);
+    }
+    return existingLoad.promise.finally(() => {
+      if (onProgress) existingLoad.listeners.delete(onProgress);
+    });
   }
 
-  const image = new Image();
-  image.decoding = "async";
-  image.fetchPriority = priority;
-  const promise = new Promise<string>((resolve, reject) => {
-    image.onload = () => resolve(src);
-    image.onerror = () => {
-      projectOriginalImageLoads.delete(src);
-      reject(new Error(`Unable to load original project image: ${src}`));
-    };
-  });
-  projectOriginalImageLoads.set(src, { image, promise });
-  image.src = src;
-  return promise;
-};
+  const listeners = new Set<OriginalImageProgressListener>();
+  if (onProgress) listeners.add(onProgress);
+  const load: OriginalImageLoad = {
+    progress: 0,
+    listeners,
+    promise: Promise.resolve(src),
+  };
+  const reportProgress = (progress: OriginalImageProgress) => {
+    if (load.progress === progress) return;
+    load.progress = progress;
+    load.listeners.forEach((listener) => listener(progress));
+  };
 
-const waitForBrowserIdle = () => new Promise<void>((resolve) => {
-  if ("requestIdleCallback" in window) {
-    window.requestIdleCallback(() => resolve(), { timeout: 1400 });
-  } else {
-    globalThis.setTimeout(resolve, 450);
-  }
-});
+  load.promise = (async () => {
+    reportProgress(0);
+    const response = await fetch(src, { cache: "force-cache" });
+    if (!response.ok) throw new Error(`Unable to load original project image: ${src}`);
 
-function useProjectOriginalPreloading(enabled: boolean) {
-  useEffect(() => {
-    if (!enabled) return undefined;
-    let cancelled = false;
-
-    const preloadInPageOrder = async () => {
-      for (const src of projectOriginalPreloadOrder) {
-        await waitForBrowserIdle();
-        if (cancelled) return;
-        try {
-          await loadProjectOriginalImage(src, "low");
-        } catch {
-          // A failed background request can be retried with high priority when clicked.
-        }
+    const totalBytes = Number(response.headers.get("content-length")) || 0;
+    let blob: Blob;
+    if (!response.body) {
+      reportProgress(null);
+      blob = await response.blob();
+    } else {
+      const reader = response.body.getReader();
+      const chunks: BlobPart[] = [];
+      let receivedBytes = 0;
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        const chunk = new Uint8Array(value.byteLength);
+        chunk.set(value);
+        chunks.push(chunk.buffer);
+        receivedBytes += value.byteLength;
+        reportProgress(totalBytes > 0 ? Math.min(94, Math.round((receivedBytes / totalBytes) * 94)) : null);
       }
-    };
+      blob = new Blob(chunks, { type: response.headers.get("content-type") ?? "image/jpeg" });
+    }
 
-    void preloadInPageOrder();
-    return () => {
-      cancelled = true;
-    };
-  }, [enabled]);
-}
+    reportProgress(96);
+    const objectUrl = URL.createObjectURL(blob);
+    const image = new Image();
+    image.src = objectUrl;
+    try {
+      await image.decode();
+    } catch (error) {
+      URL.revokeObjectURL(objectUrl);
+      throw error;
+    }
+    reportProgress(100);
+    return objectUrl;
+  })().catch((error) => {
+    if (projectOriginalImageLoads.get(src) === load) {
+      projectOriginalImageLoads.delete(src);
+    }
+    throw error;
+  }).finally(() => {
+    if (onProgress) listeners.delete(onProgress);
+  });
+
+  projectOriginalImageLoads.set(src, load);
+  return load.promise;
+};
 
 type ZoomableProjectImageProps = ProjectImageSource & {
   onOpen: (image: ProjectImageSource) => void;
@@ -1878,10 +1879,7 @@ function ZoomableProjectImage({
       className={`project-image-trigger${className ? ` ${className}` : ""}`}
       type="button"
       aria-label={`放大查看：${alt}`}
-      onClick={() => {
-        if (fullSrc) void loadProjectOriginalImage(fullSrc, "high");
-        onOpen({ src, alt, fullSrc });
-      }}
+      onClick={() => onOpen({ src, alt, fullSrc })}
     >
       <img
         src={src}
@@ -1928,6 +1926,7 @@ function ProjectImageLightbox({
   const [viewerSrc, setViewerSrc] = useState(image.src);
   const [isOriginalLoaded, setIsOriginalLoaded] = useState(false);
   const [originalLoadFailed, setOriginalLoadFailed] = useState(false);
+  const [originalLoadProgress, setOriginalLoadProgress] = useState<OriginalImageProgress>(image.fullSrc ? 0 : 100);
 
   useDocumentScrollLock(true);
   useMotionValueEvent(scale, "change", (latest) => {
@@ -2044,9 +2043,12 @@ function ProjectImageLightbox({
     setViewerSrc(image.src);
     setIsOriginalLoaded(false);
     setOriginalLoadFailed(false);
+    setOriginalLoadProgress(image.fullSrc ? 0 : 100);
     if (!image.fullSrc || image.fullSrc === image.src) return undefined;
 
-    void loadProjectOriginalImage(image.fullSrc, "high").then((loadedSrc) => {
+    void loadProjectOriginalImage(image.fullSrc, (progress) => {
+      if (isCurrentImage) setOriginalLoadProgress(progress);
+    }).then((loadedSrc) => {
       if (!isCurrentImage) return;
       setViewerSrc(loadedSrc);
       setIsOriginalLoaded(true);
@@ -2159,7 +2161,29 @@ function ProjectImageLightbox({
           <span>IMAGE VIEWER</span>
           <strong>{image.alt}</strong>
           {image.fullSrc ? (
-            <small>{originalLoadFailed ? "4K 原图加载失败" : isOriginalLoaded ? "4K 原图已加载" : "4K 原图加载中…"}</small>
+            <div
+              className={`project-image-lightbox-progress${originalLoadProgress === null ? " is-indeterminate" : ""}${isOriginalLoaded ? " is-complete" : ""}${originalLoadFailed ? " is-failed" : ""}`}
+              role="progressbar"
+              aria-label="4K 原图加载进度"
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-valuenow={originalLoadProgress ?? undefined}
+            >
+              <span className="project-image-lightbox-progress-track" aria-hidden="true">
+                <i style={originalLoadProgress === null ? undefined : { transform: `scaleX(${originalLoadProgress / 100})` }} />
+              </span>
+              <small aria-live="polite">
+                {originalLoadFailed
+                  ? "4K 原图加载失败"
+                  : isOriginalLoaded
+                    ? "4K 原图已加载"
+                    : originalLoadProgress === null
+                      ? "4K 原图加载中"
+                      : originalLoadProgress >= 96
+                        ? "4K 原图解码中"
+                        : `4K 原图 ${originalLoadProgress}%`}
+              </small>
+            </div>
           ) : null}
         </div>
         <div className="project-image-lightbox-controls">
@@ -5066,7 +5090,6 @@ function MobileExperienceGate() {
 
 function App() {
   const [loading, setLoading] = useState(() => !window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-  useProjectOriginalPreloading(!loading);
 
   return (
     <>

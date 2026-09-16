@@ -3128,6 +3128,7 @@ video {
   left: 22px;
   z-index: 5;
   display: flex;
+  overflow: hidden;
   min-height: 54px;
   align-items: center;
   justify-content: space-between;
@@ -3168,6 +3169,58 @@ video {
   font-size: 8px;
   font-weight: 650;
   letter-spacing: 0.08em;
+}
+
+.project-image-lightbox-progress {
+  display: block;
+  min-width: 0;
+}
+
+.project-image-lightbox-progress-track {
+  position: absolute;
+  right: 18px;
+  bottom: 0;
+  left: 18px;
+  display: block;
+  height: 2px;
+  overflow: hidden;
+  background: rgba(248, 248, 245, 0.12);
+}
+
+.project-image-lightbox-progress-track i {
+  position: absolute;
+  inset: 0;
+  display: block;
+  background: var(--accent-a);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 120ms linear;
+}
+
+.project-image-lightbox-progress.is-indeterminate .project-image-lightbox-progress-track i {
+  width: 42%;
+  animation: project-original-progress 1.1s var(--ease-out) infinite;
+}
+
+.project-image-lightbox-progress.is-complete .project-image-lightbox-progress-track i {
+  opacity: 0.58;
+}
+
+.project-image-lightbox-progress.is-failed .project-image-lightbox-progress-track i {
+  background: #c98279;
+}
+
+.project-image-lightbox-progress small {
+  display: block;
+  overflow: hidden;
+  font-variant-numeric: tabular-nums;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@keyframes project-original-progress {
+  from { transform: translateX(-115%); }
+  to { transform: translateX(340%); }
 }
 
 .project-image-lightbox-controls {
@@ -6528,6 +6581,15 @@ video {
 
   .project-image-lightbox-title strong {
     display: none;
+  }
+
+  .project-image-lightbox-progress {
+    min-width: 74px;
+  }
+
+  .project-image-lightbox-progress-track {
+    right: 12px;
+    left: 12px;
   }
 
   .project-image-lightbox-controls {
