@@ -578,19 +578,8 @@ const projectShowcaseCollections = [
     projects: [fishtailSkirtProject, yogaSetProject],
   },
   {
-    id: "cultural-publishing",
-    index: "06",
-    title: "文化出版",
-    english: "CULTURAL PUBLISHING",
-    facets: ["内容梳理", "套系识别", "电商叙事"],
-    coverImages: [
-      "/assets/works/commerce-andersen-thumb.jpg",
-    ],
-    projects: [projectShowcaseItems[6]],
-  },
-  {
     id: "product-motion",
-    index: "07",
+    index: "06",
     title: "产品动态影像",
     english: "PRODUCT MOTION",
     facets: ["精密硬件一致性", "产品影片", "多比例交付"],
@@ -4410,7 +4399,7 @@ function ProjectDetailViewer({
       onKeyDown={handleKeyDown}
     >
       <motion.article
-        className={`project-detail-panel${!isSkirtProject && !isYogaProject ? " is-refined-panel" : ""}${item === projectShowcaseItems[6] ? " is-publishing-panel" : ""}${isOolongProject ? " is-oolong-panel" : ""}${isOutdoorSpeakerProject ? " is-speaker-panel" : ""}${isActionCameraProject ? " is-action-camera-panel" : ""}${isSkirtProject ? " is-skirt-panel" : ""}${isYogaProject ? " is-yoga-panel" : ""}`}
+        className={`project-detail-panel${!isSkirtProject && !isYogaProject ? " is-refined-panel" : ""}${isOolongProject ? " is-oolong-panel" : ""}${isOutdoorSpeakerProject ? " is-speaker-panel" : ""}${isActionCameraProject ? " is-action-camera-panel" : ""}${isSkirtProject ? " is-skirt-panel" : ""}${isYogaProject ? " is-yoga-panel" : ""}`}
         style={{
           "--project-detail-accent": item.accent,
           "--project-intro-surface": item.introTheme.surface,
