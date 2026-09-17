@@ -1,6 +1,11 @@
 import type { CSSProperties, ReactNode } from "react";
+import { PortfolioVideo } from "./PortfolioVideo";
 
-type Props = { renderImage: (src: string, alt: string) => ReactNode };
+type Props = {
+  renderImage: (src: string, alt: string) => ReactNode;
+  reduceMotion: boolean | null;
+  scrollRoot: { readonly current: Element | null };
+};
 
 const root = "/assets/projects/kova-action-camera";
 
@@ -43,7 +48,7 @@ const films = [
   },
 ] as const;
 
-export function ActionCameraCaseStudy({ renderImage }: Props) {
+export function ActionCameraCaseStudy({ renderImage, reduceMotion, scrollRoot }: Props) {
   const visual = (key: keyof typeof assets, title?: string, note?: string) => {
     const [name, alt, width, height] = assets[key];
     return (
@@ -71,6 +76,27 @@ export function ActionCameraCaseStudy({ renderImage }: Props) {
         {visual("productDual", "前后双屏", "同一机身，两种取景关系。")}
       </section>
 
+      <section className="kova-motion" aria-labelledby="kova-motion">
+        <header className="kova-heading is-stacked">
+          <h3 id="kova-motion">让静态承诺，<br />在动作里兑现。</h3>
+          <p>三段短片分别完成产品展示、操作回看与场景记录，避免把动态内容降级为静态图片的简单推拉。</p>
+        </header>
+        <div className="kova-film-grid">
+          {films.map((film) => (
+            <figure className="kova-film" key={film.title}>
+              <PortfolioVideo
+                src={`${root}/${film.src}`}
+                poster={`${root}/${film.poster}`}
+                aria-label={film.label}
+                reduceMotion={reduceMotion}
+                scrollRoot={scrollRoot}
+              />
+              <figcaption><strong>{film.title}</strong><span>{film.note}</span></figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
       <section className="kova-chapter" aria-labelledby="kova-product">
         <header className="kova-heading">
           <h3 id="kova-product">先锁定一台相机，<br />再拓展所有现场。</h3>
@@ -83,10 +109,12 @@ export function ActionCameraCaseStudy({ renderImage }: Props) {
       </section>
 
       <section className="kova-control" aria-labelledby="kova-control">
-        {visual("buttons", "三键在手", "背面视图从右向左固定为快门键、功能键、纹理控制键。")}
-        <div className="kova-control-copy">
+        <header className="kova-control-copy">
           <h3 id="kova-control">让功能被看懂，<br />而不是被列出来。</h3>
           <p>顶部按键用近景建立操作秩序，背屏回看用手势与画面回应拍摄结果。两张图分别承担操作入口与体验闭环。</p>
+        </header>
+        <div className="kova-control-grid">
+          {visual("buttons", "三键在手", "背面视图从右向左固定为快门键、功能键、纹理控制键。")}
           {visual("review", "拍完，当场回看", "触控动作、手套与背屏内容维持真实接触关系。")}
         </div>
       </section>
@@ -113,23 +141,6 @@ export function ActionCameraCaseStudy({ renderImage }: Props) {
           {visual("action", "行动主张", "用浪面与机位关系把记录欲望推到第一视觉中心。")}
           {visual("lens", "光学语言", "镜组展开成为视觉焦点，不借助虚构参数制造可信度。")}
           {visual("night", "城市延展", "雨夜、车把与路面反光建立不同于山野的记录场景。")}
-        </div>
-      </section>
-
-      <section className="kova-motion" aria-labelledby="kova-motion">
-        <header className="kova-heading is-stacked">
-          <h3 id="kova-motion">让静态承诺，<br />在动作里兑现。</h3>
-          <p>三段短片分别完成产品展示、操作回看与场景记录，避免把动态内容降级为静态图片的简单推拉。</p>
-        </header>
-        <div className="kova-film-grid">
-          {films.map((film) => (
-            <figure className="kova-film" key={film.title}>
-              <video controls playsInline preload="metadata" poster={`${root}/${film.poster}`} aria-label={film.label}>
-                <source src={`${root}/${film.src}`} type="video/mp4" />
-              </video>
-              <figcaption><strong>{film.title}</strong><span>{film.note}</span></figcaption>
-            </figure>
-          ))}
         </div>
       </section>
 

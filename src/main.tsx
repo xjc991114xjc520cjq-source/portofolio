@@ -27,6 +27,7 @@ import "./styles.css";
 import { OutdoorSpeakerCaseStudy } from "./OutdoorSpeakerCaseStudy";
 import "./outdoor-speaker.css";
 import { ActionCameraCaseStudy } from "./ActionCameraCaseStudy";
+import { PortfolioVideo } from "./PortfolioVideo";
 import "./action-camera.css";
 import { FishtailSkirtCaseStudy } from "./FishtailSkirtCaseStudy";
 import "./fishtail-skirt.css";
@@ -3762,30 +3763,6 @@ function SonaEarbudsCaseStudy({
   reduceMotion: boolean | null;
   scrollRoot: RefObject<HTMLDivElement>;
 }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    const pauseVideo = () => video.pause();
-    const syncPlayback = (entry?: IntersectionObserverEntry) => {
-      const fullyVisible = Boolean(entry?.isIntersecting && entry.intersectionRatio >= 0.995);
-      if (fullyVisible && reduceMotion === false) video.play().catch(() => undefined);
-      else pauseVideo();
-    };
-
-    pauseVideo();
-    const observer = new IntersectionObserver(
-      ([entry]) => syncPlayback(entry),
-      { root: scrollRoot.current ?? null, threshold: [0, 0.995, 1] },
-    );
-    observer.observe(video);
-    return () => {
-      observer.disconnect();
-      pauseVideo();
-    };
-  }, [reduceMotion, scrollRoot]);
-
   return (
     <div className="smart-case earbuds-case">
       <section className="case-capability-intro earbuds-capability" aria-labelledby="earbuds-capability-title">
@@ -3796,19 +3773,16 @@ function SonaEarbudsCaseStudy({
         </header>
         <div className="earbuds-film-stage">
           <figure>
-            <video
-              ref={videoRef}
-              controls
-              loop
-              muted
-              playsInline
+            <PortfolioVideo
               poster="/assets/projects/sona-earbuds/sona-film-finale.webp"
-              preload="metadata"
               aria-label="SONA ARC ONE 耳机从充电仓闭合到双耳展开的十秒产品影片"
-            >
-              <source src="/assets/projects/sona-earbuds/sona-product-film.webm" type="video/webm" />
-              <source src="/assets/projects/sona-earbuds/sona-product-film.mp4" type="video/mp4" />
-            </video>
+              sources={[
+                { src: "/assets/projects/sona-earbuds/sona-product-film.webm", type: "video/webm" },
+                { src: "/assets/projects/sona-earbuds/sona-product-film.mp4", type: "video/mp4" },
+              ]}
+              reduceMotion={reduceMotion}
+              scrollRoot={scrollRoot}
+            />
             <figcaption>10.1 秒产品片 / 闭合、开盖、升起、展开。</figcaption>
           </figure>
           <div className="earbuds-capability-proof" aria-label="SONA ARC ONE 项目交付概览">
@@ -3989,58 +3963,6 @@ function SonaEarbudsCaseStudy({
 }
 
 
-function ViewportProjectVideo({
-  src,
-  poster,
-  label,
-  reduceMotion,
-  scrollRoot,
-}: {
-  src: string;
-  poster: string;
-  label: string;
-  reduceMotion: boolean | null;
-  scrollRoot: RefObject<HTMLDivElement>;
-}) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    let fullyVisible = false;
-    const pause = () => video.pause();
-    const handleVisibility = () => {
-      if (document.hidden) pause();
-    };
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        const wasFullyVisible = fullyVisible;
-        fullyVisible = entry.intersectionRatio >= 1 - 0.000001;
-        if (fullyVisible && !wasFullyVisible && reduceMotion === false && !document.hidden) {
-          video.play().catch(() => undefined);
-          return;
-        }
-        if (!entry.isIntersecting || entry.intersectionRatio === 0) pause();
-      },
-      { root: scrollRoot.current ?? null, rootMargin: "-110px 0px -16px 0px", threshold: [0, 0.999999, 1] },
-    );
-    observer.observe(video);
-    document.addEventListener("visibilitychange", handleVisibility);
-    return () => {
-      observer.disconnect();
-      document.removeEventListener("visibilitychange", handleVisibility);
-      pause();
-    };
-  }, [reduceMotion, scrollRoot]);
-
-  return (
-    <video ref={videoRef} controls muted playsInline preload="metadata" poster={poster} aria-label={label}>
-      <source src={src} type="video/mp4" />
-    </video>
-  );
-}
-
 function QinglanOolongCaseStudy({
   onImageOpen,
   reduceMotion,
@@ -4074,7 +3996,7 @@ function QinglanOolongCaseStudy({
           <p>赤铜光环、卷曲茶叶与琥珀茶汤形成风味意象，从产品影片延展为新品传播主视觉。</p>
         </header>
         <figure className="oolong-film-feature">
-          <ViewportProjectVideo src="/assets/projects/qinglan-tea/qinglan-oolong-film-aroma.mp4" poster="/assets/projects/qinglan-tea/qinglan-oolong-film-aroma-poster.webp" label="焙香乌龙产品宣传片：铜色光环与茶叶环绕瓶身，8 秒完整版" reduceMotion={reduceMotion} scrollRoot={scrollRoot} />
+          <PortfolioVideo src="/assets/projects/qinglan-tea/qinglan-oolong-film-aroma.mp4" poster="/assets/projects/qinglan-tea/qinglan-oolong-film-aroma-poster.webp" aria-label="焙香乌龙产品宣传片：铜色光环与茶叶环绕瓶身，8 秒完整版" reduceMotion={reduceMotion} scrollRoot={scrollRoot} />
           <figcaption><strong>焙香意象</strong><span>8 秒产品宣传片</span></figcaption>
         </figure>
         <div className="oolong-campaign-pair">
@@ -4131,7 +4053,7 @@ function QinglanOolongCaseStudy({
         </header>
         <div className="oolong-origin-pair">
           <figure>
-            <ViewportProjectVideo src="/assets/projects/qinglan-tea/qinglan-oolong-film-garden.mp4" poster="/assets/projects/qinglan-tea/qinglan-oolong-film-garden-poster.webp" label="焙香乌龙茶园产品宣传片：从山间茶园推进至瓶身特写，8 秒完整版" reduceMotion={reduceMotion} scrollRoot={scrollRoot} />
+            <PortfolioVideo src="/assets/projects/qinglan-tea/qinglan-oolong-film-garden.mp4" poster="/assets/projects/qinglan-tea/qinglan-oolong-film-garden-poster.webp" aria-label="焙香乌龙茶园产品宣传片：从山间茶园推进至瓶身特写，8 秒完整版" reduceMotion={reduceMotion} scrollRoot={scrollRoot} />
             <figcaption><strong>茶园晨光</strong><span>8 秒产品宣传片</span></figcaption>
           </figure>
           <figure>
@@ -4205,10 +4127,10 @@ function QinglanOolongCaseStudy({
         <div className="qinglan-motion-grid">
           {qinglanOolongCaseStudy.motionClips.map((clip) => (
             <figure key={clip.src}>
-              <ViewportProjectVideo
+              <PortfolioVideo
                 src={clip.src}
                 poster={clip.poster}
-                label={clip.label}
+                aria-label={clip.label}
                 reduceMotion={reduceMotion}
                 scrollRoot={scrollRoot}
               />
@@ -4542,7 +4464,7 @@ function ProjectDetailViewer({
               ) : isOutdoorSpeakerProject ? (
                 <OutdoorSpeakerCaseStudy renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />
               ) : isActionCameraProject ? (
-                <ActionCameraCaseStudy renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />
+                <ActionCameraCaseStudy reduceMotion={reduceMotion} scrollRoot={detailLayoutRef} renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />
               ) : isSkirtProject ? (
                 <FishtailSkirtCaseStudy renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />
               ) : isYogaProject ? (
