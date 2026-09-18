@@ -797,6 +797,7 @@ type WorkMedia = {
 };
 
 type WorkItem = {
+  caseRef: { collectionId: string; projectIndex: number };
   id: string;
   title: string;
   year: string;
@@ -828,423 +829,85 @@ type WorkCategory = {
   works: WorkItem[];
 };
 
+// Visual browsing uses the same project objects as the commercial case collections.
+// Only the selected frame and its visual-role title belong to this screen.
+function selectedCaseWork(collectionId: string, projectIndex: number, title: string, image?: string): WorkItem {
+  const collection = projectShowcaseCollections.find((entry) => entry.id === collectionId);
+  const project = collection?.projects[projectIndex];
+  if (!collection || !project) throw new Error(`Unknown selected work: ${collectionId}/${projectIndex}`);
+  return {
+    id: `${collectionId}-${projectIndex}`,
+    caseRef: { collectionId, projectIndex },
+    title,
+    year: project.year,
+    image: image ?? project.image,
+    alt: title,
+    summary: project.summary,
+    brief: project.brief,
+    approach: project.response,
+    result: project.outcome,
+    deliverables: [...project.deliverables],
+    gallery: [],
+    thumbnailMode: "cover",
+  };
+}
+
 const workCategories: WorkCategory[] = [
   {
-    id: "commerce",
-    label: "商业视觉",
-    english: "Commerce",
+    id: "product",
+    label: "产品质感",
+    english: "Product",
     index: "01",
     background: "/assets/projects/table-fan/table-fan-night.webp",
-    transitionImage: "/assets/category-transitions/commerce-visuals.webp",
-    description: "从商品真实性、卖点层级与购买路径出发，把一个视觉方向扩展到主图、详情页和完整电商触点。",
-    role: "AI 商业视觉 / 电商系统",
-    deliverables: ["商品主视觉", "详情页", "Campaign 延展"],
-    keywords: ["商品", "一致性", "卖点", "转化"],
+    transitionImage: "/assets/projects/sona-earbuds/sona-material-macro.webp",
+    description: "看材质、结构与光线如何建立产品识别。",
+    role: "产品视觉",
+    deliverables: ["材质表现", "结构识别", "产品布光"],
+    keywords: ["材质", "结构", "光线"],
     palette: ["#080B0F", "#E8EEF3", "#89AACC", "#4E85BF"],
     works: [
-      {
-        id: "fan-commercial-rendering",
-        title: "空气循环商业渲染",
-        year: "2026",
-        image: "/assets/projects/table-fan/table-fan-hero.webp",
-        alt: "白色空气循环扇商业渲染主视觉",
-        summary: "从标准产品视图到家庭昼夜场景，建立兼顾结构准确、材质可信与商业传播的空气循环产品渲染套装。",
-        brief: "让同一产品在标准视图、人物场景与不同光线中保持一致，同时覆盖商品展示与生活方式传播。",
-        approach: "先锁定扇叶、机身、底座和控制面板，再以视角、尺度和光线为变量扩展场景。",
-        result: "形成七张可以连续使用的商业渲染资产，覆盖主视觉、结构展示、家庭场景和昼夜氛围。",
-        deliverables: ["产品主视觉", "结构视图", "生活方式场景", "昼夜光线套图"],
-        gallery: [
-          { src: "/assets/projects/table-fan/table-fan-hero.webp", alt: "空气循环扇正面商业渲染", layout: "square" },
-          { src: "/assets/projects/table-fan/table-fan-views.webp", alt: "空气循环扇多视角结构渲染", layout: "square" },
-          { src: "/assets/projects/table-fan/table-fan-lifestyle.webp", alt: "空气循环扇日间生活方式场景", layout: "wide" },
-          { src: "/assets/projects/table-fan/table-fan-family.webp", alt: "空气循环扇家庭陪伴场景", layout: "wide" },
-          { src: "/assets/projects/table-fan/table-fan-night.webp", alt: "空气循环扇夜间室内渲染", layout: "square" },
-          { src: "/assets/projects/table-fan/table-fan-night-detail.webp", alt: "空气循环扇夜间光线特写", layout: "square" },
-          { src: "/assets/projects/table-fan/table-fan-dayparts.webp", alt: "空气循环扇四种时段光线序列", layout: "square" },
-        ],
-      },
-      {
-        id: "publishing-commerce-suite",
-        title: "出版电商内容系统",
-        year: "2026",
-        image: "/assets/works/commerce-andersen-long.jpg",
-        thumbnail: "/assets/works/commerce-andersen-thumb.jpg",
-        thumbnailMode: "long",
-        focalPoint: "50% 0%",
-        alt: "青葫芦立体剧场书安徒生童话电商详情页设计",
-        summary: "以童话舞台感串联产品结构、内容价值与阅读场景，构成可持续展开的出版电商销售叙事。",
-        brief: "在长页面中同时说明套系价值、立体结构与亲子阅读体验，避免卖点彼此分散。",
-        approach: "先建立主视觉与信息层级，再以章节节奏安排产品特写、内容展示与购买理由。",
-        result: "完成从缩略入口到完整详情长图的电商内容套装。",
-        deliverables: ["入口主视觉", "详情长图", "产品卖点编排"],
-        gallery: [
-          { src: "/assets/works/commerce-andersen-thumb.jpg", alt: "安徒生童话出版电商主视觉", layout: "portrait" },
-          { src: "/assets/works/commerce-andersen-long.jpg", alt: "安徒生童话出版电商详情长图", layout: "long" },
-        ],
-      },
-      {
-        id: "commerce-platform-suite",
-        title: "商城与商品内容",
-        year: "2024",
-        image: "/assets/project-commerce.png",
-        thumbnailMode: "wide",
-        alt: "商城界面与商品内容视觉",
-        summary: "把品牌识别、商品场景和商城界面组织为连续的交易内容，使视觉不仅好看，也承担信息与转化任务。",
-        brief: "不同电商触点需要维持统一品牌感，同时根据浏览阶段承载不同信息密度。",
-        approach: "以核心商品画面建立视觉基准，再向商城入口和品牌触点适配。",
-        result: "形成覆盖商品、品牌与商城界面的基础内容组合。",
-        deliverables: ["商城入口", "商品场景", "品牌触点"],
-        gallery: [
-          { src: "/assets/project-commerce.png", alt: "商城视觉与营销页面", layout: "wide" },
-          { src: "/assets/project-brand-vi.png", alt: "电商品牌识别延展", layout: "wide" },
-          { src: "/assets/work-photos/1542291026-7eec264c27ff.webp", alt: "消费品场景视觉", layout: "portrait" },
-        ],
-      },
-      {
-        id: "product-consistency-study",
-        title: "商品一致性控制",
-        year: "2026",
-        image: "/assets/projects/table-fan/table-fan-views.webp",
-        alt: "空气循环扇多视角商品一致性研究",
-        summary: "以多视角商品图验证结构、比例与材质的一致性，为后续主图、详情页和场景延展建立可靠底稿。",
-        brief: "商业内容批量生产前，需要先解决不同视角中商品结构漂移和材质变化的问题。",
-        approach: "固定机身结构、功能部件和材质参数，再分别建立正面、侧面与俯视画面的构图基准。",
-        result: "形成可复用的商品一致性标准，并为多触点视觉扩展提供统一参考。",
-        deliverables: ["多视角商品图", "结构一致性标准", "材质控制样张"],
-        gallery: [
-          { src: "/assets/projects/table-fan/table-fan-views.webp", alt: "空气循环扇多视角结构对照", layout: "square" },
-          { src: "/assets/projects/table-fan/table-fan-hero.webp", alt: "空气循环扇标准商品主图", layout: "square" },
-          { src: "/assets/projects/table-fan/table-fan-night-detail.webp", alt: "空气循环扇材质与光线细节", layout: "square" },
-        ],
-      },
-      {
-        id: "commerce-entry-system",
-        title: "交易入口视觉系统",
-        year: "2025",
-        image: "/assets/hero-commerce-v2.webp",
-        thumbnailMode: "wide",
-        alt: "数字商城交易入口视觉系统",
-        summary: "围绕浏览、理解与行动三个阶段组织商品信息，让品牌表达与购买路径在同一视觉系统中协同。",
-        brief: "商城入口需要快速建立品类认知，同时为后续商品比较和购买决策提供清晰路径。",
-        approach: "以核心商品画面承担识别，再通过信息层级、模块节奏和品牌元素串联不同交易触点。",
-        result: "建立覆盖首页入口、活动页面和商品承接页的统一视觉方向。",
-        deliverables: ["商城首页入口", "活动承接页", "交易触点规范"],
-        gallery: [
-          { src: "/assets/hero-commerce-v2.webp", alt: "数字商城交易入口主视觉", layout: "wide" },
-          { src: "/assets/project-commerce.png", alt: "商城活动与商品承接页面", layout: "wide" },
-          { src: "/assets/project-brand-vi.png", alt: "交易触点品牌识别延展", layout: "wide" },
-        ],
-      },
+      selectedCaseWork("smart-living", 1, "循环扇 · 光影", "/assets/projects/table-fan/table-fan-hero.webp"),
+      selectedCaseWork("beauty-care", 0, "GLACIER · 冰川"),
+      selectedCaseWork("beauty-care", 1, "LUMINOSE · 光泽", "/assets/projects/serum/serum-bathroom.webp"),
+      selectedCaseWork("product-motion", 0, "SONA · 质感", "/assets/projects/sona-earbuds/sona-product-master.webp"),
     ],
   },
   {
     id: "campaign",
-    label: "创意企划",
+    label: "广告表达",
     english: "Campaign",
     index: "02",
-    background: "/assets/projects/table-fan/table-fan-family.webp",
-    transitionImage: "/assets/category-transitions/editorial-poster.webp",
-    description: "以品牌命题和使用场景建立视觉概念，统筹人物、商品、光线与媒介之间的连续叙事。",
-    role: "AI Art Direction / Campaign",
-    deliverables: ["Campaign KV", "生活方式套图", "传播内容"],
-    keywords: ["概念", "人物", "场景", "叙事"],
-    palette: ["#090A0C", "#EEECE7", "#89AACC", "#566D84"],
+    background: "/assets/projects/qinglan-tea/qinglan-oolong-launch-hero.webp",
+    transitionImage: "/assets/projects/air-fryer/air-fryer-hero.webp",
+    description: "看商品、文案与构图如何形成鲜明的购买理由。",
+    role: "广告视觉",
+    deliverables: ["商品主视觉", "传播海报", "品牌表达"],
+    keywords: ["构图", "文案", "品牌"],
+    palette: ["#15100C", "#F1E7D8", "#CDA36B", "#715439"],
     works: [
-      {
-        id: "fan-lifestyle-suite",
-        title: "清风生活方式企划",
-        year: "2026",
-        image: "/assets/projects/table-fan/table-fan-lifestyle.webp",
-        thumbnailMode: "wide",
-        alt: "空气循环扇生活方式企划",
-        summary: "通过人物距离、家庭关系和昼夜变化，让功能型产品进入有温度的日常叙事。",
-        brief: "在不牺牲商品识别度的前提下，让产品画面具备人物情绪与使用情境。",
-        approach: "围绕独处、亲子陪伴和日夜切换设计三组场景，并统一产品尺度和家居光线。",
-        result: "得到可以用于 Campaign、社交内容与卖点传播的生活方式套图。",
-        deliverables: ["人物场景", "亲子场景", "光线序列", "Campaign 延展"],
-        gallery: [
-          { src: "/assets/projects/table-fan/table-fan-lifestyle.webp", alt: "空气循环扇人物生活方式场景", layout: "wide" },
-          { src: "/assets/projects/table-fan/table-fan-family.webp", alt: "空气循环扇亲子陪伴场景", layout: "wide" },
-          { src: "/assets/projects/table-fan/table-fan-dayparts.webp", alt: "空气循环扇昼夜场景序列", layout: "square" },
-          { src: "/assets/projects/table-fan/table-fan-night.webp", alt: "空气循环扇夜间使用场景", layout: "square" },
-        ],
-      },
-      {
-        id: "people-campaign-suite",
-        title: "人物叙事 Campaign",
-        year: "2024",
-        image: "/assets/project-showcase-afterimage.webp",
-        alt: "动态人物编辑视觉",
-        summary: "以人物动作、造型与编辑式版面建立连续视觉节奏，让单张肖像发展为完整 Campaign。",
-        brief: "人物项目需要在身份一致之外，形成能够支撑多画面传播的镜头与版式语言。",
-        approach: "从人物姿态和服装轮廓出发，控制运动模糊、留白和文字占位关系。",
-        result: "形成兼具人物识别与传播节奏的编辑式视觉组。",
-        deliverables: ["人物主视觉", "造型研究", "编辑式延展"],
-        gallery: [
-          { src: "/assets/project-showcase-afterimage.webp", alt: "人物运动与编辑式排版主视觉", layout: "portrait" },
-          { src: "/assets/work-photos/1529139574466-a303027c1d8b.webp", alt: "人物造型与服装轮廓研究", layout: "portrait" },
-          { src: "/assets/work-photos/1558655146-9f40138edfeb.webp", alt: "人物镜头与场景延展", layout: "portrait" },
-        ],
-      },
-      {
-        id: "brand-campaign-suite",
-        title: "品牌传播视觉",
-        year: "2023",
-        image: "/assets/project-exhibition.png",
-        thumbnailMode: "wide",
-        alt: "品牌展陈与传播物料设计",
-        summary: "把品牌识别、线下展陈与数字场景纳入同一视觉方向，形成跨媒介传播组合。",
-        brief: "品牌视觉需要在不同媒介中保持识别度，而不是依赖同一版式反复复制。",
-        approach: "固定色彩、字体与图形逻辑，再根据展陈、平面与数字媒介调整信息结构。",
-        result: "建立能够跨越物料、空间与数字内容的品牌传播套装。",
-        deliverables: ["品牌识别", "展陈物料", "数字延展"],
-        gallery: [
-          { src: "/assets/project-exhibition.png", alt: "品牌展陈与传播物料", layout: "wide" },
-          { src: "/assets/project-brand-vi.png", alt: "品牌视觉识别延展", layout: "wide" },
-          { src: "/assets/project-showcase-aether-grid.webp", alt: "品牌数字场景延展", layout: "portrait" },
-        ],
-      },
-      {
-        id: "portrait-styling-study",
-        title: "人物造型视觉研究",
-        year: "2024",
-        image: "/assets/work-photos/1515886657613-9f3515b0c78f.webp",
-        thumbnailMode: "wide",
-        alt: "时装人物造型 Campaign 研究",
-        summary: "从服装色块、人物姿态和场景留白出发，建立能够连续扩展的人物造型视觉方向。",
-        brief: "人物视觉不仅要保持身份一致，还需要通过造型与构图形成清晰的品牌态度。",
-        approach: "先确定色彩主张和姿态语言，再围绕近景、全身与动态构图规划传播画面。",
-        result: "形成适用于社交发布、主题海报和品牌内容的人物视觉组。",
-        deliverables: ["人物造型方向", "主题海报", "社交传播画面"],
-        gallery: [
-          { src: "/assets/work-photos/1515886657613-9f3515b0c78f.webp", alt: "人物造型与色彩主视觉", layout: "wide" },
-          { src: "/assets/work-photos/1509631179647-0177331693ae.webp", alt: "人物姿态与场景留白研究", layout: "portrait" },
-          { src: "/assets/work-photos/1561070791-2526d30994b5.webp", alt: "人物全身造型传播画面", layout: "portrait" },
-        ],
-      },
-      {
-        id: "editorial-campaign-direction",
-        title: "编辑式传播企划",
-        year: "2023",
-        image: "/assets/hero-editorial-v2.webp",
-        thumbnailMode: "wide",
-        alt: "编辑式品牌传播企划主视觉",
-        summary: "将图像选择、版面节奏与传播主题组织成编辑式 Campaign，使不同媒介保持同一叙事语气。",
-        brief: "跨媒介传播需要统一概念，但每个画面仍要拥有独立的信息重心与观看节奏。",
-        approach: "先定义主题句与图像语气，再建立主视觉、内容页和社交切片之间的版式关系。",
-        result: "完成一套可以在数字内容、海报和品牌栏目中连续使用的传播方向。",
-        deliverables: ["Campaign 主视觉", "编辑式版面", "社交内容切片"],
-        gallery: [
-          { src: "/assets/hero-editorial-v2.webp", alt: "编辑式传播企划主视觉", layout: "wide" },
-          { src: "/assets/project-showcase-afterimage.webp", alt: "编辑式人物传播画面", layout: "portrait" },
-          { src: "/assets/project-exhibition.png", alt: "编辑式企划线下传播延展", layout: "wide" },
-        ],
-      },
+      selectedCaseWork("smart-living", 0, "空气炸锅 · 食欲"),
+      selectedCaseWork("consumer-commerce", 0, "青岚茶事 · 双味", "/assets/projects/qinglan-tea/qinglan-dual-cover-square.webp"),
+      selectedCaseWork("consumer-commerce", 1, "焙香乌龙 · 上市"),
+      selectedCaseWork("lifestyle-campaign", 1, "户外音箱 · 山野"),
     ],
   },
   {
-    id: "motion",
-    label: "动态内容",
-    english: "Motion",
+    id: "story",
+    label: "场景叙事",
+    english: "Lifestyle",
     index: "03",
-    background: "/assets/projects/sona-earbuds/sona-film-finale.webp",
-    transitionImage: "/assets/category-transitions/technology-innovation.webp",
-    description: "从静态关键帧延展到产品片与社交视频，用运动传达材质、功能和情绪，而不是制造无目的变化。",
-    role: "AI Motion / 动态视觉",
-    deliverables: ["关键帧", "产品短片", "动态广告"],
-    keywords: ["关键帧", "连续性", "节奏", "输出"],
-    palette: ["#070A12", "#E6E9F4", "#89AACC", "#354A8C"],
+    background: "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v3.jpg",
+    transitionImage: "/assets/projects/terrain-35/terrain-showcase-campaign-v2.jpg",
+    description: "看人物、动作与环境如何赋予产品使用情境。",
+    role: "场景视觉",
+    deliverables: ["时尚形象", "使用场景", "户外传播"],
+    keywords: ["人物", "动作", "氛围"],
+    palette: ["#0B1013", "#ECE8E0", "#94AEB9", "#526D75"],
     works: [
-      {
-        id: "sona-arc-one-launch",
-        title: "SONA ARC ONE 产品影片与上市系统",
-        year: "2026",
-        image: "/assets/projects/sona-earbuds/sona-film-finale.webp",
-        thumbnailMode: "wide",
-        alt: "SONA ARC ONE 耳机展开与声场形成的产品影片结束关键帧",
-        summary: "从产品母版和结构校准开始，完成连续关键帧、十秒产品片、功能主图与多比例上市内容。",
-        brief: "让耳机与充电仓在开合、升起、展开、人物佩戴和电商画面中保持一致，同时让每个镜头承担明确商业任务。",
-        approach: "锁定结构与材质后再设计动作边界，用上一帧控制下一帧的机位和光线，并把稳定资产延展到静态销售内容。",
-        result: "形成十九张核心视觉和一支十秒产品片，直接证明精密硬件一致性、动态连续性与跨渠道交付能力。",
-        deliverables: ["产品母版", "连续关键帧", "产品影片", "功能主图", "上市横幅"],
-        gallery: [
-          { src: "/assets/projects/sona-earbuds/sona-product-master.webp", alt: "耳机与充电仓三状态产品母版", layout: "square" },
-          { src: "/assets/projects/sona-earbuds/sona-film-closed.webp", alt: "产品影片闭合起始关键帧", layout: "wide" },
-          { src: "/assets/projects/sona-earbuds/sona-film-awake.webp", alt: "产品影片开盖唤醒关键帧", layout: "wide" },
-          { src: "/assets/projects/sona-earbuds/sona-film-lift.webp", alt: "产品影片耳机磁吸升起关键帧", layout: "wide" },
-          { src: "/assets/projects/sona-earbuds/sona-film-finale.webp", alt: "产品影片双耳展开结束关键帧", layout: "wide" },
-          { src: "/assets/projects/sona-earbuds/sona-launch-banner.webp", alt: "听见自己的节奏新品上市横幅", layout: "wide" },
-        ],
-      },
-      {
-        id: "product-motion-suite",
-        title: "商品动态关键帧",
-        year: "2025",
-        image: "/assets/project-showcase-tide.webp",
-        alt: "深蓝玻璃商品关键帧视觉",
-        summary: "围绕材质、反射与镜头节奏设计一组商品动态关键帧，为短片生成提供稳定起点。",
-        brief: "商品动态需要通过运动说明材质与形态，避免无目的的镜头漂移。",
-        approach: "先定义起止关键帧和反射变化，再安排局部推进、旋转与景深节奏。",
-        result: "得到适合继续生成产品短片的关键帧套装与镜头方向。",
-        deliverables: ["商品关键帧", "镜头方向", "材质运动研究"],
-        gallery: [
-          { src: "/assets/project-showcase-tide.webp", alt: "深蓝玻璃商品动态关键帧", layout: "portrait" },
-          { src: "/assets/project-showcase-field-objects.webp", alt: "商品空间运动关键帧", layout: "portrait" },
-          { src: "/assets/project-showcase-nocturne.webp", alt: "低照度商品镜头研究", layout: "portrait" },
-        ],
-      },
-      {
-        id: "digital-motion-suite",
-        title: "数字场景动态研究",
-        year: "2024",
-        image: "/assets/project-showcase-aether-grid.webp",
-        alt: "暗场数字体验视觉",
-        summary: "以空间层次、界面光线和镜头推进构建数字场景序列，探索品牌内容的动态表达。",
-        brief: "抽象数字场景仍需具备清晰的视觉焦点和可以被镜头推进的空间关系。",
-        approach: "把构图拆分为前景、信息层与背景空间，再为每层设定不同运动速度。",
-        result: "形成能够服务片头、品牌短片与社交动态的空间关键帧组。",
-        deliverables: ["数字场景", "空间关键帧", "片头方向"],
-        gallery: [
-          { src: "/assets/project-showcase-aether-grid.webp", alt: "数字场景空间关键帧", layout: "portrait" },
-          { src: "/assets/project-showcase-nocturne.webp", alt: "暗场空间动态研究", layout: "portrait" },
-          { src: "/assets/hero-commerce-v2.webp", alt: "数字商业内容动态延展", layout: "wide" },
-        ],
-      },
-      {
-        id: "night-product-sequence",
-        title: "夜间商品镜头",
-        year: "2026",
-        image: "/assets/projects/table-fan/table-fan-night-detail.webp",
-        alt: "空气循环扇夜间商品镜头研究",
-        summary: "通过冷暖光源、局部反射和景别变化，为功能型商品建立具有识别度的夜间镜头语言。",
-        brief: "低照度画面需要保留商品轮廓和材质信息，同时形成足以支撑短片的情绪张力。",
-        approach: "以主轮廓光保证识别，再通过局部光源变化规划特写、转场与结尾镜头。",
-        result: "形成一组可直接进入图生视频与剪辑测试的夜间商品关键帧。",
-        deliverables: ["夜间关键帧", "光线转场", "商品特写镜头"],
-        gallery: [
-          { src: "/assets/projects/table-fan/table-fan-night-detail.webp", alt: "空气循环扇夜间光线特写", layout: "square" },
-          { src: "/assets/projects/table-fan/table-fan-night.webp", alt: "空气循环扇夜间空间镜头", layout: "square" },
-          { src: "/assets/projects/table-fan/table-fan-hero.webp", alt: "空气循环扇标准商品结束帧", layout: "square" },
-        ],
-      },
-      {
-        id: "spatial-motion-study",
-        title: "空间运动实验",
-        year: "2024",
-        image: "/assets/project-showcase-field-objects.webp",
-        alt: "商品与抽象物体空间运动实验",
-        summary: "利用前后景关系、物体轨迹和镜头推进构建空间运动，让抽象场景具备明确的视觉焦点。",
-        brief: "实验性动态需要同时处理空间可读性和运动节奏，避免画面只剩随机漂浮。",
-        approach: "先划分前景、中景和背景，再为不同物体设定速度、方向与遮挡关系。",
-        result: "建立适合品牌片头、商品转场和数字内容的空间运动模板。",
-        deliverables: ["空间关键帧", "运动轨迹设计", "片头转场方向"],
-        gallery: [
-          { src: "/assets/project-showcase-field-objects.webp", alt: "抽象物体空间运动主画面", layout: "portrait" },
-          { src: "/assets/project-showcase-nocturne.webp", alt: "低照度空间运动关键帧", layout: "portrait" },
-          { src: "/assets/project-showcase-aether-grid.webp", alt: "数字网格空间推进画面", layout: "portrait" },
-        ],
-      },
-    ],
-  },
-  {
-    id: "publishing",
-    label: "出版内容",
-    english: "Publishing",
-    index: "04",
-    background: "/assets/works/commerce-andersen-thumb.jpg",
-    transitionImage: "/assets/category-transitions/packaging-design.webp",
-    description: "把内容价值、产品结构与阅读场景转化成清晰的出版商业视觉，同时保留插画与文化叙事的吸引力。",
-    role: "出版视觉 / 内容商业化",
-    deliverables: ["套系视觉", "详情长图", "内容传播"],
-    keywords: ["出版", "内容", "套系", "阅读"],
-    palette: ["#0B0D0C", "#E5E0D4", "#89AACC", "#5F6554"],
-    works: [
-      {
-        id: "theatre-book-suite",
-        title: "立体剧场书",
-        year: "2026",
-        image: "/assets/works/commerce-andersen-thumb.jpg",
-        alt: "安徒生童话立体剧场书视觉",
-        summary: "围绕立体剧场结构与经典童话内容，建立从产品识别到阅读价值说明的出版视觉套装。",
-        brief: "既要表现立体书的产品结构，也要让家长快速理解内容价值和阅读体验。",
-        approach: "以舞台感作为视觉主线，组合产品陈列、故事元素和分段信息。",
-        result: "形成入口主视觉与完整长页面内容，可以覆盖电商与出版传播。",
-        deliverables: ["出版主视觉", "详情长图", "内容价值编排"],
-        gallery: [
-          { src: "/assets/works/commerce-andersen-thumb.jpg", alt: "安徒生童话立体剧场书主视觉", layout: "portrait" },
-          { src: "/assets/works/commerce-andersen-long.jpg", alt: "安徒生童话立体剧场书详情长图", layout: "long" },
-        ],
-      },
-      {
-        id: "publishing-package-suite",
-        title: "出版套系包装",
-        year: "2024",
-        image: "/assets/project-packaging.png",
-        thumbnailMode: "wide",
-        alt: "出版套系包装视觉",
-        summary: "通过统一识别规则与主题差异，建立能够容纳多册内容的出版套系包装系统。",
-        brief: "套系产品需要远看统一、近看可区分，并适应封面、书脊与组合陈列。",
-        approach: "固定字体、信息位置与系列标识，再根据不同内容调整主图和主题色。",
-        result: "完成从单册包装到套系陈列与电商展示的视觉组合。",
-        deliverables: ["套系包装", "组合陈列", "电商延展"],
-        gallery: [
-          { src: "/assets/project-packaging.png", alt: "出版套系包装系统", layout: "wide" },
-          { src: "/assets/works/commerce-andersen-thumb.jpg", alt: "出版产品组合陈列", layout: "portrait" },
-          { src: "/assets/hero-editorial-v2.webp", alt: "出版内容视觉延展", layout: "wide" },
-        ],
-      },
-      {
-        id: "generative-editorial-suite",
-        title: "生成式内容视觉",
-        year: "2023",
-        image: "/assets/work-photos/1513364776144-60967b0f800f.webp",
-        alt: "生成式插画与内容视觉实验",
-        summary: "将插画风格、内容编排与材质实验整理为可重复使用的出版内容语言。",
-        brief: "生成式插画需要从单张风格实验转化为能够支撑连续页面和传播内容的规则。",
-        approach: "提炼色彩、构图与材质约束，再以不同主题验证风格的一致性和延展能力。",
-        result: "形成适用于插画、内容页面和宣传画面的生成式视觉组。",
-        deliverables: ["生成式插画", "内容编排", "宣传视觉"],
-        gallery: [
-          { src: "/assets/work-photos/1513364776144-60967b0f800f.webp", alt: "生成式插画材质实验", layout: "portrait" },
-          { src: "/assets/work-photos/1523726491678-bf852e717f6a.webp", alt: "出版内容编排场景", layout: "portrait" },
-          { src: "/assets/hero-editorial-v2.webp", alt: "生成式内容编辑视觉", layout: "wide" },
-        ],
-      },
-      {
-        id: "editorial-layout-system",
-        title: "内容编排系统",
-        year: "2024",
-        image: "/assets/hero-editorial-v2.webp",
-        thumbnailMode: "wide",
-        alt: "出版内容编排系统视觉",
-        summary: "把标题层级、图像比例与阅读节奏整理为连续规则，使长内容在不同页面中保持清晰与一致。",
-        brief: "内容型项目需要同时容纳叙事、图像与商品信息，避免页面之间缺乏连续关系。",
-        approach: "先建立标题、正文与图像的比例体系，再以章节变化测试规则的弹性。",
-        result: "形成可用于出版页面、数字长图和内容传播的编排框架。",
-        deliverables: ["内容层级", "页面编排", "数字长图延展"],
-        gallery: [
-          { src: "/assets/hero-editorial-v2.webp", alt: "出版内容编排主视觉", layout: "wide" },
-          { src: "/assets/work-photos/1523726491678-bf852e717f6a.webp", alt: "出版内容页面场景", layout: "portrait" },
-          { src: "/assets/works/commerce-andersen-long.jpg", alt: "内容编排长页面应用", layout: "long" },
-        ],
-      },
-      {
-        id: "visual-language-workshop",
-        title: "出版视觉语言研究",
-        year: "2023",
-        image: "/assets/work-photos/1561070791-2526d30994b5.webp",
-        alt: "出版色彩与图形语言研究",
-        summary: "通过色彩、材质与图形样张建立出版视觉语言，为不同主题的封面和内容页提供可复用规则。",
-        brief: "出版套系需要保持整体识别，同时为不同内容保留足够的主题变化空间。",
-        approach: "提炼稳定的色彩关系和图形语法，再以封面、内页和传播画面验证适配能力。",
-        result: "整理出能够支持系列化出版与内容延展的视觉语言样本。",
-        deliverables: ["色彩系统", "图形样张", "封面方向研究"],
-        gallery: [
-          { src: "/assets/work-photos/1561070791-2526d30994b5.webp", alt: "出版色彩系统研究", layout: "portrait" },
-          { src: "/assets/project-packaging.png", alt: "出版套系包装应用", layout: "wide" },
-          { src: "/assets/work-photos/1513364776144-60967b0f800f.webp", alt: "出版图形与材质样张", layout: "portrait" },
-        ],
-      },
+      selectedCaseWork("fashion-commerce", 0, "鱼尾皮裙 · 雨夜", "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v3.jpg"),
+      selectedCaseWork("fashion-commerce", 1, "瑜伽套装 · 曲线", "/assets/projects/yoga-set/yoga-showcase-campaign-v2.jpg"),
+      selectedCaseWork("lifestyle-campaign", 0, "KOVA · 浪尖", "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg"),
+      selectedCaseWork("product-motion", 1, "TERRAIN 35 · 山野", "/assets/projects/terrain-35/terrain-showcase-campaign-v2.jpg"),
     ],
   },
 ];
@@ -2360,7 +2023,7 @@ function GalleryCard({
       className={`gallery-card gallery-card-${thumbnailMode}${active ? " is-active" : ""}`}
       type="button"
       disabled={locked}
-      aria-label={`打开作品套装：${work.title}`}
+      aria-label={`查看完整案例：${work.title}`}
       style={{
         x: cardX,
         y: cardY,
@@ -2395,418 +2058,35 @@ function GalleryCard({
   );
 }
 
-type SampledColor = {
-  red: number;
-  green: number;
-  blue: number;
-  count: number;
-};
 
-type PaletteMode = "auto" | "default";
-
-const workPaletteCache = new Map<string, string[]>();
-
-const colorDistance = (first: SampledColor, second: SampledColor) => Math.sqrt(
-  (first.red - second.red) ** 2
-  + (first.green - second.green) ** 2
-  + (first.blue - second.blue) ** 2,
-);
-
-const colorToHex = ({ red, green, blue }: SampledColor) => `#${[red, green, blue]
-  .map((channel) => Math.round(channel).toString(16).padStart(2, "0"))
-  .join("")}`.toUpperCase();
-
-const extractWorkPalette = (image: HTMLImageElement, cacheKey: string) => {
-  const cachedPalette = workPaletteCache.get(cacheKey);
-  if (cachedPalette) return cachedPalette;
-
-  try {
-    const longestSide = 56;
-    const imageRatio = image.naturalWidth / image.naturalHeight;
-    const sampleWidth = imageRatio >= 1
-      ? longestSide
-      : Math.max(12, Math.round(longestSide * imageRatio));
-    const sampleHeight = imageRatio >= 1
-      ? Math.max(12, Math.round(longestSide / imageRatio))
-      : longestSide;
-    const canvas = document.createElement("canvas");
-    canvas.width = sampleWidth;
-    canvas.height = sampleHeight;
-    const context = canvas.getContext("2d", { willReadFrequently: true });
-    if (!context) return null;
-
-    context.drawImage(image, 0, 0, sampleWidth, sampleHeight);
-    const pixels = context.getImageData(0, 0, sampleWidth, sampleHeight).data;
-    const buckets = new Map<string, SampledColor>();
-    const quantizeStep = 24;
-
-    for (let index = 0; index < pixels.length; index += 4) {
-      const alpha = pixels[index + 3];
-      if (alpha < 180) continue;
-      const red = pixels[index];
-      const green = pixels[index + 1];
-      const blue = pixels[index + 2];
-      const key = [red, green, blue]
-        .map((channel) => Math.min(255, Math.round(channel / quantizeStep) * quantizeStep))
-        .join("-");
-      const bucket = buckets.get(key);
-      if (bucket) {
-        bucket.red += red;
-        bucket.green += green;
-        bucket.blue += blue;
-        bucket.count += 1;
-      } else {
-        buckets.set(key, { red, green, blue, count: 1 });
-      }
-    }
-
-    const rankedColors = Array.from(buckets.values())
-      .map((bucket) => ({
-        red: bucket.red / bucket.count,
-        green: bucket.green / bucket.count,
-        blue: bucket.blue / bucket.count,
-        count: bucket.count,
-      }))
-      .sort((first, second) => {
-        const firstRange = Math.max(first.red, first.green, first.blue) - Math.min(first.red, first.green, first.blue);
-        const secondRange = Math.max(second.red, second.green, second.blue) - Math.min(second.red, second.green, second.blue);
-        return second.count * (1 + secondRange / 1020) - first.count * (1 + firstRange / 1020);
-      });
-
-    const selectedColors: SampledColor[] = [];
-    for (const minimumDistance of [92, 68, 44, 0]) {
-      for (const color of rankedColors) {
-        if (selectedColors.includes(color)) continue;
-        if (selectedColors.every((selected) => colorDistance(color, selected) >= minimumDistance)) {
-          selectedColors.push(color);
-        }
-        if (selectedColors.length === 4) break;
-      }
-      if (selectedColors.length === 4) break;
-    }
-
-    if (selectedColors.length === 0) return null;
-    const palette = selectedColors.map(colorToHex);
-    workPaletteCache.set(cacheKey, palette);
-    return palette;
-  } catch {
-    // Remote images without permissive CORS can still display; only palette
-    // sampling falls back to the category defaults in that case.
-    return null;
-  }
-};
-
-const getPaletteAccent = (palette: string[], fallback: string) => {
-  const candidates = palette.flatMap((color) => {
-    const match = /^#([\dA-F]{2})([\dA-F]{2})([\dA-F]{2})$/i.exec(color);
-    if (!match) return [];
-    const [red, green, blue] = match.slice(1).map((value) => Number.parseInt(value, 16));
-    const maximum = Math.max(red, green, blue);
-    const minimum = Math.min(red, green, blue);
-    const saturation = maximum === 0 ? 0 : (maximum - minimum) / maximum;
-    const luminance = red * 0.2126 + green * 0.7152 + blue * 0.0722;
-    if (luminance < 72 || luminance > 232) return [];
-    return [{ color, score: saturation * 1.4 + (1 - Math.abs(luminance - 154) / 154) * 0.45 }];
-  });
-  return candidates.sort((first, second) => second.score - first.score)[0]?.color ?? fallback;
-};
-
-function WorkViewer({
-  work,
-  category,
-  reduceMotion,
-  onClose,
-  onNavigate,
-}: {
+function SelectedCaseViewer({ work, reduceMotion, onClose }: {
   work: GalleryWork;
-  category: WorkCategory;
   reduceMotion: boolean | null;
   onClose: () => void;
-  onNavigate: (direction: number) => void;
 }) {
-  const viewerRef = useRef<HTMLDivElement>(null);
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [imageLoaded, setImageLoaded] = useState(false);
-  const [imageFailed, setImageFailed] = useState(false);
-  const [detectedLong, setDetectedLong] = useState(false);
-  const [palette, setPalette] = useState(() => workPaletteCache.get(work.image) ?? category.palette);
-  const [paletteMode, setPaletteMode] = useState<PaletteMode>(() => (
-    workPaletteCache.has(work.image) ? "auto" : "default"
-  ));
-  const { activeImage, openImage, closeImage } = useProjectImageLightbox();
-  const { scrollYProgress } = useScroll({ container: scrollRef });
-  const isLong = work.gallery.length > 1
-    || work.gallery.some((media) => media.layout === "long")
-    || work.thumbnailMode === "long"
-    || detectedLong;
-  const thumbnailSource = work.thumbnail ?? work.image;
-  const workPosition = category.works.findIndex((item) => item.id === work.id);
-  const workNumber = String(Math.max(0, workPosition) + 1).padStart(2, "0");
-  const workDescription = work.summary;
-  const titleId = `work-dossier-title-${work.id}`;
-  const summaryId = `work-dossier-summary-${work.id}`;
-  const accentColor = getPaletteAccent(palette, category.palette[2]);
-
-  const requestClose = () => {
-    if (viewerRef.current) viewerRef.current.style.pointerEvents = "none";
-    onClose();
-  };
-
-  useEffect(() => {
-    setImageLoaded(false);
-    setImageFailed(false);
-    setDetectedLong(false);
-    const cachedPalette = workPaletteCache.get(work.image);
-    setPalette(cachedPalette ?? category.palette);
-    setPaletteMode(cachedPalette ? "auto" : "default");
-    scrollRef.current?.scrollTo({ top: 0, left: 0 });
-  }, [category.palette, work.id, work.image]);
-
-  useEffect(() => {
-    viewerRef.current?.focus({ preventScroll: true });
-  }, []);
-
-  const jumpLongImage = (event: MouseEvent<HTMLButtonElement>) => {
-    event.stopPropagation();
-    const scroller = scrollRef.current;
-    if (!scroller) return;
-    const rect = event.currentTarget.getBoundingClientRect();
-    const progress = Math.min(1, Math.max(0, (event.clientY - rect.top) / rect.height));
-    scroller.scrollTo({
-      top: progress * Math.max(0, scroller.scrollHeight - scroller.clientHeight),
-      behavior: reduceMotion ? "auto" : "smooth",
-    });
-  };
-
-  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
-    event.stopPropagation();
-    if (event.key === "Escape") {
-      event.preventDefault();
-      requestClose();
-      return;
-    }
-    if (event.key === "ArrowLeft") {
-      event.preventDefault();
-      onNavigate(-1);
-      return;
-    }
-    if (event.key === "ArrowRight") {
-      event.preventDefault();
-      onNavigate(1);
-      return;
-    }
-    if (event.key === "Tab" && viewerRef.current) {
-      const focusable = Array.from(viewerRef.current.querySelectorAll<HTMLElement>(
-        "button:not([disabled]), a[href], [tabindex]:not([tabindex='-1'])",
-      ));
-      if (focusable.length === 0) return;
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
-      }
-    }
-  };
-
+  const [collectionIndex, setCollectionIndex] = useState(() =>
+    projectShowcaseCollections.findIndex((collection) => collection.id === work.caseRef?.collectionId));
+  const [projectIndex, setProjectIndex] = useState(work.caseRef?.projectIndex ?? 0);
+  const collection = projectShowcaseCollections[collectionIndex];
+  if (!collection) return null;
   return (
-    <motion.div
-      ref={viewerRef}
-      className="work-viewer"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby={titleId}
-      aria-describedby={summaryId}
-      tabIndex={-1}
-      initial={reduceMotion ? false : { opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={reduceMotion ? undefined : { opacity: 0 }}
-      transition={{ duration: reduceMotion ? 0 : 0.22, ease: [0.23, 1, 0.32, 1] }}
-      onClick={requestClose}
-      onKeyDown={handleKeyDown}
-    >
-      <motion.article
-        className="work-dossier"
-        style={{ "--work-accent": accentColor } as CSSProperties}
-        initial={reduceMotion ? false : {
-          opacity: 0,
-          y: 22,
-          scale: 0.985,
-          clipPath: "inset(16% 2% 16% 2%)",
-          filter: "blur(8px)",
-        }}
-        animate={{ opacity: 1, y: 0, scale: 1, clipPath: "inset(0% 0% 0% 0%)", filter: "blur(0px)" }}
-        exit={reduceMotion ? undefined : {
-          opacity: 0,
-          y: 14,
-          scale: 0.988,
-          clipPath: "inset(12% 2% 12% 2%)",
-          filter: "blur(6px)",
-        }}
-        transition={{ duration: reduceMotion ? 0 : 0.46, ease: [0.32, 0.72, 0, 1] }}
-        onClick={(event) => event.stopPropagation()}
-      >
-        <header className="work-dossier-header">
-          <div className="work-dossier-mark" aria-hidden="true">
-            <span>{category.index}</span>
-            <i />
-            <strong>PROJECT DOSSIER</strong>
-          </div>
-          <div className="work-dossier-controls">
-            <button type="button" onClick={() => onNavigate(-1)} aria-label="上一件作品">
-              <ArrowLeft size={18} strokeWidth={1.5} aria-hidden="true" />
-            </button>
-            <span>{workNumber} / {String(category.works.length).padStart(2, "0")}</span>
-            <button type="button" onClick={() => onNavigate(1)} aria-label="下一件作品">
-              <ArrowRight size={18} strokeWidth={1.5} aria-hidden="true" />
-            </button>
-            <button className="work-dossier-close" type="button" onClick={requestClose} aria-label="关闭作品介绍">
-              <X size={20} strokeWidth={1.5} aria-hidden="true" />
-            </button>
-          </div>
-        </header>
-
-        <div className="work-dossier-layout">
-          <section className="work-dossier-copy">
-            <p className="work-dossier-kicker">
-              <span>{category.label}</span>
-              <i />
-              <span>{category.english}</span>
-            </p>
-            <div className="work-dossier-title">
-              <div className="work-dossier-title-meta" aria-hidden="true">
-                <span>{work.year}</span>
-                <i />
-                <small>SELECTED WORK SET</small>
-              </div>
-              <h2 id={titleId}>{work.title}</h2>
-            </div>
-            <p className="work-dossier-summary" id={summaryId}>{workDescription}</p>
-
-            <div className="work-dossier-story">
-              <article>
-                <span>BRIEF / 命题</span>
-                <p>{work.brief}</p>
-              </article>
-              <article>
-                <span>METHOD / 方法</span>
-                <p>{work.approach}</p>
-              </article>
-              <article>
-                <span>RESULT / 结果</span>
-                <p>{work.result}</p>
-              </article>
-            </div>
-
-            <dl className="work-dossier-facts">
-              <div>
-                <dt>ROLE / 职责</dt>
-                <dd>{category.role}</dd>
-              </div>
-              <div>
-                <dt>OUTPUT / 交付</dt>
-                <dd>{work.deliverables.join(" / ")}</dd>
-              </div>
-            </dl>
-
-            <div className="work-dossier-keywords">
-              <span>KEYWORDS / 关键词</span>
-              <ul>
-                {category.keywords.map((keyword) => <li key={keyword}>{keyword}</li>)}
-              </ul>
-            </div>
-
-            <div className="work-dossier-palette" aria-label="从作品图片自动提取的项目配色">
-              <span aria-live="polite">COLOR SAMPLE / {paletteMode === "auto" ? "AUTO" : "DEFAULT"}</span>
-              <div>
-                {palette.map((color) => (
-                  <i key={color} style={{ backgroundColor: color }} title={color} />
-                ))}
-              </div>
-            </div>
-
-            <p className="work-dossier-hint">使用 ← → 切换作品组 / ESC 关闭</p>
-          </section>
-
-          <section className={`work-dossier-media${isLong ? " is-long" : ""}`} aria-label="作品套装预览">
-            <header>
-              <span>OUTPUT SET / {String(work.gallery.length).padStart(2, "0")}</span>
-              <small>{isLong ? "SCROLL THE SET" : "FULL FRAME"}</small>
-            </header>
-            <div className="work-dossier-grid" aria-hidden="true" />
-            <div ref={scrollRef} className="work-dossier-scroll">
-              {!imageLoaded && !imageFailed ? (
-                <div
-                  className="work-dossier-loading"
-                  style={{ backgroundImage: `url("${thumbnailSource}")` }}
-                  aria-label="作品正在加载"
-                />
-              ) : null}
-
-              {imageFailed ? (
-                <div className="work-dossier-error" role="alert">
-                  <strong>图像暂时无法读取</strong>
-                  <span>请关闭后重新打开，或检查作品文件是否仍在项目中。</span>
-                </div>
-              ) : (
-                <div className="work-dossier-suite">
-                  {work.gallery.map((media, mediaIndex) => (
-                    <figure
-                      className={`${mediaIndex === 0 && !imageLoaded ? "" : "is-loaded"} is-${media.layout}`}
-                      key={`${work.id}-${media.src}`}
-                    >
-                      <ZoomableProjectImage
-                        src={media.src}
-                        alt={media.alt}
-                        onOpen={openImage}
-                        loading={mediaIndex === 0 ? "eager" : "lazy"}
-                        onLoad={mediaIndex === 0 ? (event) => {
-                          const { naturalWidth, naturalHeight } = event.currentTarget;
-                          setDetectedLong(naturalWidth / naturalHeight < 0.52);
-                          const extractedPalette = extractWorkPalette(event.currentTarget, work.image);
-                          if (extractedPalette) {
-                            setPalette(extractedPalette);
-                            setPaletteMode("auto");
-                          }
-                          setImageLoaded(true);
-                        } : undefined}
-                        onError={mediaIndex === 0 ? () => setImageFailed(true) : undefined}
-                      />
-                    </figure>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {isLong ? (
-              <button
-                className="work-dossier-progress"
-                type="button"
-                onClick={jumpLongImage}
-                aria-label="跳转到长图位置"
-                title="点击跳转"
-              >
-                <motion.i style={{ scaleY: scrollYProgress }} />
-              </button>
-            ) : null}
-          </section>
-        </div>
-      </motion.article>
-      <AnimatePresence>
-        {activeImage ? (
-          <ProjectImageLightbox
-            image={activeImage}
-            reduceMotion={reduceMotion}
-            onClose={closeImage}
-          />
-        ) : null}
-      </AnimatePresence>
-    </motion.div>
+    <ProjectDetailViewer
+      collection={collection}
+      item={collection.projects[projectIndex]}
+      currentIndex={collectionIndex}
+      projectIndex={projectIndex}
+      reduceMotion={reduceMotion}
+      onClose={onClose}
+      onSelectProject={setProjectIndex}
+      onNavigate={(direction) => {
+        setProjectIndex(0);
+        setCollectionIndex((current) =>
+          (current + direction + projectShowcaseCollections.length) % projectShowcaseCollections.length);
+      }}
+    />
   );
 }
+
 
 function SelectedWorks({
   sectionRef,
@@ -2820,7 +2100,6 @@ function SelectedWorks({
   const [categoryIndex, setCategoryIndex] = useState(0);
   const [workIndex, setWorkIndex] = useState(0);
   const [expandedWork, setExpandedWork] = useState<GalleryWork | null>(null);
-  const [viewerSession, setViewerSession] = useState(0);
   const [categoryTransition, setCategoryTransition] = useState<CategoryTransition | null>(null);
   const [categoryMenuOpen, setCategoryMenuOpen] = useState(false);
   const [isGalleryDragging, setIsGalleryDragging] = useState(false);
@@ -3020,10 +2299,10 @@ function SelectedWorks({
   };
 
   const openExpandedWork = (work: GalleryWork) => {
+    if (expandedWork) return;
     lightboxReturnFocus.current = document.activeElement instanceof HTMLElement
       ? document.activeElement
       : null;
-    setViewerSession((session) => session + 1);
     setExpandedWork(work);
   };
 
@@ -3082,29 +2361,8 @@ function SelectedWorks({
     galleryPointerSession.current = null;
     setIsGalleryDragging(false);
     setExpandedWork(null);
-    window.requestAnimationFrame(() => {
-      lightboxReturnFocus.current?.focus({ preventScroll: true });
-      lightboxReturnFocus.current = null;
-    });
   };
 
-  const navigateExpandedWork = (direction: number) => {
-    if (!expandedWork || categoryTransition) return;
-    const workCount = category.works.length;
-    const currentIndex = category.works.findIndex((work) => work.id === expandedWork.id);
-    const nextIndex = (currentIndex + direction + workCount) % workCount;
-    const currentTrack = galleryTrack.get();
-    const relativePosition = wrapGalleryPosition(nextIndex + currentTrack, workCount);
-    const target = currentTrack - relativePosition;
-
-    gallerySnapAnimation.current?.stop();
-    carouselAnimating.current = false;
-    setIsCardTransitioning(false);
-    galleryTrack.set(target);
-    settledTrack.current = target;
-    syncWorkIndexFromTrack(target);
-    setExpandedWork(category.works[nextIndex]);
-  };
 
   const startGalleryDrag = (event: PointerEvent<HTMLDivElement>) => {
     if (reduceMotion || categoryTransition || !event.isPrimary || event.button !== 0) return;
@@ -3301,7 +2559,7 @@ function SelectedWorks({
         >
           <div className="section-kicker">
             <i />
-            <span>Capability Range</span>
+            <span>精选视觉 / Selected Visuals</span>
           </div>
           <span>{category.index} / {String(workCategories.length).padStart(2, "0")}</span>
         </motion.header>
@@ -3314,7 +2572,7 @@ function SelectedWorks({
           <div className="active-work-meta">
             <span>{category.english}</span>
             <strong>{activeWork.title}</strong>
-            <small>{activeWork.year} / WORK SET</small>
+            <small>{activeWork.year} / VISUAL</small>
           </div>
 
           <div
@@ -3389,7 +2647,7 @@ function SelectedWorks({
             </div>
           </div>
 
-          <p className="works-instruction">拖动切换作品组<br />点击查看完整套装</p>
+          <p className="works-instruction">拖动浏览精选视觉<br />点击查看完整案例</p>
         </motion.nav>
 
         <motion.div
@@ -3523,15 +2781,16 @@ function SelectedWorks({
       )}
 
       {createPortal(
-        <AnimatePresence>
-          {expandedWork ? (
-            <WorkViewer
-              key={`work-viewer-${viewerSession}`}
+        <AnimatePresence onExitComplete={() => {
+          lightboxReturnFocus.current?.focus({ preventScroll: true });
+          lightboxReturnFocus.current = null;
+        }}>
+          {expandedWork?.caseRef ? (
+            <SelectedCaseViewer
+              key={`selected-case-${expandedWork.id}`}
               work={expandedWork}
-              category={category}
               reduceMotion={reduceMotion}
               onClose={closeExpandedWork}
-              onNavigate={navigateExpandedWork}
             />
           ) : null}
         </AnimatePresence>,
