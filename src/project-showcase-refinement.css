@@ -1,16 +1,27 @@
 /* Project index refinement: parallel geometry, restrained dividers and one clear title hierarchy. */
+.project-showcase {
+  background:
+    radial-gradient(circle at 10% 38%, rgba(137, 170, 204, 0.045), transparent 28%),
+    linear-gradient(180deg, #090a0b 0%, #080a0b 68%, #070809 100%);
+}
+
+.project-showcase-frame,
+.project-showcase-track {
+  background: transparent;
+}
+
 .project-showcase-track {
   gap: 0;
 }
 
 .project-showcase-item,
 .project-showcase-track.has-focus .project-showcase-item {
-  margin: 0 -1px;
-  clip-path: polygon(17.5% 0, 100% 0, 82.5% 100%, 0 100%);
+  margin: 0 -2px;
+  clip-path: polygon(9% 0, 100% 0, 91% 100%, 0 100%);
 }
 
 .project-showcase-item:last-child {
-  clip-path: polygon(17.5% 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(9% 0, 100% 0, 100% 100%, 0 100%);
 }
 
 .project-showcase-track.has-focus .project-showcase-item {
@@ -34,7 +45,7 @@
 }
 
 .project-showcase-item:first-child {
-  clip-path: polygon(0 0, 100% 0, 82.5% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 91% 100%, 0 100%);
   border-left: 0;
 }
 
@@ -304,14 +315,14 @@
   .project-showcase-track.has-focus .project-showcase-item:last-child,
   .project-showcase-track.has-focus .project-showcase-item.is-focused:last-child {
     flex: 0 0 82vw;
-    clip-path: polygon(13% 0, 100% 0, 87% 100%, 0 100%);
+    clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
     border-left: 0;
   }
 
   .project-showcase-item:last-child,
   .project-showcase-track.has-focus .project-showcase-item:last-child,
   .project-showcase-track.has-focus .project-showcase-item.is-focused:last-child {
-    clip-path: polygon(13% 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%);
   }
 
   .project-showcase-item:first-child {

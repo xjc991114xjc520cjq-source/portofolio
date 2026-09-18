@@ -1695,7 +1695,7 @@ function Hero() {
 }
 
 type GalleryWork = WorkItem;
-type GallerySpread = "desktop" | "tablet" | "mobile";
+type GallerySpread = "wide" | "desktop" | "tablet" | "mobile";
 type CategoryTransition = {
   nextIndex: number;
   phase: "cover" | "reveal";
@@ -2335,9 +2335,9 @@ function GalleryCard({
   const thumbnailMode = work.thumbnailMode ?? detectedMode;
   const thumbnailSource = work.thumbnail ?? work.image;
   const thumbnailPosition = work.focalPoint ?? (thumbnailMode === "long" ? "50% 0%" : "50% 50%");
-  const innerSpread = spread === "mobile" ? 74 : spread === "tablet" ? 126 : 178;
-  const outerSpread = spread === "mobile" ? 122 : spread === "tablet" ? 202 : 286;
-  const compactness = spread === "mobile" ? 0.72 : spread === "tablet" ? 0.88 : 1;
+  const innerSpread = spread === "mobile" ? 74 : spread === "tablet" ? 126 : spread === "wide" ? 220 : 178;
+  const outerSpread = spread === "mobile" ? 122 : spread === "tablet" ? 202 : spread === "wide" ? 350 : 286;
+  const compactness = spread === "mobile" ? 0.72 : spread === "tablet" ? 0.88 : spread === "wide" ? 1.08 : 1;
   const loopPosition = useTransform(trackProgress, (progress) => wrapGalleryPosition(cardIndex + progress, cardCount));
   const cardX = useTransform(loopPosition, (position) => {
     const distance = Math.abs(position);
@@ -2849,7 +2849,8 @@ function SelectedWorks({
   const reduceMotion = useReducedMotion();
   const isMobileGallery = useViewportMatch("(max-width: 720px)");
   const isTabletGallery = useViewportMatch("(max-width: 980px)");
-  const gallerySpread: GallerySpread = isMobileGallery ? "mobile" : isTabletGallery ? "tablet" : "desktop";
+  const isWideGallery = useViewportMatch("(min-width: 1900px)");
+  const gallerySpread: GallerySpread = isMobileGallery ? "mobile" : isTabletGallery ? "tablet" : isWideGallery ? "wide" : "desktop";
   const category = workCategories[categoryIndex];
   const nextCategory = categoryTransition ? workCategories[categoryTransition.nextIndex] : null;
   const activeWork = category.works[workIndex];
@@ -2939,9 +2940,9 @@ function SelectedWorks({
   const shutterSeamOpacity = useTransform(handoffProgress, [0.03, 0.12, 0.46, 0.62], [0, 0.88, 0.42, 0]);
   const shutterSeamScaleX = useTransform(handoffProgress, [0.03, 0.22, 0.6], [0.08, 1, 0.32]);
   const galleryTrack = useMotionValue(0);
-  const galleryCardStep = gallerySpread === "mobile" ? 112 : gallerySpread === "tablet" ? 164 : 218;
+  const galleryCardStep = gallerySpread === "mobile" ? 112 : gallerySpread === "tablet" ? 164 : gallerySpread === "wide" ? 264 : 218;
   const galleryDragLimit = galleryCardStep * 2.2;
-  const galleryDragThreshold = gallerySpread === "mobile" ? 48 : gallerySpread === "tablet" ? 66 : 82;
+  const galleryDragThreshold = gallerySpread === "mobile" ? 48 : gallerySpread === "tablet" ? 66 : gallerySpread === "wide" ? 96 : 82;
 
   useDocumentScrollLock(Boolean(expandedWork) || Boolean(categoryTransition));
 
