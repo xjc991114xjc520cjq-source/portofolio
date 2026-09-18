@@ -101,13 +101,13 @@
 }
 
 .project-showcase-art-primary.is-terrain-night {
-  object-position: center 52%;
-  filter: brightness(.7) saturate(.84) contrast(1.06);
+  object-position: center 50%;
+  filter: brightness(.72) saturate(.88) contrast(1.06);
 }
 
 .project-showcase-item:is(.is-focused, :focus-visible) .project-showcase-art-primary.is-terrain-night {
   object-position: center 50%;
-  filter: brightness(.9) saturate(.94) contrast(1.05);
+  filter: brightness(.92) saturate(.96) contrast(1.04);
 }
 
 .project-showcase-meta,
