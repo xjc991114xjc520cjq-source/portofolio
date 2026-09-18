@@ -40,6 +40,7 @@ import { CaseExtensions } from "./CaseExtensions";
 import caseImageSizes from "./case-image-sizes.json";
 import "./case-detail-refinement.css";
 import "./project-showcase-refinement.css";
+import "./selected-collection.css";
 
 const contactEmail = "1498224542@qq.com";
 const icpFilingNumber = "闽ICP备e9055130469ef8f5a26f534177de7d81";
@@ -831,7 +832,13 @@ type WorkCategory = {
 
 // Visual browsing uses the same project objects as the commercial case collections.
 // Only the selected frame and its visual-role title belong to this screen.
-function selectedCaseWork(collectionId: string, projectIndex: number, title: string, image?: string): WorkItem {
+function selectedCaseWork(
+  collectionId: string,
+  projectIndex: number,
+  title: string,
+  image?: string,
+  options: Pick<WorkItem, "thumbnailMode" | "focalPoint"> = { thumbnailMode: "cover" },
+): WorkItem {
   const collection = projectShowcaseCollections.find((entry) => entry.id === collectionId);
   const project = collection?.projects[projectIndex];
   if (!collection || !project) throw new Error(`Unknown selected work: ${collectionId}/${projectIndex}`);
@@ -848,66 +855,118 @@ function selectedCaseWork(collectionId: string, projectIndex: number, title: str
     result: project.outcome,
     deliverables: [...project.deliverables],
     gallery: [],
-    thumbnailMode: "cover",
+    ...options,
   };
 }
 
 const workCategories: WorkCategory[] = [
   {
-    id: "product",
-    label: "产品质感",
-    english: "Product",
+    id: "product-design",
+    label: "产品设计",
+    english: "Product Design",
     index: "01",
-    background: "/assets/projects/table-fan/table-fan-night.webp",
-    transitionImage: "/assets/projects/sona-earbuds/sona-material-macro.webp",
-    description: "看材质、结构与光线如何建立产品识别。",
-    role: "产品视觉",
-    deliverables: ["材质表现", "结构识别", "产品布光"],
-    keywords: ["材质", "结构", "光线"],
+    background: "/assets/projects/sona-earbuds/sona-material-macro.webp",
+    transitionImage: "/assets/projects/sona-earbuds/sona-launch-banner.webp",
+    description: "从造型、结构到材质，建立可被记住的产品身份。",
+    role: "产品形象",
+    deliverables: ["产品母版", "结构识别", "材质表现"],
+    keywords: ["造型", "结构", "材质"],
     palette: ["#080B0F", "#E8EEF3", "#89AACC", "#4E85BF"],
     works: [
-      selectedCaseWork("smart-living", 1, "循环扇 · 光影", "/assets/projects/table-fan/table-fan-hero.webp"),
-      selectedCaseWork("beauty-care", 0, "GLACIER · 冰川"),
-      selectedCaseWork("beauty-care", 1, "LUMINOSE · 光泽", "/assets/projects/serum/serum-bathroom.webp"),
-      selectedCaseWork("product-motion", 0, "SONA · 质感", "/assets/projects/sona-earbuds/sona-product-master.webp"),
+      selectedCaseWork("product-motion", 0, "SONA ARC ONE", "/assets/projects/sona-earbuds/sona-campaign-silence.webp", { thumbnailMode: "cover", focalPoint: "50% 45%" }),
+      selectedCaseWork("lifestyle-campaign", 0, "KOVA", "/assets/projects/kova-action-camera/kova-product-dual.jpg", { thumbnailMode: "cover", focalPoint: "55% 50%" }),
+      selectedCaseWork("product-motion", 1, "TERRAIN 35", "/assets/projects/terrain-35/terrain-product-studio.jpg", { thumbnailMode: "cover", focalPoint: "50% 42%" }),
+      selectedCaseWork("smart-living", 1, "空气循环扇", "/assets/projects/table-fan/table-fan-night.webp", { thumbnailMode: "cover", focalPoint: "50% 48%" }),
     ],
   },
   {
-    id: "campaign",
-    label: "广告表达",
-    english: "Campaign",
+    id: "commerce",
+    label: "电商主视觉",
+    english: "Commerce",
     index: "02",
-    background: "/assets/projects/qinglan-tea/qinglan-oolong-launch-hero.webp",
-    transitionImage: "/assets/projects/air-fryer/air-fryer-hero.webp",
-    description: "看商品、文案与构图如何形成鲜明的购买理由。",
-    role: "广告视觉",
-    deliverables: ["商品主视觉", "传播海报", "品牌表达"],
-    keywords: ["构图", "文案", "品牌"],
-    palette: ["#15100C", "#F1E7D8", "#CDA36B", "#715439"],
+    background: "/assets/projects/air-fryer/air-fryer-crispy.webp",
+    transitionImage: "/assets/projects/glacier-cleanser/glacier-commerce-positioning.webp",
+    description: "把功能、体验和购买理由变成一眼可读的商业画面。",
+    role: "销售视觉",
+    deliverables: ["商品首图", "卖点视觉", "渠道内容"],
+    keywords: ["商品", "卖点", "转化"],
+    palette: ["#130D0A", "#F2E8D9", "#D48A54", "#6D4D3B"],
     works: [
-      selectedCaseWork("smart-living", 0, "空气炸锅 · 食欲"),
-      selectedCaseWork("consumer-commerce", 0, "青岚茶事 · 双味", "/assets/projects/qinglan-tea/qinglan-dual-cover-square.webp"),
-      selectedCaseWork("consumer-commerce", 1, "焙香乌龙 · 上市"),
-      selectedCaseWork("lifestyle-campaign", 1, "户外音箱 · 山野"),
+      selectedCaseWork("smart-living", 0, "空气炸锅", "/assets/projects/air-fryer/air-fryer-crispy.webp", { thumbnailMode: "cover", focalPoint: "50% 50%" }),
+      selectedCaseWork("beauty-care", 0, "GLACIER", "/assets/projects/glacier-cleanser/glacier-commerce-positioning.webp", { thumbnailMode: "cover", focalPoint: "50% 50%" }),
+      selectedCaseWork("beauty-care", 1, "LUMINOSE", "/assets/projects/serum/serum-commerce-positioning.webp", { thumbnailMode: "cover", focalPoint: "50% 50%" }),
+      selectedCaseWork("lifestyle-campaign", 1, "户外音箱", "/assets/projects/outdoor-speaker/speaker-commerce-hero.webp", { thumbnailMode: "cover", focalPoint: "50% 50%" }),
     ],
   },
   {
-    id: "story",
-    label: "场景叙事",
-    english: "Lifestyle",
+    id: "beverage",
+    label: "食品饮料",
+    english: "Food & Beverage",
     index: "03",
-    background: "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v3.jpg",
-    transitionImage: "/assets/projects/terrain-35/terrain-showcase-campaign-v2.jpg",
-    description: "看人物、动作与环境如何赋予产品使用情境。",
-    role: "场景视觉",
-    deliverables: ["时尚形象", "使用场景", "户外传播"],
-    keywords: ["人物", "动作", "氛围"],
-    palette: ["#0B1013", "#ECE8E0", "#94AEB9", "#526D75"],
+    background: "/assets/projects/qinglan-tea/qinglan-scene-tea-garden-sunrise.webp",
+    transitionImage: "/assets/projects/qinglan-tea/qinglan-oolong-cinematic-wide-v2.webp",
+    description: "以单品包装、口感与饮用动作建立清晰的快消识别。",
+    role: "快消品牌",
+    deliverables: ["包装识别", "口感表达", "饮用场景"],
+    keywords: ["包装", "风味", "饮用"],
+    palette: ["#10150F", "#E8E7D8", "#879869", "#8E6549"],
     works: [
-      selectedCaseWork("fashion-commerce", 0, "鱼尾皮裙 · 雨夜", "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v3.jpg"),
-      selectedCaseWork("fashion-commerce", 1, "瑜伽套装 · 曲线", "/assets/projects/yoga-set/yoga-showcase-campaign-v2.jpg"),
-      selectedCaseWork("lifestyle-campaign", 0, "KOVA · 浪尖", "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg"),
-      selectedCaseWork("product-motion", 1, "TERRAIN 35 · 山野", "/assets/projects/terrain-35/terrain-showcase-campaign-v2.jpg"),
+      selectedCaseWork("consumer-commerce", 0, "青岚茶事·茉莉绿茶", "/assets/projects/qinglan-tea/qinglan-open-cap.webp", { thumbnailMode: "cover", focalPoint: "50% 48%" }),
+      selectedCaseWork("consumer-commerce", 1, "青岚茶事·焙香乌龙", "/assets/projects/qinglan-tea/qinglan-oolong-commerce-aroma.webp", { thumbnailMode: "cover", focalPoint: "50% 50%" }),
+      selectedCaseWork("smart-living", 0, "空气炸锅", "/assets/projects/air-fryer/air-fryer-table.webp", { thumbnailMode: "cover", focalPoint: "50% 50%" }),
+    ],
+  },
+  {
+    id: "fashion",
+    label: "时尚造型",
+    english: "Fashion",
+    index: "04",
+    background: "/assets/projects/fishtail-skirt/skirt-rain-composition-v2.png",
+    transitionImage: "/assets/projects/yoga-set/yoga-gym-stretch-wide.webp",
+    description: "用版型、动作与穿搭情境呈现服饰的设计语言。",
+    role: "时尚商业",
+    deliverables: ["版型识别", "造型企划", "场景形象"],
+    keywords: ["版型", "穿搭", "动作"],
+    palette: ["#111113", "#EEEAE7", "#A59A95", "#74453F"],
+    works: [
+      selectedCaseWork("fashion-commerce", 0, "鱼尾皮裙", "/assets/projects/fishtail-skirt/skirt-rain-composition-v2.png", { thumbnailMode: "cover", focalPoint: "48% 42%" }),
+      selectedCaseWork("fashion-commerce", 1, "瑜伽套装", "/assets/projects/yoga-set/yoga-gym-stretch-wide.webp", { thumbnailMode: "cover", focalPoint: "54% 46%" }),
+    ],
+  },
+  {
+    id: "outdoor",
+    label: "户外场景",
+    english: "Outdoor",
+    index: "05",
+    background: "/assets/projects/kova-action-camera/kova-scene-surf.jpg",
+    transitionImage: "/assets/projects/terrain-35/terrain-campaign-route.jpg",
+    description: "让产品进入真实行动，用环境、人物与使用关系建立向往。",
+    role: "场景传播",
+    deliverables: ["行动场景", "使用关系", "户外传播"],
+    keywords: ["行动", "环境", "体验"],
+    palette: ["#081016", "#E8ECEB", "#6E9CB5", "#D47C48"],
+    works: [
+      selectedCaseWork("lifestyle-campaign", 0, "KOVA", "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg", { thumbnailMode: "cover", focalPoint: "57% 45%" }),
+      selectedCaseWork("product-motion", 1, "TERRAIN 35", "/assets/projects/terrain-35/terrain-campaign-route.jpg", { thumbnailMode: "cover", focalPoint: "50% 42%" }),
+      selectedCaseWork("lifestyle-campaign", 1, "户外音箱", "/assets/projects/outdoor-speaker/speaker-commerce-night.webp", { thumbnailMode: "cover", focalPoint: "50% 48%" }),
+    ],
+  },
+  {
+    id: "motion",
+    label: "动态叙事",
+    english: "Motion",
+    index: "06",
+    background: "/assets/projects/sona-earbuds/sona-film-finale.webp",
+    transitionImage: "/assets/projects/kova-action-camera/kova-commerce-action.jpg",
+    description: "以关键帧、动作连续性与镜头节奏把静态视觉延展为影片。",
+    role: "产品动态",
+    deliverables: ["关键帧", "动作连续", "产品影片"],
+    keywords: ["镜头", "动作", "节奏"],
+    palette: ["#080C11", "#EEF4F7", "#82B7D4", "#475F73"],
+    works: [
+      selectedCaseWork("product-motion", 0, "SONA ARC ONE", "/assets/projects/sona-earbuds/sona-film-finale.webp", { thumbnailMode: "cover", focalPoint: "50% 50%" }),
+      selectedCaseWork("lifestyle-campaign", 0, "KOVA", "/assets/projects/kova-action-camera/kova-commerce-action.jpg", { thumbnailMode: "cover", focalPoint: "50% 50%" }),
+      selectedCaseWork("consumer-commerce", 1, "青岚茶事·焙香乌龙", "/assets/projects/qinglan-tea/qinglan-oolong-film-aroma-poster.webp", { thumbnailMode: "cover", focalPoint: "50% 50%" }),
     ],
   },
 ];
@@ -2023,7 +2082,7 @@ function GalleryCard({
       className={`gallery-card gallery-card-${thumbnailMode}${active ? " is-active" : ""}`}
       type="button"
       disabled={locked}
-      aria-label={`查看完整案例：${work.title}`}
+      aria-label={`查看作品集合：${work.title}`}
       style={{
         x: cardX,
         y: cardY,
@@ -2039,7 +2098,8 @@ function GalleryCard({
           <img
             src={thumbnailSource}
             alt={work.alt}
-            loading="lazy"
+            loading={active ? "eager" : "lazy"}
+            fetchPriority={active ? "high" : "auto"}
             decoding="async"
             draggable={false}
             style={{ objectPosition: thumbnailPosition }}
@@ -2064,11 +2124,30 @@ function SelectedCaseViewer({ work, reduceMotion, onClose }: {
   reduceMotion: boolean | null;
   onClose: () => void;
 }) {
-  const [collectionIndex, setCollectionIndex] = useState(() =>
-    projectShowcaseCollections.findIndex((collection) => collection.id === work.caseRef?.collectionId));
-  const [projectIndex, setProjectIndex] = useState(work.caseRef?.projectIndex ?? 0);
+  const [collectionIndex, setCollectionIndex] = useState(() => {
+    const index = projectShowcaseCollections.findIndex((collection) => collection.id === work.caseRef?.collectionId);
+    return index < 0 ? 0 : index;
+  });
+  const [projectIndex, setProjectIndex] = useState<number | null>(null);
   const collection = projectShowcaseCollections[collectionIndex];
   if (!collection) return null;
+
+  if (projectIndex === null) {
+    return (
+      <SelectedCollectionViewer
+        collection={collection}
+        currentIndex={collectionIndex}
+        reduceMotion={reduceMotion}
+        onClose={onClose}
+        onNavigate={(direction) => {
+          setCollectionIndex((current) =>
+            (current + direction + projectShowcaseCollections.length) % projectShowcaseCollections.length);
+        }}
+        onOpenProject={setProjectIndex}
+      />
+    );
+  }
+
   return (
     <ProjectDetailViewer
       collection={collection}
@@ -2076,7 +2155,7 @@ function SelectedCaseViewer({ work, reduceMotion, onClose }: {
       currentIndex={collectionIndex}
       projectIndex={projectIndex}
       reduceMotion={reduceMotion}
-      onClose={onClose}
+      onClose={() => setProjectIndex(null)}
       onSelectProject={setProjectIndex}
       onNavigate={(direction) => {
         setProjectIndex(0);
@@ -2084,6 +2163,218 @@ function SelectedCaseViewer({ work, reduceMotion, onClose }: {
           (current + direction + projectShowcaseCollections.length) % projectShowcaseCollections.length);
       }}
     />
+  );
+}
+
+const selectedCollectionMedia: Record<string, string[]> = {
+  "AIR FRYER COMMERCE SYSTEM": [
+    "/assets/projects/air-fryer/air-fryer-crispy.webp",
+    "/assets/projects/air-fryer/air-fryer-operation.webp",
+    "/assets/projects/air-fryer/air-fryer-table.webp",
+  ],
+  "AI AIR CIRCULATOR COMMERCE SYSTEM": [
+    "/assets/projects/table-fan/table-fan-night.webp",
+    "/assets/projects/table-fan/table-fan-circulation-distance.webp",
+    "/assets/projects/table-fan/table-fan-family.webp",
+  ],
+  "GLACIER CLEANSER COMMERCE SYSTEM": [
+    "/assets/projects/glacier-cleanser/glacier-commerce-positioning.webp",
+    "/assets/projects/glacier-cleanser/glacier-commerce-gel.webp",
+    "/assets/projects/glacier-cleanser/glacier-sunrise-wide.webp",
+  ],
+  "LUMINOSE SERUM COMMERCE SYSTEM": [
+    "/assets/projects/serum/serum-commerce-positioning.webp",
+    "/assets/projects/serum/serum-dropper-wide.webp",
+    "/assets/projects/serum/serum-night-scene.webp",
+  ],
+  "QINGLAN TEA COMMERCE SYSTEM": [
+    "/assets/projects/qinglan-tea/qinglan-open-cap.webp",
+    "/assets/projects/qinglan-tea/qinglan-commerce-core.webp",
+    "/assets/projects/qinglan-tea/qinglan-scene-tea-garden-sunrise.webp",
+  ],
+  "QINGLAN OOLONG GROWTH SYSTEM": [
+    "/assets/projects/qinglan-tea/qinglan-oolong-commerce-aroma.webp",
+    "/assets/projects/qinglan-tea/qinglan-oolong-pour.webp",
+    "/assets/projects/qinglan-tea/qinglan-oolong-cinematic-wide-v2.webp",
+  ],
+  "KOVA ACTION CAMERA EXPERIENCE SYSTEM": [
+    "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg",
+    "/assets/projects/kova-action-camera/kova-commerce-action.jpg",
+    "/assets/projects/kova-action-camera/kova-scene-kayak.jpg",
+  ],
+  "OUTDOOR SPEAKER EXPERIENCE SYSTEM": [
+    "/assets/projects/outdoor-speaker/speaker-commerce-night.webp",
+    "/assets/projects/outdoor-speaker/speaker-rock-hero.webp",
+    "/assets/projects/outdoor-speaker/speaker-commerce-fitness.webp",
+  ],
+  "FISHTAIL LEATHER SKIRT CAMPAIGN SYSTEM": [
+    "/assets/projects/fishtail-skirt/skirt-rain-composition-v2.png",
+    "/assets/projects/fishtail-skirt/skirt-19.webp",
+    "/assets/projects/fishtail-skirt/skirt-04.webp",
+  ],
+  "YOGA SET FASHION COMMERCE SYSTEM": [
+    "/assets/projects/yoga-set/yoga-gym-stretch-wide.webp",
+    "/assets/projects/yoga-set/yoga-commerce-focus.webp",
+    "/assets/projects/yoga-set/yoga-commerce-everyday.webp",
+  ],
+  "SONA ARC ONE EARBUDS LAUNCH SYSTEM": [
+    "/assets/projects/sona-earbuds/sona-film-finale.webp",
+    "/assets/projects/sona-earbuds/sona-campaign-silence.webp",
+    "/assets/projects/sona-earbuds/sona-launch-banner.webp",
+  ],
+  "TERRAIN 35 OUTDOOR BACKPACK COMMERCE SYSTEM": [
+    "/assets/projects/terrain-35/terrain-campaign-route.jpg",
+    "/assets/projects/terrain-35/terrain-product-studio.jpg",
+    "/assets/projects/terrain-35/terrain-hero-atmosphere.jpg",
+  ],
+};
+
+function projectProductName(item: ProjectShowcaseItem) {
+  const names: Record<string, string> = {
+    "AIR FRYER COMMERCE SYSTEM": "空气炸锅",
+    "AI AIR CIRCULATOR COMMERCE SYSTEM": "空气循环扇",
+    "GLACIER CLEANSER COMMERCE SYSTEM": "GLACIER",
+    "LUMINOSE SERUM COMMERCE SYSTEM": "LUMINOSE",
+    "QINGLAN TEA COMMERCE SYSTEM": "青岚茶事·茉莉绿茶",
+    "QINGLAN OOLONG GROWTH SYSTEM": "青岚茶事·焙香乌龙",
+    "KOVA ACTION CAMERA EXPERIENCE SYSTEM": "KOVA",
+    "OUTDOOR SPEAKER EXPERIENCE SYSTEM": "户外音箱",
+    "FISHTAIL LEATHER SKIRT CAMPAIGN SYSTEM": "鱼尾皮裙",
+    "YOGA SET FASHION COMMERCE SYSTEM": "瑜伽套装",
+    "SONA ARC ONE EARBUDS LAUNCH SYSTEM": "SONA ARC ONE",
+    "TERRAIN 35 OUTDOOR BACKPACK COMMERCE SYSTEM": "TERRAIN 35",
+  };
+  return names[item.english] ?? item.backdrop;
+}
+
+function SelectedCollectionViewer({
+  collection,
+  currentIndex,
+  reduceMotion,
+  onClose,
+  onNavigate,
+  onOpenProject,
+}: {
+  collection: ProjectShowcaseCollection;
+  currentIndex: number;
+  reduceMotion: boolean | null;
+  onClose: () => void;
+  onNavigate: (direction: number) => void;
+  onOpenProject: (index: number) => void;
+}) {
+  const viewerRef = useRef<HTMLDivElement>(null);
+  const titleId = `selected-collection-title-${collection.id}`;
+
+  useEffect(() => {
+    viewerRef.current?.focus({ preventScroll: true });
+  }, [collection.id]);
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    event.stopPropagation();
+    if (event.key === "Escape") {
+      event.preventDefault();
+      onClose();
+      return;
+    }
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      onNavigate(-1);
+    }
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      onNavigate(1);
+    }
+  };
+
+  return (
+    <motion.div
+      ref={viewerRef}
+      className="selected-collection-viewer"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby={titleId}
+      tabIndex={-1}
+      initial={reduceMotion ? false : { opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={reduceMotion ? undefined : { opacity: 0 }}
+      transition={{ duration: reduceMotion ? 0 : 0.24 }}
+      onClick={onClose}
+      onKeyDown={handleKeyDown}
+    >
+      <motion.article
+        className="selected-collection-panel"
+        initial={reduceMotion ? false : { opacity: 0, y: 42, scale: 0.985 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={reduceMotion ? undefined : { opacity: 0, y: 24, scale: 0.99 }}
+        transition={{ duration: reduceMotion ? 0 : 0.48, ease: [0.16, 1, 0.3, 1] }}
+        onClick={(event) => event.stopPropagation()}
+      >
+        <header className="selected-collection-header">
+          <div>
+            <span>作品集合</span>
+            <strong>{collection.title}</strong>
+          </div>
+          <nav aria-label="作品集合切换">
+            <span>{String(currentIndex + 1).padStart(2, "0")} / {String(projectShowcaseCollections.length).padStart(2, "0")}</span>
+            <button type="button" onClick={() => onNavigate(-1)} aria-label="上一个作品集合"><ArrowLeft size={18} strokeWidth={1.5} /></button>
+            <button type="button" onClick={() => onNavigate(1)} aria-label="下一个作品集合"><ArrowRight size={18} strokeWidth={1.5} /></button>
+            <button className="selected-collection-close" type="button" onClick={onClose} aria-label="关闭作品集合"><X size={20} strokeWidth={1.5} /></button>
+          </nav>
+        </header>
+
+        <div className="selected-collection-scroll">
+          <section className="selected-collection-intro">
+            <div>
+              <span>{collection.english}</span>
+              <h2 id={titleId}>{collection.title}</h2>
+              <p>按产品浏览完整视觉组合，点击对应产品再进入项目详情。</p>
+            </div>
+            <ol aria-label="本集合产品">
+              {collection.projects.map((project, index) => (
+                <li key={project.english}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <strong>{projectProductName(project)}</strong>
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          <div className="selected-collection-projects">
+            {collection.projects.map((project, projectIndex) => {
+              const media = selectedCollectionMedia[project.english] ?? [project.image, ...project.gallery.slice(0, 2).map((item) => item.src)];
+              return (
+                <motion.section
+                  className="selected-collection-project"
+                  key={project.english}
+                  style={{ "--collection-project-accent": project.accent } as CSSProperties}
+                  initial={reduceMotion ? false : { opacity: 0, y: 34 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.18 }}
+                  transition={{ duration: reduceMotion ? 0 : 0.56, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <div className="selected-collection-project-copy">
+                    <span>{project.category.split(" / ")[0]}</span>
+                    <h3>{projectProductName(project)}</h3>
+                    <p>{project.summary}</p>
+                    <button type="button" onClick={() => onOpenProject(projectIndex)}>
+                      <span>查看项目详情</span>
+                      <ArrowRight size={18} strokeWidth={1.5} aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="selected-collection-project-media" aria-label={`${projectProductName(project)}精选视觉`}>
+                    {media.slice(0, 3).map((src, mediaIndex) => (
+                      <figure className={`is-media-${mediaIndex + 1}`} key={src}>
+                        <img src={src} alt={`${projectProductName(project)}精选视觉 ${mediaIndex + 1}`} loading={projectIndex === 0 ? "eager" : "lazy"} decoding="async" />
+                      </figure>
+                    ))}
+                  </div>
+                </motion.section>
+              );
+            })}
+          </div>
+        </div>
+      </motion.article>
+    </motion.div>
   );
 }
 
@@ -2233,6 +2524,15 @@ function SelectedWorks({
   }, []);
 
   useEffect(() => {
+    const images = [category.background, category.transitionImage, ...category.works.map((work) => work.image)];
+    images.forEach((src) => {
+      const image = new Image();
+      image.src = src;
+      void image.decode().catch(() => undefined);
+    });
+  }, [category]);
+
+  useEffect(() => {
     if (!categoryMenuOpen) return;
     const closeOnOutsidePress = (event: globalThis.PointerEvent) => {
       if (!categorySwitcherRef.current?.contains(event.target as Node)) setCategoryMenuOpen(false);
@@ -2306,32 +2606,11 @@ function SelectedWorks({
     setExpandedWork(work);
   };
 
-  const focusGalleryWork = (cardIndex: number, work: GalleryWork) => {
+  const focusGalleryWork = (_cardIndex: number, work: GalleryWork) => {
     if (categoryTransition || suppressCardClick.current) return;
-    const currentTrack = galleryTrack.get();
-    const relativePosition = wrapGalleryPosition(cardIndex + currentTrack, category.works.length);
-
-    if (cardIndex === workIndexRef.current || Math.abs(relativePosition) < 0.025) {
-      openExpandedWork(work);
-      return;
-    }
-
     gallerySnapAnimation.current?.stop();
     carouselAnimating.current = false;
     setIsCardTransitioning(false);
-    const target = currentTrack - relativePosition;
-
-    if (reduceMotion) {
-      galleryTrack.set(target);
-      settledTrack.current = target;
-      syncWorkIndexFromTrack(target);
-      openExpandedWork(work);
-      return;
-    }
-
-    const travel = Math.abs(relativePosition);
-    const duration = Math.min(0.92, 0.58 + travel * 0.12);
-    settleGalleryTrack(target, duration, [0.16, 1, 0.3, 1]);
     openExpandedWork(work);
   };
 
@@ -2647,7 +2926,7 @@ function SelectedWorks({
             </div>
           </div>
 
-          <p className="works-instruction">拖动浏览精选视觉<br />点击查看完整案例</p>
+          <p className="works-instruction">拖动浏览精选视觉<br />点击进入作品集合</p>
         </motion.nav>
 
         <motion.div
@@ -3711,7 +3990,7 @@ function ProjectDetailViewer({
               >
                 <span>{String(index + 1).padStart(2, "0")}</span>
                 <span className="project-detail-project-tab-copy">
-                  <strong>{project.english === "QINGLAN TEA COMMERCE SYSTEM" ? "茉莉绿茶 · 品牌上市" : project.english === "QINGLAN OOLONG GROWTH SYSTEM" ? "焙香乌龙 · 产品线扩展" : project.english === "TERRAIN 35 OUTDOOR BACKPACK COMMERCE SYSTEM" ? "TERRAIN 35 户外背包" : project.title}</strong>
+                  <strong>{projectProductName(project)}</strong>
                   <small>{project.english}</small>
                 </span>
                 <i aria-hidden="true" />
