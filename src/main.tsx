@@ -33,6 +33,8 @@ import { FishtailSkirtCaseStudy } from "./FishtailSkirtCaseStudy";
 import "./fishtail-skirt.css";
 import { YogaSetCaseStudy } from "./YogaSetCaseStudy";
 import "./yoga-set.css";
+import { TerrainBackpackCaseStudy } from "./TerrainBackpackCaseStudy";
+import "./terrain-backpack.css";
 import { ProductEditorialCase, PublishingEditorialCase } from "./ProductEditorialCases";
 import { CaseExtensions } from "./CaseExtensions";
 import caseImageSizes from "./case-image-sizes.json";
@@ -518,6 +520,45 @@ const actionCameraProject = {
   ],
 } as const;
 
+const terrainBackpackProject = {
+  index: "06B",
+  title: "TERRAIN 35：城市到山野，一包切换",
+  english: "TERRAIN 35 OUTDOOR BACKPACK COMMERCE SYSTEM",
+  category: "户外装备 / 产品商业化",
+  categoryEnglish: "OUTDOOR PRODUCT COMMERCE",
+  year: "2026",
+  image: "/assets/projects/terrain-35/terrain-campaign-journey.jpg",
+  alt: "TERRAIN 35 深石墨黑技术背包户外传播主视觉",
+  backdrop: "TERRAIN",
+  accent: "#a8c7d8",
+  introTheme: {
+    surface: "#161b1e",
+    surfaceDeep: "#0b0e10",
+    title: "#eef2f3",
+    body: "#c2cdd1",
+    muted: "#96a6ad",
+    accent: "#a8c7d8",
+    rule: "#506570",
+    shadow: "rgba(3, 7, 9, 0.52)",
+  },
+  summary: "以稳定产品结构连接卷口、快取、背负与多场景使用，再把同一只背包组织成可进入商品详情、内容传播和户外 Campaign 的商业视觉系统。",
+  brief: "户外背包需要同时解释容量、收纳、背负与使用场景，还要在城市和山野之间保持同一产品身份。",
+  response: "先锁定高窄包体、双折卷口、盾形前仓、纵向拉链和背负结构，再按吸引、解释、体验与传播分配资产职责。",
+  role: "AI Art Direction / Outdoor Commerce",
+  scope: "户外产品视觉定义、电商内容与多场景商业化",
+  deliverables: ["产品母版", "结构卖点", "材质与背负", "城市通勤", "山野场景", "电商主视觉", "渠道传播"],
+  workflow: ["产品锁定", "结构拆解", "使用验证", "电商编排", "场景拓展", "渠道组合"],
+  system: "固定高窄轮廓、双折卷口、中央织带与 G 型挂钩、盾形前仓、右侧纵向拉链、双侧水壶袋、横向压缩带和分区背负系统。",
+  outcome: "核心视觉覆盖产品确认、卖点解释、真实背负、城市通勤和山野传播，并让每张画面承担清晰的商业职责。",
+  reflection: "户外产品的商业表达不只展示远方，也要让结构、使用动作和消费者的出发理由互相验证。",
+  gallery: [
+    { src: "/assets/projects/terrain-35/terrain-product-studio.jpg", alt: "TERRAIN 35 技术背包棚拍产品正面", layout: "portrait" },
+    { src: "/assets/projects/terrain-35/terrain-overview.jpg", alt: "TERRAIN 35 产品结构与功能电商总览", layout: "portrait" },
+    { src: "/assets/projects/terrain-35/terrain-carry-fit.jpg", alt: "TERRAIN 35 山径真实背负场景", layout: "portrait" },
+    { src: "/assets/projects/terrain-35/terrain-campaign-route.jpg", alt: "年轻不止一种路线 TERRAIN 35 传播主视觉", layout: "portrait" },
+  ],
+} as const;
+
 const projectShowcaseCollections = [
   {
     id: "smart-living",
@@ -561,7 +602,7 @@ const projectShowcaseCollections = [
     english: "LIFESTYLE EXPERIENCES",
     facets: ["运动相机", "户外音箱", "体验商业化"],
     coverImages: [
-      "/assets/projects/kova-action-camera/kova-product-dual.jpg",
+      "/assets/projects/kova-action-camera/kova-product-front.jpg",
       "/assets/projects/outdoor-speaker/speaker-product-cover.png",
     ],
     projects: [actionCameraProject, projectShowcaseItems[5]],
@@ -581,13 +622,14 @@ const projectShowcaseCollections = [
   {
     id: "product-motion",
     index: "06",
-    title: "产品动态影像",
-    english: "PRODUCT MOTION",
-    facets: ["精密硬件一致性", "产品影片", "多比例交付"],
+    title: "产品视觉与商业化",
+    english: "PRODUCT VISUALS & COMMERCE",
+    facets: ["产品一致性", "销售表达", "跨场景内容"],
     coverImages: [
       "/assets/projects/sona-earbuds/sona-campaign-silence.webp",
+      "/assets/projects/terrain-35/terrain-campaign-journey.jpg",
     ],
-    projects: [projectShowcaseItems[7]],
+    projects: [projectShowcaseItems[7], terrainBackpackProject],
   },
 ] as const;
 
@@ -4228,6 +4270,7 @@ function ProjectDetailViewer({
   const isActionCameraProject = item.english === "KOVA ACTION CAMERA EXPERIENCE SYSTEM";
   const isSkirtProject = item.english === "FISHTAIL LEATHER SKIRT CAMPAIGN SYSTEM";
   const isYogaProject = item.english === "YOGA SET FASHION COMMERCE SYSTEM";
+  const isTerrainProject = item.english === "TERRAIN 35 OUTDOOR BACKPACK COMMERCE SYSTEM";
   const detailHeroImage = isGlacierProject
     ? "/assets/projects/glacier-cleanser/glacier-sunrise-wide.webp"
     : isSerumProject
@@ -4241,8 +4284,10 @@ function ProjectDetailViewer({
             : isSonaEarbudsProject
               ? "/assets/projects/sona-earbuds/sona-launch-banner.webp"
               : isYogaProject
-                ? "/assets/projects/yoga-set/yoga-commerce-campaign-wide.webp"
-                : item.image;
+                ? "/assets/projects/yoga-set/yoga-park-stretch-wide.webp"
+                : isTerrainProject
+                  ? "/assets/projects/terrain-35/terrain-hero-master.jpg"
+                  : item.image;
   const detailHeroAlt = isGlacierProject
     ? "晨光冰原中的 GLACIER 洁面啫喱产品主视觉"
     : isSerumProject
@@ -4256,8 +4301,10 @@ function ProjectDetailViewer({
             : isSonaEarbudsProject
               ? "SONA ARC ONE 听见自己的节奏新品上市横幅"
               : isYogaProject
-                ? "让设计跟着身体流动瑜伽套装横向商业主视觉"
-                : item.alt;
+                ? "城市湖畔公园侧弓步伸展中的瑜伽套装"
+                : isTerrainProject
+                  ? "TERRAIN 35 技术背包正面、侧面与背面产品母版"
+                  : item.alt;
 
   useEffect(() => {
     viewerRef.current?.focus({ preventScroll: true });
@@ -4321,7 +4368,7 @@ function ProjectDetailViewer({
       onKeyDown={handleKeyDown}
     >
       <motion.article
-        className={`project-detail-panel${!isSkirtProject && !isYogaProject ? " is-refined-panel" : ""}${isOolongProject ? " is-oolong-panel" : ""}${isOutdoorSpeakerProject ? " is-speaker-panel" : ""}${isActionCameraProject ? " is-action-camera-panel" : ""}${isSkirtProject ? " is-skirt-panel" : ""}${isYogaProject ? " is-yoga-panel" : ""}`}
+        className={`project-detail-panel${!isSkirtProject && !isYogaProject ? " is-refined-panel" : ""}${isOolongProject ? " is-oolong-panel" : ""}${isOutdoorSpeakerProject ? " is-speaker-panel" : ""}${isActionCameraProject ? " is-action-camera-panel" : ""}${isSkirtProject ? " is-skirt-panel" : ""}${isYogaProject ? " is-yoga-panel" : ""}${isTerrainProject ? " is-terrain-panel" : ""}`}
         style={{
           "--project-detail-accent": item.accent,
           "--project-intro-surface": item.introTheme.surface,
@@ -4404,7 +4451,7 @@ function ProjectDetailViewer({
               >
                 <span>{String(index + 1).padStart(2, "0")}</span>
                 <span className="project-detail-project-tab-copy">
-                  <strong>{project.english === "QINGLAN TEA COMMERCE SYSTEM" ? "茉莉绿茶 · 品牌上市" : project.english === "QINGLAN OOLONG GROWTH SYSTEM" ? "焙香乌龙 · 产品线扩展" : project.title}</strong>
+                  <strong>{project.english === "QINGLAN TEA COMMERCE SYSTEM" ? "茉莉绿茶 · 品牌上市" : project.english === "QINGLAN OOLONG GROWTH SYSTEM" ? "焙香乌龙 · 产品线扩展" : project.english === "TERRAIN 35 OUTDOOR BACKPACK COMMERCE SYSTEM" ? "TERRAIN 35 户外背包" : project.title}</strong>
                   <small>{project.english}</small>
                 </span>
                 <i aria-hidden="true" />
@@ -4423,7 +4470,7 @@ function ProjectDetailViewer({
             exit={reduceMotion ? undefined : { opacity: 0, x: -20 }}
             transition={{ duration: reduceMotion || keyboardNavigation ? 0 : 0.26, ease: [0.23, 1, 0.32, 1] }}
           >
-            <section className={`project-detail-hero${isOolongProject ? " is-oolong-detail-hero" : ""}${isGlacierProject ? " is-glacier-detail-hero" : ""}${isSerumProject ? " is-serum-detail-hero" : ""}${isSonaEarbudsProject ? " is-sona-earbuds-detail-hero" : ""}${isOutdoorSpeakerProject ? " is-outdoor-speaker-hero" : ""}${isActionCameraProject ? " is-action-camera-hero" : ""}${isSkirtProject ? " is-skirt-hero" : ""}${isYogaProject ? " is-yoga-hero" : ""}`}>
+            <section className={`project-detail-hero${isOolongProject ? " is-oolong-detail-hero" : ""}${isGlacierProject ? " is-glacier-detail-hero" : ""}${isSerumProject ? " is-serum-detail-hero" : ""}${isSonaEarbudsProject ? " is-sona-earbuds-detail-hero" : ""}${isOutdoorSpeakerProject ? " is-outdoor-speaker-hero" : ""}${isActionCameraProject ? " is-action-camera-hero" : ""}${isSkirtProject ? " is-skirt-hero" : ""}${isYogaProject ? " is-yoga-hero" : ""}${isTerrainProject ? " is-terrain-hero" : ""}`}>
               <figure className={`project-detail-visual${isGlacierProject ? " is-glacier-detail-visual" : ""}${isSerumProject ? " is-serum-detail-visual" : ""}${isSonaEarbudsProject ? " is-sona-earbuds-detail-visual" : ""}`}>
                 <ZoomableProjectImage
                   src={detailHeroImage}
@@ -4446,7 +4493,7 @@ function ProjectDetailViewer({
                 </div>
                 <div className="project-detail-title">
                   <small>{item.english}</small>
-                  <h2 id={titleId}>{isOutdoorSpeakerProject ? <>户外音箱<br />把音乐带进生活</> : isActionCameraProject ? <>KOVA 运动相机<br />不是旁观，是在场</> : isSkirtProject ? <>鱼尾皮裙<br />黑裙不止一面</> : isYogaProject ? <>瑜伽套装<br />让设计跟着身体流动</> : item.title}</h2>
+                  <h2 id={titleId}>{isOutdoorSpeakerProject ? <>户外音箱<br />把音乐带进生活</> : isActionCameraProject ? <>KOVA 运动相机<br />不是旁观，是在场</> : isSkirtProject ? <>鱼尾皮裙<br />黑裙不止一面</> : isYogaProject ? <>瑜伽套装<br />让设计跟着身体流动</> : isTerrainProject ? <>TERRAIN 35<br />城市到山野，一包切换</> : item.title}</h2>
                 </div>
                 <p className="project-detail-summary" id={summaryId}>{item.summary}</p>
               </div>
@@ -4469,11 +4516,13 @@ function ProjectDetailViewer({
                 <FishtailSkirtCaseStudy renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />
               ) : isYogaProject ? (
                 <YogaSetCaseStudy renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />
+              ) : isTerrainProject ? (
+                <TerrainBackpackCaseStudy renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />
               ) : (
                 <PublishingEditorialCase renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />
               )}
 
-              {!isSkirtProject && !isYogaProject && !isActionCameraProject && <CaseExtensions key={item.index} kind={isOolongProject ? "oolong" : isOutdoorSpeakerProject ? "speaker" : isSonaEarbudsProject ? "earbuds" : ["air", "fan", "glacier", "serum", "jasmine"][projectShowcaseItems.indexOf(item as typeof projectShowcaseItems[number])] || "publishing"} renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />}
+              {!isSkirtProject && !isYogaProject && !isActionCameraProject && !isTerrainProject && <CaseExtensions key={item.index} kind={isOolongProject ? "oolong" : isOutdoorSpeakerProject ? "speaker" : isSonaEarbudsProject ? "earbuds" : ["air", "fan", "glacier", "serum", "jasmine"][projectShowcaseItems.indexOf(item as typeof projectShowcaseItems[number])] || "publishing"} renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />}
 
               <footer className="project-detail-footer">
                 <dl>
@@ -4584,7 +4633,7 @@ function ProjectShowcaseCard({
               <source media="(max-width: 1280px)" srcSet="/assets/projects/qinglan-tea/qinglan-dual-cover-portrait.webp" />
             ) : null}
             <img
-              className={`project-showcase-art-primary${image === "/assets/projects/outdoor-speaker/speaker-product-cover.png" ? " is-speaker-product" : ""}${item.id === "lifestyle-campaign" && String(image) === fishtailSkirtProject.image ? " is-lifestyle-fashion" : ""}${activeCoverIndex === imageIndex ? " is-active" : ""}`}
+              className={`project-showcase-art-primary${image === "/assets/projects/kova-action-camera/kova-product-front.jpg" ? " is-kova-product" : ""}${image === "/assets/projects/outdoor-speaker/speaker-product-cover.png" ? " is-speaker-product" : ""}${item.id === "lifestyle-campaign" && String(image) === fishtailSkirtProject.image ? " is-lifestyle-fashion" : ""}${activeCoverIndex === imageIndex ? " is-active" : ""}`}
               src={image}
               alt=""
               aria-hidden="true"

@@ -16,6 +16,15 @@
 .kova-media .project-image-trigger { display: block; width: 100%; height: 100%; margin: 0; padding: 0; border: 0; border-radius: 0; background: transparent; }
 .kova-media img { display: block; width: 100%; height: 100%; max-height: none; object-fit: contain; transform: none; filter: none; }
 .kova-media .project-image-trigger:focus-visible { outline: 2px solid var(--kova-accent); outline-offset: -4px; }
+.project-showcase-item.is-speaker-cover .project-showcase-art-primary.is-kova-product {
+  object-fit: cover;
+  object-position: center 48%;
+  filter: brightness(.76) saturate(.82) contrast(1.02);
+}
+.project-showcase-item.is-speaker-cover:is(.is-focused, :focus-visible) .project-showcase-art-primary.is-kova-product {
+  object-position: center 48%;
+  filter: brightness(.9) saturate(.9) contrast(1.02);
+}
 .kova-figure { min-width: 0; }
 .kova-figure figcaption, .kova-film figcaption { display: grid; gap: 6px; padding-top: 15px; }
 .kova-figure figcaption strong, .kova-film figcaption strong { color: #dde1dd; font-size: 14px; font-weight: 570; }

@@ -82,11 +82,15 @@
 .yoga-conclusion strong { display: block; margin-top: 15px; font-size: clamp(24px, 2.8vw, 40px); font-weight: 520; line-height: 1.35; letter-spacing: -.045em; }
 
 .project-detail-panel.is-yoga-panel .project-detail-layout { position: absolute; top: 100px; bottom: 0; width: 100%; height: auto; }
-.project-detail-hero.is-yoga-hero { height: auto; min-height: 0; aspect-ratio: 2200 / 1238; background: #111214; }
-.project-detail-hero.is-yoga-hero .project-detail-visual > :is(strong, figcaption),
-.project-detail-hero.is-yoga-hero .project-detail-visual-shade { display: none; }
-.project-detail-hero.is-yoga-hero .project-detail-visual img { object-position: center center; filter: none; transform: none; }
-.project-detail-hero.is-yoga-hero .project-detail-intro { position: absolute !important; width: 1px !important; height: 1px !important; margin: -1px !important; padding: 0 !important; overflow: hidden !important; border: 0 !important; white-space: nowrap !important; clip: rect(0 0 0 0) !important; clip-path: inset(50%) !important; }
+.project-detail-hero.is-yoga-hero { height: 100%; min-height: 720px; aspect-ratio: auto; background: #111214; }
+.project-detail-hero.is-yoga-hero .project-detail-visual > :is(strong, figcaption) { display: none; }
+.project-detail-hero.is-yoga-hero .project-detail-visual img { object-position: center center; filter: brightness(.8) saturate(.82); transform: none; }
+.project-detail-hero.is-yoga-hero .project-detail-visual-shade { background: linear-gradient(270deg, rgba(18, 16, 18, .86), rgba(18, 16, 18, .52) 34%, transparent 62%), linear-gradient(0deg, rgba(12, 11, 13, .24), transparent 42%); }
+.project-detail-hero.is-yoga-hero .project-detail-intro { right: 0; left: auto; width: min(620px, 42%); padding-right: clamp(48px, 5vw, 86px); padding-left: 54px; background: linear-gradient(270deg, rgba(24, 21, 23, .96), rgba(24, 21, 23, .7) 78%, transparent); }
+.project-detail-hero.is-yoga-hero .project-detail-title h2 { max-width: 10.5em; font-size: clamp(32px, 2.75vw, 47px); line-height: 1.27; }
+.project-detail-hero.is-yoga-hero .project-detail-title small { font-size: 10px; line-height: 1.8; }
+.project-detail-hero.is-yoga-hero .project-detail-summary { font-size: 13px; line-height: 1.9; }
+.project-detail-hero.is-yoga-hero .project-detail-meta { font-size: 10px; }
 
 @media (max-width: 1100px) {
   .yoga-case { width: calc(100% - 56px); gap: 64px; margin-top: 44px; }
@@ -99,13 +103,19 @@
   .yoga-editorial-strip .yoga-figure:nth-child(1),
   .yoga-editorial-strip .yoga-figure:nth-child(2) { grid-column: auto; }
   .yoga-editorial-strip .yoga-figure:nth-child(3) { grid-column: 1 / -1; }
-  .project-detail-hero.is-yoga-hero { display: block; height: auto; min-height: 0; aspect-ratio: 2200 / 1238; }
+  .project-detail-hero.is-yoga-hero { display: block; height: 100%; min-height: 720px; aspect-ratio: auto; }
   .project-detail-hero.is-yoga-hero .project-detail-visual { position: absolute; inset: 0; height: 100%; min-height: 0; aspect-ratio: auto; }
   .project-detail-hero.is-yoga-hero .project-detail-visual img { object-fit: cover; }
+  .project-detail-hero.is-yoga-hero .project-detail-intro { width: min(520px, 48%); padding: 34px 36px 38px; }
 }
 
 @media (max-width: 780px) {
   .project-detail-panel.is-yoga-panel .project-detail-layout { top: 152px; }
+  .project-detail-hero.is-yoga-hero { aspect-ratio: auto; }
+  .project-detail-hero.is-yoga-hero .project-detail-visual { position: relative; inset: auto; width: 100%; height: auto; aspect-ratio: 2200 / 1238; }
+  .project-detail-hero.is-yoga-hero .project-detail-visual-shade { display: none; }
+  .project-detail-hero.is-yoga-hero .project-detail-intro { position: relative; inset: auto; width: 100%; max-width: none; margin: 0; padding: 26px 22px 28px; background: #191719; mask-image: none; -webkit-mask-image: none; }
+  .project-detail-hero.is-yoga-hero .project-detail-title h2 { max-width: none; font-size: 29px; }
   .yoga-case { width: calc(100% - 36px); gap: 50px; margin: 34px auto 52px; }
   .yoga-case h3 { font-size: 29px; }
   .yoga-opening, .yoga-master-pair, .yoga-motion-lead, .yoga-life-grid, .yoga-campaign-band { grid-template-columns: 1fr; gap: 24px; }

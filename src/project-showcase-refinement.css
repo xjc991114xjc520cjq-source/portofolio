@@ -42,10 +42,22 @@
 .project-showcase-item:last-child::after,
 .project-showcase-track.has-focus .project-showcase-item::after,
 .project-showcase-track.has-focus .project-showcase-item.is-focused::after {
-  display: block;
+  display: none;
 }
 
 .project-showcase-item:last-child::after { display: none; }
+
+.project-showcase-item:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.project-showcase-item:focus-visible .project-showcase-meta > strong {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent-a) 78%, white 8%);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 8px;
+}
 
 .project-showcase-track.has-focus .project-showcase-item,
 .project-showcase-track.has-focus .project-showcase-hit-zones span {

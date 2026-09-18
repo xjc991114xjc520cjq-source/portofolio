@@ -8307,15 +8307,15 @@ video {
 
 /* Project detail: immersive case-study canvas */
 .project-detail-viewer {
-  padding: 12px;
+  padding: 8px;
   background: rgba(3, 4, 5, 0.93);
   backdrop-filter: blur(24px) saturate(0.7);
   -webkit-backdrop-filter: blur(24px) saturate(0.7);
 }
 
 .project-detail-panel {
-  width: min(1740px, 100%);
-  height: calc(100dvh - 24px);
+  width: 100%;
+  height: calc(100dvh - 16px);
   min-height: 680px;
   border-color: rgba(225, 229, 225, 0.16);
   border-radius: 18px;
