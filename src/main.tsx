@@ -568,7 +568,7 @@ const projectShowcaseCollections = [
     facets: ["智能厨电", "智能硬件", "功能商业化"],
     coverImages: [
       "/assets/projects/air-fryer/air-fryer-reference.webp",
-      "/assets/projects/table-fan/table-fan-family.webp",
+      "/assets/projects/table-fan/table-fan-showcase-campaign-v2.jpg",
     ],
     projects: [projectShowcaseItems[0], projectShowcaseItems[1]],
   },
@@ -602,7 +602,7 @@ const projectShowcaseCollections = [
     english: "LIFESTYLE EXPERIENCES",
     facets: ["运动相机", "户外音箱", "体验商业化"],
     coverImages: [
-      "/assets/projects/kova-action-camera/kova-scene-surf.jpg",
+      "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg",
       "/assets/projects/outdoor-speaker/speaker-product-cover.png",
     ],
     projects: [actionCameraProject, projectShowcaseItems[5]],
@@ -614,8 +614,8 @@ const projectShowcaseCollections = [
     english: "FASHION COMMERCE",
     facets: ["时装企划", "功能服饰", "场景商业化"],
     coverImages: [
-      "/assets/projects/fishtail-skirt/skirt-rain-composition-v2.png",
-      "/assets/projects/yoga-set/yoga-architecture-look.webp",
+      "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v3.jpg",
+      "/assets/projects/yoga-set/yoga-showcase-campaign-v2.jpg",
     ],
     projects: [fishtailSkirtProject, yogaSetProject],
   },
@@ -4637,7 +4637,7 @@ function ProjectShowcaseCard({
               <source media="(max-width: 1280px)" srcSet="/assets/projects/qinglan-tea/qinglan-dual-cover-portrait.webp" />
             ) : null}
             <img
-              className={`project-showcase-art-primary${image === "/assets/projects/kova-action-camera/kova-scene-surf.jpg" ? " is-kova-action" : ""}${image === "/assets/projects/yoga-set/yoga-architecture-look.webp" ? " is-yoga-fashion" : ""}${image === "/assets/projects/terrain-35/terrain-showcase-campaign-v2.jpg" ? " is-terrain-night" : ""}${image === "/assets/projects/outdoor-speaker/speaker-product-cover.png" ? " is-speaker-product" : ""}${item.id === "lifestyle-campaign" && String(image) === fishtailSkirtProject.image ? " is-lifestyle-fashion" : ""}${activeCoverIndex === imageIndex ? " is-active" : ""}`}
+              className={`project-showcase-art-primary${image === "/assets/projects/table-fan/table-fan-showcase-campaign-v2.jpg" ? " is-table-fan-campaign" : ""}${image === "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg" ? " is-kova-action" : ""}${image === "/assets/projects/yoga-set/yoga-showcase-campaign-v2.jpg" ? " is-yoga-fashion" : ""}${image === "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v3.jpg" ? " is-fishtail-fashion" : ""}${image === "/assets/projects/terrain-35/terrain-showcase-campaign-v2.jpg" ? " is-terrain-night" : ""}${image === "/assets/projects/outdoor-speaker/speaker-product-cover.png" ? " is-speaker-product" : ""}${activeCoverIndex === imageIndex ? " is-active" : ""}`}
               src={image}
               alt=""
               aria-hidden="true"

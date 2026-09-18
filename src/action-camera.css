@@ -18,11 +18,11 @@
 .kova-media .project-image-trigger:focus-visible { outline: 2px solid var(--kova-accent); outline-offset: -4px; }
 .project-showcase-item.is-speaker-cover .project-showcase-art-primary.is-kova-action {
   object-fit: cover;
-  object-position: center 46%;
-  filter: brightness(.72) saturate(.92) contrast(1.04);
+  object-position: center;
+  filter: brightness(.7) saturate(.9) contrast(1.05);
 }
 .project-showcase-item.is-speaker-cover:is(.is-focused, :focus-visible) .project-showcase-art-primary.is-kova-action {
-  object-position: center 48%;
+  object-position: center;
   filter: brightness(.88) saturate(.98) contrast(1.04);
 }
 .kova-figure { min-width: 0; }
