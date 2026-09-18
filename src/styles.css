@@ -2451,16 +2451,33 @@ video {
 }
 
 .gallery-card-contain .gallery-card-surface {
-  overflow: visible;
-  border-color: transparent;
-  background: transparent;
-  box-shadow: none;
+  overflow: hidden;
+  border-color: rgba(255, 255, 255, 0.24);
+  background: #101316;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.4);
+  isolation: isolate;
+}
+
+.gallery-card-contain .gallery-card-surface::before {
+  position: absolute;
+  inset: -8%;
+  z-index: -1;
+  content: "";
+  background-image:
+    linear-gradient(rgba(7, 9, 11, 0.32), rgba(7, 9, 11, 0.58)),
+    var(--gallery-card-image);
+  background-position: center;
+  background-size: cover;
+  filter: blur(18px) saturate(0.72) brightness(0.66);
+  transform: scale(1.08);
 }
 
 .gallery-card-contain img {
-  padding: 8%;
+  position: relative;
+  z-index: 1;
+  padding: 5%;
   object-fit: contain;
-  filter: saturate(0.78) contrast(1.02) brightness(0.92) drop-shadow(0 26px 34px rgba(0, 0, 0, 0.36));
+  filter: saturate(0.9) contrast(1.02) brightness(0.96) drop-shadow(0 20px 30px rgba(0, 0, 0, 0.32));
 }
 
 .gallery-card-long img {
@@ -2511,13 +2528,13 @@ video {
 
 .gallery-card-contain:not(:disabled):hover img,
 .gallery-card-contain:focus-visible img {
-  transform: translate3d(0, -6px, 0) scale(1.025);
+  transform: translate3d(0, -4px, 0) scale(1.012);
   filter: saturate(0.96) contrast(1.02) brightness(1) drop-shadow(0 34px 42px rgba(0, 0, 0, 0.42));
 }
 
 .gallery-card-contain.is-active:not(:disabled):hover img,
 .gallery-card-contain.is-active:focus-visible img {
-  transform: translate3d(0, -9px, 0) scale(1.04);
+  transform: translate3d(0, -5px, 0) scale(1.016);
   filter: saturate(1) contrast(1.02) brightness(1) drop-shadow(0 38px 48px rgba(0, 0, 0, 0.46));
 }
 

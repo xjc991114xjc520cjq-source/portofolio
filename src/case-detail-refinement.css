@@ -81,6 +81,12 @@
   .archive-toggle .archive-symbol { width: 38px; height: 38px; }
 }
 
+/* Finished case artwork must remain readable in the detail body. Layout frames may
+   reserve space, but they cannot crop products, typography or campaign copy. */
+.project-detail-copy .project-image-trigger > img {
+  object-fit: contain;
+}
+
 /* Earlier motion and oolong cases keep their authored sequence and films. */
 .is-refined-panel .smart-case-heading { display: grid; max-width: 780px; gap: 13px; margin-bottom: 30px; }
 .is-refined-panel .smart-case-heading > span { grid-column: auto; }

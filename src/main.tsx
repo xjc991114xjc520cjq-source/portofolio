@@ -562,75 +562,37 @@ const terrainBackpackProject = {
 
 const projectShowcaseCollections = [
   {
-    id: "smart-living",
+    id: "product-visual-systems",
     index: "01",
-    title: "智能生活产品",
-    english: "SMART LIVING PRODUCTS",
-    facets: ["智能厨电", "智能硬件", "功能商业化"],
+    title: "产品视觉系统",
+    english: "PRODUCT VISUAL SYSTEMS",
+    facets: ["产品识别", "功能证据", "结构一致性"],
     coverImages: [
-      "/assets/projects/air-fryer/air-fryer-reference.webp",
-      "/assets/projects/table-fan/table-fan-showcase-campaign-v2.jpg",
+      "/assets/projects/air-fryer/air-fryer-hero.webp",
     ],
-    projects: [projectShowcaseItems[0], projectShowcaseItems[1]],
+    projects: [projectShowcaseItems[0], projectShowcaseItems[1], projectShowcaseItems[7], actionCameraProject],
   },
   {
-    id: "beauty-care",
+    id: "brand-commerce-growth",
     index: "02",
-    title: "美妆与个人护理",
-    english: "BEAUTY & PERSONAL CARE",
-    facets: ["功效洁面", "功效精华", "晨晚护理"],
+    title: "品牌与电商增长",
+    english: "BRAND & COMMERCE GROWTH",
+    facets: ["品牌定位", "购买路径", "渠道内容"],
     coverImages: [
-      "/assets/projects/glacier-cleanser/glacier-bathroom-wide.webp",
-      "/assets/projects/serum/serum-bathroom.webp",
+      "/assets/projects/glacier-cleanser/glacier-sunrise-wide.webp",
     ],
-    projects: [projectShowcaseItems[2], projectShowcaseItems[3]],
+    projects: [projectShowcaseItems[2], projectShowcaseItems[3], projectShowcaseItems[4], projectShowcaseItems[8]],
   },
   {
-    id: "consumer-commerce",
+    id: "campaign-experience",
     index: "03",
-    title: "新消费与电商",
-    english: "CONSUMER COMMERCE",
-    facets: ["食品饮料", "品牌定位", "上市内容"],
+    title: "场景企划与传播",
+    english: "CAMPAIGN & EXPERIENCE",
+    facets: ["场景企划", "人物叙事", "整合传播"],
     coverImages: [
-      "/assets/projects/qinglan-tea/qinglan-dual-cover-square.webp",
-    ],
-    projects: [projectShowcaseItems[4], projectShowcaseItems[8]],
-  },
-  {
-    id: "lifestyle-campaign",
-    index: "04",
-    title: "生活体验",
-    english: "LIFESTYLE EXPERIENCES",
-    facets: ["运动相机", "户外音箱", "体验商业化"],
-    coverImages: [
-      "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg",
       "/assets/projects/outdoor-speaker/speaker-product-cover.png",
     ],
-    projects: [actionCameraProject, projectShowcaseItems[5]],
-  },
-  {
-    id: "fashion-commerce",
-    index: "05",
-    title: "时尚服饰",
-    english: "FASHION COMMERCE",
-    facets: ["时装企划", "功能服饰", "场景商业化"],
-    coverImages: [
-      "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v3.jpg",
-      "/assets/projects/yoga-set/yoga-showcase-campaign-v2.jpg",
-    ],
-    projects: [fishtailSkirtProject, yogaSetProject],
-  },
-  {
-    id: "product-motion",
-    index: "06",
-    title: "产品视觉与商业化",
-    english: "PRODUCT VISUALS & COMMERCE",
-    facets: ["产品一致性", "销售表达", "跨场景内容"],
-    coverImages: [
-      "/assets/projects/sona-earbuds/sona-campaign-silence.webp",
-      "/assets/projects/terrain-35/terrain-showcase-campaign-v2.jpg",
-    ],
-    projects: [projectShowcaseItems[7], terrainBackpackProject],
+    projects: [projectShowcaseItems[5], fishtailSkirtProject, yogaSetProject, terrainBackpackProject],
   },
 ] as const;
 
@@ -830,25 +792,63 @@ type WorkCategory = {
   works: WorkItem[];
 };
 
+function projectDetailHero(project: { english: string; image: string; alt: string }) {
+  const overrides: Record<string, { src: string; alt: string }> = {
+    "AI AIR CIRCULATOR COMMERCE SYSTEM": {
+      src: "/assets/projects/table-fan/table-fan-lifestyle.webp",
+      alt: "日间客厅中的空气循环扇与真实居家使用场景",
+    },
+    "GLACIER CLEANSER COMMERCE SYSTEM": {
+      src: "/assets/projects/glacier-cleanser/glacier-sunrise-wide.webp",
+      alt: "晨光冰原中的 GLACIER 洁面啫喱产品主视觉",
+    },
+    "LUMINOSE SERUM COMMERCE SYSTEM": {
+      src: "/assets/projects/serum/serum-bathroom.webp",
+      alt: "自然晨光浴室中的 LUMINOSE 琥珀玻璃精华液产品场景",
+    },
+    "QINGLAN TEA COMMERCE SYSTEM": {
+      src: "/assets/projects/qinglan-tea/qinglan-pour.webp",
+      alt: "青岚茶事原叶茉莉绿茶倒入玻璃杯的真实茶汤画面",
+    },
+    "QINGLAN OOLONG GROWTH SYSTEM": {
+      src: "/assets/projects/qinglan-tea/qinglan-oolong-cinematic-wide-v2.webp",
+      alt: "暖光建筑与深色石台上的青岚焙香乌龙产品主视觉",
+    },
+    "SONA ARC ONE EARBUDS LAUNCH SYSTEM": {
+      src: "/assets/projects/sona-earbuds/sona-launch-banner.webp",
+      alt: "SONA ARC ONE 听见自己的节奏新品上市横幅",
+    },
+    "YOGA SET FASHION COMMERCE SYSTEM": {
+      src: "/assets/projects/yoga-set/yoga-gym-stretch-wide.webp",
+      alt: "城市健身房中进行单腿拉伸的米色与墨岩灰瑜伽套装",
+    },
+    "TERRAIN 35 OUTDOOR BACKPACK COMMERCE SYSTEM": {
+      src: "/assets/projects/terrain-35/terrain-hero-atmosphere.jpg",
+      alt: "日落山脊上背负 TERRAIN 35 深石墨黑技术背包的徒步者",
+    },
+  };
+  return overrides[project.english] ?? { src: project.image, alt: project.alt };
+}
+
 // Visual browsing uses the same project objects as the commercial case collections.
 // Only the selected frame and its visual-role title belong to this screen.
 function selectedCaseWork(
   collectionId: string,
   projectIndex: number,
   title: string,
-  image?: string,
-  options: Pick<WorkItem, "thumbnailMode" | "focalPoint"> = { thumbnailMode: "cover" },
+  options: Pick<WorkItem, "thumbnailMode" | "focalPoint"> = { thumbnailMode: "contain" },
 ): WorkItem {
   const collection = projectShowcaseCollections.find((entry) => entry.id === collectionId);
   const project = collection?.projects[projectIndex];
   if (!collection || !project) throw new Error(`Unknown selected work: ${collectionId}/${projectIndex}`);
+  const hero = projectDetailHero(project);
   return {
     id: `${collectionId}-${projectIndex}`,
     caseRef: { collectionId, projectIndex },
     title,
     year: project.year,
-    image: image ?? project.image,
-    alt: title,
+    image: hero.src,
+    alt: hero.alt,
     summary: project.summary,
     brief: project.brief,
     approach: project.response,
@@ -861,112 +861,60 @@ function selectedCaseWork(
 
 const workCategories: WorkCategory[] = [
   {
-    id: "product-design",
-    label: "产品设计",
-    english: "Product Design",
+    id: "product-visual-systems",
+    label: "产品视觉系统",
+    english: "Product Visual Systems",
     index: "01",
     background: "/assets/projects/sona-earbuds/sona-material-macro.webp",
     transitionImage: "/assets/projects/sona-earbuds/sona-launch-banner.webp",
-    description: "从造型、结构到材质，建立可被记住的产品身份。",
-    role: "产品形象",
-    deliverables: ["产品母版", "结构识别", "材质表现"],
-    keywords: ["造型", "结构", "材质"],
+    description: "从产品识别到功能证据，建立跨画面稳定、可销售的视觉系统。",
+    role: "产品视觉",
+    deliverables: ["产品母版", "功能证据", "结构一致性"],
+    keywords: ["识别", "证据", "一致性"],
     palette: ["#080B0F", "#E8EEF3", "#89AACC", "#4E85BF"],
     works: [
-      selectedCaseWork("product-motion", 0, "SONA ARC ONE", "/assets/projects/sona-earbuds/sona-campaign-silence.webp", { thumbnailMode: "cover", focalPoint: "50% 45%" }),
-      selectedCaseWork("lifestyle-campaign", 0, "KOVA", "/assets/projects/kova-action-camera/kova-product-dual.jpg", { thumbnailMode: "cover", focalPoint: "55% 50%" }),
-      selectedCaseWork("product-motion", 1, "TERRAIN 35", "/assets/projects/terrain-35/terrain-product-studio.jpg", { thumbnailMode: "cover", focalPoint: "50% 42%" }),
-      selectedCaseWork("smart-living", 1, "空气循环扇", "/assets/projects/table-fan/table-fan-night.webp", { thumbnailMode: "cover", focalPoint: "50% 48%" }),
+      selectedCaseWork("product-visual-systems", 0, "空气炸锅"),
+      selectedCaseWork("product-visual-systems", 1, "空气循环扇"),
+      selectedCaseWork("product-visual-systems", 2, "SONA ARC ONE"),
+      selectedCaseWork("product-visual-systems", 3, "KOVA"),
     ],
   },
   {
-    id: "commerce",
-    label: "电商主视觉",
-    english: "Commerce",
+    id: "brand-commerce-growth",
+    label: "品牌与电商增长",
+    english: "Brand & Commerce Growth",
     index: "02",
-    background: "/assets/projects/air-fryer/air-fryer-crispy.webp",
-    transitionImage: "/assets/projects/glacier-cleanser/glacier-commerce-positioning.webp",
-    description: "把功能、体验和购买理由变成一眼可读的商业画面。",
-    role: "销售视觉",
-    deliverables: ["商品首图", "卖点视觉", "渠道内容"],
-    keywords: ["商品", "卖点", "转化"],
-    palette: ["#130D0A", "#F2E8D9", "#D48A54", "#6D4D3B"],
-    works: [
-      selectedCaseWork("smart-living", 0, "空气炸锅", "/assets/projects/air-fryer/air-fryer-crispy.webp", { thumbnailMode: "cover", focalPoint: "50% 50%" }),
-      selectedCaseWork("beauty-care", 0, "GLACIER", "/assets/projects/glacier-cleanser/glacier-commerce-positioning.webp", { thumbnailMode: "cover", focalPoint: "50% 50%" }),
-      selectedCaseWork("beauty-care", 1, "LUMINOSE", "/assets/projects/serum/serum-commerce-positioning.webp", { thumbnailMode: "cover", focalPoint: "50% 50%" }),
-      selectedCaseWork("lifestyle-campaign", 1, "户外音箱", "/assets/projects/outdoor-speaker/speaker-commerce-hero.webp", { thumbnailMode: "cover", focalPoint: "50% 50%" }),
-    ],
-  },
-  {
-    id: "beverage",
-    label: "食品饮料",
-    english: "Food & Beverage",
-    index: "03",
-    background: "/assets/projects/qinglan-tea/qinglan-scene-tea-garden-sunrise.webp",
-    transitionImage: "/assets/projects/qinglan-tea/qinglan-oolong-cinematic-wide-v2.webp",
-    description: "以单品包装、口感与饮用动作建立清晰的快消识别。",
-    role: "快消品牌",
-    deliverables: ["包装识别", "口感表达", "饮用场景"],
-    keywords: ["包装", "风味", "饮用"],
+    background: "/assets/projects/qinglan-tea/qinglan-oolong-cinematic-wide-v2.webp",
+    transitionImage: "/assets/projects/qinglan-tea/qinglan-pour.webp",
+    description: "从定位、购买路径到渠道内容，让品牌表达与转化目标相互证明。",
+    role: "品牌增长",
+    deliverables: ["品牌定位", "购买路径", "渠道内容"],
+    keywords: ["定位", "转化", "增长"],
     palette: ["#10150F", "#E8E7D8", "#879869", "#8E6549"],
     works: [
-      selectedCaseWork("consumer-commerce", 0, "青岚茶事·茉莉绿茶", "/assets/projects/qinglan-tea/qinglan-open-cap.webp", { thumbnailMode: "cover", focalPoint: "50% 48%" }),
-      selectedCaseWork("consumer-commerce", 1, "青岚茶事·焙香乌龙", "/assets/projects/qinglan-tea/qinglan-oolong-commerce-aroma.webp", { thumbnailMode: "cover", focalPoint: "50% 50%" }),
-      selectedCaseWork("smart-living", 0, "空气炸锅", "/assets/projects/air-fryer/air-fryer-table.webp", { thumbnailMode: "cover", focalPoint: "50% 50%" }),
+      selectedCaseWork("brand-commerce-growth", 0, "GLACIER"),
+      selectedCaseWork("brand-commerce-growth", 1, "LUMINOSE"),
+      selectedCaseWork("brand-commerce-growth", 2, "青岚茶事·茉莉绿茶"),
+      selectedCaseWork("brand-commerce-growth", 3, "青岚茶事·焙香乌龙"),
     ],
   },
   {
-    id: "fashion",
-    label: "时尚造型",
-    english: "Fashion",
-    index: "04",
-    background: "/assets/projects/fishtail-skirt/skirt-rain-composition-v2.png",
-    transitionImage: "/assets/projects/yoga-set/yoga-gym-stretch-wide.webp",
-    description: "用版型、动作与穿搭情境呈现服饰的设计语言。",
-    role: "时尚商业",
-    deliverables: ["版型识别", "造型企划", "场景形象"],
-    keywords: ["版型", "穿搭", "动作"],
-    palette: ["#111113", "#EEEAE7", "#A59A95", "#74453F"],
-    works: [
-      selectedCaseWork("fashion-commerce", 0, "鱼尾皮裙", "/assets/projects/fishtail-skirt/skirt-rain-composition-v2.png", { thumbnailMode: "cover", focalPoint: "48% 42%" }),
-      selectedCaseWork("fashion-commerce", 1, "瑜伽套装", "/assets/projects/yoga-set/yoga-gym-stretch-wide.webp", { thumbnailMode: "cover", focalPoint: "54% 46%" }),
-    ],
-  },
-  {
-    id: "outdoor",
-    label: "户外场景",
-    english: "Outdoor",
-    index: "05",
-    background: "/assets/projects/kova-action-camera/kova-scene-surf.jpg",
+    id: "campaign-experience",
+    label: "场景企划与传播",
+    english: "Campaign & Experience",
+    index: "03",
+    background: "/assets/projects/outdoor-speaker/speaker-rock-hero.webp",
     transitionImage: "/assets/projects/terrain-35/terrain-campaign-route.jpg",
-    description: "让产品进入真实行动，用环境、人物与使用关系建立向往。",
-    role: "场景传播",
-    deliverables: ["行动场景", "使用关系", "户外传播"],
-    keywords: ["行动", "环境", "体验"],
-    palette: ["#081016", "#E8ECEB", "#6E9CB5", "#D47C48"],
+    description: "让产品、人物与环境形成可信关系，并扩展为可连续传播的场景资产。",
+    role: "整合传播",
+    deliverables: ["场景企划", "人物叙事", "整合传播"],
+    keywords: ["场景", "人物", "传播"],
+    palette: ["#0C1012", "#E8ECEB", "#8EA8B4", "#C0724A"],
     works: [
-      selectedCaseWork("lifestyle-campaign", 0, "KOVA", "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg", { thumbnailMode: "cover", focalPoint: "57% 45%" }),
-      selectedCaseWork("product-motion", 1, "TERRAIN 35", "/assets/projects/terrain-35/terrain-campaign-route.jpg", { thumbnailMode: "cover", focalPoint: "50% 42%" }),
-      selectedCaseWork("lifestyle-campaign", 1, "户外音箱", "/assets/projects/outdoor-speaker/speaker-commerce-night.webp", { thumbnailMode: "cover", focalPoint: "50% 48%" }),
-    ],
-  },
-  {
-    id: "motion",
-    label: "动态叙事",
-    english: "Motion",
-    index: "06",
-    background: "/assets/projects/sona-earbuds/sona-film-finale.webp",
-    transitionImage: "/assets/projects/kova-action-camera/kova-commerce-action.jpg",
-    description: "以关键帧、动作连续性与镜头节奏把静态视觉延展为影片。",
-    role: "产品动态",
-    deliverables: ["关键帧", "动作连续", "产品影片"],
-    keywords: ["镜头", "动作", "节奏"],
-    palette: ["#080C11", "#EEF4F7", "#82B7D4", "#475F73"],
-    works: [
-      selectedCaseWork("product-motion", 0, "SONA ARC ONE", "/assets/projects/sona-earbuds/sona-film-finale.webp", { thumbnailMode: "cover", focalPoint: "50% 50%" }),
-      selectedCaseWork("lifestyle-campaign", 0, "KOVA", "/assets/projects/kova-action-camera/kova-commerce-action.jpg", { thumbnailMode: "cover", focalPoint: "50% 50%" }),
-      selectedCaseWork("consumer-commerce", 1, "青岚茶事·焙香乌龙", "/assets/projects/qinglan-tea/qinglan-oolong-film-aroma-poster.webp", { thumbnailMode: "cover", focalPoint: "50% 50%" }),
+      selectedCaseWork("campaign-experience", 0, "户外音箱"),
+      selectedCaseWork("campaign-experience", 1, "鱼尾皮裙"),
+      selectedCaseWork("campaign-experience", 2, "瑜伽套装"),
+      selectedCaseWork("campaign-experience", 3, "TERRAIN 35"),
     ],
   },
 ];
@@ -2082,7 +2030,7 @@ function GalleryCard({
       className={`gallery-card gallery-card-${thumbnailMode}${active ? " is-active" : ""}`}
       type="button"
       disabled={locked}
-      aria-label={`查看作品集合：${work.title}`}
+      aria-label={`查看项目详情：${work.title}`}
       style={{
         x: cardX,
         y: cardY,
@@ -2094,7 +2042,10 @@ function GalleryCard({
       onClick={onSelect}
     >
       <div className="gallery-card-body">
-        <figure className="gallery-card-surface">
+        <figure
+          className="gallery-card-surface"
+          style={{ "--gallery-card-image": `url("${thumbnailSource}")` } as CSSProperties}
+        >
           <img
             src={thumbnailSource}
             alt={work.alt}
@@ -2128,7 +2079,7 @@ function SelectedCaseViewer({ work, reduceMotion, onClose }: {
     const index = projectShowcaseCollections.findIndex((collection) => collection.id === work.caseRef?.collectionId);
     return index < 0 ? 0 : index;
   });
-  const [projectIndex, setProjectIndex] = useState<number | null>(null);
+  const [projectIndex, setProjectIndex] = useState<number | null>(() => work.caseRef?.projectIndex ?? null);
   const collection = projectShowcaseCollections[collectionIndex];
   if (!collection) return null;
 
@@ -2155,7 +2106,7 @@ function SelectedCaseViewer({ work, reduceMotion, onClose }: {
       currentIndex={collectionIndex}
       projectIndex={projectIndex}
       reduceMotion={reduceMotion}
-      onClose={() => setProjectIndex(null)}
+      onClose={onClose}
       onSelectProject={setProjectIndex}
       onNavigate={(direction) => {
         setProjectIndex(0);
@@ -2926,7 +2877,7 @@ function SelectedWorks({
             </div>
           </div>
 
-          <p className="works-instruction">拖动浏览精选视觉<br />点击进入作品集合</p>
+          <p className="works-instruction">拖动浏览精选视觉<br />点击进入项目详情</p>
         </motion.nav>
 
         <motion.div
@@ -3801,8 +3752,6 @@ function ProjectDetailViewer({
   const total = projectShowcaseCollections.length;
   const isGlacierProject = item.english === "GLACIER CLEANSER COMMERCE SYSTEM";
   const isSerumProject = item.english === "LUMINOSE SERUM COMMERCE SYSTEM";
-  const isTableFanProject = item.english === "AI AIR CIRCULATOR COMMERCE SYSTEM";
-  const isQinglanProject = item.english === "QINGLAN TEA COMMERCE SYSTEM";
   const isOolongProject = item.english === "QINGLAN OOLONG GROWTH SYSTEM";
   const isSonaEarbudsProject = item.english === "SONA ARC ONE EARBUDS LAUNCH SYSTEM";
   const isOutdoorSpeakerProject = item.english === "OUTDOOR SPEAKER EXPERIENCE SYSTEM";
@@ -3810,40 +3759,9 @@ function ProjectDetailViewer({
   const isSkirtProject = item.english === "FISHTAIL LEATHER SKIRT CAMPAIGN SYSTEM";
   const isYogaProject = item.english === "YOGA SET FASHION COMMERCE SYSTEM";
   const isTerrainProject = item.english === "TERRAIN 35 OUTDOOR BACKPACK COMMERCE SYSTEM";
-  const detailHeroImage = isGlacierProject
-    ? "/assets/projects/glacier-cleanser/glacier-sunrise-wide.webp"
-    : isSerumProject
-      ? "/assets/projects/serum/serum-bathroom.webp"
-      : isTableFanProject
-        ? "/assets/projects/table-fan/table-fan-lifestyle.webp"
-        : isQinglanProject
-          ? "/assets/projects/qinglan-tea/qinglan-pour.webp"
-          : isOolongProject
-            ? "/assets/projects/qinglan-tea/qinglan-oolong-cinematic-wide-v2.webp"
-            : isSonaEarbudsProject
-              ? "/assets/projects/sona-earbuds/sona-launch-banner.webp"
-              : isYogaProject
-                ? "/assets/projects/yoga-set/yoga-gym-stretch-wide.webp"
-                : isTerrainProject
-                  ? "/assets/projects/terrain-35/terrain-hero-atmosphere.jpg"
-                  : item.image;
-  const detailHeroAlt = isGlacierProject
-    ? "晨光冰原中的 GLACIER 洁面啫喱产品主视觉"
-    : isSerumProject
-      ? "自然晨光浴室中的 LUMINOSE 琥珀玻璃精华液产品场景"
-      : isTableFanProject
-        ? "日间客厅中的空气循环扇与真实居家使用场景"
-        : isQinglanProject
-          ? "青岚茶事原叶茉莉绿茶倒入玻璃杯的真实茶汤画面"
-          : isOolongProject
-            ? "暖光建筑与深色石台上的青岚焙香乌龙产品主视觉"
-            : isSonaEarbudsProject
-              ? "SONA ARC ONE 听见自己的节奏新品上市横幅"
-              : isYogaProject
-                ? "城市健身房中进行单腿拉伸的米色与墨岩灰瑜伽套装"
-                : isTerrainProject
-                  ? "日落山脊上背负 TERRAIN 35 深石墨黑技术背包的徒步者"
-                  : item.alt;
+  const detailHero = projectDetailHero(item);
+  const detailHeroImage = detailHero.src;
+  const detailHeroAlt = detailHero.alt;
 
   useEffect(() => {
     viewerRef.current?.focus({ preventScroll: true });
@@ -4148,7 +4066,7 @@ function ProjectShowcaseCard({
 
   return (
     <motion.button
-      className={`project-showcase-item${item.id === "consumer-commerce" ? " is-consumer-cover" : ""}${item.id === "lifestyle-campaign" ? " is-speaker-cover" : ""}${item.coverImages.length > 1 ? " has-cover-cycle" : ""}${isGlacierCover ? " is-glacier-cover" : ""}${isFocused ? " is-focused" : ""}${isSuppressed ? " is-suppressed" : ""}`}
+      className={`project-showcase-item${item.id === "campaign-experience" ? " is-speaker-cover" : ""}${item.coverImages.length > 1 ? " has-cover-cycle" : ""}${isGlacierCover ? " is-glacier-cover" : ""}${isFocused ? " is-focused" : ""}${isSuppressed ? " is-suppressed" : ""}`}
       type="button"
       data-project-index={index}
       aria-label={`查看作品方向：${item.title}，包含${item.projects.length}个完整商业项目`}
@@ -4171,11 +4089,8 @@ function ProjectShowcaseCard({
       <span className="project-showcase-art">
         {item.coverImages.map((image, imageIndex) => (
           <picture key={image}>
-            {item.id === "consumer-commerce" ? (
-              <source media="(max-width: 1280px)" srcSet="/assets/projects/qinglan-tea/qinglan-dual-cover-portrait.webp" />
-            ) : null}
             <img
-              className={`project-showcase-art-primary${image === "/assets/projects/table-fan/table-fan-showcase-campaign-v2.jpg" ? " is-table-fan-campaign" : ""}${image === "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg" ? " is-kova-action" : ""}${image === "/assets/projects/yoga-set/yoga-showcase-campaign-v2.jpg" ? " is-yoga-fashion" : ""}${image === "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v3.jpg" ? " is-fishtail-fashion" : ""}${image === "/assets/projects/terrain-35/terrain-showcase-campaign-v2.jpg" ? " is-terrain-night" : ""}${image === "/assets/projects/outdoor-speaker/speaker-product-cover.png" ? " is-speaker-product" : ""}${activeCoverIndex === imageIndex ? " is-active" : ""}`}
+              className={`project-showcase-art-primary${image === "/assets/projects/outdoor-speaker/speaker-product-cover.png" ? " is-speaker-product" : ""}${activeCoverIndex === imageIndex ? " is-active" : ""}`}
               src={image}
               alt=""
               aria-hidden="true"
