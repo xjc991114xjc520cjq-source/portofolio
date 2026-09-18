@@ -1,6 +1,5 @@
 /* Project index refinement: parallel geometry, restrained dividers and one clear title hierarchy. */
-.project-showcase-track,
-.project-showcase-hit-zones {
+.project-showcase-track {
   gap: 0;
 }
 
@@ -35,7 +34,16 @@
 }
 
 .project-showcase-item:first-child {
+  clip-path: polygon(0 0, 100% 0, 82.5% 100%, 0 100%);
   border-left: 0;
+}
+
+.project-showcase-track.has-focus .project-showcase-item:first-child {
+  clip-path: polygon(0 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+}
+
+.project-showcase-track.has-focus .project-showcase-item.is-focused:first-child {
+  clip-path: polygon(0 0, 100% 0, 94.5% 100%, 0 100%);
 }
 
 .project-showcase-item::after,
@@ -59,18 +67,36 @@
   text-underline-offset: 8px;
 }
 
-.project-showcase-track.has-focus .project-showcase-item,
-.project-showcase-track.has-focus .project-showcase-hit-zones span {
+.project-showcase-track.has-focus .project-showcase-item {
   flex-grow: 0.7;
 }
 
-.project-showcase-track.has-focus .project-showcase-item.is-focused,
-.project-showcase-track.has-focus .project-showcase-hit-zones span.is-focused {
-  flex-grow: 7.5;
+.project-showcase-track.has-focus .project-showcase-item.is-focused {
+  flex-grow: 6.8;
 }
 
 .project-showcase-item.is-suppressed {
   filter: brightness(0.5) saturate(0.28);
+}
+
+.project-showcase-art-primary.is-yoga-fashion {
+  object-position: center 18%;
+  filter: brightness(.74) saturate(.74) contrast(1.04);
+}
+
+.project-showcase-item:is(.is-focused, :focus-visible) .project-showcase-art-primary.is-yoga-fashion {
+  object-position: center 20%;
+  filter: brightness(.9) saturate(.86) contrast(1.04);
+}
+
+.project-showcase-art-primary.is-terrain-night {
+  object-position: center 52%;
+  filter: brightness(.7) saturate(.84) contrast(1.06);
+}
+
+.project-showcase-item:is(.is-focused, :focus-visible) .project-showcase-art-primary.is-terrain-night {
+  object-position: center 50%;
+  filter: brightness(.9) saturate(.94) contrast(1.05);
 }
 
 .project-showcase-meta,
@@ -343,7 +369,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .project-showcase-item,
-  .project-showcase-hit-zones span,
   .project-showcase-meta,
   .project-showcase-art-primary {
     transition: none !important;

@@ -4359,7 +4359,7 @@ video {
 
 .project-showcase {
   --project-showcase-height: clamp(700px, 82dvh, 820px);
-  --project-showcase-expand-duration: 560ms;
+  --project-showcase-expand-duration: 440ms;
   --project-showcase-expand-ease: var(--ease-drawer);
   position: relative;
   z-index: 6;

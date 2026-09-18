@@ -527,8 +527,8 @@ const terrainBackpackProject = {
   category: "户外装备 / 产品商业化",
   categoryEnglish: "OUTDOOR PRODUCT COMMERCE",
   year: "2026",
-  image: "/assets/projects/terrain-35/terrain-campaign-journey.jpg",
-  alt: "TERRAIN 35 深石墨黑技术背包户外传播主视觉",
+  image: "/assets/projects/terrain-35/terrain-hero-atmosphere.jpg",
+  alt: "日落山脊上背负 TERRAIN 35 深石墨黑技术背包的徒步者",
   backdrop: "TERRAIN",
   accent: "#a8c7d8",
   introTheme: {
@@ -602,7 +602,7 @@ const projectShowcaseCollections = [
     english: "LIFESTYLE EXPERIENCES",
     facets: ["运动相机", "户外音箱", "体验商业化"],
     coverImages: [
-      "/assets/projects/kova-action-camera/kova-product-front.jpg",
+      "/assets/projects/kova-action-camera/kova-scene-surf.jpg",
       "/assets/projects/outdoor-speaker/speaker-product-cover.png",
     ],
     projects: [actionCameraProject, projectShowcaseItems[5]],
@@ -615,7 +615,7 @@ const projectShowcaseCollections = [
     facets: ["时装企划", "功能服饰", "场景商业化"],
     coverImages: [
       "/assets/projects/fishtail-skirt/skirt-rain-composition-v2.png",
-      "/assets/projects/yoga-set/yoga-gym-stretch-wide.webp",
+      "/assets/projects/yoga-set/yoga-architecture-look.webp",
     ],
     projects: [fishtailSkirtProject, yogaSetProject],
   },
@@ -627,7 +627,7 @@ const projectShowcaseCollections = [
     facets: ["产品一致性", "销售表达", "跨场景内容"],
     coverImages: [
       "/assets/projects/sona-earbuds/sona-campaign-silence.webp",
-      "/assets/projects/terrain-35/terrain-campaign-journey.jpg",
+      "/assets/projects/terrain-35/terrain-showcase-night.jpg",
     ],
     projects: [projectShowcaseItems[7], terrainBackpackProject],
   },
@@ -4284,9 +4284,9 @@ function ProjectDetailViewer({
             : isSonaEarbudsProject
               ? "/assets/projects/sona-earbuds/sona-launch-banner.webp"
               : isYogaProject
-                ? "/assets/projects/yoga-set/yoga-park-stretch-wide.webp"
+                ? "/assets/projects/yoga-set/yoga-gym-stretch-wide.webp"
                 : isTerrainProject
-                  ? "/assets/projects/terrain-35/terrain-hero-master.jpg"
+                  ? "/assets/projects/terrain-35/terrain-hero-atmosphere.jpg"
                   : item.image;
   const detailHeroAlt = isGlacierProject
     ? "晨光冰原中的 GLACIER 洁面啫喱产品主视觉"
@@ -4301,9 +4301,9 @@ function ProjectDetailViewer({
             : isSonaEarbudsProject
               ? "SONA ARC ONE 听见自己的节奏新品上市横幅"
               : isYogaProject
-                ? "城市湖畔公园侧弓步伸展中的瑜伽套装"
+                ? "城市健身房中进行单腿拉伸的米色与墨岩灰瑜伽套装"
                 : isTerrainProject
-                  ? "TERRAIN 35 技术背包正面、侧面与背面产品母版"
+                  ? "日落山脊上背负 TERRAIN 35 深石墨黑技术背包的徒步者"
                   : item.alt;
 
   useEffect(() => {
@@ -4568,6 +4568,7 @@ function ProjectShowcaseCard({
   isSuppressed,
   onFocus,
   onBlur,
+  onPointerEnter,
   onClick,
 }: {
   item: ProjectShowcaseCollection;
@@ -4578,6 +4579,7 @@ function ProjectShowcaseCard({
   isSuppressed: boolean;
   onFocus: () => void;
   onBlur: () => void;
+  onPointerEnter: (event: PointerEvent<HTMLButtonElement>) => void;
   onClick: () => void;
 }) {
   const reduceMotion = useReducedMotion();
@@ -4615,6 +4617,7 @@ function ProjectShowcaseCard({
       aria-expanded={isActive}
       onFocus={onFocus}
       onBlur={onBlur}
+      onPointerEnter={onPointerEnter}
       onClick={onClick}
       style={reduceMotion ? undefined : {
         opacity,
@@ -4633,7 +4636,7 @@ function ProjectShowcaseCard({
               <source media="(max-width: 1280px)" srcSet="/assets/projects/qinglan-tea/qinglan-dual-cover-portrait.webp" />
             ) : null}
             <img
-              className={`project-showcase-art-primary${image === "/assets/projects/kova-action-camera/kova-product-front.jpg" ? " is-kova-product" : ""}${image === "/assets/projects/outdoor-speaker/speaker-product-cover.png" ? " is-speaker-product" : ""}${item.id === "lifestyle-campaign" && String(image) === fishtailSkirtProject.image ? " is-lifestyle-fashion" : ""}${activeCoverIndex === imageIndex ? " is-active" : ""}`}
+              className={`project-showcase-art-primary${image === "/assets/projects/kova-action-camera/kova-scene-surf.jpg" ? " is-kova-action" : ""}${image === "/assets/projects/yoga-set/yoga-architecture-look.webp" ? " is-yoga-fashion" : ""}${image === "/assets/projects/terrain-35/terrain-showcase-night.jpg" ? " is-terrain-night" : ""}${image === "/assets/projects/outdoor-speaker/speaker-product-cover.png" ? " is-speaker-product" : ""}${item.id === "lifestyle-campaign" && String(image) === fishtailSkirtProject.image ? " is-lifestyle-fashion" : ""}${activeCoverIndex === imageIndex ? " is-active" : ""}`}
               src={image}
               alt=""
               aria-hidden="true"
@@ -4762,9 +4765,15 @@ function ProjectShowcase({
           className={`project-showcase-track${displayIndex !== null ? " has-focus" : ""}`}
           style={reduceMotion ? undefined : { opacity: trackOpacity, x: trackX, scale: trackScale }}
           onPointerLeave={(event) => {
-            if (event.pointerType === "mouse" || event.pointerType === "pen") setHoveredIndex(null);
+            if (event.pointerType === "mouse" || event.pointerType === "pen") {
+              setHoveredIndex(null);
+              setFocusedIndex(null);
+            }
           }}
-          onPointerCancel={() => setHoveredIndex(null)}
+          onPointerCancel={() => {
+            setHoveredIndex(null);
+            setFocusedIndex(null);
+          }}
         >
           {projectShowcaseCollections.map((item, index) => (
             <ProjectShowcaseCard
@@ -4777,27 +4786,21 @@ function ProjectShowcase({
               isSuppressed={displayIndex !== null && displayIndex !== index}
               onFocus={() => setFocusedIndex(index)}
               onBlur={() => setFocusedIndex(null)}
+              onPointerEnter={(event) => {
+                if (event.pointerType === "mouse" || event.pointerType === "pen") setHoveredIndex(index);
+              }}
               onClick={() => openProject(index)}
             />
           ))}
-          <div
-            className="project-showcase-hit-zones"
-            aria-hidden="true"
-          >
-            {projectShowcaseCollections.map((item, index) => (
-              <span
-                key={item.id}
-                className={displayIndex === index ? "is-focused" : displayIndex !== null ? "is-suppressed" : ""}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onClick={() => openProject(index)}
-              />
-            ))}
-          </div>
         </motion.div>
       </motion.div>
 
       {createPortal(
-        <AnimatePresence onExitComplete={() => projectReturnFocus.current?.focus({ preventScroll: true })}>
+        <AnimatePresence onExitComplete={() => {
+          projectReturnFocus.current?.focus({ preventScroll: true });
+          setHoveredIndex(null);
+          setFocusedIndex(null);
+        }}>
           {activeCollection && activeProject && detailIndex !== null ? (
             <ProjectDetailViewer
               collection={activeCollection}

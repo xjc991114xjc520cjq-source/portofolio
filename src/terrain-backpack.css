@@ -53,9 +53,9 @@
 .terrain-results dd { color: var(--terrain-muted); font-size: 12px; }
 
 .project-detail-hero.is-terrain-hero .project-detail-visual > :is(strong, figcaption) { display: none; }
-.project-detail-hero.is-terrain-hero .project-detail-visual img { object-position: center; filter: brightness(.78) saturate(.76); transform: none; }
-.project-detail-hero.is-terrain-hero .project-detail-visual-shade { background: linear-gradient(270deg, rgba(9, 12, 14, .86), rgba(9, 12, 14, .58) 32%, transparent 60%), linear-gradient(0deg, rgba(7, 9, 10, .28), transparent 44%); }
-.project-detail-hero.is-terrain-hero .project-detail-intro { right: 0; left: auto; width: min(610px, 40%); padding-right: clamp(48px, 5vw, 86px); padding-left: 54px; background: linear-gradient(270deg, rgba(11, 14, 16, .96), rgba(11, 14, 16, .72) 78%, transparent); }
+.project-detail-hero.is-terrain-hero .project-detail-visual img { object-position: 58% 44%; filter: brightness(.74) saturate(.88) contrast(1.04); transform: none; }
+.project-detail-hero.is-terrain-hero .project-detail-visual-shade { background: linear-gradient(90deg, rgba(9, 12, 14, .9), rgba(9, 12, 14, .58) 32%, transparent 62%), linear-gradient(0deg, rgba(7, 9, 10, .3), transparent 46%); }
+.project-detail-hero.is-terrain-hero .project-detail-intro { right: auto; left: 0; width: min(610px, 40%); padding-right: 54px; padding-left: clamp(48px, 5vw, 86px); background: linear-gradient(90deg, rgba(11, 14, 16, .96), rgba(11, 14, 16, .72) 78%, transparent); }
 .project-detail-hero.is-terrain-hero .project-detail-title h2 { max-width: 10.5em; font-size: clamp(32px, 2.55vw, 44px); line-height: 1.27; }
 .project-detail-hero.is-terrain-hero .project-detail-title small { font-size: 10px; line-height: 1.8; }
 .project-detail-hero.is-terrain-hero .project-detail-summary { font-size: 13px; line-height: 1.9; }
