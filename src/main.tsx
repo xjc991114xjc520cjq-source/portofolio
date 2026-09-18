@@ -2030,7 +2030,7 @@ function GalleryCard({
       className={`gallery-card gallery-card-${thumbnailMode}${active ? " is-active" : ""}`}
       type="button"
       disabled={locked}
-      aria-label={`查看项目详情：${work.title}`}
+      aria-label={`查看作品集合：${work.title}`}
       style={{
         x: cardX,
         y: cardY,
@@ -2079,41 +2079,49 @@ function SelectedCaseViewer({ work, reduceMotion, onClose }: {
     const index = projectShowcaseCollections.findIndex((collection) => collection.id === work.caseRef?.collectionId);
     return index < 0 ? 0 : index;
   });
-  const [projectIndex, setProjectIndex] = useState<number | null>(() => work.caseRef?.projectIndex ?? null);
+  const [projectIndex, setProjectIndex] = useState<number | null>(null);
   const collection = projectShowcaseCollections[collectionIndex];
   if (!collection) return null;
 
-  if (projectIndex === null) {
-    return (
+  const initialProjectIndex = collection.id === work.caseRef?.collectionId
+    ? work.caseRef.projectIndex
+    : 0;
+
+  return (
+    <>
       <SelectedCollectionViewer
         collection={collection}
         currentIndex={collectionIndex}
+        initialProjectIndex={initialProjectIndex}
+        covered={projectIndex !== null}
         reduceMotion={reduceMotion}
         onClose={onClose}
         onNavigate={(direction) => {
+          setProjectIndex(null);
           setCollectionIndex((current) =>
             (current + direction + projectShowcaseCollections.length) % projectShowcaseCollections.length);
         }}
         onOpenProject={setProjectIndex}
       />
-    );
-  }
-
-  return (
-    <ProjectDetailViewer
-      collection={collection}
-      item={collection.projects[projectIndex]}
-      currentIndex={collectionIndex}
-      projectIndex={projectIndex}
-      reduceMotion={reduceMotion}
-      onClose={onClose}
-      onSelectProject={setProjectIndex}
-      onNavigate={(direction) => {
-        setProjectIndex(0);
-        setCollectionIndex((current) =>
-          (current + direction + projectShowcaseCollections.length) % projectShowcaseCollections.length);
-      }}
-    />
+      <AnimatePresence>
+        {projectIndex !== null ? (
+          <ProjectDetailViewer
+            collection={collection}
+            item={collection.projects[projectIndex]}
+            currentIndex={collectionIndex}
+            projectIndex={projectIndex}
+            reduceMotion={reduceMotion}
+            onClose={() => setProjectIndex(null)}
+            onSelectProject={setProjectIndex}
+            onNavigate={(direction) => {
+              setProjectIndex(0);
+              setCollectionIndex((current) =>
+                (current + direction + projectShowcaseCollections.length) % projectShowcaseCollections.length);
+            }}
+          />
+        ) : null}
+      </AnimatePresence>
+    </>
   );
 }
 
@@ -2201,6 +2209,8 @@ function projectProductName(item: ProjectShowcaseItem) {
 function SelectedCollectionViewer({
   collection,
   currentIndex,
+  initialProjectIndex,
+  covered,
   reduceMotion,
   onClose,
   onNavigate,
@@ -2208,17 +2218,28 @@ function SelectedCollectionViewer({
 }: {
   collection: ProjectShowcaseCollection;
   currentIndex: number;
+  initialProjectIndex: number;
+  covered: boolean;
   reduceMotion: boolean | null;
   onClose: () => void;
   onNavigate: (direction: number) => void;
   onOpenProject: (index: number) => void;
 }) {
   const viewerRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
   const titleId = `selected-collection-title-${collection.id}`;
 
   useEffect(() => {
-    viewerRef.current?.focus({ preventScroll: true });
-  }, [collection.id]);
+    if (!covered) viewerRef.current?.focus({ preventScroll: true });
+  }, [collection.id, covered]);
+
+  useLayoutEffect(() => {
+    const scroll = scrollRef.current;
+    const target = scroll?.querySelector<HTMLElement>(`[data-collection-project-index="${initialProjectIndex}"]`);
+    if (!scroll || !target) return;
+    const targetTop = scroll.scrollTop + target.getBoundingClientRect().top - scroll.getBoundingClientRect().top - 88;
+    scroll.scrollTop = Math.max(0, targetTop);
+  }, [collection.id, initialProjectIndex]);
 
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     event.stopPropagation();
@@ -2240,10 +2261,11 @@ function SelectedCollectionViewer({
   return (
     <motion.div
       ref={viewerRef}
-      className="selected-collection-viewer"
+      className={`selected-collection-viewer${covered ? " is-covered" : ""}`}
       role="dialog"
       aria-modal="true"
       aria-labelledby={titleId}
+      aria-hidden={covered || undefined}
       tabIndex={-1}
       initial={reduceMotion ? false : { opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -2273,7 +2295,7 @@ function SelectedCollectionViewer({
           </nav>
         </header>
 
-        <div className="selected-collection-scroll">
+        <div className="selected-collection-scroll" ref={scrollRef}>
           <section className="selected-collection-intro">
             <div>
               <span>{collection.english}</span>
@@ -2292,11 +2314,15 @@ function SelectedCollectionViewer({
 
           <div className="selected-collection-projects">
             {collection.projects.map((project, projectIndex) => {
-              const media = selectedCollectionMedia[project.english] ?? [project.image, ...project.gallery.slice(0, 2).map((item) => item.src)];
+              const hero = projectDetailHero(project);
+              const supportingMedia = selectedCollectionMedia[project.english]
+                ?? [project.image, ...project.gallery.slice(0, 2).map((item) => item.src)];
+              const media = [hero.src, ...supportingMedia.filter((src) => src !== hero.src)];
               return (
                 <motion.section
                   className="selected-collection-project"
                   key={project.english}
+                  data-collection-project-index={projectIndex}
                   style={{ "--collection-project-accent": project.accent } as CSSProperties}
                   initial={reduceMotion ? false : { opacity: 0, y: 34 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -2877,7 +2903,7 @@ function SelectedWorks({
             </div>
           </div>
 
-          <p className="works-instruction">拖动浏览精选视觉<br />点击进入项目详情</p>
+          <p className="works-instruction">拖动浏览精选视觉<br />点击进入作品集合</p>
         </motion.nav>
 
         <motion.div
