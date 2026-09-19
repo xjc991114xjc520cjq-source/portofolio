@@ -130,17 +130,17 @@ const projectShowcaseItems = [
     deliverables: ["产品校准", "概念规格视觉", "商品主视觉", "操作证据", "昼夜场景", "PDP 内容编排"],
     workflow: ["硬件校准", "概念规格定义", "功能证据拆分", "独立分镜", "系列生成", "产品与文字复核", "渠道编排"],
     system: "固定螺旋格栅、中心圆盘、机身比例、底座与控制面板；让距离、风量、噪声、时段和人物动作成为可控变量，每张图只证明一个购买理由。",
-    outcome: "精选十一张核心资产，覆盖产品校准、三组功能证据、真实操作、昼夜场景和五条差异化电商表达，不用相似背景数量冒充系统完整度。",
+    outcome: "精选十张核心资产，覆盖产品校准、空间循环、真实操作、昼夜场景与渠道表达，不用相似背景数量冒充系统完整度。",
     reflection: "智能硬件的 AI 商业价值不是把风画得更夸张，而是让结构、规格、体感和场景在同一条购买路径里彼此验证。",
     gallery: [
-      { src: "/assets/projects/table-fan/table-fan-circulation-distance.webp", alt: "十二米远距循环送风商业主视觉", layout: "square" },
-      { src: "/assets/projects/table-fan/table-fan-room-circulation.webp", alt: "全屋空气循环与大风量商业主视觉", layout: "square" },
-      { src: "/assets/projects/table-fan/table-fan-sleep-specs.webp", alt: "二十二分贝夜间低扰与八档风速商业主视觉", layout: "square" },
-      { src: "/assets/projects/table-fan/table-fan-views.webp", alt: "空气循环扇多视角产品校准图", layout: "square" },
-      { src: "/assets/projects/table-fan/table-fan-m02.webp", alt: "空气循环扇抬手操作主图", layout: "square" },
+      { src: "/assets/projects/table-fan/table-fan-airflow-room-v2.jpg", alt: "窗帘与书页共同表现室内空气循环的宽幅功能画面", layout: "wide" },
+      { src: "/assets/projects/table-fan/table-fan-product-calibration-v2.jpg", alt: "空气循环扇正面侧面与背面产品校准板", layout: "wide" },
+      { src: "/assets/projects/table-fan/table-fan-m06.webp", alt: "窗帘与书页表现空气流动的体感画面", layout: "square" },
+      { src: "/assets/projects/table-fan/table-fan-m01.webp", alt: "手指操作空气循环扇控制区", layout: "square" },
       { src: "/assets/projects/table-fan/table-fan-family.webp", alt: "空气循环扇家庭陪伴场景", layout: "wide" },
       { src: "/assets/projects/table-fan/table-fan-dayparts.webp", alt: "空气循环扇四时段光线场景", layout: "square" },
-      { src: "/assets/projects/table-fan/table-fan-m06.webp", alt: "空气循环扇风罩与控制区细节主图", layout: "square" },
+      { src: "/assets/projects/table-fan/table-fan-night-detail.webp", alt: "空气循环扇夜间状态与机身细节", layout: "square" },
+      { src: "/assets/projects/table-fan/table-fan-sleep-specs.webp", alt: "空气循环扇夜间低扰概念规格主图", layout: "square" },
     ],
   },
   {
@@ -4197,7 +4197,7 @@ function ProjectDetailViewer({
 
 
               {[0, 1, 2, 3, 4].some(index => item === projectShowcaseItems[index]) ? (
-                <ProductEditorialCase kind={["air", "fan", "glacier", "serum", "jasmine"][projectShowcaseItems.indexOf(item as typeof projectShowcaseItems[number])]} renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />
+                <ProductEditorialCase kind={["air", "fan", "glacier", "serum", "jasmine"][projectShowcaseItems.indexOf(item as typeof projectShowcaseItems[number])]} renderImage={(src, alt, loading = "lazy") => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading={loading} />} />
               ) : item === projectShowcaseItems[8] ? (
                 <QinglanOolongCaseStudy onImageOpen={openImage} reduceMotion={reduceMotion} scrollRoot={detailLayoutRef} />
               ) : item === projectShowcaseItems[7] ? (

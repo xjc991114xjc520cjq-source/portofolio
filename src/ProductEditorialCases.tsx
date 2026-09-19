@@ -1,13 +1,13 @@
 import { useState, type CSSProperties, type ReactNode } from "react";
 import sizes from "./case-image-sizes.json";
 
-type Visual = { src: string; alt: string; caption?: string };
+type Visual = { src: string; alt: string; caption?: string; priority?: boolean };
 type Chapter = { title: string; description: string; rows: Visual[][]; kind?: "scenes" | "details" };
 type Case = {
   name: string; label: string; title: string; intro: string; task: string; approach: string;
   opening: Visual; chapters: Chapter[]; channels: [string, string][]; conclusion: string; disclosure?: string;
 };
-type Props = { renderImage: (src: string, alt: string) => ReactNode };
+type Props = { renderImage: (src: string, alt: string, loading?: "eager" | "lazy") => ReactNode };
 const media = (folder: string, file: string, alt: string, caption?: string): Visual => ({src: `/assets/projects/${folder}/${file}.webp`, alt, caption});
 const air = (file: string, alt: string, caption?: string) => media("air-fryer", `air-fryer-${file}`, alt, caption);
 const fan = (file: string, alt: string, caption?: string) => media("table-fan", `table-fan-${file}`, alt, caption);
@@ -104,12 +104,120 @@ const dimensions = sizes as Record<string, number[]>;
 function CaseVisual({ visual, renderImage }: Props & {visual: Visual}) {
   const [width, height] = dimensions[visual.src] || [1, 1];
   return <figure className="editorial-visual">
-    <div className="editorial-media" style={{aspectRatio: `${width} / ${height}`}}>{renderImage(visual.src, visual.alt)}</div>
+    <div className="editorial-media" style={{aspectRatio: `${width} / ${height}`}}>{renderImage(visual.src, visual.alt, visual.priority ? "eager" : "lazy")}</div>
     {visual.caption && <figcaption>{visual.caption}</figcaption>}
   </figure>;
 }
 
+const fanCalibration: Visual = {
+  src: "/assets/projects/table-fan/table-fan-product-calibration-v2.jpg",
+  alt: "同一台白色空气循环扇的正面、侧面与背面产品校准视图",
+  caption: "产品母版 / 格栅、机身、支架、底座与控制区保持同一结构",
+  priority: true,
+};
+
+const fanAirflowRoom: Visual = {
+  src: "/assets/projects/table-fan/table-fan-airflow-room-v2.jpg",
+  alt: "完整空气循环扇通过窗帘与书页反应表现室内空气循环",
+  caption: "空间循环 / 不画发光风线，用不同距离的物体反应解释空气运动",
+};
+
+function FanEditorialCase({ renderImage }: Props) {
+  return <article className="editorial-case editorial-fan fan-case-v2" aria-label="空气循环扇商业视觉案例">
+    <section className="fan-case-opening" aria-labelledby="fan-positioning">
+      <div className="fan-case-opening-copy">
+        <span className="editorial-kicker">智能家居 / 自主命题</span>
+        <h3 id="fan-positioning">不是把风画出来，<br />而是让空气运动被看见。</h3>
+        <p className="editorial-lead">把循环送风、操作反馈和夜间使用拆成不同证据，让每张画面只回答一个购买问题。</p>
+        <dl>
+          <div><dt>商业课题</dt><dd>普通风扇和循环扇外形相近，消费者真正需要理解的是空气如何进入空间，以及它在不同时间解决什么问题。</dd></div>
+          <div><dt>视觉原则</dt><dd>产品永远是第一视觉中心。风感由空间深度、织物、书页和人物行为共同证明，不依赖夸张光带。</dd></div>
+        </dl>
+      </div>
+      <CaseVisual visual={fanCalibration} renderImage={renderImage} />
+    </section>
+
+    <section className="fan-case-lock" aria-labelledby="fan-lock-title">
+      <header className="fan-case-section-heading">
+        <span>产品母版</span>
+        <h3 id="fan-lock-title">先锁定结构，再扩展场景。</h3>
+        <p>格栅方向、中心圆盘、球形机身、俯仰支架、底座和控制区是不可漂移的识别锚点。</p>
+      </header>
+      <div className="fan-lock-rules" aria-label="产品一致性规则">
+        <article><strong>正面识别</strong><p>保留完整螺旋格栅与中心圆盘，避免标题、人物或道具遮挡产品正面。</p></article>
+        <article><strong>结构关系</strong><p>机身、支架与底座比例固定，侧面与背面也必须属于同一台产品。</p></article>
+        <article><strong>交互位置</strong><p>按键和状态区只在真实位置出现，操作动作必须能够落到具体控制区域。</p></article>
+      </div>
+    </section>
+
+    <section className="fan-case-flow" aria-labelledby="fan-flow-title">
+      <header className="fan-case-section-heading is-wide">
+        <span>功能证据</span>
+        <h3 id="fan-flow-title">循环，不是更强的直吹。</h3>
+        <p>前景产品建立识别，窗帘和书页在不同距离产生轻微反应，让空气运动成为可以观察的空间关系。</p>
+      </header>
+      <CaseVisual visual={fanAirflowRoom} renderImage={renderImage} />
+      <div className="fan-proof-strip">
+        <div><strong>空间</strong><span>前景到远景形成空气路径</span></div>
+        <div><strong>体感</strong><span>用真实物体反应代替发光线条</span></div>
+        <div><strong>产品</strong><span>完整机身始终保持第一视觉层级</span></div>
+      </div>
+    </section>
+
+    <section className="fan-case-evidence" aria-labelledby="fan-evidence-title">
+      <header className="fan-case-section-heading">
+        <span>可观察的体感</span>
+        <h3 id="fan-evidence-title">从房间，到书页，再到指尖。</h3>
+        <p>三种尺度依次解释空气如何进入环境、用户如何感受到风、以及操作如何发生。</p>
+      </header>
+      <div className="fan-evidence-layout">
+        <CaseVisual visual={fan("m06", "窗帘和书页随空气流动的循环扇使用画面", "环境反应 / 让风在物体上留下可观察的结果")} renderImage={renderImage} />
+        <div className="fan-evidence-stack">
+          <CaseVisual visual={fan("m01", "手指操作空气循环扇底座按键", "操作反馈 / 手势落在真实控制区域")} renderImage={renderImage} />
+          <CaseVisual visual={fan("night-detail", "夜间卧室中的空气循环扇状态与机身细节", "夜间状态 / 降低亮度与信息密度")} renderImage={renderImage} />
+        </div>
+      </div>
+    </section>
+
+    <section className="fan-case-dayparts" aria-labelledby="fan-dayparts-title">
+      <header className="fan-case-section-heading is-wide">
+        <span>使用路径</span>
+        <h3 id="fan-dayparts-title">同一台产品，进入不同时间。</h3>
+        <p>光线变化只承担时段线索，阅读、陪伴和睡眠等真实行为负责说明使用动机。</p>
+      </header>
+      <div className="fan-dayparts-layout">
+        <CaseVisual visual={fan("dayparts", "同一空气循环扇在晨间、日间、傍晚和夜间的连续光线场景", "时段连续性 / 产品身份不随环境变化")} renderImage={renderImage} />
+        <CaseVisual visual={fan("family", "空气循环扇进入亲子阅读与家庭陪伴场景", "家庭场景 / 功能回到具体生活行为")} renderImage={renderImage} />
+      </div>
+    </section>
+
+    <section className="fan-case-commerce" aria-labelledby="fan-commerce-title">
+      <header className="fan-case-section-heading">
+        <span>渠道交付</span>
+        <h3 id="fan-commerce-title">一套产品，三种信息任务。</h3>
+        <p>功能首图负责建立差异，夜间模块解释使用利益，细节模块补齐产品观察。</p>
+      </header>
+      <div className="fan-commerce-grid">
+        <CaseVisual visual={fan("circulation-distance", "空气循环扇远距循环送风概念规格主图", "功能首图 / 空间循环成为第一购买理由")} renderImage={renderImage} />
+        <CaseVisual visual={fan("sleep-specs", "空气循环扇夜间低扰与定时概念规格主图", "PDP 模块 / 夜间利益与操作信息集中表达")} renderImage={renderImage} />
+        <CaseVisual visual={fan("m08", "空气循环扇格栅和控制区域细节画面", "细节内容 / 回答结构与控制观察需求")} renderImage={renderImage} />
+      </div>
+      <p className="fan-concept-note">自主命题概念产品。画面中的送风距离、风量、噪声、档位与定时数据用于商业信息设计演示，不代表实测性能或认证。</p>
+    </section>
+
+    <section className="editorial-delivery fan-case-delivery" aria-label="空气循环扇商业内容分工">
+      <div className="editorial-channel-grid">
+        <div><h4>产品校准</h4><p>建立可复用的产品母版，让不同机位和环境仍然保持同一硬件身份。</p></div>
+        <div><h4>功能转译</h4><p>用空间、物体反应和操作动作，把抽象规格转换成可以理解的生活利益。</p></div>
+        <div><h4>渠道编排</h4><p>按首图、详情和场景内容分配画面任务，不用相似背景数量冒充系统完整度。</p></div>
+      </div>
+      <p className="editorial-conclusion">让产品结构、功能证据与生活场景，在同一条购买路径里彼此验证。</p>
+    </section>
+  </article>;
+}
+
 export function ProductEditorialCase({kind, renderImage}: Props & {kind: string}) {
+  if (kind === "fan") return <FanEditorialCase renderImage={renderImage} />;
   const item = cases[kind];
   return <article className={`editorial-case editorial-${kind}`} aria-label={`${item.name}商业视觉案例`}>
     <section className="editorial-opening" aria-labelledby={`${kind}-positioning`}>
