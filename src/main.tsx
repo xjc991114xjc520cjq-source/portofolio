@@ -3223,41 +3223,111 @@ const commercialValuePoints = [
 ] as const;
 
 function CommercialValue() {
+  const sectionRef = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start 92%", "end 18%"],
+  });
+  const easedProgress = useSpring(scrollYProgress, { stiffness: 92, damping: 24, mass: 0.34 });
+  const headingY = useTransform(easedProgress, [0, 0.28], [72, 0]);
+  const headingOpacity = useTransform(easedProgress, [0, 0.16], [0, 1]);
+  const visualY = useTransform(easedProgress, [0, 0.32], [118, 0]);
+  const visualScale = useTransform(easedProgress, [0, 0.36], [0.91, 1]);
+  const visualOpacity = useTransform(easedProgress, [0.02, 0.18], [0, 1]);
+  const warmFrameX = useTransform(easedProgress, [0.04, 0.42], [88, 0]);
+  const coolFrameX = useTransform(easedProgress, [0.04, 0.42], [-72, 0]);
+  const proofY = useTransform(easedProgress, [0.14, 0.46], [54, 0]);
+  const proofOpacity = useTransform(easedProgress, [0.14, 0.32], [0, 1]);
 
   return (
-    <section className="commercial-value" aria-labelledby="commercial-value-title">
+    <section ref={sectionRef} className="commercial-value" aria-labelledby="commercial-value-title">
+      <motion.div
+        className="commercial-value-handoff"
+        aria-hidden="true"
+        style={{ scaleX: reduceMotion ? 1 : easedProgress }}
+      />
       <div className="commercial-value-shell shell">
-        <motion.header
-          className="commercial-value-heading"
-          initial={reduceMotion ? false : { opacity: 0, y: 36 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: reduceMotion ? 0 : 0.64, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <span>WHAT THE BUSINESS GETS</span>
-          <h2 id="commercial-value-title">公司得到的不是更多图片，而是更确定的视觉生产能力。</h2>
-          <p>我负责把商业目标翻译成可执行的视觉规则，再用 AI 扩大验证范围，由人工判断决定什么可以真正进入市场。</p>
-        </motion.header>
+        <div className="commercial-value-topline" aria-hidden="true">
+          <span>04 / BUSINESS VALUE</span>
+          <span>DESIGN DIRECTION TO MARKET ASSET</span>
+        </div>
 
-        <div className="commercial-value-grid">
-          {commercialValuePoints.map((point, index) => (
-            <motion.article
-              key={point.index}
-              initial={reduceMotion ? false : { opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.42 }}
-              transition={{ duration: reduceMotion ? 0 : 0.56, delay: reduceMotion ? 0 : index * 0.07, ease: [0.16, 1, 0.3, 1] }}
+        <div className="commercial-value-stage">
+          <motion.div
+            className="commercial-value-lead"
+            style={{
+              y: reduceMotion ? 0 : headingY,
+              opacity: reduceMotion ? 1 : headingOpacity,
+            }}
+          >
+            <header className="commercial-value-heading">
+              <span>WHAT THE BUSINESS GETS</span>
+              <h2 id="commercial-value-title">
+                公司得到的不是更多图片，<em>而是更确定的视觉生产能力。</em>
+              </h2>
+              <p>我把商业目标翻译成可执行的视觉规则，用 AI 扩大验证范围，再由人工判断什么值得真正进入市场。</p>
+            </header>
+
+            <div className="commercial-value-facts" aria-label="作品覆盖信息">
+              <div><strong>12</strong><span>完整商业项目</span></div>
+              <div><strong>03</strong><span>核心能力路径</span></div>
+              <div><strong>01</strong><span>统一视觉判断</span></div>
+            </div>
+          </motion.div>
+
+          <motion.figure
+            className="commercial-value-visual"
+            style={{
+              y: reduceMotion ? 0 : visualY,
+              scale: reduceMotion ? 1 : visualScale,
+              opacity: reduceMotion ? 1 : visualOpacity,
+            }}
+          >
+            <div className="commercial-value-image commercial-value-image-main">
+              <img src="/assets/projects/air-fryer/air-fryer-work-card-v2.png" alt="空气炸锅产品在明亮厨房中的商业视觉" />
+              <span>COMMERCE / PRODUCT</span>
+            </div>
+            <motion.div
+              className="commercial-value-image commercial-value-image-cool"
+              style={{ x: reduceMotion ? 0 : coolFrameX, rotate: -4.2 }}
             >
+              <img src="/assets/projects/glacier-cleanser/glacier-hero-portrait.webp" alt="冰川洁面产品的清透品牌视觉" />
+              <span>BRAND / SYSTEM</span>
+            </motion.div>
+            <motion.div
+              className="commercial-value-image commercial-value-image-warm"
+              style={{ x: reduceMotion ? 0 : warmFrameX, rotate: 3.6 }}
+            >
+              <img src="/assets/projects/fishtail-skirt/skirt-showcase-campaign-v3.jpg" alt="雨夜街景中的时尚传播视觉" />
+              <span>CAMPAIGN / STORY</span>
+            </motion.div>
+            <figcaption>
+              <span>从产品准确性出发</span>
+              <strong>让视觉最终服务于选择与转化</strong>
+            </figcaption>
+          </motion.figure>
+        </div>
+
+        <motion.div
+          className="commercial-value-grid"
+          style={{
+            y: reduceMotion ? 0 : proofY,
+            opacity: reduceMotion ? 1 : proofOpacity,
+          }}
+        >
+          {commercialValuePoints.map((point, index) => (
+            <article key={point.index}>
               <span>{point.index}</span>
               <div>
                 <small>{point.english}</small>
                 <h3>{point.title}</h3>
                 <p>{point.description}</p>
               </div>
-            </motion.article>
+              <i aria-hidden="true">0{index + 1}</i>
+            </article>
           ))}
-        </div>
+        </motion.div>
 
         <footer>
           <span>商业目标</span><i aria-hidden="true" />
