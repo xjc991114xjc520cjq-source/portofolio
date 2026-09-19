@@ -111,12 +111,12 @@
 }
 
 .project-showcase-art-primary.is-fishtail-fashion {
-  object-position: center;
-  filter: brightness(.68) saturate(.76) contrast(1.06);
+  object-position: 74% center;
+  filter: brightness(.74) saturate(.8) contrast(1.06);
 }
 
 .project-showcase-item:is(.is-focused, :focus-visible) .project-showcase-art-primary.is-fishtail-fashion {
-  object-position: center;
+  object-position: 68% center;
   filter: brightness(.88) saturate(.9) contrast(1.04);
 }
 
