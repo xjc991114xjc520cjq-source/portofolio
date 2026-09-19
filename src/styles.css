@@ -988,6 +988,7 @@
   --press-duration: 140ms;
   --shell: min(1200px, calc(100vw - 48px));
   --portfolio-screen-gutter: clamp(18px, 2.35vw, 40px);
+  --portfolio-stage-width: min(1700px, calc(100vw - (var(--portfolio-screen-gutter) * 2)));
   color-scheme: dark;
   color: var(--text);
   background: var(--bg);
@@ -9980,6 +9981,16 @@ video {
     radial-gradient(circle at 78% 28%, rgba(137, 170, 204, 0.16), transparent 32%),
     radial-gradient(circle at 21% 74%, rgba(205, 130, 75, 0.07), transparent 28%),
     linear-gradient(148deg, #070809 0%, #0d1012 52%, #060708 100%);
+}
+
+@media (min-width: 721px) {
+  .commercial-value-shell.shell,
+  .project-showcase-frame,
+  .ai-lab-shell.shell,
+  .works-stage.shell,
+  .profile-shell.shell {
+    width: var(--portfolio-stage-width);
+  }
 }
 
 .commercial-value::before {
