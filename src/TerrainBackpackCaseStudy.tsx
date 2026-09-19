@@ -12,12 +12,26 @@ const visuals = {
   quickAccess: { src: `${root}/terrain-quick-access.jpg`, alt: "TERRAIN 35 盾形前仓与纵向拉链快速取物画面", width: 2400, height: 2400 },
   material: { src: `${root}/terrain-material.jpg`, alt: "TERRAIN 35 防撕裂尼龙与 TPU 耐磨区域材质说明", width: 1921, height: 2400 },
   backSystem: { src: `${root}/terrain-back-system.jpg`, alt: "TERRAIN 35 透气网布、分区泡棉与中央导流背负系统", width: 1799, height: 2400 },
+  internalSystem: { src: `${root}/terrain-internal-system.jpg`, alt: "TERRAIN 35 打开后的完整内部收纳系统与装载分区", width: 2200, height: 2010 },
+  internalMaster: { src: `${root}/terrain-internal-master.jpg`, alt: "TERRAIN 35 打开卷口后可见的贴背套仓、安全袋与整理区", width: 1761, height: 2200 },
+  internalLoad: { src: `${root}/terrain-internal-load.jpg`, alt: "TERRAIN 35 主仓从上到下按使用频率分层装载", width: 1761, height: 2200 },
+  internalLaptop: { src: `${root}/terrain-internal-laptop.jpg`, alt: "从 TERRAIN 35 贴背独立套仓取出轻薄电脑", width: 1650, height: 2200 },
+  internalOrganizer: { src: `${root}/terrain-internal-organizer.jpg`, alt: "TERRAIN 35 双网袋与拉链整理区收纳零碎装备", width: 1650, height: 2200 },
+  fourViews: { src: `${root}/terrain-four-views.jpg`, alt: "TERRAIN 35 正面、右侧、背面与底部四个产品视图", width: 2200, height: 1761 },
+  sideProfile: { src: `${root}/terrain-side-profile.jpg`, alt: "TERRAIN 35 严格左侧视图展示高窄轮廓与侧面结构", width: 1466, height: 2200 },
+  compressionStates: { src: `${root}/terrain-compression-states.jpg`, alt: "TERRAIN 35 侧面压缩带收紧与放松状态对照", width: 2200, height: 1466 },
+  bottomContact: { src: `${root}/terrain-bottom-contact.jpg`, alt: "TERRAIN 35 低机位展示底部与地面接触关系", width: 1466, height: 2200 },
+  fieldHandling: { src: `${root}/terrain-field-handling.jpg`, alt: "户外岩石环境中提起 TERRAIN 35 背包的使用动作", width: 1831, height: 2200 },
   carryFit: { src: `${root}/terrain-carry-fit.jpg`, alt: "山径行走中调整胸带的 TERRAIN 35 真实背负场景", width: 1799, height: 2400 },
   city: { src: `${root}/terrain-city.jpg`, alt: "现代城市建筑空间中的 TERRAIN 35 通勤背负场景", width: 1610, height: 2400 },
   trail: { src: `${root}/terrain-trail.jpg`, alt: "森林步道中的 TERRAIN 35 周末徒步场景", width: 1921, height: 2400 },
   rain: { src: `${root}/terrain-rain.jpg`, alt: "雨雾山林中的 TERRAIN 35 徒步使用场景", width: 1921, height: 2400 },
   journey: { src: `${root}/terrain-campaign-journey.jpg`, alt: "去更大的世界从这一包开始 TERRAIN 35 户外传播主视觉", width: 2400, height: 2400 },
   route: { src: `${root}/terrain-campaign-route.jpg`, alt: "年轻不止一种路线 TERRAIN 35 城市与山野传播主视觉", width: 1921, height: 2400 },
+  weatherDual: { src: `${root}/terrain-weather-dual.jpg`, alt: "TERRAIN 35 在山野与城市雨景中的双环境概念视觉", width: 2200, height: 1467 },
+  carryDuo: { src: `${root}/terrain-carry-duo.jpg`, alt: "两名徒步者背负 TERRAIN 35 行进在日落山野", width: 1831, height: 2200 },
+  carrySunset: { src: `${root}/terrain-carry-sunset.jpg`, alt: "日落山脊上的 TERRAIN 35 长线背负概念视觉", width: 1650, height: 2200 },
+  campaignDuoWide: { src: `${root}/terrain-campaign-duo-wide.jpg`, alt: "TERRAIN 35 正面与背负系统并列的山野传播主视觉", width: 2200, height: 1466 },
   closing: { src: `${root}/terrain-closing.jpg`, alt: "年轻上山一包搞定 TERRAIN 35 电商核心主视觉", width: 2400, height: 2400 },
 } satisfies Record<string, Visual>;
 
@@ -85,6 +99,36 @@ export function TerrainBackpackCaseStudy({ renderImage }: Props) {
         </div>
       </section>
 
+      <section className="terrain-internal" aria-labelledby="terrain-internal-title">
+        <header className="terrain-heading">
+          <span className="terrain-kicker">INTERNAL ORGANIZATION</span>
+          <h3 id="terrain-internal-title">打开以后，<br />收纳能力才真正被看见。</h3>
+          <p>新增内仓母版把贴背套仓、顶部安全袋、连续主仓与前壁整理区固定为同一套结构，再用装载、取放和局部特写逐层解释。</p>
+        </header>
+        {visual(visuals.internalSystem, "完整收纳系统", "先用一张总览交代所有分区，再进入每个真实动作。", "terrain-internal-hero")}
+        <div className="terrain-internal-grid">
+          {visual(visuals.internalMaster, "内部结构母版", "卷口打开后，套仓、安全袋与整理面板保持固定位置。")}
+          {visual(visuals.internalLoad, "连续主仓装载", "用品按使用频率形成上、中、下层，不虚构硬隔断。")}
+          {visual(visuals.internalLaptop, "贴背独立套仓", "重物靠近背部放置，取出动作直接说明入口位置。")}
+          {visual(visuals.internalOrganizer, "前壁整理区", "双网袋与拉链区把零碎物品从主仓中分离出来。")}
+        </div>
+      </section>
+
+      <section className="terrain-angles" aria-labelledby="terrain-angles-title">
+        <header className="terrain-heading">
+          <span className="terrain-kicker">PRODUCT ANGLES & USE</span>
+          <h3 id="terrain-angles-title">不靠重复正面图，<br />每个角度回答一个问题。</h3>
+          <p>正、侧、背、底视图负责确认产品身份，压缩状态、底部接触和落放动作负责说明结构如何参与实际使用。</p>
+        </header>
+        {visual(visuals.fourViews, "四向产品确认", "正面、右侧、背面和底部共同建立完整产品认知。", "terrain-angle-master")}
+        <div className="terrain-angle-grid">
+          {visual(visuals.sideProfile, "严格侧视", "用完整侧面验证包体厚度、卷口与压缩带关系。")}
+          {visual(visuals.compressionStates, "压缩状态", "同一只背包只改变装载厚度与织带松紧。")}
+          {visual(visuals.bottomContact, "底部接触", "低机位把底部材质与落地关系放在同一画面。")}
+          {visual(visuals.fieldHandling, "户外落放", "提起动作和岩石接触让产品尺度与使用方式更具体。")}
+        </div>
+      </section>
+
       <section className="terrain-context" aria-labelledby="terrain-context-title">
         <header className="terrain-heading">
           <h3 id="terrain-context-title">从工作日到周末，<br />每个场景验证不同能力。</h3>
@@ -109,12 +153,27 @@ export function TerrainBackpackCaseStudy({ renderImage }: Props) {
         </div>
       </section>
 
+      <section className="terrain-extension" aria-labelledby="terrain-extension-title">
+        <header className="terrain-heading">
+          <span className="terrain-kicker">CAMPAIGN EXTENSION</span>
+          <h3 id="terrain-extension-title">从产品证据，<br />扩展到完整旅程。</h3>
+          <p>新一组传播画面补上正背面对照、双人同行、长线背负与城市雨景，让同一产品在不同人物、天气和环境中仍然可以被确认。</p>
+        </header>
+        {visual(visuals.campaignDuoWide, "正面与背负系统", "用同一画面同时呈现产品正面身份与背负结构。", "terrain-extension-master")}
+        <div className="terrain-extension-grid">
+          {visual(visuals.carryDuo, "双人同行", "用不同体型的背负关系建立真实尺度。")}
+          {visual(visuals.carrySunset, "长线背负", "产品保持第一视觉中心，环境负责建立出发理由。")}
+          {visual(visuals.weatherDual, "双环境延展", "山野与城市雨景用于概念表达，不作为性能等级或实测证明。", "terrain-extension-wide")}
+        </div>
+        <p className="terrain-disclosure">场景中的天气、地面接触与使用状态属于商业概念视觉，用于展示内容方向，不代表产品已经取得特定防护等级或测试认证。</p>
+      </section>
+
       <section className="terrain-closing" aria-labelledby="terrain-closing-title">
         <div className="terrain-closing-copy">
           <h3 id="terrain-closing-title">从产品确认，<br />走到可销售的内容系统。</h3>
           <p>母版负责稳定产品，结构图负责解释差异，人物场景负责建立使用想象，传播主视觉负责进入信息流与活动页面。</p>
           <dl className="terrain-results">
-            <div><dt>13</dt><dd>张核心画面承担明确职责</dd></div>
+            <div><dt>27</dt><dd>张核心画面承担明确职责</dd></div>
             <div><dt>4</dt><dd>类商业内容职责</dd></div>
           </dl>
         </div>

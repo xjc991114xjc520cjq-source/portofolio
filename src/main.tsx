@@ -553,10 +553,10 @@ const terrainBackpackProject = {
   outcome: "核心视觉覆盖产品确认、卖点解释、真实背负、城市通勤和山野传播，并让每张画面承担清晰的商业职责。",
   reflection: "户外产品的商业表达不只展示远方，也要让结构、使用动作和消费者的出发理由互相验证。",
   gallery: [
-    { src: "/assets/projects/terrain-35/terrain-product-studio.jpg", alt: "TERRAIN 35 技术背包棚拍产品正面", layout: "portrait" },
-    { src: "/assets/projects/terrain-35/terrain-overview.jpg", alt: "TERRAIN 35 产品结构与功能电商总览", layout: "portrait" },
-    { src: "/assets/projects/terrain-35/terrain-carry-fit.jpg", alt: "TERRAIN 35 山径真实背负场景", layout: "portrait" },
-    { src: "/assets/projects/terrain-35/terrain-campaign-route.jpg", alt: "年轻不止一种路线 TERRAIN 35 传播主视觉", layout: "portrait" },
+    { src: "/assets/projects/terrain-35/terrain-campaign-duo-wide.jpg", alt: "TERRAIN 35 正面与背负系统山野传播主视觉", layout: "wide" },
+    { src: "/assets/projects/terrain-35/terrain-four-views.jpg", alt: "TERRAIN 35 正面、侧面、背面和底部四视图", layout: "wide" },
+    { src: "/assets/projects/terrain-35/terrain-internal-master.jpg", alt: "TERRAIN 35 打开卷口后的完整内部收纳结构", layout: "portrait" },
+    { src: "/assets/projects/terrain-35/terrain-carry-duo.jpg", alt: "双人背负 TERRAIN 35 行进在日落山野", layout: "portrait" },
   ],
 } as const;
 
@@ -580,7 +580,7 @@ const projectShowcaseCollections = [
     facets: ["产品一致性", "销售表达", "跨场景内容"],
     coverImages: [
       "/assets/projects/sona-earbuds/sona-campaign-silence.webp",
-      "/assets/projects/terrain-35/terrain-showcase-campaign-v2.jpg",
+      "/assets/projects/terrain-35/terrain-campaign-duo-wide.jpg",
     ],
     projects: [projectShowcaseItems[7], terrainBackpackProject],
   },
@@ -959,7 +959,7 @@ const fashionWorks = [
 
 const outdoorWorks = [
   selectedCaseWork("campaign-experience", 0, "户外音箱", { thumbnail: "/assets/projects/outdoor-speaker/speaker-category-cover.webp", thumbnailMode: "cover", focalPoint: "50% 50%" }),
-  selectedCaseWork("campaign-experience", 3, "TERRAIN 35", { thumbnail: "/assets/projects/terrain-35/terrain-showcase-campaign-v2.jpg", thumbnailMode: "cover", focalPoint: "50% 50%" }),
+  selectedCaseWork("campaign-experience", 3, "TERRAIN 35", { thumbnail: "/assets/projects/terrain-35/terrain-campaign-duo-wide.jpg", thumbnailMode: "cover", focalPoint: "50% 50%" }),
 ];
 
 const allSelectedWorks = [
@@ -2320,9 +2320,9 @@ const selectedCollectionMedia: Record<string, string[]> = {
     "/assets/projects/sona-earbuds/sona-launch-banner.webp",
   ],
   "TERRAIN 35 OUTDOOR BACKPACK COMMERCE SYSTEM": [
-    "/assets/projects/terrain-35/terrain-campaign-route.jpg",
-    "/assets/projects/terrain-35/terrain-product-studio.jpg",
-    "/assets/projects/terrain-35/terrain-hero-atmosphere.jpg",
+    "/assets/projects/terrain-35/terrain-four-views.jpg",
+    "/assets/projects/terrain-35/terrain-internal-quick-access.jpg",
+    "/assets/projects/terrain-35/terrain-carry-duo.jpg",
   ],
 };
 
@@ -2341,7 +2341,7 @@ const selectedCollectionPrimary: Record<string, string> = {
   "OUTDOOR SPEAKER EXPERIENCE SYSTEM": "/assets/projects/outdoor-speaker/speaker-category-cover.webp",
   "FISHTAIL LEATHER SKIRT CAMPAIGN SYSTEM": "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v3.jpg",
   "YOGA SET FASHION COMMERCE SYSTEM": "/assets/projects/yoga-set/yoga-showcase-campaign-v2.jpg",
-  "TERRAIN 35 OUTDOOR BACKPACK COMMERCE SYSTEM": "/assets/projects/terrain-35/terrain-showcase-campaign-v2.jpg",
+  "TERRAIN 35 OUTDOOR BACKPACK COMMERCE SYSTEM": "/assets/projects/terrain-35/terrain-campaign-duo-wide.jpg",
 };
 
 function projectProductName(item: ProjectShowcaseItem) {
@@ -4566,7 +4566,7 @@ function ProjectShowcaseCard({
               <source media="(max-width: 1280px)" srcSet="/assets/projects/qinglan-tea/qinglan-dual-cover-portrait.webp" />
             ) : null}
             <img
-              className={`project-showcase-art-primary${image === "/assets/projects/table-fan/table-fan-showcase-campaign-v2.jpg" ? " is-table-fan-campaign" : ""}${image === "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg" ? " is-kova-action" : ""}${image === "/assets/projects/yoga-set/yoga-showcase-campaign-v2.jpg" ? " is-yoga-fashion" : ""}${image === "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v3.jpg" ? " is-fishtail-fashion" : ""}${image === "/assets/projects/terrain-35/terrain-showcase-campaign-v2.jpg" ? " is-terrain-night" : ""}${image === "/assets/projects/outdoor-speaker/speaker-product-cover.png" ? " is-speaker-product" : ""}${activeCoverIndex === imageIndex ? " is-active" : ""}`}
+              className={`project-showcase-art-primary${image === "/assets/projects/table-fan/table-fan-showcase-campaign-v2.jpg" ? " is-table-fan-campaign" : ""}${image === "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg" ? " is-kova-action" : ""}${image === "/assets/projects/yoga-set/yoga-showcase-campaign-v2.jpg" ? " is-yoga-fashion" : ""}${image === "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v3.jpg" ? " is-fishtail-fashion" : ""}${image === "/assets/projects/terrain-35/terrain-campaign-duo-wide.jpg" ? " is-terrain-night" : ""}${image === "/assets/projects/outdoor-speaker/speaker-product-cover.png" ? " is-speaker-product" : ""}${activeCoverIndex === imageIndex ? " is-active" : ""}`}
               src={image}
               alt=""
               aria-hidden="true"

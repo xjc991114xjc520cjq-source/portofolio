@@ -32,7 +32,7 @@
 .terrain-brief dt { color: var(--terrain-accent); font-size: 12px; line-height: 1.8; }
 .terrain-brief dd { color: var(--terrain-muted); font-size: 13px; line-height: 1.8; }
 
-.terrain-overview, .terrain-proof, .terrain-campaign, .terrain-closing { padding-top: 42px; border-top: 1px solid #333a3d; }
+.terrain-overview, .terrain-proof, .terrain-internal, .terrain-angles, .terrain-campaign, .terrain-extension, .terrain-closing { padding-top: 42px; border-top: 1px solid #333a3d; }
 .terrain-overview-grid { display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(300px, .62fr); gap: clamp(34px, 5vw, 72px); align-items: center; }
 .terrain-anchor-list { display: grid; }
 .terrain-anchor-list div { padding: 20px 0; border-top: 1px solid #343b3e; }
@@ -44,6 +44,40 @@
 .terrain-context-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 24px; align-items: start; }
 .terrain-context-grid .terrain-media { aspect-ratio: 4 / 5; }
 .terrain-campaign-grid { grid-template-columns: .92fr 1.08fr; }
+
+.terrain-internal-hero,
+.terrain-angle-master,
+.terrain-extension-master { margin-bottom: 24px !important; }
+
+.terrain-internal-hero .terrain-media,
+.terrain-angle-master .terrain-media,
+.terrain-extension-master .terrain-media { max-height: 780px; }
+
+.terrain-internal-grid,
+.terrain-angle-grid,
+.terrain-extension-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px 24px;
+  align-items: start;
+}
+
+.terrain-internal-grid .terrain-media { aspect-ratio: 4 / 5; }
+.terrain-angle-grid .terrain-media { aspect-ratio: 4 / 5; }
+.terrain-angle-grid .terrain-figure:nth-child(2) .terrain-media { aspect-ratio: 3 / 2; }
+.terrain-extension-grid .terrain-media { aspect-ratio: 4 / 5; }
+.terrain-extension-wide { grid-column: 1 / -1; }
+.terrain-extension-wide .terrain-media { aspect-ratio: 3 / 2; max-height: 760px; }
+
+.terrain-disclosure {
+  max-width: 72em;
+  margin: 24px 0 0 !important;
+  padding-top: 18px;
+  border-top: 1px solid #2d3437;
+  color: #768186 !important;
+  font-size: 11px !important;
+  line-height: 1.8 !important;
+}
 
 .terrain-closing { display: grid; grid-template-columns: minmax(300px, .72fr) minmax(0, 1.08fr); gap: clamp(38px, 6vw, 88px); align-items: center; }
 .terrain-closing-copy > p { max-width: 48em; margin-top: 18px; }
@@ -78,11 +112,15 @@
   .project-detail-panel.is-terrain-panel .project-detail-layout { position: absolute; top: 152px; bottom: 0; width: 100%; height: auto; }
   .terrain-case { width: calc(100% - 36px); gap: 50px; margin: 36px auto 52px; }
   .terrain-case h3 { font-size: 29px; }
-  .terrain-opening, .terrain-overview-grid, .terrain-pair, .terrain-proof-grid, .terrain-context-grid, .terrain-campaign-grid, .terrain-closing { grid-template-columns: 1fr; gap: 25px; }
+  .terrain-opening, .terrain-overview-grid, .terrain-pair, .terrain-proof-grid, .terrain-internal-grid, .terrain-angle-grid, .terrain-context-grid, .terrain-campaign-grid, .terrain-extension-grid, .terrain-closing { grid-template-columns: 1fr; gap: 25px; }
   .terrain-opening-copy { max-width: none; }
   .terrain-lead { font-size: 15px !important; }
   .terrain-heading { margin-bottom: 24px; }
-  .terrain-overview, .terrain-proof, .terrain-campaign, .terrain-closing { padding-top: 30px; }
+  .terrain-overview, .terrain-proof, .terrain-internal, .terrain-angles, .terrain-campaign, .terrain-extension, .terrain-closing { padding-top: 30px; }
+  .terrain-internal-hero, .terrain-angle-master, .terrain-extension-master { margin-bottom: 25px !important; }
+  .terrain-extension-wide { grid-column: auto; }
+  .terrain-angle-grid .terrain-figure:nth-child(2) .terrain-media,
+  .terrain-extension-wide .terrain-media { aspect-ratio: 4 / 5; }
   .terrain-anchor-list div:first-child { border-top: 1px solid #343b3e; }
   .terrain-closing-copy { order: 2; }
   .project-detail-hero.is-terrain-hero .project-detail-intro { padding: 26px 22px 28px; }
