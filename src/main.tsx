@@ -935,67 +935,125 @@ function selectedCaseWork(
   };
 }
 
+const homeAndTechWorks = [
+  selectedCaseWork("product-visual-systems", 0, "空气炸锅", { thumbnail: "/assets/projects/air-fryer/air-fryer-work-card-v2.png", thumbnailMode: "cover", focalPoint: "50% 50%" }),
+  selectedCaseWork("product-visual-systems", 1, "空气循环扇", { thumbnail: "/assets/projects/table-fan/table-fan-hero.webp", thumbnailMode: "cover", focalPoint: "50% 52%" }),
+  selectedCaseWork("product-visual-systems", 2, "SONA ARC ONE", { thumbnail: "/assets/projects/sona-earbuds/sona-campaign-silence.webp", thumbnailMode: "cover", focalPoint: "50% 50%" }),
+  selectedCaseWork("product-visual-systems", 3, "KOVA", { thumbnail: "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg", thumbnailMode: "cover", focalPoint: "50% 50%" }),
+];
+
+const beautyWorks = [
+  selectedCaseWork("brand-commerce-growth", 0, "GLACIER", { thumbnail: "/assets/projects/glacier-cleanser/glacier-hero-portrait.webp", thumbnailMode: "cover", focalPoint: "50% 50%" }),
+  selectedCaseWork("brand-commerce-growth", 1, "LUMINOSE", { thumbnail: "/assets/projects/serum/serum-dropper-kv.webp", thumbnailMode: "cover", focalPoint: "50% 50%" }),
+];
+
+const foodAndDrinkWorks = [
+  selectedCaseWork("brand-commerce-growth", 2, "青岚茶事·茉莉绿茶", { thumbnail: "/assets/projects/qinglan-tea/qinglan-scene-leaf-shadow-portrait.webp", thumbnailMode: "cover", focalPoint: "50% 50%" }),
+  selectedCaseWork("brand-commerce-growth", 3, "青岚茶事·焙香乌龙", { thumbnail: "/assets/projects/qinglan-tea/qinglan-oolong-cinematic-portrait.webp", thumbnailMode: "cover", focalPoint: "50% 50%" }),
+];
+
+const fashionWorks = [
+  selectedCaseWork("campaign-experience", 1, "鱼尾皮裙", { thumbnail: "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v3.jpg", thumbnailMode: "cover", focalPoint: "50% 50%" }),
+  selectedCaseWork("campaign-experience", 2, "瑜伽套装", { thumbnail: "/assets/projects/yoga-set/yoga-showcase-campaign-v2.jpg", thumbnailMode: "cover", focalPoint: "50% 50%" }),
+];
+
+const outdoorWorks = [
+  selectedCaseWork("campaign-experience", 0, "户外音箱", { thumbnail: "/assets/projects/outdoor-speaker/speaker-category-cover.webp", thumbnailMode: "cover", focalPoint: "50% 50%" }),
+  selectedCaseWork("campaign-experience", 3, "TERRAIN 35", { thumbnail: "/assets/projects/terrain-35/terrain-showcase-campaign-v2.jpg", thumbnailMode: "cover", focalPoint: "50% 50%" }),
+];
+
+const allSelectedWorks = [
+  ...homeAndTechWorks,
+  ...beautyWorks,
+  ...foodAndDrinkWorks,
+  ...fashionWorks,
+  ...outdoorWorks,
+];
+
 const workCategories: WorkCategory[] = [
   {
-    id: "product-visual-systems",
-    label: "产品视觉系统",
-    english: "Product Visual Systems",
+    id: "all-works",
+    label: "全部作品",
+    english: "All Works",
     index: "01",
-    background: "/assets/projects/sona-earbuds/sona-material-macro.webp",
-    transitionImage: "/assets/projects/sona-earbuds/sona-launch-banner.webp",
-    description: "从产品识别到功能证据，建立跨画面稳定、可销售的视觉系统。",
-    role: "产品视觉",
-    deliverables: ["产品母版", "功能证据", "结构一致性"],
-    keywords: ["识别", "证据", "一致性"],
-    palette: ["#080B0F", "#E8EEF3", "#89AACC", "#4E85BF"],
-    works: [
-      selectedCaseWork("product-visual-systems", 0, "空气炸锅", { thumbnail: "/assets/projects/air-fryer/air-fryer-work-card-v2.png", thumbnailMode: "cover", focalPoint: "50% 50%" }),
-      selectedCaseWork("product-visual-systems", 1, "空气循环扇", { thumbnail: "/assets/projects/table-fan/table-fan-hero.webp", thumbnailMode: "cover", focalPoint: "50% 52%" }),
-      selectedCaseWork("product-visual-systems", 2, "SONA ARC ONE", {
-        thumbnail: "/assets/projects/sona-earbuds/sona-campaign-silence.webp",
-        thumbnailMode: "cover",
-        focalPoint: "50% 50%",
-      }),
-      selectedCaseWork("product-visual-systems", 3, "KOVA", { thumbnail: "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg", thumbnailMode: "cover", focalPoint: "50% 50%" }),
-    ],
-  },
-  {
-    id: "brand-commerce-growth",
-    label: "品牌与电商增长",
-    english: "Brand & Commerce Growth",
-    index: "02",
     background: "/assets/projects/qinglan-tea/qinglan-oolong-cinematic-wide-v2.webp",
     transitionImage: "/assets/projects/qinglan-tea/qinglan-pour.webp",
-    description: "从定位、购买路径到渠道内容，让品牌表达与转化目标相互证明。",
-    role: "品牌增长",
-    deliverables: ["品牌定位", "购买路径", "渠道内容"],
-    keywords: ["定位", "转化", "增长"],
-    palette: ["#10150F", "#E8E7D8", "#879869", "#8E6549"],
-    works: [
-      selectedCaseWork("brand-commerce-growth", 0, "GLACIER", { thumbnail: "/assets/projects/glacier-cleanser/glacier-hero-portrait.webp", thumbnailMode: "cover", focalPoint: "50% 50%" }),
-      selectedCaseWork("brand-commerce-growth", 1, "LUMINOSE", { thumbnail: "/assets/projects/serum/serum-dropper-kv.webp", thumbnailMode: "cover", focalPoint: "50% 50%" }),
-      selectedCaseWork("brand-commerce-growth", 2, "青岚茶事·茉莉绿茶", { thumbnail: "/assets/projects/qinglan-tea/qinglan-scene-leaf-shadow-portrait.webp", thumbnailMode: "cover", focalPoint: "50% 50%" }),
-      selectedCaseWork("brand-commerce-growth", 3, "青岚茶事·焙香乌龙", { thumbnail: "/assets/projects/qinglan-tea/qinglan-oolong-cinematic-portrait.webp", thumbnailMode: "cover", focalPoint: "50% 50%" }),
-    ],
+    description: "十二个完整商业项目，一次看全。",
+    role: "作品总览",
+    deliverables: [],
+    keywords: [],
+    palette: ["#080B0F", "#E8EEF3", "#89AACC", "#4E85BF"],
+    works: allSelectedWorks,
   },
   {
-    id: "campaign-experience",
-    label: "场景企划与传播",
-    english: "Campaign & Experience",
+    id: "home-tech",
+    label: "家电与数码",
+    english: "Home & Tech",
+    index: "02",
+    background: "/assets/projects/sona-earbuds/sona-material-macro.webp",
+    transitionImage: "/assets/projects/sona-earbuds/sona-launch-banner.webp",
+    description: "家电、智能硬件与数码产品。",
+    role: "家电与数码",
+    deliverables: [],
+    keywords: [],
+    palette: ["#080B0F", "#E8EEF3", "#89AACC", "#4E85BF"],
+    works: homeAndTechWorks,
+  },
+  {
+    id: "beauty-care",
+    label: "美妆护肤",
+    english: "Beauty & Care",
     index: "03",
-    background: "/assets/projects/outdoor-speaker/speaker-rock-hero.webp",
-    transitionImage: "/assets/projects/terrain-35/terrain-campaign-route.jpg",
-    description: "让产品、人物与环境形成可信关系，并扩展为可连续传播的场景资产。",
-    role: "整合传播",
-    deliverables: ["场景企划", "人物叙事", "整合传播"],
-    keywords: ["场景", "人物", "传播"],
+    background: "/assets/projects/glacier-cleanser/glacier-sunrise-wide.webp",
+    transitionImage: "/assets/projects/serum/serum-bathroom.webp",
+    description: "洁面、精华与功效护肤内容。",
+    role: "美妆护肤",
+    deliverables: [],
+    keywords: [],
+    palette: ["#0B1014", "#E8EEF3", "#82B9D5", "#D08A4C"],
+    works: beautyWorks,
+  },
+  {
+    id: "food-drink",
+    label: "食品饮料",
+    english: "Food & Drink",
+    index: "04",
+    background: "/assets/projects/qinglan-tea/qinglan-oolong-cinematic-wide-v2.webp",
+    transitionImage: "/assets/projects/qinglan-tea/qinglan-pour.webp",
+    description: "食品饮料与新消费品牌。",
+    role: "食品饮料",
+    deliverables: [],
+    keywords: [],
+    palette: ["#10150F", "#E8E7D8", "#879869", "#8E6549"],
+    works: foodAndDrinkWorks,
+  },
+  {
+    id: "fashion",
+    label: "时尚服饰",
+    english: "Fashion",
+    index: "05",
+    background: "/assets/projects/fishtail-skirt/skirt-rain-hero.png",
+    transitionImage: "/assets/projects/yoga-set/yoga-gym-stretch-wide.webp",
+    description: "时装、运动服饰与人物场景。",
+    role: "时尚服饰",
+    deliverables: [],
+    keywords: [],
+    palette: ["#0A0B0D", "#ECEBE7", "#9FA9B3", "#A64F37"],
+    works: fashionWorks,
+  },
+  {
+    id: "outdoor-life",
+    label: "户外生活",
+    english: "Outdoor Life",
+    index: "06",
+    background: "/assets/projects/terrain-35/terrain-campaign-route.jpg",
+    transitionImage: "/assets/projects/outdoor-speaker/speaker-rock-hero.webp",
+    description: "户外装备与生活方式产品。",
+    role: "户外生活",
+    deliverables: [],
+    keywords: [],
     palette: ["#0C1012", "#E8ECEB", "#8EA8B4", "#C0724A"],
-    works: [
-      selectedCaseWork("campaign-experience", 0, "户外音箱", { thumbnail: "/assets/projects/outdoor-speaker/speaker-category-cover.webp", thumbnailMode: "cover", focalPoint: "50% 50%" }),
-      selectedCaseWork("campaign-experience", 1, "鱼尾皮裙", { thumbnail: "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v3.jpg", thumbnailMode: "cover", focalPoint: "50% 50%" }),
-      selectedCaseWork("campaign-experience", 2, "瑜伽套装", { thumbnail: "/assets/projects/yoga-set/yoga-showcase-campaign-v2.jpg", thumbnailMode: "cover", focalPoint: "50% 50%" }),
-      selectedCaseWork("campaign-experience", 3, "TERRAIN 35", { thumbnail: "/assets/projects/terrain-35/terrain-showcase-campaign-v2.jpg", thumbnailMode: "cover", focalPoint: "50% 50%" }),
-    ],
+    works: outdoorWorks,
   },
 ];
 
@@ -2499,7 +2557,7 @@ function SelectedCollectionViewer({
 }
 
 
-function SelectedWorks({
+function SelectedWorksLegacy({
   sectionRef,
   handoffProgress,
   exitProgress,
@@ -3190,6 +3248,186 @@ function SelectedWorks({
               work={expandedWork}
               reduceMotion={reduceMotion}
               onClose={closeExpandedWork}
+            />
+          ) : null}
+        </AnimatePresence>,
+        document.body,
+      )}
+    </section>
+  );
+}
+
+// Kept as a local rollback reference while the new catalogue replaces the former carousel.
+void SelectedWorksLegacy;
+
+function getPlainWorkCategory(work: GalleryWork) {
+  return workCategories.slice(1).find((category) => (
+    category.works.some((categoryWork) => categoryWork.id === work.id)
+  ))?.label ?? "商业项目";
+}
+
+function WorkOverviewCard({
+  work,
+  index,
+  reduceMotion,
+  onOpen,
+}: {
+  work: GalleryWork;
+  index: number;
+  reduceMotion: boolean;
+  onOpen: (work: GalleryWork) => void;
+}) {
+  return (
+    <motion.button
+      type="button"
+      className="work-overview-card"
+      layout={!reduceMotion}
+      initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 16 }}
+      transition={{ duration: reduceMotion ? 0.01 : 0.48, delay: reduceMotion ? 0 : Math.min(index * 0.035, 0.24), ease: [0.16, 1, 0.3, 1] }}
+      onClick={() => onOpen(work)}
+      aria-label={`查看${work.title}完整案例`}
+    >
+      <img
+        src={work.thumbnail ?? work.image}
+        alt=""
+        loading="eager"
+        decoding="async"
+        style={{ objectPosition: work.focalPoint ?? "50% 50%" }}
+      />
+      <span className="work-overview-card-shade" aria-hidden="true" />
+      <span className="work-overview-card-number" aria-hidden="true">
+        {String(index + 1).padStart(2, "0")}
+      </span>
+      <span className="work-overview-card-meta">
+        <small>{getPlainWorkCategory(work)}</small>
+        <strong>{work.title}</strong>
+        <span>
+          查看完整案例
+          <ArrowRight size={15} strokeWidth={1.6} aria-hidden="true" />
+        </span>
+      </span>
+    </motion.button>
+  );
+}
+
+function SelectedWorks({
+  sectionRef,
+  handoffProgress,
+  exitProgress,
+}: {
+  sectionRef: RefObject<HTMLElement>;
+  handoffProgress: MotionValue<number>;
+  exitProgress: MotionValue<number>;
+}) {
+  const reduceMotion = useReducedMotion() ?? false;
+  const [categoryIndex, setCategoryIndex] = useState(0);
+  const [expandedWork, setExpandedWork] = useState<GalleryWork | null>(null);
+  const lightboxReturnFocus = useRef<HTMLElement | null>(null);
+  const category = workCategories[categoryIndex];
+  const entryOpacity = useTransform(handoffProgress, [0, 0.1, 0.34], [0, 0.72, 1]);
+  const entryY = useTransform(handoffProgress, [0, 0.5, 1], [reduceMotion ? 0 : 72, reduceMotion ? 0 : 12, 0]);
+  const entryScale = useTransform(handoffProgress, [0, 0.6, 1], [reduceMotion ? 1 : 0.98, 0.995, 1]);
+  const exitOpacity = useTransform(exitProgress, [0, 0.82, 1], [1, 1, 0]);
+  const opacity = useTransform(() => entryOpacity.get() * exitOpacity.get());
+
+  useDocumentScrollLock(Boolean(expandedWork));
+
+  const openWork = (work: GalleryWork) => {
+    lightboxReturnFocus.current = document.activeElement instanceof HTMLElement
+      ? document.activeElement
+      : null;
+    setExpandedWork(work);
+  };
+
+  const closeWork = () => setExpandedWork(null);
+
+  return (
+    <section
+      ref={sectionRef}
+      id="work"
+      className="works works-overview"
+      tabIndex={-1}
+      aria-labelledby="works-overview-title"
+    >
+      <motion.div
+        className="works-transition-layer works-overview-layer"
+        style={{ opacity, y: entryY, scale: entryScale }}
+      >
+        <div className="works-backdrop" aria-hidden="true">
+          <AnimatePresence initial={false} mode="popLayout">
+            <motion.img
+              key={category.id}
+              src={category.background}
+              alt=""
+              initial={{ opacity: 0, scale: reduceMotion ? 1 : 1.03 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: reduceMotion ? 0.01 : 0.55 }}
+            />
+          </AnimatePresence>
+        </div>
+        <div className="works-grain" aria-hidden="true" />
+
+        <div className="works-overview-shell shell">
+          <header className="works-overview-header">
+            <div>
+              <span className="works-overview-kicker">精选商业案例 / SELECTED WORKS</span>
+              <h2 id="works-overview-title">12 个完整项目，一次看全。</h2>
+              <p>按类型筛选，点击作品查看完整案例。</p>
+            </div>
+            <div className="works-overview-total" aria-label="共12个完整项目">
+              <strong>12</strong>
+              <span>完整项目</span>
+            </div>
+          </header>
+
+          <nav className="works-overview-filters" aria-label="作品分类">
+            {workCategories.map((item, index) => (
+              <button
+                key={item.id}
+                type="button"
+                className={index === categoryIndex ? "is-active" : undefined}
+                aria-pressed={index === categoryIndex}
+                onClick={() => setCategoryIndex(index)}
+              >
+                <span>{item.label}</span>
+                <small>{String(item.works.length).padStart(2, "0")}</small>
+              </button>
+            ))}
+          </nav>
+
+          <motion.div
+            className={`works-overview-grid${category.id === "all-works" ? " is-all" : " is-filtered"}`}
+            layout={!reduceMotion}
+          >
+            <AnimatePresence initial={false}>
+              {category.works.map((work, index) => (
+                <WorkOverviewCard
+                  key={work.id}
+                  work={work}
+                  index={index}
+                  reduceMotion={reduceMotion}
+                  onOpen={openWork}
+                />
+              ))}
+            </AnimatePresence>
+          </motion.div>
+        </div>
+      </motion.div>
+
+      {createPortal(
+        <AnimatePresence onExitComplete={() => {
+          lightboxReturnFocus.current?.focus({ preventScroll: true });
+          lightboxReturnFocus.current = null;
+        }}>
+          {expandedWork?.caseRef ? (
+            <SelectedCaseViewer
+              key={`selected-case-${expandedWork.id}`}
+              work={expandedWork}
+              reduceMotion={reduceMotion}
+              onClose={closeWork}
             />
           ) : null}
         </AnimatePresence>,
