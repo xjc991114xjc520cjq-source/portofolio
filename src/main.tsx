@@ -2327,7 +2327,44 @@ function SelectedCollectionViewer({
 }) {
   const viewerRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const detailHeroPreloads = useRef(new Map<string, Promise<void>>());
+  const openRequest = useRef(0);
   const titleId = `selected-collection-title-${collection.id}`;
+
+  const preloadDetailHero = (projectIndex: number) => {
+    const project = collection.projects[projectIndex];
+    const src = project ? projectDetailHero(project).src : "";
+    if (!src) return Promise.resolve();
+    const existing = detailHeroPreloads.current.get(src);
+    if (existing) return existing;
+
+    const pending = new Promise<void>((resolve) => {
+      const image = new Image();
+      let settled = false;
+      const finish = () => {
+        if (settled) return;
+        settled = true;
+        resolve();
+      };
+      const decode = () => {
+        if (typeof image.decode === "function") image.decode().then(finish, finish);
+        else finish();
+      };
+      image.addEventListener("load", decode, { once: true });
+      image.addEventListener("error", finish, { once: true });
+      image.src = src;
+      if (image.complete) decode();
+    });
+    detailHeroPreloads.current.set(src, pending);
+    return pending;
+  };
+
+  const requestOpenProject = (projectIndex: number) => {
+    const request = ++openRequest.current;
+    void preloadDetailHero(projectIndex).then(() => {
+      if (request === openRequest.current) onOpenProject(projectIndex);
+    });
+  };
 
   useEffect(() => {
     if (!covered) viewerRef.current?.focus({ preventScroll: true });
@@ -2340,6 +2377,13 @@ function SelectedCollectionViewer({
     const targetTop = scroll.scrollTop + target.getBoundingClientRect().top - scroll.getBoundingClientRect().top - 88;
     scroll.scrollTop = Math.max(0, targetTop);
   }, [collection.id, initialProjectIndex]);
+
+  useEffect(() => {
+    openRequest.current += 1;
+    collection.projects.forEach((_, projectIndex) => {
+      void preloadDetailHero(projectIndex);
+    });
+  }, [collection.id]);
 
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     event.stopPropagation();
@@ -2434,7 +2478,7 @@ function SelectedCollectionViewer({
                     <span>{project.category.split(" / ")[0]}</span>
                     <h3>{projectProductName(project)}</h3>
                     <p>{project.summary}</p>
-                    <button type="button" onClick={() => onOpenProject(projectIndex)}>
+                    <button type="button" onClick={() => requestOpenProject(projectIndex)}>
                       <span>查看项目详情</span>
                       <ArrowRight size={18} strokeWidth={1.5} aria-hidden="true" />
                     </button>
@@ -3233,7 +3277,9 @@ function Profile() {
   const handoffProgress = useMotionValue(0);
   const { scrollYProgress } = useScroll({
     target: profileRef,
-    offset: ["start 40%", "start -40%"],
+    // Start the profile handoff while the work canvas is still visibly
+    // present, instead of waiting until the profile is halfway up the screen.
+    offset: ["start 100%", "start 10%"],
   });
   const acceleratedProgress = useTransform(scrollYProgress, [0, 1], [0, 1], { ease: slowFastScrollEase });
   const pacedRevealProgress = useTransform(acceleratedProgress, [0, 1], [0, 0.72]);
@@ -3966,18 +4012,12 @@ function ProjectDetailViewer({
         } as CSSProperties}
         initial={reduceMotion ? false : {
           opacity: 0,
-          x: "4%",
-          scale: 0.988,
-          clipPath: "inset(0 0 0 18%)",
-          filter: "blur(8px)",
+          x: "2.5%",
         }}
-        animate={{ opacity: 1, x: "0%", scale: 1, clipPath: "inset(0 0 0 0%)", filter: "blur(0px)" }}
+        animate={{ opacity: 1, x: "0%" }}
         exit={reduceMotion ? undefined : {
           opacity: 0,
-          x: "4%",
-          scale: 0.99,
-          clipPath: "inset(0 0 0 18%)",
-          filter: "blur(6px)",
+          x: "2.5%",
         }}
         transition={{ duration: reduceMotion ? 0 : 0.46, ease: [0.32, 0.72, 0, 1] }}
         onClick={(event) => event.stopPropagation()}

@@ -14,6 +14,11 @@
 
 .selected-collection-viewer.is-covered {
   pointer-events: none;
+  /* The detail viewer supplies the active backdrop. Keeping a second
+     fullscreen backdrop-filter alive underneath it causes Chromium to drop
+     painted tiles while the large detail panel enters. */
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .selected-collection-panel {
