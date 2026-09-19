@@ -331,6 +331,18 @@
   transform: scale(1.018);
 }
 
+/* GLACIER uses a wide hero followed by two square proofs. Keep that source
+   rhythm instead of forcing the hero into a tall left column with dead space. */
+.selected-collection-project:has(.is-media-1 img[src*="glacier-sunrise-wide"]) .selected-collection-project-media {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: auto auto;
+}
+
+.selected-collection-project:has(.is-media-1 img[src*="glacier-sunrise-wide"]) .selected-collection-project-media .is-media-1 {
+  grid-column: 1 / -1;
+  grid-row: auto;
+}
+
 @media (max-width: 980px) {
   .selected-collection-intro {
     grid-template-columns: 1fr;
