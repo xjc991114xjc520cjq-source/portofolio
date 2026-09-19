@@ -4448,10 +4448,10 @@ video {
   --project-showcase-expand-duration: 440ms;
   --project-showcase-expand-ease: var(--ease-drawer);
   position: relative;
-  z-index: 6;
+  z-index: 4;
   min-height: var(--project-showcase-height);
   width: 100%;
-  margin: -6dvh auto 0;
+  margin: 0 auto;
   padding: 0;
   overflow: hidden;
   border-radius: 32px 32px 0 0;
@@ -8214,7 +8214,7 @@ video {
   .project-showcase {
     width: 100%;
     min-height: auto;
-    margin-top: -7dvh;
+    margin-top: 0;
     padding: 0;
     overflow: visible;
     border-radius: 24px 24px 0 0;

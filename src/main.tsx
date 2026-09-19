@@ -3498,7 +3498,7 @@ function PortfolioSequence() {
   const worksRef = useRef<HTMLElement>(null);
   const { scrollYProgress: projectEntryScroll } = useScroll({
     target: projectRef,
-    offset: ["start 92%", "start 22%"],
+    offset: ["start 100%", "start 22%"],
   });
   const { scrollYProgress: worksEntryScroll } = useScroll({
     target: worksRef,
