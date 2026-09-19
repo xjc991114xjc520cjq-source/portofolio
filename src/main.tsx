@@ -562,14 +562,89 @@ const terrainBackpackProject = {
 
 const projectShowcaseCollections = [
   {
+    id: "smart-living",
+    index: "01",
+    title: "智能生活产品",
+    english: "SMART LIVING PRODUCTS",
+    facets: ["智能厨电", "智能硬件", "功能商业化"],
+    coverImages: [
+      "/assets/projects/air-fryer/air-fryer-reference.webp",
+      "/assets/projects/table-fan/table-fan-showcase-campaign-v2.jpg",
+    ],
+    projects: [projectShowcaseItems[0], projectShowcaseItems[1]],
+  },
+  {
+    id: "beauty-care",
+    index: "02",
+    title: "美妆与个人护理",
+    english: "BEAUTY & PERSONAL CARE",
+    facets: ["功效洁面", "功效精华", "晨晚护理"],
+    coverImages: [
+      "/assets/projects/glacier-cleanser/glacier-bathroom-wide.webp",
+      "/assets/projects/serum/serum-bathroom.webp",
+    ],
+    projects: [projectShowcaseItems[2], projectShowcaseItems[3]],
+  },
+  {
+    id: "consumer-commerce",
+    index: "03",
+    title: "新消费与电商",
+    english: "CONSUMER COMMERCE",
+    facets: ["食品饮料", "品牌定位", "上市内容"],
+    coverImages: [
+      "/assets/projects/qinglan-tea/qinglan-dual-cover-square.webp",
+    ],
+    projects: [projectShowcaseItems[4], projectShowcaseItems[8]],
+  },
+  {
+    id: "lifestyle-campaign",
+    index: "04",
+    title: "生活体验",
+    english: "LIFESTYLE EXPERIENCES",
+    facets: ["运动相机", "户外音箱", "体验商业化"],
+    coverImages: [
+      "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg",
+      "/assets/projects/outdoor-speaker/speaker-product-cover.png",
+    ],
+    projects: [actionCameraProject, projectShowcaseItems[5]],
+  },
+  {
+    id: "fashion-commerce",
+    index: "05",
+    title: "时尚服饰",
+    english: "FASHION COMMERCE",
+    facets: ["时装企划", "功能服饰", "场景商业化"],
+    coverImages: [
+      "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v3.jpg",
+      "/assets/projects/yoga-set/yoga-showcase-campaign-v2.jpg",
+    ],
+    projects: [fishtailSkirtProject, yogaSetProject],
+  },
+  {
+    id: "product-motion",
+    index: "06",
+    title: "产品视觉与商业化",
+    english: "PRODUCT VISUALS & COMMERCE",
+    facets: ["产品一致性", "销售表达", "跨场景内容"],
+    coverImages: [
+      "/assets/projects/sona-earbuds/sona-campaign-silence.webp",
+      "/assets/projects/terrain-35/terrain-showcase-campaign-v2.jpg",
+    ],
+    projects: [projectShowcaseItems[7], terrainBackpackProject],
+  },
+] as const;
+
+// The visual work screen is intentionally curated independently from the
+// recruiter-facing business-case taxonomy above. Changes here must never
+// rewrite the commercial-case entrance cards.
+const selectedWorkCollections = [
+  {
     id: "product-visual-systems",
     index: "01",
     title: "产品视觉系统",
     english: "PRODUCT VISUAL SYSTEMS",
     facets: ["产品识别", "功能证据", "结构一致性"],
-    coverImages: [
-      "/assets/projects/air-fryer/air-fryer-hero.webp",
-    ],
+    coverImages: ["/assets/projects/air-fryer/air-fryer-hero.webp"],
     projects: [projectShowcaseItems[0], projectShowcaseItems[1], projectShowcaseItems[7], actionCameraProject],
   },
   {
@@ -578,9 +653,7 @@ const projectShowcaseCollections = [
     title: "品牌与电商增长",
     english: "BRAND & COMMERCE GROWTH",
     facets: ["品牌定位", "购买路径", "渠道内容"],
-    coverImages: [
-      "/assets/projects/glacier-cleanser/glacier-sunrise-wide.webp",
-    ],
+    coverImages: ["/assets/projects/glacier-cleanser/glacier-sunrise-wide.webp"],
     projects: [projectShowcaseItems[2], projectShowcaseItems[3], projectShowcaseItems[4], projectShowcaseItems[8]],
   },
   {
@@ -589,9 +662,7 @@ const projectShowcaseCollections = [
     title: "场景企划与传播",
     english: "CAMPAIGN & EXPERIENCE",
     facets: ["场景企划", "人物叙事", "整合传播"],
-    coverImages: [
-      "/assets/projects/outdoor-speaker/speaker-product-cover.png",
-    ],
+    coverImages: ["/assets/projects/outdoor-speaker/speaker-product-cover.png"],
     projects: [projectShowcaseItems[5], fishtailSkirtProject, yogaSetProject, terrainBackpackProject],
   },
 ] as const;
@@ -845,7 +916,7 @@ function selectedCaseWork(
   title: string,
   options: Pick<WorkItem, "thumbnail" | "thumbnailMode" | "focalPoint"> = { thumbnailMode: "contain" },
 ): WorkItem {
-  const collection = projectShowcaseCollections.find((entry) => entry.id === collectionId);
+  const collection = selectedWorkCollections.find((entry) => entry.id === collectionId);
   const project = collection?.projects[projectIndex];
   if (!collection || !project) throw new Error(`Unknown selected work: ${collectionId}/${projectIndex}`);
   const hero = projectDetailHero(project);
@@ -880,12 +951,12 @@ const workCategories: WorkCategory[] = [
     keywords: ["识别", "证据", "一致性"],
     palette: ["#080B0F", "#E8EEF3", "#89AACC", "#4E85BF"],
     works: [
-      selectedCaseWork("product-visual-systems", 0, "空气炸锅", { thumbnail: "/assets/projects/air-fryer/air-fryer-hero.webp", thumbnailMode: "cover", focalPoint: "50% 50%" }),
+      selectedCaseWork("product-visual-systems", 0, "空气炸锅", { thumbnail: "/assets/projects/air-fryer/air-fryer-work-card-v2.png", thumbnailMode: "cover", focalPoint: "50% 50%" }),
       selectedCaseWork("product-visual-systems", 1, "空气循环扇", { thumbnail: "/assets/projects/table-fan/table-fan-hero.webp", thumbnailMode: "cover", focalPoint: "50% 52%" }),
       selectedCaseWork("product-visual-systems", 2, "SONA ARC ONE", {
-        thumbnail: "/assets/projects/sona-earbuds/sona-product-master.webp",
+        thumbnail: "/assets/projects/sona-earbuds/sona-campaign-silence.webp",
         thumbnailMode: "cover",
-        focalPoint: "50% 56%",
+        focalPoint: "50% 50%",
       }),
       selectedCaseWork("product-visual-systems", 3, "KOVA", { thumbnail: "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg", thumbnailMode: "cover", focalPoint: "50% 50%" }),
     ],
@@ -903,10 +974,10 @@ const workCategories: WorkCategory[] = [
     keywords: ["定位", "转化", "增长"],
     palette: ["#10150F", "#E8E7D8", "#879869", "#8E6549"],
     works: [
-      selectedCaseWork("brand-commerce-growth", 0, "GLACIER", { thumbnail: "/assets/projects/glacier-cleanser/glacier-commerce-positioning.webp", thumbnailMode: "cover", focalPoint: "50% 50%" }),
-      selectedCaseWork("brand-commerce-growth", 1, "LUMINOSE", { thumbnail: "/assets/projects/serum/serum-commerce-positioning.webp", thumbnailMode: "cover", focalPoint: "50% 50%" }),
-      selectedCaseWork("brand-commerce-growth", 2, "青岚茶事·茉莉绿茶", { thumbnail: "/assets/projects/qinglan-tea/qinglan-commerce-core.webp", thumbnailMode: "cover", focalPoint: "50% 50%" }),
-      selectedCaseWork("brand-commerce-growth", 3, "青岚茶事·焙香乌龙", { thumbnail: "/assets/projects/qinglan-tea/qinglan-oolong-commerce-bold.webp", thumbnailMode: "cover", focalPoint: "50% 50%" }),
+      selectedCaseWork("brand-commerce-growth", 0, "GLACIER", { thumbnail: "/assets/projects/glacier-cleanser/glacier-hero-portrait.webp", thumbnailMode: "cover", focalPoint: "50% 50%" }),
+      selectedCaseWork("brand-commerce-growth", 1, "LUMINOSE", { thumbnail: "/assets/projects/serum/serum-dropper-kv.webp", thumbnailMode: "cover", focalPoint: "50% 50%" }),
+      selectedCaseWork("brand-commerce-growth", 2, "青岚茶事·茉莉绿茶", { thumbnail: "/assets/projects/qinglan-tea/qinglan-scene-leaf-shadow-portrait.webp", thumbnailMode: "cover", focalPoint: "50% 50%" }),
+      selectedCaseWork("brand-commerce-growth", 3, "青岚茶事·焙香乌龙", { thumbnail: "/assets/projects/qinglan-tea/qinglan-oolong-cinematic-portrait.webp", thumbnailMode: "cover", focalPoint: "50% 50%" }),
     ],
   },
   {
@@ -2087,11 +2158,11 @@ function SelectedCaseViewer({ work, reduceMotion, onClose }: {
   onClose: () => void;
 }) {
   const [collectionIndex, setCollectionIndex] = useState(() => {
-    const index = projectShowcaseCollections.findIndex((collection) => collection.id === work.caseRef?.collectionId);
+    const index = selectedWorkCollections.findIndex((collection) => collection.id === work.caseRef?.collectionId);
     return index < 0 ? 0 : index;
   });
   const [projectIndex, setProjectIndex] = useState<number | null>(null);
-  const collection = projectShowcaseCollections[collectionIndex];
+  const collection = selectedWorkCollections[collectionIndex];
   if (!collection) return null;
 
   const initialProjectIndex = collection.id === work.caseRef?.collectionId
@@ -2110,7 +2181,7 @@ function SelectedCaseViewer({ work, reduceMotion, onClose }: {
         onNavigate={(direction) => {
           setProjectIndex(null);
           setCollectionIndex((current) =>
-            (current + direction + projectShowcaseCollections.length) % projectShowcaseCollections.length);
+            (current + direction + selectedWorkCollections.length) % selectedWorkCollections.length);
         }}
         onOpenProject={setProjectIndex}
       />
@@ -2127,7 +2198,7 @@ function SelectedCaseViewer({ work, reduceMotion, onClose }: {
             onNavigate={(direction) => {
               setProjectIndex(0);
               setCollectionIndex((current) =>
-                (current + direction + projectShowcaseCollections.length) % projectShowcaseCollections.length);
+                (current + direction + selectedWorkCollections.length) % selectedWorkCollections.length);
             }}
           />
         ) : null}
@@ -2200,17 +2271,17 @@ const selectedCollectionMedia: Record<string, string[]> = {
 };
 
 const selectedCollectionPrimary: Record<string, string> = {
-  // The wide launch banner is excellent in the detail hero but leaves the
-  // fixed showcase frame empty. The square product master keeps the earbuds
-  // complete and centered in the collection preview.
-  "SONA ARC ONE EARBUDS LAUNCH SYSTEM": "/assets/projects/sona-earbuds/sona-product-master.webp",
-  "AIR FRYER COMMERCE SYSTEM": "/assets/projects/air-fryer/air-fryer-hero.webp",
+  // The wide launch banner remains protected in the detail hero. This square
+  // campaign key visual keeps both the product and its complete headline safe
+  // inside the fixed portrait work frame.
+  "SONA ARC ONE EARBUDS LAUNCH SYSTEM": "/assets/projects/sona-earbuds/sona-campaign-silence.webp",
+  "AIR FRYER COMMERCE SYSTEM": "/assets/projects/air-fryer/air-fryer-work-card-v2.png",
   "AI AIR CIRCULATOR COMMERCE SYSTEM": "/assets/projects/table-fan/table-fan-hero.webp",
   "KOVA ACTION CAMERA EXPERIENCE SYSTEM": "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg",
-  "GLACIER CLEANSER COMMERCE SYSTEM": "/assets/projects/glacier-cleanser/glacier-commerce-positioning.webp",
-  "LUMINOSE SERUM COMMERCE SYSTEM": "/assets/projects/serum/serum-commerce-positioning.webp",
-  "QINGLAN TEA COMMERCE SYSTEM": "/assets/projects/qinglan-tea/qinglan-commerce-core.webp",
-  "QINGLAN OOLONG GROWTH SYSTEM": "/assets/projects/qinglan-tea/qinglan-oolong-commerce-bold.webp",
+  "GLACIER CLEANSER COMMERCE SYSTEM": "/assets/projects/glacier-cleanser/glacier-hero-portrait.webp",
+  "LUMINOSE SERUM COMMERCE SYSTEM": "/assets/projects/serum/serum-dropper-kv.webp",
+  "QINGLAN TEA COMMERCE SYSTEM": "/assets/projects/qinglan-tea/qinglan-scene-leaf-shadow-portrait.webp",
+  "QINGLAN OOLONG GROWTH SYSTEM": "/assets/projects/qinglan-tea/qinglan-oolong-cinematic-portrait.webp",
   "OUTDOOR SPEAKER EXPERIENCE SYSTEM": "/assets/projects/outdoor-speaker/speaker-category-cover.webp",
   "FISHTAIL LEATHER SKIRT CAMPAIGN SYSTEM": "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v3.jpg",
   "YOGA SET FASHION COMMERCE SYSTEM": "/assets/projects/yoga-set/yoga-showcase-campaign-v2.jpg",
@@ -2317,7 +2388,7 @@ function SelectedCollectionViewer({
             <strong>{collection.title}</strong>
           </div>
           <nav aria-label="作品集合切换">
-            <span>{String(currentIndex + 1).padStart(2, "0")} / {String(projectShowcaseCollections.length).padStart(2, "0")}</span>
+            <span>{String(currentIndex + 1).padStart(2, "0")} / {String(selectedWorkCollections.length).padStart(2, "0")}</span>
             <button type="button" onClick={() => onNavigate(-1)} aria-label="上一个作品集合"><ArrowLeft size={18} strokeWidth={1.5} /></button>
             <button type="button" onClick={() => onNavigate(1)} aria-label="下一个作品集合"><ArrowRight size={18} strokeWidth={1.5} /></button>
             <button className="selected-collection-close" type="button" onClick={onClose} aria-label="关闭作品集合"><X size={20} strokeWidth={1.5} /></button>
@@ -3339,7 +3410,7 @@ function PortfolioSequence() {
 }
 
 type ProjectShowcaseItem = (typeof projectShowcaseCollections)[number]["projects"][number];
-type ProjectShowcaseCollection = (typeof projectShowcaseCollections)[number];
+type ProjectShowcaseCollection = (typeof projectShowcaseCollections)[number] | (typeof selectedWorkCollections)[number];
 
 
 function SonaEarbudsCaseStudy({
@@ -4122,7 +4193,7 @@ function ProjectShowcaseCard({
 
   return (
     <motion.button
-      className={`project-showcase-item${item.id === "campaign-experience" ? " is-speaker-cover" : ""}${item.coverImages.length > 1 ? " has-cover-cycle" : ""}${isGlacierCover ? " is-glacier-cover" : ""}${isFocused ? " is-focused" : ""}${isSuppressed ? " is-suppressed" : ""}`}
+      className={`project-showcase-item${item.id === "consumer-commerce" ? " is-consumer-cover" : ""}${item.id === "lifestyle-campaign" ? " is-speaker-cover" : ""}${item.coverImages.length > 1 ? " has-cover-cycle" : ""}${isGlacierCover ? " is-glacier-cover" : ""}${isFocused ? " is-focused" : ""}${isSuppressed ? " is-suppressed" : ""}`}
       type="button"
       data-project-index={index}
       aria-label={`查看作品方向：${item.title}，包含${item.projects.length}个完整商业项目`}
@@ -4145,8 +4216,11 @@ function ProjectShowcaseCard({
       <span className="project-showcase-art">
         {item.coverImages.map((image, imageIndex) => (
           <picture key={image}>
+            {item.id === "consumer-commerce" ? (
+              <source media="(max-width: 1280px)" srcSet="/assets/projects/qinglan-tea/qinglan-dual-cover-portrait.webp" />
+            ) : null}
             <img
-              className={`project-showcase-art-primary${image === "/assets/projects/outdoor-speaker/speaker-product-cover.png" ? " is-speaker-product" : ""}${activeCoverIndex === imageIndex ? " is-active" : ""}`}
+              className={`project-showcase-art-primary${image === "/assets/projects/table-fan/table-fan-showcase-campaign-v2.jpg" ? " is-table-fan-campaign" : ""}${image === "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg" ? " is-kova-action" : ""}${image === "/assets/projects/yoga-set/yoga-showcase-campaign-v2.jpg" ? " is-yoga-fashion" : ""}${image === "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v3.jpg" ? " is-fishtail-fashion" : ""}${image === "/assets/projects/terrain-35/terrain-showcase-campaign-v2.jpg" ? " is-terrain-night" : ""}${image === "/assets/projects/outdoor-speaker/speaker-product-cover.png" ? " is-speaker-product" : ""}${activeCoverIndex === imageIndex ? " is-active" : ""}`}
               src={image}
               alt=""
               aria-hidden="true"
