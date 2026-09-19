@@ -87,6 +87,32 @@
   object-fit: contain;
 }
 
+/* Editorial case artwork follows the source ratio instead of stretching into
+   an empty frame. This keeps landscape campaign images readable in the body. */
+.editorial-row {
+  align-items: start;
+}
+
+.editorial-case .editorial-media,
+.editorial-case .editorial-media .project-image-trigger,
+.editorial-case .editorial-media img {
+  height: auto;
+  min-height: 0;
+  aspect-ratio: auto;
+}
+
+.editorial-case .editorial-media img {
+  object-fit: contain;
+}
+
+.extension-media,
+.extension-media .project-image-trigger,
+.extension-media .project-image-trigger img {
+  height: auto;
+  min-height: 0;
+  aspect-ratio: auto;
+}
+
 /* Earlier motion and oolong cases keep their authored sequence and films. */
 .is-refined-panel .smart-case-heading { display: grid; max-width: 780px; gap: 13px; margin-bottom: 30px; }
 .is-refined-panel .smart-case-heading > span { grid-column: auto; }
