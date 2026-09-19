@@ -323,10 +323,12 @@
   object-fit: contain;
 }
 
-/* TERRAIN uses source-ratio media frames. Keep those frames edge-to-edge even
-   though the shared detail rule above protects uncropped editorial artwork. */
+/* TERRAIN keeps each source at its authored ratio; the media frame follows the
+   image so titles and annotations are never cropped. */
 .project-detail-copy .terrain-media .project-image-trigger > img {
-  object-fit: cover;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
 }
 
 /* Editorial case artwork follows the source ratio instead of stretching into

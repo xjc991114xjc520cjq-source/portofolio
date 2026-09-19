@@ -16,9 +16,9 @@
 .terrain-heading { display: grid; max-width: 780px; gap: 17px; margin-bottom: 30px; }
 
 .terrain-figure { min-width: 0; }
-.terrain-media { width: 100%; aspect-ratio: var(--terrain-ratio); overflow: hidden; background: #15191b; }
-.terrain-media .project-image-trigger { display: block; width: 100%; height: 100%; margin: 0; padding: 0; border: 0; border-radius: 0; background: transparent; }
-.terrain-media img { display: block; width: 100%; height: 100%; max-height: none; object-fit: cover; filter: none; transform: none; }
+.terrain-media { width: 100%; height: auto; aspect-ratio: auto !important; overflow: visible; background: transparent; }
+.terrain-media .project-image-trigger { display: block; width: 100%; height: auto; margin: 0; padding: 0; border: 0; border-radius: 0; background: transparent; }
+.terrain-media img { display: block; width: 100%; height: auto; max-height: none !important; aspect-ratio: auto; object-fit: contain; filter: none; transform: none; }
 .terrain-media .project-image-trigger:focus-visible { outline: 2px solid var(--terrain-accent); outline-offset: -4px; }
 .terrain-figure figcaption { display: grid; gap: 5px; padding-top: 14px; }
 .terrain-figure figcaption strong { color: #dde2e4; font-size: 14px; font-weight: 570; }
@@ -51,7 +51,7 @@
 
 .terrain-internal-hero .terrain-media,
 .terrain-angle-master .terrain-media,
-.terrain-extension-master .terrain-media { max-height: 780px; }
+.terrain-extension-master .terrain-media { max-height: none; }
 
 .terrain-internal-grid,
 .terrain-angle-grid,
