@@ -562,20 +562,31 @@ const terrainBackpackProject = {
 
 const projectShowcaseCollections = [
   {
-    id: "smart-living",
+    id: "consumer-commerce",
     index: "01",
-    title: "智能生活产品",
-    english: "SMART LIVING PRODUCTS",
-    facets: ["智能厨电", "智能硬件", "功能商业化"],
+    title: "新消费与电商",
+    english: "CONSUMER COMMERCE",
+    facets: ["食品饮料", "品牌定位", "上市内容"],
     coverImages: [
-      "/assets/projects/air-fryer/air-fryer-reference.webp",
-      "/assets/projects/table-fan/table-fan-showcase-campaign-v2.jpg",
+      "/assets/projects/qinglan-tea/qinglan-dual-cover-square.webp",
     ],
-    projects: [projectShowcaseItems[0], projectShowcaseItems[1]],
+    projects: [projectShowcaseItems[4], projectShowcaseItems[8]],
+  },
+  {
+    id: "product-motion",
+    index: "02",
+    title: "产品视觉与商业化",
+    english: "PRODUCT VISUALS & COMMERCE",
+    facets: ["产品一致性", "销售表达", "跨场景内容"],
+    coverImages: [
+      "/assets/projects/sona-earbuds/sona-campaign-silence.webp",
+      "/assets/projects/terrain-35/terrain-showcase-campaign-v2.jpg",
+    ],
+    projects: [projectShowcaseItems[7], terrainBackpackProject],
   },
   {
     id: "beauty-care",
-    index: "02",
+    index: "03",
     title: "美妆与个人护理",
     english: "BEAUTY & PERSONAL CARE",
     facets: ["功效洁面", "功效精华", "晨晚护理"],
@@ -586,31 +597,8 @@ const projectShowcaseCollections = [
     projects: [projectShowcaseItems[2], projectShowcaseItems[3]],
   },
   {
-    id: "consumer-commerce",
-    index: "03",
-    title: "新消费与电商",
-    english: "CONSUMER COMMERCE",
-    facets: ["食品饮料", "品牌定位", "上市内容"],
-    coverImages: [
-      "/assets/projects/qinglan-tea/qinglan-dual-cover-square.webp",
-    ],
-    projects: [projectShowcaseItems[4], projectShowcaseItems[8]],
-  },
-  {
-    id: "lifestyle-campaign",
-    index: "04",
-    title: "生活体验",
-    english: "LIFESTYLE EXPERIENCES",
-    facets: ["运动相机", "户外音箱", "体验商业化"],
-    coverImages: [
-      "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg",
-      "/assets/projects/outdoor-speaker/speaker-product-cover.png",
-    ],
-    projects: [actionCameraProject, projectShowcaseItems[5]],
-  },
-  {
     id: "fashion-commerce",
-    index: "05",
+    index: "04",
     title: "时尚服饰",
     english: "FASHION COMMERCE",
     facets: ["时装企划", "功能服饰", "场景商业化"],
@@ -621,16 +609,28 @@ const projectShowcaseCollections = [
     projects: [fishtailSkirtProject, yogaSetProject],
   },
   {
-    id: "product-motion",
-    index: "06",
-    title: "产品视觉与商业化",
-    english: "PRODUCT VISUALS & COMMERCE",
-    facets: ["产品一致性", "销售表达", "跨场景内容"],
+    id: "lifestyle-campaign",
+    index: "05",
+    title: "生活体验",
+    english: "LIFESTYLE EXPERIENCES",
+    facets: ["运动相机", "户外音箱", "体验商业化"],
     coverImages: [
-      "/assets/projects/sona-earbuds/sona-campaign-silence.webp",
-      "/assets/projects/terrain-35/terrain-showcase-campaign-v2.jpg",
+      "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg",
+      "/assets/projects/outdoor-speaker/speaker-product-cover.png",
     ],
-    projects: [projectShowcaseItems[7], terrainBackpackProject],
+    projects: [actionCameraProject, projectShowcaseItems[5]],
+  },
+  {
+    id: "smart-living",
+    index: "06",
+    title: "智能生活产品",
+    english: "SMART LIVING PRODUCTS",
+    facets: ["智能厨电", "智能硬件", "功能商业化"],
+    coverImages: [
+      "/assets/projects/air-fryer/air-fryer-reference.webp",
+      "/assets/projects/table-fan/table-fan-showcase-campaign-v2.jpg",
+    ],
+    projects: [projectShowcaseItems[0], projectShowcaseItems[1]],
   },
 ] as const;
 
@@ -812,12 +812,10 @@ const qinglanOolongCaseStudy = {
 } as const;
 
 const aiLabItems = [
-  { title: "商品一致性", english: "Product Consistency", description: "固定结构、材质、比例与关键识别点，让商品在不同画面中保持同一身份。" },
-  { title: "人物一致性", english: "Human Consistency", description: "控制人物特征、姿态和镜头关系，使生活方式套图具备连续叙事。" },
-  { title: "光影迁移", english: "Lighting Transfer", description: "在日间、黄昏和夜间场景中保持产品材质可信，并让光线服务卖点。" },
-  { title: "透视控制", english: "Perspective Control", description: "以标准视图校准商品朝向与空间尺度，减少生成过程中的结构漂移。" },
-  { title: "图生视频", english: "Image to Video", description: "通过关键帧、动作边界和分段生成，让静态 Campaign 延展为连续动态内容。" },
-  { title: "生成式插画", english: "Generative Illustration", description: "将风格探索转化为可重复的内容规则，服务出版与品牌传播。" },
+  { title: "先建立产品母版", english: "MASTER PRODUCT", description: "把轮廓、材质、结构、标签和比例做成可复用的视觉基准，后续画面不再从零碰运气。" },
+  { title: "再定义可变范围", english: "CONTROLLED VARIABLES", description: "机位、动作、人物、环境和光线可以扩展，但每次只改变明确变量，避免产品身份一起漂移。" },
+  { title: "连续状态逐帧复核", english: "FRAME CONTINUITY", description: "闭合、开盖、升起、佩戴等状态共享同一空间逻辑，让静态关键帧能够进入连续动态内容。" },
+  { title: "按渠道重新编排", english: "CHANNEL DELIVERY", description: "方形、竖版、横幅和视频不是简单裁切，而是重新安排产品、人物与信息重心。" },
 ] as const;
 
 /**
@@ -1002,14 +1000,14 @@ const workCategories: WorkCategory[] = [
 ];
 
 const heroImages = [
-  "/assets/hero-landscape-v2.webp",
-  "/assets/projects/table-fan/table-fan-hero.webp",
-  "/assets/projects/table-fan/table-fan-lifestyle.webp",
-  "/assets/works/commerce-andersen-thumb.jpg",
-  "/assets/projects/table-fan/table-fan-night.webp",
-  "/assets/project-showcase-afterimage.webp",
-  "/assets/projects/sona-earbuds/sona-film-finale.webp",
-  "/assets/hero-poster.png",
+  "/assets/projects/qinglan-tea/qinglan-oolong-launch-hero.webp",
+  "/assets/projects/sona-earbuds/sona-campaign-silence.webp",
+  "/assets/projects/terrain-35/terrain-campaign-route.jpg",
+  "/assets/projects/glacier-cleanser/glacier-commerce-positioning.webp",
+  "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v3.jpg",
+  "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg",
+  "/assets/projects/air-fryer/air-fryer-work-card-v2.png",
+  "/assets/projects/yoga-set/yoga-showcase-campaign-v2.jpg",
 ];
 
 const streamBlueprints = [
@@ -3204,21 +3202,21 @@ function SelectedWorks({
 const commercialValuePoints = [
   {
     index: "01",
-    title: "先降低试错成本",
-    english: "FASTER VALIDATION",
-    description: "在同一周期内建立真正不同的创意路线，让团队更早比较购买理由，而不是反复修改同一张图。",
+    title: "把卖点拆成能拍出来的画面",
+    english: "COMMERCIAL TRANSLATION",
+    description: "从人群、购买疑问和渠道任务出发，为每张图规定职责，不用氛围图冒充商业策略。",
   },
   {
     index: "02",
-    title: "再守住产品与品牌",
-    english: "CONTROLLED CONSISTENCY",
-    description: "把结构、材质、人物、标签和品牌信息设为固定边界，让规模化生成仍然保持同一商业身份。",
+    title: "让同一产品稳定出现在整套内容里",
+    english: "SYSTEM CONTROL",
+    description: "用产品母版、结构锚点和逐张复核守住型号身份，再扩展机位、人物、场景与光线。",
   },
   {
     index: "03",
-    title: "最后扩展到销售触点",
-    english: "SCALABLE DELIVERY",
-    description: "让一个通过验证的视觉方向继续进入主图、PDP、Campaign、社交内容和动态传播。",
+    title: "一次完成静态、动态与渠道版本",
+    english: "MULTI-FORMAT DELIVERY",
+    description: "把通过验证的方向继续编排为主图、PDP、Campaign、社交比例和产品短片。",
   },
 ] as const;
 
@@ -3249,8 +3247,8 @@ function CommercialValue() {
       />
       <div className="commercial-value-shell shell">
         <div className="commercial-value-topline" aria-hidden="true">
-          <span>04 / BUSINESS VALUE</span>
-          <span>DESIGN DIRECTION TO MARKET ASSET</span>
+          <span>BUSINESS VALUE</span>
+          <span>PRODUCT MASTER TO CAMPAIGN DELIVERY</span>
         </div>
 
         <div className="commercial-value-stage">
@@ -3262,17 +3260,17 @@ function CommercialValue() {
             }}
           >
             <header className="commercial-value-heading">
-              <span>WHAT THE BUSINESS GETS</span>
+              <span>WHAT I CAN DELIVER</span>
               <h2 id="commercial-value-title">
-                公司得到的不是更多图片，<em>而是更确定的视觉生产能力。</em>
+                从一张产品图，<em>搭建一套能上线的商业视觉系统。</em>
               </h2>
-              <p>我把商业目标翻译成可执行的视觉规则，用 AI 扩大验证范围，再由人工判断什么值得真正进入市场。</p>
+              <p>我能独立完成产品校准、卖点拆解、系列生成、人工质检与多触点编排，让创意不只好看，也能持续交付。</p>
             </header>
 
             <div className="commercial-value-facts" aria-label="作品覆盖信息">
               <div><strong>12</strong><span>完整商业项目</span></div>
-              <div><strong>03</strong><span>核心能力路径</span></div>
-              <div><strong>01</strong><span>统一视觉判断</span></div>
+              <div><strong>03</strong><span>产品 / 品牌 / 传播系统</span></div>
+              <div><strong>静态+动态</strong><span>多比例渠道内容</span></div>
             </div>
           </motion.div>
 
@@ -3303,8 +3301,8 @@ function CommercialValue() {
               <span>CAMPAIGN / STORY</span>
             </motion.div>
             <figcaption>
-              <span>从产品准确性出发</span>
-              <strong>让视觉最终服务于选择与转化</strong>
+              <span>同一套方法，不同商业任务</span>
+              <strong>产品准确、卖点清楚、渠道可用</strong>
             </figcaption>
           </motion.figure>
         </div>
@@ -3330,11 +3328,11 @@ function CommercialValue() {
         </motion.div>
 
         <footer>
-          <span>商业目标</span><i aria-hidden="true" />
-          <span>视觉规则</span><i aria-hidden="true" />
-          <span>AI 扩展</span><i aria-hidden="true" />
-          <span>人工审核</span><i aria-hidden="true" />
-          <strong>可用资产</strong>
+          <span>产品校准</span><i aria-hidden="true" />
+          <span>卖点拆解</span><i aria-hidden="true" />
+          <span>系列生成</span><i aria-hidden="true" />
+          <span>逐张质检</span><i aria-hidden="true" />
+          <strong>多触点交付</strong>
         </footer>
       </div>
     </section>
@@ -4517,38 +4515,86 @@ function ProjectShowcase({
 function AILab() {
   const reduceMotion = useReducedMotion();
 
+  const proofGroups = [
+    {
+      id: "hardware-sequence",
+      index: "A",
+      title: "同一硬件，连续状态不换型号",
+      english: "HARDWARE CONTINUITY",
+      description: "SONA ARC ONE 从闭合、开盖到声场展开，仓体比例、转轴、状态灯与耳机结构保持连续。",
+      images: [
+        { src: "/assets/projects/sona-earbuds/sona-film-closed.webp", alt: "SONA ARC ONE 充电仓闭合状态" },
+        { src: "/assets/projects/sona-earbuds/sona-film-awake.webp", alt: "SONA ARC ONE 充电仓开盖状态" },
+        { src: "/assets/projects/sona-earbuds/sona-film-finale.webp", alt: "SONA ARC ONE 耳机展开状态" },
+      ],
+    },
+    {
+      id: "sku-family",
+      index: "B",
+      title: "同一品牌，双 SKU 有区分也有家族感",
+      english: "SKU FAMILY SYSTEM",
+      description: "青岚茉莉绿茶与焙香乌龙共享瓶型、标签网格和品牌层级，用瓶盖、茶汤与风味场景建立差异。",
+      images: [
+        { src: "/assets/projects/qinglan-tea/qinglan-oolong-family-master.webp", alt: "青岚茶事双味无糖茶产品家族" },
+        { src: "/assets/projects/qinglan-tea/qinglan-oolong-retail-choice.webp", alt: "青岚茶事双味无糖茶零售选择场景" },
+      ],
+    },
+    {
+      id: "scene-control",
+      index: "C",
+      title: "同一产品，换机位与环境仍可识别",
+      english: "SCENE CONSISTENCY",
+      description: "TERRAIN 35 从棚拍、背负到雨天户外，卷口、前仓、织带与背负结构始终属于同一只背包。",
+      images: [
+        { src: "/assets/projects/terrain-35/terrain-product-studio.jpg", alt: "TERRAIN 35 棚拍产品正面" },
+        { src: "/assets/projects/terrain-35/terrain-carry-fit.jpg", alt: "TERRAIN 35 山径背负场景" },
+        { src: "/assets/projects/terrain-35/terrain-rain.jpg", alt: "TERRAIN 35 雨天户外场景" },
+      ],
+    },
+  ] as const;
+
   return (
     <section className="ai-lab" id="ai-lab" aria-labelledby="ai-lab-title">
       <div className="ai-lab-shell shell">
         <header className="ai-lab-heading">
           <p>CONTROLLED AI WORKFLOW</p>
           <h2 id="ai-lab-title">
-            <span>AI 扩大可能</span>
-            <span>判断守住结果</span>
+            <span>不是生成更多</span>
+            <span>而是稳定复现</span>
           </h2>
           <p className="ai-lab-intro">
-            先锁定不能改变的产品与品牌信息，再扩大机位、场景、人物和光线变量，最后只让通过人工审核的内容进入商业触点。
+            我先定义不能改变的产品身份，再控制状态、SKU、机位、人物和环境。下面三组正式案例，直接展示稳定控制发生在哪里。
           </p>
         </header>
 
-        <motion.figure
-          className="ai-lab-visual"
+        <motion.div
+          className="ai-lab-proof"
           initial={reduceMotion ? false : { opacity: 0, y: 54, scale: 0.97 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, amount: 0.24 }}
           transition={{ duration: reduceMotion ? 0 : 0.72, ease: [0.16, 1, 0.3, 1] }}
         >
-          <img
-            src="/assets/projects/table-fan/table-fan-dayparts.webp"
-            alt="同一空气循环扇在四种光线环境中的一致性实验"
-            loading="lazy"
-            decoding="async"
-          />
-          <figcaption>
-            <strong>同一产品，四种时段，身份始终一致</strong>
-            <span>固定产品结构 / 扩展光线变量 / 审核商业可用性</span>
-          </figcaption>
-        </motion.figure>
+          {proofGroups.map((group, groupIndex) => (
+            <article className={`ai-proof-card ai-proof-card-${groupIndex + 1}`} key={group.id}>
+              <div className="ai-proof-media">
+                {group.images.map((image, imageIndex) => (
+                  <figure key={image.src}>
+                    <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />
+                    <span aria-hidden="true">{String(imageIndex + 1).padStart(2, "0")}</span>
+                  </figure>
+                ))}
+              </div>
+              <div className="ai-proof-copy">
+                <span>{group.index}</span>
+                <div>
+                  <small>{group.english}</small>
+                  <h3>{group.title}</h3>
+                  <p>{group.description}</p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </motion.div>
 
         <div className="ai-lab-workflow" aria-label="AI 商业视觉工作流">
           {['商业命题', '识别锚点', '变量扩展', '人工审核', '触点交付'].map((step) => (
