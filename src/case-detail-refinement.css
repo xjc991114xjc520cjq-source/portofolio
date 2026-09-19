@@ -323,6 +323,12 @@
   object-fit: contain;
 }
 
+/* TERRAIN uses source-ratio media frames. Keep those frames edge-to-edge even
+   though the shared detail rule above protects uncropped editorial artwork. */
+.project-detail-copy .terrain-media .project-image-trigger > img {
+  object-fit: cover;
+}
+
 /* Editorial case artwork follows the source ratio instead of stretching into
    an empty frame. This keeps landscape campaign images readable in the body. */
 .editorial-row {

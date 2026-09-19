@@ -3260,52 +3260,88 @@ function SelectedWorksLegacy({
 // Kept as a local rollback reference while the new catalogue replaces the former carousel.
 void SelectedWorksLegacy;
 
-function getPlainWorkCategory(work: GalleryWork) {
-  return workCategories.slice(1).find((category) => (
-    category.works.some((categoryWork) => categoryWork.id === work.id)
-  ))?.label ?? "商业项目";
-}
+type VisualOutputCategoryId = "product" | "detail" | "campaign" | "people" | "scene" | "motion";
 
-function WorkOverviewCard({
-  work,
+type VisualOutput = ProjectImageSource & {
+  id: string;
+  title: string;
+  project: string;
+  category: VisualOutputCategoryId;
+  shape: "wide" | "tall" | "standard";
+  focalPoint?: string;
+};
+
+const visualOutputCategories = [
+  { id: "all", label: "全部成果" },
+  { id: "product", label: "产品主图" },
+  { id: "detail", label: "功能详情" },
+  { id: "campaign", label: "品牌海报" },
+  { id: "people", label: "人物时尚" },
+  { id: "scene", label: "户外场景" },
+  { id: "motion", label: "动态画面" },
+] as const;
+
+const visualOutputs: VisualOutput[] = [
+  { id: "air-product", title: "厨房产品主图", project: "空气炸锅", category: "product", shape: "wide", src: "/assets/projects/air-fryer/air-fryer-hero.webp", alt: "厨房场景中的空气炸锅产品主图" },
+  { id: "sona-product", title: "产品结构主图", project: "SONA ARC ONE", category: "product", shape: "tall", src: "/assets/projects/sona-earbuds/sona-product-master.webp", alt: "SONA ARC ONE 耳机与充电仓产品主图" },
+  { id: "kova-product", title: "正面产品定妆", project: "KOVA", category: "product", shape: "tall", src: "/assets/projects/kova-action-camera/kova-product-front.jpg", alt: "KOVA 运动相机正面产品定妆图" },
+  { id: "air-detail", title: "操作卖点说明", project: "空气炸锅", category: "detail", shape: "tall", src: "/assets/projects/air-fryer/air-fryer-control.webp", alt: "空气炸锅操作界面与功能说明" },
+  { id: "glacier-detail", title: "泵头功能详情", project: "GLACIER", category: "detail", shape: "standard", src: "/assets/projects/glacier-cleanser/glacier-commerce-pump.webp", alt: "GLACIER 洁面产品泵头功能详情" },
+  { id: "terrain-detail", title: "内部收纳系统", project: "TERRAIN 35", category: "detail", shape: "wide", src: "/assets/projects/terrain-35/terrain-internal-system.jpg", alt: "TERRAIN 35 背包内部收纳系统" },
+  { id: "qinglan-campaign", title: "新品上市海报", project: "青岚茶事", category: "campaign", shape: "tall", src: "/assets/projects/qinglan-tea/qinglan-oolong-launch-hero.webp", alt: "青岚茶事焙香乌龙新品上市海报" },
+  { id: "sona-campaign", title: "降噪主题海报", project: "SONA ARC ONE", category: "campaign", shape: "wide", src: "/assets/projects/sona-earbuds/sona-campaign-silence.webp", alt: "SONA ARC ONE 降噪主题传播海报" },
+  { id: "terrain-campaign", title: "山野传播海报", project: "TERRAIN 35", category: "campaign", shape: "tall", src: "/assets/projects/terrain-35/terrain-campaign-journey.jpg", alt: "TERRAIN 35 山野传播主视觉" },
+  { id: "skirt-people", title: "雨夜时尚画面", project: "鱼尾皮裙", category: "people", shape: "tall", src: "/assets/projects/fishtail-skirt/skirt-rain-hero.png", alt: "雨夜场景中的鱼尾皮裙时尚画面" },
+  { id: "yoga-people", title: "运动服饰主张", project: "瑜伽套装", category: "people", shape: "wide", src: "/assets/projects/yoga-set/yoga-commerce-campaign-wide.webp", alt: "瑜伽套装人物运动传播画面" },
+  { id: "skirt-detail", title: "版型与材质表现", project: "鱼尾皮裙", category: "people", shape: "tall", src: "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v3.jpg", alt: "鱼尾皮裙版型与材质人物画面" },
+  { id: "speaker-scene", title: "户外使用场景", project: "户外音箱", category: "scene", shape: "wide", src: "/assets/projects/outdoor-speaker/speaker-rock-hero.webp", alt: "山野岩石环境中的户外音箱" },
+  { id: "terrain-scene", title: "雨雾山径场景", project: "TERRAIN 35", category: "scene", shape: "tall", src: "/assets/projects/terrain-35/terrain-rain.jpg", alt: "雨雾山径中的 TERRAIN 35 背负场景" },
+  { id: "kova-scene", title: "冲浪运动场景", project: "KOVA", category: "scene", shape: "tall", src: "/assets/projects/kova-action-camera/kova-scene-surf.jpg", alt: "KOVA 运动相机冲浪使用场景" },
+  { id: "sona-motion", title: "产品片结尾帧", project: "SONA ARC ONE", category: "motion", shape: "standard", src: "/assets/projects/sona-earbuds/sona-film-finale.webp", alt: "SONA ARC ONE 产品影片结尾画面" },
+  { id: "qinglan-motion", title: "茶香影片开场", project: "青岚茶事", category: "motion", shape: "wide", src: "/assets/projects/qinglan-tea/qinglan-oolong-film-opening-poster.webp", alt: "青岚茶事产品影片开场画面" },
+  { id: "kova-motion", title: "运动影片关键帧", project: "KOVA", category: "motion", shape: "standard", src: "/assets/projects/kova-action-camera/kova-motion-kayak-poster.jpg", alt: "KOVA 运动相机皮划艇影片关键帧" },
+];
+
+function VisualOutputCard({
+  output,
   index,
   reduceMotion,
   onOpen,
 }: {
-  work: GalleryWork;
+  output: VisualOutput;
   index: number;
   reduceMotion: boolean;
-  onOpen: (work: GalleryWork) => void;
+  onOpen: (output: VisualOutput) => void;
 }) {
   return (
     <motion.button
       type="button"
-      className="work-overview-card"
+      className={`visual-output-card is-${output.shape}`}
       layout={!reduceMotion}
       initial={reduceMotion ? false : { opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 16 }}
       transition={{ duration: reduceMotion ? 0.01 : 0.48, delay: reduceMotion ? 0 : Math.min(index * 0.035, 0.24), ease: [0.16, 1, 0.3, 1] }}
-      onClick={() => onOpen(work)}
-      aria-label={`查看${work.title}完整案例`}
+      onClick={() => onOpen(output)}
+      aria-label={`放大查看${output.project}${output.title}`}
     >
       <img
-        src={work.thumbnail ?? work.image}
+        src={output.src}
         alt=""
         loading="eager"
         decoding="async"
-        style={{ objectPosition: work.focalPoint ?? "50% 50%" }}
+        style={{ objectPosition: output.focalPoint ?? "50% 50%" }}
       />
-      <span className="work-overview-card-shade" aria-hidden="true" />
-      <span className="work-overview-card-number" aria-hidden="true">
+      <span className="visual-output-card-shade" aria-hidden="true" />
+      <span className="visual-output-card-number" aria-hidden="true">
         {String(index + 1).padStart(2, "0")}
       </span>
-      <span className="work-overview-card-meta">
-        <small>{getPlainWorkCategory(work)}</small>
-        <strong>{work.title}</strong>
+      <span className="visual-output-card-meta">
+        <small>{output.project}</small>
+        <strong>{output.title}</strong>
         <span>
-          查看完整案例
-          <ArrowRight size={15} strokeWidth={1.6} aria-hidden="true" />
+          放大查看
+          <Plus size={14} strokeWidth={1.6} aria-hidden="true" />
         </span>
       </span>
     </motion.button>
@@ -3322,26 +3358,17 @@ function SelectedWorks({
   exitProgress: MotionValue<number>;
 }) {
   const reduceMotion = useReducedMotion() ?? false;
-  const [categoryIndex, setCategoryIndex] = useState(0);
-  const [expandedWork, setExpandedWork] = useState<GalleryWork | null>(null);
-  const lightboxReturnFocus = useRef<HTMLElement | null>(null);
-  const category = workCategories[categoryIndex];
+  const [categoryId, setCategoryId] = useState<(typeof visualOutputCategories)[number]["id"]>("all");
+  const { activeImage, openImage, closeImage } = useProjectImageLightbox();
+  const filteredOutputs = categoryId === "all"
+    ? visualOutputs
+    : visualOutputs.filter((output) => output.category === categoryId);
+  const backdropImage = filteredOutputs[0]?.src ?? visualOutputs[0].src;
   const entryOpacity = useTransform(handoffProgress, [0, 0.1, 0.34], [0, 0.72, 1]);
   const entryY = useTransform(handoffProgress, [0, 0.5, 1], [reduceMotion ? 0 : 72, reduceMotion ? 0 : 12, 0]);
   const entryScale = useTransform(handoffProgress, [0, 0.6, 1], [reduceMotion ? 1 : 0.98, 0.995, 1]);
   const exitOpacity = useTransform(exitProgress, [0, 0.82, 1], [1, 1, 0]);
   const opacity = useTransform(() => entryOpacity.get() * exitOpacity.get());
-
-  useDocumentScrollLock(Boolean(expandedWork));
-
-  const openWork = (work: GalleryWork) => {
-    lightboxReturnFocus.current = document.activeElement instanceof HTMLElement
-      ? document.activeElement
-      : null;
-    setExpandedWork(work);
-  };
-
-  const closeWork = () => setExpandedWork(null);
 
   return (
     <section
@@ -3358,8 +3385,8 @@ function SelectedWorks({
         <div className="works-backdrop" aria-hidden="true">
           <AnimatePresence initial={false} mode="popLayout">
             <motion.img
-              key={category.id}
-              src={category.background}
+              key={categoryId}
+              src={backdropImage}
               alt=""
               initial={{ opacity: 0, scale: reduceMotion ? 1 : 1.03 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -3373,43 +3400,46 @@ function SelectedWorks({
         <div className="works-overview-shell shell">
           <header className="works-overview-header">
             <div>
-              <span className="works-overview-kicker">精选商业案例 / SELECTED WORKS</span>
-              <h2 id="works-overview-title">12 个完整项目，一次看全。</h2>
-              <p>按类型筛选，点击作品查看完整案例。</p>
+              <span className="works-overview-kicker">视觉成果 / VISUAL OUTPUTS</span>
+              <h2 id="works-overview-title">项目看完整，成果看细节。</h2>
+              <p>这里不重复讲案例，只按最终交付类型快速浏览。点击画面可放大查看。</p>
             </div>
-            <div className="works-overview-total" aria-label="共12个完整项目">
-              <strong>12</strong>
-              <span>完整项目</span>
+            <div className="works-overview-total" aria-label={`共${visualOutputs.length}项视觉成果`}>
+              <strong>{visualOutputs.length}</strong>
+              <span>视觉成果</span>
             </div>
           </header>
 
           <nav className="works-overview-filters" aria-label="作品分类">
-            {workCategories.map((item, index) => (
+            {visualOutputCategories.map((item) => {
+              const count = item.id === "all" ? visualOutputs.length : visualOutputs.filter((output) => output.category === item.id).length;
+              return (
               <button
                 key={item.id}
                 type="button"
-                className={index === categoryIndex ? "is-active" : undefined}
-                aria-pressed={index === categoryIndex}
-                onClick={() => setCategoryIndex(index)}
+                className={item.id === categoryId ? "is-active" : undefined}
+                aria-pressed={item.id === categoryId}
+                onClick={() => setCategoryId(item.id)}
               >
                 <span>{item.label}</span>
-                <small>{String(item.works.length).padStart(2, "0")}</small>
+                <small>{String(count).padStart(2, "0")}</small>
               </button>
-            ))}
+              );
+            })}
           </nav>
 
           <motion.div
-            className={`works-overview-grid${category.id === "all-works" ? " is-all" : " is-filtered"}`}
+            className={`works-overview-grid${categoryId === "all" ? " is-all" : " is-filtered"}`}
             layout={!reduceMotion}
           >
             <AnimatePresence initial={false}>
-              {category.works.map((work, index) => (
-                <WorkOverviewCard
-                  key={work.id}
-                  work={work}
+              {filteredOutputs.map((output, index) => (
+                <VisualOutputCard
+                  key={output.id}
+                  output={output}
                   index={index}
                   reduceMotion={reduceMotion}
-                  onOpen={openWork}
+                  onOpen={openImage}
                 />
               ))}
             </AnimatePresence>
@@ -3417,22 +3447,11 @@ function SelectedWorks({
         </div>
       </motion.div>
 
-      {createPortal(
-        <AnimatePresence onExitComplete={() => {
-          lightboxReturnFocus.current?.focus({ preventScroll: true });
-          lightboxReturnFocus.current = null;
-        }}>
-          {expandedWork?.caseRef ? (
-            <SelectedCaseViewer
-              key={`selected-case-${expandedWork.id}`}
-              work={expandedWork}
-              reduceMotion={reduceMotion}
-              onClose={closeWork}
-            />
-          ) : null}
-        </AnimatePresence>,
-        document.body,
-      )}
+      <AnimatePresence>
+        {activeImage ? (
+          <ProjectImageLightbox image={activeImage} reduceMotion={reduceMotion} onClose={closeImage} />
+        ) : null}
+      </AnimatePresence>
     </section>
   );
 }
