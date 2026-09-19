@@ -12473,7 +12473,7 @@ video {
 
 /* GLACIER layout correction: every selected image keeps its intended ratio. */
 .project-showcase-item.is-glacier-cover .project-showcase-art-primary {
-  object-position: 34% center;
+  object-position: 53% center;
 }
 
 .project-detail-visual.is-glacier-detail-visual img {
