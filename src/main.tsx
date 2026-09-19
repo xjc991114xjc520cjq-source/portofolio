@@ -3260,7 +3260,7 @@ function SelectedWorksLegacy({
 // Kept as a local rollback reference while the new catalogue replaces the former carousel.
 void SelectedWorksLegacy;
 
-type VisualOutputCategoryId = "product" | "detail" | "campaign" | "people" | "scene" | "motion";
+type VisualOutputCategoryId = "identity" | "commerce" | "campaign" | "scene" | "motion";
 
 type VisualOutput = ProjectImageSource & {
   id: string;
@@ -3272,28 +3272,27 @@ type VisualOutput = ProjectImageSource & {
 };
 
 const visualOutputCategories = [
-  { id: "all", label: "全部成果" },
-  { id: "product", label: "产品主图" },
-  { id: "detail", label: "功能详情" },
-  { id: "campaign", label: "品牌海报" },
-  { id: "people", label: "人物时尚" },
-  { id: "scene", label: "户外场景" },
-  { id: "motion", label: "动态画面" },
+  { id: "all", label: "全部作品", english: "ALL WORKS", outputCount: 18, description: "18 件精选作品，来自 12 个完整项目；更多画面仍在各个案例详情中。" },
+  { id: "identity", label: "产品呈现", english: "PRODUCT VISUALS", outputCount: 3, description: "用主图、定妆和结构画面把产品本身讲清楚，让第一眼就建立准确认知。" },
+  { id: "commerce", label: "功能说明", english: "FEATURE EXPLAINERS", outputCount: 3, description: "把功能、材质和使用方法变成一眼能读懂的商品内容，直接回答购买疑问。" },
+  { id: "campaign", label: "品牌传播", english: "BRAND CAMPAIGNS", outputCount: 3, description: "把产品卖点组织成海报和主视觉，适配上市、活动与渠道传播。" },
+  { id: "scene", label: "人物场景", english: "PEOPLE & SCENES", outputCount: 6, description: "用人物、动作和环境让产品进入真实生活，建立使用想象与情绪记忆。" },
+  { id: "motion", label: "动态内容", english: "MOTION FRAMES", outputCount: 3, description: "从影片开场、关键帧到结尾画面，延展出可以继续剪辑和传播的动态素材。" },
 ] as const;
 
 const visualOutputs: VisualOutput[] = [
-  { id: "air-product", title: "厨房产品主图", project: "空气炸锅", category: "product", shape: "wide", src: "/assets/projects/air-fryer/air-fryer-hero.webp", alt: "厨房场景中的空气炸锅产品主图" },
-  { id: "sona-product", title: "产品结构主图", project: "SONA ARC ONE", category: "product", shape: "tall", src: "/assets/projects/sona-earbuds/sona-product-master.webp", alt: "SONA ARC ONE 耳机与充电仓产品主图" },
-  { id: "kova-product", title: "正面产品定妆", project: "KOVA", category: "product", shape: "tall", src: "/assets/projects/kova-action-camera/kova-product-front.jpg", alt: "KOVA 运动相机正面产品定妆图" },
-  { id: "air-detail", title: "操作卖点说明", project: "空气炸锅", category: "detail", shape: "tall", src: "/assets/projects/air-fryer/air-fryer-control.webp", alt: "空气炸锅操作界面与功能说明" },
-  { id: "glacier-detail", title: "泵头功能详情", project: "GLACIER", category: "detail", shape: "standard", src: "/assets/projects/glacier-cleanser/glacier-commerce-pump.webp", alt: "GLACIER 洁面产品泵头功能详情" },
-  { id: "terrain-detail", title: "内部收纳系统", project: "TERRAIN 35", category: "detail", shape: "wide", src: "/assets/projects/terrain-35/terrain-internal-system.jpg", alt: "TERRAIN 35 背包内部收纳系统" },
+  { id: "air-product", title: "厨房产品主图", project: "空气炸锅", category: "identity", shape: "wide", src: "/assets/projects/air-fryer/air-fryer-hero.webp", alt: "厨房场景中的空气炸锅产品主图" },
+  { id: "sona-product", title: "产品结构主图", project: "SONA ARC ONE", category: "identity", shape: "tall", src: "/assets/projects/sona-earbuds/sona-product-master.webp", alt: "SONA ARC ONE 耳机与充电仓产品主图" },
+  { id: "kova-product", title: "正面产品定妆", project: "KOVA", category: "identity", shape: "tall", src: "/assets/projects/kova-action-camera/kova-product-front.jpg", alt: "KOVA 运动相机正面产品定妆图" },
+  { id: "air-detail", title: "操作卖点说明", project: "空气炸锅", category: "commerce", shape: "tall", src: "/assets/projects/air-fryer/air-fryer-control.webp", alt: "空气炸锅操作界面与功能说明" },
+  { id: "glacier-detail", title: "泵头功能详情", project: "GLACIER", category: "commerce", shape: "standard", src: "/assets/projects/glacier-cleanser/glacier-commerce-pump.webp", alt: "GLACIER 洁面产品泵头功能详情" },
+  { id: "terrain-detail", title: "内部收纳系统", project: "TERRAIN 35", category: "commerce", shape: "wide", src: "/assets/projects/terrain-35/terrain-internal-system.jpg", alt: "TERRAIN 35 背包内部收纳系统" },
   { id: "qinglan-campaign", title: "新品上市海报", project: "青岚茶事", category: "campaign", shape: "tall", src: "/assets/projects/qinglan-tea/qinglan-oolong-launch-hero.webp", alt: "青岚茶事焙香乌龙新品上市海报" },
   { id: "sona-campaign", title: "降噪主题海报", project: "SONA ARC ONE", category: "campaign", shape: "wide", src: "/assets/projects/sona-earbuds/sona-campaign-silence.webp", alt: "SONA ARC ONE 降噪主题传播海报" },
   { id: "terrain-campaign", title: "山野传播海报", project: "TERRAIN 35", category: "campaign", shape: "tall", src: "/assets/projects/terrain-35/terrain-campaign-journey.jpg", alt: "TERRAIN 35 山野传播主视觉" },
-  { id: "skirt-people", title: "雨夜时尚画面", project: "鱼尾皮裙", category: "people", shape: "tall", src: "/assets/projects/fishtail-skirt/skirt-rain-hero.png", alt: "雨夜场景中的鱼尾皮裙时尚画面" },
-  { id: "yoga-people", title: "运动服饰主张", project: "瑜伽套装", category: "people", shape: "wide", src: "/assets/projects/yoga-set/yoga-commerce-campaign-wide.webp", alt: "瑜伽套装人物运动传播画面" },
-  { id: "skirt-detail", title: "版型与材质表现", project: "鱼尾皮裙", category: "people", shape: "tall", src: "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v3.jpg", alt: "鱼尾皮裙版型与材质人物画面" },
+  { id: "skirt-people", title: "雨夜时尚画面", project: "鱼尾皮裙", category: "scene", shape: "tall", src: "/assets/projects/fishtail-skirt/skirt-rain-hero.png", alt: "雨夜场景中的鱼尾皮裙时尚画面" },
+  { id: "yoga-people", title: "运动服饰主张", project: "瑜伽套装", category: "scene", shape: "wide", src: "/assets/projects/yoga-set/yoga-commerce-campaign-wide.webp", alt: "瑜伽套装人物运动传播画面" },
+  { id: "skirt-detail", title: "版型与材质表现", project: "鱼尾皮裙", category: "scene", shape: "tall", src: "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v3.jpg", alt: "鱼尾皮裙版型与材质人物画面" },
   { id: "speaker-scene", title: "户外使用场景", project: "户外音箱", category: "scene", shape: "wide", src: "/assets/projects/outdoor-speaker/speaker-rock-hero.webp", alt: "山野岩石环境中的户外音箱" },
   { id: "terrain-scene", title: "雨雾山径场景", project: "TERRAIN 35", category: "scene", shape: "tall", src: "/assets/projects/terrain-35/terrain-rain.jpg", alt: "雨雾山径中的 TERRAIN 35 背负场景" },
   { id: "kova-scene", title: "冲浪运动场景", project: "KOVA", category: "scene", shape: "tall", src: "/assets/projects/kova-action-camera/kova-scene-surf.jpg", alt: "KOVA 运动相机冲浪使用场景" },
@@ -3363,6 +3362,7 @@ function SelectedWorks({
   const filteredOutputs = categoryId === "all"
     ? visualOutputs
     : visualOutputs.filter((output) => output.category === categoryId);
+  const activeCategory = visualOutputCategories.find((item) => item.id === categoryId) ?? visualOutputCategories[0];
   const backdropImage = filteredOutputs[0]?.src ?? visualOutputs[0].src;
   const entryOpacity = useTransform(handoffProgress, [0, 0.1, 0.34], [0, 0.72, 1]);
   const entryY = useTransform(handoffProgress, [0, 0.5, 1], [reduceMotion ? 0 : 72, reduceMotion ? 0 : 12, 0]);
@@ -3400,19 +3400,19 @@ function SelectedWorks({
         <div className="works-overview-shell shell">
           <header className="works-overview-header">
             <div>
-              <span className="works-overview-kicker">视觉成果 / VISUAL OUTPUTS</span>
-              <h2 id="works-overview-title">项目看完整，成果看细节。</h2>
-              <p>这里不重复讲案例，只按最终交付类型快速浏览。点击画面可放大查看。</p>
+              <span className="works-overview-kicker">交付能力 / OUTPUT INDEX</span>
+              <h2 id="works-overview-title">18 件精选作品，按视觉任务浏览。</h2>
+              <p>商业案例看项目全貌，这里看可独立使用的视觉成果。同一项目可以贡献多件作品；以下是精选，不是总量。</p>
             </div>
-            <div className="works-overview-total" aria-label={`共${visualOutputs.length}项视觉成果`}>
-              <strong>{visualOutputs.length}</strong>
-              <span>视觉成果</span>
+            <div className="works-overview-total" aria-label="18件精选作品，来自12个完整项目">
+              <strong>18</strong>
+              <span>精选作品</span>
+              <small>来自 12 个项目</small>
             </div>
           </header>
 
           <nav className="works-overview-filters" aria-label="作品分类">
             {visualOutputCategories.map((item) => {
-              const count = item.id === "all" ? visualOutputs.length : visualOutputs.filter((output) => output.category === item.id).length;
               return (
               <button
                 key={item.id}
@@ -3420,13 +3420,22 @@ function SelectedWorks({
                 className={item.id === categoryId ? "is-active" : undefined}
                 aria-pressed={item.id === categoryId}
                 onClick={() => setCategoryId(item.id)}
+                aria-label={`${item.label}，${item.outputCount}件精选作品`}
               >
                 <span>{item.label}</span>
-                <small>{String(count).padStart(2, "0")}</small>
+                <small>{String(item.outputCount).padStart(2, "0")} 件作品</small>
               </button>
               );
             })}
           </nav>
+
+          <div className="works-overview-category-note" aria-live="polite">
+            <div>
+              <small>{activeCategory.english}</small>
+              <strong>{activeCategory.description}</strong>
+            </div>
+            <span>{activeCategory.outputCount} 件精选作品</span>
+          </div>
 
           <motion.div
             className={`works-overview-grid${categoryId === "all" ? " is-all" : " is-filtered"}`}
