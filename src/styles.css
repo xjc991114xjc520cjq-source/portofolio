@@ -2451,6 +2451,11 @@ video {
   transition: transform 520ms var(--ease-out), filter 320ms ease;
 }
 
+.gallery-card-cover img {
+  padding: 0;
+  object-fit: cover;
+}
+
 .gallery-card-contain .gallery-card-surface {
   border-color: rgba(255, 255, 255, 0.2);
   background: #0b0e11;
@@ -2536,8 +2541,8 @@ video {
 }
 
 .gallery-card:focus-visible {
-  outline: 1px solid var(--accent-a);
-  outline-offset: 8px;
+  outline: 1px solid rgba(245, 245, 245, 0.42);
+  outline-offset: 6px;
 }
 
 .gallery-card-shine {

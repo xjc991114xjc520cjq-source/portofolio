@@ -749,6 +749,13 @@ const aiLabItems = [
   { title: "生成式插画", english: "Generative Illustration", description: "将风格探索转化为可重复的内容规则，服务出版与品牌传播。" },
 ] as const;
 
+/**
+ * Thumbnail selection rules for this fixed visual frame:
+ * 1. Fill the frame with a high-impact image; no empty or black residue.
+ * 2. Keep the product fully visible and at the visual center.
+ * 3. Keep the headline complete; reject frames that cut meaningful copy.
+ * 4. If the source cannot satisfy all three, replace it or adapt it through Image2.
+ */
 type WorkThumbnailMode = "cover" | "contain" | "long" | "wide";
 
 type WorkMediaLayout = "portrait" | "square" | "wide" | "long";
@@ -836,7 +843,7 @@ function selectedCaseWork(
   collectionId: string,
   projectIndex: number,
   title: string,
-  options: Pick<WorkItem, "thumbnailMode" | "focalPoint"> = { thumbnailMode: "contain" },
+  options: Pick<WorkItem, "thumbnail" | "thumbnailMode" | "focalPoint"> = { thumbnailMode: "contain" },
 ): WorkItem {
   const collection = projectShowcaseCollections.find((entry) => entry.id === collectionId);
   const project = collection?.projects[projectIndex];
@@ -875,7 +882,11 @@ const workCategories: WorkCategory[] = [
     works: [
       selectedCaseWork("product-visual-systems", 0, "空气炸锅"),
       selectedCaseWork("product-visual-systems", 1, "空气循环扇"),
-      selectedCaseWork("product-visual-systems", 2, "SONA ARC ONE"),
+      selectedCaseWork("product-visual-systems", 2, "SONA ARC ONE", {
+        thumbnail: "/assets/projects/sona-earbuds/sona-product-master.webp",
+        thumbnailMode: "cover",
+        focalPoint: "50% 56%",
+      }),
       selectedCaseWork("product-visual-systems", 3, "KOVA"),
     ],
   },
@@ -2188,6 +2199,13 @@ const selectedCollectionMedia: Record<string, string[]> = {
   ],
 };
 
+const selectedCollectionPrimary: Record<string, string> = {
+  // The wide launch banner is excellent in the detail hero but leaves the
+  // fixed showcase frame empty. The square product master keeps the earbuds
+  // complete and centered in the collection preview.
+  "SONA ARC ONE EARBUDS LAUNCH SYSTEM": "/assets/projects/sona-earbuds/sona-product-master.webp",
+};
+
 function projectProductName(item: ProjectShowcaseItem) {
   const names: Record<string, string> = {
     "AIR FRYER COMMERCE SYSTEM": "空气炸锅",
@@ -2317,7 +2335,8 @@ function SelectedCollectionViewer({
               const hero = projectDetailHero(project);
               const supportingMedia = selectedCollectionMedia[project.english]
                 ?? [project.image, ...project.gallery.slice(0, 2).map((item) => item.src)];
-              const media = [hero.src, ...supportingMedia.filter((src) => src !== hero.src)];
+              const primary = selectedCollectionPrimary[project.english] ?? hero.src;
+              const media = [primary, ...supportingMedia.filter((src) => src !== primary && src !== hero.src)];
               return (
                 <motion.section
                   className="selected-collection-project"
