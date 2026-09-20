@@ -3281,7 +3281,7 @@ const visualOutputCategories = [
 ] as const;
 
 const visualOutputs: VisualOutput[] = [
-  { id: "air-product", title: "厨房产品主图", project: "空气炸锅", category: "identity", shape: "wide", src: "/assets/projects/air-fryer/air-fryer-hero.webp", alt: "厨房场景中的空气炸锅产品主图" },
+  { id: "air-product", title: "厨房产品定妆", project: "空气炸锅", category: "identity", shape: "wide", src: "/assets/projects/air-fryer/air-fryer-product.webp", alt: "空气炸锅标准产品定妆图" },
   { id: "sona-product", title: "产品结构主图", project: "SONA ARC ONE", category: "identity", shape: "tall", src: "/assets/projects/sona-earbuds/sona-product-master.webp", alt: "SONA ARC ONE 耳机与充电仓产品主图" },
   { id: "kova-product", title: "正面产品定妆", project: "KOVA", category: "identity", shape: "tall", src: "/assets/projects/kova-action-camera/kova-product-front.jpg", alt: "KOVA 运动相机正面产品定妆图" },
   { id: "air-detail", title: "操作卖点说明", project: "空气炸锅", category: "commerce", shape: "tall", src: "/assets/projects/air-fryer/air-fryer-control.webp", alt: "空气炸锅操作界面与功能说明" },
@@ -3300,11 +3300,12 @@ const visualOutputs: VisualOutput[] = [
   { id: "qinglan-motion", title: "茶香影片开场", project: "青岚茶事", category: "motion", shape: "wide", src: "/assets/projects/qinglan-tea/qinglan-oolong-film-opening-poster.webp", alt: "青岚茶事产品影片开场画面" },
   { id: "kova-motion", title: "运动影片关键帧", project: "KOVA", category: "motion", shape: "standard", src: "/assets/projects/kova-action-camera/kova-motion-kayak-poster.jpg", alt: "KOVA 运动相机皮划艇影片关键帧" },
   { id: "fan-product", title: "产品校准主图", project: "桌面风扇", category: "identity", shape: "wide", src: "/assets/projects/table-fan/table-fan-product-calibration-v2.jpg", alt: "桌面风扇产品校准主图" },
-  { id: "fan-views", title: "多角度产品呈现", project: "桌面风扇", category: "identity", shape: "standard", src: "/assets/projects/table-fan/table-fan-views.webp", alt: "桌面风扇多角度产品呈现" },
   { id: "serum-product", title: "精华液产品定妆", project: "精华液", category: "identity", shape: "tall", src: "/assets/projects/serum/serum-views.webp", alt: "精华液产品定妆与角度展示" },
   { id: "terrain-product", title: "背包产品主视图", project: "TERRAIN 35", category: "identity", shape: "tall", src: "/assets/projects/terrain-35/terrain-hero-master.jpg", alt: "TERRAIN 35 背包产品主视图" },
   { id: "yoga-product", title: "服饰正背面定妆", project: "瑜伽套装", category: "identity", shape: "standard", src: "/assets/projects/yoga-set/yoga-commerce-front-back.webp", alt: "瑜伽套装正背面产品定妆" },
-  { id: "sona-structure", title: "结构与材质呈现", project: "SONA ARC ONE", category: "identity", shape: "wide", src: "/assets/projects/sona-earbuds/sona-structure-board.webp", alt: "SONA ARC ONE 结构与材质呈现" },
+  { id: "glacier-product", title: "洁面产品定妆", project: "GLACIER", category: "identity", shape: "wide", src: "/assets/projects/glacier-cleanser/glacier-views.webp", alt: "GLACIER 洁面产品定妆图" },
+  { id: "qinglan-product", title: "茶饮家族定妆", project: "青岚茶事", category: "identity", shape: "wide", src: "/assets/projects/qinglan-tea/qinglan-oolong-family-master.webp", alt: "青岚茶事茶饮家族产品定妆图" },
+  { id: "speaker-product", title: "音箱产品定妆", project: "户外音箱", category: "identity", shape: "wide", src: "/assets/projects/outdoor-speaker/speaker-product-master.webp", alt: "户外音箱产品定妆图" },
   { id: "fan-specs", title: "规格信息说明", project: "桌面风扇", category: "commerce", shape: "wide", src: "/assets/projects/table-fan/table-fan-sleep-specs.webp", alt: "桌面风扇规格信息说明" },
   { id: "terrain-four-views", title: "四向产品确认", project: "TERRAIN 35", category: "commerce", shape: "wide", src: "/assets/projects/terrain-35/terrain-four-views.jpg", alt: "TERRAIN 35 四向产品确认" },
   { id: "terrain-compression", title: "压缩状态说明", project: "TERRAIN 35", category: "commerce", shape: "wide", src: "/assets/projects/terrain-35/terrain-compression-states.jpg", alt: "TERRAIN 35 压缩状态说明" },
@@ -3326,7 +3327,6 @@ const visualOutputs: VisualOutput[] = [
   { id: "qinglan-film-drinking", title: "饮用场景影片帧", project: "青岚茶事", category: "motion", shape: "wide", src: "/assets/projects/qinglan-tea/qinglan-oolong-film-drinking-poster.webp", alt: "青岚茶事饮用场景影片帧" },
   { id: "sona-film-awake", title: "产品片开场画面", project: "SONA ARC ONE", category: "motion", shape: "standard", src: "/assets/projects/sona-earbuds/sona-film-awake.webp", alt: "SONA ARC ONE 产品片开场画面" },
   { id: "terrain-closing", title: "背包产品片收束帧", project: "TERRAIN 35", category: "motion", shape: "wide", src: "/assets/projects/terrain-35/terrain-closing.jpg", alt: "TERRAIN 35 背包产品片收束帧" },
-  { id: "air-views", title: "产品多角度定妆", project: "空气炸锅", category: "identity", shape: "standard", src: "/assets/projects/air-fryer/air-fryer-views.webp", alt: "空气炸锅产品多角度定妆" },
   { id: "speaker-control", title: "户外功能说明", project: "户外音箱", category: "commerce", shape: "wide", src: "/assets/projects/outdoor-speaker/speaker-commerce-control.webp", alt: "户外音箱功能说明" },
   { id: "kova-campaign", title: "运动相机传播主视觉", project: "KOVA", category: "campaign", shape: "wide", src: "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg", alt: "KOVA 运动相机传播主视觉" },
   { id: "kova-motion-product", title: "产品影片关键帧", project: "KOVA", category: "motion", shape: "wide", src: "/assets/projects/kova-action-camera/kova-motion-product-poster.jpg", alt: "KOVA 产品影片关键帧" },
