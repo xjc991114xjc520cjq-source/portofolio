@@ -2605,10 +2605,6 @@ video {
   animation: nav-component-portrait 820ms var(--ease-drawer) 120ms both;
 }
 
-#profile.nav-component-enter .profile-facts {
-  animation: nav-component-slide-right 680ms var(--ease-drawer) 210ms both;
-}
-
 #profile.nav-component-enter .profile-bottomline {
   animation: nav-component-rise 520ms var(--ease-out) 330ms both;
 }
@@ -2673,7 +2669,6 @@ video {
 #profile.nav-component-enter .profile-topline,
 #profile.nav-component-enter .profile-copy,
 #profile.nav-component-enter .profile-portrait,
-#profile.nav-component-enter .profile-facts,
 #profile.nav-component-enter .profile-bottomline,
 #work.nav-component-enter .works-topline,
 #work.nav-component-enter .works-footer,
@@ -4836,7 +4831,9 @@ video {
   z-index: 4;
   align-self: end;
   margin-left: -30px;
-  padding-bottom: clamp(58px, 9vh, 112px);
+  /* Keep the facts content low by reducing its bottom inset, rather than
+     adding a second transform after the reveal animation has settled. */
+  padding-bottom: clamp(14px, 2vh, 24px);
 }
 
 .profile-statement {
@@ -10974,14 +10971,6 @@ video {
 
 .profile.profile-late .profile-shell {
   min-height: 100dvh;
-}
-
-@media (min-width: 981px) {
-  /* Keep the facts block low inside the lifted profile composition so its
-     baseline aligns with the bottom rule instead of floating beside the face. */
-  .profile.profile-late .profile-facts {
-    translate: 0 clamp(56px, 7vh, 84px);
-  }
 }
 
 @media (max-width: 980px) {
