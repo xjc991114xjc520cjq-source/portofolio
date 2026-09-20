@@ -10970,7 +10970,8 @@ video {
 .profile.profile-late {
   z-index: 4;
   min-height: 100dvh;
-  margin-top: calc(clamp(120px, 12vh, 170px) * -1);
+  /* Pull the whole profile composition upward to close the dead band above it. */
+  margin-top: calc(clamp(190px, 20vh, 250px) * -1);
 }
 
 .profile.profile-late .profile-shell {
