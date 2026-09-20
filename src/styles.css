@@ -4638,26 +4638,25 @@ video {
 
 .profile-backdrop {
   position: absolute;
-  top: 9%;
-  right: 0;
-  left: 0;
+  top: 16%;
+  left: -4%;
   z-index: -1;
   display: flex;
-  width: 100%;
-  justify-content: space-between;
+  width: 108%;
+  justify-content: center;
+  gap: clamp(0px, 0.28vw, 5px);
   color: rgba(137, 170, 204, 0.15);
   font-size: clamp(150px, 17.5vw, 270px);
   font-weight: 900;
   line-height: 0.8;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.11em;
   white-space: nowrap;
   pointer-events: none;
 }
 
 .profile-backdrop span {
   display: block;
-  flex: 1 1 0;
-  min-width: 0;
+  flex: 0 0 auto;
   text-align: center;
 }
 
