@@ -10724,9 +10724,13 @@ video {
 }
 
 .commercial-value-heading h2 em {
+  color: #efeeea;
+  font-style: normal;
+}
+
+.commercial-value-heading h2 > span {
   display: block;
   color: rgba(239, 238, 234, 0.46);
-  font-style: normal;
 }
 
 .commercial-value-heading p {

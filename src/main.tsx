@@ -3585,7 +3585,9 @@ function CommercialValue() {
             <header className="commercial-value-heading">
               <span>WHAT I CAN DELIVER</span>
               <h2 id="commercial-value-title">
-                从一张产品图，<em>搭建一套能上线的商业视觉系统。</em>
+                <span>从一张产品图</span>
+                <span>搭建一套能上线的</span>
+                <span><em>商业视觉系统</em>。</span>
               </h2>
               <p>我能独立完成产品校准、卖点拆解、系列生成、人工质检与多触点编排，让创意不只好看，也能持续交付。</p>
             </header>
