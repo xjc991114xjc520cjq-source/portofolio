@@ -10586,7 +10586,7 @@ video {
 
 /* Commercial positioning reconstruction */
 .hero-center {
-  width: min(1180px, calc(100vw - 56px));
+  width: min(1320px, calc(100vw - 56px));
 }
 
 .hero-center::before {
@@ -10595,7 +10595,7 @@ video {
 }
 
 .hero-center h1 {
-  font-size: clamp(54px, 7.25vw, 118px);
+  font-size: clamp(60px, 8.2vw, 164px);
   line-height: 0.84;
   letter-spacing: -0.065em;
 }
