@@ -7816,7 +7816,7 @@ video {
   position: relative;
   min-height: 100dvh;
   display: grid;
-  place-items: center;
+  place-items: start center;
   overflow: hidden;
   isolation: isolate;
   background: var(--bg);
@@ -7865,7 +7865,7 @@ video {
 }
 
 .footer-content {
-  padding: 120px 0 52px;
+  padding: clamp(64px, 7vh, 88px) 0 52px;
 }
 
 .footer h2 {
