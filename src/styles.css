@@ -10969,7 +10969,7 @@ video {
 .profile.profile-late {
   z-index: 4;
   min-height: 100dvh;
-  margin-top: 0;
+  margin-top: calc(clamp(120px, 12vh, 170px) * -1);
 }
 
 .profile.profile-late .profile-shell {
@@ -10977,14 +10977,10 @@ video {
 }
 
 @media (min-width: 981px) {
-  /* Pull the profile's middle composition toward its top rule as one unit.
-     Keeping these layers together preserves the portrait/type relationship
-     while removing the empty handoff band above the content. */
-  .profile.profile-late .profile-backdrop,
-  .profile.profile-late .profile-copy,
-  .profile.profile-late .profile-portrait,
+  /* Keep the facts block low inside the lifted profile composition so its
+     baseline aligns with the bottom rule instead of floating beside the face. */
   .profile.profile-late .profile-facts {
-    translate: 0 calc(clamp(120px, 12vh, 170px) * -1);
+    translate: 0 clamp(56px, 7vh, 84px);
   }
 }
 
