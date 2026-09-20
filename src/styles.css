@@ -7047,6 +7047,7 @@ video {
 
 .ai-lab-heading {
   align-self: start;
+  will-change: transform, opacity;
 }
 
 .ai-lab-heading > p:first-child {
@@ -7088,12 +7089,14 @@ video {
   border: 1px solid rgba(255, 255, 255, 0.13);
   background: rgba(255, 255, 255, 0.1);
   grid-template-columns: 1.18fr 0.82fr;
+  will-change: transform, opacity, clip-path;
 }
 
 .ai-proof-card {
   display: grid;
   min-width: 0;
   background: #090b0d;
+  will-change: transform, opacity;
 }
 
 .ai-proof-card-1 {
@@ -7119,6 +7122,7 @@ video {
   margin: 0;
   overflow: hidden;
   background: #111417;
+  will-change: clip-path, opacity;
 }
 
 .ai-proof-card-1 .ai-proof-media figure {
@@ -7842,7 +7846,8 @@ video {
 
 .footer {
   position: relative;
-  min-height: 100dvh;
+  /* The last screen ends just under the ICP filing row; no extra scroll runway. */
+  min-height: 0;
   display: grid;
   place-items: start center;
   overflow: hidden;

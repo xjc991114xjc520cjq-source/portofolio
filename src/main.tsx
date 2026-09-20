@@ -4896,6 +4896,21 @@ function ProjectShowcase({
 function AILab() {
   const reduceMotion = useReducedMotion();
 
+  const aiLabReveal = {
+    hidden: reduceMotion ? { opacity: 1 } : { opacity: 0, y: 34 },
+    visible: { opacity: 1, y: 0 },
+  } as const;
+
+  const aiLabHeadingReveal = {
+    hidden: reduceMotion ? { opacity: 1 } : { opacity: 0, y: 22 },
+    visible: { opacity: 1, y: 0 },
+  } as const;
+
+  const aiLabMediaReveal = {
+    hidden: reduceMotion ? { opacity: 1 } : { opacity: 0, clipPath: "inset(0 0 100% 0)" },
+    visible: { opacity: 1, clipPath: "inset(0 0 0% 0)" },
+  } as const;
+
   const proofGroups = [
     {
       id: "hardware-sequence",
@@ -4937,32 +4952,50 @@ function AILab() {
   return (
     <section className="ai-lab" id="ai-lab" aria-labelledby="ai-lab-title">
       <div className="ai-lab-shell shell">
-        <header className="ai-lab-heading">
-          <p>CONTROLLED AI WORKFLOW</p>
-          <h2 id="ai-lab-title">
+        <motion.header
+          className="ai-lab-heading"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.34 }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: reduceMotion ? 0 : 0.1 } } }}
+        >
+          <motion.p variants={aiLabHeadingReveal}>CONTROLLED AI WORKFLOW</motion.p>
+          <motion.h2 id="ai-lab-title" variants={aiLabHeadingReveal}>
             <span>不是生成更多</span>
             <span>而是稳定复现</span>
-          </h2>
-          <p className="ai-lab-intro">
+          </motion.h2>
+          <motion.p className="ai-lab-intro" variants={aiLabHeadingReveal}>
             我先定义不能改变的产品身份，再控制状态、SKU、机位、人物和环境。下面三组正式案例，直接展示稳定控制发生在哪里。
-          </p>
-        </header>
+          </motion.p>
+        </motion.header>
 
         <motion.div
           className="ai-lab-proof"
-          initial={reduceMotion ? false : { opacity: 0, y: 54, scale: 0.97 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 54, scale: 0.97, clipPath: "inset(0 0 7% 0)" }}
+          whileInView={{ opacity: 1, y: 0, scale: 1, clipPath: "inset(0 0 0% 0)" }}
           viewport={{ once: true, amount: 0.24 }}
-          transition={{ duration: reduceMotion ? 0 : 0.72, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: reduceMotion ? 0 : 0.78, ease: [0.16, 1, 0.3, 1] }}
         >
           {proofGroups.map((group, groupIndex) => (
-            <article className={`ai-proof-card ai-proof-card-${groupIndex + 1}`} key={group.id}>
+            <motion.article
+              className={`ai-proof-card ai-proof-card-${groupIndex + 1}`}
+              key={group.id}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.28 }}
+              variants={aiLabReveal}
+              transition={{ duration: reduceMotion ? 0 : 0.62, delay: reduceMotion ? 0 : 0.12 + groupIndex * 0.1, ease: [0.16, 1, 0.3, 1] }}
+            >
               <div className="ai-proof-media">
                 {group.images.map((image, imageIndex) => (
-                  <figure key={image.src}>
+                  <motion.figure
+                    key={image.src}
+                    variants={aiLabMediaReveal}
+                    transition={{ duration: reduceMotion ? 0 : 0.68, delay: reduceMotion ? 0 : 0.16 + imageIndex * 0.07 + groupIndex * 0.06, ease: [0.77, 0, 0.175, 1] }}
+                  >
                     <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />
                     <span aria-hidden="true">{String(imageIndex + 1).padStart(2, "0")}</span>
-                  </figure>
+                  </motion.figure>
                 ))}
               </div>
               <div className="ai-proof-copy">
@@ -4973,15 +5006,22 @@ function AILab() {
                   <p>{group.description}</p>
                 </div>
               </div>
-            </article>
+            </motion.article>
           ))}
         </motion.div>
 
-        <div className="ai-lab-workflow" aria-label="AI 商业视觉工作流">
+        <motion.div
+          className="ai-lab-workflow"
+          aria-label="AI 商业视觉工作流"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.35 }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: reduceMotion ? 0 : 0.06 } } }}
+        >
           {['商业命题', '识别锚点', '变量扩展', '人工审核', '触点交付'].map((step) => (
-            <span key={step}>{step}</span>
+            <motion.span key={step} variants={aiLabReveal}>{step}</motion.span>
           ))}
-        </div>
+        </motion.div>
 
         <div className="ai-lab-list">
           {aiLabItems.map((item, index) => (
