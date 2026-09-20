@@ -1346,7 +1346,9 @@ function Hero() {
     target: sceneRef,
     offset: ["start start", "end end"],
   });
-  const centerOpacity = useTransform(scrollYProgress, [0, 0.52, 0.9, 1], [1, 1, 0.22, 0.08]);
+  // Keep the opening title present deeper into the handoff, while leaving a
+  // longer, gentler return path when the user scrolls back toward the hero.
+  const centerOpacity = useTransform(scrollYProgress, [0, 0.68, 0.94, 1], [1, 1, 0.22, 0.08]);
   const centerY = useTransform(scrollYProgress, [0, 1], [0, -90]);
   const centerScale = useTransform(scrollYProgress, [0, 0.7, 1], [1, 0.96, 0.84]);
   const orbitScale = useTransform(scrollYProgress, [0, 0.68, 1], [1, 1.08, 1.3]);
