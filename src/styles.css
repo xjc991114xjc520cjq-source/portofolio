@@ -502,14 +502,15 @@
 .works-overview-filter-title {
   align-items: end;
   gap: 8px;
+  overflow: visible;
 }
 
 .works-overview-filter-title strong {
-  overflow: hidden;
+  overflow: visible;
   color: #f4f4f0;
   font-size: clamp(13px, 1vw, 16px);
   font-weight: 650;
-  text-overflow: ellipsis;
+  text-overflow: clip;
   white-space: nowrap;
 }
 
@@ -7048,7 +7049,7 @@ video {
 
 .ai-lab-heading {
   align-self: start;
-  will-change: transform, opacity;
+  will-change: transform, opacity, filter;
   min-height: clamp(430px, 52vh, 560px);
   padding-top: 6px;
 }
@@ -7278,6 +7279,7 @@ video {
   grid-column: 1 / -1;
   margin-top: 0;
   grid-template-columns: repeat(5, minmax(0, 1fr));
+  will-change: transform, opacity;
 }
 
 .ai-lab-workflow span {
@@ -7310,6 +7312,7 @@ video {
   padding: 22px 30px 24px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.13);
   grid-template-columns: minmax(170px, 0.72fr) minmax(0, 1.28fr);
+  will-change: transform, opacity, filter;
 }
 
 .ai-lab-list article:nth-child(even) {

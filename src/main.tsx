@@ -4961,6 +4961,37 @@ function AILabProofCard({
   );
 }
 
+function AILabListItem({
+  item,
+  itemIndex,
+  progress,
+  reduceMotion,
+}: {
+  item: (typeof aiLabItems)[number];
+  itemIndex: number;
+  progress: MotionValue<number>;
+  reduceMotion: boolean | null;
+}) {
+  const start = 0.32 + itemIndex * 0.045;
+  const opacity = useTransform(progress, [0, start, start + 0.14, 0.9, 1], [0, 0, 1, 0.92, 0]);
+  const y = useTransform(progress, [0, start, start + 0.14, 0.9, 1], [52, 52, 0, -8, -48]);
+  const x = useTransform(progress, [0, start, start + 0.14, 0.9, 1], [itemIndex % 2 === 0 ? -18 : 18, itemIndex % 2 === 0 ? -18 : 18, 0, 0, itemIndex % 2 === 0 ? -12 : 12]);
+  const filter = useTransform(progress, [0, start, start + 0.14, 0.9, 1], ["blur(8px)", "blur(8px)", "blur(0px)", "blur(0px)", "blur(6px)"]);
+
+  return (
+    <motion.article
+      key={item.title}
+      style={reduceMotion ? undefined : { opacity, x, y, filter }}
+    >
+      <div>
+        <strong>{item.title}</strong>
+        <span>{item.english}</span>
+      </div>
+      <p>{item.description}</p>
+    </motion.article>
+  );
+}
+
 function AILab() {
   const reduceMotion = useReducedMotion();
   const labRef = useRef<HTMLElement>(null);
@@ -4969,17 +5000,17 @@ function AILab() {
     offset: ["start end", "end start"],
   });
 
-  const headingOpacity = useTransform(labProgress, [0, 0.1, 0.28, 0.82, 0.96, 1], [0, 0.48, 1, 1, 0.24, 0]);
-  const headingY = useTransform(labProgress, [0, 0.26, 0.82, 1], [72, 0, 0, -54]);
-  const headingFilter = useTransform(labProgress, [0, 0.2, 0.82, 1], ["blur(10px)", "blur(0px)", "blur(0px)", "blur(8px)"]);
+  const headingOpacity = useTransform(labProgress, [0, 0.08, 0.24, 0.58, 0.82, 1], [0, 0.52, 1, 0.94, 0.48, 0]);
+  const headingY = useTransform(labProgress, [0, 0.18, 0.42, 0.72, 1], [112, 48, 0, -28, -96]);
+  const headingScale = useTransform(labProgress, [0, 0.18, 0.42, 0.72, 1], [0.9, 0.96, 1, 0.985, 0.94]);
+  const headingFilter = useTransform(labProgress, [0, 0.16, 0.42, 0.82, 1], ["blur(14px)", "blur(5px)", "blur(0px)", "blur(2px)", "blur(10px)"]);
   const proofOpacity = useTransform(labProgress, [0, 0.08, 0.22, 0.92, 1], [0, 0.4, 1, 1, 0]);
   const proofY = useTransform(labProgress, [0, 0.3, 0.86, 1], [86, 0, 0, -52]);
   const proofScale = useTransform(labProgress, [0, 0.3, 0.86, 1], [0.94, 1, 1, 0.98]);
   const proofClip = useTransform(labProgress, [0, 0.28, 1], ["inset(0 0 14% 0)", "inset(0 0 0% 0)", "inset(0 0 0% 0)"]);
-  const workflowOpacity = useTransform(labProgress, [0.24, 0.42, 0.9, 1], [0, 1, 1, 0]);
-  const workflowY = useTransform(labProgress, [0.24, 0.42, 0.9, 1], [32, 0, 0, -24]);
-  const listOpacity = useTransform(labProgress, [0.38, 0.58, 0.92, 1], [0, 1, 1, 0]);
-  const listY = useTransform(labProgress, [0.38, 0.58, 0.92, 1], [38, 0, 0, -24]);
+  const workflowOpacity = useTransform(labProgress, [0.12, 0.24, 0.42, 0.7, 0.92, 1], [0, 0.5, 1, 0.82, 0.42, 0]);
+  const workflowY = useTransform(labProgress, [0.12, 0.24, 0.42, 0.7, 1], [58, 28, 0, -20, -70]);
+  const workflowScale = useTransform(labProgress, [0.12, 0.3, 0.7, 1], [0.96, 1, 1, 0.97]);
 
   const proofGroups = [
     {
@@ -5024,7 +5055,7 @@ function AILab() {
       <div className="ai-lab-shell shell">
         <motion.header
           className="ai-lab-heading"
-          style={reduceMotion ? undefined : { opacity: headingOpacity, y: headingY, filter: headingFilter }}
+          style={reduceMotion ? undefined : { opacity: headingOpacity, y: headingY, scale: headingScale, filter: headingFilter }}
         >
           <p>CONTROLLED AI WORKFLOW</p>
           <h2 id="ai-lab-title">
@@ -5068,7 +5099,7 @@ function AILab() {
         <motion.div
           className="ai-lab-workflow"
           aria-label="AI 商业视觉工作流"
-          style={reduceMotion ? undefined : { opacity: workflowOpacity, y: workflowY }}
+          style={reduceMotion ? undefined : { opacity: workflowOpacity, y: workflowY, scale: workflowScale }}
         >
           {['商业命题', '识别锚点', '变量扩展', '人工审核', '触点交付'].map((step) => (
             <span key={step}>{step}</span>
@@ -5076,17 +5107,14 @@ function AILab() {
         </motion.div>
 
         <div className="ai-lab-list">
-          {aiLabItems.map((item) => (
-            <motion.article
+          {aiLabItems.map((item, itemIndex) => (
+            <AILabListItem
               key={item.title}
-              style={reduceMotion ? undefined : { opacity: listOpacity, y: listY }}
-            >
-              <div>
-                <strong>{item.title}</strong>
-                <span>{item.english}</span>
-              </div>
-              <p>{item.description}</p>
-            </motion.article>
+              item={item}
+              itemIndex={itemIndex}
+              progress={labProgress}
+              reduceMotion={reduceMotion}
+            />
           ))}
         </div>
       </div>
