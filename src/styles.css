@@ -4693,7 +4693,8 @@ video {
   z-index: -1;
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: clamp(0px, 0.7vw, 12px);
   color: rgba(137, 170, 204, 0.15);
   font-size: clamp(190px, 22vw, 360px);
   font-weight: 900;
@@ -11043,6 +11044,11 @@ video {
 
   .profile.profile-late .profile-topline {
     top: var(--profile-rule-drop);
+  }
+
+  /* Let the backdrop occupy the open upper field instead of stretching its gaps. */
+  .profile.profile-late .profile-backdrop {
+    font-size: clamp(210px, 24.5vw, 410px);
   }
 }
 
