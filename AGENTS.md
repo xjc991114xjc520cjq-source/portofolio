@@ -44,8 +44,9 @@
 
 ## Preview Delivery Gate
 
-- After every project change, publish the resulting production build as a Netlify draft preview before reporting completion. If Netlify publishing is unavailable, use an equivalent reachable public preview and explicitly mark it as temporary.
-- Every completion message must include the exact clickable preview URL for the committed state.
-- A change is not complete until `pnpm build` passes, the preview deployment succeeds, and the preview URL is confirmed reachable.
-- Preview deployments must remain separate from production publishing; do not replace or promote the production site unless the user explicitly asks for production release.
+- After every project change, run the production build and start the local Vite preview before reporting completion.
+- Every completion message must include the exact local preview URL, normally `http://localhost:4173/`.
+- A change is not complete until `pnpm build` passes and the local preview is confirmed reachable.
+- Do not use public tunnels, public preview deployments, or external preview URLs for routine project review.
+- Previewing locally must remain separate from production publishing; do not replace or publish the production site unless the user explicitly asks for production release.
 - Do not stage or commit `.netlify`, `dist`, generated screenshots, local caches, or unrelated user files merely to create a preview.
