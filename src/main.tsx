@@ -4897,13 +4897,13 @@ function AILab() {
   const reduceMotion = useReducedMotion();
 
   const aiLabReveal = {
-    hidden: reduceMotion ? { opacity: 1 } : { opacity: 0, y: 34 },
-    visible: { opacity: 1, y: 0 },
+    hidden: reduceMotion ? { opacity: 1 } : { opacity: 0, y: 54, scale: 0.985 },
+    visible: { opacity: 1, y: 0, scale: 1 },
   } as const;
 
   const aiLabHeadingReveal = {
-    hidden: reduceMotion ? { opacity: 1 } : { opacity: 0, y: 22 },
-    visible: { opacity: 1, y: 0 },
+    hidden: reduceMotion ? { opacity: 1 } : { opacity: 0, y: 38, filter: "blur(9px)" },
+    visible: { opacity: 1, y: 0, filter: "blur(0px)" },
   } as const;
 
   const aiLabMediaReveal = {
@@ -4917,7 +4917,7 @@ function AILab() {
       index: "A",
       title: "同一硬件，连续状态不换型号",
       english: "HARDWARE CONTINUITY",
-      description: "SONA ARC ONE 从闭合、开盖到声场展开，仓体比例、转轴、状态灯与耳机结构保持连续。",
+      description: "闭合、开盖、展开，共用同一套仓体、转轴与状态灯逻辑。",
       images: [
         { src: "/assets/projects/sona-earbuds/sona-film-closed.webp", alt: "SONA ARC ONE 充电仓闭合状态" },
         { src: "/assets/projects/sona-earbuds/sona-film-awake.webp", alt: "SONA ARC ONE 充电仓开盖状态" },
@@ -4929,7 +4929,7 @@ function AILab() {
       index: "B",
       title: "同一品牌，双 SKU 有区分也有家族感",
       english: "SKU FAMILY SYSTEM",
-      description: "青岚茉莉绿茶与焙香乌龙共享瓶型、标签网格和品牌层级，用瓶盖、茶汤与风味场景建立差异。",
+      description: "瓶型与标签保持家族关系；瓶盖、茶汤与场景负责区分两种 SKU。",
       images: [
         { src: "/assets/projects/qinglan-tea/qinglan-oolong-family-master.webp", alt: "青岚茶事双味无糖茶产品家族" },
         { src: "/assets/projects/qinglan-tea/qinglan-oolong-retail-choice.webp", alt: "青岚茶事双味无糖茶零售选择场景" },
@@ -4940,7 +4940,7 @@ function AILab() {
       index: "C",
       title: "同一产品，换机位与环境仍可识别",
       english: "SCENE CONSISTENCY",
-      description: "TERRAIN 35 从棚拍、背负到雨天户外，卷口、前仓、织带与背负结构始终属于同一只背包。",
+      description: "棚拍、背负、雨天切换，卷口、前仓与织带仍指向同一只背包。",
       images: [
         { src: "/assets/projects/terrain-35/terrain-product-studio.jpg", alt: "TERRAIN 35 棚拍产品正面" },
         { src: "/assets/projects/terrain-35/terrain-carry-fit.jpg", alt: "TERRAIN 35 山径背负场景" },
@@ -4965,16 +4965,25 @@ function AILab() {
             <span>而是稳定复现</span>
           </motion.h2>
           <motion.p className="ai-lab-intro" variants={aiLabHeadingReveal}>
-            我先定义不能改变的产品身份，再控制状态、SKU、机位、人物和环境。下面三组正式案例，直接展示稳定控制发生在哪里。
+            先锁定产品身份，再释放状态、SKU、机位与环境变量。三组案例，分别验证连续性、家族关系与场景识别。
           </motion.p>
+          <motion.div className="ai-lab-heading-meta" variants={aiLabHeadingReveal}>
+            <span>01—03 / PROOF INDEX</span>
+            <i aria-hidden="true" />
+            <div>
+              <b>硬件连续</b>
+              <b>SKU 家族</b>
+              <b>场景识别</b>
+            </div>
+          </motion.div>
         </motion.header>
 
         <motion.div
           className="ai-lab-proof"
-          initial={reduceMotion ? false : { opacity: 0, y: 54, scale: 0.97, clipPath: "inset(0 0 7% 0)" }}
+          initial={reduceMotion ? false : { opacity: 0, y: 82, scale: 0.94, clipPath: "inset(0 0 12% 0)" }}
           whileInView={{ opacity: 1, y: 0, scale: 1, clipPath: "inset(0 0 0% 0)" }}
-          viewport={{ once: true, amount: 0.24 }}
-          transition={{ duration: reduceMotion ? 0 : 0.78, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true, amount: 0.16 }}
+          transition={{ duration: reduceMotion ? 0 : 0.96, ease: [0.16, 1, 0.3, 1] }}
         >
           {proofGroups.map((group, groupIndex) => (
             <motion.article
@@ -4982,7 +4991,7 @@ function AILab() {
               key={group.id}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.28 }}
+              viewport={{ once: true, amount: 0.16 }}
               variants={aiLabReveal}
               transition={{ duration: reduceMotion ? 0 : 0.62, delay: reduceMotion ? 0 : 0.12 + groupIndex * 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
@@ -5015,7 +5024,7 @@ function AILab() {
           aria-label="AI 商业视觉工作流"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.35 }}
+          viewport={{ once: true, amount: 0.16 }}
           variants={{ hidden: {}, visible: { transition: { staggerChildren: reduceMotion ? 0 : 0.06 } } }}
         >
           {['商业命题', '识别锚点', '变量扩展', '人工审核', '触点交付'].map((step) => (
@@ -5027,10 +5036,10 @@ function AILab() {
           {aiLabItems.map((item, index) => (
             <motion.article
               key={item.title}
-              initial={reduceMotion ? false : { opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.35 }}
-              transition={{ duration: reduceMotion ? 0 : 0.56, delay: reduceMotion ? 0 : index * 0.055, ease: [0.16, 1, 0.3, 1] }}
+              initial={reduceMotion ? false : { opacity: 0, y: 42, filter: "blur(6px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              viewport={{ once: true, amount: 0.16 }}
+              transition={{ duration: reduceMotion ? 0 : 0.64, delay: reduceMotion ? 0 : index * 0.09, ease: [0.16, 1, 0.3, 1] }}
             >
               <div>
                 <strong>{item.title}</strong>
