@@ -3719,7 +3719,7 @@ function Profile() {
           aria-hidden="true"
           style={reduceMotion ? undefined : { opacity: backdropOpacity, y: backdropY, scale: backdropScale }}
         >
-          PROFILE
+          {"PROFILE".split("").map((letter) => <span key={letter}>{letter}</span>)}
         </motion.div>
 
         <motion.div

@@ -4638,16 +4638,27 @@ video {
 
 .profile-backdrop {
   position: absolute;
-  top: 13%;
-  left: 50%;
+  top: 9%;
+  right: 0;
+  left: 0;
   z-index: -1;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
   color: rgba(137, 170, 204, 0.15);
-  font-size: clamp(150px, 18.5vw, 300px);
+  font-size: clamp(150px, 17.5vw, 270px);
   font-weight: 900;
   line-height: 0.8;
-  letter-spacing: -0.085em;
+  letter-spacing: -0.04em;
   white-space: nowrap;
-  translate: -50% 0;
+  pointer-events: none;
+}
+
+.profile-backdrop span {
+  display: block;
+  flex: 1 1 0;
+  min-width: 0;
+  text-align: center;
 }
 
 .profile-copy {
