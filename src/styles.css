@@ -4640,7 +4640,7 @@ video {
 
 .profile-backdrop {
   position: absolute;
-  top: clamp(88px, 12vh, 140px);
+  top: calc(clamp(88px, 12vh, 140px) + var(--profile-backdrop-drop, 0px));
   right: 0;
   left: 0;
   z-index: -1;
@@ -10982,6 +10982,12 @@ video {
 @media (min-width: 981px) {
   .profile.profile-late {
     --profile-body-lift: clamp(0px, calc(18vh - 102px), 112px);
+    --profile-backdrop-drop: clamp(48px, 5vh, 64px);
+    --profile-rule-drop: clamp(96px, 10vh, 128px);
+  }
+
+  .profile.profile-late .profile-topline {
+    top: var(--profile-rule-drop);
   }
 }
 
