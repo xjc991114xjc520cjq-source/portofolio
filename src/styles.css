@@ -10985,6 +10985,10 @@ video {
     --profile-rule-drop: clamp(96px, 10vh, 128px);
   }
 
+  .profile.profile-late .profile-shell {
+    top: calc(0px - clamp(140px, 12.5vh, 160px));
+  }
+
   .profile.profile-late .profile-topline {
     top: var(--profile-rule-drop);
   }
