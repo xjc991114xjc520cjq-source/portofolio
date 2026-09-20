@@ -2593,22 +2593,6 @@ video {
   animation: nav-component-rise 520ms var(--ease-out) 320ms both;
 }
 
-#profile.nav-component-enter .profile-topline {
-  animation: nav-component-rise 480ms var(--ease-out) 20ms both;
-}
-
-#profile.nav-component-enter .profile-copy {
-  animation: nav-component-slide-left 720ms var(--ease-drawer) 70ms both;
-}
-
-#profile.nav-component-enter .profile-portrait {
-  animation: nav-component-portrait 820ms var(--ease-drawer) 120ms both;
-}
-
-#profile.nav-component-enter .profile-bottomline {
-  animation: nav-component-rise 520ms var(--ease-out) 330ms both;
-}
-
 #work.nav-component-enter .works-topline {
   animation: nav-component-slide-left 560ms var(--ease-drawer) 20ms both;
 }
@@ -2666,10 +2650,6 @@ video {
 #top.nav-component-enter .hero-title-index,
 #top.nav-component-enter .hero-desc,
 #top.nav-component-enter .hero-controls,
-#profile.nav-component-enter .profile-topline,
-#profile.nav-component-enter .profile-copy,
-#profile.nav-component-enter .profile-portrait,
-#profile.nav-component-enter .profile-bottomline,
 #work.nav-component-enter .works-topline,
 #work.nav-component-enter .works-footer,
 #work.nav-component-enter .gallery-heading,
