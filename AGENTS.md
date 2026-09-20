@@ -44,7 +44,7 @@
 
 ## Preview Delivery Gate
 
-- After every project change, publish the resulting production build as a Netlify draft preview before reporting completion.
+- After every project change, publish the resulting production build as a Netlify draft preview before reporting completion. If Netlify publishing is unavailable, use an equivalent reachable public preview and explicitly mark it as temporary.
 - Every completion message must include the exact clickable preview URL for the committed state.
 - A change is not complete until `pnpm build` passes, the preview deployment succeeds, and the preview URL is confirmed reachable.
 - Preview deployments must remain separate from production publishing; do not replace or promote the production site unless the user explicitly asks for production release.
