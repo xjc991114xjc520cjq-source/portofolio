@@ -3657,10 +3657,13 @@ function Profile() {
     target: profileRef,
     // Start the profile handoff while the work canvas is still visibly
     // present, instead of waiting until the profile is halfway up the screen.
-    offset: ["start 100%", "start 10%"],
+    offset: ["start 100%", "start -30%"],
   });
   const acceleratedProgress = useTransform(scrollYProgress, [0, 1], [0, 1], { ease: slowFastScrollEase });
-  const pacedRevealProgress = useTransform(acceleratedProgress, [0, 1], [0, 0.72]);
+  // Keep the reveal readable while the profile settles into the viewport.
+  // The previous cap completed the visual handoff too early during a normal
+  // wheel gesture, making the section appear to have no entrance animation.
+  const pacedRevealProgress = useTransform(acceleratedProgress, [0, 1], [0, 0.62]);
 
   const stageOpacity = useTransform(pacedRevealProgress, [0, 0.05, 0.28, 0.34], [0, 0, 0.98, 1]);
   const shellY = useTransform(pacedRevealProgress, [0, 0.34], [140, 0]);
