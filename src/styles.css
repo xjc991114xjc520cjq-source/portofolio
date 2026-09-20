@@ -4639,7 +4639,7 @@ video {
 
 .profile-backdrop {
   position: absolute;
-  top: 16%;
+  top: clamp(260px, 33%, 400px);
   left: -4%;
   z-index: -1;
   display: flex;
