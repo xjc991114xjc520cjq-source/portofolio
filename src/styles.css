@@ -4850,7 +4850,7 @@ video {
 .profile-portrait img {
   position: absolute;
   bottom: 0;
-  left: 52%;
+  left: 35%;
   width: auto;
   height: 100%;
   max-width: none;
@@ -8963,9 +8963,10 @@ video {
   }
 
   .profile-portrait img {
+    bottom: 0;
     left: 50%;
     width: auto;
-    height: 96%;
+    height: 104%;
   }
 
   .profile-portrait figcaption {
