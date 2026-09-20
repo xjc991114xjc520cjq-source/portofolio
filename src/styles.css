@@ -10986,7 +10986,7 @@ video {
   }
 
   .profile.profile-late .profile-shell {
-    top: calc(0px - clamp(140px, 12.5vh, 160px));
+    translate: 0 calc(0px - clamp(140px, 12.5vh, 160px));
   }
 
   .profile.profile-late .profile-topline {
