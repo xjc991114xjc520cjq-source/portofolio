@@ -3825,7 +3825,7 @@ function Profile() {
           className="profile-portrait"
           style={reduceMotion ? undefined : { opacity: portraitOpacity, y: portraitY, scale: portraitScale }}
         >
-          <img src="/assets/profile-person-user-portrait.png" alt="人物肖像" loading="lazy" decoding="async" />
+          <img src="/assets/profile-person-green-cutout.png" alt="人物肖像" loading="lazy" decoding="async" />
           <figcaption>PORTRAIT</figcaption>
         </motion.figure>
 
