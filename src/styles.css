@@ -10976,6 +10976,7 @@ video {
   min-height: 100dvh;
   --profile-body-lift: clamp(0px, calc(12vh - 86px), 72px);
   margin-top: 0;
+  border-top: 0;
 }
 
 @media (min-width: 981px) {
