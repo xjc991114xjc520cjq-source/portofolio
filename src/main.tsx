@@ -3273,7 +3273,7 @@ type VisualOutput = ProjectImageSource & {
 };
 
 const visualOutputCategories = [
-  { id: "identity", label: "产品定妆", english: "PRODUCT VISUALS", outputCount: 10, description: "先让人看清产品是什么、长什么样，建立准确而有记忆点的第一印象。" },
+  { id: "identity", label: "产品定妆", english: "PRODUCT VISUALS", outputCount: 12, description: "先让人看清产品是什么、长什么样，建立准确而有记忆点的第一印象。" },
   { id: "commerce", label: "卖点表达", english: "FEATURE EXPLAINERS", outputCount: 10, description: "把功能、材质和使用方法讲到能被理解，也能直接回答购买疑问。" },
   { id: "campaign", label: "品牌传播", english: "BRAND CAMPAIGNS", outputCount: 8, description: "把产品卖点组织成主视觉和海报，让品牌在第一眼被记住。" },
   { id: "scene", label: "人物场景", english: "PEOPLE & SCENES", outputCount: 13, description: "用人物、动作和环境让人想象产品进入真实生活后的样子。" },
@@ -3304,8 +3304,10 @@ const visualOutputs: VisualOutput[] = [
   { id: "terrain-product", title: "背包产品主视图", project: "TERRAIN 35", category: "identity", shape: "tall", src: "/assets/projects/terrain-35/terrain-hero-master.jpg", alt: "TERRAIN 35 背包产品主视图" },
   { id: "yoga-product", title: "服饰正背面定妆", project: "瑜伽套装", category: "identity", shape: "standard", src: "/assets/projects/yoga-set/yoga-commerce-front-back.webp", alt: "瑜伽套装正背面产品定妆" },
   { id: "glacier-product", title: "洁面产品定妆", project: "GLACIER", category: "identity", shape: "wide", src: "/assets/projects/glacier-cleanser/glacier-views.webp", alt: "GLACIER 洁面产品定妆图" },
-  { id: "qinglan-product", title: "茶饮家族定妆", project: "青岚茶事", category: "identity", shape: "wide", src: "/assets/projects/qinglan-tea/qinglan-oolong-family-master.webp", alt: "青岚茶事茶饮家族产品定妆图" },
+  { id: "qinglan-product", title: "焙香乌龙产品定妆", project: "青岚焙香乌龙", category: "identity", shape: "wide", src: "/assets/projects/qinglan-tea/qinglan-oolong-family-master.webp", alt: "青岚焙香乌龙茶饮家族产品定妆图" },
+  { id: "qinglan-original-product", title: "原叶绿茶产品定妆", project: "青岚茶事", category: "identity", shape: "wide", src: "/assets/projects/qinglan-tea/qinglan-scene-studio-reference.webp", alt: "青岚茶事原叶绿茶产品定妆图" },
   { id: "speaker-product", title: "音箱产品定妆", project: "户外音箱", category: "identity", shape: "wide", src: "/assets/projects/outdoor-speaker/speaker-product-master.webp", alt: "户外音箱产品定妆图" },
+  { id: "fishtail-product", title: "鱼尾皮裙版型定妆", project: "鱼尾皮裙", category: "identity", shape: "tall", src: "/assets/projects/fishtail-skirt/skirt-19.webp", alt: "鱼尾皮裙版型与轮廓定妆图" },
   { id: "fan-specs", title: "规格信息说明", project: "桌面风扇", category: "commerce", shape: "wide", src: "/assets/projects/table-fan/table-fan-sleep-specs.webp", alt: "桌面风扇规格信息说明" },
   { id: "terrain-four-views", title: "四向产品确认", project: "TERRAIN 35", category: "commerce", shape: "wide", src: "/assets/projects/terrain-35/terrain-four-views.jpg", alt: "TERRAIN 35 四向产品确认" },
   { id: "terrain-compression", title: "压缩状态说明", project: "TERRAIN 35", category: "commerce", shape: "wide", src: "/assets/projects/terrain-35/terrain-compression-states.jpg", alt: "TERRAIN 35 压缩状态说明" },
@@ -3440,11 +3442,11 @@ function SelectedWorks({
           <header className="works-overview-header">
             <div>
               <span className="works-overview-kicker">交付能力 / OUTPUT INDEX</span>
-              <h2 id="works-overview-title">50 件作品，先看每个方向的一张代表作。</h2>
+              <h2 id="works-overview-title">52 件作品，先看每个方向的一张代表作。</h2>
               <p>商业案例看项目全貌，这里看可独立使用的视觉成果。首屏只展示 5 张代表作，进入分类后查看该方向的完整作品。</p>
             </div>
-            <div className="works-overview-total" aria-label="50件作品，来自12个完整项目">
-              <strong>50</strong>
+            <div className="works-overview-total" aria-label="52件作品，来自12个完整项目">
+              <strong>52</strong>
               <span>完整作品</span>
               <small>来自 12 个项目</small>
             </div>
