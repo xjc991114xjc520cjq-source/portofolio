@@ -10975,8 +10975,7 @@ video {
   z-index: 4;
   min-height: 100dvh;
   --profile-body-lift: clamp(0px, calc(12vh - 86px), 72px);
-  /* Pull the whole profile composition upward to close the dead band above it. */
-  margin-top: calc(clamp(190px, 20vh, 250px) * -1);
+  margin-top: 0;
 }
 
 @media (min-width: 981px) {
