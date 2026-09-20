@@ -41,3 +41,11 @@
 - After every completed project change, commit the intended files with a concise message and push the current branch to `origin`.
 - Never commit credentials, local caches, generated previews, or unrelated user files.
 - If authentication or the network blocks a push, preserve the local commit and report the exact blocker.
+
+## Preview Delivery Gate
+
+- After every project change, publish the resulting production build as a Netlify draft preview before reporting completion.
+- Every completion message must include the exact clickable preview URL for the committed state.
+- A change is not complete until `pnpm build` passes, the preview deployment succeeds, and the preview URL is confirmed reachable.
+- Preview deployments must remain separate from production publishing; do not replace or promote the production site unless the user explicitly asks for production release.
+- Do not stage or commit `.netlify`, `dist`, generated screenshots, local caches, or unrelated user files merely to create a preview.
