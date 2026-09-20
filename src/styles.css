@@ -337,8 +337,8 @@
 .works-overview-shell {
   position: relative;
   z-index: 2;
-  padding-top: clamp(82px, 7vw, 126px);
-  padding-bottom: clamp(64px, 6vw, 104px);
+  padding-top: clamp(46px, 4vw, 72px);
+  padding-bottom: clamp(32px, 3vw, 56px);
 }
 
 .works-overview-header {
@@ -6988,7 +6988,7 @@ video {
   display: grid;
   gap: clamp(34px, 4vw, 64px);
   padding-top: clamp(76px, 9vh, 112px);
-  padding-bottom: clamp(58px, 7vh, 92px);
+  padding-bottom: clamp(30px, 3.5vh, 46px);
   grid-template-columns: minmax(300px, 0.62fr) minmax(0, 1.38fr);
 }
 
