@@ -1237,6 +1237,7 @@ function Nav() {
   const navigateTo = (sectionId: string, target: number) => {
     const clampedTarget = Math.max(0, Math.min(target, document.documentElement.scrollHeight - window.innerHeight));
     window.history.replaceState(null, "", `#${sectionId}`);
+    setActiveSection(sectionId);
     scheduleComponentEntry(sectionId, clampedTarget);
     window.scrollTo({
       top: clampedTarget,
@@ -1250,13 +1251,15 @@ function Nav() {
       .map((sectionId) => document.getElementById(sectionId))
       .filter((section): section is HTMLElement => Boolean(section));
     const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((first, second) => second.intersectionRatio - first.intersectionRatio)[0];
-        if (visible?.target.id) setActiveSection(visible.target.id);
+      () => {
+        const activationLine = window.innerHeight * 0.4;
+        const active = sections
+          .map((section) => ({ section, rect: section.getBoundingClientRect() }))
+          .filter(({ rect }) => rect.top <= activationLine && rect.bottom > activationLine)
+          .sort((first, second) => second.rect.top - first.rect.top)[0];
+        if (active?.section.id) setActiveSection(active.section.id);
       },
-      { rootMargin: "-30% 0px -52%", threshold: [0, 0.2, 0.5, 0.8] },
+      { rootMargin: "0px", threshold: [0, 0.2, 0.5, 0.8] },
     );
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
@@ -3455,7 +3458,7 @@ function SelectedWorks({
           </header>
 
           <nav className="works-overview-filters" aria-label="作品分类">
-            {visualOutputCategories.map((item) => {
+            {visualOutputCategories.map((item, index) => {
               return (
               <button
                 key={item.id}
@@ -3465,8 +3468,14 @@ function SelectedWorks({
                 onClick={() => setCategoryId(item.id)}
                 aria-label={`${item.label}，${item.outputCount}件精选作品`}
               >
-                <span>{item.label}</span>
-                <small>{String(item.outputCount).padStart(2, "0")} 件作品</small>
+                <span className="works-overview-filter-meta">
+                  <small>{String(index + 1).padStart(2, "0")}</small>
+                  <small>{String(item.outputCount).padStart(2, "0")} 件</small>
+                </span>
+                <span className="works-overview-filter-title">
+                  <strong>{item.label}</strong>
+                  <small>{item.english}</small>
+                </span>
               </button>
               );
             })}
