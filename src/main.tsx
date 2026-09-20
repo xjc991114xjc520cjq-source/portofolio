@@ -3261,6 +3261,7 @@ function SelectedWorksLegacy({
 void SelectedWorksLegacy;
 
 type VisualOutputCategoryId = "identity" | "commerce" | "campaign" | "scene" | "motion";
+type VisualOutputViewId = "featured" | VisualOutputCategoryId;
 
 type VisualOutput = ProjectImageSource & {
   id: string;
@@ -3272,12 +3273,11 @@ type VisualOutput = ProjectImageSource & {
 };
 
 const visualOutputCategories = [
-  { id: "all", label: "全部作品", english: "ALL WORKS", outputCount: 18, description: "18 件精选作品，来自 12 个完整项目；更多画面仍在各个案例详情中。" },
-  { id: "identity", label: "产品呈现", english: "PRODUCT VISUALS", outputCount: 3, description: "用主图、定妆和结构画面把产品本身讲清楚，让第一眼就建立准确认知。" },
-  { id: "commerce", label: "功能说明", english: "FEATURE EXPLAINERS", outputCount: 3, description: "把功能、材质和使用方法变成一眼能读懂的商品内容，直接回答购买疑问。" },
-  { id: "campaign", label: "品牌传播", english: "BRAND CAMPAIGNS", outputCount: 3, description: "把产品卖点组织成海报和主视觉，适配上市、活动与渠道传播。" },
-  { id: "scene", label: "人物场景", english: "PEOPLE & SCENES", outputCount: 6, description: "用人物、动作和环境让产品进入真实生活，建立使用想象与情绪记忆。" },
-  { id: "motion", label: "动态内容", english: "MOTION FRAMES", outputCount: 3, description: "从影片开场、关键帧到结尾画面，延展出可以继续剪辑和传播的动态素材。" },
+  { id: "identity", label: "产品定妆", english: "PRODUCT VISUALS", outputCount: 10, description: "先让人看清产品是什么、长什么样，建立准确而有记忆点的第一印象。" },
+  { id: "commerce", label: "卖点表达", english: "FEATURE EXPLAINERS", outputCount: 10, description: "把功能、材质和使用方法讲到能被理解，也能直接回答购买疑问。" },
+  { id: "campaign", label: "品牌传播", english: "BRAND CAMPAIGNS", outputCount: 8, description: "把产品卖点组织成主视觉和海报，让品牌在第一眼被记住。" },
+  { id: "scene", label: "人物场景", english: "PEOPLE & SCENES", outputCount: 13, description: "用人物、动作和环境让人想象产品进入真实生活后的样子。" },
+  { id: "motion", label: "内容延展", english: "MOTION FRAMES", outputCount: 9, description: "从影片开场、关键帧到结尾画面，让一套视觉继续适配更多渠道。" },
 ] as const;
 
 const visualOutputs: VisualOutput[] = [
@@ -3299,7 +3299,44 @@ const visualOutputs: VisualOutput[] = [
   { id: "sona-motion", title: "产品片结尾帧", project: "SONA ARC ONE", category: "motion", shape: "standard", src: "/assets/projects/sona-earbuds/sona-film-finale.webp", alt: "SONA ARC ONE 产品影片结尾画面" },
   { id: "qinglan-motion", title: "茶香影片开场", project: "青岚茶事", category: "motion", shape: "wide", src: "/assets/projects/qinglan-tea/qinglan-oolong-film-opening-poster.webp", alt: "青岚茶事产品影片开场画面" },
   { id: "kova-motion", title: "运动影片关键帧", project: "KOVA", category: "motion", shape: "standard", src: "/assets/projects/kova-action-camera/kova-motion-kayak-poster.jpg", alt: "KOVA 运动相机皮划艇影片关键帧" },
+  { id: "fan-product", title: "产品校准主图", project: "桌面风扇", category: "identity", shape: "wide", src: "/assets/projects/table-fan/table-fan-product-calibration-v2.jpg", alt: "桌面风扇产品校准主图" },
+  { id: "fan-views", title: "多角度产品呈现", project: "桌面风扇", category: "identity", shape: "standard", src: "/assets/projects/table-fan/table-fan-views.webp", alt: "桌面风扇多角度产品呈现" },
+  { id: "serum-product", title: "精华液产品定妆", project: "精华液", category: "identity", shape: "tall", src: "/assets/projects/serum/serum-views.webp", alt: "精华液产品定妆与角度展示" },
+  { id: "terrain-product", title: "背包产品主视图", project: "TERRAIN 35", category: "identity", shape: "tall", src: "/assets/projects/terrain-35/terrain-hero-master.jpg", alt: "TERRAIN 35 背包产品主视图" },
+  { id: "yoga-product", title: "服饰正背面定妆", project: "瑜伽套装", category: "identity", shape: "standard", src: "/assets/projects/yoga-set/yoga-commerce-front-back.webp", alt: "瑜伽套装正背面产品定妆" },
+  { id: "sona-structure", title: "结构与材质呈现", project: "SONA ARC ONE", category: "identity", shape: "wide", src: "/assets/projects/sona-earbuds/sona-structure-board.webp", alt: "SONA ARC ONE 结构与材质呈现" },
+  { id: "fan-specs", title: "规格信息说明", project: "桌面风扇", category: "commerce", shape: "wide", src: "/assets/projects/table-fan/table-fan-sleep-specs.webp", alt: "桌面风扇规格信息说明" },
+  { id: "terrain-four-views", title: "四向产品确认", project: "TERRAIN 35", category: "commerce", shape: "wide", src: "/assets/projects/terrain-35/terrain-four-views.jpg", alt: "TERRAIN 35 四向产品确认" },
+  { id: "terrain-compression", title: "压缩状态说明", project: "TERRAIN 35", category: "commerce", shape: "wide", src: "/assets/projects/terrain-35/terrain-compression-states.jpg", alt: "TERRAIN 35 压缩状态说明" },
+  { id: "serum-commerce", title: "成分与质地说明", project: "精华液", category: "commerce", shape: "wide", src: "/assets/projects/serum/serum-commerce-formula.webp", alt: "精华液成分与质地说明" },
+  { id: "sona-anc", title: "降噪功能说明", project: "SONA ARC ONE", category: "commerce", shape: "standard", src: "/assets/projects/sona-earbuds/sona-anc-45db.webp", alt: "SONA ARC ONE 降噪功能说明" },
+  { id: "qinglan-commerce", title: "茶饮选择内容", project: "青岚茶事", category: "commerce", shape: "wide", src: "/assets/projects/qinglan-tea/qinglan-oolong-commerce-choice.webp", alt: "青岚茶事茶饮选择内容" },
+  { id: "serum-campaign", title: "精华液品牌主视觉", project: "精华液", category: "campaign", shape: "wide", src: "/assets/projects/serum/serum-vanity-kv.webp", alt: "精华液品牌主视觉" },
+  { id: "fan-campaign", title: "风扇生活方式主视觉", project: "桌面风扇", category: "campaign", shape: "wide", src: "/assets/projects/table-fan/table-fan-showcase-campaign-v2.jpg", alt: "桌面风扇生活方式主视觉" },
+  { id: "sona-launch", title: "耳机上市主视觉", project: "SONA ARC ONE", category: "campaign", shape: "wide", src: "/assets/projects/sona-earbuds/sona-launch-banner.webp", alt: "SONA ARC ONE 上市主视觉" },
+  { id: "yoga-campaign", title: "运动服饰品牌画面", project: "瑜伽套装", category: "campaign", shape: "wide", src: "/assets/projects/yoga-set/yoga-showcase-campaign-v2.jpg", alt: "瑜伽套装品牌传播画面" },
+  { id: "serum-scene", title: "晨间使用场景", project: "精华液", category: "scene", shape: "wide", src: "/assets/projects/serum/serum-morning-hero.webp", alt: "精华液晨间使用场景" },
+  { id: "serum-night", title: "夜间护理场景", project: "精华液", category: "scene", shape: "wide", src: "/assets/projects/serum/serum-night-scene.webp", alt: "精华液夜间护理场景" },
+  { id: "fan-room", title: "室内循环场景", project: "桌面风扇", category: "scene", shape: "wide", src: "/assets/projects/table-fan/table-fan-room-circulation.webp", alt: "桌面风扇室内循环场景" },
+  { id: "terrain-city", title: "城市通勤场景", project: "TERRAIN 35", category: "scene", shape: "wide", src: "/assets/projects/terrain-35/terrain-city.jpg", alt: "TERRAIN 35 城市通勤场景" },
+  { id: "yoga-lakeside", title: "户外运动场景", project: "瑜伽套装", category: "scene", shape: "wide", src: "/assets/projects/yoga-set/yoga-lakeside-balance.webp", alt: "瑜伽套装户外运动场景" },
+  { id: "qinglan-garden", title: "茶饮自然场景", project: "青岚茶事", category: "scene", shape: "wide", src: "/assets/projects/qinglan-tea/qinglan-scene-tea-garden-sunrise.webp", alt: "青岚茶事茶饮自然场景" },
+  { id: "sona-film-lift", title: "产品片情绪关键帧", project: "SONA ARC ONE", category: "motion", shape: "wide", src: "/assets/projects/sona-earbuds/sona-film-lift.webp", alt: "SONA ARC ONE 产品片情绪关键帧" },
+  { id: "qinglan-film-garden", title: "茶香影片关键帧", project: "青岚茶事", category: "motion", shape: "wide", src: "/assets/projects/qinglan-tea/qinglan-oolong-film-garden-poster.webp", alt: "青岚茶事茶香影片关键帧" },
+  { id: "qinglan-film-drinking", title: "饮用场景影片帧", project: "青岚茶事", category: "motion", shape: "wide", src: "/assets/projects/qinglan-tea/qinglan-oolong-film-drinking-poster.webp", alt: "青岚茶事饮用场景影片帧" },
+  { id: "sona-film-awake", title: "产品片开场画面", project: "SONA ARC ONE", category: "motion", shape: "standard", src: "/assets/projects/sona-earbuds/sona-film-awake.webp", alt: "SONA ARC ONE 产品片开场画面" },
+  { id: "terrain-closing", title: "背包产品片收束帧", project: "TERRAIN 35", category: "motion", shape: "wide", src: "/assets/projects/terrain-35/terrain-closing.jpg", alt: "TERRAIN 35 背包产品片收束帧" },
+  { id: "air-views", title: "产品多角度定妆", project: "空气炸锅", category: "identity", shape: "standard", src: "/assets/projects/air-fryer/air-fryer-views.webp", alt: "空气炸锅产品多角度定妆" },
+  { id: "speaker-control", title: "户外功能说明", project: "户外音箱", category: "commerce", shape: "wide", src: "/assets/projects/outdoor-speaker/speaker-commerce-control.webp", alt: "户外音箱功能说明" },
+  { id: "kova-campaign", title: "运动相机传播主视觉", project: "KOVA", category: "campaign", shape: "wide", src: "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg", alt: "KOVA 运动相机传播主视觉" },
+  { id: "kova-motion-product", title: "产品影片关键帧", project: "KOVA", category: "motion", shape: "wide", src: "/assets/projects/kova-action-camera/kova-motion-product-poster.jpg", alt: "KOVA 产品影片关键帧" },
+  { id: "speaker-hiking", title: "携带使用场景", project: "户外音箱", category: "scene", shape: "wide", src: "/assets/projects/outdoor-speaker/speaker-hiking-carry.webp", alt: "户外音箱携带使用场景" },
 ];
+
+const featuredOutputIds = ["kova-product", "terrain-detail", "terrain-campaign", "skirt-people", "qinglan-motion"];
+const featuredOutputs = featuredOutputIds
+  .map((id) => visualOutputs.find((output) => output.id === id))
+  .filter((output): output is VisualOutput => Boolean(output));
 
 function VisualOutputCard({
   output,
@@ -3357,12 +3394,14 @@ function SelectedWorks({
   exitProgress: MotionValue<number>;
 }) {
   const reduceMotion = useReducedMotion() ?? false;
-  const [categoryId, setCategoryId] = useState<(typeof visualOutputCategories)[number]["id"]>("all");
+  const [categoryId, setCategoryId] = useState<VisualOutputViewId>("featured");
   const { activeImage, openImage, closeImage } = useProjectImageLightbox();
-  const filteredOutputs = categoryId === "all"
-    ? visualOutputs
+  const filteredOutputs = categoryId === "featured"
+    ? featuredOutputs
     : visualOutputs.filter((output) => output.category === categoryId);
-  const activeCategory = visualOutputCategories.find((item) => item.id === categoryId) ?? visualOutputCategories[0];
+  const activeCategory = categoryId === "featured"
+    ? { id: "featured", label: "精选代表作", english: "SELECTED WORKS", outputCount: featuredOutputs.length, description: "每个方向只先展示一张代表作；点击分类后，再进入该方向的完整作品集合。" }
+    : visualOutputCategories.find((item) => item.id === categoryId) ?? visualOutputCategories[0];
   const backdropImage = filteredOutputs[0]?.src ?? visualOutputs[0].src;
   const entryOpacity = useTransform(handoffProgress, [0, 0.1, 0.34], [0, 0.72, 1]);
   const entryY = useTransform(handoffProgress, [0, 0.5, 1], [reduceMotion ? 0 : 72, reduceMotion ? 0 : 12, 0]);
@@ -3401,12 +3440,12 @@ function SelectedWorks({
           <header className="works-overview-header">
             <div>
               <span className="works-overview-kicker">交付能力 / OUTPUT INDEX</span>
-              <h2 id="works-overview-title">18 件精选作品，按视觉任务浏览。</h2>
-              <p>商业案例看项目全貌，这里看可独立使用的视觉成果。同一项目可以贡献多件作品；以下是精选，不是总量。</p>
+              <h2 id="works-overview-title">50 件作品，先看每个方向的一张代表作。</h2>
+              <p>商业案例看项目全貌，这里看可独立使用的视觉成果。首屏只展示 5 张代表作，进入分类后查看该方向的完整作品。</p>
             </div>
-            <div className="works-overview-total" aria-label="18件精选作品，来自12个完整项目">
-              <strong>18</strong>
-              <span>精选作品</span>
+            <div className="works-overview-total" aria-label="50件作品，来自12个完整项目">
+              <strong>50</strong>
+              <span>完整作品</span>
               <small>来自 12 个项目</small>
             </div>
           </header>
@@ -3434,11 +3473,16 @@ function SelectedWorks({
               <small>{activeCategory.english}</small>
               <strong>{activeCategory.description}</strong>
             </div>
-            <span>{activeCategory.outputCount} 件精选作品</span>
+            <span>{activeCategory.outputCount} 件作品</span>
+            {categoryId !== "featured" ? (
+              <button type="button" className="works-overview-back-to-featured" onClick={() => setCategoryId("featured")}>
+                返回 5 张代表作
+              </button>
+            ) : null}
           </div>
 
           <motion.div
-            className={`works-overview-grid${categoryId === "all" ? " is-all" : " is-filtered"}`}
+            className={`works-overview-grid${categoryId === "featured" ? " is-featured" : " is-filtered"}`}
             layout={!reduceMotion}
           >
             <AnimatePresence initial={false}>
