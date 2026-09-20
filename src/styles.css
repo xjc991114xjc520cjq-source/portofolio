@@ -412,78 +412,99 @@
 
 .works-overview-filters {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  margin-bottom: clamp(28px, 3vw, 46px);
-  border-bottom: 1px solid rgba(235, 239, 242, 0.16);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin: 26px 0 24px;
 }
 
 .works-overview-filters button {
   position: relative;
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  align-content: space-between;
+  gap: 23px;
   min-width: 0;
-  padding: 22px 18px 21px;
-  border: 0;
-  border-right: 1px solid rgba(235, 239, 242, 0.11);
-  color: rgba(235, 239, 242, 0.46);
-  background: transparent;
+  min-height: 112px;
+  padding: 15px 17px 17px;
+  border: 1px solid rgba(235, 239, 242, 0.12);
+  color: rgba(235, 239, 242, 0.58);
+  text-align: left;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.008));
   cursor: pointer;
-  transition: color 220ms ease, background-color 220ms ease;
-}
-
-.works-overview-filters button:first-child {
-  padding-left: 0;
-}
-
-.works-overview-filters button:last-child {
-  padding-right: 0;
-  border-right: 0;
+  transition: color 220ms ease, border-color 220ms ease, background-color 220ms ease, translate 220ms ease;
 }
 
 .works-overview-filters button::after {
   content: "";
   position: absolute;
-  right: 16px;
-  bottom: -1px;
-  left: 16px;
-  height: 2px;
+  top: 14px;
+  right: 14px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
   background: #9dbddd;
-  scale: 0 1;
-  transform-origin: left;
-  transition: scale 260ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.works-overview-filters button:first-child::after {
-  left: 0;
+  opacity: 0;
+  scale: 0.5;
+  transition: opacity 220ms ease, scale 220ms ease;
 }
 
 .works-overview-filters button:hover,
 .works-overview-filters button:focus-visible,
 .works-overview-filters button.is-active {
   color: #f4f4f0;
-  background: rgba(255, 255, 255, 0.025);
+  border-color: rgba(157, 189, 221, 0.46);
+  background: linear-gradient(145deg, rgba(157, 189, 221, 0.12), rgba(255, 255, 255, 0.025));
+}
+
+.works-overview-filters button:hover,
+.works-overview-filters button:focus-visible {
+  translate: 0 -2px;
 }
 
 .works-overview-filters button.is-active::after {
-  scale: 1 1;
+  opacity: 1;
+  scale: 1;
 }
 
-.works-overview-filters button span {
+.works-overview-filter-meta,
+.works-overview-filter-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 0;
+}
+
+.works-overview-filter-meta small {
+  color: rgba(157, 189, 221, 0.67);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.works-overview-filter-meta small:first-child {
+  color: rgba(235, 239, 242, 0.38);
+}
+
+.works-overview-filter-title {
+  align-items: end;
+  gap: 8px;
+}
+
+.works-overview-filter-title strong {
   overflow: hidden;
-  font-size: 14px;
+  color: #f4f4f0;
+  font-size: clamp(13px, 1vw, 16px);
   font-weight: 650;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.works-overview-filters button small {
-  flex: none;
-  color: rgba(157, 189, 221, 0.66);
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+.works-overview-filter-title small {
+  overflow: hidden;
+  color: rgba(235, 239, 242, 0.34);
+  font-size: 7px;
+  letter-spacing: 0.08em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .works-overview-category-note {
@@ -689,8 +710,12 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .works-overview-filters button:nth-child(3) {
-    border-right: 0;
+  .works-overview-filters button {
+    min-height: 100px;
+  }
+
+  .works-overview-filter-title small {
+    display: none;
   }
 
 }
@@ -759,31 +784,26 @@
   }
 
   .works-overview-filters button,
-  .works-overview-filters button:first-child,
-  .works-overview-filters button:last-child {
-    flex: 0 0 auto;
-    min-width: 116px;
-    padding: 18px 14px 17px;
-    border-right: 1px solid rgba(235, 239, 242, 0.11);
+  .works-overview-filters button:first-child {
+    min-width: 148px;
+    min-height: 92px;
+    padding: 13px 13px 14px;
     scroll-snap-align: start;
   }
 
-  .works-overview-filters button:first-child {
-    min-width: 104px;
-    padding-left: 0;
+  .works-overview-filter-title {
+    display: grid;
+    gap: 5px;
+    align-items: start;
   }
 
-  .works-overview-filters button::after {
-    right: 14px;
-    left: 14px;
+  .works-overview-filter-title strong {
+    font-size: 13px;
   }
 
-  .works-overview-filters button:first-child::after {
-    left: 0;
-  }
-
-  .works-overview-filters button span {
-    font-size: 12px;
+  .works-overview-filter-title small {
+    display: block;
+    font-size: 7px;
   }
 
   .works-overview-grid.is-all,
