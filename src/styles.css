@@ -4640,7 +4640,7 @@ video {
 
 .profile-backdrop {
   position: absolute;
-  top: calc(clamp(88px, 12vh, 140px) - var(--profile-body-lift, 0px));
+  top: clamp(88px, 12vh, 140px);
   right: 0;
   left: 0;
   z-index: -1;
@@ -8313,7 +8313,7 @@ video {
   }
 
   .profile-backdrop {
-    top: calc(11% - var(--profile-body-lift, 0px));
+    top: 11%;
   }
 
   .project-showcase {
@@ -8775,7 +8775,7 @@ video {
   }
 
   .profile-backdrop {
-    top: calc(118px - var(--profile-body-lift, 0px));
+    top: 118px;
     font-size: 31vw;
   }
 
