@@ -1278,7 +1278,9 @@ function Nav() {
     const profile = document.getElementById("profile");
     if (!profile) return;
     event.preventDefault();
-    navigateTo("profile", profile.offsetTop + window.innerHeight * 0.08);
+    const profileTop = profile.getBoundingClientRect().top + window.scrollY;
+    const profileInset = Math.max(140, Math.min(160, window.innerHeight * 0.12));
+    navigateTo("profile", profileTop - profileInset);
   };
 
   const showWorks = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -1317,7 +1319,7 @@ function Nav() {
           <a href="#project-showcase" onClick={showProjects} aria-current={activeSection === "project-showcase" ? "page" : undefined}>代表项目</a>
           <a href="#work" onClick={showWorks} aria-current={activeSection === "work" ? "page" : undefined}>作品</a>
           <a href="#ai-lab" onClick={showLab} aria-current={activeSection === "ai-lab" ? "page" : undefined}>AI 控制</a>
-          <a href="#profile" onClick={showProfile} aria-current={activeSection === "profile" ? "page" : undefined}>关于</a>
+          <a href="#profile" onClick={showProfile} aria-current={activeSection === "profile" ? "page" : undefined}>关于我</a>
         </nav>
         <a className="say-hi" href={`mailto:${contactEmail}`} aria-current={activeSection === "contact" ? "page" : undefined}>
           联系
