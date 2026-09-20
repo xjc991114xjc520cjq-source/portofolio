@@ -3284,6 +3284,7 @@ const visualOutputCategories = [
   { id: "scene", label: "人物场景", english: "PEOPLE & SCENES", outputCount: 13, description: "用人物、动作和环境让人想象产品进入真实生活后的样子。" },
   { id: "motion", label: "内容延展", english: "MOTION FRAMES", outputCount: 9, description: "从影片开场、关键帧到结尾画面，让一套视觉继续适配更多渠道。" },
 ] as const;
+const visualOutputViewOrder: readonly VisualOutputViewId[] = ["featured", ...visualOutputCategories.map(({ id }) => id)];
 
 const visualOutputs: VisualOutput[] = [
   { id: "air-product", title: "厨房产品定妆", project: "空气炸锅", category: "identity", shape: "wide", src: "/assets/projects/air-fryer/air-fryer-product.webp", alt: "空气炸锅标准产品定妆图" },
@@ -3360,11 +3361,9 @@ function VisualOutputCard({
     <motion.button
       type="button"
       className={`visual-output-card is-${output.shape}`}
-      layout={!reduceMotion}
-      initial={reduceMotion ? false : { opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 16 }}
-      transition={{ duration: reduceMotion ? 0.01 : 0.48, delay: reduceMotion ? 0 : Math.min(index * 0.035, 0.24), ease: [0.16, 1, 0.3, 1] }}
+      initial={reduceMotion ? false : { opacity: 0, y: 16, scale: 0.985 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: reduceMotion ? 0.01 : 0.32, delay: reduceMotion ? 0 : Math.min(index * 0.035, 0.21), ease: [0.16, 1, 0.3, 1] }}
       onClick={() => onOpen(output)}
       aria-label={`放大查看${output.project}${output.title}`}
     >
@@ -3402,7 +3401,16 @@ function SelectedWorks({
 }) {
   const reduceMotion = useReducedMotion() ?? false;
   const [categoryId, setCategoryId] = useState<VisualOutputViewId>("featured");
+  const [categoryDirection, setCategoryDirection] = useState(1);
   const { activeImage, openImage, closeImage } = useProjectImageLightbox();
+  const selectCategory = (nextCategoryId: VisualOutputViewId) => {
+    if (nextCategoryId !== categoryId) {
+      const currentIndex = visualOutputViewOrder.indexOf(categoryId);
+      const nextIndex = visualOutputViewOrder.indexOf(nextCategoryId);
+      setCategoryDirection(nextIndex > currentIndex ? 1 : -1);
+    }
+    setCategoryId(nextCategoryId);
+  };
   const filteredOutputs = categoryId === "featured"
     ? featuredOutputs
     : visualOutputs.filter((output) => output.category === categoryId);
@@ -3465,9 +3473,21 @@ function SelectedWorks({
                 type="button"
                 className={item.id === categoryId ? "is-active" : undefined}
                 aria-pressed={item.id === categoryId}
-                onClick={() => setCategoryId(item.id)}
+                onClick={() => selectCategory(item.id)}
                 aria-label={`${item.label}，${item.outputCount}件精选作品`}
               >
+                {item.id === categoryId ? (
+                  reduceMotion ? (
+                    <span className="works-overview-filter-highlight" aria-hidden="true" />
+                  ) : (
+                    <motion.span
+                      className="works-overview-filter-highlight"
+                      layoutId="works-overview-filter-highlight"
+                      transition={{ type: "spring", stiffness: 560, damping: 42, mass: 0.72 }}
+                      aria-hidden="true"
+                    />
+                  )
+                ) : null}
                 <span className="works-overview-filter-meta">
                   <small>{String(index + 1).padStart(2, "0")}</small>
                   <small>{String(item.outputCount).padStart(2, "0")} 件</small>
@@ -3481,24 +3501,54 @@ function SelectedWorks({
             })}
           </nav>
 
-          <div className="works-overview-category-note" aria-live="polite">
+          <motion.div
+            className="works-overview-category-note"
+            key={categoryId}
+            initial={reduceMotion ? false : { opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: reduceMotion ? 0.01 : 0.22, delay: reduceMotion ? 0 : 0.08, ease: [0.16, 1, 0.3, 1] }}
+            aria-live="polite"
+          >
             <div>
               <small>{activeCategory.english}</small>
               <strong>{activeCategory.description}</strong>
             </div>
             <span>{activeCategory.outputCount} 件作品</span>
             {categoryId !== "featured" ? (
-              <button type="button" className="works-overview-back-to-featured" onClick={() => setCategoryId("featured")}>
+              <button type="button" className="works-overview-back-to-featured" onClick={() => selectCategory("featured")}>
                 返回 5 张代表作
               </button>
             ) : null}
-          </div>
+          </motion.div>
 
-          <motion.div
-            className={`works-overview-grid${categoryId === "featured" ? " is-featured" : " is-filtered"}`}
-            layout={!reduceMotion}
-          >
-            <AnimatePresence initial={false}>
+          <AnimatePresence initial={false} mode="wait" custom={categoryDirection}>
+            <motion.div
+              key={categoryId}
+              className={`works-overview-grid${categoryId === "featured" ? " is-featured" : " is-filtered"}`}
+              custom={categoryDirection}
+              variants={{
+                enter: (direction: number) => ({ opacity: 0, x: reduceMotion ? 0 : direction * 24 }),
+                visible: {
+                  opacity: 1,
+                  x: 0,
+                  transition: {
+                    opacity: { duration: reduceMotion ? 0.01 : 0.2 },
+                    x: { duration: reduceMotion ? 0.01 : 0.28, ease: [0.16, 1, 0.3, 1] },
+                  },
+                },
+                exit: (direction: number) => ({
+                  opacity: 0,
+                  x: reduceMotion ? 0 : direction * -14,
+                  transition: {
+                    opacity: { duration: reduceMotion ? 0.01 : 0.14 },
+                    x: { duration: reduceMotion ? 0.01 : 0.18, ease: [0.4, 0, 1, 1] },
+                  },
+                }),
+              }}
+              initial="enter"
+              animate="visible"
+              exit="exit"
+            >
               {filteredOutputs.map((output, index) => (
                 <VisualOutputCard
                   key={output.id}
@@ -3508,8 +3558,8 @@ function SelectedWorks({
                   onOpen={openImage}
                 />
               ))}
-            </AnimatePresence>
-          </motion.div>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </motion.div>
 

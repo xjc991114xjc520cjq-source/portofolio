@@ -425,10 +425,10 @@
   min-width: 0;
   min-height: 112px;
   padding: 15px 17px 17px;
-  border: 1px solid rgba(235, 239, 242, 0.12);
+  border: 1px solid transparent;
   color: rgba(235, 239, 242, 0.58);
   text-align: left;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.008));
+  background: transparent;
   cursor: pointer;
   transition: color 220ms ease, border-color 220ms ease, background-color 220ms ease, translate 220ms ease;
 }
@@ -436,6 +436,7 @@
 .works-overview-filters button::after {
   content: "";
   position: absolute;
+  z-index: 2;
   top: 14px;
   right: 14px;
   width: 5px;
@@ -448,11 +449,23 @@
 }
 
 .works-overview-filters button:hover,
-.works-overview-filters button:focus-visible,
+.works-overview-filters button:focus-visible {
+  color: #f4f4f0;
+  border-color: rgba(235, 239, 242, 0.18);
+  background: rgba(255, 255, 255, 0.025);
+}
+
 .works-overview-filters button.is-active {
   color: #f4f4f0;
-  border-color: rgba(157, 189, 221, 0.46);
+}
+
+.works-overview-filter-highlight {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  border: 1px solid rgba(157, 189, 221, 0.46);
   background: linear-gradient(145deg, rgba(157, 189, 221, 0.12), rgba(255, 255, 255, 0.025));
+  pointer-events: none;
 }
 
 .works-overview-filters button:hover,
@@ -467,6 +480,8 @@
 
 .works-overview-filter-meta,
 .works-overview-filter-title {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -565,10 +580,9 @@
 
 .works-overview-grid {
   display: grid;
-  gap: 1px;
-  overflow: hidden;
-  border: 1px solid rgba(235, 239, 242, 0.16);
-  background: rgba(235, 239, 242, 0.16);
+  gap: clamp(12px, 1.15vw, 20px);
+  overflow: visible;
+  background: transparent;
 }
 
 .works-overview-grid.is-featured {
@@ -592,7 +606,7 @@
   padding: 0;
   border: 0;
   color: #f5f5f2;
-  background: #101214;
+  background: #08090a;
   cursor: pointer;
   text-align: left;
   isolation: isolate;
@@ -600,6 +614,18 @@
 
 .works-overview-grid.is-filtered .visual-output-card {
   aspect-ratio: 4 / 3;
+}
+
+.works-overview-grid.is-filtered .visual-output-card > img {
+  filter: brightness(0.84) saturate(0.96);
+}
+
+.works-overview-grid.is-filtered .visual-output-card-shade {
+  background:
+    radial-gradient(ellipse at 50% 46%, transparent 28%, rgba(4, 5, 6, 0.3) 100%),
+    linear-gradient(rgba(4, 5, 6, 0.14), rgba(4, 5, 6, 0.14)),
+    linear-gradient(180deg, rgba(4, 5, 6, 0.2) 0%, transparent 42%, rgba(4, 5, 6, 0.88) 100%),
+    linear-gradient(90deg, rgba(4, 5, 6, 0.24), transparent 54%);
 }
 
 .visual-output-card > img {
@@ -616,6 +642,7 @@
   inset: 0;
   z-index: 1;
   background:
+    linear-gradient(rgba(4, 5, 6, 0.14), rgba(4, 5, 6, 0.14)),
     linear-gradient(180deg, rgba(4, 5, 6, 0.2) 0%, transparent 42%, rgba(4, 5, 6, 0.88) 100%),
     linear-gradient(90deg, rgba(4, 5, 6, 0.24), transparent 54%);
   transition: background-color 260ms ease;
@@ -682,7 +709,7 @@
 .visual-output-card:hover > img,
 .visual-output-card:focus-visible > img {
   scale: 1.035;
-  filter: saturate(1.06) contrast(1.02);
+  filter: brightness(0.98) saturate(1.04) contrast(1.02);
 }
 
 .visual-output-card:hover .visual-output-card-meta > span,
