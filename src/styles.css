@@ -10979,6 +10979,12 @@ video {
   margin-top: calc(clamp(190px, 20vh, 250px) * -1);
 }
 
+@media (min-width: 981px) {
+  .profile.profile-late {
+    --profile-body-lift: clamp(0px, calc(18vh - 102px), 112px);
+  }
+}
+
 .profile.profile-late .profile-shell {
   min-height: 100dvh;
 }
