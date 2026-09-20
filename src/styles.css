@@ -11034,7 +11034,7 @@ video {
 @media (min-width: 981px) {
   .profile.profile-late {
     --profile-body-lift: clamp(0px, calc(18vh - 102px), 112px);
-    --profile-backdrop-drop: clamp(48px, 5vh, 64px);
+    --profile-backdrop-drop: clamp(96px, 10vh, 128px);
     --profile-rule-drop: clamp(96px, 10vh, 128px);
   }
 
