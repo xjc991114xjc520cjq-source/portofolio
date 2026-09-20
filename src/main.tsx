@@ -4893,23 +4893,91 @@ function ProjectShowcase({
   );
 }
 
+type AILabProofGroup = {
+  id: string;
+  index: string;
+  title: string;
+  english: string;
+  description: string;
+  images: readonly { src: string; alt: string }[];
+};
+
+function AILabProofCard({
+  group,
+  groupIndex,
+  progress,
+  reduceMotion,
+}: {
+  group: AILabProofGroup;
+  groupIndex: number;
+  progress: MotionValue<number>;
+  reduceMotion: boolean | null;
+}) {
+  const start = 0.1 + groupIndex * 0.055;
+  const end = start + 0.18;
+  const cardOpacity = useTransform(progress, [0, start, end, 0.92, 1], [0, 0, 1, 1, 0]);
+  const cardY = useTransform(progress, [0, start, end, 0.92, 1], [54, 54, 0, 0, -28]);
+  const cardScale = useTransform(progress, [0, start, end, 0.92, 1], [0.985, 0.985, 1, 1, 0.99]);
+  const cardFilter = useTransform(progress, [0, start, end, 0.92, 1], ["blur(7px)", "blur(7px)", "blur(0px)", "blur(0px)", "blur(5px)"]);
+  const mediaOpacity = useTransform(progress, [0, start, end, 1], [0, 0, 1, 0]);
+  const mediaClip = useTransform(progress, [0, start, end, 1], ["inset(0 0 100% 0)", "inset(0 0 100% 0)", "inset(0 0 0% 0)", "inset(0 0 0% 0)"]);
+  const motionStyle = reduceMotion ? undefined : {
+    opacity: cardOpacity,
+    y: cardY,
+    scale: cardScale,
+    filter: cardFilter,
+  };
+
+  return (
+    <motion.article
+      className={`ai-proof-card ai-proof-card-${groupIndex + 1}`}
+      style={motionStyle}
+    >
+      <div className="ai-proof-media">
+        {group.images.map((image, imageIndex) => (
+          <motion.figure
+            key={image.src}
+            style={reduceMotion ? undefined : {
+              opacity: mediaOpacity,
+              clipPath: mediaClip,
+            }}
+          >
+            <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />
+            <span aria-hidden="true">{String(imageIndex + 1).padStart(2, "0")}</span>
+          </motion.figure>
+        ))}
+      </div>
+      <div className="ai-proof-copy">
+        <span>{group.index}</span>
+        <div>
+          <small>{group.english}</small>
+          <h3>{group.title}</h3>
+          <p>{group.description}</p>
+        </div>
+      </div>
+    </motion.article>
+  );
+}
+
 function AILab() {
   const reduceMotion = useReducedMotion();
+  const labRef = useRef<HTMLElement>(null);
+  const { scrollYProgress: labProgress } = useScroll({
+    target: labRef,
+    offset: ["start end", "end start"],
+  });
 
-  const aiLabReveal = {
-    hidden: reduceMotion ? { opacity: 1 } : { opacity: 0, y: 54, scale: 0.985 },
-    visible: { opacity: 1, y: 0, scale: 1 },
-  } as const;
-
-  const aiLabHeadingReveal = {
-    hidden: reduceMotion ? { opacity: 1 } : { opacity: 0, y: 38, filter: "blur(9px)" },
-    visible: { opacity: 1, y: 0, filter: "blur(0px)" },
-  } as const;
-
-  const aiLabMediaReveal = {
-    hidden: reduceMotion ? { opacity: 1 } : { opacity: 0, clipPath: "inset(0 0 100% 0)" },
-    visible: { opacity: 1, clipPath: "inset(0 0 0% 0)" },
-  } as const;
+  const headingOpacity = useTransform(labProgress, [0, 0.1, 0.28, 0.82, 0.96, 1], [0, 0.48, 1, 1, 0.24, 0]);
+  const headingY = useTransform(labProgress, [0, 0.26, 0.82, 1], [72, 0, 0, -54]);
+  const headingFilter = useTransform(labProgress, [0, 0.2, 0.82, 1], ["blur(10px)", "blur(0px)", "blur(0px)", "blur(8px)"]);
+  const proofOpacity = useTransform(labProgress, [0, 0.08, 0.22, 0.92, 1], [0, 0.4, 1, 1, 0]);
+  const proofY = useTransform(labProgress, [0, 0.3, 0.86, 1], [86, 0, 0, -52]);
+  const proofScale = useTransform(labProgress, [0, 0.3, 0.86, 1], [0.94, 1, 1, 0.98]);
+  const proofClip = useTransform(labProgress, [0, 0.28, 1], ["inset(0 0 14% 0)", "inset(0 0 0% 0)", "inset(0 0 0% 0)"]);
+  const workflowOpacity = useTransform(labProgress, [0.24, 0.42, 0.9, 1], [0, 1, 1, 0]);
+  const workflowY = useTransform(labProgress, [0.24, 0.42, 0.9, 1], [32, 0, 0, -24]);
+  const listOpacity = useTransform(labProgress, [0.38, 0.58, 0.92, 1], [0, 1, 1, 0]);
+  const listY = useTransform(labProgress, [0.38, 0.58, 0.92, 1], [38, 0, 0, -24]);
 
   const proofGroups = [
     {
@@ -4950,24 +5018,21 @@ function AILab() {
   ] as const;
 
   return (
-    <section className="ai-lab" id="ai-lab" aria-labelledby="ai-lab-title">
+    <section ref={labRef} className="ai-lab" id="ai-lab" aria-labelledby="ai-lab-title">
       <div className="ai-lab-shell shell">
         <motion.header
           className="ai-lab-heading"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.34 }}
-          variants={{ hidden: {}, visible: { transition: { staggerChildren: reduceMotion ? 0 : 0.1 } } }}
+          style={reduceMotion ? undefined : { opacity: headingOpacity, y: headingY, filter: headingFilter }}
         >
-          <motion.p variants={aiLabHeadingReveal}>CONTROLLED AI WORKFLOW</motion.p>
-          <motion.h2 id="ai-lab-title" variants={aiLabHeadingReveal}>
+          <p>CONTROLLED AI WORKFLOW</p>
+          <h2 id="ai-lab-title">
             <span>不是生成更多</span>
             <span>而是稳定复现</span>
-          </motion.h2>
-          <motion.p className="ai-lab-intro" variants={aiLabHeadingReveal}>
+          </h2>
+          <p className="ai-lab-intro">
             先锁定产品身份，再释放状态、SKU、机位与环境变量。三组案例，分别验证连续性、家族关系与场景识别。
-          </motion.p>
-          <motion.div className="ai-lab-heading-meta" variants={aiLabHeadingReveal}>
+          </p>
+          <div className="ai-lab-heading-meta">
             <span>01—03 / PROOF INDEX</span>
             <i aria-hidden="true" />
             <div>
@@ -4975,71 +5040,44 @@ function AILab() {
               <b>SKU 家族</b>
               <b>场景识别</b>
             </div>
-          </motion.div>
+          </div>
         </motion.header>
 
         <motion.div
           className="ai-lab-proof"
-          initial={reduceMotion ? false : { opacity: 0, y: 82, scale: 0.94, clipPath: "inset(0 0 12% 0)" }}
-          whileInView={{ opacity: 1, y: 0, scale: 1, clipPath: "inset(0 0 0% 0)" }}
-          viewport={{ once: true, amount: 0.16 }}
-          transition={{ duration: reduceMotion ? 0 : 0.96, ease: [0.16, 1, 0.3, 1] }}
+          style={reduceMotion ? undefined : {
+            opacity: proofOpacity,
+            y: proofY,
+            scale: proofScale,
+            clipPath: proofClip,
+          }}
         >
           {proofGroups.map((group, groupIndex) => (
-            <motion.article
-              className={`ai-proof-card ai-proof-card-${groupIndex + 1}`}
+            <AILabProofCard
               key={group.id}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.16 }}
-              variants={aiLabReveal}
-              transition={{ duration: reduceMotion ? 0 : 0.62, delay: reduceMotion ? 0 : 0.12 + groupIndex * 0.1, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <div className="ai-proof-media">
-                {group.images.map((image, imageIndex) => (
-                  <motion.figure
-                    key={image.src}
-                    variants={aiLabMediaReveal}
-                    transition={{ duration: reduceMotion ? 0 : 0.68, delay: reduceMotion ? 0 : 0.16 + imageIndex * 0.07 + groupIndex * 0.06, ease: [0.77, 0, 0.175, 1] }}
-                  >
-                    <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />
-                    <span aria-hidden="true">{String(imageIndex + 1).padStart(2, "0")}</span>
-                  </motion.figure>
-                ))}
-              </div>
-              <div className="ai-proof-copy">
-                <span>{group.index}</span>
-                <div>
-                  <small>{group.english}</small>
-                  <h3>{group.title}</h3>
-                  <p>{group.description}</p>
-                </div>
-              </div>
-            </motion.article>
+              group={group}
+              groupIndex={groupIndex}
+              progress={labProgress}
+              reduceMotion={reduceMotion}
+            />
           ))}
         </motion.div>
 
         <motion.div
           className="ai-lab-workflow"
           aria-label="AI 商业视觉工作流"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.16 }}
-          variants={{ hidden: {}, visible: { transition: { staggerChildren: reduceMotion ? 0 : 0.06 } } }}
+          style={reduceMotion ? undefined : { opacity: workflowOpacity, y: workflowY }}
         >
           {['商业命题', '识别锚点', '变量扩展', '人工审核', '触点交付'].map((step) => (
-            <motion.span key={step} variants={aiLabReveal}>{step}</motion.span>
+            <span key={step}>{step}</span>
           ))}
         </motion.div>
 
         <div className="ai-lab-list">
-          {aiLabItems.map((item, index) => (
+          {aiLabItems.map((item) => (
             <motion.article
               key={item.title}
-              initial={reduceMotion ? false : { opacity: 0, y: 42, filter: "blur(6px)" }}
-              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              viewport={{ once: true, amount: 0.16 }}
-              transition={{ duration: reduceMotion ? 0 : 0.64, delay: reduceMotion ? 0 : index * 0.09, ease: [0.16, 1, 0.3, 1] }}
+              style={reduceMotion ? undefined : { opacity: listOpacity, y: listY }}
             >
               <div>
                 <strong>{item.title}</strong>
