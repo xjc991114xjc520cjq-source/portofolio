@@ -3680,8 +3680,11 @@ function Profile() {
   const copyOpacity = useTransform(pacedRevealProgress, [0.08, 0.32], [0, 1]);
   const copyX = useTransform(pacedRevealProgress, [0.08, 0.34], [-92, 0]);
   const copyY = useTransform(pacedRevealProgress, [0.08, 0.34], [42, 0]);
-  const factsOpacity = useTransform(pacedRevealProgress, [0.15, 0.34], [0, 1]);
-  const factsX = useTransform(pacedRevealProgress, [0.14, 0.34], [96, 0]);
+  // Enter on the same reveal window as the left copy. Keep the rightward
+  // direction, but avoid a second CSS animation after this MotionValue settles.
+  const factsOpacity = useTransform(pacedRevealProgress, [0.08, 0.32], [0, 1]);
+  const factsX = useTransform(pacedRevealProgress, [0.08, 0.34], [92, 0]);
+  const factsY = useTransform(pacedRevealProgress, [0.08, 0.32], [42, 0]);
   const bottomlineOpacity = useTransform(pacedRevealProgress, [0.22, 0.34], [0, 1]);
   const bottomlineY = useTransform(pacedRevealProgress, [0.22, 0.34], [34, 0]);
   const profileExitOpacity = useTransform(handoffProgress, [0, 0.06, 0.5, 0.78, 1], [1, 1, 0.3, 0.05, 0]);
@@ -3763,7 +3766,7 @@ function Profile() {
 
         <motion.aside
           className="profile-facts"
-          style={reduceMotion ? undefined : { opacity: factsOpacity, x: factsX }}
+          style={reduceMotion ? undefined : { opacity: factsOpacity, x: factsX, y: factsY }}
         >
           <p className="profile-statement">
             <span className="profile-statement-label">CORE PRACTICE</span>
