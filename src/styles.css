@@ -2606,7 +2606,8 @@ video {
 }
 
 #profile.nav-component-enter .profile-facts {
-  animation: nav-component-slide-right 680ms var(--ease-drawer) 210ms both;
+  /* Reuse the approved left-copy timing; only the direction differs. */
+  animation: nav-component-slide-right 720ms var(--ease-drawer) 70ms both;
 }
 
 #profile.nav-component-enter .profile-bottomline {
