@@ -15,7 +15,7 @@ const visuals = {
   stretch: { src: "/assets/projects/yoga-set/yoga-commerce-stretch.webp", alt: "侧角伸展动作中的瑜伽套装线条表现", width: 2200, height: 2200 },
   pilates: { src: "/assets/projects/yoga-set/yoga-commerce-pilates.webp", alt: "普拉提器械训练中的瑜伽套装商业画面", width: 2200, height: 2200 },
   everyday: { src: "/assets/projects/yoga-set/yoga-commerce-everyday.webp", alt: "瑜伽套装从训练场走进日常的城市商业画面", width: 2200, height: 2200 },
-  after: { src: "/assets/projects/yoga-set/yoga-commerce-after.webp", alt: "训练后叠穿针织外套的瑜伽套装生活方式画面", width: 2200, height: 2200 },
+  after: { src: "/assets/projects/yoga-set/yoga-commerce-after.jpg", alt: "训练后叠穿针织外套的瑜伽套装生活方式画面", width: 4096, height: 4096 },
   lakesideCommerce: { src: "/assets/projects/yoga-set/yoga-commerce-lakeside.webp", alt: "晨雾湖畔舒展动作瑜伽套装电商视觉", width: 2200, height: 2200 },
   campaignWide: { src: "/assets/projects/yoga-set/yoga-commerce-campaign-wide.webp", alt: "让设计跟着身体流动瑜伽套装横向广告视觉", width: 2200, height: 1238 },
   masterFront: { src: "/assets/projects/yoga-set/yoga-master-front.webp", alt: "米色上衣与墨岩灰瑜伽裤正面产品母版", width: 1761, height: 2200 },
