@@ -48,6 +48,59 @@ const icpFilingUrl = "https://beian.miit.gov.cn/";
 const slowFastScrollEase = (progress: number) => progress ** 1.35;
 const softFoldScrollEase = (progress: number) => progress * progress * (3 - 2 * progress);
 
+function useMediaProtection() {
+  useEffect(() => {
+    const mediaSelector = "img, video";
+    const isProtectedMedia = (target: EventTarget | null) =>
+      target instanceof Element && Boolean(target.closest(mediaSelector));
+
+    const preventMediaContextMenu = (event: globalThis.MouseEvent) => {
+      if (isProtectedMedia(event.target)) event.preventDefault();
+    };
+    const preventMediaDrag = (event: DragEvent) => {
+      if (isProtectedMedia(event.target)) event.preventDefault();
+    };
+    const preventSaveShortcut = (event: globalThis.KeyboardEvent) => {
+      if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "s") {
+        event.preventDefault();
+      }
+    };
+
+    document.addEventListener("contextmenu", preventMediaContextMenu, true);
+    document.addEventListener("dragstart", preventMediaDrag, true);
+    document.addEventListener("keydown", preventSaveShortcut, true);
+
+    const protectMediaElement = (element: Element) => {
+      if (!(element instanceof HTMLImageElement) && !(element instanceof HTMLVideoElement)) return;
+      element.setAttribute("draggable", "false");
+      element.setAttribute("oncontextmenu", "return false");
+      if (element instanceof HTMLVideoElement) {
+        element.setAttribute("controlslist", "nodownload noplaybackrate");
+        element.setAttribute("disablepictureinpicture", "true");
+      }
+    };
+
+    document.querySelectorAll(mediaSelector).forEach(protectMediaElement);
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          if (!(node instanceof Element)) return;
+          protectMediaElement(node);
+          node.querySelectorAll(mediaSelector).forEach(protectMediaElement);
+        });
+      });
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      document.removeEventListener("contextmenu", preventMediaContextMenu, true);
+      document.removeEventListener("dragstart", preventMediaDrag, true);
+      document.removeEventListener("keydown", preventSaveShortcut, true);
+      observer.disconnect();
+    };
+  }, []);
+}
+
 const metrics = [
   { value: "4+", label: "年视觉与电商设计经验" },
   { value: "AI", label: "生成式内容生产与视觉控制" },
@@ -5360,6 +5413,7 @@ function MobileExperienceGate() {
 
 function App() {
   const [loading, setLoading] = useState(() => !window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  useMediaProtection();
 
   return (
     <>

@@ -14327,3 +14327,13 @@ video {
     border-left: 0;
   }
 }
+img,
+video {
+  -webkit-user-drag: none;
+}
+
+.app img,
+.app video,
+.footer-video {
+  user-select: none;
+}

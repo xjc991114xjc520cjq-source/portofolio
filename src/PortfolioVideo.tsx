@@ -78,6 +78,8 @@ export function PortfolioVideo({
       muted={muted}
       playsInline={playsInline}
       preload={preload}
+      controlsList="nodownload noplaybackrate"
+      disablePictureInPicture
     >
       {sources?.map((source) => <source key={source.src} src={source.src} type={source.type} />)}
       {children}
