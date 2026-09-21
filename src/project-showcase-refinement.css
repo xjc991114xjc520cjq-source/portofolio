@@ -90,6 +90,17 @@
   filter: brightness(0.5) saturate(0.28);
 }
 
+/* The fashion card's diagonal edge makes its compact state read too far left.
+   Give this one card a quiet optical correction, then let the focused state
+   return to the shared geometry. */
+.project-showcase-item[data-project-index="3"]:not(.is-focused) {
+  translate: clamp(8px, 1.15vw, 18px) 0;
+}
+
+.project-showcase-track.has-focus .project-showcase-item[data-project-index="3"] {
+  translate: 0 0;
+}
+
 .project-showcase-art-primary.is-table-fan-campaign {
   object-position: center;
   filter: brightness(.7) saturate(.78) contrast(1.04);
@@ -323,6 +334,12 @@
   .project-showcase-item.is-consumer-cover.is-focused .project-showcase-meta {
     right: 42px;
     left: 42px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-showcase-item[data-project-index="3"]:not(.is-focused):hover {
+    translate: clamp(8px, 1.15vw, 18px) -4px;
   }
 }
 
