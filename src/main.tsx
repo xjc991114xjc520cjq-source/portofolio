@@ -5003,8 +5003,6 @@ function AILab() {
   });
 
   const headingOpacity = useTransform(labProgress, [0, 0.08, 0.24, 0.58, 0.82, 1], [0, 0.52, 1, 0.94, 0.48, 0]);
-  const headingY = useTransform(labProgress, [0, 0.18, 0.42, 0.72, 1], [112, 48, 0, -28, -96]);
-  const headingScale = useTransform(labProgress, [0, 0.18, 0.42, 0.72, 1], [0.9, 0.96, 1, 0.985, 0.94]);
   const proofOpacity = useTransform(labProgress, [0, 0.08, 0.22, 0.92, 1], [0, 0.4, 1, 1, 0]);
   const proofY = useTransform(labProgress, [0, 0.3, 0.86, 1], [86, 0, 0, -52]);
   const proofScale = useTransform(labProgress, [0, 0.3, 0.86, 1], [0.94, 1, 1, 0.98]);
@@ -5056,7 +5054,10 @@ function AILab() {
       <div className="ai-lab-shell shell">
         <motion.header
           className="ai-lab-heading"
-          style={reduceMotion ? undefined : { opacity: headingOpacity, y: headingY, scale: headingScale }}
+          // Keep the editorial copy at native scale after it enters. Motion
+          // transforms on the whole text column trigger browser compositing
+          // and make otherwise sharp type look permanently soft.
+          style={reduceMotion ? undefined : { opacity: headingOpacity }}
         >
           <p>CONTROLLED AI WORKFLOW</p>
           <h2 id="ai-lab-title">
