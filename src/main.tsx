@@ -887,7 +887,7 @@ function projectDetailHero(project: { english: string; image: string; alt: strin
       alt: "青岚茶事原叶茉莉绿茶倒入玻璃杯的真实茶汤画面",
     },
     "QINGLAN OOLONG GROWTH SYSTEM": {
-      src: "/assets/projects/qinglan-tea/qinglan-oolong-cinematic-wide-v2.webp",
+      src: "/assets/projects/qinglan-tea/qinglan-oolong-cinematic-wide-v3.jpg",
       alt: "暖光建筑与深色石台上的青岚焙香乌龙产品主视觉",
     },
     "SONA ARC ONE EARBUDS LAUNCH SYSTEM": {
@@ -976,7 +976,7 @@ const workCategories: WorkCategory[] = [
     label: "全部作品",
     english: "All Works",
     index: "01",
-    background: "/assets/projects/qinglan-tea/qinglan-oolong-cinematic-wide-v2.webp",
+    background: "/assets/projects/qinglan-tea/qinglan-oolong-cinematic-wide-v3.jpg",
     transitionImage: "/assets/projects/qinglan-tea/qinglan-pour.webp",
     description: "十二个完整商业项目，一次看全。",
     role: "作品总览",
@@ -1018,7 +1018,7 @@ const workCategories: WorkCategory[] = [
     label: "食品饮料",
     english: "Food & Drink",
     index: "04",
-    background: "/assets/projects/qinglan-tea/qinglan-oolong-cinematic-wide-v2.webp",
+    background: "/assets/projects/qinglan-tea/qinglan-oolong-cinematic-wide-v3.jpg",
     transitionImage: "/assets/projects/qinglan-tea/qinglan-pour.webp",
     description: "食品饮料与新消费品牌。",
     role: "食品饮料",
@@ -1697,7 +1697,7 @@ const oolongImageSizes: Record<string, readonly [number, number]> = {
   "qinglan-oolong-combo-case.webp": [1254, 1254],
   "qinglan-oolong-meal-drinking.webp": [1536, 1024],
   "qinglan-oolong-social-choice.webp": [1672, 941],
-  "qinglan-oolong-cinematic-wide-v2.webp": [1774, 887],
+  "qinglan-oolong-cinematic-wide-v3.jpg": [5760, 2880],
   "qinglan-oolong-commerce-aroma.webp": [1672, 941],
   "qinglan-oolong-commerce-bold.webp": [1254, 1254],
   "qinglan-oolong-commerce-choice.webp": [1254, 1254],
@@ -2299,7 +2299,7 @@ const selectedCollectionMedia: Record<string, string[]> = {
   "QINGLAN OOLONG GROWTH SYSTEM": [
     "/assets/projects/qinglan-tea/qinglan-oolong-commerce-aroma.webp",
     "/assets/projects/qinglan-tea/qinglan-oolong-pour.webp",
-    "/assets/projects/qinglan-tea/qinglan-oolong-cinematic-wide-v2.webp",
+    "/assets/projects/qinglan-tea/qinglan-oolong-cinematic-wide-v3.jpg",
   ],
   "KOVA ACTION CAMERA EXPERIENCE SYSTEM": [
     "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg",
@@ -3315,7 +3315,7 @@ const visualOutputs: VisualOutput[] = [
   { id: "qinglan-product", title: "焙香乌龙三视图", project: "青岚焙香乌龙", category: "identity", shape: "wide", src: "/assets/projects/qinglan-tea/qinglan-oolong-packaging-views.jpg", alt: "青岚焙香乌龙茶瓶正面、右侧与背面三视图" },
   { id: "qinglan-original-product", title: "原叶绿茶三视图", project: "青岚茶事", category: "identity", shape: "wide", src: "/assets/projects/qinglan-tea/qinglan-packaging-views.webp", alt: "青岚茶事原叶绿茶正面、侧面与背面三视图" },
   { id: "speaker-product", title: "音箱产品定妆", project: "户外音箱", category: "identity", shape: "wide", src: "/assets/projects/outdoor-speaker/speaker-product-master.webp", alt: "户外音箱产品定妆图" },
-  { id: "fishtail-product", title: "鱼尾皮裙版型定妆", project: "鱼尾皮裙", category: "identity", shape: "tall", src: "/assets/projects/fishtail-skirt/skirt-19.webp", alt: "鱼尾皮裙版型与轮廓定妆图" },
+  { id: "fishtail-product", title: "鱼尾皮裙版型定妆", project: "鱼尾皮裙", category: "identity", shape: "tall", src: "/assets/projects/fishtail-skirt/skirt-front-back-stand.png", alt: "鱼尾皮裙版型与轮廓定妆图" },
   { id: "fan-specs", title: "规格信息说明", project: "桌面风扇", category: "commerce", shape: "wide", src: "/assets/projects/table-fan/table-fan-sleep-specs.webp", alt: "桌面风扇规格信息说明" },
   { id: "terrain-four-views", title: "四向产品确认", project: "TERRAIN 35", category: "commerce", shape: "wide", src: "/assets/projects/terrain-35/terrain-four-views.jpg", alt: "TERRAIN 35 四向产品确认" },
   { id: "terrain-compression", title: "压缩状态说明", project: "TERRAIN 35", category: "commerce", shape: "wide", src: "/assets/projects/terrain-35/terrain-compression-states.jpg", alt: "TERRAIN 35 压缩状态说明" },
