@@ -691,6 +691,20 @@
   object-position: 62% 54%;
 }
 
+/* Give the adjacent serum the same vertical breathing room. Its product
+   master is centered, so the taller frame preserves the complete bottle
+   instead of compressing it beside the skirt detail. */
+.works-overview-grid.is-filtered.is-curated-filter .visual-output-card.is-serum-routine-feature {
+  grid-column: span 1;
+  grid-row: span 2;
+  aspect-ratio: 3 / 4;
+}
+
+.visual-output-card.is-serum-routine-feature > img {
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
 .visual-output-card-shade {
   position: absolute;
   inset: 0;
