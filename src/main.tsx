@@ -3312,7 +3312,7 @@ const visualOutputs: VisualOutput[] = [
   { id: "terrain-product", title: "背包产品主视图", project: "TERRAIN 35", category: "identity", shape: "tall", src: "/assets/projects/terrain-35/terrain-hero-master.jpg", alt: "TERRAIN 35 背包产品主视图" },
   { id: "yoga-product", title: "服饰正背面定妆", project: "瑜伽套装", category: "identity", shape: "standard", src: "/assets/projects/yoga-set/yoga-commerce-front-back.webp", alt: "瑜伽套装正背面产品定妆", focalPoint: "50% 82%" },
   { id: "glacier-product", title: "洁面产品定妆", project: "GLACIER", category: "identity", shape: "wide", src: "/assets/projects/glacier-cleanser/glacier-views.webp", alt: "GLACIER 洁面产品定妆图" },
-  { id: "qinglan-product", title: "焙香乌龙三视图", project: "青岚焙香乌龙", category: "identity", shape: "wide", src: "/assets/projects/qinglan-tea/qinglan-oolong-packaging-views.png", alt: "青岚焙香乌龙茶瓶正面、右侧与背面三视图" },
+  { id: "qinglan-product", title: "焙香乌龙三视图", project: "青岚焙香乌龙", category: "identity", shape: "wide", src: "/assets/projects/qinglan-tea/qinglan-oolong-packaging-views.jpg", alt: "青岚焙香乌龙茶瓶正面、右侧与背面三视图" },
   { id: "qinglan-original-product", title: "原叶绿茶三视图", project: "青岚茶事", category: "identity", shape: "wide", src: "/assets/projects/qinglan-tea/qinglan-packaging-views.webp", alt: "青岚茶事原叶绿茶正面、侧面与背面三视图" },
   { id: "speaker-product", title: "音箱产品定妆", project: "户外音箱", category: "identity", shape: "wide", src: "/assets/projects/outdoor-speaker/speaker-product-master.webp", alt: "户外音箱产品定妆图" },
   { id: "fishtail-product", title: "鱼尾皮裙版型定妆", project: "鱼尾皮裙", category: "identity", shape: "tall", src: "/assets/projects/fishtail-skirt/skirt-19.webp", alt: "鱼尾皮裙版型与轮廓定妆图" },
