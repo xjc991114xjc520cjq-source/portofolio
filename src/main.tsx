@@ -3353,7 +3353,7 @@ const curatedNonIdentityOutputs: VisualOutput[] = [
   { id: "backpack-organization-feature", title: "打开以后，更会装", project: "TERRAIN 35", category: "commerce", shape: "tall", src: "/assets/projects/works-index/backpack-organization-feature.jpg", alt: "户外背包内部收纳功能说明" },
   { id: "speaker-control-feature", title: "旋钮与控制", project: "户外音箱", category: "commerce", shape: "standard", src: "/assets/projects/works-index/speaker-control-feature.jpg", alt: "户外音箱顶部控制细节" },
   { id: "camera-optics-feature", title: "镜头结构拆解", project: "KOVA", category: "commerce", shape: "wide", src: "/assets/projects/works-index/camera-optics-feature.jpg", alt: "运动相机镜头结构拆解" },
-  { id: "skirt-waist-feature", title: "腰线，自有主张", project: "鱼尾皮裙", category: "commerce", shape: "standard", src: "/assets/projects/works-index/skirt-waist-feature.png", alt: "鱼尾皮裙腰线与材质细节" },
+  { id: "skirt-waist-feature", title: "交叠腰线·弧形覆片", project: "鱼尾皮裙", category: "commerce", shape: "standard", src: "/assets/projects/works-index/skirt-waist-feature.png", alt: "鱼尾皮裙交叠腰线与弧形覆片细节" },
   { id: "yoga-material-feature", title: "贴合，不必平淡", project: "瑜伽套装", category: "commerce", shape: "standard", src: "/assets/projects/works-index/yoga-material-feature.jpg", alt: "瑜伽套装贴合结构细节" },
   { id: "serum-routine-feature", title: "晨晚护理路径", project: "LUMINOSE", category: "commerce", shape: "tall", src: "/assets/projects/works-index/serum-routine-feature.png", alt: "精华液晨晚护理路径" },
   { id: "serum-campaign-cold", title: "光采上线", project: "LUMINOSE", category: "campaign", shape: "tall", src: "/assets/projects/works-index/serum-campaign-cold.png", alt: "精华液冷感光采品牌主视觉" },
@@ -3416,7 +3416,7 @@ function VisualOutputCard({
   return (
     <motion.button
       type="button"
-      className={`visual-output-card is-${output.shape}`}
+      className={`visual-output-card is-${output.shape} is-${output.id}`}
       initial={reduceMotion ? false : { opacity: 0, y: 16, scale: 0.985 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: reduceMotion ? 0.01 : 0.32, delay: reduceMotion ? 0 : Math.min(index * 0.035, 0.21), ease: [0.16, 1, 0.3, 1] }}

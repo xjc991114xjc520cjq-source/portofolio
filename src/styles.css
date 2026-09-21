@@ -675,6 +675,16 @@
   transition: scale 750ms cubic-bezier(0.16, 1, 0.3, 1), filter 400ms ease;
 }
 
+/* These campaign assets are square editorial boards. Keep the complete
+   bottle visible when the curated grid gives them a wide card slot. */
+.visual-output-card.is-serum-campaign-cold {
+  background: #21150f;
+}
+
+.visual-output-card.is-serum-campaign-cold > img {
+  object-fit: contain;
+}
+
 .visual-output-card-shade {
   position: absolute;
   inset: 0;
