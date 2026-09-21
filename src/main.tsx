@@ -1179,6 +1179,7 @@ function Nav() {
   const pendingEntryCleanup = useRef<(() => void) | null>(null);
   const entryResetTimeout = useRef<number | null>(null);
   const activeEntrySection = useRef<HTMLElement | null>(null);
+  const navigationLock = useRef<string | null>(null);
 
   const clearComponentEntry = () => {
     if (entryResetTimeout.current !== null) window.clearTimeout(entryResetTimeout.current);
@@ -1213,17 +1214,28 @@ function Nav() {
     pendingEntryCleanup.current?.();
     pendingEntryCleanup.current = null;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      navigationLock.current = null;
       clearComponentEntry();
       return;
     }
-    if (Math.abs(window.scrollY - target) < 1) return;
+    if (Math.abs(window.scrollY - target) < 1) {
+      navigationLock.current = null;
+      return;
+    }
     const section = prepareComponentEntry(sectionId);
     if (!section) return;
+    // Keep the clicked item active while smooth scrolling passes through
+    // other sections. The observer would otherwise briefly overwrite it.
+    navigationLock.current = sectionId;
     let fallbackTimeout = 0;
     const finish = () => {
       window.removeEventListener("scrollend", finish);
       if (fallbackTimeout) window.clearTimeout(fallbackTimeout);
       pendingEntryCleanup.current = null;
+      const reachedTarget = Math.abs(window.scrollY - target) < 2;
+      navigationLock.current = null;
+      if (!reachedTarget) return;
+      setActiveSection(sectionId);
       startComponentEntry(section);
     };
     window.addEventListener("scrollend", finish, { once: true });
@@ -1231,6 +1243,7 @@ function Nav() {
     pendingEntryCleanup.current = () => {
       window.removeEventListener("scrollend", finish);
       window.clearTimeout(fallbackTimeout);
+      if (navigationLock.current === sectionId) navigationLock.current = null;
     };
   };
 
@@ -1252,6 +1265,7 @@ function Nav() {
       .filter((section): section is HTMLElement => Boolean(section));
     const observer = new IntersectionObserver(
       () => {
+        if (navigationLock.current) return;
         const activationLine = window.innerHeight * 0.4;
         const active = sections
           .map((section) => ({ section, rect: section.getBoundingClientRect() }))
@@ -3355,7 +3369,7 @@ const curatedNonIdentityOutputs: VisualOutput[] = [
   { id: "camera-optics-feature", title: "镜头结构拆解", project: "KOVA", category: "commerce", shape: "wide", src: "/assets/projects/works-index/camera-optics-feature.jpg", alt: "运动相机镜头结构拆解" },
   { id: "skirt-waist-feature", title: "交叠腰线·弧形覆片", project: "鱼尾皮裙", category: "commerce", shape: "tall", src: "/assets/projects/works-index/skirt-waist-feature.png", alt: "鱼尾皮裙交叠腰线与弧形覆片细节" },
   { id: "yoga-material-feature", title: "贴合，不必平淡", project: "瑜伽套装", category: "commerce", shape: "standard", src: "/assets/projects/works-index/yoga-material-feature.jpg", alt: "瑜伽套装贴合结构细节" },
-  { id: "serum-routine-feature", title: "玻尿酸 × 维C焕亮配方", project: "LUMINOSE", category: "commerce", shape: "tall", src: "/assets/projects/serum/serum-radiance.webp", alt: "LUMINOSE 玻尿酸与维C焕亮配方精华液" },
+    { id: "serum-routine-feature", title: "玻尿酸 × 维C焕亮配方", project: "LUMINOSE", category: "commerce", shape: "tall", src: "/assets/projects/serum/serum-commerce-formula.webp", alt: "LUMINOSE 玻尿酸与维C焕亮配方信息" },
   { id: "tea-campaign-refresh", title: "清爽有茶香", project: "青岚茶事", category: "campaign", shape: "wide", src: "/assets/projects/works-index/tea-campaign-refresh.png", alt: "无糖绿茶清爽上市传播画面" },
   { id: "oolong-campaign-roast", title: "焙香深，回甘净", project: "青岚焙香乌龙", category: "campaign", shape: "wide", src: "/assets/projects/works-index/oolong-campaign-roast.png", alt: "焙香乌龙浓茶感传播主视觉" },
   { id: "earbuds-campaign-connect", title: "开盖，即连", project: "SONA ARC ONE", category: "campaign", shape: "tall", src: "/assets/projects/works-index/earbuds-campaign-connect.png", alt: "无线耳机开盖连接传播海报" },
