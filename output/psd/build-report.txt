@@ -1,0 +1,5 @@
+PSD=E:/ChatGPT-LocalCoding/Project/个人站/output/psd/xie-jingchun-editable-resume.psd
+PREVIEW=E:/ChatGPT-LocalCoding/Project/个人站/output/psd/xie-jingchun-editable-resume-preview.jpg
+SIZE=736x1024
+GROUPS=8
+TOP_LEVEL_LAYERS=9

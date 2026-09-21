@@ -1,0 +1,5 @@
+Great Vibes | Great Vibes Regular | GreatVibes-Regular
+Montserrat | Montserrat Regular | Montserrat-Regular
+Montserrat | Montserrat Medium | Montserrat-Medium
+Montserrat | Montserrat SemiBold | Montserrat-SemiBold
+Montserrat | Montserrat Bold | Montserrat-Bold

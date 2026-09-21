@@ -1,0 +1,14 @@
+OPEN_OK=true
+WIDTH=736
+HEIGHT=1024
+GROUPS=8
+TEXT_LAYERS=60
+PIXEL_LAYERS=69
+OTHER_LAYERS=0
+FONTS=
+- Montserrat-Regular
+- Montserrat-Bold
+- Montserrat-SemiBold
+- Montserrat-Medium
+- GreatVibes-Regular
+FALLBACK_LAYERS=
