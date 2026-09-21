@@ -7200,7 +7200,7 @@ video {
   display: grid;
   max-width: 29em;
   margin-top: clamp(48px, 8vh, 92px);
-  margin-left: clamp(18px, 2.2vw, 34px);
+  margin-left: clamp(8px, 1vw, 16px);
   gap: 13px;
   color: rgba(245, 245, 243, 0.45);
 }
@@ -8038,7 +8038,7 @@ video {
 
   .ai-lab-heading-meta {
     margin-top: 42px;
-    margin-left: 16px;
+    margin-left: 8px;
   }
 
   .ai-lab-proof {
