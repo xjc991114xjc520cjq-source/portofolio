@@ -4985,6 +4985,7 @@ function AILabListItem({
       key={item.title}
       style={reduceMotion ? undefined : { opacity, x, y }}
     >
+      <span className="ai-lab-step-index" aria-hidden="true">0{itemIndex + 1}</span>
       <div>
         <strong>{item.title}</strong>
         <span>{item.english}</span>

@@ -7415,18 +7415,17 @@ video {
 
 .ai-lab-list--under-title {
   position: relative;
-  overflow: hidden;
   margin-top: 32px;
-  gap: 1px;
-  border: 1px solid rgba(137, 170, 204, 0.2);
-  background: rgba(137, 170, 204, 0.14);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 18px 44px rgba(0, 0, 0, 0.16);
+  gap: 0;
+  border: 1px solid rgba(137, 170, 204, 0.24);
+  background: rgba(8, 11, 14, 0.72);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 18px 44px rgba(0, 0, 0, 0.16);
 }
 
 .ai-lab-list--under-title::before {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(137, 170, 204, 0.08), transparent 42%, rgba(255, 255, 255, 0.025));
+  background: linear-gradient(90deg, rgba(137, 170, 204, 0.08), transparent 42%, rgba(255, 255, 255, 0.025));
   content: "";
   pointer-events: none;
 }
@@ -7436,10 +7435,13 @@ video {
   position: relative;
   gap: 12px;
   min-width: 0;
-  padding: 17px 18px 18px;
-  background: rgba(7, 9, 11, 0.92);
-  grid-template-columns: 1fr;
+  min-height: 142px;
+  padding: 20px 18px 20px 16px;
+  background: rgba(7, 9, 11, 0.78);
+  grid-template-columns: 28px minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
   will-change: transform, opacity, filter;
+  transition: background-color 180ms ease, border-color 180ms ease;
 }
 
 .ai-lab-list article:nth-child(even) {
@@ -7447,10 +7449,36 @@ video {
   padding-left: 18px;
 }
 
+.ai-lab-list article:nth-child(-n + 2) {
+  border-bottom: 1px solid rgba(137, 170, 204, 0.16);
+}
+
+.ai-lab-list article:nth-child(odd) {
+  border-right: 1px solid rgba(137, 170, 204, 0.16);
+}
+
+.ai-lab-list article:hover {
+  background: rgba(137, 170, 204, 0.08);
+}
+
+.ai-lab-step-index {
+  padding-top: 2px;
+  color: rgba(137, 170, 204, 0.86);
+  font-size: 9px;
+  font-weight: 780;
+  letter-spacing: 0.12em;
+}
+
 .ai-lab-list article > div {
   display: grid;
   align-content: start;
   gap: 7px;
+}
+
+.ai-lab-list article > p {
+  grid-column: 2;
+  align-self: end;
+  max-width: 27ch;
 }
 
 .ai-lab-list strong {
@@ -8079,6 +8107,16 @@ video {
   .ai-lab-list--under-title article:nth-child(4) {
     gap: 10px;
     padding: 16px 15px 17px;
+    grid-template-columns: 28px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+  }
+
+  .ai-lab-list--under-title article:nth-child(odd) {
+    border-right: 0;
+  }
+
+  .ai-lab-list--under-title article > p {
+    grid-column: 2;
   }
 }
 
