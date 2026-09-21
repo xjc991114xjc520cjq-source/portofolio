@@ -603,7 +603,7 @@ const projectShowcaseCollections = [
     english: "FASHION COMMERCE",
     facets: ["时装企划", "功能服饰", "场景商业化"],
     coverImages: [
-      "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v3.jpg",
+      "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v4.png",
       "/assets/projects/yoga-set/yoga-showcase-campaign-v2.jpg",
     ],
     projects: [fishtailSkirtProject, yogaSetProject],
@@ -953,7 +953,7 @@ const foodAndDrinkWorks = [
 ];
 
 const fashionWorks = [
-  selectedCaseWork("campaign-experience", 1, "鱼尾皮裙", { thumbnail: "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v3.jpg", thumbnailMode: "cover", focalPoint: "50% 50%" }),
+  selectedCaseWork("campaign-experience", 1, "鱼尾皮裙", { thumbnail: "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v4.png", thumbnailMode: "cover", focalPoint: "50% 50%" }),
   selectedCaseWork("campaign-experience", 2, "瑜伽套装", { thumbnail: "/assets/projects/yoga-set/yoga-showcase-campaign-v2.jpg", thumbnailMode: "cover", focalPoint: "50% 50%" }),
 ];
 
@@ -1062,7 +1062,7 @@ const heroImages = [
   "/assets/projects/sona-earbuds/sona-campaign-silence.webp",
   "/assets/projects/terrain-35/terrain-campaign-route.jpg",
   "/assets/projects/glacier-cleanser/glacier-commerce-positioning.webp",
-  "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v3.jpg",
+  "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v4.png",
   "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg",
   "/assets/projects/air-fryer/air-fryer-work-card-v2.png",
   "/assets/projects/yoga-set/yoga-showcase-campaign-v2.jpg",
@@ -2346,7 +2346,7 @@ const selectedCollectionPrimary: Record<string, string> = {
   "QINGLAN TEA COMMERCE SYSTEM": "/assets/projects/qinglan-tea/qinglan-scene-leaf-shadow-portrait.webp",
   "QINGLAN OOLONG GROWTH SYSTEM": "/assets/projects/qinglan-tea/qinglan-oolong-cinematic-portrait.webp",
   "OUTDOOR SPEAKER EXPERIENCE SYSTEM": "/assets/projects/outdoor-speaker/speaker-category-cover.webp",
-  "FISHTAIL LEATHER SKIRT CAMPAIGN SYSTEM": "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v3.jpg",
+  "FISHTAIL LEATHER SKIRT CAMPAIGN SYSTEM": "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v4.png",
   "YOGA SET FASHION COMMERCE SYSTEM": "/assets/projects/yoga-set/yoga-showcase-campaign-v2.jpg",
   "TERRAIN 35 OUTDOOR BACKPACK COMMERCE SYSTEM": "/assets/projects/terrain-35/terrain-campaign-duo-wide.jpg",
 };
@@ -3300,7 +3300,7 @@ const visualOutputs: VisualOutput[] = [
   { id: "terrain-campaign", title: "山野传播海报", project: "TERRAIN 35", category: "campaign", shape: "tall", src: "/assets/projects/terrain-35/terrain-campaign-journey.jpg", alt: "TERRAIN 35 山野传播主视觉" },
   { id: "skirt-people", title: "雨夜时尚画面", project: "鱼尾皮裙", category: "scene", shape: "tall", src: "/assets/projects/fishtail-skirt/skirt-rain-hero.png", alt: "雨夜场景中的鱼尾皮裙时尚画面" },
   { id: "yoga-people", title: "运动服饰主张", project: "瑜伽套装", category: "scene", shape: "wide", src: "/assets/projects/yoga-set/yoga-commerce-campaign-wide.webp", alt: "瑜伽套装人物运动传播画面" },
-  { id: "skirt-detail", title: "版型与材质表现", project: "鱼尾皮裙", category: "scene", shape: "tall", src: "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v3.jpg", alt: "鱼尾皮裙版型与材质人物画面" },
+  { id: "skirt-detail", title: "版型与材质表现", project: "鱼尾皮裙", category: "scene", shape: "tall", src: "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v4.png", alt: "鱼尾皮裙版型与材质人物画面" },
   { id: "speaker-scene", title: "户外使用场景", project: "户外音箱", category: "scene", shape: "wide", src: "/assets/projects/outdoor-speaker/speaker-rock-hero.webp", alt: "山野岩石环境中的户外音箱" },
   { id: "terrain-scene", title: "雨雾山径场景", project: "TERRAIN 35", category: "scene", shape: "tall", src: "/assets/projects/terrain-35/terrain-rain.jpg", alt: "雨雾山径中的 TERRAIN 35 背负场景" },
   { id: "kova-scene", title: "冲浪运动场景", project: "KOVA", category: "scene", shape: "tall", src: "/assets/projects/kova-action-camera/kova-scene-surf.jpg", alt: "KOVA 运动相机冲浪使用场景" },
@@ -3312,7 +3312,7 @@ const visualOutputs: VisualOutput[] = [
   { id: "terrain-product", title: "背包产品主视图", project: "TERRAIN 35", category: "identity", shape: "tall", src: "/assets/projects/terrain-35/terrain-hero-master.jpg", alt: "TERRAIN 35 背包产品主视图" },
   { id: "yoga-product", title: "服饰正背面定妆", project: "瑜伽套装", category: "identity", shape: "standard", src: "/assets/projects/yoga-set/yoga-commerce-front-back.webp", alt: "瑜伽套装正背面产品定妆", focalPoint: "50% 82%" },
   { id: "glacier-product", title: "洁面产品定妆", project: "GLACIER", category: "identity", shape: "wide", src: "/assets/projects/glacier-cleanser/glacier-views.webp", alt: "GLACIER 洁面产品定妆图" },
-  { id: "qinglan-product", title: "焙香乌龙产品定妆", project: "青岚焙香乌龙", category: "identity", shape: "wide", src: "/assets/projects/qinglan-tea/qinglan-oolong-family-master.webp", alt: "青岚焙香乌龙茶饮家族产品定妆图" },
+  { id: "qinglan-product", title: "焙香乌龙三视图", project: "青岚焙香乌龙", category: "identity", shape: "wide", src: "/assets/projects/qinglan-tea/qinglan-oolong-packaging-views.png", alt: "青岚焙香乌龙茶瓶正面、右侧与背面三视图" },
   { id: "qinglan-original-product", title: "原叶绿茶三视图", project: "青岚茶事", category: "identity", shape: "wide", src: "/assets/projects/qinglan-tea/qinglan-packaging-views.webp", alt: "青岚茶事原叶绿茶正面、侧面与背面三视图" },
   { id: "speaker-product", title: "音箱产品定妆", project: "户外音箱", category: "identity", shape: "wide", src: "/assets/projects/outdoor-speaker/speaker-product-master.webp", alt: "户外音箱产品定妆图" },
   { id: "fishtail-product", title: "鱼尾皮裙版型定妆", project: "鱼尾皮裙", category: "identity", shape: "tall", src: "/assets/projects/fishtail-skirt/skirt-19.webp", alt: "鱼尾皮裙版型与轮廓定妆图" },
@@ -3674,7 +3674,7 @@ function CommercialValue() {
               className="commercial-value-image commercial-value-image-warm"
               style={{ x: reduceMotion ? 0 : warmFrameX, rotate: 3.6 }}
             >
-              <img src="/assets/projects/fishtail-skirt/skirt-showcase-campaign-v3.jpg" alt="雨夜街景中的时尚传播视觉" />
+              <img src="/assets/projects/fishtail-skirt/skirt-showcase-campaign-v4.png" alt="通勤场景中的鱼尾皮裙时尚传播视觉" />
               <span>CAMPAIGN / STORY</span>
             </motion.div>
             <figcaption>
@@ -4711,7 +4711,7 @@ function ProjectShowcaseCard({
               <source media="(max-width: 1280px)" srcSet="/assets/projects/qinglan-tea/qinglan-dual-cover-portrait.webp" />
             ) : null}
             <img
-              className={`project-showcase-art-primary${image === "/assets/projects/table-fan/table-fan-showcase-campaign-v2.jpg" ? " is-table-fan-campaign" : ""}${image === "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg" ? " is-kova-action" : ""}${image === "/assets/projects/yoga-set/yoga-showcase-campaign-v2.jpg" ? " is-yoga-fashion" : ""}${image === "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v3.jpg" ? " is-fishtail-fashion" : ""}${image === "/assets/projects/terrain-35/terrain-campaign-duo-wide.jpg" ? " is-terrain-night" : ""}${image === "/assets/projects/outdoor-speaker/speaker-product-cover.png" ? " is-speaker-product" : ""}${activeCoverIndex === imageIndex ? " is-active" : ""}`}
+              className={`project-showcase-art-primary${image === "/assets/projects/table-fan/table-fan-showcase-campaign-v2.jpg" ? " is-table-fan-campaign" : ""}${image === "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg" ? " is-kova-action" : ""}${image === "/assets/projects/yoga-set/yoga-showcase-campaign-v2.jpg" ? " is-yoga-fashion" : ""}${image === "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v4.png" ? " is-fishtail-fashion" : ""}${image === "/assets/projects/terrain-35/terrain-campaign-duo-wide.jpg" ? " is-terrain-night" : ""}${image === "/assets/projects/outdoor-speaker/speaker-product-cover.png" ? " is-speaker-product" : ""}${activeCoverIndex === imageIndex ? " is-active" : ""}`}
               src={image}
               alt=""
               aria-hidden="true"
