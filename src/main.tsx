@@ -431,7 +431,7 @@ const fishtailSkirtProject = {
   category: "时尚服饰 / 时装企划",
   categoryEnglish: "FASHION EXPERIENCE",
   year: "2026",
-  image: "/assets/projects/fishtail-skirt/skirt-rain-composition-v2.png",
+  image: "/assets/projects/fishtail-skirt/skirt-rain-composition-v3.jpg",
   alt: "中国女性撑透明雨伞，身穿红色短外套与黑色鱼尾皮裙走过雨中街道，裙摆层次与红黑穿搭清晰呈现",
   backdrop: "FISHTAIL",
   accent: "#c6b9b0",
@@ -2312,7 +2312,7 @@ const selectedCollectionMedia: Record<string, string[]> = {
     "/assets/projects/outdoor-speaker/speaker-commerce-fitness.webp",
   ],
   "FISHTAIL LEATHER SKIRT CAMPAIGN SYSTEM": [
-    "/assets/projects/fishtail-skirt/skirt-rain-composition-v2.png",
+    "/assets/projects/fishtail-skirt/skirt-rain-composition-v3.jpg",
     "/assets/projects/fishtail-skirt/skirt-19.webp",
     "/assets/projects/fishtail-skirt/skirt-04.webp",
   ],
