@@ -682,8 +682,10 @@
    height of two grid rows. */
 .works-overview-grid.is-filtered.is-curated-filter .visual-output-card.is-skirt-waist-feature {
   grid-column: span 1;
-  grid-row: span 2;
+  grid-row: auto;
   aspect-ratio: 3 / 4;
+  width: 100%;
+  min-width: 0;
 }
 
 .visual-output-card.is-skirt-waist-feature > img {
@@ -696,8 +698,10 @@
    instead of compressing it beside the skirt detail. */
 .works-overview-grid.is-filtered.is-curated-filter .visual-output-card.is-serum-routine-feature {
   grid-column: span 1;
-  grid-row: span 2;
+  grid-row: auto;
   aspect-ratio: 3 / 4;
+  width: 100%;
+  min-width: 0;
 }
 
 .visual-output-card.is-serum-routine-feature > img {
