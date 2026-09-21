@@ -2609,6 +2609,20 @@ video {
   }
 }
 
+/* The profile portrait intentionally overflows left of its grid track. Keep
+   its navigation entrance animated without clipping that visible overflow. */
+@keyframes nav-component-profile-portrait {
+  from {
+    opacity: 0;
+    translate: 0 64px;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
 @keyframes nav-component-card {
   from {
     opacity: 0;
@@ -2650,7 +2664,7 @@ video {
 }
 
 #profile.nav-component-enter .profile-portrait {
-  animation: nav-component-portrait 820ms var(--ease-drawer) 120ms both;
+  animation: nav-component-profile-portrait 820ms var(--ease-drawer) 120ms both;
 }
 
 #profile.nav-component-enter .profile-facts {
