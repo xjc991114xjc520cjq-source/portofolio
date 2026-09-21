@@ -3281,10 +3281,10 @@ type VisualOutput = ProjectImageSource & {
 
 const visualOutputCategories = [
   { id: "identity", label: "产品定妆", english: "PRODUCT VISUALS", outputCount: 12, description: "先让人看清产品是什么、长什么样，建立准确而有记忆点的第一印象。" },
-  { id: "commerce", label: "卖点表达", english: "FEATURE EXPLAINERS", outputCount: 10, description: "把功能、材质和使用方法讲到能被理解，也能直接回答购买疑问。" },
-  { id: "campaign", label: "品牌传播", english: "BRAND CAMPAIGNS", outputCount: 8, description: "把产品卖点组织成主视觉和海报，让品牌在第一眼被记住。" },
-  { id: "scene", label: "人物场景", english: "PEOPLE & SCENES", outputCount: 13, description: "用人物、动作和环境让人想象产品进入真实生活后的样子。" },
-  { id: "motion", label: "内容延展", english: "MOTION FRAMES", outputCount: 9, description: "从影片开场、关键帧到结尾画面，让一套视觉继续适配更多渠道。" },
+  { id: "commerce", label: "卖点表达", english: "FEATURE EXPLAINERS", outputCount: 12, description: "把功能、材质和使用方法讲到能被理解，也能直接回答购买疑问。" },
+  { id: "campaign", label: "品牌传播", english: "BRAND CAMPAIGNS", outputCount: 12, description: "把产品卖点组织成主视觉和海报，让品牌在第一眼被记住。" },
+  { id: "scene", label: "人物场景", english: "PEOPLE & SCENES", outputCount: 12, description: "用人物、动作和环境让人想象产品进入真实生活后的样子。" },
+  { id: "motion", label: "内容延展", english: "MOTION FRAMES", outputCount: 12, description: "从影片开场、关键帧到结尾画面，让一套视觉继续适配更多渠道。" },
 ] as const;
 const visualOutputViewOrder: readonly VisualOutputViewId[] = ["featured", ...visualOutputCategories.map(({ id }) => id)];
 
@@ -3343,9 +3343,63 @@ const visualOutputs: VisualOutput[] = [
   { id: "speaker-hiking", title: "携带使用场景", project: "户外音箱", category: "scene", shape: "wide", src: "/assets/projects/outdoor-speaker/speaker-hiking-carry.webp", alt: "户外音箱携带使用场景" },
 ];
 
-const featuredOutputIds = ["kova-product", "terrain-detail", "terrain-campaign", "skirt-people", "qinglan-motion"];
-const featuredOutputs = featuredOutputIds
-  .map((id) => visualOutputs.find((output) => output.id === id))
+const curatedNonIdentityOutputs: VisualOutput[] = [
+  { id: "air-fryer-feature", title: "热风循环与脆感", project: "空气炸锅", category: "commerce", shape: "tall", src: "/assets/projects/works-index/air-fryer-feature.jpg", alt: "空气炸锅热风循环卖点说明" },
+  { id: "fan-feature-detail", title: "风道与送风", project: "桌面风扇", category: "commerce", shape: "standard", src: "/assets/projects/works-index/fan-feature-detail.png", alt: "桌面风扇风道细节卖点" },
+  { id: "serum-feature-board", title: "多重精粹协同", project: "LUMINOSE", category: "commerce", shape: "standard", src: "/assets/projects/works-index/serum-feature-board.png", alt: "精华液多重精粹协同功效说明" },
+  { id: "tea-retail-feature", title: "从货架到选择", project: "青岚茶事", category: "commerce", shape: "wide", src: "/assets/projects/works-index/tea-retail-feature.png", alt: "无糖茶零售货架选择场景" },
+  { id: "oolong-family-feature", title: "双味家族关系", project: "青岚焙香乌龙", category: "commerce", shape: "wide", src: "/assets/projects/works-index/oolong-family-feature.png", alt: "青岚茶事双味产品家族说明" },
+  { id: "earbuds-noise-feature", title: "45dB 深度降噪", project: "SONA ARC ONE", category: "commerce", shape: "tall", src: "/assets/projects/works-index/earbuds-noise-feature.png", alt: "无线耳机深度降噪功能说明" },
+  { id: "backpack-organization-feature", title: "打开以后，更会装", project: "TERRAIN 35", category: "commerce", shape: "tall", src: "/assets/projects/works-index/backpack-organization-feature.jpg", alt: "户外背包内部收纳功能说明" },
+  { id: "speaker-control-feature", title: "旋钮与控制", project: "户外音箱", category: "commerce", shape: "standard", src: "/assets/projects/works-index/speaker-control-feature.jpg", alt: "户外音箱顶部控制细节" },
+  { id: "camera-optics-feature", title: "镜头结构拆解", project: "KOVA", category: "commerce", shape: "wide", src: "/assets/projects/works-index/camera-optics-feature.jpg", alt: "运动相机镜头结构拆解" },
+  { id: "skirt-waist-feature", title: "腰线，自有主张", project: "鱼尾皮裙", category: "commerce", shape: "standard", src: "/assets/projects/works-index/skirt-waist-feature.png", alt: "鱼尾皮裙腰线与材质细节" },
+  { id: "yoga-material-feature", title: "贴合，不必平淡", project: "瑜伽套装", category: "commerce", shape: "standard", src: "/assets/projects/works-index/yoga-material-feature.jpg", alt: "瑜伽套装贴合结构细节" },
+  { id: "serum-routine-feature", title: "晨晚护理路径", project: "LUMINOSE", category: "commerce", shape: "tall", src: "/assets/projects/works-index/serum-routine-feature.png", alt: "精华液晨晚护理路径" },
+  { id: "serum-campaign-cold", title: "光采上线", project: "LUMINOSE", category: "campaign", shape: "tall", src: "/assets/projects/works-index/serum-campaign-cold.png", alt: "精华液冷感光采品牌主视觉" },
+  { id: "tea-campaign-refresh", title: "清爽有茶香", project: "青岚茶事", category: "campaign", shape: "wide", src: "/assets/projects/works-index/tea-campaign-refresh.png", alt: "无糖绿茶清爽上市传播画面" },
+  { id: "oolong-campaign-roast", title: "焙香深，回甘净", project: "青岚焙香乌龙", category: "campaign", shape: "wide", src: "/assets/projects/works-index/oolong-campaign-roast.png", alt: "焙香乌龙浓茶感传播主视觉" },
+  { id: "earbuds-campaign-connect", title: "开盖，即连", project: "SONA ARC ONE", category: "campaign", shape: "tall", src: "/assets/projects/works-index/earbuds-campaign-connect.png", alt: "无线耳机开盖连接传播海报" },
+  { id: "backpack-campaign-light", title: "年轻上山，轻装出发", project: "TERRAIN 35", category: "campaign", shape: "tall", src: "/assets/projects/works-index/backpack-campaign-light.jpg", alt: "户外背包轻装出发传播海报" },
+  { id: "speaker-campaign-orange", title: "把音乐带出去", project: "户外音箱", category: "campaign", shape: "tall", src: "/assets/projects/works-index/speaker-campaign-orange.jpg", alt: "户外音箱把音乐带出去传播海报" },
+  { id: "air-fryer-campaign-crisp", title: "外脆里嫩", project: "空气炸锅", category: "campaign", shape: "tall", src: "/assets/projects/works-index/air-fryer-campaign-crisp.jpg", alt: "空气炸锅外脆里嫩传播主视觉" },
+  { id: "fan-campaign-sleep", title: "柔风陪你整晚安睡", project: "桌面风扇", category: "campaign", shape: "tall", src: "/assets/projects/works-index/fan-campaign-sleep.png", alt: "桌面风扇夜间睡眠传播画面" },
+  { id: "skirt-campaign-layer", title: "一眼有层次", project: "鱼尾皮裙", category: "campaign", shape: "tall", src: "/assets/projects/works-index/skirt-campaign-layer.png", alt: "鱼尾皮裙层次识别传播主视觉" },
+  { id: "yoga-campaign-flow", title: "前后，都有设计", project: "瑜伽套装", category: "campaign", shape: "standard", src: "/assets/projects/works-index/yoga-campaign-flow.jpg", alt: "瑜伽套装前后结构传播画面" },
+  { id: "camera-campaign-wave", title: "如浪，不迎合", project: "KOVA", category: "campaign", shape: "tall", src: "/assets/projects/works-index/camera-campaign-wave.jpg", alt: "运动相机冲浪传播主视觉" },
+  { id: "serum-campaign-glow", title: "金耀焕采", project: "LUMINOSE", category: "campaign", shape: "tall", src: "/assets/projects/works-index/serum-campaign-glow.png", alt: "精华液金耀焕采传播画面" },
+  { id: "backpack-scene-walk", title: "从城市走进山野", project: "TERRAIN 35", category: "scene", shape: "tall", src: "/assets/projects/works-index/backpack-scene-walk.jpg", alt: "背包从城市走进山野的使用场景" },
+  { id: "speaker-scene-camp", title: "湖畔露营", project: "户外音箱", category: "scene", shape: "wide", src: "/assets/projects/works-index/speaker-scene-camp.jpg", alt: "湖畔露营中的户外音箱使用场景" },
+  { id: "skirt-scene-office", title: "通勤，也很有型", project: "鱼尾皮裙", category: "scene", shape: "tall", src: "/assets/projects/works-index/skirt-scene-office.jpg", alt: "通勤场景中的鱼尾皮裙穿搭" },
+  { id: "skirt-scene-gallery", title: "舞池之外的层次", project: "鱼尾皮裙", category: "scene", shape: "wide", src: "/assets/projects/works-index/skirt-scene-gallery.jpg", alt: "展厅空间中的鱼尾皮裙穿搭" },
+  { id: "yoga-scene-lakeside", title: "湖畔伸展", project: "瑜伽套装", category: "scene", shape: "wide", src: "/assets/projects/works-index/yoga-scene-lakeside.jpg", alt: "湖畔运动中的瑜伽套装" },
+  { id: "yoga-scene-cafe", title: "练完，去日常", project: "瑜伽套装", category: "scene", shape: "wide", src: "/assets/projects/works-index/yoga-scene-cafe.jpg", alt: "户外咖啡场景中的瑜伽套装" },
+  { id: "camera-scene-ride", title: "骑行记录", project: "KOVA", category: "scene", shape: "tall", src: "/assets/projects/works-index/camera-scene-ride.jpg", alt: "骑行中的运动相机使用场景" },
+  { id: "camera-scene-selfie", title: "一起在场", project: "KOVA", category: "scene", shape: "wide", src: "/assets/projects/works-index/camera-scene-selfie.jpg", alt: "山野合影中的运动相机使用场景" },
+  { id: "tea-scene-drinking", title: "一口，清爽有茶香", project: "青岚茶事", category: "scene", shape: "tall", src: "/assets/projects/works-index/tea-scene-drinking.jpg", alt: "女性饮用无糖绿茶的生活场景" },
+  { id: "oolong-scene-meal", title: "正餐，也有浓茶感", project: "青岚焙香乌龙", category: "scene", shape: "wide", src: "/assets/projects/works-index/oolong-scene-meal.png", alt: "正餐场景中的焙香乌龙茶" },
+  { id: "serum-scene-garden", title: "晨间光采", project: "LUMINOSE", category: "scene", shape: "wide", src: "/assets/projects/works-index/serum-scene-garden.jpg", alt: "自然光下的精华液生活场景" },
+  { id: "fan-scene-family", title: "清风穿过日常", project: "桌面风扇", category: "scene", shape: "wide", src: "/assets/projects/works-index/fan-scene-family.jpg", alt: "家庭日常中的桌面风扇" },
+  { id: "camera-motion-splash", title: "迎浪，从容记录", project: "KOVA", category: "motion", shape: "tall", src: "/assets/projects/works-index/camera-motion-splash.jpg", alt: "运动相机影片中的冲浪关键帧" },
+  { id: "camera-motion-night", title: "夜色，自有层次", project: "KOVA", category: "motion", shape: "tall", src: "/assets/projects/works-index/camera-motion-night.jpg", alt: "运动相机夜间影片关键帧" },
+  { id: "camera-motion-review", title: "拍完，就地回看", project: "KOVA", category: "motion", shape: "wide", src: "/assets/projects/works-index/camera-motion-review.jpg", alt: "运动相机回看影片关键帧" },
+  { id: "speaker-motion-camp", title: "音乐，随处入场", project: "户外音箱", category: "motion", shape: "wide", src: "/assets/projects/works-index/speaker-motion-camp.jpg", alt: "户外音箱影片中的露营关键帧" },
+  { id: "speaker-motion-evening", title: "夜色，正好听", project: "户外音箱", category: "motion", shape: "tall", src: "/assets/projects/works-index/speaker-motion-evening.jpg", alt: "户外音箱夜间影片关键帧" },
+  { id: "skirt-motion-dance", title: "今晚，随自己的节拍", project: "鱼尾皮裙", category: "motion", shape: "wide", src: "/assets/projects/works-index/skirt-motion-dance.jpg", alt: "鱼尾皮裙舞池影片关键帧" },
+  { id: "skirt-motion-night", title: "从容，也有风格", project: "鱼尾皮裙", category: "motion", shape: "tall", src: "/assets/projects/works-index/skirt-motion-night.jpg", alt: "鱼尾皮裙夜间影片关键帧" },
+  { id: "yoga-motion-balance", title: "找到自己的舒展节奏", project: "瑜伽套装", category: "motion", shape: "wide", src: "/assets/projects/works-index/yoga-motion-balance.jpg", alt: "瑜伽套装影片中的平衡关键帧" },
+  { id: "tea-motion-grab", title: "随手一瓶，清爽入场", project: "青岚茶事", category: "motion", shape: "tall", src: "/assets/projects/works-index/tea-motion-grab.jpg", alt: "无糖茶影片中的取用关键帧" },
+  { id: "oolong-motion-pour", title: "一倒，浓茶感", project: "青岚焙香乌龙", category: "motion", shape: "wide", src: "/assets/projects/works-index/oolong-motion-pour.png", alt: "焙香乌龙倒饮影片关键帧" },
+  { id: "earbuds-motion-city", title: "出门在外，安静随行", project: "SONA ARC ONE", category: "motion", shape: "tall", src: "/assets/projects/works-index/earbuds-motion-city.png", alt: "无线耳机城市影片关键帧" },
+  { id: "backpack-motion-sunset", title: "去更远一点", project: "TERRAIN 35", category: "motion", shape: "wide", src: "/assets/projects/works-index/backpack-motion-sunset.jpg", alt: "户外背包山野影片收束帧" },
+];
+const displayVisualOutputs = [
+  ...visualOutputs.filter((output) => output.category === "identity"),
+  ...curatedNonIdentityOutputs,
+];
+const curatedFeaturedOutputIds = ["camera-optics-feature", "backpack-organization-feature", "skirt-campaign-layer", "camera-scene-selfie", "oolong-motion-pour"];
+const featuredOutputs = curatedFeaturedOutputIds
+  .map((id) => displayVisualOutputs.find((output) => output.id === id))
   .filter((output): output is VisualOutput => Boolean(output));
 
 function VisualOutputCard({
@@ -3415,11 +3469,11 @@ function SelectedWorks({
   };
   const filteredOutputs = categoryId === "featured"
     ? featuredOutputs
-    : visualOutputs.filter((output) => output.category === categoryId);
+    : displayVisualOutputs.filter((output) => output.category === categoryId);
   const activeCategory = categoryId === "featured"
     ? { id: "featured", label: "精选代表作", english: "SELECTED WORKS", outputCount: featuredOutputs.length, description: "每个方向只先展示一张代表作；点击分类后，再进入该方向的完整作品集合。" }
     : visualOutputCategories.find((item) => item.id === categoryId) ?? visualOutputCategories[0];
-  const backdropImage = filteredOutputs[0]?.src ?? visualOutputs[0].src;
+  const backdropImage = filteredOutputs[0]?.src ?? displayVisualOutputs[0].src;
   const entryOpacity = useTransform(handoffProgress, [0, 0.1, 0.34], [0, 0.72, 1]);
   const entryY = useTransform(handoffProgress, [0, 0.5, 1], [reduceMotion ? 0 : 72, reduceMotion ? 0 : 12, 0]);
   const entryScale = useTransform(handoffProgress, [0, 0.6, 1], [reduceMotion ? 1 : 0.98, 0.995, 1]);
@@ -3457,11 +3511,11 @@ function SelectedWorks({
           <header className="works-overview-header">
             <div>
               <span className="works-overview-kicker">交付能力 / OUTPUT INDEX</span>
-              <h2 id="works-overview-title">52 件作品，先看每个方向的一张代表作。</h2>
+              <h2 id="works-overview-title">60 件作品，先看每个方向的一张代表作。</h2>
               <p>商业案例看项目全貌，这里看可独立使用的视觉成果。首屏只展示 5 张代表作，进入分类后查看该方向的完整作品。</p>
             </div>
-            <div className="works-overview-total" aria-label="52件作品，来自12个完整项目">
-              <strong>52</strong>
+            <div className="works-overview-total" aria-label="60件作品，来自12个完整项目">
+              <strong>60</strong>
               <span>完整作品</span>
               <small>来自 12 个项目</small>
             </div>
@@ -3526,7 +3580,7 @@ function SelectedWorks({
           <AnimatePresence initial={false} mode="wait" custom={categoryDirection}>
             <motion.div
               key={categoryId}
-              className={`works-overview-grid${categoryId === "featured" ? " is-featured" : " is-filtered"}`}
+              className={`works-overview-grid${categoryId === "featured" ? " is-featured" : " is-filtered"}${categoryId !== "identity" && categoryId !== "featured" ? " is-curated-filter" : ""}`}
               custom={categoryDirection}
               variants={{
                 enter: (direction: number) => ({ opacity: 0, x: reduceMotion ? 0 : direction * 24 }),
