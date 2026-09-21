@@ -3315,7 +3315,7 @@ const visualOutputs: VisualOutput[] = [
   { id: "qinglan-product", title: "焙香乌龙三视图", project: "青岚焙香乌龙", category: "identity", shape: "wide", src: "/assets/projects/qinglan-tea/qinglan-oolong-packaging-views.jpg", alt: "青岚焙香乌龙茶瓶正面、右侧与背面三视图" },
   { id: "qinglan-original-product", title: "原叶绿茶三视图", project: "青岚茶事", category: "identity", shape: "wide", src: "/assets/projects/qinglan-tea/qinglan-packaging-views.webp", alt: "青岚茶事原叶绿茶正面、侧面与背面三视图" },
   { id: "speaker-product", title: "音箱产品定妆", project: "户外音箱", category: "identity", shape: "wide", src: "/assets/projects/outdoor-speaker/speaker-product-master.webp", alt: "户外音箱产品定妆图" },
-  { id: "fishtail-product", title: "鱼尾皮裙版型定妆", project: "鱼尾皮裙", category: "identity", shape: "tall", src: "/assets/projects/fishtail-skirt/skirt-19.webp", alt: "鱼尾皮裙版型与轮廓定妆图" },
+  { id: "fishtail-product", title: "鱼尾皮裙版型定妆", project: "鱼尾皮裙", category: "identity", shape: "tall", src: "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v4.png", alt: "通勤场景中的鱼尾皮裙版型定妆图" },
   { id: "fan-specs", title: "规格信息说明", project: "桌面风扇", category: "commerce", shape: "wide", src: "/assets/projects/table-fan/table-fan-sleep-specs.webp", alt: "桌面风扇规格信息说明" },
   { id: "terrain-four-views", title: "四向产品确认", project: "TERRAIN 35", category: "commerce", shape: "wide", src: "/assets/projects/terrain-35/terrain-four-views.jpg", alt: "TERRAIN 35 四向产品确认" },
   { id: "terrain-compression", title: "压缩状态说明", project: "TERRAIN 35", category: "commerce", shape: "wide", src: "/assets/projects/terrain-35/terrain-compression-states.jpg", alt: "TERRAIN 35 压缩状态说明" },
@@ -3362,7 +3362,7 @@ function VisualOutputCard({
   return (
     <motion.button
       type="button"
-      className={`visual-output-card is-${output.shape}`}
+      className={`visual-output-card is-${output.shape} is-${output.id}`}
       initial={reduceMotion ? false : { opacity: 0, y: 16, scale: 0.985 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: reduceMotion ? 0.01 : 0.32, delay: reduceMotion ? 0 : Math.min(index * 0.035, 0.21), ease: [0.16, 1, 0.3, 1] }}

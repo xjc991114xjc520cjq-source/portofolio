@@ -638,6 +638,12 @@
   transition: scale 750ms cubic-bezier(0.16, 1, 0.3, 1), filter 400ms ease;
 }
 
+/* The source three-view sheets use different amounts of surrounding canvas.
+   Match the bottle occupancy so the two Qinglan SKUs read as one family. */
+.visual-output-card.is-qinglan-original-product > img {
+  scale: 1.24;
+}
+
 .visual-output-card-shade {
   position: absolute;
   inset: 0;
