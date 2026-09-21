@@ -1334,8 +1334,8 @@ function Nav() {
         </a>
         <nav aria-label="主要导航">
           <a href="#project-showcase" onClick={showProjects} aria-current={activeSection === "project-showcase" ? "page" : undefined}>代表项目</a>
-          <a href="#work" onClick={showWorks} aria-current={activeSection === "work" ? "page" : undefined}>作品</a>
           <a href="#ai-lab" onClick={showLab} aria-current={activeSection === "ai-lab" ? "page" : undefined}>AI 控制</a>
+          <a href="#work" onClick={showWorks} aria-current={activeSection === "work" ? "page" : undefined}>作品</a>
           <a href="#profile" onClick={showProfile} aria-current={activeSection === "profile" ? "page" : undefined}>关于我</a>
         </nav>
         <a className="say-hi" href={`mailto:${contactEmail}`} aria-current={activeSection === "contact" ? "page" : undefined}>
