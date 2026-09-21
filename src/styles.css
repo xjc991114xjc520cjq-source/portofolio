@@ -601,7 +601,8 @@
 .works-overview-grid.is-filtered.is-curated-filter {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-auto-rows: clamp(220px, 17vw, 300px);
-  grid-auto-flow: row;
+  /* Let later single-column cards reclaim holes left by two-column cards. */
+  grid-auto-flow: dense;
   align-items: stretch;
 }
 
@@ -683,6 +684,13 @@
 
 .visual-output-card.is-serum-campaign-cold > img {
   object-fit: contain;
+}
+
+/* The curated campaign layout gives this first item a full-width row on
+   narrow screens. Match the square source instead of leaving black side bars
+   inside a short landscape slot. */
+.works-overview-grid.is-filtered.is-curated-filter .visual-output-card.is-serum-campaign-cold {
+  aspect-ratio: 1 / 1;
 }
 
 .visual-output-card-shade {
