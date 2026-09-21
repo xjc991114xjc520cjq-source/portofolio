@@ -2635,6 +2635,38 @@ video {
   }
 }
 
+@keyframes nav-component-soft-rise {
+  from {
+    opacity: 0;
+    translate: 0 42px;
+    scale: 0.985;
+    filter: blur(7px);
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes nav-component-soft-reveal {
+  from {
+    opacity: 0;
+    translate: 0 54px;
+    scale: 0.965;
+    filter: blur(9px);
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+    filter: blur(0);
+  }
+}
+
 #top.nav-component-enter .hero-signature {
   animation: nav-component-rise 480ms var(--ease-out) 20ms both;
 }
@@ -2692,6 +2724,36 @@ video {
   animation: nav-component-portrait 760ms var(--ease-drawer) 210ms both;
 }
 
+#work.nav-component-enter .works-overview-header {
+  animation: nav-component-slide-left 680ms var(--ease-drawer) 30ms both;
+}
+
+#work.nav-component-enter .works-overview-total {
+  animation: nav-component-soft-rise 620ms var(--ease-drawer) 110ms both;
+}
+
+#work.nav-component-enter .works-overview-filters {
+  animation: nav-component-soft-rise 680ms var(--ease-drawer) 150ms both;
+}
+
+#work.nav-component-enter .works-overview-category-note {
+  animation: nav-component-soft-rise 560ms var(--ease-out) 250ms both;
+}
+
+#work.nav-component-enter .works-overview-grid {
+  animation: nav-component-soft-reveal 820ms var(--ease-drawer) 270ms both;
+}
+
+#work.nav-component-enter .visual-output-card {
+  animation: nav-component-card 620ms var(--ease-drawer) both;
+}
+
+#work.nav-component-enter .visual-output-card:nth-child(1) { animation-delay: 340ms; }
+#work.nav-component-enter .visual-output-card:nth-child(2) { animation-delay: 390ms; }
+#work.nav-component-enter .visual-output-card:nth-child(3) { animation-delay: 440ms; }
+#work.nav-component-enter .visual-output-card:nth-child(4) { animation-delay: 490ms; }
+#work.nav-component-enter .visual-output-card:nth-child(5) { animation-delay: 540ms; }
+
 #project-showcase.nav-component-enter .project-showcase-heading {
   animation: nav-component-slide-left 680ms var(--ease-drawer) 30ms both;
 }
@@ -2742,6 +2804,12 @@ video {
 #work.nav-component-enter .works-footer,
 #work.nav-component-enter .gallery-heading,
 #work.nav-component-enter .gallery-stage,
+#work.nav-component-enter .works-overview-header,
+#work.nav-component-enter .works-overview-total,
+#work.nav-component-enter .works-overview-filters,
+#work.nav-component-enter .works-overview-category-note,
+#work.nav-component-enter .works-overview-grid,
+#work.nav-component-enter .visual-output-card,
 #project-showcase.nav-component-enter .project-showcase-heading,
 #project-showcase.nav-component-enter .project-showcase-item {
   animation-play-state: var(--nav-component-play-state);
