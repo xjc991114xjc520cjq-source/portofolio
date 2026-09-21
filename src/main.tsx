@@ -3308,7 +3308,7 @@ const visualOutputs: VisualOutput[] = [
   { id: "qinglan-motion", title: "茶香影片开场", project: "青岚茶事", category: "motion", shape: "wide", src: "/assets/projects/qinglan-tea/qinglan-oolong-film-opening-poster.webp", alt: "青岚茶事产品影片开场画面" },
   { id: "kova-motion", title: "运动影片关键帧", project: "KOVA", category: "motion", shape: "standard", src: "/assets/projects/kova-action-camera/kova-motion-kayak-poster.jpg", alt: "KOVA 运动相机皮划艇影片关键帧" },
   { id: "fan-product", title: "产品校准主图", project: "桌面风扇", category: "identity", shape: "wide", src: "/assets/projects/table-fan/table-fan-product-calibration-v2.jpg", alt: "桌面风扇产品校准主图" },
-  { id: "serum-product", title: "精华液产品定妆", project: "精华液", category: "identity", shape: "tall", src: "/assets/projects/serum/serum-views.webp", alt: "精华液产品定妆与角度展示", focalPoint: "44% 50%" },
+  { id: "serum-product", title: "精华液产品定妆", project: "精华液", category: "identity", shape: "tall", src: "/assets/projects/serum/serum-views.webp", alt: "精华液产品定妆与角度展示", focalPoint: "58% 50%" },
   { id: "terrain-product", title: "背包产品主视图", project: "TERRAIN 35", category: "identity", shape: "tall", src: "/assets/projects/terrain-35/terrain-hero-master.jpg", alt: "TERRAIN 35 背包产品主视图" },
   { id: "yoga-product", title: "服饰正背面定妆", project: "瑜伽套装", category: "identity", shape: "standard", src: "/assets/projects/yoga-set/yoga-commerce-front-back.webp", alt: "瑜伽套装正背面产品定妆", focalPoint: "50% 100%" },
   { id: "glacier-product", title: "洁面产品定妆", project: "GLACIER", category: "identity", shape: "wide", src: "/assets/projects/glacier-cleanser/glacier-views.webp", alt: "GLACIER 洁面产品定妆图" },
