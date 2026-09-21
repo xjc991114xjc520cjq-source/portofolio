@@ -4979,12 +4979,11 @@ function AILabListItem({
   const opacity = useTransform(progress, [0, start, start + 0.11, 0.9, 1], [0, 0, 1, 0.92, 0]);
   const y = useTransform(progress, [0, start, start + 0.11, 0.9, 1], [34, 34, 0, -8, -48]);
   const x = useTransform(progress, [0, start, start + 0.11, 0.9, 1], [itemIndex % 2 === 0 ? -12 : 12, itemIndex % 2 === 0 ? -12 : 12, 0, 0, itemIndex % 2 === 0 ? -12 : 12]);
-  const filter = useTransform(progress, [0, start, start + 0.11, 0.9, 1], ["blur(3px)", "blur(3px)", "blur(0px)", "blur(0px)", "blur(4px)"]);
 
   return (
     <motion.article
       key={item.title}
-      style={reduceMotion ? undefined : { opacity, x, y, filter }}
+      style={reduceMotion ? undefined : { opacity, x, y }}
     >
       <div>
         <strong>{item.title}</strong>
@@ -5006,7 +5005,6 @@ function AILab() {
   const headingOpacity = useTransform(labProgress, [0, 0.08, 0.24, 0.58, 0.82, 1], [0, 0.52, 1, 0.94, 0.48, 0]);
   const headingY = useTransform(labProgress, [0, 0.18, 0.42, 0.72, 1], [112, 48, 0, -28, -96]);
   const headingScale = useTransform(labProgress, [0, 0.18, 0.42, 0.72, 1], [0.9, 0.96, 1, 0.985, 0.94]);
-  const headingFilter = useTransform(labProgress, [0, 0.08, 0.24, 0.72, 1], ["blur(14px)", "blur(4px)", "blur(0px)", "blur(1px)", "blur(8px)"]);
   const proofOpacity = useTransform(labProgress, [0, 0.08, 0.22, 0.92, 1], [0, 0.4, 1, 1, 0]);
   const proofY = useTransform(labProgress, [0, 0.3, 0.86, 1], [86, 0, 0, -52]);
   const proofScale = useTransform(labProgress, [0, 0.3, 0.86, 1], [0.94, 1, 1, 0.98]);
@@ -5058,7 +5056,7 @@ function AILab() {
       <div className="ai-lab-shell shell">
         <motion.header
           className="ai-lab-heading"
-          style={reduceMotion ? undefined : { opacity: headingOpacity, y: headingY, scale: headingScale, filter: headingFilter }}
+          style={reduceMotion ? undefined : { opacity: headingOpacity, y: headingY, scale: headingScale }}
         >
           <p>CONTROLLED AI WORKFLOW</p>
           <h2 id="ai-lab-title">
