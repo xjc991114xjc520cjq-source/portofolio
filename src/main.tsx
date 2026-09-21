@@ -5065,6 +5065,17 @@ function AILab() {
           <p className="ai-lab-intro">
             先锁定产品身份，再释放状态、SKU、机位与环境变量。三组案例，分别验证连续性、家族关系与场景识别。
           </p>
+          <div className="ai-lab-list ai-lab-list--under-title">
+            {aiLabItems.map((item, itemIndex) => (
+              <AILabListItem
+                key={item.title}
+                item={item}
+                itemIndex={itemIndex}
+                progress={labProgress}
+                reduceMotion={reduceMotion}
+              />
+            ))}
+          </div>
           <div className="ai-lab-heading-meta">
             <span>01—03 / PROOF INDEX</span>
             <i aria-hidden="true" />
@@ -5106,17 +5117,6 @@ function AILab() {
           ))}
         </motion.div>
 
-        <div className="ai-lab-list">
-          {aiLabItems.map((item, itemIndex) => (
-            <AILabListItem
-              key={item.title}
-              item={item}
-              itemIndex={itemIndex}
-              progress={labProgress}
-              reduceMotion={reduceMotion}
-            />
-          ))}
-        </div>
       </div>
     </section>
   );

@@ -7382,25 +7382,41 @@ video {
 
 .ai-lab-list {
   display: grid;
-  grid-column: 1 / -1;
-  margin-top: -2px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ai-lab-list--under-title {
+  position: relative;
+  overflow: hidden;
+  margin-top: 32px;
+  gap: 1px;
+  border: 1px solid rgba(137, 170, 204, 0.2);
+  background: rgba(137, 170, 204, 0.14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 18px 44px rgba(0, 0, 0, 0.16);
+}
+
+.ai-lab-list--under-title::before {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(137, 170, 204, 0.08), transparent 42%, rgba(255, 255, 255, 0.025));
+  content: "";
+  pointer-events: none;
 }
 
 .ai-lab-list article {
   display: grid;
-  gap: 28px;
+  position: relative;
+  gap: 12px;
   min-width: 0;
-  padding: 22px 30px 24px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.13);
-  grid-template-columns: minmax(170px, 0.72fr) minmax(0, 1.28fr);
+  padding: 17px 18px 18px;
+  background: rgba(7, 9, 11, 0.92);
+  grid-template-columns: 1fr;
   will-change: transform, opacity, filter;
 }
 
 .ai-lab-list article:nth-child(even) {
-  padding-right: 0;
-  padding-left: 30px;
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  padding-right: 18px;
+  padding-left: 18px;
 }
 
 .ai-lab-list article > div {
@@ -7411,8 +7427,9 @@ video {
 
 .ai-lab-list strong {
   color: rgba(248, 248, 246, 0.9);
-  font-size: 17px;
+  font-size: clamp(14px, 1.08vw, 17px);
   font-weight: 680;
+  line-height: 1.35;
 }
 
 .ai-lab-list span {
@@ -7426,8 +7443,13 @@ video {
 .ai-lab-list p {
   margin: 0;
   color: rgba(245, 245, 243, 0.56);
-  font-size: 12px;
-  line-height: 1.8;
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+.ai-lab-list--under-title article:nth-child(3),
+.ai-lab-list--under-title article:nth-child(4) {
+  padding-top: 16px;
 }
 
 @media (max-width: 1100px) {
@@ -7489,6 +7511,10 @@ video {
 
   .ai-lab-list article {
     gap: 18px;
+    grid-template-columns: 1fr;
+  }
+
+  .ai-lab-list--under-title {
     grid-template-columns: 1fr;
   }
 }
@@ -8003,15 +8029,28 @@ video {
 
   .ai-lab-list {
     display: block;
-    margin-top: 36px;
+    margin-top: 34px;
   }
 
   .ai-lab-list article,
   .ai-lab-list article:nth-child(even) {
     gap: 12px;
     padding: 22px 0 24px;
-    border-left: 0;
     grid-template-columns: 1fr;
+  }
+
+  .ai-lab-list--under-title {
+    display: grid;
+    margin-top: 32px;
+    gap: 1px;
+  }
+
+  .ai-lab-list--under-title article,
+  .ai-lab-list--under-title article:nth-child(even),
+  .ai-lab-list--under-title article:nth-child(3),
+  .ai-lab-list--under-title article:nth-child(4) {
+    gap: 10px;
+    padding: 16px 15px 17px;
   }
 }
 
