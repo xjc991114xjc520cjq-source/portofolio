@@ -367,8 +367,17 @@
   font-size: clamp(46px, 4.6vw, 80px);
   font-weight: 720;
   line-height: 1.08;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.045em;
   text-wrap: balance;
+}
+
+.works-overview-title-count {
+  display: inline-block;
+  margin: 0 0.015em;
+  font-size: 1.08em;
+  letter-spacing: -0.065em;
+  line-height: 0.92;
+  vertical-align: -0.015em;
 }
 
 .works-overview-header p {

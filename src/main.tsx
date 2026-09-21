@@ -3524,7 +3524,7 @@ function SelectedWorks({
           <header className="works-overview-header">
             <div>
               <span className="works-overview-kicker">交付能力 / OUTPUT INDEX</span>
-              <h2 id="works-overview-title">59 件作品，先看每个方向的一张代表作。</h2>
+              <h2 id="works-overview-title">精选<span className="works-overview-title-count">59</span>件作品，先看每个方向的一张代表作。</h2>
               <p>商业案例看项目全貌，这里看可独立使用的视觉成果。首屏只展示 5 张代表作，进入分类后查看该方向的完整作品。</p>
             </div>
             <div className="works-overview-total" aria-label="59件作品，来自12个完整项目">
