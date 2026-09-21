@@ -4788,7 +4788,6 @@ function ProjectShowcaseCard({
           </picture>
         ))}
         <span className="project-showcase-art-shade" aria-hidden="true" />
-        <span className="project-showcase-backdrop" aria-hidden="true">{item.english}</span>
       </span>
       <span className="project-showcase-index" aria-hidden="true">{item.index}</span>
       <span className="project-showcase-meta">
