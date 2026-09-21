@@ -4966,15 +4966,11 @@ function AILabListItem({
   itemIndex,
   progress,
   reduceMotion,
-  active,
-  onHover,
 }: {
   item: (typeof aiLabItems)[number];
   itemIndex: number;
   progress: MotionValue<number>;
   reduceMotion: boolean | null;
-  active: boolean;
-  onHover: (index: number | null) => void;
 }) {
   // These cards sit directly beneath the headline. Finish their reveal while
   // the screen is entering, instead of leaving the left column blurred until
@@ -4987,17 +4983,8 @@ function AILabListItem({
   return (
     <motion.article
       key={item.title}
-      className={active ? "is-active" : undefined}
-      data-step={itemIndex + 1}
-      onPointerEnter={(event) => {
-        if (event.pointerType === "mouse" || event.pointerType === "pen") onHover(itemIndex);
-      }}
-      onPointerLeave={(event) => {
-        if (event.pointerType === "mouse" || event.pointerType === "pen") onHover(null);
-      }}
       style={reduceMotion ? undefined : { opacity, x, y }}
     >
-      <span className="ai-lab-step-index" aria-hidden="true">0{itemIndex + 1}</span>
       <div>
         <strong>{item.title}</strong>
         <span>{item.english}</span>
@@ -5010,7 +4997,6 @@ function AILabListItem({
 function AILab() {
   const reduceMotion = useReducedMotion();
   const labRef = useRef<HTMLElement>(null);
-  const [activeStep, setActiveStep] = useState<number | null>(null);
   const { scrollYProgress: labProgress } = useScroll({
     target: labRef,
     offset: ["start end", "end start"],
@@ -5089,8 +5075,6 @@ function AILab() {
                 itemIndex={itemIndex}
                 progress={labProgress}
                 reduceMotion={reduceMotion}
-                active={activeStep === itemIndex}
-                onHover={setActiveStep}
               />
             ))}
           </div>
@@ -5130,8 +5114,8 @@ function AILab() {
           aria-label="AI 商业视觉工作流"
           style={reduceMotion ? undefined : { opacity: workflowOpacity, y: workflowY, scale: workflowScale }}
         >
-          {['商业命题', '识别锚点', '变量扩展', '人工审核', '触点交付'].map((step, stepIndex) => (
-            <span key={step} className={activeStep === stepIndex ? "is-active" : undefined}>{step}</span>
+          {['商业命题', '识别锚点', '变量扩展', '人工审核', '触点交付'].map((step) => (
+            <span key={step}>{step}</span>
           ))}
         </motion.div>
 
