@@ -2754,6 +2754,30 @@ video {
 #work.nav-component-enter .visual-output-card:nth-child(4) { animation-delay: 490ms; }
 #work.nav-component-enter .visual-output-card:nth-child(5) { animation-delay: 540ms; }
 
+/* The AI screen is already scroll-driven. Give direct navigation its own
+   settled entrance so the left editorial column does not remain in the
+   section's mid-scroll blur state when the anchor lands near the top. */
+#ai-lab.nav-component-enter .ai-lab-heading {
+  animation: nav-component-slide-left 720ms var(--ease-drawer) 30ms both;
+}
+
+#ai-lab.nav-component-enter .ai-lab-proof {
+  animation: nav-component-soft-reveal 840ms var(--ease-drawer) 170ms both;
+}
+
+#ai-lab.nav-component-enter .ai-lab-list--under-title article {
+  animation: nav-component-card 620ms var(--ease-drawer) both;
+}
+
+#ai-lab.nav-component-enter .ai-lab-list--under-title article:nth-child(1) { animation-delay: 220ms; }
+#ai-lab.nav-component-enter .ai-lab-list--under-title article:nth-child(2) { animation-delay: 280ms; }
+#ai-lab.nav-component-enter .ai-lab-list--under-title article:nth-child(3) { animation-delay: 340ms; }
+#ai-lab.nav-component-enter .ai-lab-list--under-title article:nth-child(4) { animation-delay: 400ms; }
+
+#ai-lab.nav-component-enter .ai-lab-workflow {
+  animation: nav-component-soft-rise 640ms var(--ease-out) 470ms both;
+}
+
 #project-showcase.nav-component-enter .project-showcase-heading {
   animation: nav-component-slide-left 680ms var(--ease-drawer) 30ms both;
 }
@@ -2810,6 +2834,10 @@ video {
 #work.nav-component-enter .works-overview-category-note,
 #work.nav-component-enter .works-overview-grid,
 #work.nav-component-enter .visual-output-card,
+#ai-lab.nav-component-enter .ai-lab-heading,
+#ai-lab.nav-component-enter .ai-lab-proof,
+#ai-lab.nav-component-enter .ai-lab-list--under-title article,
+#ai-lab.nav-component-enter .ai-lab-workflow,
 #project-showcase.nav-component-enter .project-showcase-heading,
 #project-showcase.nav-component-enter .project-showcase-item {
   animation-play-state: var(--nav-component-play-state);
