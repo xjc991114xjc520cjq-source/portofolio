@@ -3348,7 +3348,7 @@ const curatedNonIdentityOutputs: VisualOutput[] = [
   { id: "fan-feature-detail", title: "风道与送风", project: "桌面风扇", category: "commerce", shape: "standard", src: "/assets/projects/works-index/fan-feature-detail.png", alt: "桌面风扇风道细节卖点" },
   { id: "serum-feature-board", title: "多重精粹协同", project: "LUMINOSE", category: "commerce", shape: "standard", src: "/assets/projects/works-index/serum-feature-board.png", alt: "精华液多重精粹协同功效说明" },
   { id: "tea-retail-feature", title: "从货架到选择", project: "青岚茶事", category: "commerce", shape: "wide", src: "/assets/projects/works-index/tea-retail-feature.png", alt: "无糖茶零售货架选择场景" },
-  { id: "oolong-family-feature", title: "双味家族关系", project: "青岚焙香乌龙", category: "commerce", shape: "wide", src: "/assets/projects/works-index/oolong-family-feature.png", alt: "青岚茶事双味产品家族说明" },
+  { id: "oolong-family-feature", title: "双味家族关系", project: "青岚焙香乌龙", category: "commerce", shape: "wide", src: "/assets/projects/works-index/oolong-family-feature.png", alt: "青岚茶事双味产品家族说明", focalPoint: "50% 78%" },
   { id: "earbuds-noise-feature", title: "45dB 深度降噪", project: "SONA ARC ONE", category: "commerce", shape: "tall", src: "/assets/projects/works-index/earbuds-noise-feature.png", alt: "无线耳机深度降噪功能说明" },
   { id: "backpack-organization-feature", title: "打开以后，更会装", project: "TERRAIN 35", category: "commerce", shape: "tall", src: "/assets/projects/works-index/backpack-organization-feature.jpg", alt: "户外背包内部收纳功能说明" },
   { id: "speaker-control-feature", title: "旋钮与控制", project: "户外音箱", category: "commerce", shape: "standard", src: "/assets/projects/works-index/speaker-control-feature.jpg", alt: "户外音箱顶部控制细节" },
