@@ -676,21 +676,19 @@
   transition: scale 750ms cubic-bezier(0.16, 1, 0.3, 1), filter 400ms ease;
 }
 
-/* These campaign assets are square editorial boards. Keep the complete
-   bottle visible when the curated grid gives them a wide card slot. */
-.visual-output-card.is-serum-campaign-cold {
-  background: #21150f;
+/* The skirt is a vertical fashion object, so its detail card needs vertical
+   presence in the collection grid instead of competing in a shallow banner
+   slot. Keep the product on the visual axis and let the card occupy the
+   height of two grid rows. */
+.works-overview-grid.is-filtered.is-curated-filter .visual-output-card.is-skirt-waist-feature {
+  grid-column: span 1;
+  grid-row: span 2;
+  aspect-ratio: 3 / 4;
 }
 
-.visual-output-card.is-serum-campaign-cold > img {
-  object-fit: contain;
-}
-
-/* The curated campaign layout gives this first item a full-width row on
-   narrow screens. Match the square source instead of leaving black side bars
-   inside a short landscape slot. */
-.works-overview-grid.is-filtered.is-curated-filter .visual-output-card.is-serum-campaign-cold {
-  aspect-ratio: 1 / 1;
+.visual-output-card.is-skirt-waist-feature > img {
+  object-fit: cover;
+  object-position: 62% 54%;
 }
 
 .visual-output-card-shade {

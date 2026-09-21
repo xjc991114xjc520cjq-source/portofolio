@@ -3282,7 +3282,7 @@ type VisualOutput = ProjectImageSource & {
 const visualOutputCategories = [
   { id: "identity", label: "产品定妆", english: "PRODUCT VISUALS", outputCount: 12, description: "先让人看清产品是什么、长什么样，建立准确而有记忆点的第一印象。" },
   { id: "commerce", label: "卖点表达", english: "FEATURE EXPLAINERS", outputCount: 12, description: "把功能、材质和使用方法讲到能被理解，也能直接回答购买疑问。" },
-  { id: "campaign", label: "品牌传播", english: "BRAND CAMPAIGNS", outputCount: 12, description: "把产品卖点组织成主视觉和海报，让品牌在第一眼被记住。" },
+  { id: "campaign", label: "品牌传播", english: "BRAND CAMPAIGNS", outputCount: 11, description: "把产品卖点组织成主视觉和海报，让品牌在第一眼被记住。" },
   { id: "scene", label: "人物场景", english: "PEOPLE & SCENES", outputCount: 12, description: "用人物、动作和环境让人想象产品进入真实生活后的样子。" },
   { id: "motion", label: "内容延展", english: "MOTION FRAMES", outputCount: 12, description: "从影片开场、关键帧到结尾画面，让一套视觉继续适配更多渠道。" },
 ] as const;
@@ -3353,10 +3353,9 @@ const curatedNonIdentityOutputs: VisualOutput[] = [
   { id: "backpack-organization-feature", title: "打开以后，更会装", project: "TERRAIN 35", category: "commerce", shape: "tall", src: "/assets/projects/works-index/backpack-organization-feature.jpg", alt: "户外背包内部收纳功能说明" },
   { id: "speaker-control-feature", title: "旋钮与控制", project: "户外音箱", category: "commerce", shape: "standard", src: "/assets/projects/works-index/speaker-control-feature.jpg", alt: "户外音箱顶部控制细节" },
   { id: "camera-optics-feature", title: "镜头结构拆解", project: "KOVA", category: "commerce", shape: "wide", src: "/assets/projects/works-index/camera-optics-feature.jpg", alt: "运动相机镜头结构拆解" },
-  { id: "skirt-waist-feature", title: "交叠腰线·弧形覆片", project: "鱼尾皮裙", category: "commerce", shape: "standard", src: "/assets/projects/works-index/skirt-waist-feature.png", alt: "鱼尾皮裙交叠腰线与弧形覆片细节" },
+  { id: "skirt-waist-feature", title: "交叠腰线·弧形覆片", project: "鱼尾皮裙", category: "commerce", shape: "tall", src: "/assets/projects/works-index/skirt-waist-feature.png", alt: "鱼尾皮裙交叠腰线与弧形覆片细节" },
   { id: "yoga-material-feature", title: "贴合，不必平淡", project: "瑜伽套装", category: "commerce", shape: "standard", src: "/assets/projects/works-index/yoga-material-feature.jpg", alt: "瑜伽套装贴合结构细节" },
   { id: "serum-routine-feature", title: "晨晚护理路径", project: "LUMINOSE", category: "commerce", shape: "tall", src: "/assets/projects/works-index/serum-routine-feature.png", alt: "精华液晨晚护理路径" },
-  { id: "serum-campaign-cold", title: "光采上线", project: "LUMINOSE", category: "campaign", shape: "tall", src: "/assets/projects/works-index/serum-campaign-cold.png", alt: "精华液冷感光采品牌主视觉" },
   { id: "tea-campaign-refresh", title: "清爽有茶香", project: "青岚茶事", category: "campaign", shape: "wide", src: "/assets/projects/works-index/tea-campaign-refresh.png", alt: "无糖绿茶清爽上市传播画面" },
   { id: "oolong-campaign-roast", title: "焙香深，回甘净", project: "青岚焙香乌龙", category: "campaign", shape: "wide", src: "/assets/projects/works-index/oolong-campaign-roast.png", alt: "焙香乌龙浓茶感传播主视觉" },
   { id: "earbuds-campaign-connect", title: "开盖，即连", project: "SONA ARC ONE", category: "campaign", shape: "tall", src: "/assets/projects/works-index/earbuds-campaign-connect.png", alt: "无线耳机开盖连接传播海报" },
@@ -3384,7 +3383,7 @@ const curatedNonIdentityOutputs: VisualOutput[] = [
   { id: "camera-motion-night", title: "夜色，自有层次", project: "KOVA", category: "motion", shape: "tall", src: "/assets/projects/works-index/camera-motion-night.jpg", alt: "运动相机夜间影片关键帧" },
   { id: "camera-motion-review", title: "拍完，就地回看", project: "KOVA", category: "motion", shape: "wide", src: "/assets/projects/works-index/camera-motion-review.jpg", alt: "运动相机回看影片关键帧" },
   { id: "speaker-motion-camp", title: "音乐，随处入场", project: "户外音箱", category: "motion", shape: "wide", src: "/assets/projects/works-index/speaker-motion-camp.jpg", alt: "户外音箱影片中的露营关键帧" },
-  { id: "speaker-motion-evening", title: "夜色，正好听", project: "户外音箱", category: "motion", shape: "tall", src: "/assets/projects/works-index/speaker-motion-evening.jpg", alt: "户外音箱夜间影片关键帧" },
+  { id: "speaker-motion-evening", title: "放松，也有节奏", project: "户外音箱", category: "motion", shape: "tall", src: "/assets/projects/works-index/speaker-motion-evening.jpg", alt: "户外音箱运动后放松时的音乐生活方式画面" },
   { id: "skirt-motion-dance", title: "今晚，随自己的节拍", project: "鱼尾皮裙", category: "motion", shape: "wide", src: "/assets/projects/works-index/skirt-motion-dance.jpg", alt: "鱼尾皮裙舞池影片关键帧" },
   { id: "skirt-motion-night", title: "从容，也有风格", project: "鱼尾皮裙", category: "motion", shape: "tall", src: "/assets/projects/works-index/skirt-motion-night.jpg", alt: "鱼尾皮裙夜间影片关键帧" },
   { id: "yoga-motion-balance", title: "找到自己的舒展节奏", project: "瑜伽套装", category: "motion", shape: "wide", src: "/assets/projects/works-index/yoga-motion-balance.jpg", alt: "瑜伽套装影片中的平衡关键帧" },
@@ -3511,11 +3510,11 @@ function SelectedWorks({
           <header className="works-overview-header">
             <div>
               <span className="works-overview-kicker">交付能力 / OUTPUT INDEX</span>
-              <h2 id="works-overview-title">60 件作品，先看每个方向的一张代表作。</h2>
+              <h2 id="works-overview-title">59 件作品，先看每个方向的一张代表作。</h2>
               <p>商业案例看项目全貌，这里看可独立使用的视觉成果。首屏只展示 5 张代表作，进入分类后查看该方向的完整作品。</p>
             </div>
-            <div className="works-overview-total" aria-label="60件作品，来自12个完整项目">
-              <strong>60</strong>
+            <div className="works-overview-total" aria-label="59件作品，来自12个完整项目">
+              <strong>59</strong>
               <span>完整作品</span>
               <small>来自 12 个项目</small>
             </div>
