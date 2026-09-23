@@ -492,7 +492,7 @@ const miloStrollerProject = {
   alt: "年轻父母与儿童在城市住宅入口使用 Milo 婴儿推车的家庭场景",
   backdrop: "MILO",
   accent: "#d38a73",
-  introTheme: { surface: "#272321", surfaceDeep: "#151516", title: "#f2ece6", body: "#d1c5bc", muted: "#bcaea5", accent: "#d38a73", rule: "#6b5b55", shadow: "rgba(10,10,12,.4)" },
+  introTheme: { surface: "#5a5048", surfaceDeep: "#403934", title: "#fbf2ea", body: "#e3d5c9", muted: "#d0bbae", accent: "#d38a73", rule: "#9f7864", shadow: "rgba(56,38,27,.24)" },
   summary: "从浅灰织物、银灰车架和橙色轮毂环建立产品识别，以展开、折叠、局部细节和真人家庭场景，组织成一套可购买、可延展的婴儿推车电商内容系统。",
   brief: "让年轻父母看见产品长什么样，也能具体想象孩子坐入座舱、家长推行、单手收拢和回家收纳的连续日常。",
   response: "先用展开、背面和三视图锁定产品，再用顶篷、座舱、关节、置物篮和轮组解释卖点，最后用母亲、父亲与儿童的真实使用关系完成购买代入。",
