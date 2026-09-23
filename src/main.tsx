@@ -102,7 +102,11 @@ function useMediaProtection() {
 }
 
 const metrics = [
-  { value: "4+", label: "年视觉与电商设计经验" },
+  {
+    value: "4+",
+    label: "年视觉与电商设计经验",
+    note: "熟悉从产品视觉、生成内容到 Campaign 交付的完整链路。",
+  },
   { value: "AI", label: "生成式内容生产与视觉控制" },
   { value: "FULL", label: "从主图到整合 Campaign" },
 ];
@@ -3972,6 +3976,12 @@ function Profile() {
                   <b>{String(index + 1).padStart(2, "0")}</b>
                   <small>{metric.label}</small>
                 </span>
+                {metric.note ? (
+                  <p className="metric-note">
+                    <b>DELIVERY FOCUS</b>
+                    <small>{metric.note}</small>
+                  </p>
+                ) : null}
               </article>
             ))}
           </div>

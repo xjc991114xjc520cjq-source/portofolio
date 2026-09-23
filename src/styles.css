@@ -5155,10 +5155,12 @@ video {
 
 .metric-strip .metric-primary {
   grid-column: 1 / -1;
-  grid-template-columns: auto minmax(0, 1fr);
-  align-items: end;
-  gap: 20px;
-  padding: 4px 0 24px;
+  grid-template-columns: auto minmax(0, 1fr) minmax(150px, 0.9fr);
+  align-content: center;
+  align-items: center;
+  gap: clamp(14px, 1.5vw, 22px);
+  min-height: clamp(116px, 10vw, 148px);
+  padding: 14px 0;
   border-bottom: 1px solid var(--stroke);
 }
 
@@ -5204,6 +5206,32 @@ video {
   font-weight: 680;
   line-height: 1.55;
   letter-spacing: 0.045em;
+  text-wrap: balance;
+}
+
+.metric-note {
+  display: grid;
+  align-self: center;
+  gap: 7px;
+  max-width: 18em;
+  margin: 0;
+  padding-left: 18px;
+  border-left: 1px solid rgba(137, 170, 204, 0.28);
+}
+
+.metric-note b {
+  color: rgba(245, 245, 245, 0.34);
+  font-size: 7.5px;
+  font-weight: 750;
+  letter-spacing: 0.16em;
+}
+
+.metric-note small {
+  color: rgba(245, 245, 245, 0.56);
+  font-size: 10px;
+  font-weight: 520;
+  line-height: 1.65;
+  letter-spacing: 0.035em;
   text-wrap: balance;
 }
 
@@ -9249,6 +9277,15 @@ video {
 
   .profile-contact {
     margin-top: 26px;
+  }
+
+  .metric-strip .metric-primary {
+    min-height: 0;
+    padding: 16px 0 18px;
+  }
+
+  .metric-note {
+    padding-top: 12px;
   }
 
   .project-showcase {
