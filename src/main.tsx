@@ -956,7 +956,7 @@ function projectDetailHero(project: { english: string; image: string; alt: strin
       alt: "城市健身房中进行单腿拉伸的米色与墨岩灰瑜伽套装",
     },
     "MILO STROLLER COMMERCE SYSTEM": {
-      src: "/assets/projects/milo-stroller/milo-family-wide-hero.png",
+      src: "/assets/projects/milo-stroller/milo-family-wide-hero-2560.webp",
       alt: "年轻父母与儿童在城市住宅入口使用 Milo 婴儿推车的横向家庭场景",
     },
     "TERRAIN 35 OUTDOOR BACKPACK COMMERCE SYSTEM": {
@@ -1662,6 +1662,20 @@ const projectOriginalImageSources: Record<string, string> = {
   "/assets/projects/table-fan/table-fan-j05.webp": "/assets/projects/table-fan/originals/table-fan-j05-4k.jpg",
   "/assets/projects/table-fan/table-fan-j06.webp": "/assets/projects/table-fan/originals/table-fan-j06-4k.jpg",
   "/assets/projects/table-fan/table-fan-j07.webp": "/assets/projects/table-fan/originals/table-fan-j07-4k.jpg",
+  "/assets/projects/milo-stroller/milo-family-wide-hero-2560.webp": "/assets/projects/milo-stroller/milo-family-wide-hero-original.jpg",
+};
+
+const projectResponsiveImageSources: Record<string, { srcSet: string; sizes: string }> = {
+  "/assets/projects/milo-stroller/milo-family-wide-hero-2560.webp": {
+    srcSet: [
+      "/assets/projects/milo-stroller/milo-family-wide-hero-768.webp 768w",
+      "/assets/projects/milo-stroller/milo-family-wide-hero-1024.webp 1024w",
+      "/assets/projects/milo-stroller/milo-family-wide-hero-1440.webp 1440w",
+      "/assets/projects/milo-stroller/milo-family-wide-hero-1920.webp 1920w",
+      "/assets/projects/milo-stroller/milo-family-wide-hero-2560.webp 2560w",
+    ].join(", "),
+    sizes: "100vw",
+  },
 };
 
 type OriginalImageProgress = number | null;
@@ -1754,6 +1768,7 @@ const loadProjectOriginalImage = (src: string, onProgress?: OriginalImageProgres
 type ZoomableProjectImageProps = ProjectImageSource & {
   onOpen: (image: ProjectImageSource) => void;
   loading?: "eager" | "lazy";
+  fetchPriority?: "high" | "low" | "auto";
   className?: string;
   style?: CSSProperties;
   onLoad?: (event: SyntheticEvent<HTMLImageElement>) => void;
@@ -1783,18 +1798,26 @@ const oolongImageSizes: Record<string, readonly [number, number]> = {
   "qinglan-oolong-commerce-drinking.webp": [1672, 941],
 };
 
+const projectIntrinsicImageSizes: Record<string, readonly [number, number]> = {
+  "/assets/projects/milo-stroller/milo-family-wide-hero-2560.webp": [2560, 1705],
+};
+
 function ZoomableProjectImage({
   src,
   alt,
   onOpen,
   loading = "lazy",
+  fetchPriority,
   className,
   style,
   onLoad,
   onError,
 }: ZoomableProjectImageProps) {
   const fullSrc = projectOriginalImageSources[src];
-  const nativeSize = (caseImageSizes as Record<string, number[]>)[src] ?? oolongImageSizes[src.split("/").pop() ?? ""];
+  const responsiveSource = projectResponsiveImageSources[src];
+  const nativeSize = (caseImageSizes as Record<string, number[]>)[src]
+    ?? oolongImageSizes[src.split("/").pop() ?? ""]
+    ?? projectIntrinsicImageSizes[src];
 
   return (
     <button
@@ -1808,7 +1831,10 @@ function ZoomableProjectImage({
         alt={alt}
         width={nativeSize?.[0]}
         height={nativeSize?.[1]}
+        srcSet={responsiveSource?.srcSet}
+        sizes={responsiveSource?.sizes}
         loading={loading}
+        fetchPriority={fetchPriority}
         decoding="async"
         draggable={false}
         style={style}
@@ -2478,6 +2504,11 @@ function SelectedCollectionViewer({
 
     const pending = new Promise<void>((resolve) => {
       const image = new Image();
+      const responsiveSource = projectResponsiveImageSources[src];
+      if (responsiveSource) {
+        image.srcset = responsiveSource.srcSet;
+        image.sizes = responsiveSource.sizes;
+      }
       let settled = false;
       const finish = () => {
         if (settled) return;
@@ -4686,6 +4717,7 @@ function ProjectDetailViewer({
                   alt={detailHeroAlt}
                   onOpen={openImage}
                   loading="eager"
+                  fetchPriority="high"
                 />
                 <span className="project-detail-visual-shade" aria-hidden="true" />
                 <figcaption>
