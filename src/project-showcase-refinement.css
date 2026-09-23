@@ -121,14 +121,14 @@
   filter: brightness(.9) saturate(.9) contrast(1.04);
 }
 
-.project-showcase-art-primary.is-fishtail-fashion {
-  object-position: 56% center;
-  filter: brightness(.74) saturate(.8) contrast(1.06);
+.project-showcase-art-primary.is-milo-stroller {
+  object-position: center 50%;
+  filter: brightness(.86) saturate(.88) contrast(1.03);
 }
 
-.project-showcase-item:is(.is-focused, :focus-visible) .project-showcase-art-primary.is-fishtail-fashion {
-  object-position: 56% center;
-  filter: brightness(.88) saturate(.9) contrast(1.04);
+.project-showcase-item:is(.is-focused, :focus-visible) .project-showcase-art-primary.is-milo-stroller {
+  object-position: center 50%;
+  filter: brightness(.98) saturate(.96) contrast(1.02);
 }
 
 .project-showcase-art-primary.is-terrain-night {

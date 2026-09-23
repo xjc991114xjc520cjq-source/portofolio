@@ -29,8 +29,8 @@ import "./outdoor-speaker.css";
 import { ActionCameraCaseStudy } from "./ActionCameraCaseStudy";
 import { PortfolioVideo } from "./PortfolioVideo";
 import "./action-camera.css";
-import { FishtailSkirtCaseStudy } from "./FishtailSkirtCaseStudy";
-import "./fishtail-skirt.css";
+import { MiloStrollerCaseStudy } from "./MiloStrollerCaseStudy";
+import "./milo-stroller.css";
 import { YogaSetCaseStudy } from "./YogaSetCaseStudy";
 import "./yoga-set.css";
 import { TerrainBackpackCaseStudy } from "./TerrainBackpackCaseStudy";
@@ -477,32 +477,32 @@ const projectShowcaseItems = [
   },
 ] as const;
 
-const fishtailSkirtProject = {
+const miloStrollerProject = {
   index: "05A",
-  title: "鱼尾皮裙：黑裙不止一面",
-  english: "FISHTAIL LEATHER SKIRT CAMPAIGN SYSTEM",
-  category: "时尚服饰 / 时装企划",
-  categoryEnglish: "FASHION EXPERIENCE",
+  title: "Milo 婴儿推车：轻装出发",
+  english: "MILO STROLLER COMMERCE SYSTEM",
+  category: "母婴出行 / 产品商业化",
+  categoryEnglish: "FAMILY PRODUCT COMMERCE",
   year: "2026",
-  image: "/assets/projects/fishtail-skirt/skirt-rain-composition-v3.jpg",
-  alt: "中国女性撑透明雨伞，身穿红色短外套与黑色鱼尾皮裙走过雨中街道，裙摆层次与红黑穿搭清晰呈现",
-  backdrop: "FISHTAIL",
-  accent: "#c6b9b0",
-  introTheme: { surface: "#171719", surfaceDeep: "#101113", title: "#eeeae7", body: "#c8c5c2", muted: "#b3adaa", accent: "#c6b9b0", rule: "#625e5c", shadow: "rgba(10,10,12,.4)" },
-  summary: "从交叠腰线与双层鱼尾建立设计识别，以多元穿搭、自然姿态和昼夜场景，将一件黑裙转化为完整的时装电商内容系统。",
-  brief: "让消费者看见黑裙的设计差异，也能想象它进入自己的日常与重要场合。",
-  response: "以层次识别吸引注意，按版型、触感、穿搭和场合递进组织视觉，兼顾风格表达与选购理解。",
-  role: "AI Art Direction / Fashion Commerce",
-  scope: "时装产品视觉与多场景电商营销",
-  deliverables: ["产品版型", "材质细节", "穿搭企划", "多姿态场景", "电商主图", "广告横幅", "场景影像"],
-  workflow: ["产品识别", "造型企划", "场景表达", "字体编排", "渠道延展"],
-  system: "以交叠腰线、弧形覆片和鱼尾轮廓贯穿系列，通过上装、鞋履、动作和空间区分场合。",
-  outcome: "35 张电商视觉与 17 张产品及场景影像，覆盖商品识别、细节理解、穿搭选择与生活代入。",
-  reflection: "时装商业表达连接服装设计与自我表达，让同一件单品拥有清晰而多元的购买理由。",
+  image: "/assets/projects/milo-stroller/milo-family.jpg",
+  alt: "年轻父母与儿童在城市住宅入口使用 Milo 婴儿推车的家庭场景",
+  backdrop: "MILO",
+  accent: "#d38a73",
+  introTheme: { surface: "#272321", surfaceDeep: "#151516", title: "#f2ece6", body: "#d1c5bc", muted: "#bcaea5", accent: "#d38a73", rule: "#6b5b55", shadow: "rgba(10,10,12,.4)" },
+  summary: "从浅灰织物、银灰车架和橙色轮毂环建立产品识别，以展开、折叠、局部细节和真人家庭场景，组织成一套可购买、可延展的婴儿推车电商内容系统。",
+  brief: "让年轻父母看见产品长什么样，也能具体想象孩子坐入座舱、家长推行、单手收拢和回家收纳的连续日常。",
+  response: "先用展开、背面和三视图锁定产品，再用顶篷、座舱、关节、置物篮和轮组解释卖点，最后用母亲、父亲与儿童的真实使用关系完成购买代入。",
+  role: "AI Art Direction / Family Product Commerce",
+  scope: "婴儿推车产品视觉与电商内容系统",
+  deliverables: ["产品定妆", "三视图", "折叠步骤", "局部卖点", "真人使用场景", "电商主图", "详情页编排"],
+  workflow: ["产品识别", "结构校准", "卖点拆解", "场景分镜", "系列生成", "人工复核", "渠道延展"],
+  system: "以浅灰织物、银灰车架、深灰关节、五辐后轮和橙色中心环作为稳定识别锚点，再用展开、收拢、人物动作、家庭空间和标题编排建立内容差异。",
+  outcome: "形成覆盖产品主图、三视图、折叠状态、局部卖点、亲子使用与家庭收纳的商业资产，让产品证据和购买想象进入同一条路径。",
+  reflection: "母婴产品的商业表达不能只拍一辆好看的车，还要让人看见它如何进入父母与孩子的真实生活。",
   gallery: [
-    { src: "/assets/projects/fishtail-skirt/skirt-19.webp", alt: "一眼有层次鱼尾皮裙电商主视觉", layout: "square" },
-    { src: "/assets/projects/fishtail-skirt/skirt-06.webp", alt: "银色上衣与沙发侧躺时装电商图", layout: "square" },
-    { src: "/assets/projects/fishtail-skirt/skirt-04.webp", alt: "夜店群舞与鱼尾皮裙穿搭", layout: "square" },
+    { src: "/assets/projects/milo-stroller/milo-hero.jpg", alt: "Milo 婴儿推车展开与折叠状态产品主视觉", layout: "square" },
+    { src: "/assets/projects/milo-stroller/milo-fold-steps.jpg", alt: "Milo 婴儿推车单手折叠步骤图", layout: "square" },
+    { src: "/assets/projects/milo-stroller/milo-family.jpg", alt: "年轻父母与儿童使用 Milo 婴儿推车的家庭场景", layout: "square" },
   ],
 } as const;
 
@@ -652,14 +652,14 @@ const projectShowcaseCollections = [
   {
     id: "fashion-commerce",
     index: "04",
-    title: "时尚服饰",
-    english: "FASHION COMMERCE",
-    facets: ["时装企划", "功能服饰", "场景商业化"],
+    title: "母婴与生活方式",
+    english: "FAMILY & LIFESTYLE COMMERCE",
+    facets: ["母婴出行", "功能服饰", "场景商业化"],
     coverImages: [
-      "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v4.png",
+      "/assets/projects/milo-stroller/milo-family.jpg",
       "/assets/projects/yoga-set/yoga-showcase-campaign-v2.jpg",
     ],
-    projects: [fishtailSkirtProject, yogaSetProject],
+    projects: [miloStrollerProject, yogaSetProject],
   },
   {
     id: "lifestyle-campaign",
@@ -716,7 +716,7 @@ const selectedWorkCollections = [
     english: "CAMPAIGN & EXPERIENCE",
     facets: ["场景企划", "人物叙事", "整合传播"],
     coverImages: ["/assets/projects/outdoor-speaker/speaker-product-cover.png"],
-    projects: [projectShowcaseItems[5], fishtailSkirtProject, yogaSetProject, terrainBackpackProject],
+    projects: [projectShowcaseItems[5], miloStrollerProject, yogaSetProject, terrainBackpackProject],
   },
 ] as const;
 
@@ -951,6 +951,10 @@ function projectDetailHero(project: { english: string; image: string; alt: strin
       src: "/assets/projects/yoga-set/yoga-gym-stretch-wide.webp",
       alt: "城市健身房中进行单腿拉伸的米色与墨岩灰瑜伽套装",
     },
+    "MILO STROLLER COMMERCE SYSTEM": {
+      src: "/assets/projects/milo-stroller/milo-family-wide-hero.png",
+      alt: "年轻父母与儿童在城市住宅入口使用 Milo 婴儿推车的横向家庭场景",
+    },
     "TERRAIN 35 OUTDOOR BACKPACK COMMERCE SYSTEM": {
       src: "/assets/projects/terrain-35/terrain-hero-atmosphere.jpg",
       alt: "日落山脊上背负 TERRAIN 35 深石墨黑技术背包的徒步者",
@@ -1006,7 +1010,7 @@ const foodAndDrinkWorks = [
 ];
 
 const fashionWorks = [
-  selectedCaseWork("campaign-experience", 1, "鱼尾皮裙", { thumbnail: "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v4.png", thumbnailMode: "cover", focalPoint: "50% 50%" }),
+  selectedCaseWork("campaign-experience", 1, "Milo 婴儿推车", { thumbnail: "/assets/projects/milo-stroller/milo-family.jpg", thumbnailMode: "cover", focalPoint: "50% 50%" }),
   selectedCaseWork("campaign-experience", 2, "瑜伽套装", { thumbnail: "/assets/projects/yoga-set/yoga-showcase-campaign-v2.jpg", thumbnailMode: "cover", focalPoint: "50% 50%" }),
 ];
 
@@ -1082,16 +1086,16 @@ const workCategories: WorkCategory[] = [
   },
   {
     id: "fashion",
-    label: "时尚服饰",
-    english: "Fashion",
+    label: "母婴与生活方式",
+    english: "Family & Lifestyle",
     index: "05",
-    background: "/assets/projects/fishtail-skirt/skirt-rain-hero.png",
+    background: "/assets/projects/milo-stroller/milo-family.jpg",
     transitionImage: "/assets/projects/yoga-set/yoga-gym-stretch-wide.webp",
-    description: "时装、运动服饰与人物场景。",
-    role: "时尚服饰",
+    description: "母婴出行、功能服饰与人物场景。",
+    role: "母婴与生活方式",
     deliverables: [],
     keywords: [],
-    palette: ["#0A0B0D", "#ECEBE7", "#9FA9B3", "#A64F37"],
+    palette: ["#211F1E", "#F1ECE6", "#C8C1CC", "#D38A73"],
     works: fashionWorks,
   },
   {
@@ -1115,7 +1119,7 @@ const heroImages = [
   "/assets/projects/sona-earbuds/sona-campaign-silence.webp",
   "/assets/projects/terrain-35/terrain-campaign-route.jpg",
   "/assets/projects/glacier-cleanser/glacier-commerce-positioning.webp",
-  "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v4.png",
+  "/assets/projects/milo-stroller/milo-family.jpg",
   "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg",
   "/assets/projects/air-fryer/air-fryer-work-card-v2.png",
   "/assets/projects/yoga-set/yoga-showcase-campaign-v2.jpg",
@@ -2378,10 +2382,10 @@ const selectedCollectionMedia: Record<string, string[]> = {
     "/assets/projects/outdoor-speaker/speaker-rock-hero.webp",
     "/assets/projects/outdoor-speaker/speaker-commerce-fitness.webp",
   ],
-  "FISHTAIL LEATHER SKIRT CAMPAIGN SYSTEM": [
-    "/assets/projects/fishtail-skirt/skirt-rain-composition-v3.jpg",
-    "/assets/projects/fishtail-skirt/skirt-19.webp",
-    "/assets/projects/fishtail-skirt/skirt-04.webp",
+  "MILO STROLLER COMMERCE SYSTEM": [
+    "/assets/projects/milo-stroller/milo-hero.jpg",
+    "/assets/projects/milo-stroller/milo-fold-steps.jpg",
+    "/assets/projects/milo-stroller/milo-family.jpg",
   ],
   "YOGA SET FASHION COMMERCE SYSTEM": [
     "/assets/projects/yoga-set/yoga-gym-stretch-wide.webp",
@@ -2413,7 +2417,7 @@ const selectedCollectionPrimary: Record<string, string> = {
   "QINGLAN TEA COMMERCE SYSTEM": "/assets/projects/qinglan-tea/qinglan-scene-leaf-shadow-portrait.webp",
   "QINGLAN OOLONG GROWTH SYSTEM": "/assets/projects/qinglan-tea/qinglan-oolong-cinematic-portrait.webp",
   "OUTDOOR SPEAKER EXPERIENCE SYSTEM": "/assets/projects/outdoor-speaker/speaker-category-cover.webp",
-  "FISHTAIL LEATHER SKIRT CAMPAIGN SYSTEM": "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v4.png",
+  "MILO STROLLER COMMERCE SYSTEM": "/assets/projects/milo-stroller/milo-family.jpg",
   "YOGA SET FASHION COMMERCE SYSTEM": "/assets/projects/yoga-set/yoga-showcase-campaign-v2.jpg",
   "TERRAIN 35 OUTDOOR BACKPACK COMMERCE SYSTEM": "/assets/projects/terrain-35/terrain-campaign-duo-wide.jpg",
 };
@@ -2428,7 +2432,7 @@ function projectProductName(item: ProjectShowcaseItem) {
     "QINGLAN OOLONG GROWTH SYSTEM": "青岚茶事·焙香乌龙",
     "KOVA ACTION CAMERA EXPERIENCE SYSTEM": "KOVA",
     "OUTDOOR SPEAKER EXPERIENCE SYSTEM": "户外音箱",
-    "FISHTAIL LEATHER SKIRT CAMPAIGN SYSTEM": "鱼尾皮裙",
+    "MILO STROLLER COMMERCE SYSTEM": "Milo 婴儿推车",
     "YOGA SET FASHION COMMERCE SYSTEM": "瑜伽套装",
     "SONA ARC ONE EARBUDS LAUNCH SYSTEM": "SONA ARC ONE",
     "TERRAIN 35 OUTDOOR BACKPACK COMMERCE SYSTEM": "TERRAIN 35",
@@ -3365,9 +3369,9 @@ const visualOutputs: VisualOutput[] = [
   { id: "qinglan-campaign", title: "新品上市海报", project: "青岚茶事", category: "campaign", shape: "tall", src: "/assets/projects/qinglan-tea/qinglan-oolong-launch-hero.webp", alt: "青岚茶事焙香乌龙新品上市海报" },
   { id: "sona-campaign", title: "降噪主题海报", project: "SONA ARC ONE", category: "campaign", shape: "wide", src: "/assets/projects/sona-earbuds/sona-campaign-silence.webp", alt: "SONA ARC ONE 降噪主题传播海报" },
   { id: "terrain-campaign", title: "山野传播海报", project: "TERRAIN 35", category: "campaign", shape: "tall", src: "/assets/projects/terrain-35/terrain-campaign-journey.jpg", alt: "TERRAIN 35 山野传播主视觉" },
-  { id: "skirt-people", title: "雨夜时尚画面", project: "鱼尾皮裙", category: "scene", shape: "tall", src: "/assets/projects/fishtail-skirt/skirt-rain-hero.png", alt: "雨夜场景中的鱼尾皮裙时尚画面" },
+  { id: "stroller-family", title: "一家三口，一起出发", project: "Milo 婴儿推车", category: "scene", shape: "tall", src: "/assets/projects/milo-stroller/milo-family.jpg", alt: "年轻父母与儿童使用 Milo 婴儿推车的家庭场景" },
   { id: "yoga-people", title: "运动服饰主张", project: "瑜伽套装", category: "scene", shape: "wide", src: "/assets/projects/yoga-set/yoga-commerce-campaign-wide.webp", alt: "瑜伽套装人物运动传播画面" },
-  { id: "skirt-detail", title: "版型与材质表现", project: "鱼尾皮裙", category: "scene", shape: "tall", src: "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v4.png", alt: "鱼尾皮裙版型与材质人物画面" },
+  { id: "stroller-detail", title: "座舱与安全带细节", project: "Milo 婴儿推车", category: "commerce", shape: "tall", src: "/assets/projects/milo-stroller/milo-harness.jpg", alt: "Milo 婴儿推车座舱与安全带调整特写" },
   { id: "speaker-scene", title: "户外使用场景", project: "户外音箱", category: "scene", shape: "wide", src: "/assets/projects/outdoor-speaker/speaker-rock-hero.webp", alt: "山野岩石环境中的户外音箱" },
   { id: "terrain-scene", title: "雨雾山径场景", project: "TERRAIN 35", category: "scene", shape: "tall", src: "/assets/projects/terrain-35/terrain-rain.jpg", alt: "雨雾山径中的 TERRAIN 35 背负场景" },
   { id: "kova-scene", title: "冲浪运动场景", project: "KOVA", category: "scene", shape: "tall", src: "/assets/projects/kova-action-camera/kova-scene-surf.jpg", alt: "KOVA 运动相机冲浪使用场景" },
@@ -3382,7 +3386,7 @@ const visualOutputs: VisualOutput[] = [
   { id: "qinglan-product", title: "焙香乌龙三视图", project: "青岚焙香乌龙", category: "identity", shape: "wide", src: "/assets/projects/qinglan-tea/qinglan-oolong-packaging-views.jpg", alt: "青岚焙香乌龙茶瓶正面、右侧与背面三视图" },
   { id: "qinglan-original-product", title: "原叶绿茶三视图", project: "青岚茶事", category: "identity", shape: "wide", src: "/assets/projects/qinglan-tea/qinglan-packaging-views.webp", alt: "青岚茶事原叶绿茶正面、侧面与背面三视图" },
   { id: "speaker-product", title: "音箱产品定妆", project: "户外音箱", category: "identity", shape: "wide", src: "/assets/projects/outdoor-speaker/speaker-product-master.webp", alt: "户外音箱产品定妆图" },
-  { id: "fishtail-product", title: "鱼尾皮裙版型定妆", project: "鱼尾皮裙", category: "identity", shape: "tall", src: "/assets/projects/fishtail-skirt/skirt-front-back-stand.png", alt: "鱼尾皮裙版型与轮廓定妆图" },
+  { id: "stroller-product", title: "展开与折叠产品定妆", project: "Milo 婴儿推车", category: "identity", shape: "tall", src: "/assets/projects/milo-stroller/milo-hero.jpg", alt: "Milo 婴儿推车展开与折叠状态产品定妆图" },
   { id: "fan-specs", title: "规格信息说明", project: "桌面风扇", category: "commerce", shape: "wide", src: "/assets/projects/table-fan/table-fan-sleep-specs.webp", alt: "桌面风扇规格信息说明" },
   { id: "terrain-four-views", title: "四向产品确认", project: "TERRAIN 35", category: "commerce", shape: "wide", src: "/assets/projects/terrain-35/terrain-four-views.jpg", alt: "TERRAIN 35 四向产品确认" },
   { id: "terrain-compression", title: "压缩状态说明", project: "TERRAIN 35", category: "commerce", shape: "wide", src: "/assets/projects/terrain-35/terrain-compression-states.jpg", alt: "TERRAIN 35 压缩状态说明" },
@@ -3420,7 +3424,7 @@ const curatedNonIdentityOutputs: VisualOutput[] = [
   { id: "backpack-organization-feature", title: "打开以后，更会装", project: "TERRAIN 35", category: "commerce", shape: "tall", src: "/assets/projects/works-index/backpack-organization-feature.jpg", alt: "户外背包内部收纳功能说明" },
   { id: "speaker-control-feature", title: "旋钮与控制", project: "户外音箱", category: "commerce", shape: "standard", src: "/assets/projects/works-index/speaker-control-feature.jpg", alt: "户外音箱顶部控制细节" },
   { id: "camera-optics-feature", title: "镜头结构拆解", project: "KOVA", category: "commerce", shape: "wide", src: "/assets/projects/works-index/camera-optics-feature.jpg", alt: "运动相机镜头结构拆解" },
-  { id: "skirt-waist-feature", title: "交叠腰线·弧形覆片", project: "鱼尾皮裙", category: "commerce", shape: "tall", src: "/assets/projects/works-index/skirt-waist-feature.png", alt: "鱼尾皮裙交叠腰线与弧形覆片细节" },
+  { id: "stroller-fold-feature", title: "单手收拢·折叠步骤", project: "Milo 婴儿推车", category: "commerce", shape: "tall", src: "/assets/projects/milo-stroller/milo-fold-steps.jpg", alt: "Milo 婴儿推车单手折叠步骤图" },
   { id: "yoga-material-feature", title: "贴合，不必平淡", project: "瑜伽套装", category: "commerce", shape: "standard", src: "/assets/projects/works-index/yoga-material-feature.jpg", alt: "瑜伽套装贴合结构细节" },
   { id: "serum-routine-feature", title: "轻抹释光 · 水润好吸收", project: "LUMINOSE", category: "commerce", shape: "tall", src: "/assets/projects/serum/serum-commerce-application.webp", alt: "LUMINOSE 精华液滴管上脸与轻润吸收护理" },
   { id: "tea-campaign-refresh", title: "清爽有茶香", project: "青岚茶事", category: "campaign", shape: "wide", src: "/assets/projects/works-index/tea-campaign-refresh.png", alt: "无糖绿茶清爽上市传播画面" },
@@ -3430,14 +3434,14 @@ const curatedNonIdentityOutputs: VisualOutput[] = [
   { id: "speaker-campaign-orange", title: "把音乐带出去", project: "户外音箱", category: "campaign", shape: "tall", src: "/assets/projects/works-index/speaker-campaign-orange.jpg", alt: "户外音箱把音乐带出去传播海报" },
   { id: "air-fryer-campaign-crisp", title: "外脆里嫩", project: "空气炸锅", category: "campaign", shape: "tall", src: "/assets/projects/works-index/air-fryer-campaign-crisp.jpg", alt: "空气炸锅外脆里嫩传播主视觉" },
   { id: "fan-campaign-sleep", title: "柔风陪你整晚安睡", project: "桌面风扇", category: "campaign", shape: "tall", src: "/assets/projects/works-index/fan-campaign-sleep.png", alt: "桌面风扇夜间睡眠传播画面" },
-  { id: "skirt-campaign-layer", title: "一眼有层次", project: "鱼尾皮裙", category: "campaign", shape: "tall", src: "/assets/projects/works-index/skirt-campaign-layer.png", alt: "鱼尾皮裙层次识别传播主视觉" },
+  { id: "stroller-campaign-light", title: "轻装出发，刚刚好", project: "Milo 婴儿推车", category: "campaign", shape: "tall", src: "/assets/projects/milo-stroller/milo-open-poster.jpg", alt: "Milo 婴儿推车轻装出发传播主视觉" },
   { id: "yoga-campaign-flow", title: "伸展开，线条依然清晰", project: "瑜伽套装", category: "campaign", shape: "standard", src: "/assets/projects/works-index/yoga-campaign-flow.jpg", alt: "瑜伽套装伸展动作与线条表现传播画面" },
   { id: "camera-campaign-wave", title: "如浪，不迎合", project: "KOVA", category: "campaign", shape: "tall", src: "/assets/projects/works-index/camera-campaign-wave.jpg", alt: "运动相机冲浪传播主视觉" },
   { id: "serum-campaign-glow", title: "金耀焕采", project: "LUMINOSE", category: "campaign", shape: "tall", src: "/assets/projects/works-index/serum-campaign-glow.png", alt: "精华液金耀焕采传播画面" },
   { id: "backpack-scene-walk", title: "从城市走进山野", project: "TERRAIN 35", category: "scene", shape: "tall", src: "/assets/projects/works-index/backpack-scene-walk.jpg", alt: "背包从城市走进山野的使用场景" },
   { id: "speaker-scene-camp", title: "湖畔露营", project: "户外音箱", category: "scene", shape: "wide", src: "/assets/projects/works-index/speaker-scene-camp.jpg", alt: "湖畔露营中的户外音箱使用场景" },
-  { id: "skirt-scene-office", title: "通勤，也很有型", project: "鱼尾皮裙", category: "scene", shape: "tall", src: "/assets/projects/works-index/skirt-scene-office.jpg", alt: "通勤场景中的鱼尾皮裙穿搭" },
-  { id: "skirt-scene-gallery", title: "舞池之外的层次", project: "鱼尾皮裙", category: "scene", shape: "wide", src: "/assets/projects/works-index/skirt-scene-gallery.jpg", alt: "展厅空间中的鱼尾皮裙穿搭" },
+  { id: "stroller-scene-city", title: "从门口到街角", project: "Milo 婴儿推车", category: "scene", shape: "tall", src: "/assets/projects/milo-stroller/milo-family.jpg", alt: "Milo 婴儿推车城市家庭出行场景" },
+  { id: "stroller-scene-home", title: "收起来，空间还在", project: "Milo 婴儿推车", category: "scene", shape: "wide", src: "/assets/projects/milo-stroller/milo-folded-home.jpg", alt: "Milo 婴儿推车折叠后收纳在家庭玄关" },
   { id: "yoga-scene-lakeside", title: "湖畔伸展", project: "瑜伽套装", category: "scene", shape: "wide", src: "/assets/projects/works-index/yoga-scene-lakeside.jpg", alt: "湖畔运动中的瑜伽套装" },
   { id: "yoga-scene-cafe", title: "练完，去日常", project: "瑜伽套装", category: "scene", shape: "wide", src: "/assets/projects/works-index/yoga-scene-cafe.jpg", alt: "户外咖啡场景中的瑜伽套装" },
   { id: "camera-scene-ride", title: "骑行记录", project: "KOVA", category: "scene", shape: "tall", src: "/assets/projects/works-index/camera-scene-ride.jpg", alt: "骑行中的运动相机使用场景" },
@@ -3451,8 +3455,8 @@ const curatedNonIdentityOutputs: VisualOutput[] = [
   { id: "camera-motion-review", title: "拍完，就地回看", project: "KOVA", category: "motion", shape: "wide", src: "/assets/projects/works-index/camera-motion-review.jpg", alt: "运动相机回看影片关键帧" },
   { id: "speaker-motion-camp", title: "音乐，随处入场", project: "户外音箱", category: "motion", shape: "wide", src: "/assets/projects/works-index/speaker-motion-camp.jpg", alt: "户外音箱影片中的露营关键帧" },
   { id: "speaker-motion-evening", title: "放松，也有节奏", project: "户外音箱", category: "motion", shape: "tall", src: "/assets/projects/works-index/speaker-motion-evening.jpg", alt: "户外音箱运动后放松时的音乐生活方式画面" },
-  { id: "skirt-motion-dance", title: "今晚，随自己的节拍", project: "鱼尾皮裙", category: "motion", shape: "wide", src: "/assets/projects/works-index/skirt-motion-dance.jpg", alt: "鱼尾皮裙舞池影片关键帧" },
-  { id: "skirt-motion-night", title: "从容，也有风格", project: "鱼尾皮裙", category: "motion", shape: "tall", src: "/assets/projects/works-index/skirt-motion-night.jpg", alt: "鱼尾皮裙夜间影片关键帧" },
+  { id: "stroller-motion-fold", title: "一只手，完成收拢", project: "Milo 婴儿推车", category: "motion", shape: "wide", src: "/assets/projects/milo-stroller/milo-fold-steps.jpg", alt: "Milo 婴儿推车折叠操作关键帧" },
+  { id: "stroller-motion-family", title: "一起出发，刚刚好", project: "Milo 婴儿推车", category: "motion", shape: "tall", src: "/assets/projects/milo-stroller/milo-family.jpg", alt: "Milo 婴儿推车家庭使用关键帧" },
   { id: "yoga-motion-balance", title: "找到自己的舒展节奏", project: "瑜伽套装", category: "motion", shape: "wide", src: "/assets/projects/works-index/yoga-motion-balance.jpg", alt: "瑜伽套装影片中的平衡关键帧" },
   { id: "tea-motion-grab", title: "随手一瓶，清爽入场", project: "青岚茶事", category: "motion", shape: "tall", src: "/assets/projects/works-index/tea-motion-grab.jpg", alt: "无糖茶影片中的取用关键帧" },
   { id: "oolong-motion-pour", title: "一倒，浓茶感", project: "青岚焙香乌龙", category: "motion", shape: "wide", src: "/assets/projects/works-index/oolong-motion-pour.png", alt: "焙香乌龙倒饮影片关键帧" },
@@ -3463,7 +3467,7 @@ const displayVisualOutputs = [
   ...visualOutputs.filter((output) => output.category === "identity"),
   ...curatedNonIdentityOutputs,
 ];
-const curatedFeaturedOutputIds = ["camera-optics-feature", "backpack-organization-feature", "skirt-campaign-layer", "camera-scene-selfie", "oolong-motion-pour"];
+const curatedFeaturedOutputIds = ["camera-optics-feature", "backpack-organization-feature", "stroller-campaign-light", "camera-scene-selfie", "oolong-motion-pour"];
 const featuredOutputs = curatedFeaturedOutputIds
   .map((id) => displayVisualOutputs.find((output) => output.id === id))
   .filter((output): output is VisualOutput => Boolean(output));
@@ -3794,7 +3798,7 @@ function CommercialValue() {
               className="commercial-value-image commercial-value-image-warm"
               style={{ x: reduceMotion ? 0 : warmFrameX, rotate: 3.6 }}
             >
-              <img src="/assets/projects/fishtail-skirt/skirt-showcase-campaign-v4.png" alt="通勤场景中的鱼尾皮裙时尚传播视觉" />
+              <img src="/assets/projects/milo-stroller/milo-family.jpg" alt="年轻父母与儿童使用 Milo 婴儿推车的家庭商业视觉" />
               <span>CAMPAIGN / STORY</span>
             </motion.div>
             <figcaption>
@@ -4500,7 +4504,7 @@ function ProjectDetailViewer({
   const isSonaEarbudsProject = item.english === "SONA ARC ONE EARBUDS LAUNCH SYSTEM";
   const isOutdoorSpeakerProject = item.english === "OUTDOOR SPEAKER EXPERIENCE SYSTEM";
   const isActionCameraProject = item.english === "KOVA ACTION CAMERA EXPERIENCE SYSTEM";
-  const isSkirtProject = item.english === "FISHTAIL LEATHER SKIRT CAMPAIGN SYSTEM";
+  const isStrollerProject = item.english === "MILO STROLLER COMMERCE SYSTEM";
   const isYogaProject = item.english === "YOGA SET FASHION COMMERCE SYSTEM";
   const isTerrainProject = item.english === "TERRAIN 35 OUTDOOR BACKPACK COMMERCE SYSTEM";
   const detailHero = projectDetailHero(item);
@@ -4569,7 +4573,7 @@ function ProjectDetailViewer({
       onKeyDown={handleKeyDown}
     >
       <motion.article
-        className={`project-detail-panel${!isSkirtProject && !isYogaProject ? " is-refined-panel" : ""}${isOolongProject ? " is-oolong-panel" : ""}${isOutdoorSpeakerProject ? " is-speaker-panel" : ""}${isActionCameraProject ? " is-action-camera-panel" : ""}${isSkirtProject ? " is-skirt-panel" : ""}${isYogaProject ? " is-yoga-panel" : ""}${isTerrainProject ? " is-terrain-panel" : ""}`}
+        className={`project-detail-panel${!isStrollerProject && !isYogaProject ? " is-refined-panel" : ""}${isOolongProject ? " is-oolong-panel" : ""}${isOutdoorSpeakerProject ? " is-speaker-panel" : ""}${isActionCameraProject ? " is-action-camera-panel" : ""}${isStrollerProject ? " is-stroller-panel" : ""}${isYogaProject ? " is-yoga-panel" : ""}${isTerrainProject ? " is-terrain-panel" : ""}`}
         style={{
           "--project-detail-accent": item.accent,
           "--project-intro-surface": item.introTheme.surface,
@@ -4665,7 +4669,7 @@ function ProjectDetailViewer({
             exit={reduceMotion ? undefined : { opacity: 0, x: -20 }}
             transition={{ duration: reduceMotion || keyboardNavigation ? 0 : 0.26, ease: [0.23, 1, 0.32, 1] }}
           >
-            <section className={`project-detail-hero${isOolongProject ? " is-oolong-detail-hero" : ""}${isGlacierProject ? " is-glacier-detail-hero" : ""}${isSerumProject ? " is-serum-detail-hero" : ""}${isSonaEarbudsProject ? " is-sona-earbuds-detail-hero" : ""}${isOutdoorSpeakerProject ? " is-outdoor-speaker-hero" : ""}${isActionCameraProject ? " is-action-camera-hero" : ""}${isSkirtProject ? " is-skirt-hero" : ""}${isYogaProject ? " is-yoga-hero" : ""}${isTerrainProject ? " is-terrain-hero" : ""}`}>
+            <section className={`project-detail-hero${isOolongProject ? " is-oolong-detail-hero" : ""}${isGlacierProject ? " is-glacier-detail-hero" : ""}${isSerumProject ? " is-serum-detail-hero" : ""}${isSonaEarbudsProject ? " is-sona-earbuds-detail-hero" : ""}${isOutdoorSpeakerProject ? " is-outdoor-speaker-hero" : ""}${isActionCameraProject ? " is-action-camera-hero" : ""}${isStrollerProject ? " is-stroller-hero" : ""}${isYogaProject ? " is-yoga-hero" : ""}${isTerrainProject ? " is-terrain-hero" : ""}`}>
               <figure className={`project-detail-visual${isGlacierProject ? " is-glacier-detail-visual" : ""}${isSerumProject ? " is-serum-detail-visual" : ""}${isSonaEarbudsProject ? " is-sona-earbuds-detail-visual" : ""}`}>
                 <ZoomableProjectImage
                   src={detailHeroImage}
@@ -4688,7 +4692,7 @@ function ProjectDetailViewer({
                 </div>
                 <div className="project-detail-title">
                   <small>{item.english}</small>
-                  <h2 id={titleId}>{isOutdoorSpeakerProject ? <>户外音箱<br />把音乐带进生活</> : isActionCameraProject ? <>KOVA 运动相机<br />不是旁观，是在场</> : isSkirtProject ? <>鱼尾皮裙<br />黑裙不止一面</> : isYogaProject ? <>瑜伽套装<br />让设计跟着身体流动</> : isTerrainProject ? <>TERRAIN 35<br />城市到山野，一包切换</> : item.title}</h2>
+                  <h2 id={titleId}>{isOutdoorSpeakerProject ? <>户外音箱<br />把音乐带进生活</> : isActionCameraProject ? <>KOVA 运动相机<br />不是旁观，是在场</> : isStrollerProject ? <>Milo 婴儿推车<br />轻装出发，把日常推得更远</> : isYogaProject ? <>瑜伽套装<br />让设计跟着身体流动</> : isTerrainProject ? <>TERRAIN 35<br />城市到山野，一包切换</> : item.title}</h2>
                 </div>
                 <p className="project-detail-summary" id={summaryId}>{item.summary}</p>
               </div>
@@ -4707,8 +4711,8 @@ function ProjectDetailViewer({
                 <OutdoorSpeakerCaseStudy renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />
               ) : isActionCameraProject ? (
                 <ActionCameraCaseStudy reduceMotion={reduceMotion} scrollRoot={detailLayoutRef} renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />
-              ) : isSkirtProject ? (
-                <FishtailSkirtCaseStudy renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />
+              ) : isStrollerProject ? (
+                <MiloStrollerCaseStudy renderImage={(src, alt, loading = "lazy") => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading={loading} />} />
               ) : isYogaProject ? (
                 <YogaSetCaseStudy renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />
               ) : isTerrainProject ? (
@@ -4717,7 +4721,7 @@ function ProjectDetailViewer({
                 <PublishingEditorialCase renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />
               )}
 
-              {!isSkirtProject && !isYogaProject && !isActionCameraProject && !isTerrainProject && <CaseExtensions key={item.index} kind={isOolongProject ? "oolong" : isOutdoorSpeakerProject ? "speaker" : isSonaEarbudsProject ? "earbuds" : ["air", "fan", "glacier", "serum", "jasmine"][projectShowcaseItems.indexOf(item as typeof projectShowcaseItems[number])] || "publishing"} renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />}
+              {!isStrollerProject && !isYogaProject && !isActionCameraProject && !isTerrainProject && <CaseExtensions key={item.index} kind={isOolongProject ? "oolong" : isOutdoorSpeakerProject ? "speaker" : isSonaEarbudsProject ? "earbuds" : ["air", "fan", "glacier", "serum", "jasmine"][projectShowcaseItems.indexOf(item as typeof projectShowcaseItems[number])] || "publishing"} renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />}
 
               <footer className="project-detail-footer">
                 <dl>
@@ -4831,7 +4835,7 @@ function ProjectShowcaseCard({
               <source media="(max-width: 1280px)" srcSet="/assets/projects/qinglan-tea/qinglan-dual-cover-portrait.webp" />
             ) : null}
             <img
-              className={`project-showcase-art-primary${image === "/assets/projects/table-fan/table-fan-showcase-campaign-v2.jpg" ? " is-table-fan-campaign" : ""}${image === "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg" ? " is-kova-action" : ""}${image === "/assets/projects/yoga-set/yoga-showcase-campaign-v2.jpg" ? " is-yoga-fashion" : ""}${image === "/assets/projects/fishtail-skirt/skirt-showcase-campaign-v4.png" ? " is-fishtail-fashion" : ""}${image === "/assets/projects/terrain-35/terrain-campaign-duo-wide.jpg" ? " is-terrain-night" : ""}${image === "/assets/projects/outdoor-speaker/speaker-product-cover.png" ? " is-speaker-product" : ""}${activeCoverIndex === imageIndex ? " is-active" : ""}`}
+              className={`project-showcase-art-primary${image === "/assets/projects/table-fan/table-fan-showcase-campaign-v2.jpg" ? " is-table-fan-campaign" : ""}${image === "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg" ? " is-kova-action" : ""}${image === "/assets/projects/yoga-set/yoga-showcase-campaign-v2.jpg" ? " is-yoga-fashion" : ""}${image === "/assets/projects/milo-stroller/milo-family.jpg" ? " is-milo-stroller" : ""}${image === "/assets/projects/terrain-35/terrain-campaign-duo-wide.jpg" ? " is-terrain-night" : ""}${image === "/assets/projects/outdoor-speaker/speaker-product-cover.png" ? " is-speaker-product" : ""}${activeCoverIndex === imageIndex ? " is-active" : ""}`}
               src={image}
               alt=""
               aria-hidden="true"
