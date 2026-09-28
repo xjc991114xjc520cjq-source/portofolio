@@ -35,12 +35,14 @@ import { YogaSetCaseStudy } from "./YogaSetCaseStudy";
 import "./yoga-set.css";
 import { TerrainBackpackCaseStudy } from "./TerrainBackpackCaseStudy";
 import "./terrain-backpack.css";
+import { G9AirCaseStudy } from "./G9AirCaseStudy";
 import { ProductEditorialCase, PublishingEditorialCase } from "./ProductEditorialCases";
 import { CaseExtensions } from "./CaseExtensions";
 import caseImageSizes from "./case-image-sizes.json";
 import "./case-detail-refinement.css";
 import "./project-showcase-refinement.css";
 import "./selected-collection.css";
+import "./g9-air.css";
 
 const contactEmail = "1498224542@qq.com";
 const icpFilingNumber = "闽ICP备e9055130469ef8f5a26f534177de7d81";
@@ -617,6 +619,45 @@ const terrainBackpackProject = {
   ],
 } as const;
 
+const g9AirProject = {
+  index: "02G",
+  title: "G9 Air 大师版：多键鼠标视觉提案",
+  english: "G9 AIR MASTER EDITION VISUAL SYSTEM",
+  category: "游戏外设 / 自主商业视觉提案",
+  categoryEnglish: "GAMING PERIPHERAL / CONCEPT CASE",
+  year: "2026",
+  image: "/assets/projects/g9-air/hero-ocean.webp",
+  alt: "青色 G9 Air 大师版鼠标置于海岸岩石，远处海浪形成横版传播场景",
+  backdrop: "G9 AIR",
+  accent: "#68cfdb",
+  introTheme: {
+    surface: "#09151c",
+    surfaceDeep: "#071015",
+    title: "#f0f7f7",
+    body: "#c6d7dc",
+    muted: "#90b2bc",
+    accent: "#82dbe5",
+    rule: "#3e6973",
+    shadow: "rgba(2, 9, 14, 0.58)",
+  },
+  summary: "以固定的多键布局为产品识别基础，完成黑、白、青三配色的商品主图、按键说明与横竖场景视觉。面向 ATK 面试的自主提案，展示从产品定妆到渠道画面的完整判断。",
+  brief: "G9 Air 大师版需要把多键、轻量与三配色说清楚，同时避免不同画面改变按键位置与产品轮廓。",
+  response: "先锁定定妆照中的按键分区、握持纹理与灯带，再按商品首屏、功能理解和传播场景分配画面任务。",
+  role: "产品视觉定义 / 电商视觉设计 / AI 影像指导与筛选",
+  scope: "ATK 面试自主提案；非品牌委托或已上市项目",
+  deliverables: ["三配色定妆", "商品主图", "按键说明", "横版场景", "竖版场景"],
+  workflow: ["定妆锁定", "卖点分层", "三配色适配", "跨比例延展", "结构校验"],
+  system: "固定滚轮与中置双键、顶部辅助键、侧面双键、独立拇指键、握持纹理和机身灯带；更换配色时保持相同结构。",
+  outcome: "将一套外观母版扩展为三配色商品图、功能说明图，以及 16:9 和 9:16 的场景素材。",
+  reflection: "画面中的产品结构必须经得起不同视角互相对照；视觉冲击力不能以错误按键和虚构内部结构为代价。",
+  gallery: [
+    { src: "/assets/projects/g9-air/master-black.webp", alt: "G9 Air 大师版黑色定妆侧视图", layout: "wide" },
+    { src: "/assets/projects/g9-air/feature-mapping-black.webp", alt: "G9 Air 大师版滚轮、中置键与侧键位置说明", layout: "square" },
+    { src: "/assets/projects/g9-air/commerce-cyan.webp", alt: "G9 Air 大师版青色商品视觉提案", layout: "square" },
+    { src: "/assets/projects/g9-air/scene-glacier.webp", alt: "G9 Air 大师版白色冰山横版场景", layout: "wide" },
+  ],
+} as const;
+
 const projectShowcaseCollections = [
   {
     id: "consumer-commerce",
@@ -632,14 +673,14 @@ const projectShowcaseCollections = [
   {
     id: "product-motion",
     index: "02",
-    title: "产品视觉与商业化",
+    title: "视觉与商业化",
     english: "PRODUCT VISUALS & COMMERCE",
     facets: ["产品一致性", "销售表达", "跨场景内容"],
     coverImages: [
-      "/assets/projects/sona-earbuds/sona-campaign-silence.webp",
-      "/assets/projects/terrain-35/terrain-campaign-duo-wide.jpg",
+      "/assets/projects/g9-air/cover-volcano.webp",
+      "/assets/projects/g9-air/scene-blizzard.webp",
     ],
-    projects: [projectShowcaseItems[7], terrainBackpackProject],
+    projects: [g9AirProject, projectShowcaseItems[7], terrainBackpackProject],
   },
   {
     id: "beauty-care",
@@ -2465,6 +2506,7 @@ function projectProductName(item: ProjectShowcaseItem) {
     "MILO STROLLER COMMERCE SYSTEM": "Milo 婴儿推车",
     "YOGA SET FASHION COMMERCE SYSTEM": "瑜伽套装",
     "SONA ARC ONE EARBUDS LAUNCH SYSTEM": "SONA ARC ONE",
+    "G9 AIR MASTER EDITION VISUAL SYSTEM": "G9 Air 大师版",
     "TERRAIN 35 OUTDOOR BACKPACK COMMERCE SYSTEM": "TERRAIN 35",
   };
   return names[item.english] ?? item.backdrop;
@@ -3804,7 +3846,7 @@ function CommercialValue() {
             </header>
 
             <div className="commercial-value-facts" aria-label="作品覆盖信息">
-              <div><strong>12</strong><span>完整商业项目</span></div>
+              <div><strong>{projectShowcaseCollections.reduce((count, collection) => count + collection.projects.length, 0)}</strong><span>完整商业项目</span></div>
               <div><strong>03</strong><span>产品 / 品牌 / 传播系统</span></div>
               <div><strong>静态+动态</strong><span>多比例渠道内容</span></div>
             </div>
@@ -4548,6 +4590,7 @@ function ProjectDetailViewer({
   const isStrollerProject = item.english === "MILO STROLLER COMMERCE SYSTEM";
   const isYogaProject = item.english === "YOGA SET FASHION COMMERCE SYSTEM";
   const isTerrainProject = item.english === "TERRAIN 35 OUTDOOR BACKPACK COMMERCE SYSTEM";
+  const isG9Project = item.english === "G9 AIR MASTER EDITION VISUAL SYSTEM";
   const detailHero = projectDetailHero(item);
   const detailHeroImage = detailHero.src;
   const detailHeroAlt = detailHero.alt;
@@ -4614,7 +4657,7 @@ function ProjectDetailViewer({
       onKeyDown={handleKeyDown}
     >
       <motion.article
-        className={`project-detail-panel${!isStrollerProject && !isYogaProject ? " is-refined-panel" : ""}${isOolongProject ? " is-oolong-panel" : ""}${isOutdoorSpeakerProject ? " is-speaker-panel" : ""}${isActionCameraProject ? " is-action-camera-panel" : ""}${isStrollerProject ? " is-stroller-panel" : ""}${isYogaProject ? " is-yoga-panel" : ""}${isTerrainProject ? " is-terrain-panel" : ""}`}
+        className={`project-detail-panel${!isStrollerProject && !isYogaProject ? " is-refined-panel" : ""}${isOolongProject ? " is-oolong-panel" : ""}${isOutdoorSpeakerProject ? " is-speaker-panel" : ""}${isActionCameraProject ? " is-action-camera-panel" : ""}${isStrollerProject ? " is-stroller-panel" : ""}${isYogaProject ? " is-yoga-panel" : ""}${isTerrainProject ? " is-terrain-panel" : ""}${isG9Project ? " is-g9-panel" : ""}`}
         style={{
           "--project-detail-accent": item.accent,
           "--project-intro-surface": item.introTheme.surface,
@@ -4710,15 +4753,22 @@ function ProjectDetailViewer({
             exit={reduceMotion ? undefined : { opacity: 0, x: -20 }}
             transition={{ duration: reduceMotion || keyboardNavigation ? 0 : 0.26, ease: [0.23, 1, 0.32, 1] }}
           >
-            <section className={`project-detail-hero${isOolongProject ? " is-oolong-detail-hero" : ""}${isGlacierProject ? " is-glacier-detail-hero" : ""}${isSerumProject ? " is-serum-detail-hero" : ""}${isSonaEarbudsProject ? " is-sona-earbuds-detail-hero" : ""}${isOutdoorSpeakerProject ? " is-outdoor-speaker-hero" : ""}${isActionCameraProject ? " is-action-camera-hero" : ""}${isStrollerProject ? " is-stroller-hero" : ""}${isYogaProject ? " is-yoga-hero" : ""}${isTerrainProject ? " is-terrain-hero" : ""}`}>
+            <section className={`project-detail-hero${isOolongProject ? " is-oolong-detail-hero" : ""}${isGlacierProject ? " is-glacier-detail-hero" : ""}${isSerumProject ? " is-serum-detail-hero" : ""}${isSonaEarbudsProject ? " is-sona-earbuds-detail-hero" : ""}${isOutdoorSpeakerProject ? " is-outdoor-speaker-hero" : ""}${isActionCameraProject ? " is-action-camera-hero" : ""}${isStrollerProject ? " is-stroller-hero" : ""}${isYogaProject ? " is-yoga-hero" : ""}${isTerrainProject ? " is-terrain-hero" : ""}${isG9Project ? " is-g9-hero" : ""}`}>
               <figure className={`project-detail-visual${isGlacierProject ? " is-glacier-detail-visual" : ""}${isSerumProject ? " is-serum-detail-visual" : ""}${isSonaEarbudsProject ? " is-sona-earbuds-detail-visual" : ""}`}>
-                <ZoomableProjectImage
-                  src={detailHeroImage}
-                  alt={detailHeroAlt}
-                  onOpen={openImage}
-                  loading="eager"
-                  fetchPriority="high"
-                />
+                {isG9Project ? (
+                  <>
+                    <div className="g9-hero-desktop"><ZoomableProjectImage src={detailHeroImage} alt={detailHeroAlt} onOpen={openImage} loading="eager" fetchPriority="high" /></div>
+                    <div className="g9-hero-mobile"><ZoomableProjectImage src="/assets/projects/g9-air/scene-coast.webp" alt="青色 G9 Air 大师版鼠标朝上摆放在海岸岩石上的俯视场景" onOpen={openImage} loading="eager" /></div>
+                  </>
+                ) : (
+                  <ZoomableProjectImage
+                    src={detailHeroImage}
+                    alt={detailHeroAlt}
+                    onOpen={openImage}
+                    loading="eager"
+                    fetchPriority="high"
+                  />
+                )}
                 <span className="project-detail-visual-shade" aria-hidden="true" />
                 <figcaption>
                   <span>{item.categoryEnglish}</span>
@@ -4734,7 +4784,7 @@ function ProjectDetailViewer({
                 </div>
                 <div className="project-detail-title">
                   <small>{item.english}</small>
-                  <h2 id={titleId}>{isOutdoorSpeakerProject ? <>户外音箱<br />把音乐带进生活</> : isActionCameraProject ? <>KOVA 运动相机<br />不是旁观，是在场</> : isStrollerProject ? <>Milo 婴儿推车<br />轻装出发，把日常推得更远</> : isYogaProject ? <>瑜伽套装<br />让设计跟着身体流动</> : isTerrainProject ? <>TERRAIN 35<br />城市到山野，一包切换</> : item.title}</h2>
+                  <h2 id={titleId}>{isOutdoorSpeakerProject ? <>户外音箱<br />把音乐带进生活</> : isActionCameraProject ? <>KOVA 运动相机<br />不是旁观，是在场</> : isStrollerProject ? <>Milo 婴儿推车<br />轻装出发，把日常推得更远</> : isYogaProject ? <>瑜伽套装<br />让设计跟着身体流动</> : isTerrainProject ? <>TERRAIN 35<br />城市到山野，一包切换</> : isG9Project ? <>G9 Air 大师版<br />多键鼠标视觉提案</> : item.title}</h2>
                 </div>
                 <p className="project-detail-summary" id={summaryId}>{item.summary}</p>
               </div>
@@ -4759,11 +4809,13 @@ function ProjectDetailViewer({
                 <YogaSetCaseStudy renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />
               ) : isTerrainProject ? (
                 <TerrainBackpackCaseStudy renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />
+              ) : isG9Project ? (
+                <G9AirCaseStudy renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />
               ) : (
                 <PublishingEditorialCase renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />
               )}
 
-              {!isStrollerProject && !isYogaProject && !isActionCameraProject && !isTerrainProject && <CaseExtensions key={item.index} kind={isOolongProject ? "oolong" : isOutdoorSpeakerProject ? "speaker" : isSonaEarbudsProject ? "earbuds" : ["air", "fan", "glacier", "serum", "jasmine"][projectShowcaseItems.indexOf(item as typeof projectShowcaseItems[number])] || "publishing"} renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />}
+              {!isStrollerProject && !isYogaProject && !isActionCameraProject && !isTerrainProject && !isG9Project && <CaseExtensions key={item.index} kind={isOolongProject ? "oolong" : isOutdoorSpeakerProject ? "speaker" : isSonaEarbudsProject ? "earbuds" : ["air", "fan", "glacier", "serum", "jasmine"][projectShowcaseItems.indexOf(item as typeof projectShowcaseItems[number])] || "publishing"} renderImage={(src, alt) => <ZoomableProjectImage src={src} alt={alt} onOpen={openImage} loading="lazy" />} />}
 
               <footer className="project-detail-footer">
                 <dl>
@@ -4853,6 +4905,7 @@ function ProjectShowcaseCard({
       className={`project-showcase-item${item.id === "consumer-commerce" ? " is-consumer-cover" : ""}${item.id === "lifestyle-campaign" ? " is-speaker-cover" : ""}${item.coverImages.length > 1 ? " has-cover-cycle" : ""}${isGlacierCover ? " is-glacier-cover" : ""}${isFocused ? " is-focused" : ""}${isSuppressed ? " is-suppressed" : ""}`}
       type="button"
       data-project-index={index}
+      data-collection-id={item.id}
       aria-label={`查看作品方向：${item.title}，包含${item.projects.length}个完整商业项目`}
       aria-haspopup="dialog"
       aria-expanded={isActive}
@@ -4877,7 +4930,7 @@ function ProjectShowcaseCard({
               <source media="(max-width: 1280px)" srcSet="/assets/projects/qinglan-tea/qinglan-dual-cover-portrait.webp" />
             ) : null}
             <img
-              className={`project-showcase-art-primary${image === "/assets/projects/table-fan/table-fan-showcase-campaign-v2.jpg" ? " is-table-fan-campaign" : ""}${image === "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg" ? " is-kova-action" : ""}${image === "/assets/projects/yoga-set/yoga-showcase-campaign-v2.jpg" ? " is-yoga-fashion" : ""}${image === "/assets/projects/milo-stroller/milo-family.jpg" ? " is-milo-stroller" : ""}${image === "/assets/projects/terrain-35/terrain-campaign-duo-wide.jpg" ? " is-terrain-night" : ""}${image === "/assets/projects/outdoor-speaker/speaker-product-cover.png" ? " is-speaker-product" : ""}${activeCoverIndex === imageIndex ? " is-active" : ""}`}
+              className={`project-showcase-art-primary${image === "/assets/projects/table-fan/table-fan-showcase-campaign-v2.jpg" ? " is-table-fan-campaign" : ""}${image === "/assets/projects/kova-action-camera/kova-showcase-campaign-v2.jpg" ? " is-kova-action" : ""}${image === "/assets/projects/yoga-set/yoga-showcase-campaign-v2.jpg" ? " is-yoga-fashion" : ""}${image === "/assets/projects/milo-stroller/milo-family.jpg" ? " is-milo-stroller" : ""}${image === "/assets/projects/outdoor-speaker/speaker-product-cover.png" ? " is-speaker-product" : ""}${activeCoverIndex === imageIndex ? " is-active" : ""}`}
               src={image}
               alt=""
               aria-hidden="true"
